@@ -5,6 +5,8 @@ import { site } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import Analytics from "@/components/Analytics";
+import { GtmScript, GtmNoScript } from "@/components/Gtm";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,6 +49,9 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   category: "finance",
+  ...(site.googleVerification
+    ? { verification: { google: site.googleVerification } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -55,10 +60,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col paper-texture">
+        <GtmNoScript id={site.gtmId} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieConsent />
+        <Analytics gaId={site.gaId} />
+        <GtmScript id={site.gtmId} />
       </body>
     </html>
   );

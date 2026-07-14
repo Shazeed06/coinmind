@@ -11,6 +11,10 @@ export const site = {
     "Free financial calculators, AI tool reviews, and daily finance & AI news — built to help you plan investments, loans, taxes and work smarter with AI.",
   locale: "en",
   authorName: "The CoinMind Team",
+  // Analytics, Tag Manager & Search Console (CoinMind live accounts):
+  gaId: "G-1ZQB0YPJCS", // GA4 Measurement ID
+  gtmId: "GTM-5MMG4KLC", // Google Tag Manager container
+  googleVerification: "-S3tJnGDGCsP1TZH2m4Pf22meQCkexKzN-u0LfpyBDY", // GSC HTML-tag token
 } as const;
 
 export type NavItem = {
