@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*
+  Finlytic — Design System
+  Editorial fintech palette: warm paper, deep ink, forest-emerald trust green,
+  a restrained brass accent. Serif display + clean sans body.
+  Goal: reads like a considered finance publication, not a generated template.
+*/
+
+@theme {
+  /* Surfaces */
+  --color-paper: #faf8f3;
+  --color-paper-2: #f3efe6;
+  --color-card: #ffffff;
+  --color-ink: #17201c;
+  --color-ink-soft: #414b45;
+  --color-ink-faint: #6c766f;
+  --color-line: #e5e0d6;
+  --color-line-strong: #d5cfc2;
+
+  /* Brand */
+  --color-forest: #0d5c43;
+  --color-forest-deep: #093f2f;
+  --color-forest-soft: #e7f0eb;
+  --color-brass: #b07d2b;
+  --color-brass-soft: #f5ecd9;
+  --color-berry: #a4325a;
+
+  /* Fonts — Inter across the board (display + body) */
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Rounding */
+  --radius-lg: 18px;
+}
+
+:root {
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "kern", "liga", "cv05";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display serif — used sparingly for headings & brand */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+/* Thin top hairline accent used on cards/sections */
+.rule-brass {
+  background: linear-gradient(90deg, var(--color-brass) 0%, transparent 60%);
+}
+
+/* Subtle paper grain / vignette for warmth (very light) */
+.paper-texture {
+  background-image: radial-gradient(
+    120% 120% at 50% 0%,
+    rgba(13, 92, 67, 0.04) 0%,
+    transparent 45%
+  );
+}
+
+/* Editorial link underline that feels hand-set */
+.link-editorial {
+  text-decoration: underline;
+  text-decoration-color: var(--color-line-strong);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+.link-editorial:hover {
+  text-decoration-color: var(--color-forest);
+  color: var(--color-forest);
+}
+
+/* Range input styling for calculators */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-line-strong);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-forest);
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(9, 63, 47, 0.35);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-forest);
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+
+/* Reveal-on-scroll — progressive enhancement, no layout shift */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: reveal-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes reveal-in {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+::selection {
+  background: var(--color-forest);
+  color: #fff;
+}
+
+/* Long-form article typography */
+.article {
+  color: var(--color-ink-soft);
+  font-size: 1.075rem;
+  line-height: 1.75;
+}
+.article > p {
+  margin-bottom: 1.35rem;
+}
+.article h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 2.25rem 0 1rem;
+}
+.article strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.article em {
+  font-style: italic;
+}
+.article a {
+  color: var(--color-forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
