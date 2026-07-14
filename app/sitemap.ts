@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { calculators, posts } from "@/lib/data";
+import { aiToolDetails } from "@/lib/aiToolDetails";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -22,7 +23,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes = posts.map((p) => `/blog/${p.slug}`);
 
-  const all = [...staticRoutes, ...calcRoutes, ...blogRoutes];
+  const toolRoutes = aiToolDetails.map((d) => `/ai-tools/${d.slug}`);
+
+  const all = [...staticRoutes, ...calcRoutes, ...blogRoutes, ...toolRoutes];
 
   return all.map((path) => ({
     url: `${site.url}${path}`,

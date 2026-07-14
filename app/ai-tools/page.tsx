@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { aiTools, type Region } from "@/lib/data";
-import { IconSparkle, IconStar, IconCheck } from "@/components/icons";
+import { detailByName } from "@/lib/aiToolDetails";
+import { IconSparkle, IconStar, IconCheck, IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Best AI Tools 2026 — US, China & India Compared (Pricing & Benefits)",
@@ -130,6 +132,16 @@ export default function Page() {
                       {t.tier}
                     </span>
                   </div>
+
+                  {detailByName(t.name) && (
+                    <Link
+                      href={`/ai-tools/${detailByName(t.name)!.slug}`}
+                      className="mt-4 inline-flex items-center justify-center gap-1.5 rounded-xl border border-line-strong py-2.5 text-sm font-semibold text-ink hover:border-forest hover:text-forest transition-colors"
+                    >
+                      Read full review, use cases &amp; hacks
+                      <IconArrow className="h-4 w-4" />
+                    </Link>
+                  )}
                 </article>
               ))}
             </div>
