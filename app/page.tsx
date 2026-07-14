@@ -96,7 +96,7 @@ function Hero() {
 
             <dl className="mt-10 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { n: "12+", l: "Free calculators" },
+                { n: "10+", l: "Free calculators" },
                 { n: "Daily", l: "Finance & AI news" },
                 { n: "0", l: "Sign-up required" },
               ].map((s) => (
@@ -126,7 +126,7 @@ function HeroPreviewCard() {
   return (
     <div className="relative">
       <div className="absolute -inset-3 rounded-[26px] bg-forest-soft/60 -z-10 blur-sm" />
-      <div className="rounded-[22px] border border-line bg-card shadow-[0_20px_50px_-24px_rgba(9,63,47,0.35)] overflow-hidden">
+      <div className="rounded-[22px] border border-line bg-card shadow-[0_20px_50px_-24px_rgba(30,64,175,0.35)] overflow-hidden">
         <div className="rule-brass h-1 w-full" />
         <div className="p-6 sm:p-7">
           <div className="flex items-center justify-between">
@@ -224,7 +224,7 @@ function PopularCalculators() {
           <Link
             key={c.slug}
             href={`/calculators/${c.slug}`}
-            className="group rounded-2xl border border-line bg-card p-5 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(9,63,47,0.4)]"
+            className="group rounded-2xl border border-line bg-card p-5 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(30,64,175,0.4)]"
           >
             <span className="grid h-11 w-11 place-items-center rounded-xl bg-forest-soft text-forest transition-colors group-hover:bg-forest group-hover:text-white">
               <IconCalculator className="h-5 w-5" />

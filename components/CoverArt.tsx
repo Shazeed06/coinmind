@@ -17,10 +17,10 @@ const palettes: Record<
   CoverPalette,
   { bg1: string; bg2: string; ink: string; accent: string; soft: string }
 > = {
-  forest: { bg1: "#e7f0eb", bg2: "#f3efe6", ink: "#0d5c43", accent: "#b07d2b", soft: "#ffffff" },
-  brass: { bg1: "#f5ecd9", bg2: "#faf8f3", ink: "#b07d2b", accent: "#0d5c43", soft: "#ffffff" },
-  berry: { bg1: "#f6e7ec", bg2: "#faf8f3", ink: "#a4325a", accent: "#b07d2b", soft: "#ffffff" },
-  deep: { bg1: "#0d5c43", bg2: "#093f2f", ink: "#ffffff", accent: "#e6b64c", soft: "#7fb8a3" },
+  forest: { bg1: "#e7effe", bg2: "#f5f6fb", ink: "#2563eb", accent: "#16a34a", soft: "#ffffff" },
+  brass: { bg1: "#e6f6ec", bg2: "#f5f6fb", ink: "#16a34a", accent: "#2563eb", soft: "#ffffff" },
+  berry: { bg1: "#fbe8f1", bg2: "#f5f6fb", ink: "#db2777", accent: "#2563eb", soft: "#ffffff" },
+  deep: { bg1: "#2563eb", bg2: "#1e40af", ink: "#ffffff", accent: "#4ade80", soft: "#93c5fd" },
 };
 
 export default function CoverArt({

@@ -144,7 +144,7 @@ function RegimeCard({
     <div
       className={`rounded-2xl border p-6 ${
         recommended
-          ? "border-forest bg-paper-2 shadow-[0_16px_36px_-24px_rgba(9,63,47,0.5)]"
+          ? "border-forest bg-paper-2 shadow-[0_16px_36px_-24px_rgba(30,64,175,0.5)]"
           : "border-line bg-card"
       }`}
     >

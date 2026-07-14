@@ -1,30 +1,35 @@
 @import "tailwindcss";
 
 /*
-  Finlytic — Design System
-  Editorial fintech palette: warm paper, deep ink, forest-emerald trust green,
-  a restrained brass accent. Serif display + clean sans body.
-  Goal: reads like a considered finance publication, not a generated template.
+  CoinMind — Design System
+  Modern AI-fintech palette: cool near-white surfaces, deep navy ink,
+  electric indigo primary + violet AI accent. Clean sans (Inter).
+  Goal: reads like a modern AI/fintech product, trustworthy and current.
+  NOTE: the brand variables are still named --color-forest / --color-brass
+  for historical reasons; their VALUES are now indigo / violet. Changing the
+  values here recolours the whole site.
 */
 
 @theme {
-  /* Surfaces */
-  --color-paper: #faf8f3;
-  --color-paper-2: #f3efe6;
+  /* Surfaces — cool, clean */
+  --color-paper: #f5f6fb;
+  --color-paper-2: #ebedf6;
   --color-card: #ffffff;
-  --color-ink: #17201c;
-  --color-ink-soft: #414b45;
-  --color-ink-faint: #6c766f;
-  --color-line: #e5e0d6;
-  --color-line-strong: #d5cfc2;
+  --color-ink: #0f1424;
+  --color-ink-soft: #3f4661;
+  --color-ink-faint: #6b7288;
+  --color-line: #e5e7f2;
+  --color-line-strong: #d3d7e8;
 
-  /* Brand */
-  --color-forest: #0d5c43;
-  --color-forest-deep: #093f2f;
-  --color-forest-soft: #e7f0eb;
-  --color-brass: #b07d2b;
-  --color-brass-soft: #f5ecd9;
-  --color-berry: #a4325a;
+  /* Brand — royal blue primary, matching the CoinMind logo (name kept as "forest") */
+  --color-forest: #2563eb;
+  --color-forest-deep: #1e40af;
+  --color-forest-soft: #e7effe;
+  /* Accent — green, matching the logo (name kept as "brass"); high contrast with
+     the blue and semantic for finance: returns / gains / positive money. */
+  --color-brass: #16a34a;
+  --color-brass-soft: #e6f6ec;
+  --color-berry: #db2777;
 
   /* Fonts — Inter across the board (display + body) */
   --font-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -73,7 +78,7 @@ body {
 .paper-texture {
   background-image: radial-gradient(
     120% 120% at 50% 0%,
-    rgba(13, 92, 67, 0.04) 0%,
+    rgba(37, 99, 235, 0.06) 0%,
     transparent 45%
   );
 }
@@ -108,7 +113,7 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   background: var(--color-forest);
   border: 3px solid #fff;
-  box-shadow: 0 1px 4px rgba(9, 63, 47, 0.35);
+  box-shadow: 0 1px 4px rgba(30, 64, 175, 0.4);
   cursor: pointer;
 }
 input[type="range"]::-moz-range-thumb {

@@ -33,7 +33,7 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4">
-      <div className="mx-auto max-w-3xl rounded-2xl border border-line bg-card shadow-[0_16px_40px_-16px_rgba(9,63,47,0.35)] p-4 sm:p-5">
+      <div className="mx-auto max-w-3xl rounded-2xl border border-line bg-card shadow-[0_16px_40px_-16px_rgba(30,64,175,0.35)] p-4 sm:p-5">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4">
           <p className="text-sm text-ink-soft leading-relaxed flex-1">
             We use cookies to run the site, measure traffic and show ads. See our{" "}

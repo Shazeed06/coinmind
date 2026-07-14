@@ -43,7 +43,7 @@ export default function Page() {
                   <Link
                     key={c.slug}
                     href={`/calculators/${c.slug}`}
-                    className="group rounded-2xl border border-line bg-card p-5 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(9,63,47,0.4)]"
+                    className="group rounded-2xl border border-line bg-card p-5 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(30,64,175,0.4)]"
                   >
                     <div className="flex items-center justify-between">
                       <span className="grid h-11 w-11 place-items-center rounded-xl bg-forest-soft text-forest transition-colors group-hover:bg-forest group-hover:text-white">

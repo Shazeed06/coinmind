@@ -1,27 +1,40 @@
-import { site } from "@/lib/site";
-
-// Simple, hand-built mark: a rising ledger bar inside a rounded square.
-// Reads as "finance + growth" without looking like clip-art.
+// CoinMind logo — an open blue ring (C) with green growth bars and an "i" dot,
+// plus the two-tone "coinmind" wordmark. Pure SVG + text: transparent, crisp at
+// any size, and it follows the theme colours (blue = primary, green = accent).
 export default function Logo({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <svg
-        width="34"
-        height="34"
-        viewBox="0 0 34 34"
-        fill="none"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        <rect width="34" height="34" rx="9" fill="var(--color-forest)" />
-        <rect x="8.5" y="18" width="3.4" height="7.5" rx="1.2" fill="#fff" opacity="0.55" />
-        <rect x="15.3" y="13.5" width="3.4" height="12" rx="1.2" fill="#fff" opacity="0.8" />
-        <rect x="22.1" y="8.5" width="3.4" height="17" rx="1.2" fill="#fff" />
-        <circle cx="23.8" cy="8.8" r="2.4" fill="var(--color-brass)" stroke="#fff" strokeWidth="1.4" />
-      </svg>
-      <span className="font-display text-[1.35rem] font-600 tracking-tight text-ink">
-        {site.name}
+      <LogoMark className="h-9 w-9 shrink-0" />
+      <span className="text-[1.4rem] font-700 tracking-tight lowercase leading-none">
+        <span className="text-forest">coin</span>
+        <span className="text-brass">mind</span>
       </span>
     </span>
+  );
+}
+
+// The icon mark on its own (also used to generate the favicon).
+export function LogoMark({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 40 40" className={className} aria-hidden="true" fill="none">
+      {/* Open ring (C) */}
+      <circle
+        cx="20"
+        cy="20"
+        r="15"
+        fill="none"
+        stroke="var(--color-forest)"
+        strokeWidth="4.4"
+        strokeLinecap="round"
+        strokeDasharray="72 22.2"
+        transform="rotate(-4 20 20)"
+      />
+      {/* Ascending growth bars */}
+      <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="var(--color-brass)" />
+      <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="var(--color-brass)" />
+      <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="var(--color-brass)" />
+      {/* "i" dot sitting in the ring's opening */}
+      <circle cx="25.7" cy="8.6" r="2.7" fill="var(--color-brass)" />
+    </svg>
   );
 }
