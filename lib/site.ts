@@ -21,6 +21,9 @@ export const site = {
   // Re-enable by pasting the ID back the moment you add a real tag in the GTM UI.
   gtmId: "",
   googleVerification: "-S3tJnGDGCsP1TZH2m4Pf22meQCkexKzN-u0LfpyBDY", // GSC HTML-tag token
+  // IndexNow key (Bing/Yandex/Naver instant indexing — also feeds ChatGPT Search
+  // via Bing's index). The key file lives at /<key>.txt in public/.
+  indexNowKey: "50d24150aec21af2e12f5995d1758905",
 } as const;
 
 export type NavItem = {

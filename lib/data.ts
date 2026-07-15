@@ -124,6 +124,28 @@ export const calculators: Calculator[] = [
     keywords: ["gst calculator", "gst india", "add gst"],
   },
   {
+    slug: "goal-sip",
+    title: "Goal SIP Calculator",
+    short: "Reach ₹1 crore",
+    blurb:
+      "Reverse SIP: enter a target like ₹1 crore and see the exact monthly SIP needed to reach it. The crorepati calculator.",
+    category: "Investing",
+    region: "Global",
+    live: true,
+    keywords: ["goal sip calculator", "crorepati calculator", "how much sip for 1 crore"],
+  },
+  {
+    slug: "take-home-salary",
+    title: "Take-Home Salary Calculator",
+    short: "CTC to in-hand",
+    blurb:
+      "Convert your annual CTC into real monthly in-hand pay, with PF, professional tax and new-regime income tax broken down.",
+    category: "Tax",
+    region: "IN",
+    live: true,
+    keywords: ["take home salary calculator", "ctc to in hand", "in hand salary calculator india"],
+  },
+  {
     slug: "swp",
     title: "SWP Calculator",
     short: "Systematic withdrawal",
