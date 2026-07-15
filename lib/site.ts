@@ -3,7 +3,10 @@
 export const site = {
   name: "CoinMind",
   tagline: "Smarter money decisions, powered by AI",
-  url: "https://coinmind.in",
+  // Canonical host. Vercel currently serves www as primary (coinmind.in 308→www),
+  // so www is the canonical to keep GSC verification, sitemap and canonicals
+  // consistent. coinmind.in still works and redirects here.
+  url: "https://www.coinmind.in",
   // ⚠️ Set up this mailbox (e.g. free email forwarding from your domain provider,
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
   email: "hello@coinmind.in",
