@@ -49,18 +49,30 @@ export default async function Page({
 
   const json = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: tool.name,
-    applicationCategory: "AI tool",
-    operatingSystem: "Web",
-    offers: { "@type": "Offer", description: tool.pricing },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: tool.rating,
-      bestRating: 5,
-      ratingCount: 100,
-    },
-    publisher: { "@type": "Organization", name: tool.maker },
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: tool.name,
+        applicationCategory: "AI tool",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", description: tool.pricing },
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: tool.rating,
+          bestRating: 5,
+          ratingCount: 100,
+        },
+        publisher: { "@type": "Organization", name: tool.maker },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 2, name: "AI Tools", item: `${site.url}/ai-tools` },
+          { "@type": "ListItem", position: 3, name: tool.name, item: `${site.url}/ai-tools/${slug}` },
+        ],
+      },
+    ],
   };
 
   return (

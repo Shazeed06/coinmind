@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
 import { GtmScript, GtmNoScript } from "@/components/Gtm";
+import SiteJsonLd from "@/components/SiteJsonLd";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -61,6 +62,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col paper-texture">
         <GtmNoScript id={site.gtmId} />
+        <SiteJsonLd />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

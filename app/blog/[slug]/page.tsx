@@ -398,12 +398,25 @@ export default async function Page({
 
   const articleJson = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    author: { "@type": "Organization", name: site.name },
-    publisher: { "@type": "Organization", name: site.name },
-    datePublished: post.date,
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: post.title,
+        description: post.excerpt,
+        author: { "@type": "Organization", name: site.name },
+        publisher: { "@type": "Organization", name: site.name },
+        datePublished: post.date,
+        mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 2, name: "Guides", item: `${site.url}/blog` },
+          { "@type": "ListItem", position: 3, name: post.title, item: `${site.url}/blog/${post.slug}` },
+        ],
+      },
+    ],
   };
 
   return (

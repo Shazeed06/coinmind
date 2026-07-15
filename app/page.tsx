@@ -512,15 +512,14 @@ function SectionHead({
 function StructuredData() {
   const json = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: site.name,
-    url: site.url,
-    description: site.description,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${site.url}/search?q={query}`,
-      "query-input": "required name=query",
-    },
+    "@type": "ItemList",
+    name: "Free financial calculators",
+    itemListElement: liveCalcs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.title,
+      url: `${site.url}/calculators/${c.slug}`,
+    })),
   };
   return (
     <script

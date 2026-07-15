@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { calculators } from "@/lib/data";
+import { site } from "@/lib/site";
 import { IconArrow, IconCalculator } from "@/components/icons";
 
 export type Faq = { q: string; a: string };
@@ -34,11 +35,25 @@ export default function CalcPage({
     })),
   };
 
+  const breadcrumbJson = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Calculators", item: `${site.url}/calculators` },
+      { "@type": "ListItem", position: 3, name: title, item: `${site.url}/calculators/${slug}` },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
 
       {/* Breadcrumb */}
