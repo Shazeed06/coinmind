@@ -56,23 +56,33 @@ export async function POST(req: Request) {
     parts: [{ text: m.content }],
   }));
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`;
   const payload = JSON.stringify({
     systemInstruction: { parts: [{ text: SYSTEM }] },
     contents,
     generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
   });
-  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-  // Free-tier flash models occasionally return transient 503/429 under load —
-  // retry a couple of times with short backoff before giving up.
-  for (let attempt = 0; attempt < 3; attempt++) {
+  // Free-tier Gemini access varies by model + project; different models draw on
+  // different quota pools. Try a list and use the first that responds.
+  const MODELS = [
+    "gemini-flash-latest",
+    "gemini-2.0-flash-001",
+    "gemini-2.0-flash-lite",
+    "gemini-1.5-flash",
+    "gemini-1.5-flash-8b",
+  ];
+  const debug: string[] = []; // temp diagnostic
+
+  for (const model of MODELS) {
     try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-      });
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: payload,
+        }
+      );
 
       if (res.ok) {
         const data = await res.json();
@@ -84,28 +94,19 @@ export async function POST(req: Request) {
         return Response.json({ reply });
       }
 
-      if ((res.status === 503 || res.status === 429) && attempt < 2) {
-        await sleep(1200 * (attempt + 1));
-        continue;
-      }
-
-      const reply =
-        res.status === 429
-          ? "The assistant is very busy right now — please try again in a moment."
-          : res.status === 503
-            ? "The AI is under heavy load — please try again in a few seconds."
-            : "Sorry, the assistant hit a snag. Please try again.";
-      return Response.json({ error: "upstream", status: res.status, reply }, { status: 200 });
+      debug.push(`${model}:${res.status}`);
     } catch {
-      if (attempt < 2) {
-        await sleep(1000);
-        continue;
-      }
-      return Response.json(
-        { error: "network", reply: "Network issue reaching the assistant. Please try again." },
-        { status: 200 }
-      );
+      debug.push(`${model}:network`);
     }
   }
-  return Response.json({ reply: "Please try again in a moment." });
+
+  return Response.json(
+    {
+      error: "upstream",
+      reply:
+        "The assistant is very busy right now — please try again in a moment.",
+      debug, // temp diagnostic
+    },
+    { status: 200 }
+  );
 }
