@@ -16,20 +16,19 @@ const SYSTEM = `You are CoinMind's friendly Money & AI assistant on coinmind.in.
 type Msg = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: Request) {
-  const key = process.env.GEMINI_API_KEY?.trim();
+  // Env var names are case-sensitive; accept the conventional upper-case name
+  // as well as the lower-case one that was configured on Vercel.
+  const key = (
+    process.env.GEMINI_API_KEY ||
+    process.env.gemini_api_key ||
+    ""
+  ).trim();
   if (!key) {
     return Response.json(
       {
         error: "not_configured",
         reply:
           "The AI assistant isn't set up yet. Add a free GEMINI_API_KEY (from aistudio.google.com/apikey) in the site's environment variables to switch it on.",
-        // temporary diagnostic (var NAMES only, never values) — safe to expose
-        debug: {
-          hasRaw: !!process.env.GEMINI_API_KEY,
-          matchingVarNames: Object.keys(process.env).filter((k) =>
-            /gemini|api.?key/i.test(k)
-          ),
-        },
       },
       { status: 200 }
     );
