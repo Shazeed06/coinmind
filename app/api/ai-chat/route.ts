@@ -56,39 +56,56 @@ export async function POST(req: Request) {
     parts: [{ text: m.content }],
   }));
 
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`,
-      {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`;
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM }] },
+    contents,
+    generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
+  });
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+  // Free-tier flash models occasionally return transient 503/429 under load —
+  // retry a couple of times with short backoff before giving up.
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const res = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM }] },
-          contents,
-          generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
-        }),
+        body: payload,
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const reply =
+          data?.candidates?.[0]?.content?.parts
+            ?.map((p: { text?: string }) => p.text)
+            .join("") ||
+          "I couldn't generate a reply just now — please try rephrasing.";
+        return Response.json({ reply });
       }
-    );
 
-    if (!res.ok) {
-      const status = res.status;
-      const detail = (await res.text()).slice(0, 600); // temp diagnostic
+      if ((res.status === 503 || res.status === 429) && attempt < 2) {
+        await sleep(1200 * (attempt + 1));
+        continue;
+      }
+
       const reply =
-        status === 429
-          ? "The assistant is getting a lot of questions right now — please try again in a minute."
-          : "Sorry, the assistant hit a snag. Please try again.";
-      return Response.json({ error: "upstream", status, reply, detail }, { status: 200 });
+        res.status === 429
+          ? "The assistant is very busy right now — please try again in a moment."
+          : res.status === 503
+            ? "The AI is under heavy load — please try again in a few seconds."
+            : "Sorry, the assistant hit a snag. Please try again.";
+      return Response.json({ error: "upstream", status: res.status, reply }, { status: 200 });
+    } catch {
+      if (attempt < 2) {
+        await sleep(1000);
+        continue;
+      }
+      return Response.json(
+        { error: "network", reply: "Network issue reaching the assistant. Please try again." },
+        { status: 200 }
+      );
     }
-
-    const data = await res.json();
-    const reply =
-      data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text).join("") ||
-      "I couldn't generate a reply just now — please try rephrasing.";
-    return Response.json({ reply });
-  } catch {
-    return Response.json(
-      { error: "network", reply: "Network issue reaching the assistant. Please try again." },
-      { status: 200 }
-    );
   }
+  return Response.json({ reply: "Please try again in a moment." });
 }
