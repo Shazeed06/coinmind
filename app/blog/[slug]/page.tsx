@@ -6,6 +6,7 @@ import { posts } from "@/lib/data";
 import { site } from "@/lib/site";
 import { IconArrow } from "@/components/icons";
 import CoverArt from "@/components/CoverArt";
+import ArticleMarkdown from "@/components/ArticleMarkdown";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -403,7 +404,11 @@ export default async function Page({
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const body = bodies[post.slug];
+  const body = post.bodyMarkdown ? (
+    <ArticleMarkdown markdown={post.bodyMarkdown} />
+  ) : (
+    bodies[post.slug]
+  );
   const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   const articleJson = {
