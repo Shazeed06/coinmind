@@ -3,7 +3,7 @@ import CompoundInterestCalculator from "@/components/calc/CompoundInterestCalcul
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "Compound Interest Calculator — Daily, Monthly & Yearly",
+  title: { absolute: "Compound Interest Calculator — Daily, Monthly & Yearly" },
   description:
     "Free compound interest calculator. See how your money grows with monthly, quarterly or yearly compounding for any principal, rate and time.",
   alternates: { canonical: "/calculators/compound-interest" },

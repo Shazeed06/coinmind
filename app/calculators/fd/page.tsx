@@ -3,7 +3,7 @@ import FdCalculator from "@/components/calc/FdCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "FD Calculator — Fixed Deposit Maturity & Interest",
+  title: { absolute: "FD Calculator — Fixed Deposit Maturity & Interest" },
   description:
     "Free fixed deposit (FD) calculator. Find the maturity value and interest earned on your FD with quarterly, monthly or yearly compounding.",
   alternates: { canonical: "/calculators/fd" },

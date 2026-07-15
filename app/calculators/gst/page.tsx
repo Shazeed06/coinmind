@@ -3,7 +3,7 @@ import GstCalculator from "@/components/calc/GstCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "GST Calculator — Add or Remove GST (5%, 12%, 18%, 28%)",
+  title: { absolute: "GST Calculator — Add or Remove GST (5%, 12%, 18%, 28%)" },
   description:
     "Free GST calculator for India. Add GST to a price or remove GST from an inclusive amount at 5%, 12%, 18% or 28%, with CGST/SGST breakdown.",
   alternates: { canonical: "/calculators/gst" },

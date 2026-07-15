@@ -3,7 +3,7 @@ import IncomeTaxCalculator from "@/components/calc/IncomeTaxCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "Income Tax Calculator FY 2025-26 — New vs Old Regime",
+  title: { absolute: "Income Tax Calculator FY 2025-26 — New vs Old Regime" },
   description:
     "Free income tax calculator for FY 2025-26 (AY 2026-27). Compare the new and old tax regimes for India and instantly see which one saves you more tax.",
   alternates: { canonical: "/calculators/income-tax" },

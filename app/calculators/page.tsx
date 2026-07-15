@@ -4,7 +4,7 @@ import { calculators } from "@/lib/data";
 import { IconArrow, IconCalculator } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Free Financial Calculators — SIP, EMI, Tax, FD & More",
+  title: { absolute: "Free Financial Calculators — SIP, EMI, Tax & FD" },
   description:
     "A free suite of financial calculators: SIP, EMI, income tax, fixed deposit, PPF, retirement and more. Fast, private and works in ₹, $ and £.",
   alternates: { canonical: "/calculators" },

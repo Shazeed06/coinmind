@@ -3,7 +3,7 @@ import PpfCalculator from "@/components/calc/PpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "PPF Calculator — Public Provident Fund Maturity",
+  title: { absolute: "PPF Calculator — Public Provident Fund Maturity" },
   description:
     "Free PPF calculator for India. Estimate your Public Provident Fund maturity and tax-free interest with yearly contributions over 15+ years.",
   alternates: { canonical: "/calculators/ppf" },

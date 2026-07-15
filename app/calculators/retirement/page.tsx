@@ -3,7 +3,7 @@ import RetirementCalculator from "@/components/calc/RetirementCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "Retirement Calculator — How Much Do You Need to Retire?",
+  title: { absolute: "Retirement Calculator — How Much Do You Need to Retire?" },
   description:
     "Free retirement planning calculator. Find the corpus you need to retire and the monthly investment required to get there, adjusted for inflation.",
   alternates: { canonical: "/calculators/retirement" },

@@ -3,7 +3,7 @@ import LumpsumCalculator from "@/components/calc/LumpsumCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "Lumpsum Calculator — One-Time Investment Returns",
+  title: { absolute: "Lumpsum Calculator — One-Time Investment Returns" },
   description:
     "Free lumpsum investment calculator. See the future value of a one-time investment in mutual funds or any asset, in ₹, $ or £.",
   alternates: { canonical: "/calculators/lumpsum" },

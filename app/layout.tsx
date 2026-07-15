@@ -39,9 +39,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
+    url: site.url,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
     locale: "en_US",
+    images: [
+      { url: "/opengraph-image", width: 1200, height: 630, alt: site.tagline },
+    ],
   },
   twitter: {
     card: "summary_large_image",

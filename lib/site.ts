@@ -11,12 +11,15 @@ export const site = {
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
   email: "hello@coinmind.in",
   description:
-    "Free financial calculators, AI tool reviews, and daily finance & AI news — built to help you plan investments, loans, taxes and work smarter with AI.",
+    "Free SIP, EMI, income tax & FD calculators, honest AI tool reviews and daily finance & AI news — for smarter money decisions in India, the US & UK.",
   locale: "en",
   authorName: "The CoinMind Team",
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):
   gaId: "G-1ZQB0YPJCS", // GA4 Measurement ID
-  gtmId: "GTM-5MMG4KLC", // Google Tag Manager container
+  // GTM container GTM-5MMG4KLC exists but is EMPTY (no tags yet). Loading an
+  // empty container adds nothing and makes crawlers (Ahrefs) flag "broken JS".
+  // Re-enable by pasting the ID back the moment you add a real tag in the GTM UI.
+  gtmId: "",
   googleVerification: "-S3tJnGDGCsP1TZH2m4Pf22meQCkexKzN-u0LfpyBDY", // GSC HTML-tag token
 } as const;
 

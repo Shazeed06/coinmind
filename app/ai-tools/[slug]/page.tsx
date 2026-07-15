@@ -20,10 +20,20 @@ export async function generateMetadata({
   const tool = detail && aiTools.find((t) => t.name === detail.name);
   if (!detail || !tool) return {};
   return {
-    title: `${tool.name} Review 2026 — Features, Pricing, Use Cases & Hacks`,
-    description: `${tool.name} by ${tool.maker}: ${tool.tagline} See key features, pricing (${tool.pricing}), real use cases and pro tips.`,
+    title: { absolute: `${tool.name} Review — Pricing, Features & Hacks` },
+    description: `${tool.tagline} Our ${tool.name} review: pricing, use cases and pro tips.`,
     alternates: { canonical: `/ai-tools/${slug}` },
-    openGraph: { title: `${tool.name} — Review, Pricing & Hacks`, description: tool.tagline, type: "article" },
+    openGraph: {
+      type: "article",
+      url: `${site.url}/ai-tools/${slug}`,
+      siteName: site.name,
+      locale: "en_US",
+      title: `${tool.name} — Review, Pricing & Hacks`,
+      description: tool.tagline,
+      images: [
+        { url: "/opengraph-image", width: 1200, height: 630, alt: `${tool.name} review` },
+      ],
+    },
   };
 }
 
@@ -53,14 +63,19 @@ export default async function Page({
       {
         "@type": "SoftwareApplication",
         name: tool.name,
-        applicationCategory: "AI tool",
+        applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         offers: { "@type": "Offer", description: tool.pricing },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: tool.rating,
-          bestRating: 5,
-          ratingCount: 100,
+        // Editorial score (our own review), expressed as a single Review/Rating —
+        // NOT an AggregateRating, which would require real user-review counts.
+        review: {
+          "@type": "Review",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: tool.rating,
+            bestRating: 5,
+          },
+          author: { "@type": "Organization", name: site.name },
         },
         publisher: { "@type": "Organization", name: tool.maker },
       },

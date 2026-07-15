@@ -3,7 +3,7 @@ import GratuityCalculator from "@/components/calc/GratuityCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "Gratuity Calculator — How Much Gratuity Will You Get?",
+  title: { absolute: "Gratuity Calculator — How Much Gratuity Will You Get?" },
   description:
     "Free gratuity calculator for India. Work out the gratuity payable based on your last drawn salary and years of service, under the Gratuity Act.",
   alternates: { canonical: "/calculators/gratuity" },

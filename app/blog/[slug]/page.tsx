@@ -20,10 +20,20 @@ export async function generateMetadata({
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
-    title: post.title,
+    title: { absolute: post.title },
     description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: { title: post.title, description: post.excerpt, type: "article" },
+    openGraph: {
+      type: "article",
+      url: `${site.url}/blog/${post.slug}`,
+      siteName: site.name,
+      locale: "en_US",
+      title: post.title,
+      description: post.excerpt,
+      images: [
+        { url: "/opengraph-image", width: 1200, height: 630, alt: post.title },
+      ],
+    },
   };
 }
 
@@ -403,9 +413,11 @@ export default async function Page({
         "@type": "Article",
         headline: post.title,
         description: post.excerpt,
+        image: [`${site.url}/opengraph-image`],
         author: { "@type": "Organization", name: site.name },
         publisher: { "@type": "Organization", name: site.name },
-        datePublished: post.date,
+        datePublished: new Date(post.date).toISOString(),
+        dateModified: new Date(post.date).toISOString(),
         mainEntityOfPage: `${site.url}/blog/${post.slug}`,
       },
       {

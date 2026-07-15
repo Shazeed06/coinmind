@@ -3,7 +3,7 @@ import EmiCalculator from "@/components/calc/EmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "EMI Calculator — Home, Car & Personal Loan EMIs",
+  title: { absolute: "EMI Calculator — Home, Car & Personal Loan EMIs" },
   description:
     "Free EMI calculator for home, car and personal loans. Instantly find your monthly EMI, total interest and total payment for any loan amount, rate and tenure.",
   alternates: { canonical: "/calculators/emi" },

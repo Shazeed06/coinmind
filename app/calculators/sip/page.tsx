@@ -3,7 +3,7 @@ import SipCalculator from "@/components/calc/SipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: "SIP Calculator — Estimate Your Mutual Fund Returns",
+  title: { absolute: "SIP Calculator — Estimate Your Mutual Fund Returns" },
   description:
     "Free online SIP calculator. See how much your monthly SIP grows over time with expected returns. Calculate mutual fund maturity value instantly in ₹, $ or £.",
   alternates: { canonical: "/calculators/sip" },

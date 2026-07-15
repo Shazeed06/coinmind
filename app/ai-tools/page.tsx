@@ -5,9 +5,9 @@ import { detailByName } from "@/lib/aiToolDetails";
 import { IconSparkle, IconStar, IconCheck, IconArrow } from "@/components/icons";
 
 export const metadata: Metadata = {
-  title: "Best AI Tools 2026 — US, China & India Compared (Pricing & Benefits)",
+  title: { absolute: "Best AI Tools 2026 — US, China & India Compared" },
   description:
-    "A complete, up-to-date directory of the most important AI tools from the US, China and India — with ratings, key benefits and pricing for ChatGPT, Claude, Gemini, DeepSeek, Qwen, Krutrim, Sarvam and more.",
+    "Up-to-date directory of top AI tools from the US, China and India — ratings, benefits and pricing for ChatGPT, Claude, Gemini, DeepSeek, Qwen and more.",
   alternates: { canonical: "/ai-tools" },
 };
 
