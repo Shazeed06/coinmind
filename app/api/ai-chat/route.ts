@@ -72,11 +72,12 @@ export async function POST(req: Request) {
 
     if (!res.ok) {
       const status = res.status;
+      const detail = (await res.text()).slice(0, 600); // temp diagnostic
       const reply =
         status === 429
           ? "The assistant is getting a lot of questions right now — please try again in a minute."
           : "Sorry, the assistant hit a snag. Please try again.";
-      return Response.json({ error: "upstream", status, reply }, { status: 200 });
+      return Response.json({ error: "upstream", status, reply, detail }, { status: 200 });
     }
 
     const data = await res.json();
