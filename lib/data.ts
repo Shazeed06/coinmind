@@ -6,7 +6,7 @@ export type Calculator = {
   title: string;
   short: string;
   blurb: string;
-  category: "Investing" | "Loans" | "Tax" | "Savings";
+  category: "Investing" | "Loans" | "Tax" | "Savings" | "Utility";
   region: "IN" | "Global";
   live: boolean; // whether an interactive page exists yet
   keywords: string[];
@@ -144,6 +144,17 @@ export const calculators: Calculator[] = [
     region: "IN",
     live: true,
     keywords: ["take home salary calculator", "ctc to in hand", "in hand salary calculator india"],
+  },
+  {
+    slug: "currency-converter",
+    title: "Currency Converter",
+    short: "Live exchange rates",
+    blurb:
+      "Convert between 20+ currencies (USD, INR, EUR, GBP and more) at live exchange rates — free and instant.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["currency converter", "usd to inr", "exchange rate calculator"],
   },
   {
     slug: "swp",

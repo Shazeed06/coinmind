@@ -34,6 +34,7 @@ export type NavItem = {
 
 export const primaryNav: NavItem[] = [
   { label: "Calculators", href: "/calculators", desc: "SIP, EMI, tax, FD & more" },
+  { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant" },
   { label: "AI Tools", href: "/ai-tools", desc: "Reviews & comparisons" },
   { label: "News", href: "/news", desc: "Daily finance & AI updates" },
   { label: "Guides", href: "/blog", desc: "How-to & money tips" },
