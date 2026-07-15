@@ -1,7 +1,11 @@
-// AI Money Assistant backend — proxies to Google Gemini (free tier).
-// Set GEMINI_API_KEY in the environment (Vercel → Settings → Environment
-// Variables). Get a free key at https://aistudio.google.com/apikey.
-// The key stays server-side; the browser never sees it.
+// AI Money Assistant backend.
+//
+// Provider priority (first key that exists wins):
+//   1. GROQ_API_KEY   — free, fast, reliable. Get one at console.groq.com/keys
+//   2. GEMINI_API_KEY — Google Gemini free tier (aistudio.google.com/apikey)
+//
+// Keys stay server-side; the browser never sees them. Set them in
+// Vercel → Settings → Environment Variables, then redeploy.
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
@@ -15,20 +19,100 @@ const SYSTEM = `You are CoinMind's friendly Money & AI assistant on coinmind.in.
 
 type Msg = { role: "user" | "assistant"; content: string };
 
+const env = (...names: string[]) => {
+  for (const n of names) {
+    const v = process.env[n];
+    if (v && v.trim()) return v.trim();
+  }
+  return "";
+};
+
+// ---- Groq (OpenAI-compatible) -------------------------------------------
+async function callGroq(key: string, messages: Msg[]): Promise<string | null> {
+  const models = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
+  const body = (model: string) =>
+    JSON.stringify({
+      model,
+      messages: [
+        { role: "system", content: SYSTEM },
+        ...messages.map((m) => ({ role: m.role, content: m.content })),
+      ],
+      temperature: 0.6,
+      max_tokens: 800,
+    });
+
+  for (const model of models) {
+    try {
+      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${key}`,
+        },
+        body: body(model),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data?.choices?.[0]?.message?.content;
+        if (reply) return reply;
+      }
+    } catch {
+      /* try next model */
+    }
+  }
+  return null;
+}
+
+// ---- Gemini --------------------------------------------------------------
+async function callGemini(key: string, messages: Msg[]): Promise<string | null> {
+  const models = [
+    "gemini-flash-latest",
+    "gemini-2.0-flash-001",
+    "gemini-2.0-flash-lite",
+  ];
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM }] },
+    contents: messages.map((m) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }],
+    })),
+    generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
+  });
+
+  for (const model of models) {
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: payload,
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data?.candidates?.[0]?.content?.parts
+          ?.map((p: { text?: string }) => p.text)
+          .join("");
+        if (reply) return reply;
+      }
+    } catch {
+      /* try next model */
+    }
+  }
+  return null;
+}
+
 export async function POST(req: Request) {
-  // Env var names are case-sensitive; accept the conventional upper-case name
-  // as well as the lower-case one that was configured on Vercel.
-  const key = (
-    process.env.GEMINI_API_KEY ||
-    process.env.gemini_api_key ||
-    ""
-  ).trim();
-  if (!key) {
+  const groqKey = env("GROQ_API_KEY", "groq_api_key");
+  const geminiKey = env("GEMINI_API_KEY", "gemini_api_key");
+
+  if (!groqKey && !geminiKey) {
     return Response.json(
       {
         error: "not_configured",
         reply:
-          "The AI assistant isn't set up yet. Add a free GEMINI_API_KEY (from aistudio.google.com/apikey) in the site's environment variables to switch it on.",
+          "The AI assistant isn't switched on yet. Add a free GROQ_API_KEY (from console.groq.com/keys) in the site's environment variables to enable it.",
       },
       { status: 200 }
     );
@@ -51,61 +135,18 @@ export async function POST(req: Request) {
     return Response.json({ error: "empty" }, { status: 400 });
   }
 
-  const contents = messages.map((m) => ({
-    role: m.role === "assistant" ? "model" : "user",
-    parts: [{ text: m.content }],
-  }));
+  // Prefer Groq (reliable free tier); fall back to Gemini if configured.
+  let reply: string | null = null;
+  if (groqKey) reply = await callGroq(groqKey, messages);
+  if (!reply && geminiKey) reply = await callGemini(geminiKey, messages);
 
-  const payload = JSON.stringify({
-    systemInstruction: { parts: [{ text: SYSTEM }] },
-    contents,
-    generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
-  });
-
-  // Free-tier Gemini access varies by model + project; different models draw on
-  // different quota pools. Try a list and use the first that responds.
-  const MODELS = [
-    "gemini-flash-latest",
-    "gemini-2.0-flash-001",
-    "gemini-2.0-flash-lite",
-    "gemini-1.5-flash",
-    "gemini-1.5-flash-8b",
-  ];
-  const debug: string[] = []; // temp diagnostic
-
-  for (const model of MODELS) {
-    try {
-      const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: payload,
-        }
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        const reply =
-          data?.candidates?.[0]?.content?.parts
-            ?.map((p: { text?: string }) => p.text)
-            .join("") ||
-          "I couldn't generate a reply just now — please try rephrasing.";
-        return Response.json({ reply });
-      }
-
-      debug.push(`${model}:${res.status}`);
-    } catch {
-      debug.push(`${model}:network`);
-    }
-  }
+  if (reply) return Response.json({ reply });
 
   return Response.json(
     {
       error: "upstream",
       reply:
         "The assistant is very busy right now — please try again in a moment.",
-      debug, // temp diagnostic
     },
     { status: 200 }
   );
