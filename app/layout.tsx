@@ -13,7 +13,10 @@ import SiteJsonLd from "@/components/SiteJsonLd";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
+  // "optional" avoids a mid-load font swap: the browser uses the (metric-matched)
+  // fallback if Inter isn't ready within ~100ms and does NOT swap afterwards, so a
+  // large hero heading never reflows and pushes the page down (kills font CLS).
+  display: "optional",
 });
 
 export const metadata: Metadata = {

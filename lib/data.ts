@@ -1,6 +1,8 @@
 // Shared content data. In production, news/blog can come from a CMS or API;
 // kept here as typed data so pages stay clean and the site works offline.
 
+import { morePosts } from "./morePosts";
+
 export type Calculator = {
   slug: string;
   title: string;
@@ -219,6 +221,94 @@ export const calculators: Calculator[] = [
     region: "IN",
     live: true,
     keywords: ["hra calculator", "hra exemption"],
+  },
+  {
+    slug: "nps",
+    title: "NPS Calculator",
+    short: "Pension & corpus estimate",
+    blurb:
+      "Project your NPS retirement corpus, tax-free lump sum and the monthly pension your annuity can buy at 60.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["nps calculator", "national pension scheme calculator", "nps pension calculator"],
+  },
+  {
+    slug: "epf",
+    title: "EPF Calculator",
+    short: "Provident fund growth",
+    blurb:
+      "Project your Employee Provident Fund corpus at retirement from your salary, contribution rate and EPF interest.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["epf calculator", "pf calculator", "employee provident fund calculator"],
+  },
+  {
+    slug: "home-loan-eligibility",
+    title: "Home Loan Eligibility Calculator",
+    short: "Home loan you can get",
+    blurb:
+      "Estimate how much home loan you qualify for from your income, existing EMIs and lender FOIR limits.",
+    category: "Loans",
+    region: "Global",
+    live: true,
+    keywords: ["home loan eligibility calculator", "how much home loan can i get", "loan eligibility calculator"],
+  },
+  {
+    slug: "step-up-sip",
+    title: "Step-up SIP Calculator",
+    short: "Top-up SIP returns",
+    blurb:
+      "See how raising your monthly SIP each year grows your corpus, and the extra you earn versus a flat SIP.",
+    category: "Investing",
+    region: "Global",
+    live: true,
+    keywords: ["step up sip calculator", "top up sip calculator", "step up sip returns"],
+  },
+  {
+    slug: "cagr",
+    title: "CAGR Calculator",
+    short: "Annual growth rate",
+    blurb:
+      "Turn an investment's start and end value into a smoothed annual growth rate, plus absolute return and total gain.",
+    category: "Investing",
+    region: "Global",
+    live: true,
+    keywords: ["cagr calculator", "compound annual growth rate calculator", "cagr formula"],
+  },
+  {
+    slug: "inflation",
+    title: "Inflation Calculator",
+    short: "Future value of money",
+    blurb:
+      "See what today's money will cost in future and how inflation erodes your savings' buying power over time.",
+    category: "Savings",
+    region: "Global",
+    live: true,
+    keywords: ["inflation calculator", "future value of money calculator", "purchasing power calculator"],
+  },
+  {
+    slug: "simple-interest",
+    title: "Simple Interest Calculator",
+    short: "Interest & total amount",
+    blurb:
+      "Work out interest and total repayment with the SI formula, and see how it compares with compound interest.",
+    category: "Savings",
+    region: "Global",
+    live: true,
+    keywords: ["simple interest calculator", "simple interest formula", "si calculator"],
+  },
+  {
+    slug: "rent-vs-buy",
+    title: "Rent vs Buy Calculator",
+    short: "Rent or buy a home",
+    blurb:
+      "Compare buying a home against renting and investing the difference to see which leaves you wealthier.",
+    category: "Loans",
+    region: "Global",
+    live: true,
+    keywords: ["rent vs buy calculator", "should i rent or buy a house", "rent or buy calculator"],
   },
 ];
 
@@ -855,4 +945,5 @@ export const posts: Post[] = [
     art: { variant: "chart", palette: "forest" },
     bodyMarkdown: "FIRE stands for Financial Independence, Retire Early. The idea is simple: save and invest aggressively for a decade or two, build a corpus big enough that its returns cover your living costs, then stop needing a paycheck. The number that gets thrown around most is \"25 times your annual expenses.\" That number comes from American research, and it needs adjusting before you apply it to a life lived in rupees.\n\nLet me walk through what the corpus actually looks like in India, where the popular math breaks, and what it takes to get there.\n\n## Where 25x comes from\n\nThe 25x figure is the flip side of the 4% rule. If you withdraw 4% of your corpus in year one and adjust that rupee amount for inflation each year after, a portfolio of stocks and bonds historically lasted around 30 years without running dry. Withdraw 4%, and your corpus needs to be 25 times your yearly spending, because 1 divided by 0.04 equals 25.\n\nSay you spend Rs 60,000 a month. That is Rs 7.2 lakh a year. Multiply by 25 and you get Rs 1.8 crore. On paper, once you have Rs 1.8 crore invested, you are financially independent.\n\nThe catch is that the 4% rule was built on US market history and US inflation, which has averaged around 2 to 3%. India is a different animal.\n\n## Why Indian inflation changes the math\n\nInflation in India has run higher and less predictably than in the US. Headline CPI has spent long stretches near 5 to 6%, and the lifestyle inflation that matters to an early retiree, such as private schooling, healthcare, and household help, often climbs faster than the official basket.\n\nTwo things follow from this.\n\nFirst, your expenses will roughly double every 12 to 14 years at 5 to 6% inflation. The Rs 7.2 lakh you spend today becomes Rs 14.4 lakh in your fifties and close to Rs 29 lakh in your sixties, in nominal terms. A corpus that felt huge at 40 can feel thin at 65 if you did not plan for this.\n\nSecond, a flat 4% withdrawal is aggressive for a retirement that might span 40 or 50 years instead of 30. Retire at 40 and you could be drawing down for half a century. Most Indian FIRE planners lean toward a 3 to 3.5% withdrawal rate for safety, which pushes the multiple up. At 3.3%, you need roughly 30x your annual expenses, not 25x.\n\nRun the same Rs 7.2 lakh a year through 30x and the target moves from Rs 1.8 crore to Rs 2.16 crore. The gap between 25x and 30x is the price of India's inflation and a longer runway.\n\n## The savings rate is the real lever\n\nPeople obsess over which mutual fund to pick. The variable that decides when you reach FIRE is your savings rate, meaning the share of your take-home pay you invest rather than spend.\n\nThe relationship is not linear, and it is brutal in a good way. If you save 10% of your income, you are funding a long career. Push your savings rate to 40 or 50%, and the timeline to financial independence collapses, because you are doing two things at once: building the corpus faster and lowering the annual expense number that corpus has to cover. A person who lives on 50% of their income needs a smaller pile than someone who lives on 80% of the same income, and they build that smaller pile in far less time.\n\nFor most salaried Indians chasing FIRE, a savings rate in the 40 to 60% range is what makes early retirement realistic within 12 to 20 years. Below 30%, \"early\" usually means a few years before 60, not retirement at 40.\n\n## Run your own numbers\n\nAverages are useless for your actual decision. Your rent, your city, whether you have kids, and whether you own a home change everything. Before you commit to a target, plug your real expenses, expected return, and inflation assumption into a [retirement corpus calculator](/calculators/retirement) and see what corpus your own life demands. Treat the output as a starting range, not a promise, and rerun it every couple of years as your spending changes.\n\nA sensible way to stress-test the result: assume 5 to 6% inflation, assume equity returns no higher than 10 to 11% over the long run, and use a withdrawal rate of 3 to 3.5% rather than 4%. If the plan still works under those conservative inputs, you have built in a margin of safety.\n\n## Honest steps, not hype\n\nFIRE content online is full of screenshots of huge portfolios and vague promises. Here is the unglamorous version that actually works.\n\nTrack every rupee for three months so you know your true annual expenses. This single number drives your entire target, and most people guess it wrong.\n\nKill high-interest debt first. No investment reliably beats the 15 to 40% you pay on credit cards and personal loans, so clearing that is a guaranteed return.\n\nBuild an emergency fund of six to twelve months of expenses in a liquid instrument before you lock money into long-term equity. Without it, one job loss or medical event forces you to sell investments at the worst time.\n\nAutomate investing into low-cost, diversified equity funds through SIPs, and let time and compounding do the heavy lifting. Do not try to time the market.\n\nSeparately, plan for healthcare. A big medical bill is the classic thing that wrecks an early-retirement corpus, so a solid health insurance policy is part of the plan, not an afterthought.\n\n## A realistic view\n\nFIRE in India is achievable, but the honest version needs a bigger corpus and a higher savings rate than the imported 4% math suggests. Aim closer to 30x your annual expenses, assume inflation will keep gnawing at your number, and treat the savings rate as the thing you actually control. Some people pursue a softer version, sometimes called Coast FIRE or Barista FIRE, where they build enough early that they only need light work later. That is a valid path too.\n\nNone of this is financial advice, and your situation deserves its own numbers and, ideally, a fee-only advisor. But the framework is sound: know your spending, respect inflation, save hard, and let a conservative withdrawal rate keep you safe for the long haul.",
   },
+  ...morePosts,
 ];
