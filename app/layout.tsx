@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
+import AdSense from "@/components/AdSense";
 import { GtmScript, GtmNoScript } from "@/components/Gtm";
 import SiteJsonLd from "@/components/SiteJsonLd";
 
@@ -57,6 +58,9 @@ export const metadata: Metadata = {
   ...(site.googleVerification
     ? { verification: { google: site.googleVerification } }
     : {}),
+  ...(site.adsenseClientId
+    ? { other: { "google-adsense-account": site.adsenseClientId } }
+    : {}),
 };
 
 export default function RootLayout({
@@ -72,6 +76,7 @@ export default function RootLayout({
         <Footer />
         <CookieConsent />
         <Analytics gaId={site.gaId} />
+        <AdSense clientId={site.adsenseClientId} />
         <GtmScript id={site.gtmId} />
       </body>
     </html>

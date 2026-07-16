@@ -24,6 +24,11 @@ export const site = {
   // IndexNow key (Bing/Yandex/Naver instant indexing — also feeds ChatGPT Search
   // via Bing's index). The key file lives at /<key>.txt in public/.
   indexNowKey: "50d24150aec21af2e12f5995d1758905",
+  // Google AdSense publisher ID — the FULL client value "ca-pub-XXXXXXXXXXXXXXXX".
+  // Get it AFTER signing up at adsense.google.com and adding coinmind.in. Setting
+  // it here switches on the AdSense loader script (for site review + serving ads);
+  // also paste the matching line into public/ads.txt.
+  adsenseClientId: "",
 } as const;
 
 export type NavItem = {
