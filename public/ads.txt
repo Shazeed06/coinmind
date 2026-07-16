@@ -1,9 +1,3 @@
-# ads.txt — Authorized Digital Sellers
-#
-# AFTER your Google AdSense account is approved, replace the line below with the
-# exact line AdSense gives you (Account → Settings → "Get ads.txt snippet").
-# It will look like this (use YOUR publisher ID, starts with pub-):
-#
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
-#
-# Until then this file is intentionally empty of seller records.
+# ads.txt — Authorized Digital Sellers for coinmind.in
+# https://support.google.com/adsense/answer/12171612
+google.com, pub-5677983073792236, DIRECT, f08c47fec0942fa0
