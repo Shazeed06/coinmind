@@ -1,9 +1,11 @@
 // AI Money Assistant backend.
 //
 // Provider priority (first key that exists wins):
-//   1. GROQ_API_KEY   — free, fast, reliable. Get one at console.groq.com/keys
-//   2. GEMINI_API_KEY — Google Gemini free tier (aistudio.google.com/apikey)
+//   1. DEEPSEEK_API_KEY — DeepSeek (paid, very cheap). platform.deepseek.com/api_keys
+//   2. GROQ_API_KEY     — free, fast, reliable. console.groq.com/keys
+//   3. GEMINI_API_KEY   — Google Gemini (free tier unreliable). aistudio.google.com/apikey
 //
+// DeepSeek & Groq are OpenAI-compatible; Gemini uses its own REST shape.
 // Keys stay server-side; the browser never sees them. Set them in
 // Vercel → Settings → Environment Variables, then redeploy.
 
@@ -27,9 +29,13 @@ const env = (...names: string[]) => {
   return "";
 };
 
-// ---- Groq (OpenAI-compatible) -------------------------------------------
-async function callGroq(key: string, messages: Msg[]): Promise<string | null> {
-  const models = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"];
+// ---- OpenAI-compatible providers (DeepSeek, Groq) ------------------------
+async function callOpenAICompatible(
+  endpoint: string,
+  key: string,
+  models: string[],
+  messages: Msg[]
+): Promise<string | null> {
   const body = (model: string) =>
     JSON.stringify({
       model,
@@ -43,7 +49,7 @@ async function callGroq(key: string, messages: Msg[]): Promise<string | null> {
 
   for (const model of models) {
     try {
-      const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +69,7 @@ async function callGroq(key: string, messages: Msg[]): Promise<string | null> {
   return null;
 }
 
-// ---- Gemini --------------------------------------------------------------
+// ---- Gemini (Google's own REST shape) ------------------------------------
 async function callGemini(key: string, messages: Msg[]): Promise<string | null> {
   const models = [
     "gemini-flash-latest",
@@ -104,15 +110,16 @@ async function callGemini(key: string, messages: Msg[]): Promise<string | null> 
 }
 
 export async function POST(req: Request) {
+  const deepseekKey = env("DEEPSEEK_API_KEY", "deepseek_api_key");
   const groqKey = env("GROQ_API_KEY", "groq_api_key");
   const geminiKey = env("GEMINI_API_KEY", "gemini_api_key");
 
-  if (!groqKey && !geminiKey) {
+  if (!deepseekKey && !groqKey && !geminiKey) {
     return Response.json(
       {
         error: "not_configured",
         reply:
-          "The AI assistant isn't switched on yet. Add a free GROQ_API_KEY (from console.groq.com/keys) in the site's environment variables to enable it.",
+          "The AI assistant isn't switched on yet. Add a DEEPSEEK_API_KEY (or a free GROQ_API_KEY) in the site's environment variables to enable it.",
       },
       { status: 200 }
     );
@@ -135,9 +142,24 @@ export async function POST(req: Request) {
     return Response.json({ error: "empty" }, { status: 400 });
   }
 
-  // Prefer Groq (reliable free tier); fall back to Gemini if configured.
+  // Try providers in priority order until one returns a reply.
   let reply: string | null = null;
-  if (groqKey) reply = await callGroq(groqKey, messages);
+  if (deepseekKey) {
+    reply = await callOpenAICompatible(
+      "https://api.deepseek.com/chat/completions",
+      deepseekKey,
+      ["deepseek-chat"],
+      messages
+    );
+  }
+  if (!reply && groqKey) {
+    reply = await callOpenAICompatible(
+      "https://api.groq.com/openai/v1/chat/completions",
+      groqKey,
+      ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"],
+      messages
+    );
+  }
   if (!reply && geminiKey) reply = await callGemini(geminiKey, messages);
 
   if (reply) return Response.json({ reply });
