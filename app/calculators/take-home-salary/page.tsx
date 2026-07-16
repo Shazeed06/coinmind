@@ -33,7 +33,7 @@ export default function Page() {
               From gross, we subtract your own deductions. Your employee PF is
               another 12% of Basic and goes into your retirement account.
               Professional tax is a flat state levy of about ₹2,400 a year. Income
-              tax is calculated under the new regime for FY 2025-26, applying the
+              tax is calculated under the new regime for FY 2026-27, applying the
               ₹75,000 standard deduction and the Section 87A rebate, which makes
               tax zero up to ₹12 lakh of taxable income; a 4% health and education
               cess is added on any tax due.
@@ -58,7 +58,7 @@ export default function Page() {
         },
         {
           q: "How much tax do I pay on a ₹12 lakh salary?",
-          a: "Under the new regime for FY 2025-26, income up to ₹12 lakh of taxable income attracts zero tax thanks to the Section 87A rebate, and the ₹75,000 standard deduction lifts that threshold further on salary. So a salary around ₹12 lakh typically results in no income tax.",
+          a: "Under the new regime for FY 2026-27, income up to ₹12 lakh of taxable income attracts zero tax thanks to the Section 87A rebate, and the ₹75,000 standard deduction lifts that threshold further on salary. So a salary around ₹12 lakh typically results in no income tax.",
         },
         {
           q: "Why is my in-hand less than my CTC?",

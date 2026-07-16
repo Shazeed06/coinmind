@@ -6,7 +6,7 @@ import { IconArrow, IconSparkle, IconShield } from "@/components/icons";
 export const metadata: Metadata = {
   title: { absolute: "Free Online Tools — Resume, PDF & Image Utilities" },
   description:
-    "Free browser tools that others charge for: a resume builder, PDF merger, image compressor and converter. No sign-up, no upload — everything runs privately in your browser.",
+    "Free browser tools others charge for: resume builder, PDF merger, image compressor and converter. No sign-up — everything runs privately in your browser.",
   alternates: { canonical: "/tools" },
   openGraph: {
     title: "Free Online Tools — Resume, PDF & Image Utilities",

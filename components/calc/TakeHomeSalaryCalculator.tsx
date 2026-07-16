@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { formatCurrency } from "@/lib/format";
 import { Field, Donut, Stat } from "./shared";
 
-// New regime slabs FY 2025-26 (same as the income-tax calculator).
+// New regime slabs FY 2026-27 (same as the income-tax calculator).
 const SLABS: [number, number][] = [
   [400000, 0],
   [800000, 0.05],
@@ -62,7 +62,7 @@ export default function TakeHomeSalaryCalculator() {
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <h2 className="font-display text-xl font-600 text-ink">Your package</h2>
         <p className="mt-1 text-sm text-ink-faint">
-          India · new tax regime · FY 2025-26
+          India · new tax regime · FY 2026-27
         </p>
         <div className="mt-6 space-y-7">
           <Field

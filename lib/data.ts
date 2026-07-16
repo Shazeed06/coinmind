@@ -40,7 +40,7 @@ export const calculators: Calculator[] = [
     title: "Income Tax Calculator",
     short: "New vs old regime (India)",
     blurb:
-      "Estimate your income tax under India's new and old regimes for FY 2025–26 and see which saves you more.",
+      "Estimate your income tax under India's new and old regimes for FY 2026–27 and see which saves you more.",
     category: "Tax",
     region: "IN",
     live: true,
@@ -187,7 +187,7 @@ export const calculators: Calculator[] = [
     category: "Utility",
     region: "Global",
     live: true,
-    keywords: ["tip calculator", "gratuity calculator", "bill split calculator"],
+    keywords: ["tip calculator", "tip percentage calculator", "bill split calculator"],
   },
   {
     slug: "date-difference-calculator",
@@ -624,8 +624,9 @@ export type NewsItem = {
   tag: string;
 };
 
-// Sample curated items to demonstrate the layout.
-// These get replaced by the daily auto-fetch pipeline (RSS/News API + AI summary).
+// Evergreen, original plain-English explainers on finance & AI topics.
+// Add new items here when publishing — there is no live auto-fetch pipeline,
+// so the page is written to present these honestly (no "updated today" claims).
 export const news: NewsItem[] = [
   {
     title: "RBI holds repo rate steady as inflation cools",
@@ -813,7 +814,7 @@ export const posts: Post[] = [
   {
     slug: "ups-vs-nps",
     title: "UPS vs NPS: Which Pension Scheme Should You Pick?",
-    excerpt: "A clear, factual comparison of the Unified Pension Scheme (UPS) and NPS for Indian government employees: guaranteed vs market-linked pension, contributions, and payouts.",
+    excerpt: "A clear comparison of the Unified Pension Scheme (UPS) and NPS for government employees: guaranteed vs market-linked pension, contributions and payouts.",
     category: "Investing",
     readMinutes: 7,
     date: "Jul 15, 2026",

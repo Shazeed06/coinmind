@@ -6,7 +6,7 @@ import { Field } from "./shared";
 
 type Slab = { upto: number; rate: number };
 
-// FY 2025-26 (AY 2026-27) — New Regime slabs
+// FY 2026-27 (AY 2027-28) — New Regime slabs
 const NEW_SLABS: Slab[] = [
   { upto: 400000, rate: 0 },
   { upto: 800000, rate: 0.05 },
@@ -69,7 +69,7 @@ export default function IncomeTaxCalculator() {
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <h2 className="font-display text-xl font-600 text-ink">Your income</h2>
         <p className="mt-1 text-sm text-ink-faint">
-          FY 2025–26 · India · below 60 years · salaried
+          FY 2026–27 · India · below 60 years · salaried
         </p>
         <div className="mt-6 space-y-7">
           <Field

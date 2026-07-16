@@ -3,9 +3,9 @@ import IncomeTaxCalculator from "@/components/calc/IncomeTaxCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Income Tax Calculator FY 2025-26 — New vs Old Regime" },
+  title: { absolute: "Income Tax Calculator FY 2026-27 — New vs Old Regime" },
   description:
-    "Free income tax calculator for FY 2025-26 (AY 2026-27). Compare the new and old tax regimes for India and instantly see which one saves you more tax.",
+    "Free income tax calculator for FY 2026-27 (AY 2027-28). Compare the new and old tax regimes for India and instantly see which one saves you more tax.",
   alternates: { canonical: "/calculators/income-tax" },
 };
 
@@ -14,9 +14,9 @@ export default function Page() {
     <CalcPage
       slug="income-tax"
       title="Income Tax Calculator"
-      subtitle="Compare the new and old regimes for FY 2025-26 and see which one saves you more."
+      subtitle="Compare the new and old regimes for FY 2026-27 and see which one saves you more."
       calculator={<IncomeTaxCalculator />}
-      intro="Every year, salaried taxpayers in India face the same question: new regime or old regime? The new regime has lower rates but removes most deductions; the old regime keeps deductions like 80C and HRA but taxes at higher rates. This calculator estimates your tax under both for FY 2025-26 (AY 2026-27) and tells you which one leaves more money in your pocket."
+      intro="Every year, salaried taxpayers in India face the same question: new regime or old regime? The new regime has lower rates but removes most deductions; the old regime keeps deductions like 80C and HRA but taxes at higher rates. This calculator estimates your tax under both for FY 2026-27 (AY 2027-28) and tells you which one leaves more money in your pocket."
       how={{
         heading: "New vs old regime — how it's calculated",
         body: (
@@ -48,7 +48,7 @@ export default function Page() {
         },
         {
           q: "What income is tax-free under the new regime?",
-          a: "For FY 2025-26, a salaried person effectively pays no tax up to about ₹12.75 lakh (₹12 lakh rebate limit plus the ₹75,000 standard deduction), thanks to the Section 87A rebate.",
+          a: "For FY 2026-27, a salaried person effectively pays no tax up to about ₹12.75 lakh (₹12 lakh rebate limit plus the ₹75,000 standard deduction), thanks to the Section 87A rebate.",
         },
         {
           q: "Does this include cess and surcharge?",

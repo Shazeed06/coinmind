@@ -39,6 +39,7 @@ export default function CurrencyConverter() {
 
   const result = useMemo(() => {
     if (!rates || !rates[from] || !rates[to]) return null;
+    if (!Number.isFinite(amount)) return null;
     return (amount / rates[from]) * rates[to];
   }, [rates, amount, from, to]);
 

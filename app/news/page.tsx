@@ -19,17 +19,11 @@ function newsArt(
 }
 
 export const metadata: Metadata = {
-  title: "Finance & AI News — Today's Briefing",
+  title: "Finance & AI Explainers — In Plain English",
   description:
-    "A daily briefing of the most important finance and AI news, summarised in plain English. Markets, rates, AI models and tools — the signal, not the noise.",
+    "Original, plain-English explainers of the finance and AI developments that matter — markets, rates, AI models and tools. Written to inform, not to chase headlines.",
   alternates: { canonical: "/news" },
 };
-
-function ago(minutes: number) {
-  if (minutes < 60) return `${minutes}m ago`;
-  const h = Math.floor(minutes / 60);
-  return `${h}h ago`;
-}
 
 export default function Page() {
   const [lead, ...rest] = news;
@@ -38,19 +32,16 @@ export default function Page() {
       <header className="pt-14 pb-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
         <div className="max-w-2xl">
           <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-            <IconNews className="h-3.5 w-3.5" /> Daily briefing
+            <IconNews className="h-3.5 w-3.5" /> Explainers
           </span>
           <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-            Today in finance & AI
+            Finance & AI, explained
           </h1>
           <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-            The stories that move markets and shape technology — scanned,
-            summarised and refreshed every day.
+            The developments shaping markets and technology — summarised in
+            clear, plain English, with the context that matters.
           </p>
         </div>
-        <p className="text-sm text-ink-faint shrink-0">
-          Updated · Monday, 14 July 2026
-        </p>
       </header>
 
       {/* Lead story */}
@@ -73,9 +64,9 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-ink-soft leading-relaxed">{lead.summary}</p>
             <div className="mt-5 flex items-center gap-3 text-xs text-ink-faint">
-              <span>{lead.source}</span>
+              <span>CoinMind explainer</span>
               <span className="h-3 w-px bg-line-strong" />
-              <span>{ago(lead.minutesAgo)}</span>
+              <span>{lead.tag}</span>
             </div>
           </div>
         </div>
@@ -115,9 +106,9 @@ export default function Page() {
                   {n.summary}
                 </p>
                 <div className="mt-4 flex items-center gap-3 text-xs text-ink-faint">
-                  <span>{n.source}</span>
+                  <span>CoinMind explainer</span>
                   <span className="h-3 w-px bg-line-strong" />
-                  <span>{ago(n.minutesAgo)}</span>
+                  <span>{n.tag}</span>
                 </div>
               </div>
             </article>
@@ -128,14 +119,15 @@ export default function Page() {
       {/* How it works note (also builds trust for AdSense/originality) */}
       <section className="mt-16 mb-4 rounded-2xl border border-line bg-paper-2 p-6 sm:p-8 max-w-3xl">
         <h2 className="font-display text-xl font-600 text-ink">
-          How we put the briefing together
+          How we write these
         </h2>
         <p className="mt-3 text-sm text-ink-soft leading-relaxed">
-          Each morning we scan trusted finance and technology sources, then
-          write original, plain-English summaries of what matters — with the
-          context you need to understand why. We link out to the original
-          reporting so you can always go deeper. This is journalism-style
-          curation, not copy-paste: every summary here is written fresh.
+          These are original, plain-English explainers written by the CoinMind
+          team on the finance and AI topics that matter — what&apos;s happening
+          and why it&apos;s relevant to your money or the tools you use.
+          They&apos;re for general education, not live breaking-news or
+          financial advice. For the latest figures and announcements, always
+          check primary sources.
         </p>
       </section>
     </div>

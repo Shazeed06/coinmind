@@ -53,7 +53,7 @@ export function Field({
     <div>
       <div className="flex items-center justify-between gap-3">
         <label className="text-sm font-medium text-ink-soft">{label}</label>
-        <div className="flex items-center rounded-lg border border-line-strong bg-card px-2.5 py-1.5 focus-within:border-forest transition-colors">
+        <div className="flex items-center rounded-lg border border-line-strong bg-card px-2.5 py-1.5 focus-within:border-forest focus-within:ring-2 focus-within:ring-forest/25 transition-colors">
           {prefix && (
             <span className="text-sm text-ink-faint mr-1">{prefix}</span>
           )}
@@ -112,7 +112,7 @@ export function Donut({
 
   return (
     <div className="flex flex-col items-center">
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} role="img" aria-label={`${primaryLabel} versus ${secondaryLabel}`}>
         <circle
           cx={cx}
           cy={cx}
@@ -165,11 +165,12 @@ export function CurrencyToggle({
 }) {
   const options: Currency[] = ["INR", "USD", "GBP"];
   return (
-    <div className="inline-flex rounded-lg border border-line-strong bg-card p-0.5">
+    <div role="group" aria-label="Display currency" className="inline-flex rounded-lg border border-line-strong bg-card p-0.5">
       {options.map((c) => (
         <button
           key={c}
           type="button"
+          aria-pressed={value === c}
           onClick={() => onChange(c)}
           className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-colors ${
             value === c

@@ -12,6 +12,7 @@ export const currencyMeta: Record<
 };
 
 export function formatCurrency(value: number, currency: Currency = "INR"): string {
+  if (!Number.isFinite(value)) return "—";
   const { locale } = currencyMeta[currency];
   return new Intl.NumberFormat(locale, {
     style: "currency",

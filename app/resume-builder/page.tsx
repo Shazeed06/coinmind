@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     absolute: "Free Resume Builder — Make a Professional CV Online",
   },
   description:
-    "Free resume builder with a live preview and one-click PDF download. Create an ATS-friendly, professional CV in minutes — plus optional AI resume help. No sign-up.",
+    "Free resume builder with live preview and one-click PDF. Create an ATS-friendly, professional CV in minutes — with optional AI help. No sign-up.",
   alternates: { canonical: "/resume-builder" },
   openGraph: {
     title: "Free Resume Builder — Make a Professional CV Online",

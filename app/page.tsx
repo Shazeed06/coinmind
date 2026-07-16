@@ -15,9 +15,9 @@ import {
 import CoverArt from "@/components/CoverArt";
 
 export const metadata: Metadata = {
-  title: "Free Finance Calculators, AI Tool Reviews & Daily News",
+  title: { absolute: "CoinMind — Free Finance Calculators & AI Reviews" },
   description:
-    "CoinMind gives you free SIP, EMI, income tax & FD calculators, honest AI tool reviews, and daily finance & AI news — for smarter money decisions in India, the US and the UK.",
+    "Free SIP, EMI, income tax and FD calculators, honest AI tool reviews, and plain-English finance & AI explainers — for smarter money decisions.",
   alternates: { canonical: "/" },
 };
 
@@ -75,8 +75,8 @@ function Hero() {
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
               Free calculators for SIP, EMI, income tax and fixed deposits.
-              Honest reviews of the best AI tools. And a daily briefing on the
-              finance and AI news that actually matters. No jargon, no fluff.
+              Honest reviews of the best AI tools. And plain-English explainers
+              of the finance and AI developments that matter. No jargon, no fluff.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -90,7 +90,7 @@ function Hero() {
                 href="/news"
                 className="inline-flex items-center gap-2 rounded-full border border-line-strong bg-card px-6 py-3 text-sm font-semibold text-ink transition-colors hover:border-forest hover:text-forest"
               >
-                Today&apos;s briefing
+                Read the explainers
               </Link>
             </div>
 
@@ -257,22 +257,22 @@ function Briefing() {
           <div className="bg-forest-deep p-8 sm:p-10 text-white flex flex-col justify-between">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium">
-                <IconNews className="h-3.5 w-3.5" /> Daily briefing
+                <IconNews className="h-3.5 w-3.5" /> Explainers
               </span>
               <h2 className="mt-5 font-display text-3xl sm:text-4xl font-600 leading-tight">
-                The finance & AI news that actually matters
+                The finance & AI developments that matter
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-white/70">
-                Every day we scan the wires, cut the noise, and summarise what
-                moves markets and shapes technology — in plain English you can
-                read in two minutes.
+                We break down what&apos;s happening in markets and technology —
+                and why it matters for your money and your tools — in plain
+                English you can read in two minutes.
               </p>
             </div>
             <Link
               href="/news"
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-forest-deep hover:bg-white/90 transition-colors"
             >
-              Read today&apos;s briefing <IconArrow className="h-4 w-4" />
+              Read the explainers <IconArrow className="h-4 w-4" />
             </Link>
           </div>
 
