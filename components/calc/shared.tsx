@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Currency, currencyMeta } from "@/lib/format";
 
-/* Slider + number field combined — the core calculator input. */
+/* Slider + number field combined — the core calculator input.
+   The text box lets people clear it and type ANY number freely — no minimum,
+   no per-keystroke clamping. While focused we keep a free-text "draft"; when it
+   loses focus we fall back to the live value so the slider stays in sync. */
 export function Field({
   label,
   value,
@@ -24,7 +28,27 @@ export function Field({
   suffix?: string;
   hint?: string;
 }) {
-  const clamp = (v: number) => Math.min(max, Math.max(min, v));
+  const [draft, setDraft] = useState<string | null>(null);
+  const display = draft ?? (Number.isFinite(value) ? String(value) : "");
+
+  const handleType = (str: string) => {
+    // Keep it a clean number entry (digits + one decimal point), but never clamp.
+    const cleaned = str.replace(/[^\d.]/g, "");
+    setDraft(cleaned);
+    if (cleaned === "" || cleaned === ".") return; // still typing — don't push NaN
+    const n = Number(cleaned);
+    if (Number.isFinite(n)) onChange(n);
+  };
+
+  const handleBlur = () => {
+    const n = Number(draft);
+    if (draft !== null && draft !== "" && Number.isFinite(n)) onChange(n);
+    setDraft(null); // show the committed live value again
+  };
+
+  // The slider thumb rests within its range even if the typed value is outside it.
+  const sliderValue = Math.min(max, Math.max(min, Number.isFinite(value) ? value : min));
+
   return (
     <div>
       <div className="flex items-center justify-between gap-3">
@@ -34,13 +58,17 @@ export function Field({
             <span className="text-sm text-ink-faint mr-1">{prefix}</span>
           )}
           <input
-            type="number"
-            value={Number.isFinite(value) ? value : ""}
-            min={min}
-            max={max}
-            step={step}
-            onChange={(e) => onChange(clamp(Number(e.target.value)))}
-            className="w-24 bg-transparent text-right text-sm font-semibold text-ink outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+            type="text"
+            inputMode="decimal"
+            value={display}
+            onFocus={(e) => {
+              setDraft(Number.isFinite(value) ? String(value) : "");
+              e.target.select();
+            }}
+            onChange={(e) => handleType(e.target.value)}
+            onBlur={handleBlur}
+            className="w-28 bg-transparent text-right text-sm font-semibold text-ink outline-none"
+            aria-label={label}
           />
           {suffix && (
             <span className="text-sm text-ink-faint ml-1">{suffix}</span>
@@ -49,7 +77,7 @@ export function Field({
       </div>
       <input
         type="range"
-        value={value}
+        value={sliderValue}
         min={min}
         max={max}
         step={step}

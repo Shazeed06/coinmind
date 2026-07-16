@@ -89,7 +89,7 @@ export default function HraCalculator() {
             label="Basic salary + DA (per year)"
             value={basic}
             onChange={setBasic}
-            min={100000}
+            min={0}
             max={10000000}
             step={50000}
             prefix="₹"

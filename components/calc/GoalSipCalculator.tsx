@@ -33,7 +33,7 @@ export default function GoalSipCalculator() {
             label="Target amount"
             value={target}
             onChange={setTarget}
-            min={100000}
+            min={0}
             max={100000000}
             step={100000}
             prefix={sym}

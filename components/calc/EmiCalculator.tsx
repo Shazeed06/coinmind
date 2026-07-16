@@ -33,7 +33,7 @@ export default function EmiCalculator() {
             label="Loan amount"
             value={principal}
             onChange={setPrincipal}
-            min={100000}
+            min={0}
             max={50000000}
             step={50000}
             prefix={sym}

@@ -21,7 +21,7 @@ export default function GratuityCalculator() {
         <h2 className="font-display text-xl font-600 text-ink">Your service</h2>
         <p className="mt-1 text-sm text-ink-faint">For employees covered under the Gratuity Act</p>
         <div className="mt-6 space-y-7">
-          <Field label="Last drawn monthly salary" value={salary} onChange={setSalary} min={10000} max={500000} step={5000} prefix="₹" hint="Basic salary + dearness allowance (DA)." />
+          <Field label="Last drawn monthly salary" value={salary} onChange={setSalary} min={0} max={500000} step={5000} prefix="₹" hint="Basic salary + dearness allowance (DA)." />
           <Field label="Years of service" value={years} onChange={setYears} min={5} max={40} step={1} suffix="yrs" hint="Gratuity is usually payable after 5 years of continuous service." />
         </div>
       </div>

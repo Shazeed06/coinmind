@@ -61,7 +61,7 @@ export default function SwpCalculator() {
             label="Total investment"
             value={corpus}
             onChange={setCorpus}
-            min={100000}
+            min={0}
             max={100000000}
             step={50000}
             prefix={sym}

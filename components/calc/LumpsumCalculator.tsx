@@ -25,7 +25,7 @@ export default function LumpsumCalculator() {
           <CurrencyToggle value={currency} onChange={setCurrency} />
         </div>
         <div className="mt-6 space-y-7">
-          <Field label="Investment amount" value={amount} onChange={setAmount} min={100000} max={50000000} step={50000} prefix={sym} />
+          <Field label="Investment amount" value={amount} onChange={setAmount} min={0} max={50000000} step={50000} prefix={sym} />
           <Field label="Expected return (p.a.)" value={rate} onChange={setRate} min={1} max={30} step={0.5} suffix="%" hint="Equity funds have historically returned 10–14% long term. Returns are not guaranteed." />
           <Field label="Time period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="yrs" />
         </div>

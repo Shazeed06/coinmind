@@ -32,7 +32,7 @@ export default function CompoundInterestCalculator() {
           <CurrencyToggle value={currency} onChange={setCurrency} />
         </div>
         <div className="mt-6 space-y-7">
-          <Field label="Principal amount" value={principal} onChange={setPrincipal} min={100000} max={50000000} step={50000} prefix={sym} />
+          <Field label="Principal amount" value={principal} onChange={setPrincipal} min={0} max={50000000} step={50000} prefix={sym} />
           <Field label="Interest rate (p.a.)" value={rate} onChange={setRate} min={1} max={30} step={0.5} suffix="%" />
           <Field label="Time period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="yrs" />
           <div>

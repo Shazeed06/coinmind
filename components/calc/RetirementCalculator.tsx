@@ -49,7 +49,7 @@ export default function RetirementCalculator() {
         <div className="mt-6 space-y-6">
           <Field label="Current age" value={age} onChange={setAge} min={18} max={59} step={1} suffix="yrs" />
           <Field label="Retirement age" value={retireAge} onChange={setRetireAge} min={40} max={70} step={1} suffix="yrs" />
-          <Field label="Monthly expenses (today)" value={monthlyExpense} onChange={setMonthlyExpense} min={10000} max={1000000} step={5000} prefix={sym} />
+          <Field label="Monthly expenses (today)" value={monthlyExpense} onChange={setMonthlyExpense} min={0} max={1000000} step={5000} prefix={sym} />
           <Field label="Expected inflation" value={inflation} onChange={setInflation} min={2} max={12} step={0.5} suffix="%" />
           <Field label="Expected return on investments" value={preReturn} onChange={setPreReturn} min={4} max={20} step={0.5} suffix="%" />
           <Field label="Life expectancy" value={lifeExpectancy} onChange={setLifeExpectancy} min={70} max={100} step={1} suffix="yrs" />

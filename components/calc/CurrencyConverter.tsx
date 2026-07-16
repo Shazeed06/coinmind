@@ -65,11 +65,12 @@ export default function CurrencyConverter() {
           <div className="mt-1.5 flex gap-2">
             <input
               type="number"
+              aria-label="Amount to convert"
               value={Number.isFinite(amount) ? amount : ""}
               onChange={(e) => setAmount(Number(e.target.value))}
               className="flex-1 rounded-lg border border-line-strong bg-card px-3 py-2.5 text-sm font-semibold text-ink outline-none focus:border-forest [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
-            <select value={from} onChange={(e) => setFrom(e.target.value)} className={select}>
+            <select aria-label="Convert from currency" value={from} onChange={(e) => setFrom(e.target.value)} className={select}>
               {POPULAR.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
@@ -92,7 +93,7 @@ export default function CurrencyConverter() {
             <div className="flex-1 rounded-lg bg-paper-2 px-3 py-2.5 text-sm font-semibold text-forest truncate">
               {result !== null ? fmt(result, to) : error ? "—" : "…"}
             </div>
-            <select value={to} onChange={(e) => setTo(e.target.value)} className={select}>
+            <select aria-label="Convert to currency" value={to} onChange={(e) => setTo(e.target.value)} className={select}>
               {POPULAR.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}

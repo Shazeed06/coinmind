@@ -37,6 +37,7 @@ function NumberInput({
       <input
         type="number"
         inputMode="decimal"
+        aria-label={label}
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}

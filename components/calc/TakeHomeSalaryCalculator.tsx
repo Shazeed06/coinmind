@@ -69,7 +69,7 @@ export default function TakeHomeSalaryCalculator() {
             label="Annual CTC"
             value={ctc}
             onChange={setCtc}
-            min={100000}
+            min={0}
             max={10000000}
             step={50000}
             prefix="₹"

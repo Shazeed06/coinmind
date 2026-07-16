@@ -36,7 +36,7 @@ export default function FdCalculator() {
             label="Total investment"
             value={principal}
             onChange={setPrincipal}
-            min={100000}
+            min={0}
             max={10000000}
             step={5000}
             prefix={sym}
