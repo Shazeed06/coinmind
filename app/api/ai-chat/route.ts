@@ -10,7 +10,9 @@
 // Vercel → Settings → Environment Variables, then redeploy.
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 30;
+// DeepSeek can occasionally be slow under load; give the request headroom
+// (Vercel Hobby allows up to 60s) so real users don't hit a function timeout.
+export const maxDuration = 60;
 
 const SYSTEM = `You are CoinMind's friendly Money & AI assistant on coinmind.in. Help people with personal finance (India + global), investing basics, taxes, budgeting, saving, and choosing/using AI tools. Rules:
 - Be clear, concise and practical. Use simple language and short paragraphs or bullet points.
