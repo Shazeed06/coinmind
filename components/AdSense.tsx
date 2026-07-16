@@ -1,16 +1,17 @@
-import Script from "next/script";
-
 // Google AdSense loader. Renders nothing until a publisher ID
 // (ca-pub-XXXXXXXXXXXXXXXX) is set in lib/site.ts (site.adsenseClientId).
-// The script is required for AdSense to review the site and, once approved,
-// to serve ads. Loaded after the page is interactive so it never blocks content.
+//
+// We render a PLAIN <script> (not next/script) so the tag is server-rendered
+// directly into the initial HTML <head>. AdSense's verification crawler and
+// the "AdSense code" site check look for the script in the raw HTML — a
+// client-injected (afterInteractive) script isn't visible to it. React 19
+// hoists this async script to <head> and de-dupes it by src.
 export default function AdSense({ clientId }: { clientId: string }) {
   if (!clientId) return null;
   return (
-    <Script
-      id="adsbygoogle-loader"
+    <script
+      async
       src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`}
-      strategy="afterInteractive"
       crossOrigin="anonymous"
     />
   );
