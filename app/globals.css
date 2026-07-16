@@ -65,6 +65,9 @@ body {
 /* Display serif — used sparingly for headings & brand */
 .font-display {
   font-family: var(--font-display);
+  /* Headings render bold. NB: the `font-600` class used in JSX is a no-op in
+     Tailwind v4 (no numeric weight utility), so weight is set here instead. */
+  font-weight: 700;
   font-optical-sizing: auto;
   letter-spacing: -0.015em;
 }
@@ -156,7 +159,7 @@ input[type="range"]::-moz-range-thumb {
 }
 .article h2 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--color-ink);
   font-size: 1.6rem;
