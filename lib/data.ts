@@ -207,7 +207,7 @@ export const calculators: Calculator[] = [
     blurb: "Plan a monthly income from your investments while the balance keeps growing.",
     category: "Investing",
     region: "IN",
-    live: false,
+    live: true,
     keywords: ["swp calculator", "systematic withdrawal plan"],
   },
   {
@@ -217,7 +217,7 @@ export const calculators: Calculator[] = [
     blurb: "Work out how much of your HRA is tax-exempt under Indian income tax rules.",
     category: "Tax",
     region: "IN",
-    live: false,
+    live: true,
     keywords: ["hra calculator", "hra exemption"],
   },
 ];
