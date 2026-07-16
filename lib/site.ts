@@ -34,6 +34,7 @@ export type NavItem = {
 
 export const primaryNav: NavItem[] = [
   { label: "Calculators", href: "/calculators", desc: "SIP, EMI, tax, FD & more" },
+  { label: "Free Tools", href: "/tools", desc: "Resume, PDF & image tools" },
   { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant" },
   { label: "AI Tools", href: "/ai-tools", desc: "Reviews & comparisons" },
   { label: "News", href: "/news", desc: "Daily finance & AI updates" },
@@ -49,6 +50,16 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
       { label: "Income Tax Calculator", href: "/calculators/income-tax" },
       { label: "FD Calculator", href: "/calculators/fd" },
       { label: "All calculators", href: "/calculators" },
+    ],
+  },
+  {
+    title: "Free Tools",
+    items: [
+      { label: "Resume Builder", href: "/resume-builder" },
+      { label: "Compress Image", href: "/tools/compress-image" },
+      { label: "Image to PDF", href: "/tools/image-to-pdf" },
+      { label: "Merge PDF", href: "/tools/merge-pdf" },
+      { label: "All free tools", href: "/tools" },
     ],
   },
   {

@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/calculators",
+    "/tools",
+    "/resume-builder",
+    "/tools/compress-image",
+    "/tools/image-converter",
+    "/tools/image-to-pdf",
+    "/tools/merge-pdf",
     "/ai-assistant",
     "/ai-tools",
     "/news",

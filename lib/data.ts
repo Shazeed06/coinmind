@@ -157,6 +157,50 @@ export const calculators: Calculator[] = [
     keywords: ["currency converter", "usd to inr", "exchange rate calculator"],
   },
   {
+    slug: "age-calculator",
+    title: "Age Calculator",
+    short: "Exact age, instantly",
+    blurb:
+      "Find your exact age in years, months and days, plus total weeks, days and hours and a countdown to your next birthday.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["age calculator", "how old am i", "date of birth calculator"],
+  },
+  {
+    slug: "percentage-calculator",
+    title: "Percentage Calculator",
+    short: "Percentages made easy",
+    blurb:
+      "Find X% of a number, what percent one value is of another, and percentage increase or decrease — instantly and free.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["percentage calculator", "percent calculator", "percentage increase calculator"],
+  },
+  {
+    slug: "tip-calculator",
+    title: "Tip Calculator",
+    short: "Split the bill fairly",
+    blurb:
+      "Enter your bill, pick a tip %, and split it any number of ways — see the tip, total and per-person share instantly.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["tip calculator", "gratuity calculator", "bill split calculator"],
+  },
+  {
+    slug: "date-difference-calculator",
+    title: "Date Difference Calculator",
+    short: "Days between dates",
+    blurb:
+      "Count days, weeks, months and years between two dates, or add and subtract time from any date.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["date calculator", "days between dates", "date difference calculator"],
+  },
+  {
     slug: "swp",
     title: "SWP Calculator",
     short: "Systematic withdrawal",
