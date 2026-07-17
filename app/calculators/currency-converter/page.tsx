@@ -5,7 +5,7 @@ import CalcPage from "@/components/calc/CalcPage";
 export const metadata: Metadata = {
   title: { absolute: "Currency Converter — Live Exchange Rates" },
   description:
-    "Free currency converter with live exchange rates. Convert USD, INR, EUR, GBP and 20+ currencies instantly. No sign-up.",
+    "Free currency converter with live mid-market rates. Convert USD to INR, EUR, GBP and 20+ currencies instantly — no sign-up, quick and accurate.",
   alternates: { canonical: "/calculators/currency-converter" },
 };
 

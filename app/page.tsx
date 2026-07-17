@@ -49,7 +49,7 @@ function Hero() {
           <div className="reveal">
             <span className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-1.5 text-xs font-medium text-ink-soft">
               <span className="h-1.5 w-1.5 rounded-full bg-forest" />
-              Trusted by readers in India, the US & the UK
+              Built for readers in India, the US & the UK
             </span>
 
             <h1 className="mt-6 font-display text-[2.6rem] leading-[1.05] sm:text-6xl sm:leading-[1.03] font-600 text-ink">
@@ -365,7 +365,7 @@ function AiToolsStrip() {
       <SectionHead
         eyebrow="AI Tools"
         title="The best AI tools, honestly reviewed"
-        desc="We test the tools so you don't waste money. Ratings, pricing and what each one is genuinely best at."
+        desc="We research the tools so you don't waste money. Ratings, pricing and what each one is genuinely best at."
         href="/ai-tools"
         hrefLabel="Full directory"
       />
@@ -413,7 +413,7 @@ function GuidesStrip() {
       <SectionHead
         eyebrow="Guides"
         title="Learn the money & AI skills that pay off"
-        desc="Clear, practical how-tos — written by people, checked for accuracy, and free of filler."
+        desc="Clear, original how-tos — researched, fact-checked for accuracy, and free of filler."
         href="/blog"
         hrefLabel="All guides"
       />
@@ -467,8 +467,8 @@ function TrustRow() {
     },
     {
       icon: IconCheck,
-      title: "Human-checked",
-      body: "Reviews and guides are written and fact-checked by people, not churned out.",
+      title: "Researched & checked",
+      body: "Reviews and guides are original and fact-checked, not churned out.",
     },
   ];
   return (

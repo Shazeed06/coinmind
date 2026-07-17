@@ -5,12 +5,14 @@ import { aiToolDetails } from "@/lib/aiToolDetails";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { SIP_SLUGS } from "@/lib/pseo-sip";
+import { GLOSSARY_SLUGS } from "@/lib/glossary";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/calculators",
     "/tools",
+    "/glossary",
     "/resume-builder",
     "/tools/compress-image",
     "/tools/image-converter",
@@ -75,6 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...TAX_SLUGS.map((s) => `/income-tax/${s}`),
     ...PAIR_SLUGS.map((s) => `/currency/${s}`),
     ...SIP_SLUGS.map((s) => `/sip/${s}`),
+    ...GLOSSARY_SLUGS.map((s) => `/glossary/${s}`),
   ];
 
   const all = [
@@ -88,7 +91,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return all.map((path) => ({
     url: `${site.url}${path}`,
     lastModified: new Date(),
-    changeFrequency: path === "" || path === "/news" ? "daily" : "weekly",
+    changeFrequency: path === "" ? "daily" : "weekly",
     priority: path === "" ? 1 : path.startsWith("/calculators/") ? 0.9 : 0.7,
   }));
 }

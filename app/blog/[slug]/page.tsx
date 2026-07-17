@@ -44,8 +44,8 @@ const bodies: Record<string, ReactNode> = {
     <>
       <p>
         Most &ldquo;AI finance tool&rdquo; lists are written to sell you
-        something. This one isn&apos;t. After months of using these tools on our
-        own money, here&apos;s what actually earns a place in your workflow — and
+        something. This one isn&apos;t. Here&apos;s what actually earns a place in
+        your workflow — based on features, pricing and real-world use cases — and
         what to skip.
       </p>
       <h2>Start with the boring wins</h2>
@@ -83,7 +83,8 @@ const bodies: Record<string, ReactNode> = {
       <p>
         It&apos;s one of the most argued-about questions in investing: if you
         have money to invest, should you drip it in monthly (SIP) or put it all
-        in at once (lumpsum)? We ran the numbers across multiple market cycles.
+        in at once (lumpsum)? Looking at how markets tend to behave across cycles,
+        here&apos;s what the trade-off really comes down to.
       </p>
       <h2>What the maths actually says</h2>
       <p>

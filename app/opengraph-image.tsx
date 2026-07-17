@@ -60,7 +60,7 @@ export default function OgImage() {
             Smarter money decisions, powered by AI.
           </div>
           <div style={{ fontSize: 30, color: "#3f4661", lineHeight: 1.4 }}>
-            Free finance calculators · AI tool reviews · daily finance & AI news
+            Free finance calculators · 40+ free tools · AI tool reviews
           </div>
         </div>
 

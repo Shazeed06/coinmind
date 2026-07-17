@@ -4,7 +4,7 @@ import EpfCalculator from "@/components/calc/EpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "EPF Calculator — Provident Fund Maturity" },
+  title: { absolute: "EPF Calculator — PF Balance & Maturity Value" },
   description:
     "Free EPF calculator for India. Estimate your Employee Provident Fund corpus at retirement from your basic salary, contribution rate and EPF interest.",
   alternates: { canonical: "/calculators/epf" },

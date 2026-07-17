@@ -4,9 +4,9 @@ import HomeLoanEligibilityCalculator from "@/components/calc/HomeLoanEligibility
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Home Loan Eligibility Calculator" },
+  title: { absolute: "Home Loan Eligibility Calculator — How Much Can I Get?" },
   description:
-    "Find out how much home loan you can get from your monthly income. This eligibility calculator uses FOIR, your existing EMIs, rate and tenure to estimate your loan.",
+    "See how much home loan you qualify for on your salary. Free eligibility calculator using FOIR, your existing EMIs, interest rate and tenure.",
   alternates: { canonical: "/calculators/home-loan-eligibility" },
 };
 

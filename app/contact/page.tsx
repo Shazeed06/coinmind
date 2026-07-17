@@ -18,7 +18,7 @@ export default function Page() {
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed">
           Spotted an error, have feedback, or want a calculator we don&apos;t
-          have yet? We read every message.
+          have yet? We aim to read every message.
         </p>
       </header>
 
@@ -29,8 +29,8 @@ export default function Page() {
       <div className="mt-10 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
         <p>
           Prefer email? Write to{" "}
-          <span className="font-semibold text-ink">{site.email}</span>. We
-          usually reply within two business days.
+          <span className="font-semibold text-ink">{site.email}</span>. We&apos;ll
+          do our best to get back to you.
         </p>
       </div>
     </div>

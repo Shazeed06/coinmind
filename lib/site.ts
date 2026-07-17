@@ -11,7 +11,7 @@ export const site = {
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
   email: "hello@coinmind.in",
   description:
-    "Free SIP, EMI, income tax & FD calculators, honest AI tool reviews and daily finance & AI news — for smarter money decisions in India, the US & UK.",
+    "Free SIP, EMI, income tax & FD calculators, 40+ free tools, honest AI tool reviews and plain-English finance & AI explainers — for smarter money decisions in India, the US & UK.",
   locale: "en",
   authorName: "The CoinMind Team",
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):
@@ -41,7 +41,7 @@ export const primaryNav: NavItem[] = [
   { label: "Free Tools", href: "/tools", desc: "Resume, PDF & image tools" },
   { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant" },
   { label: "AI Tools", href: "/ai-tools", desc: "Reviews & comparisons" },
-  { label: "News", href: "/news", desc: "Daily finance & AI updates" },
+  { label: "News", href: "/news", desc: "Plain-English finance & AI explainers" },
   { label: "Guides", href: "/blog", desc: "How-to & money tips" },
 ];
 
@@ -70,6 +70,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     title: "Explore",
     items: [
       { label: "AI Tools Directory", href: "/ai-tools" },
+      { label: "Finance & AI Glossary", href: "/glossary" },
       { label: "Finance & AI News", href: "/news" },
       { label: "Guides & How-tos", href: "/blog" },
     ],

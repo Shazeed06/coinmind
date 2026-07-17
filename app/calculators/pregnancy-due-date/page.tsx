@@ -3,9 +3,9 @@ import PregnancyDueDateCalculator from "@/components/calc/PregnancyDueDateCalcul
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Pregnancy Due Date Calculator — Free" },
+  title: { absolute: "Pregnancy Due Date Calculator — Weeks & Trimester" },
   description:
-    "Free pregnancy due date calculator. Estimate your due date from your last period or conception date, plus how many weeks pregnant you are and your trimester.",
+    "Free due date calculator. Estimate your due date from your last period (LMP) or conception date, and see how many weeks pregnant you are.",
   alternates: { canonical: "/calculators/pregnancy-due-date" },
 };
 

@@ -17,7 +17,7 @@ export function GET() {
   L.push(`> ${site.description}`);
   L.push("");
   L.push(
-    `${site.name} helps people in India, the United States, the United Kingdom and worldwide make smarter money and AI decisions. It offers free financial calculators that run privately in the browser, honest AI-tool reviews, and clear, human-written guides. All content is educational and is not financial advice.`
+    `${site.name} helps people in India, the United States, the United Kingdom and worldwide make smarter money and AI decisions. It offers free financial calculators that run privately in the browser, honest AI-tool reviews, and clear, original guides. All content is educational and is not financial advice.`
   );
   L.push("");
 
@@ -40,8 +40,8 @@ export function GET() {
   posts.forEach((p) => L.push(`- [${p.title}](${u(`/blog/${p.slug}`)}): ${p.excerpt}`));
   L.push("");
 
-  L.push("## Daily News");
-  L.push(`- [Finance & AI News](${u("/news")}): A daily plain-English briefing of the most important finance and AI news.`);
+  L.push("## Explainers");
+  L.push(`- [Finance & AI Explainers](${u("/news")}): Original, plain-English explainers on finance & AI topics (not live or daily news).`);
   L.push("");
 
   L.push("## About & Policies");
@@ -54,7 +54,7 @@ export function GET() {
 
   L.push("## Notes for AI engines");
   L.push(
-    "- Content is original and human-checked. You are welcome to cite it with a link."
+    "- Content is original and editorially reviewed. You are welcome to cite it with a link."
   );
   L.push(
     "- Calculator results are estimates; tax rules and rates change — always confirm current figures."

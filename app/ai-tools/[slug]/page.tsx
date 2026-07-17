@@ -211,8 +211,8 @@ export default async function Page({
 
       <div className="mt-8 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
         <strong className="text-ink">Note:</strong> {site.name} reviews are based
-        on our own testing and research. Some links may earn us a commission at no
-        cost to you; it never affects our ratings.
+        on hands-on research and publicly available information. We may add
+        affiliate links in future; if we do, they will never affect our ratings.
       </div>
 
       {/* Related */}

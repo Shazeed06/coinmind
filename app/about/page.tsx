@@ -30,8 +30,8 @@ export default function Page() {
           we all work, and it&apos;s hard to know which tools are worth your time.
           {" "}
           {site.name} exists to cut through both: free, accurate calculators for
-          the numbers that matter, and honest reviews of the AI tools we actually
-          use.
+          the numbers that matter, and honest reviews of the AI tools worth your
+          time.
         </p>
 
         <h2>Who we serve</h2>
@@ -44,7 +44,7 @@ export default function Page() {
 
         <h2 id="editorial">Our editorial standards</h2>
         <p>
-          Every guide and review is written and checked by people. We aim for
+          Every guide and review is original and editorially reviewed. We aim for
           accuracy over hype, we say when we&apos;re unsure, and we update
           content when facts change. Where we earn affiliate commissions, it
           never influences our ratings — and we tell you.

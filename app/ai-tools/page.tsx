@@ -154,11 +154,12 @@ export default function Page() {
           How we rate AI tools
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
-          Every tool is scored on real-world usefulness, output quality, ease of
-          use and value for money. We update this directory as tools launch and
-          prices change. Some links may earn us a commission at no cost to you;
-          it never influences our ratings. Pricing shown is indicative — check
-          the official website for the latest plans in your country.
+          Each tool is assessed against a documented editorial rubric —
+          usefulness, output quality, ease of use and value for money — using
+          hands-on research and publicly available information. We update this
+          directory as tools launch and prices change. If we ever add affiliate
+          links, they won&apos;t affect our ratings. Pricing shown is indicative —
+          check the official website for the latest plans in your country.
         </p>
       </section>
     </div>

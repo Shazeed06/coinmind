@@ -3,7 +3,7 @@ import SimpleInterestCalculator from "@/components/calc/SimpleInterestCalculator
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Simple Interest Calculator — SI Formula" },
+  title: { absolute: "Simple Interest Calculator — Interest & Amount" },
   description:
     "Free simple interest calculator. Work out interest and total amount using the SI = P×R×T/100 formula, and see how it compares with compound interest.",
   alternates: { canonical: "/calculators/simple-interest" },

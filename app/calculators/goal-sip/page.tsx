@@ -3,9 +3,9 @@ import GoalSipCalculator from "@/components/calc/GoalSipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 export const metadata: Metadata = {
-  title: { absolute: "Goal SIP Calculator — Reach ₹1 Crore" },
+  title: { absolute: "SIP for 1 Crore — Goal SIP & Crorepati Calculator" },
   description:
-    "Free Goal SIP calculator (crorepati calculator): find the exact monthly SIP needed to reach ₹1 crore or any target. Reverse SIP, instant results.",
+    "Find the exact monthly SIP needed to reach ₹1 crore (or any goal) at 12%. Free reverse-SIP crorepati calculator with instant results.",
   alternates: { canonical: "/calculators/goal-sip" },
 };
 

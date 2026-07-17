@@ -4,6 +4,7 @@ import { aiToolDetails } from "@/lib/aiToolDetails";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { SIP_SLUGS } from "@/lib/pseo-sip";
+import { GLOSSARY_SLUGS } from "@/lib/glossary";
 
 // GET /api/indexnow — submits every public URL to IndexNow (Bing, Yandex, Naver,
 // Seznam). Bing's index feeds ChatGPT Search, so this gets pages discovered in
@@ -58,6 +59,7 @@ function allUrls(): string[] {
     "/tools/random-number-generator",
     "/ai-assistant",
     "/ai-tools",
+    "/glossary",
     "/news",
     "/blog",
     "/about",
@@ -71,6 +73,7 @@ function allUrls(): string[] {
     ...TAX_SLUGS.map((s) => `/income-tax/${s}`),
     ...PAIR_SLUGS.map((s) => `/currency/${s}`),
     ...SIP_SLUGS.map((s) => `/sip/${s}`),
+    ...GLOSSARY_SLUGS.map((s) => `/glossary/${s}`),
   ];
   return paths.map((p) => `${site.url}${p}`);
 }
