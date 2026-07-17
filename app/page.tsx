@@ -15,9 +15,9 @@ import {
 import CoverArt from "@/components/CoverArt";
 
 export const metadata: Metadata = {
-  title: { absolute: "CoinMind — Free Finance Calculators & AI Reviews" },
+  title: { absolute: "Free Online Calculators, Tools & AI — CoinMind" },
   description:
-    "Free SIP, EMI, income tax and FD calculators, honest AI tool reviews, and plain-English finance & AI explainers — for smarter money decisions.",
+    "30+ free calculators (SIP, EMI, income tax, FD) and 40+ free tools — resume builder, PDF, image, AI writers — plus honest AI reviews. No sign-up, all in your browser.",
   alternates: { canonical: "/" },
 };
 
@@ -29,6 +29,7 @@ export default function Home() {
       <StructuredData />
       <Hero />
       <PopularCalculators />
+      <FreeTools />
       <Briefing />
       <AiToolsStrip />
       <GuidesStrip />
@@ -74,9 +75,9 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-              Free calculators for SIP, EMI, income tax and fixed deposits.
-              Honest reviews of the best AI tools. And plain-English explainers
-              of the finance and AI developments that matter. No jargon, no fluff.
+              30+ free calculators for SIP, EMI, income tax and more — plus free
+              tools like a resume builder, PDF and image tools, and AI writers.
+              Honest AI reviews and plain-English guides. No sign-up, no fluff.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -96,9 +97,9 @@ function Hero() {
 
             <dl className="mt-10 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { n: "10+", l: "Free calculators" },
-                { n: "Daily", l: "Finance & AI news" },
-                { n: "0", l: "Sign-up required" },
+                { n: "30+", l: "Free calculators" },
+                { n: "40+", l: "Free tools" },
+                { n: "0", l: "Sign-up needed" },
               ].map((s) => (
                 <div key={s.l}>
                   <dt className="font-display text-2xl font-600 text-ink">
@@ -220,7 +221,7 @@ function PopularCalculators() {
         hrefLabel="All calculators"
       />
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {liveCalcs.map((c) => (
+        {liveCalcs.slice(0, 8).map((c) => (
           <Link
             key={c.slug}
             href={`/calculators/${c.slug}`}
@@ -234,6 +235,53 @@ function PopularCalculators() {
             </h3>
             <p className="mt-1.5 text-sm leading-relaxed text-ink-soft line-clamp-2">
               {c.blurb}
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest">
+              Open{" "}
+              <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- FREE TOOLS ---------------------------- */
+
+function FreeTools() {
+  const items = [
+    { href: "/resume-builder", emoji: "📄", title: "Resume Builder", desc: "Build a professional CV with a live preview and one-click PDF." },
+    { href: "/tools/ai-summarizer", emoji: "📝", title: "AI Writing Tools", desc: "Summarize, paraphrase, fix grammar and write emails with AI." },
+    { href: "/tools/merge-pdf", emoji: "📑", title: "PDF Tools", desc: "Merge, split, rotate and organize PDFs, or turn images into PDF." },
+    { href: "/tools/compress-image", emoji: "🖼️", title: "Image Tools", desc: "Compress, resize, crop, convert and make favicons — no upload." },
+    { href: "/tools/word-counter", emoji: "🔤", title: "Text & Dev Tools", desc: "Word counter, JSON formatter, Base64, case and number-to-words." },
+    { href: "/tools/qr-code-generator", emoji: "🔳", title: "Generators", desc: "QR codes, strong passwords, invoices and a budget planner." },
+  ];
+  return (
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
+      <SectionHead
+        eyebrow="Free Tools"
+        title="Premium tools, completely free"
+        desc="The utilities other sites charge for — a resume builder, PDF and image tools, AI writers and more. Everything runs privately in your browser."
+        href="/tools"
+        hrefLabel="All free tools"
+      />
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((t) => (
+          <Link
+            key={t.href}
+            href={t.href}
+            className="group rounded-2xl border border-line bg-card p-5 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(30,64,175,0.4)]"
+          >
+            <span className="grid h-11 w-11 place-items-center rounded-xl bg-forest-soft text-xl">
+              {t.emoji}
+            </span>
+            <h3 className="mt-4 font-display text-lg font-600 text-ink">
+              {t.title}
+            </h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+              {t.desc}
             </p>
             <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest">
               Open{" "}
@@ -370,7 +418,7 @@ function GuidesStrip() {
         hrefLabel="All guides"
       />
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {posts.map((p) => (
+        {posts.slice(0, 4).map((p) => (
           <Link
             key={p.slug}
             href={`/blog/${p.slug}`}
