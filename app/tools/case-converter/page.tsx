@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Case Converter — Change Text Case Online" },
   description:
-    "Free online case converter. Instantly change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more — private, in your browser.",
+    "Free online case converter. Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more — in your browser.",
   alternates: { canonical: "/tools/case-converter" },
   openGraph: {
     type: "website",

@@ -5,7 +5,7 @@ import CalcPage from "@/components/calc/CalcPage";
 export const metadata: Metadata = {
   title: { absolute: "Take-Home Salary Calculator: CTC to In-Hand" },
   description:
-    "Free India take-home salary calculator. Convert your annual CTC to monthly in-hand pay with accurate PF, professional tax and new-regime income tax deductions.",
+    "Free India take-home salary calculator. Convert annual CTC to monthly in-hand pay with PF, professional tax and new-regime income tax.",
   alternates: { canonical: "/calculators/take-home-salary" },
 };
 

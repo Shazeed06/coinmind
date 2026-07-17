@@ -17,8 +17,9 @@ import CoverArt from "@/components/CoverArt";
 export const metadata: Metadata = {
   title: { absolute: "Free Online Calculators, Tools & AI — CoinMind" },
   description:
-    "30+ free calculators (SIP, EMI, income tax, FD) and 40+ free tools — resume builder, PDF, image, AI writers — plus honest AI reviews. No sign-up, all in your browser.",
+    "30+ free calculators (SIP, EMI, income tax, FD) and 40+ free tools — resume, PDF, image & AI writers — plus honest AI reviews. No sign-up needed.",
   alternates: { canonical: "/" },
+  openGraph: { url: site.url },
 };
 
 const liveCalcs = calculators.filter((c) => c.live);

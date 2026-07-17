@@ -14,6 +14,7 @@ export default function CalcPage({
   calculator,
   how,
   faqs,
+  extra,
 }: {
   slug: string;
   title: string;
@@ -22,6 +23,7 @@ export default function CalcPage({
   calculator: ReactNode;
   how: { heading: string; body: ReactNode };
   faqs: Faq[];
+  extra?: ReactNode;
 }) {
   const related = calculators.filter((c) => c.live && c.slug !== slug).slice(0, 3);
 
@@ -109,6 +111,9 @@ export default function CalcPage({
           ))}
         </div>
       </section>
+
+      {/* Optional extra content (e.g. programmatic-SEO internal links) */}
+      {extra ? <section className="mt-14">{extra}</section> : null}
 
       {/* Related */}
       <section className="mt-16 mb-8">

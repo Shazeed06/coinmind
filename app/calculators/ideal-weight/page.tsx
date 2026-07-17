@@ -5,7 +5,7 @@ import CalcPage from "@/components/calc/CalcPage";
 export const metadata: Metadata = {
   title: { absolute: "Ideal Weight Calculator — By Height & Sex" },
   description:
-    "Free ideal weight calculator. Enter your height and sex to see your ideal body weight from the Robinson, Miller, Devine and Hamwi formulas, plus the healthy BMI range.",
+    "Free ideal weight calculator. Enter your height and sex to see your ideal body weight from the Robinson, Miller, Devine and Hamwi formulas.",
   alternates: { canonical: "/calculators/ideal-weight" },
 };
 

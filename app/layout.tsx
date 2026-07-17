@@ -41,9 +41,12 @@ export const metadata: Metadata = {
   authors: [{ name: site.authorName }],
   alternates: { canonical: "/" },
   openGraph: {
+    // NB: no `url` here on purpose. A single root-level og:url would be
+    // inherited by every child page (whose canonical differs), which Ahrefs
+    // flags as "Open Graph URL not matching canonical". Pages that want an
+    // og:url (homepage, programmatic pages) set their own to match canonical.
     type: "website",
     siteName: site.name,
-    url: site.url,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
     locale: "en_US",

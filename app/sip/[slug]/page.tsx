@@ -5,6 +5,7 @@ import SipCalculator from "@/components/calc/SipCalculator";
 import { formatCurrency } from "@/lib/format";
 import { site } from "@/lib/site";
 import {
+  SIP_AMOUNTS,
   SIP_SLUGS,
   parseSipSlug,
   sipFutureValue,
@@ -412,6 +413,25 @@ export default async function Page({
               Open <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </span>
           </Link>
+        </div>
+
+        {/* Other SIP amounts — sibling internal links so every /sip page has
+            incoming links (no orphan pages) and shares link equity. */}
+        <div className="mt-8">
+          <h3 className="font-display text-lg font-600 text-ink">
+            Other popular SIP amounts
+          </h3>
+          <div className="mt-4 flex flex-wrap gap-2.5">
+            {SIP_AMOUNTS.filter((a) => a !== monthly).map((a) => (
+              <Link
+                key={a}
+                href={`/sip/${sipSlug(a)}`}
+                className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-forest hover:text-forest"
+              >
+                {formatCurrency(a)}/mo
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

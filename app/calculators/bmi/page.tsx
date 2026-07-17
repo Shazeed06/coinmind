@@ -5,7 +5,7 @@ import CalcPage from "@/components/calc/CalcPage";
 export const metadata: Metadata = {
   title: { absolute: "BMI Calculator — Body Mass Index (Free)" },
   description:
-    "Free BMI calculator. Enter your height and weight in metric or imperial units to find your body mass index, category and the healthy weight range for your height.",
+    "Free BMI calculator. Enter your height and weight (metric or imperial) to find your body mass index, category and healthy weight range.",
   alternates: { canonical: "/calculators/bmi" },
 };
 

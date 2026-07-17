@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "JSON Formatter & Validator — Free Online" },
   description:
-    "Free online JSON formatter, beautifier and validator. Pretty-print with 2 or 4 spaces, minify, and see the exact parse error with its location. 100% private, in your browser.",
+    "Free online JSON formatter, beautifier and validator. Pretty-print, minify, and see the exact parse error with its location — 100% private.",
   alternates: { canonical: "/tools/json-formatter" },
   openGraph: {
     type: "website",

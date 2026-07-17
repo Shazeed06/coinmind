@@ -1,13 +1,43 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import SipCalculator from "@/components/calc/SipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
+import { SIP_AMOUNTS, sipSlug } from "@/lib/pseo-sip";
+import { formatCurrency } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: { absolute: "SIP Calculator — Monthly SIP Returns & Maturity" },
   description:
-    "Free online SIP calculator. See how much your monthly SIP grows over time with expected returns. Calculate mutual fund maturity value instantly in ₹, $ or £.",
+    "Free online SIP calculator. See how much your monthly SIP grows with expected returns, and get the mutual fund maturity value instantly in ₹, $ or £.",
   alternates: { canonical: "/calculators/sip" },
 };
+
+// Internal links to the "SIP of ₹X per month" programmatic pages so they are
+// reachable from this high-authority hub (fixes the orphan-page issue).
+function PopularSipAmounts() {
+  return (
+    <div className="max-w-3xl">
+      <h2 className="font-display text-2xl font-600 text-ink">
+        Popular monthly SIP amounts
+      </h2>
+      <p className="mt-2 text-ink-soft leading-relaxed">
+        See the full 5–30 year projected corpus for a specific monthly SIP —
+        each amount has its own returns table and FAQs.
+      </p>
+      <div className="mt-5 flex flex-wrap gap-2.5">
+        {SIP_AMOUNTS.map((amt) => (
+          <Link
+            key={amt}
+            href={`/sip/${sipSlug(amt)}`}
+            className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-forest hover:text-forest"
+          >
+            {formatCurrency(amt)}/mo
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -56,6 +86,7 @@ export default function Page() {
           a: "Absolutely. Switch the currency to USD or GBP and use it for any regular monthly investing plan, such as a US 401(k) contribution or a UK stocks & shares ISA.",
         },
       ]}
+      extra={<PopularSipAmounts />}
     />
   );
 }

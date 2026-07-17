@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "URL Encode & Decode — Free Online Tool" },
   description:
-    "Free online URL encoder and decoder. Percent-encode query values and whole URLs with encodeURIComponent or encodeURI, and decode them back. 100% private, in your browser.",
+    "Free online URL encoder and decoder. Percent-encode query values and whole URLs with encodeURIComponent or encodeURI, and decode them back.",
   alternates: { canonical: "/tools/url-encode-decode" },
   openGraph: {
     type: "website",

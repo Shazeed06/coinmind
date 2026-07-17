@@ -21,7 +21,7 @@ function newsArt(
 export const metadata: Metadata = {
   title: "Finance & AI Explainers — In Plain English",
   description:
-    "Original, plain-English explainers of the finance and AI developments that matter — markets, rates, AI models and tools. Written to inform, not to chase headlines.",
+    "Original, plain-English explainers of the finance and AI developments that matter — markets, rates, AI models and tools.",
   alternates: { canonical: "/news" },
 };
 
