@@ -42,7 +42,7 @@ export default function Header() {
           : "bg-paper border-b border-transparent"
       }`}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between gap-4">
           <Link href="/" aria-label="CoinMind home" className="shrink-0">
             <Logo />
@@ -109,7 +109,7 @@ export default function Header() {
           open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1">
+        <nav className="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-1">
           {primaryNav.map((item) => (
             <Link
               key={item.href}

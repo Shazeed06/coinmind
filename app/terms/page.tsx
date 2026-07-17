@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="mx-auto max-w-2xl px-4 sm:px-6 pb-8">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
       <header className="pt-14">
         <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
           Terms of Service

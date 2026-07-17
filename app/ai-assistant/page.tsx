@@ -27,7 +27,7 @@ export default function Page() {
 
       <AiMoneyChat />
 
-      <section className="mt-14 max-w-2xl mx-auto">
+      <section className="mt-14 max-w-3xl mx-auto">
         <h2 className="font-display text-2xl font-600 text-ink">
           What can it help with?
         </h2>

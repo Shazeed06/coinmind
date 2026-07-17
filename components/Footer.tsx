@@ -6,7 +6,7 @@ export default function Footer() {
   const year = 2026;
   return (
     <footer className="mt-24 border-t border-line bg-paper-2">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-xs">
             <Logo />

@@ -46,7 +46,7 @@ export default function CalcPage({
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -66,7 +66,7 @@ export default function CalcPage({
       </nav>
 
       {/* Header */}
-      <header className="mt-6 max-w-2xl">
+      <header className="mt-6 max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconCalculator className="h-3.5 w-3.5" /> Free calculator
         </span>
@@ -80,18 +80,18 @@ export default function CalcPage({
       <div className="mt-8">{calculator}</div>
 
       {/* Intro / SEO copy */}
-      <section className="mt-14 max-w-2xl">
+      <section className="mt-14 max-w-3xl">
         <p className="text-ink-soft leading-relaxed">{intro}</p>
       </section>
 
       {/* How it works */}
-      <section className="mt-10 max-w-2xl">
+      <section className="mt-10 max-w-3xl">
         <h2 className="font-display text-2xl font-600 text-ink">{how.heading}</h2>
         <div className="mt-4 text-ink-soft leading-relaxed space-y-4">{how.body}</div>
       </section>
 
       {/* FAQ */}
-      <section className="mt-12 max-w-2xl">
+      <section className="mt-12 max-w-3xl">
         <h2 className="font-display text-2xl font-600 text-ink">
           Frequently asked questions
         </h2>

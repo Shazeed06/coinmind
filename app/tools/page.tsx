@@ -80,8 +80,8 @@ export default function Page() {
   const rest = tools.filter((t) => !t.featured);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      <header className="pt-14 pb-8 max-w-2xl">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <header className="pt-14 pb-8 max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconSparkle className="h-3.5 w-3.5" /> Free tools
         </span>

@@ -58,14 +58,14 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
       />
 
       {/* Hero */}
-      <header className="no-print max-w-2xl">
+      <header className="no-print max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconSparkle className="h-3.5 w-3.5" /> Free tool
         </span>
@@ -85,7 +85,7 @@ export default function Page() {
       </div>
 
       {/* SEO / helpful content */}
-      <section className="no-print mt-16 max-w-2xl">
+      <section className="no-print mt-16 max-w-3xl">
         <h2 className="font-display text-2xl font-600 text-ink">
           How to write a resume that actually gets read
         </h2>
@@ -158,7 +158,7 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
-      <section className="no-print mt-12 max-w-2xl">
+      <section className="no-print mt-12 max-w-3xl">
         <h2 className="font-display text-2xl font-600 text-ink">
           Frequently asked questions
         </h2>

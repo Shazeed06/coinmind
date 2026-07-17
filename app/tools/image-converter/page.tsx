@@ -81,7 +81,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6 py-10">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -105,7 +105,7 @@ export default function Page() {
       </nav>
 
       {/* Header */}
-      <header className="mt-6 max-w-2xl">
+      <header className="mt-6 max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           Free browser tool
         </span>
@@ -124,7 +124,7 @@ export default function Page() {
       </div>
 
       {/* SEO copy */}
-      <section className="mt-14 max-w-2xl article">
+      <section className="mt-14 max-w-3xl article">
         <h2>JPG, PNG and WebP — what&apos;s the difference?</h2>
         <p>
           These three formats cover almost every image on the web, and each is
@@ -166,7 +166,7 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
-      <section className="mt-12 max-w-2xl">
+      <section className="mt-12 max-w-3xl">
         <h2 className="font-display text-2xl font-600 text-ink">
           Frequently asked questions
         </h2>

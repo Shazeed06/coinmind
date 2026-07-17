@@ -43,7 +43,7 @@ export default function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-14 pb-16 sm:pt-20 sm:pb-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-14 pb-16 sm:pt-20 sm:pb-20">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
           <div className="reveal">
             <span className="inline-flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-1.5 text-xs font-medium text-ink-soft">
@@ -211,7 +211,7 @@ function PreviewRow({
 
 function PopularCalculators() {
   return (
-    <section className="mx-auto max-w-6xl px-4 sm:px-6 py-6">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
       <SectionHead
         eyebrow="Calculators"
         title="Numbers, worked out in seconds"
@@ -251,7 +251,7 @@ function PopularCalculators() {
 function Briefing() {
   const top = news.slice(0, 5);
   return (
-    <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
       <div className="rounded-3xl border border-line bg-card overflow-hidden">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
           <div className="bg-forest-deep p-8 sm:p-10 text-white flex flex-col justify-between">
@@ -313,7 +313,7 @@ function Briefing() {
 function AiToolsStrip() {
   const featured = aiTools.slice(0, 6);
   return (
-    <section className="mx-auto max-w-6xl px-4 sm:px-6 py-6">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
       <SectionHead
         eyebrow="AI Tools"
         title="The best AI tools, honestly reviewed"
@@ -361,7 +361,7 @@ function AiToolsStrip() {
 
 function GuidesStrip() {
   return (
-    <section className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
       <SectionHead
         eyebrow="Guides"
         title="Learn the money & AI skills that pay off"
@@ -425,7 +425,7 @@ function TrustRow() {
   ];
   return (
     <section className="border-y border-line bg-paper-2">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((it) => (
             <div key={it.title}>
@@ -450,11 +450,11 @@ function TrustRow() {
 
 function ClosingCta() {
   return (
-    <section className="mx-auto max-w-6xl px-4 sm:px-6 py-20">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 py-20">
       <div className="rounded-3xl bg-forest px-8 py-14 sm:px-14 text-center text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 [background:radial-gradient(circle_at_20%_20%,#fff,transparent_40%),radial-gradient(circle_at_80%_60%,#fff,transparent_35%)]" />
         <div className="relative">
-          <h2 className="font-display text-3xl sm:text-4xl font-600 max-w-2xl mx-auto leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl font-600 max-w-3xl mx-auto leading-tight">
             Start with one calculation. Stay for smarter decisions.
           </h2>
           <p className="mt-4 max-w-xl mx-auto text-white/75">
@@ -490,7 +490,7 @@ function SectionHead({
 }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-      <div className="max-w-2xl">
+      <div className="max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-wider text-brass">
           {eyebrow}
         </p>
