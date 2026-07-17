@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/calculators" },
 };
 
-const categories = ["Investing", "Loans", "Tax", "Savings", "Utility"] as const;
+const categories = ["Investing", "Loans", "Tax", "Savings", "Utility", "Health"] as const;
 
 export default function Page() {
   return (

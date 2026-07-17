@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 const POPULAR = [
   "USD", "INR", "EUR", "GBP", "JPY", "AUD", "CAD", "CNY", "AED", "SGD",
-  "CHF", "HKD", "NZD", "ZAR", "SAR", "BRL", "RUB", "KRW", "MXN", "THB",
+  "CHF", "HKD", "NZD", "ZAR", "SAR", "MYR", "BRL", "RUB", "KRW", "MXN", "THB",
 ];
 
 const NAMES: Record<string, string> = {
@@ -12,17 +12,23 @@ const NAMES: Record<string, string> = {
   JPY: "Japanese Yen", AUD: "Australian Dollar", CAD: "Canadian Dollar",
   CNY: "Chinese Yuan", AED: "UAE Dirham", SGD: "Singapore Dollar",
   CHF: "Swiss Franc", HKD: "Hong Kong Dollar", NZD: "NZ Dollar",
-  ZAR: "South African Rand", SAR: "Saudi Riyal", BRL: "Brazilian Real",
-  RUB: "Russian Ruble", KRW: "South Korean Won", MXN: "Mexican Peso",
-  THB: "Thai Baht",
+  ZAR: "South African Rand", SAR: "Saudi Riyal", MYR: "Malaysian Ringgit",
+  BRL: "Brazilian Real", RUB: "Russian Ruble", KRW: "South Korean Won",
+  MXN: "Mexican Peso", THB: "Thai Baht",
 };
 
-export default function CurrencyConverter() {
+export default function CurrencyConverter({
+  initialFrom = "USD",
+  initialTo = "INR",
+}: {
+  initialFrom?: string;
+  initialTo?: string;
+} = {}) {
   const [rates, setRates] = useState<Record<string, number> | null>(null);
   const [updated, setUpdated] = useState<string | null>(null);
   const [amount, setAmount] = useState(1000);
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("INR");
+  const [from, setFrom] = useState(initialFrom);
+  const [to, setTo] = useState(initialTo);
   const [error, setError] = useState(false);
 
   useEffect(() => {

@@ -73,6 +73,132 @@ const tools: Tool[] = [
       "Join multiple PDF files into one document. Reorder and remove files, then download the merged PDF.",
     tag: "PDF",
   },
+  {
+    slug: "ai-summarizer",
+    href: "/tools/ai-summarizer",
+    emoji: "📝",
+    title: "AI Text Summarizer",
+    blurb:
+      "Paste any article, essay or report and get an instant AI summary — short, medium or detailed.",
+    tag: "AI",
+  },
+  {
+    slug: "ai-paraphraser",
+    href: "/tools/ai-paraphraser",
+    emoji: "♻️",
+    title: "AI Paraphraser",
+    blurb:
+      "Reword and rephrase any text in seconds — fluent, formal, casual, simple, shorten or expand.",
+    tag: "AI",
+  },
+  {
+    slug: "ai-grammar-checker",
+    href: "/tools/ai-grammar-checker",
+    emoji: "✅",
+    title: "AI Grammar Checker",
+    blurb:
+      "Fix grammar, spelling and punctuation instantly with AI — a free Grammarly alternative.",
+    tag: "AI",
+  },
+  {
+    slug: "ai-email-writer",
+    href: "/tools/ai-email-writer",
+    emoji: "✉️",
+    title: "AI Email & Cover Letter Writer",
+    blurb:
+      "Describe it in a few words, pick a tone, and get a ready-to-send email or cover letter.",
+    tag: "AI",
+  },
+  {
+    slug: "ai-business-name-generator",
+    href: "/tools/ai-business-name-generator",
+    emoji: "💡",
+    title: "AI Business Name Generator",
+    blurb:
+      "Describe your idea, pick a style, and get 15 creative, brandable startup name ideas.",
+    tag: "AI",
+  },
+  {
+    slug: "ai-caption-generator",
+    href: "/tools/ai-caption-generator",
+    emoji: "#️⃣",
+    title: "AI Caption & Hashtag Generator",
+    blurb:
+      "Turn a one-line post idea into 5 platform-tuned captions plus matching hashtags.",
+    tag: "AI",
+  },
+  {
+    slug: "word-counter",
+    href: "/tools/word-counter",
+    emoji: "🔤",
+    title: "Word Counter",
+    blurb:
+      "Count words, characters, sentences and reading time live as you type.",
+    tag: "Text",
+  },
+  {
+    slug: "case-converter",
+    href: "/tools/case-converter",
+    emoji: "🔠",
+    title: "Case Converter",
+    blurb:
+      "Change text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.",
+    tag: "Text",
+  },
+  {
+    slug: "password-generator",
+    href: "/tools/password-generator",
+    emoji: "🔑",
+    title: "Password Generator",
+    blurb:
+      "Create strong, random passwords with a length slider — generated securely in your browser.",
+    tag: "Security",
+  },
+  {
+    slug: "qr-code-generator",
+    href: "/tools/qr-code-generator",
+    emoji: "🔳",
+    title: "QR Code Generator",
+    blurb:
+      "Create custom QR codes for any link or text — set size and colours, download PNG or SVG.",
+    tag: "Utility",
+  },
+  {
+    slug: "unit-converter",
+    href: "/tools/unit-converter",
+    emoji: "📏",
+    title: "Unit Converter",
+    blurb:
+      "Convert length, weight, temperature, area, volume, speed, time and digital storage.",
+    tag: "Convert",
+  },
+  {
+    slug: "invoice-generator",
+    href: "/tools/invoice-generator",
+    emoji: "🧾",
+    title: "Invoice Generator",
+    blurb:
+      "Create professional invoices with a live preview and one-click PDF — nothing uploaded.",
+    tag: "Business",
+  },
+  {
+    slug: "budget-planner",
+    href: "/tools/budget-planner",
+    emoji: "📊",
+    title: "Budget Planner",
+    blurb:
+      "Plan your month — see what's left to save, your savings rate and a live 50/30/20 breakdown.",
+    tag: "Money",
+  },
+  {
+    slug: "are-you-rich",
+    href: "/tools/are-you-rich",
+    emoji: "💸",
+    title: "Are You Rich?",
+    blurb:
+      "Enter your income and country to estimate your income percentile and see how you rank.",
+    tag: "Money",
+  },
 ];
 
 export default function Page() {

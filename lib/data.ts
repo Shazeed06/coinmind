@@ -8,7 +8,7 @@ export type Calculator = {
   title: string;
   short: string;
   blurb: string;
-  category: "Investing" | "Loans" | "Tax" | "Savings" | "Utility";
+  category: "Investing" | "Loans" | "Tax" | "Savings" | "Utility" | "Health";
   region: "IN" | "Global";
   live: boolean; // whether an interactive page exists yet
   keywords: string[];
@@ -309,6 +309,50 @@ export const calculators: Calculator[] = [
     region: "Global",
     live: true,
     keywords: ["rent vs buy calculator", "should i rent or buy a house", "rent or buy calculator"],
+  },
+  {
+    slug: "bmi",
+    title: "BMI Calculator",
+    short: "Body mass index",
+    blurb:
+      "Find your body mass index from height and weight (metric or imperial), your category, and the healthy weight range for your height.",
+    category: "Health",
+    region: "Global",
+    live: true,
+    keywords: ["bmi calculator", "body mass index calculator", "bmi chart"],
+  },
+  {
+    slug: "ideal-weight",
+    title: "Ideal Weight Calculator",
+    short: "Healthy weight by height",
+    blurb:
+      "Estimate a healthy body weight for your height and sex using the Robinson, Miller, Devine and Hamwi formulas.",
+    category: "Health",
+    region: "Global",
+    live: true,
+    keywords: ["ideal weight calculator", "ideal body weight", "healthy weight for height"],
+  },
+  {
+    slug: "calorie",
+    title: "Calorie Calculator",
+    short: "Daily calories (TDEE)",
+    blurb:
+      "Estimate your daily maintenance calories (TDEE) with the Mifflin-St Jeor equation, plus targets for losing or gaining weight.",
+    category: "Health",
+    region: "Global",
+    live: true,
+    keywords: ["calorie calculator", "tdee calculator", "maintenance calories", "bmr calculator"],
+  },
+  {
+    slug: "pregnancy-due-date",
+    title: "Pregnancy Due Date Calculator",
+    short: "Estimate your due date",
+    blurb:
+      "Estimate your due date from your last period or conception date, and see how many weeks pregnant you are.",
+    category: "Health",
+    region: "Global",
+    live: true,
+    keywords: ["pregnancy due date calculator", "due date calculator", "how many weeks pregnant"],
   },
 ];
 

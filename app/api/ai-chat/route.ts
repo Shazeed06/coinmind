@@ -1,4 +1,5 @@
-// AI Money Assistant backend.
+// AI backend for CoinMind — powers the Money Assistant AND the AI tools
+// (summariser, paraphraser, grammar, email/cover-letter, name & caption gen).
 //
 // Provider priority (first key that exists wins):
 //   1. DEEPSEEK_API_KEY — DeepSeek (paid, very cheap). platform.deepseek.com/api_keys
@@ -6,8 +7,11 @@
 //   3. GEMINI_API_KEY   — Google Gemini (free tier unreliable). aistudio.google.com/apikey
 //
 // DeepSeek & Groq are OpenAI-compatible; Gemini uses its own REST shape.
-// Keys stay server-side; the browser never sees them. Set them in
-// Vercel → Settings → Environment Variables, then redeploy.
+// Keys stay server-side; the browser never sees them.
+//
+// POST body: { messages: [{role,content}], system?: string }
+// Tools pass their own `system` instruction; the Money Assistant omits it and
+// gets the default finance/AI persona below.
 
 export const dynamic = "force-dynamic";
 // DeepSeek can occasionally be slow under load; give the request headroom
@@ -36,17 +40,18 @@ async function callOpenAICompatible(
   endpoint: string,
   key: string,
   models: string[],
-  messages: Msg[]
+  messages: Msg[],
+  system: string
 ): Promise<string | null> {
   const body = (model: string) =>
     JSON.stringify({
       model,
       messages: [
-        { role: "system", content: SYSTEM },
+        { role: "system", content: system },
         ...messages.map((m) => ({ role: m.role, content: m.content })),
       ],
       temperature: 0.6,
-      max_tokens: 800,
+      max_tokens: 1500,
     });
 
   for (const model of models) {
@@ -72,19 +77,23 @@ async function callOpenAICompatible(
 }
 
 // ---- Gemini (Google's own REST shape) ------------------------------------
-async function callGemini(key: string, messages: Msg[]): Promise<string | null> {
+async function callGemini(
+  key: string,
+  messages: Msg[],
+  system: string
+): Promise<string | null> {
   const models = [
     "gemini-flash-latest",
     "gemini-2.0-flash-001",
     "gemini-2.0-flash-lite",
   ];
   const payload = JSON.stringify({
-    systemInstruction: { parts: [{ text: SYSTEM }] },
+    systemInstruction: { parts: [{ text: system }] },
     contents: messages.map((m) => ({
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.content }],
     })),
-    generationConfig: { temperature: 0.6, maxOutputTokens: 800 },
+    generationConfig: { temperature: 0.6, maxOutputTokens: 1500 },
   });
 
   for (const model of models) {
@@ -121,24 +130,29 @@ export async function POST(req: Request) {
       {
         error: "not_configured",
         reply:
-          "The AI assistant isn't switched on yet. Add a DEEPSEEK_API_KEY (or a free GROQ_API_KEY) in the site's environment variables to enable it.",
+          "The AI isn't switched on yet. Add a DEEPSEEK_API_KEY (or a free GROQ_API_KEY) in the site's environment variables to enable it.",
       },
       { status: 200 }
     );
   }
 
   let messages: Msg[] = [];
+  let system = SYSTEM;
   try {
     const body = await req.json();
     messages = Array.isArray(body?.messages) ? body.messages : [];
+    // Tools supply their own system instruction (summarise, rewrite, etc.).
+    if (typeof body?.system === "string" && body.system.trim()) {
+      system = body.system.trim().slice(0, 4000);
+    }
   } catch {
     return Response.json({ error: "bad_request" }, { status: 400 });
   }
 
-  // Basic abuse guards: cap history + message length.
+  // Basic abuse guards: cap history + message length (generous for tool inputs).
   messages = messages.slice(-12).map((m) => ({
     role: m.role === "assistant" ? "assistant" : "user",
-    content: String(m.content || "").slice(0, 2000),
+    content: String(m.content || "").slice(0, 8000),
   }));
   if (!messages.length) {
     return Response.json({ error: "empty" }, { status: 400 });
@@ -151,7 +165,8 @@ export async function POST(req: Request) {
       "https://api.deepseek.com/chat/completions",
       deepseekKey,
       ["deepseek-chat"],
-      messages
+      messages,
+      system
     );
   }
   if (!reply && groqKey) {
@@ -159,18 +174,18 @@ export async function POST(req: Request) {
       "https://api.groq.com/openai/v1/chat/completions",
       groqKey,
       ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"],
-      messages
+      messages,
+      system
     );
   }
-  if (!reply && geminiKey) reply = await callGemini(geminiKey, messages);
+  if (!reply && geminiKey) reply = await callGemini(geminiKey, messages, system);
 
   if (reply) return Response.json({ reply });
 
   return Response.json(
     {
       error: "upstream",
-      reply:
-        "The assistant is very busy right now — please try again in a moment.",
+      reply: "The AI is very busy right now — please try again in a moment.",
     },
     { status: 200 }
   );
