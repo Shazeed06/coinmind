@@ -16,6 +16,7 @@ export default function Page() {
       title="NPS Calculator"
       subtitle="Project your National Pension System corpus and the monthly pension it can buy at retirement."
       calculator={<NpsCalculator />}
+      sources={[{ label: "PFRDA", href: "https://www.pfrda.org.in" }]}
       intro="The National Pension System (NPS) is a government-backed retirement scheme where your monthly contributions are invested across equity and debt and compound until you retire. At retirement you can withdraw part of the corpus as a tax-free lump sum, while the rest must buy an annuity that pays you a regular pension. This NPS calculator projects your corpus at 60, the lump sum you can take, and the monthly pension your annuity is likely to generate."
       how={{
         heading: "How your NPS corpus is calculated",
@@ -71,6 +72,10 @@ export default function Page() {
         {
           q: "Are the pension and returns shown here guaranteed?",
           a: "No. The corpus depends on the return your investments actually earn, and the pension depends on annuity rates at the time you retire. The figures here are projections to help you plan, not a promise of future value.",
+        },
+        {
+          q: "What is the extra ₹50,000 deduction under Section 80CCD(1B)?",
+          a: "Section 80CCD(1B) lets you claim an additional deduction of up to ₹50,000 for your own NPS Tier 1 contributions, over and above the ₹1.5 lakh combined ceiling of Section 80C. It is exclusive to NPS, so it is a common reason people add an NPS account on top of other tax-saving investments. The benefit applies under the old tax regime; confirm the current rules for your regime with PFRDA.",
         },
       ]}
     />

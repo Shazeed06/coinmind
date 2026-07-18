@@ -73,6 +73,17 @@ export default function Page() {
           q: "What proof do I need to claim HRA exemption?",
           a: "Keep rent receipts and, ideally, a rent agreement. If your total rent for the year exceeds Rs 1,00,000, you must also report your landlord's PAN to your employer. Paying rent by bank transfer rather than cash makes your claim easier to substantiate if questioned.",
         },
+        {
+          q: "Can you show an HRA exemption calculation with an example?",
+          a: "Say your basic salary + DA is ₹6,00,000 a year, you receive ₹2,40,000 HRA, and you pay ₹2,40,000 rent while living in Mumbai (a metro). The three limits are: actual HRA ₹2,40,000; 50% of basic salary ₹3,00,000; and rent paid minus 10% of basic salary (₹2,40,000 − ₹60,000) = ₹1,80,000. The least of the three is ₹1,80,000, so that much HRA is exempt and the remaining ₹60,000 is added to your taxable income.",
+        },
+        {
+          q: "How does HRA exemption affect my income tax and take-home pay?",
+          a: "A larger exempt HRA lowers your taxable income under the old regime, which cuts the income tax deducted from your salary and lifts your monthly in-hand pay. Work out your exemption here, then run the lower taxable figure through the income tax calculator, and check the impact on your monthly salary with the take-home salary calculator.",
+        },
+      ]}
+      sources={[
+        { label: "Income Tax Department", href: "https://www.incometax.gov.in" },
       ]}
     />
   );

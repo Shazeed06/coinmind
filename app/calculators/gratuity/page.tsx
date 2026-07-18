@@ -16,6 +16,7 @@ export default function Page() {
       title="Gratuity Calculator"
       subtitle="Find out the gratuity you're entitled to when you leave your job."
       calculator={<GratuityCalculator />}
+      sources={[{ label: "Ministry of Labour & Employment", href: "https://labour.gov.in" }]}
       intro="Gratuity is a lump sum an employer pays you as a thank-you for long service, usually when you resign or retire after at least five years. In India it's governed by the Payment of Gratuity Act. This calculator shows what you're owed based on your salary and tenure."
       how={{
         heading: "How gratuity is calculated",
@@ -34,6 +35,7 @@ export default function Page() {
         { q: "Is gratuity taxable?", a: "For covered employees, gratuity up to ₹20 lakh is tax-free. Amounts above that ceiling may be taxable depending on your category — this calculator caps at ₹20 lakh." },
         { q: "How are part-years counted?", a: "Service beyond six months in the final year is usually rounded up to a full year. For example, 10 years and 7 months counts as 11 years." },
         { q: "Does it include bonuses or HRA?", a: "No. Only basic salary and dearness allowance are used in the calculation — not HRA, bonuses or other allowances." },
+        { q: "What is the gratuity formula?", a: "For employees covered by the Payment of Gratuity Act, gratuity = (15 / 26) × last drawn salary × years of service. The 15 represents 15 days' wages for every completed year, 26 is the assumed number of working days in a month, and the last drawn salary is your final basic pay plus dearness allowance." },
       ]}
     />
   );

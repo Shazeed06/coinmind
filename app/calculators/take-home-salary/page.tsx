@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import TakeHomeSalaryCalculator from "@/components/calc/TakeHomeSalaryCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
@@ -16,7 +17,7 @@ export default function Page() {
       title="Take-Home Salary Calculator"
       subtitle="Turn your annual CTC into a real monthly in-hand figure in seconds."
       calculator={<TakeHomeSalaryCalculator />}
-      intro="Your CTC is what a company spends on you, not what lands in your bank account. Between employer PF, gratuity, your own PF contribution, professional tax and income tax, the take-home is always lower. This free, India-focused calculator breaks down every deduction so you know your actual monthly in-hand salary before you accept an offer."
+      intro="Your CTC is what a company spends on you, not what lands in your bank account. The gap between CTC vs in-hand salary trips up even experienced professionals every time they switch jobs. Between employer PF, gratuity, your own PF contribution, professional tax and income tax, the take-home is always lower than the headline number on your offer letter. This free take home calculator is built for India: it breaks down every deduction so you know your actual monthly in-hand salary before you accept an offer. If you have been trying to understand how in-hand salary vs CTC in India really works, this is the full breakdown, plus a tool that does the math for you."
       how={{
         heading: "How your in-hand salary is calculated",
         body: (
@@ -64,7 +65,59 @@ export default function Page() {
           q: "Why is my in-hand less than my CTC?",
           a: "CTC bundles in employer PF, gratuity and other contributions that are costs to the company but not paid to you directly. On top of that, your own PF, professional tax and income tax are deducted from gross, so the amount you take home is always noticeably lower than the CTC figure.",
         },
+        {
+          q: "CTC vs in-hand salary: why is the gap so large?",
+          a: "CTC vs in-hand salary differ because CTC bundles costs you never receive as cash — the employer's PF contribution (12% of basic) and a gratuity provision (about 4.81% of basic). Your gross salary is CTC minus those two. From gross, your own PF, professional tax and income tax are then deducted. What survives is your in-hand pay, which is why an ₹18 lakh CTC can land around ₹1.2 lakh a month rather than the ₹1.5 lakh the headline suggests.",
+        },
+        {
+          q: "How does this take home calculator convert CTC to in-hand salary?",
+          a: "The take home calculator estimates Basic at around 50% of CTC and splits the rest into HRA and allowances. It removes the employer PF contribution and gratuity provision to reach your gross salary, then subtracts your employee PF (12% of Basic), professional tax (about ₹2,400 a year) and income tax under the new regime for FY 2026-27, before showing the monthly figure that remains.",
+        },
+        {
+          q: "In-hand salary vs CTC in India: what actually gets deducted?",
+          a: "Six things sit between CTC and in-hand salary in India: employer PF and gratuity (part of CTC but never paid to you as cash), then your own PF, professional tax and income tax deducted from gross. Under the new regime for FY 2026-27, taxable income up to ₹12,00,000 is effectively tax-free after the Section 87A rebate, and salaried people also get a ₹75,000 standard deduction — so lower salaries often keep their entire gross apart from PF and professional tax.",
+        },
       ]}
+      sources={[
+        { label: "Income Tax Department", href: "https://www.incometax.gov.in" },
+        { label: "EPFO", href: "https://www.epfindia.gov.in" },
+      ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl font-600 text-ink">
+            Related salary &amp; tax tools
+          </h2>
+          <p className="mt-3 text-ink-soft leading-relaxed">
+            Once you know your take-home, dig into the pieces that shape it:
+          </p>
+          <ul className="mt-4 space-y-2 text-ink-soft leading-relaxed">
+            <li>
+              <Link href="/calculators/income-tax" className="text-forest hover:underline">
+                Income Tax Calculator
+              </Link>{" "}
+              — compare the new and old regimes for FY 2026-27.
+            </li>
+            <li>
+              <Link href="/calculators/hra" className="text-forest hover:underline">
+                HRA Calculator
+              </Link>{" "}
+              — see how much of your House Rent Allowance is tax-free.
+            </li>
+            <li>
+              <Link href="/calculators/gratuity" className="text-forest hover:underline">
+                Gratuity Calculator
+              </Link>{" "}
+              — estimate the lump sum that sits inside your CTC.
+            </li>
+            <li>
+              <Link href="/blog/ctc-vs-in-hand-salary" className="text-forest hover:underline">
+                CTC vs In-Hand Salary in India
+              </Link>{" "}
+              — a full walkthrough of every deduction with a worked example.
+            </li>
+          </ul>
+        </div>
+      }
     />
   );
 }

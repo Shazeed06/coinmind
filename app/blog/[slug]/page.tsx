@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 import { IconArrow } from "@/components/icons";
 import CoverArt from "@/components/CoverArt";
 import ArticleMarkdown from "@/components/ArticleMarkdown";
+import AuthorReviewBox from "@/components/AuthorReviewBox";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -420,8 +421,14 @@ export default async function Page({
         headline: post.title,
         description: post.excerpt,
         image: [`${site.url}/opengraph-image`],
-        author: { "@type": "Organization", name: site.name },
-        publisher: { "@type": "Organization", name: site.name },
+        author: { "@type": "Organization", name: site.authorName, url: `${site.url}/about` },
+        publisher: {
+          "@type": "Organization",
+          name: site.name,
+          url: site.url,
+          logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
+        },
+        publishingPrinciples: `${site.url}/editorial-standards`,
         datePublished: new Date(post.date).toISOString(),
         dateModified: new Date(post.date).toISOString(),
         mainEntityOfPage: `${site.url}/blog/${post.slug}`,
@@ -466,7 +473,12 @@ export default async function Page({
           </span>
           <div className="text-sm">
             <p className="font-semibold text-ink">Written by {site.authorName}</p>
-            <p className="text-ink-faint">Reviewed for accuracy · Educational, not advice</p>
+            <p className="text-ink-faint">
+              <Link href="/editorial-standards" className="hover:text-forest underline underline-offset-2">
+                Reviewed for accuracy
+              </Link>{" "}
+              · Educational, not advice
+            </p>
           </div>
         </div>
       </header>
@@ -483,7 +495,9 @@ export default async function Page({
 
       <article className="article mt-10">{body}</article>
 
-      <div className="mt-12 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
+      <AuthorReviewBox className="mt-12" />
+
+      <div className="mt-6 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
         <strong className="text-ink">A note on trust:</strong> this guide is for
         education, not personalised financial advice. Figures are illustrative —
         confirm anything that affects a real decision.

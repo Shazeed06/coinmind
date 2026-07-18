@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { calculators } from "@/lib/data";
 import { site } from "@/lib/site";
 import { IconArrow, IconCalculator } from "@/components/icons";
+import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 
 export type Faq = { q: string; a: string };
 
@@ -15,6 +16,7 @@ export default function CalcPage({
   how,
   faqs,
   extra,
+  sources,
 }: {
   slug: string;
   title: string;
@@ -24,6 +26,7 @@ export default function CalcPage({
   how: { heading: string; body: ReactNode };
   faqs: Faq[];
   extra?: ReactNode;
+  sources?: Source[];
 }) {
   const related = calculators.filter((c) => c.live && c.slug !== slug).slice(0, 3);
 
@@ -111,6 +114,11 @@ export default function CalcPage({
           ))}
         </div>
       </section>
+
+      {/* E-E-A-T: who wrote/reviewed this + official sources (YMYL trust) */}
+      <div className="mt-12 max-w-3xl">
+        <AuthorReviewBox sources={sources} />
+      </div>
 
       {/* Optional extra content (e.g. programmatic-SEO internal links) */}
       {extra ? <section className="mt-14">{extra}</section> : null}

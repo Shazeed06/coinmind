@@ -38,6 +38,19 @@ export default function Page() {
               estimate for a salaried individual below 60 — always confirm with a
               tax professional before filing.
             </p>
+            <p>
+              Want to pay less? Our guide on{" "}
+              <a href="/blog/how-to-save-income-tax" className="text-forest">
+                how to save income tax in India
+              </a>{" "}
+              walks through 80C, 80D, NPS and home-loan deductions in detail, and
+              once you have picked a regime you can see the effect on your monthly
+              pay with the{" "}
+              <a href="/calculators/take-home-salary" className="text-forest">
+                Take-Home Salary Calculator
+              </a>
+              .
+            </p>
           </>
         ),
       }}
@@ -58,6 +71,17 @@ export default function Page() {
           q: "Which deductions count for the old regime?",
           a: "Common ones include 80C (PF, ELSS, life insurance, PPF up to ₹1.5 lakh), 80D (health insurance), 80CCD(1B) (NPS), home-loan interest under Section 24, and HRA. Add them together in the deductions field.",
         },
+        {
+          q: "How to save income tax in India under the old regime?",
+          a: "The main levers are Section 80C (up to ₹1.5 lakh across EPF, PPF, ELSS, life insurance and home-loan principal), Section 80D for health-insurance premiums, an extra ₹50,000 for NPS under Section 80CCD(1B), home-loan interest up to ₹2 lakh under Section 24, and HRA exemption if you pay rent. Stacked together these can sharply cut your taxable income — but they only apply if you choose the old regime.",
+        },
+        {
+          q: "New vs old regime — which saves the most tax?",
+          a: "It depends on how much you claim. The new regime for FY 2026-27 gives a ₹75,000 standard deduction and makes tax zero up to ₹12,00,000 of taxable income through the Section 87A rebate, but drops most deductions. The old regime keeps 80C, 80D, 80CCD(1B), Section 24 home-loan interest and HRA, at higher slab rates. If your deductions are large, the old regime can still win; if they are modest, the new regime usually leaves more in your pocket.",
+        },
+      ]}
+      sources={[
+        { label: "Income Tax Department", href: "https://www.incometax.gov.in" },
       ]}
     />
   );

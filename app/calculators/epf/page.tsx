@@ -17,6 +17,7 @@ export default function Page() {
       title="EPF Calculator"
       subtitle="See how big your Employee Provident Fund will grow by the time you retire."
       calculator={<EpfCalculator />}
+      sources={[{ label: "EPFO", href: "https://www.epfindia.gov.in" }]}
       intro="The Employee Provident Fund (EPF) is India's flagship retirement-savings scheme for salaried workers. Every month a slice of your basic salary is set aside, matched by your employer, and grown at an interest rate fixed each year by the EPFO. Because contributions rise with your salary and interest compounds year after year, even a modest monthly deduction can build into a substantial tax-free corpus by retirement. This EPF calculator projects that corpus from your current age, salary, existing balance and expected pay increases."
       how={{
         heading: "How your EPF corpus is calculated",
@@ -73,6 +74,10 @@ export default function Page() {
         {
           q: "When can I withdraw my EPF?",
           a: "The full balance can be withdrawn at retirement (age 58) or after two months of unemployment. Partial withdrawals are allowed earlier for specific needs such as a home purchase, medical emergencies, higher education or marriage, subject to EPFO rules and service-period conditions.",
+        },
+        {
+          q: "How is EPF interest calculated and credited?",
+          a: "Interest accrues on the running monthly balance through the year, but the EPFO credits it as a single entry at the end of the financial year once the rate is declared. Because the credited interest then joins your balance, it compounds year on year — this calculator models that annual crediting on your combined contributions.",
         },
       ]}
     />

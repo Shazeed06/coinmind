@@ -19,6 +19,15 @@ export default function SiteJsonLd() {
         email: site.email,
         foundingDate: "2026",
         areaServed: ["IN", "US", "GB", "Worldwide"],
+        publishingPrinciples: `${site.url}/editorial-standards`,
+        knowsAbout: [
+          "Personal finance",
+          "Income tax",
+          "Mutual funds and SIP",
+          "Fixed deposits",
+          "PPF, EPF and NPS",
+          "AI tools",
+        ],
       },
       {
         "@type": "WebSite",
