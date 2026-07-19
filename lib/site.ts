@@ -70,7 +70,6 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     title: "Explore",
     items: [
       { label: "AI Tools Directory", href: "/ai-tools" },
-      { label: "Gold Rate Today", href: "/gold-rate" },
       { label: "Finance & AI Glossary", href: "/glossary" },
       { label: "Finance & AI News", href: "/news" },
       { label: "Guides & How-tos", href: "/blog" },
