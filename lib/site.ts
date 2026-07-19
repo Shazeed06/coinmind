@@ -80,6 +80,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "About", href: "/about" },
       { label: "Editorial Standards", href: "/editorial-standards" },
+      { label: "Affiliate Disclosure", href: "/affiliate-disclosure" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Disclaimer", href: "/disclaimer" },

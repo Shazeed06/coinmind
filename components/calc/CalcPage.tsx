@@ -4,6 +4,8 @@ import { calculators } from "@/lib/data";
 import { site } from "@/lib/site";
 import { IconArrow, IconCalculator } from "@/components/icons";
 import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
+import AffiliateCta from "@/components/AffiliateCta";
+import { offerForCategory } from "@/lib/affiliates";
 
 export type Faq = { q: string; a: string };
 
@@ -29,6 +31,7 @@ export default function CalcPage({
   sources?: Source[];
 }) {
   const related = calculators.filter((c) => c.live && c.slug !== slug).slice(0, 3);
+  const category = calculators.find((c) => c.slug === slug)?.category;
 
   const faqJson = {
     "@context": "https://schema.org",
@@ -114,6 +117,10 @@ export default function CalcPage({
           ))}
         </div>
       </section>
+
+      {/* Relevant partner offer — renders only when an affiliate href is set
+          in lib/affiliates.ts (hidden by default, so nothing misleading shows). */}
+      <AffiliateCta offer={offerForCategory(category)} className="mt-12 max-w-3xl" />
 
       {/* E-E-A-T: who wrote/reviewed this + official sources (YMYL trust) */}
       <div className="mt-12 max-w-3xl">

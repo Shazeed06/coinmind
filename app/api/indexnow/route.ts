@@ -68,6 +68,7 @@ function allUrls(): string[] {
     "/blog",
     "/about",
     "/editorial-standards",
+    "/affiliate-disclosure",
     "/contact",
     "/privacy",
     "/disclaimer",

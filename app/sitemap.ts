@@ -63,6 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog",
     "/about",
     "/editorial-standards",
+    "/affiliate-disclosure",
     "/contact",
     "/privacy",
     "/disclaimer",
