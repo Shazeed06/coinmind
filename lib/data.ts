@@ -420,6 +420,105 @@ export const calculators: Calculator[] = [
     live: true,
     keywords: ["capital gains tax calculator", "ltcg calculator", "capital gains calculator india", "stcg calculator"],
   },
+  {
+    slug: "nsc",
+    title: "NSC Calculator",
+    short: "National Savings Certificate",
+    blurb:
+      "Find your National Savings Certificate maturity value & total interest over the fixed 5-year term at the current government rate.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["nsc calculator", "national savings certificate calculator", "nsc interest calculator", "nsc maturity calculator"],
+  },
+  {
+    slug: "scss",
+    title: "SCSS Calculator",
+    short: "Senior Citizen Savings Scheme",
+    blurb:
+      "Work out the quarterly payout, annual income & total interest from the Senior Citizen Savings Scheme over its 5-year term.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["scss calculator", "senior citizen savings scheme calculator", "scss interest calculator"],
+  },
+  {
+    slug: "post-office-mis",
+    title: "Post Office MIS Calculator",
+    short: "Monthly Income Scheme",
+    blurb:
+      "See the fixed monthly income, annual income & total interest from the Post Office Monthly Income Scheme over 5 years.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["post office mis calculator", "monthly income scheme calculator", "mis calculator post office", "post office monthly income scheme"],
+  },
+  {
+    slug: "car-loan-emi",
+    title: "Car Loan EMI Calculator",
+    short: "Monthly car loan EMI",
+    blurb:
+      "Work out your monthly car loan EMI, total interest & total cost for any car price, rate and 5-7 year tenure.",
+    category: "Loans",
+    region: "IN",
+    live: true,
+    keywords: ["car loan emi calculator", "car loan calculator", "auto loan emi"],
+  },
+  {
+    slug: "personal-loan-emi",
+    title: "Personal Loan EMI Calculator",
+    short: "Monthly personal loan EMI",
+    blurb:
+      "Find your monthly EMI, total interest & total payment on an unsecured personal loan at 11-18% over 1-5 years.",
+    category: "Loans",
+    region: "IN",
+    live: true,
+    keywords: ["personal loan emi calculator", "personal loan calculator", "personal loan emi"],
+  },
+  {
+    slug: "education-loan-emi",
+    title: "Education Loan EMI Calculator",
+    short: "Monthly student loan EMI",
+    blurb:
+      "Estimate your student loan EMI, total interest & payment, and plan repayment around the moratorium period.",
+    category: "Loans",
+    region: "IN",
+    live: true,
+    keywords: ["education loan emi calculator", "student loan emi calculator", "education loan calculator"],
+  },
+  {
+    slug: "discount",
+    title: "Discount Calculator",
+    short: "Sale price & savings",
+    blurb:
+      "Enter an original price and percentage off to see the final sale price and exactly how much you save.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["discount calculator", "percent off calculator", "sale price calculator", "how much will i save"],
+  },
+  {
+    slug: "sales-tax",
+    title: "Sales Tax & VAT Calculator",
+    short: "Add or remove tax",
+    blurb:
+      "Add sales tax or VAT to a net price, or extract the tax from a gross total, at any rate.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["sales tax calculator", "vat calculator", "add tax calculator", "tax rate calculator"],
+  },
+  {
+    slug: "hourly-to-salary",
+    title: "Hourly to Salary Calculator",
+    short: "Wage to annual pay",
+    blurb:
+      "Convert an hourly wage into annual, monthly, weekly and daily pay from your hours and weeks worked.",
+    category: "Utility",
+    region: "Global",
+    live: true,
+    keywords: ["hourly to salary calculator", "hourly to annual salary", "wage calculator", "salary calculator"],
+  },
 ];
 
 export type Region = "USA" | "China" | "India";
