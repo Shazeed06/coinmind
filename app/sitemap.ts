@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/calculators",
     "/tools",
     "/glossary",
+    "/gold-rate",
     "/resume-builder",
     "/tools/compress-image",
     "/tools/image-converter",

@@ -354,6 +354,72 @@ export const calculators: Calculator[] = [
     live: true,
     keywords: ["pregnancy due date calculator", "due date calculator", "how many weeks pregnant"],
   },
+  {
+    slug: "rd",
+    title: "RD Calculator",
+    short: "Recurring deposit maturity",
+    blurb:
+      "Find your recurring deposit maturity value and total interest with quarterly compounding — for bank and post office RD plans.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["rd calculator", "recurring deposit calculator", "rd maturity calculator", "post office rd calculator"],
+  },
+  {
+    slug: "sukanya-samriddhi",
+    title: "Sukanya Samriddhi Yojana Calculator",
+    short: "SSY tax-free girl-child corpus",
+    blurb:
+      "Estimate the tax-free SSY maturity value for a girl child from yearly deposits, compounded annually to year 21.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["sukanya samriddhi yojana calculator", "ssy calculator", "sukanya samriddhi calculator", "ssy maturity calculator"],
+  },
+  {
+    slug: "mutual-fund-returns",
+    title: "Mutual Fund Returns Calculator",
+    short: "Lumpsum growth & CAGR",
+    blurb:
+      "Project the future value, total return and CAGR of a one-time lumpsum mutual fund investment from your amount, expected return and duration.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["mutual fund returns calculator", "mutual fund calculator", "mf return calculator", "mutual fund calculator india"],
+  },
+  {
+    slug: "mortgage",
+    title: "Mortgage Calculator",
+    short: "Monthly payment & interest",
+    blurb:
+      "Estimate your monthly home loan payment, total interest and total paid from the home price, down payment, term and interest rate.",
+    category: "Loans",
+    region: "Global",
+    live: true,
+    keywords: ["mortgage calculator", "home loan calculator", "mortgage payment calculator", "monthly mortgage calculator"],
+  },
+  {
+    slug: "tds",
+    title: "TDS Calculator",
+    short: "Tax deducted at source",
+    blurb:
+      "Estimate TDS on interest, professional fees, rent, contractor and commission payments, and see the net amount after deduction.",
+    category: "Tax",
+    region: "IN",
+    live: true,
+    keywords: ["tds calculator", "tds calculator online", "tds on salary calculator", "tds on interest calculator"],
+  },
+  {
+    slug: "capital-gains",
+    title: "Capital Gains Tax Calculator",
+    short: "LTCG & STCG on your assets",
+    blurb:
+      "Work out short-term and long-term capital gains tax on equity, mutual funds, property and gold under FY 2026-27 rules.",
+    category: "Tax",
+    region: "IN",
+    live: true,
+    keywords: ["capital gains tax calculator", "ltcg calculator", "capital gains calculator india", "stcg calculator"],
+  },
 ];
 
 export type Region = "USA" | "China" | "India";

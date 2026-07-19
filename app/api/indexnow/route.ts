@@ -17,6 +17,7 @@ function allUrls(): string[] {
     "",
     "/calculators",
     "/tools",
+    "/gold-rate",
     "/resume-builder",
     "/tools/compress-image",
     "/tools/image-converter",
