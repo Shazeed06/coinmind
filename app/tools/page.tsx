@@ -74,6 +74,42 @@ const tools: Tool[] = [
     tag: "PDF",
   },
   {
+    slug: "scientific-calculator",
+    href: "/tools/scientific-calculator",
+    emoji: "🧮",
+    title: "Scientific Calculator",
+    blurb:
+      "Trig, logs, powers, roots, factorials, π and more — a full scientific calculator in your browser.",
+    tag: "Calculators",
+  },
+  {
+    slug: "gpa-calculator",
+    href: "/tools/gpa-calculator",
+    emoji: "🎓",
+    title: "GPA & CGPA Calculator",
+    blurb:
+      "Work out your GPA (4.0) or CGPA (10-point), plus CGPA-to-percentage, from your grades and credits.",
+    tag: "Students",
+  },
+  {
+    slug: "color-picker",
+    href: "/tools/color-picker",
+    emoji: "🎨",
+    title: "Color Picker",
+    blurb:
+      "Pick a colour and get HEX, RGB and HSL in sync, with tints, shades and one-click copy.",
+    tag: "Dev",
+  },
+  {
+    slug: "character-counter",
+    href: "/tools/character-counter",
+    emoji: "🔡",
+    title: "Character Counter",
+    blurb:
+      "Live character, word and line counts with Twitter, SMS and meta-tag limits.",
+    tag: "Text",
+  },
+  {
     slug: "ai-summarizer",
     href: "/tools/ai-summarizer",
     emoji: "📝",
