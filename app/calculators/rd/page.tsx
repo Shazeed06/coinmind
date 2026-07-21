@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free RD calculator to find your recurring deposit maturity value and total interest, with quarterly compounding. Works for bank and post office RD plans.",
   alternates: { canonical: "/calculators/rd" },
+  openGraph: { url: "/calculators/rd" },
 };
 
 export default function Page() {

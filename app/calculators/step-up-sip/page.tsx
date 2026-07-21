@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free step-up SIP calculator. See how increasing your monthly SIP each year grows your corpus vs a flat SIP. Estimate top-up SIP returns in ₹, $ or £.",
   alternates: { canonical: "/calculators/step-up-sip" },
+  openGraph: { url: "/calculators/step-up-sip" },
 };
 
 export default function Page() {

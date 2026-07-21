@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   description:
     "Original, plain-English explainers of the finance and AI developments that matter — markets, rates, AI models and tools.",
   alternates: { canonical: "/news" },
+  openGraph: { url: "/news" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free tip calculator. Enter your bill, pick a tip % (10–25%), split between any number of people, and see the tip, total and per-person share instantly.",
   alternates: { canonical: "/calculators/tip-calculator" },
+  openGraph: { url: "/calculators/tip-calculator" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free due date calculator. Estimate your due date from your last period (LMP) or conception date, and see how many weeks pregnant you are.",
   alternates: { canonical: "/calculators/pregnancy-due-date" },
+  openGraph: { url: "/calculators/pregnancy-due-date" },
 };
 
 export default function Page() {

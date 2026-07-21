@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free simple interest calculator. Work out interest and total amount using the SI = P×R×T/100 formula, and see how it compares with compound interest.",
   alternates: { canonical: "/calculators/simple-interest" },
+  openGraph: { url: "/calculators/simple-interest" },
 };
 
 export default function Page() {

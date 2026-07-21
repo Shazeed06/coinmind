@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free currency converter with live mid-market rates. Convert USD to INR, EUR, GBP and 20+ currencies instantly — no sign-up, quick and accurate.",
   alternates: { canonical: "/calculators/currency-converter" },
+  openGraph: { url: "/calculators/currency-converter" },
 };
 
 export default function Page() {

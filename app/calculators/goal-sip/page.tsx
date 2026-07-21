@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Find the exact monthly SIP needed to reach ₹1 crore (or any goal) at 12%. Free reverse-SIP crorepati calculator with instant results.",
   alternates: { canonical: "/calculators/goal-sip" },
+  openGraph: { url: "/calculators/goal-sip" },
 };
 
 export default function Page() {

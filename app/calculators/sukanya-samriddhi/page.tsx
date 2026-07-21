@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free Sukanya Samriddhi Yojana (SSY) calculator. Estimate your girl child's SSY maturity value and tax-free interest with yearly deposits over 21 years.",
   alternates: { canonical: "/calculators/sukanya-samriddhi" },
+  openGraph: { url: "/calculators/sukanya-samriddhi" },
 };
 
 export default function Page() {

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Up-to-date directory of top AI tools from the US, China and India — ratings, benefits and pricing for ChatGPT, Claude, Gemini, DeepSeek, Qwen and more.",
   alternates: { canonical: "/ai-tools" },
+  openGraph: { url: "/ai-tools" },
 };
 
 const regions: { key: Region; label: string; flag: string; note: string }[] = [

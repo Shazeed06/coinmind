@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free discount calculator. Enter an original price and discount % to see the final sale price and how much you save. Percent off made simple.",
   alternates: { canonical: "/calculators/discount" },
+  openGraph: { url: "/calculators/discount" },
 };
 
 export default function Page() {

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Practical, jargon-free guides on personal finance, investing, credit and working smarter with AI. Written by people, checked for accuracy.",
   alternates: { canonical: "/blog" },
+  openGraph: { url: "/blog" },
 };
 
 export default function Page() {

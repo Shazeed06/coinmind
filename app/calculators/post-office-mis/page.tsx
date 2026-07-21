@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free Post Office MIS calculator. Find your Monthly Income Scheme monthly payout, annual income and total interest over the 5-year term.",
   alternates: { canonical: "/calculators/post-office-mis" },
+  openGraph: { url: "/calculators/post-office-mis" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free capital gains tax calculator for India. Work out LTCG and STCG on equity, mutual funds, property and gold under FY 2026-27 rules, with tax owed.",
   alternates: { canonical: "/calculators/capital-gains" },
+  openGraph: { url: "/calculators/capital-gains" },
 };
 
 export default function Page() {

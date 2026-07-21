@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free SWP calculator. See how long your mutual-fund corpus lasts, your total withdrawals and remaining balance for any monthly payout and return rate.",
   alternates: { canonical: "/calculators/swp" },
+  openGraph: { url: "/calculators/swp" },
 };
 
 export default function Page() {

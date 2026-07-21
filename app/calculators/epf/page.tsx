@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free EPF calculator for India. Estimate your Employee Provident Fund corpus at retirement from your basic salary, contribution rate and EPF interest.",
   alternates: { canonical: "/calculators/epf" },
+  openGraph: { url: "/calculators/epf" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with the CoinMind team — feedback, corrections, partnership enquiries or a tool you'd like us to build.",
   alternates: { canonical: "/contact" },
+  openGraph: { url: "/contact" },
 };
 
 export default function Page() {

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free car loan EMI calculator. Work out your monthly car loan EMI, total interest and total payment for any car price, 8–12% rate and 5–7 year tenure.",
   alternates: { canonical: "/calculators/car-loan-emi" },
+  openGraph: { url: "/calculators/car-loan-emi" },
 };
 
 export default function Page() {

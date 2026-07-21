@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "Merge PDF — Combine PDF Files Online Free",
     description:
-      "Combine multiple PDF files into one, entirely in your browser. No upload, no sign-up.",
+      "Free online tool to combine multiple PDF files into one document, entirely in your browser — reorder pages, then download. No upload, no sign-up, 100% private.",
     images: [
       {
         url: "/opengraph-image",

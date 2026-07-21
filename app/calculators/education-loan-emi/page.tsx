@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free education loan EMI calculator. Estimate your student loan EMI, total interest and payment at 8–13%, and see how a moratorium affects repayment.",
   alternates: { canonical: "/calculators/education-loan-emi" },
+  openGraph: { url: "/calculators/education-loan-emi" },
 };
 
 export default function Page() {

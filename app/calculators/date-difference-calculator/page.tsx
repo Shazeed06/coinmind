@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free date difference calculator. Find days, weeks, months and years between two dates, or add and subtract days from any date. No sign-up.",
   alternates: { canonical: "/calculators/date-difference-calculator" },
+  openGraph: { url: "/calculators/date-difference-calculator" },
 };
 
 export default function Page() {

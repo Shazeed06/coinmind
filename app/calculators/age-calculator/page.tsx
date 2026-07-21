@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free age calculator. Find your exact age in years, months and days — plus total weeks, days, hours and your next birthday countdown. No sign-up.",
   alternates: { canonical: "/calculators/age-calculator" },
+  openGraph: { url: "/calculators/age-calculator" },
 };
 
 export default function Page() {

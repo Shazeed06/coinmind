@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free India take-home salary calculator. Convert annual CTC to monthly in-hand pay with PF, professional tax and new-regime income tax.",
   alternates: { canonical: "/calculators/take-home-salary" },
+  openGraph: { url: "/calculators/take-home-salary" },
 };
 
 export default function Page() {

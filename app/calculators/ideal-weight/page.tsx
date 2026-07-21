@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free ideal weight calculator. Enter your height and sex to see your ideal body weight from the Robinson, Miller, Devine and Hamwi formulas.",
   alternates: { canonical: "/calculators/ideal-weight" },
+  openGraph: { url: "/calculators/ideal-weight" },
 };
 
 export default function Page() {

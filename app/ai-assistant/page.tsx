@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "A free AI assistant for money and AI questions — investing, taxes, budgeting, saving and choosing AI tools. Instant answers, no sign-up.",
   alternates: { canonical: "/ai-assistant" },
+  openGraph: { url: "/ai-assistant" },
 };
 
 export default function Page() {

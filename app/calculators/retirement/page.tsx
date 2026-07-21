@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free retirement planning calculator. Find the corpus you need to retire and the monthly investment required to get there, adjusted for inflation.",
   alternates: { canonical: "/calculators/retirement" },
+  openGraph: { url: "/calculators/retirement" },
 };
 
 export default function Page() {

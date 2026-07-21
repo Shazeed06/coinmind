@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free EMI calculator for home, car and personal loans. Instantly find your monthly EMI, total interest and total payment for any loan amount, rate and tenure.",
   alternates: { canonical: "/calculators/emi" },
+  openGraph: { url: "/calculators/emi" },
 };
 
 export default function Page() {

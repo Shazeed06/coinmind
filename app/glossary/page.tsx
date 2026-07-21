@@ -49,7 +49,7 @@ export default function Page() {
         "@type": "DefinedTermSet",
         name: "CoinMind Finance & AI Glossary",
         description:
-          "Plain-English definitions of key finance and AI terms, each with a simple example.",
+          "Plain-English definitions of key finance and AI terms — SIP, EMI, PPF, NPS, CAGR, LLM and more — each with a simple example and a link to the right tool.",
         url: `${site.url}/glossary`,
         hasDefinedTerm: GLOSSARY.map((t) => ({
           "@type": "DefinedTerm",

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "How CoinMind researches, writes, reviews and updates its finance calculators and guides — the official sources we use and our corrections policy.",
   alternates: { canonical: "/editorial-standards" },
+  openGraph: { url: "/editorial-standards" },
 };
 
 const SOURCES: { label: string; href: string; what: string }[] = [

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free fixed deposit (FD) calculator. Find the maturity value and interest earned on your FD with quarterly, monthly or yearly compounding.",
   alternates: { canonical: "/calculators/fd" },
+  openGraph: { url: "/calculators/fd" },
 };
 
 export default function Page() {

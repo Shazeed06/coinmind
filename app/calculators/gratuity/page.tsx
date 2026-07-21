@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free gratuity calculator for India. Work out the gratuity payable based on your last drawn salary and years of service, under the Gratuity Act.",
   alternates: { canonical: "/calculators/gratuity" },
+  openGraph: { url: "/calculators/gratuity" },
 };
 
 export default function Page() {

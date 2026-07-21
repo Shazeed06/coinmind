@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "A free suite of financial calculators: SIP, EMI, income tax, fixed deposit, PPF, retirement and more. Fast, private and works in ₹, $ and £.",
   alternates: { canonical: "/calculators" },
+  openGraph: { url: "/calculators" },
 };
 
 const categories = ["Investing", "Loans", "Tax", "Savings", "Utility", "Health"] as const;

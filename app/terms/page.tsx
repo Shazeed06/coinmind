@@ -4,8 +4,9 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms and conditions for using CoinMind's free calculators, tools and content.",
+    "The terms and conditions for using CoinMind's free calculators, tools and content — what you can expect from us, and the limits of our educational information.",
   alternates: { canonical: "/terms" },
+  openGraph: { url: "/terms" },
 };
 
 export default function Page() {

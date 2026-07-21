@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "How CoinMind uses affiliate links: they are clearly marked, we may earn a commission at no cost to you, and they never affect our tools or recommendations.",
   alternates: { canonical: "/affiliate-disclosure" },
+  openGraph: { url: "/affiliate-disclosure" },
 };
 
 export default function AffiliateDisclosurePage() {

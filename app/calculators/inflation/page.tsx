@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free inflation calculator. See what today's money will cost in the future and how inflation erodes the purchasing power of your savings over time.",
   alternates: { canonical: "/calculators/inflation" },
+  openGraph: { url: "/calculators/inflation" },
 };
 
 export default function Page() {

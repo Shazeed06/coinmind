@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free BMI calculator. Enter your height and weight (metric or imperial) to find your body mass index, category and healthy weight range.",
   alternates: { canonical: "/calculators/bmi" },
+  openGraph: { url: "/calculators/bmi" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free calorie calculator. Estimate your daily maintenance calories (TDEE) and targets for weight loss or gain using the Mifflin-St Jeor equation.",
   alternates: { canonical: "/calculators/calorie" },
+  openGraph: { url: "/calculators/calorie" },
 };
 
 export default function Page() {

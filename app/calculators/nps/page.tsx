@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free NPS calculator. Estimate your retirement corpus, tax-free lump sum and monthly pension from the National Pension System for any contribution and return.",
   alternates: { canonical: "/calculators/nps" },
+  openGraph: { url: "/calculators/nps" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free percentage calculator. Find X% of a number, work out what percent one number is of another, and calculate percentage increase or decrease instantly.",
   alternates: { canonical: "/calculators/percentage-calculator" },
+  openGraph: { url: "/calculators/percentage-calculator" },
 };
 
 export default function Page() {

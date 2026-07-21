@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "See how much home loan you qualify for on your salary. Free eligibility calculator using FOIR, your existing EMIs, interest rate and tenure.",
   alternates: { canonical: "/calculators/home-loan-eligibility" },
+  openGraph: { url: "/calculators/home-loan-eligibility" },
 };
 
 export default function Page() {

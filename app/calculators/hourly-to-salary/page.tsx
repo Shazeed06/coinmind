@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free hourly to salary calculator. Convert an hourly wage into annual, monthly, weekly and daily pay using your hours and weeks worked.",
   alternates: { canonical: "/calculators/hourly-to-salary" },
+  openGraph: { url: "/calculators/hourly-to-salary" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free income tax calculator for FY 2026-27 (AY 2027-28). Compare the new and old tax regimes for India and instantly see which one saves you more tax.",
   alternates: { canonical: "/calculators/income-tax" },
+  openGraph: { url: "/calculators/income-tax" },
 };
 
 export default function Page() {

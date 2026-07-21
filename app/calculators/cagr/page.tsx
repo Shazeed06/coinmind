@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free CAGR calculator. Find the compound annual growth rate, absolute return and total gain of any investment from its initial value, final value and duration.",
   alternates: { canonical: "/calculators/cagr" },
+  openGraph: { url: "/calculators/cagr" },
 };
 
 export default function Page() {

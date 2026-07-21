@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free lumpsum investment calculator. See the future value of a one-time investment in mutual funds or any asset, in ₹, $ or £.",
   alternates: { canonical: "/calculators/lumpsum" },
+  openGraph: { url: "/calculators/lumpsum" },
 };
 
 export default function Page() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "CoinMind provides educational information and free tools only — not financial, investment, tax or legal advice. Read our full disclaimer.",
   alternates: { canonical: "/disclaimer" },
+  openGraph: { url: "/disclaimer" },
 };
 
 export default function Page() {

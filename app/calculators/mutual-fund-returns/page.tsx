@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free mutual fund returns calculator. Project the future value, total return, absolute return and CAGR of a one-time lumpsum mutual fund investment.",
   alternates: { canonical: "/calculators/mutual-fund-returns" },
+  openGraph: { url: "/calculators/mutual-fund-returns" },
 };
 
 export default function Page() {

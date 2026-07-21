@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Free online SIP calculator. See how much your monthly SIP grows with expected returns, and get the mutual fund maturity value instantly in ₹, $ or £.",
   alternates: { canonical: "/calculators/sip" },
+  openGraph: { url: "/calculators/sip" },
 };
 
 // Internal links to the "SIP of ₹X per month" programmatic pages so they are

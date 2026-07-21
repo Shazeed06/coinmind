@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "How CoinMind handles data, cookies and advertising. Our calculators run in your browser and we never store the figures you enter.",
   alternates: { canonical: "/privacy" },
+  openGraph: { url: "/privacy" },
 };
 
 export default function Page() {

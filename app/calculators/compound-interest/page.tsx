@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free compound interest calculator. See how your money grows with monthly, quarterly or yearly compounding for any principal, rate and time.",
   alternates: { canonical: "/calculators/compound-interest" },
+  openGraph: { url: "/calculators/compound-interest" },
 };
 
 export default function Page() {

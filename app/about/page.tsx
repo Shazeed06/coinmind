@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Who is behind CoinMind, why we build free financial calculators and AI tool reviews, and the editorial standards we hold ourselves to.",
   alternates: { canonical: "/about" },
+  openGraph: { url: "/about" },
 };
 
 export default function Page() {

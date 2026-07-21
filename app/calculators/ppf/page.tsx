@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free PPF calculator for India. Estimate your Public Provident Fund maturity and tax-free interest with yearly contributions over 15+ years.",
   alternates: { canonical: "/calculators/ppf" },
+  openGraph: { url: "/calculators/ppf" },
 };
 
 export default function Page() {

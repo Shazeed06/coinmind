@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free SCSS calculator. Find your Senior Citizen Savings Scheme quarterly payout, annual income and total interest over the 5-year term.",
   alternates: { canonical: "/calculators/scss" },
+  openGraph: { url: "/calculators/scss" },
 };
 
 export default function Page() {

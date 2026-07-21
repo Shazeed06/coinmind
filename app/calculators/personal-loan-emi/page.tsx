@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free personal loan EMI calculator. Work out your monthly EMI, total interest and total payment on an unsecured personal loan at 11–18% over 1–5 years.",
   alternates: { canonical: "/calculators/personal-loan-emi" },
+  openGraph: { url: "/calculators/personal-loan-emi" },
 };
 
 export default function Page() {

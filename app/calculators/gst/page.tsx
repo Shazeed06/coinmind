@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free GST calculator for India. Add GST to a price or remove GST from an inclusive amount at 5%, 12%, 18% or 28%, with CGST/SGST breakdown.",
   alternates: { canonical: "/calculators/gst" },
+  openGraph: { url: "/calculators/gst" },
 };
 
 export default function Page() {

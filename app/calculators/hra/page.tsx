@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free HRA exemption calculator for Indian income tax. See how much of your house rent allowance is tax-free under Section 10(13A) of the old regime.",
   alternates: { canonical: "/calculators/hra" },
+  openGraph: { url: "/calculators/hra" },
 };
 
 export default function Page() {

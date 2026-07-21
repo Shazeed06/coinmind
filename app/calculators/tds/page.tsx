@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free TDS calculator to estimate tax deducted at source on interest, professional fees, rent, contractor and commission payments, plus the net amount.",
   alternates: { canonical: "/calculators/tds" },
+  openGraph: { url: "/calculators/tds" },
 };
 
 export default function Page() {

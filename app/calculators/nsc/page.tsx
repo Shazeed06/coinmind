@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free NSC calculator. Find your National Savings Certificate maturity value and total interest over the fixed 5-year term at the current rate.",
   alternates: { canonical: "/calculators/nsc" },
+  openGraph: { url: "/calculators/nsc" },
 };
 
 export default function Page() {

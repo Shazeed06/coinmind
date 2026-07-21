@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free sales tax and VAT calculator. Add or remove tax from any amount at any rate. Works for US sales tax and UK & EU VAT.",
   alternates: { canonical: "/calculators/sales-tax" },
+  openGraph: { url: "/calculators/sales-tax" },
 };
 
 export default function Page() {

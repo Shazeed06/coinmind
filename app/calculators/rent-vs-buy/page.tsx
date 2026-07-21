@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Should you rent or buy a house? This rent vs buy calculator compares your net worth from buying against renting and investing the difference over your stay.",
   alternates: { canonical: "/calculators/rent-vs-buy" },
+  openGraph: { url: "/calculators/rent-vs-buy" },
 };
 
 export default function Page() {

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Free mortgage calculator. Estimate your monthly home loan payment, total interest and total paid from the home price, down payment, term and interest rate.",
   alternates: { canonical: "/calculators/mortgage" },
+  openGraph: { url: "/calculators/mortgage" },
 };
 
 export default function Page() {
