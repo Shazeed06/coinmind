@@ -421,7 +421,13 @@ export default async function Page({
         headline: post.title,
         description: post.excerpt,
         image: [`${site.url}/opengraph-image`],
-        author: { "@type": "Organization", name: site.authorName, url: `${site.url}/about` },
+        author: {
+          "@type": "Person",
+          name: site.author.name,
+          url: `${site.url}/about`,
+          jobTitle: site.author.role,
+          description: site.author.bio,
+        },
         publisher: {
           "@type": "Organization",
           name: site.name,
@@ -469,10 +475,16 @@ export default async function Page({
         </p>
         <div className="mt-5 flex items-center gap-3 border-t border-line pt-5">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-forest text-white text-sm font-semibold">
-            {site.name.charAt(0)}
+            {site.author.name.charAt(0)}
           </span>
           <div className="text-sm">
-            <p className="font-semibold text-ink">Written by {site.authorName}</p>
+            <p className="font-semibold text-ink">
+              Written by{" "}
+              <Link href="/about#author" className="hover:text-forest hover:underline">
+                {site.author.name}
+              </Link>
+              <span className="font-normal text-ink-faint"> · {site.author.credential}</span>
+            </p>
             <p className="text-ink-faint">
               <Link href="/editorial-standards" className="hover:text-forest underline underline-offset-2">
                 Reviewed for accuracy

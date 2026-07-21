@@ -20,11 +20,15 @@ export default function AuthorReviewBox({
     >
       <div className="flex items-start gap-3">
         <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-forest text-white text-base font-semibold">
-          {site.name.charAt(0)}
+          {site.author.name.charAt(0)}
         </span>
         <div>
           <p className="font-semibold text-ink">
-            Written &amp; reviewed by {site.authorName}
+            Written &amp; reviewed by{" "}
+            <Link href="/about#author" className="text-forest hover:underline">
+              {site.author.name}
+            </Link>
+            , {site.author.credential}
           </p>
           <p className="mt-0.5 text-ink-faint leading-relaxed">
             Every formula and figure is checked against official sources and

@@ -13,7 +13,15 @@ export const site = {
   description:
     "Free SIP, EMI, income tax & FD calculators, 40+ tools and honest AI reviews — smarter money decisions for India, the US & UK. No sign-up.",
   locale: "en",
-  authorName: "The CoinMind Team",
+  authorName: "Sahil",
+  // Named author/editor behind the content — E-E-A-T "Who" for a YMYL finance
+  // site. CA (Final) is a genuine, relevant finance credential.
+  author: {
+    name: "Sahil",
+    role: "Founder & Editor",
+    credential: "CA (Final) candidate",
+    bio: "Sahil is the founder and editor of CoinMind and is pursuing the Chartered Accountancy (CA) Final. He built CoinMind to make finance calculators and money guidance genuinely free, accurate and free of jargon.",
+  },
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):
   gaId: "G-1ZQB0YPJCS", // GA4 Measurement ID
   // GTM container GTM-5MMG4KLC exists but is EMPTY (no tags yet). Loading an

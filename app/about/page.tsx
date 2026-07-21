@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,8 +10,25 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      name: site.author.name,
+      jobTitle: site.author.role,
+      description: site.author.bio,
+      url: `${site.url}/about`,
+      worksFor: { "@type": "Organization", name: site.name, url: site.url },
+    },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="pt-14">
         <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
           About {site.name}
@@ -40,6 +58,16 @@ export default function Page() {
           around the world. That&apos;s why our calculators support the rupee,
           dollar and pound, and why our guides explain concepts rather than
           assuming you already know them.
+        </p>
+
+        <h2 id="author">About the author</h2>
+        <p>
+          {site.name} is founded and edited by <strong>{site.author.name}</strong>,
+          who is pursuing the Chartered Accountancy (CA) Final. He started{" "}
+          {site.name} to build the finance calculators and clear money guidance he
+          wished existed — genuinely free, accurate, and free of jargon or a sales
+          pitch. Every calculator&apos;s formula and every guide is checked for
+          accuracy against official sources before it&apos;s published.
         </p>
 
         <h2 id="editorial">Our editorial standards</h2>
