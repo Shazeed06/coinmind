@@ -5,6 +5,7 @@ import { morePosts } from "./morePosts";
 import { aiGuides } from "./aiGuides";
 import { aiComparisons } from "./aiComparisons";
 import { fdGuide } from "./fdGuide";
+import { investingGuide } from "./investingGuide";
 
 export type Calculator = {
   slug: string;
@@ -1161,4 +1162,5 @@ export const posts: Post[] = [
   ...aiGuides,
   ...aiComparisons,
   ...fdGuide,
+  ...investingGuide,
 ];
