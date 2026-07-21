@@ -53,6 +53,27 @@ export default function CalcPage({
     ],
   };
 
+  // Describes what the page IS (a free browser tool). Entity signal for Search;
+  // no aggregateRating (there are no genuine user ratings, and faking them is a
+  // spam-policy violation).
+  const webAppJson = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: title,
+    url: `${site.url}/calculators/${slug}`,
+    applicationCategory:
+      category === "Health"
+        ? "HealthApplication"
+        : category === "Utility"
+          ? "UtilitiesApplication"
+          : "FinanceApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+    publisher: { "@id": `${site.url}/#organization` },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
       <script
@@ -62,6 +83,10 @@ export default function CalcPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJson) }}
       />
 
       {/* Breadcrumb */}

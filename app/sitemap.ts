@@ -94,10 +94,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pseoRoutes,
   ];
 
-  return all.map((path) => ({
-    url: `${site.url}${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === "" ? "daily" : "weekly",
-    priority: path === "" ? 1 : path.startsWith("/calculators/") ? 0.9 : 0.7,
-  }));
+  // Real last-modified dates. Google ignores lastmod that's always "now", so we
+  // use each blog post's own date and a stable site-update constant elsewhere
+  // (bump it when content actually changes) — never the build timestamp.
+  const siteUpdated = new Date("2026-07-20");
+  const postDateByPath = new Map(posts.map((p) => [`/blog/${p.slug}`, p.date]));
+
+  return all.map((path) => {
+    const postDate = postDateByPath.get(path);
+    return {
+      url: `${site.url}${path}`,
+      lastModified: postDate ? new Date(postDate) : siteUpdated,
+      changeFrequency: path === "" ? "daily" : "weekly",
+      priority: path === "" ? 1 : path.startsWith("/calculators/") ? 0.9 : 0.7,
+    } as const;
+  });
 }

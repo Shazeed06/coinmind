@@ -65,7 +65,6 @@ export default async function Page({
         name: tool.name,
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
-        offers: { "@type": "Offer", description: tool.pricing },
         // Editorial score (our own review), expressed as a single Review/Rating —
         // NOT an AggregateRating, which would require real user-review counts.
         review: {

@@ -57,11 +57,25 @@ export default function Page() {
     })),
   };
 
+  const breadcrumbJson = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Tools", item: `${site.url}/tools` },
+      { "@type": "ListItem", position: 3, name: "Resume Builder", item: `${site.url}/resume-builder` },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
 
       {/* Hero */}
