@@ -43,11 +43,45 @@ export const GLOSSARY: GlossaryTerm[] = [
     category: "Investing",
     short:
       "A Systematic Investment Plan (SIP) is a way to invest a fixed amount in a mutual fund at regular intervals, usually monthly, instead of a lump sum.",
-    bodyMarkdown: `A SIP automates investing. You commit a set amount, say ₹5,000 a month, and it is deducted automatically and used to buy units of your chosen mutual fund. Because you invest on the same date every month regardless of price, you buy more units when markets are low and fewer when they are high — a benefit known as [rupee cost averaging](/glossary/rupee-cost-averaging).
+    bodyMarkdown: `A SIP automates investing. You commit a set amount — say ₹5,000 a month — and it is debited from your bank account automatically on a fixed date and used to buy units of the mutual fund you chose. You do not time the market, place an order, or make a decision each month. That is the entire point.
 
-The main appeal is discipline and the power of [compound interest](/glossary/compound-interest) over time. A ₹5,000 monthly SIP earning about 12% a year would grow to roughly ₹11.6 lakh in 10 years, even though you only put in ₹6 lakh.
+## How a SIP actually works
 
-SIPs suit people investing from a regular salary rather than a windfall. You can start, pause, increase or stop them at any time, which makes them flexible as well as beginner-friendly.`,
+On your chosen date, the money leaves your account and buys units at that day's [NAV](/glossary/nav), the fund's per-unit price. If the NAV is ₹50, your ₹5,000 buys 100 units. If markets have fallen and the NAV is ₹40, the same ₹5,000 buys 125 units. Your unit count grows every month, and what those units are worth depends on where the fund's holdings are priced when you eventually sell.
+
+There is no lock-in on an open-ended equity fund, with one exception: an [ELSS](/glossary/elss) tax-saving fund locks each instalment for three years from the date it was invested.
+
+## Rupee cost averaging, with real numbers
+
+This is the mechanism people mean when they say SIPs reduce risk, and it is worth seeing rather than taking on trust.
+
+Suppose you invest ₹6,000 a month for three months and the NAV moves ₹100, then ₹75, then ₹120. You buy 60 units, then 80 units, then 50 units — 190 units for ₹18,000, an average cost of about ₹94.74 per unit. But the simple average of the three prices is ₹98.33. You paid less than the average price, without predicting anything, purely because a fixed rupee amount automatically buys more units when prices are low. That is [rupee cost averaging](/glossary/rupee-cost-averaging).
+
+It does not protect you from a market that falls and stays down. It protects you from the far more common problem of investing everything on one unlucky day.
+
+## What a SIP can realistically grow to
+
+A ₹5,000 monthly SIP, if it earned 12% a year, would be worth roughly ₹11.6 lakh after 10 years against ₹6 lakh invested. Stretch it to 20 years and it reaches about ₹50 lakh against ₹12 lakh invested. Doubling the time did not double the outcome — it more than quadrupled it, because [compound interest](/glossary/compound-interest) does most of its work late.
+
+Treat 12% as an assumption, not a promise. Equity returns are not smooth or guaranteed, and a decade that averages 12% will still contain years of double-digit losses. Our [SIP calculator](/calculators/sip) lets you test more conservative rates, which is a healthier way to plan.
+
+## SIP or lump sum?
+
+If the money arrives monthly from a salary, the question does not really exist — a SIP is simply how you invest income as it comes. The comparison only matters when you are holding a lump sum, from a bonus or a maturity, and wondering whether to deploy it at once or spread it out.
+
+Mathematically, investing a lump sum immediately wins more often than not, because markets rise over most long periods and money invested earlier compounds longer. Behaviourally, staggering it hurts far less when the market drops the following week. Our guide on [SIP vs lump sum](/blog/sip-vs-lumpsum) works through both cases.
+
+## How to start one
+
+You need a PAN, a bank account and completed KYC. From there you can start directly on a fund house's own website, through a broker or investment app, or via a registered mutual fund distributor. You choose the fund, the amount, the date and the frequency, and set up a mandate that lets the fund debit your account each month.
+
+Start with an amount you will not be tempted to stop during a bad quarter. ₹1,000 sustained for a decade beats ₹10,000 abandoned after eight months.
+
+## Where people go wrong
+
+The most expensive mistake is stopping a SIP when markets fall. Those are precisely the instalments that buy the most units, and cancelling them converts a temporary decline into a permanent loss of the recovery.
+
+The second is chasing last year's best-performing fund each year, which reliably buys high. The third is running a SIP with no goal and no horizon, so there is nothing to hold on to when the value dips. Decide upfront what the money is for and when you need it, then let the automation do its job.`,
     related: ["mutual-fund", "rupee-cost-averaging", "lumpsum", "compound-interest"],
     relatedHref: "/calculators/sip",
     relatedLabel: "SIP Calculator",
@@ -146,11 +180,45 @@ A common myth is that a low NAV means a fund is cheap or better value. It does n
     category: "Investing",
     short:
       "An Exchange-Traded Fund (ETF) is a basket of securities, often tracking an index, that trades on a stock exchange like a single share at low cost.",
-    bodyMarkdown: `An ETF bundles many stocks or bonds into one fund, but unlike a regular mutual fund it is listed on an exchange and its price moves throughout the trading day. You buy and sell ETF units through a demat and trading account, just like a stock.
+    bodyMarkdown: `An ETF bundles many stocks or bonds into a single fund, but unlike a regular mutual fund it is listed on a stock exchange and its price moves throughout the trading day. You buy and sell ETF units through a demat and trading account exactly as you would a share.
 
-Most ETFs are passive, meaning they simply mirror an index such as the Nifty 50 rather than being actively picked by a manager. That keeps their [expense ratio](/glossary/expense-ratio) very low.
+## How an ETF differs from a mutual fund
 
-For example, a Nifty 50 ETF rises and falls with those 50 companies. ETFs offer instant [diversification](/glossary/diversification) and low cost, though you need a demat account and pay small brokerage on each trade.`,
+The holdings can be identical. The difference is the wrapper.
+
+A mutual fund is priced once a day. Whatever time you place your order, you get that day's [NAV](/glossary/nav), and you transact with the fund house itself. An ETF trades continuously, so its price moves minute to minute, and you transact with another investor on the exchange rather than with the fund.
+
+That gives ETFs intraday flexibility — you can place limit orders, buy at a specific price, or sell mid-session. It also introduces two frictions a mutual fund does not have: you pay brokerage on each trade, and the market price can drift slightly away from the fund's true underlying value.
+
+## Tracking error and the price gap
+
+Two small imperfections are worth understanding before you buy.
+
+**Tracking error** is the gap between the index's return and the ETF's return. It exists because the fund charges a fee, holds a little cash, and has to trade when the index rebalances. A well-run large ETF keeps this small; a thinly-traded one may not.
+
+**The premium or discount** is the gap between the ETF's market price and the value of what it actually holds. In a liquid ETF this stays negligible. In an illiquid one, especially during a volatile session, you can pay meaningfully more than the units are worth. Checking the traded volume before buying matters more with ETFs than with mutual funds.
+
+## Why the cost is so low
+
+Most ETFs are passive: they mirror an index such as the Nifty 50 rather than employing a manager to pick stocks. No research team means no research budget, which is why the [expense ratio](/glossary/expense-ratio) on a large index ETF is often a small fraction of what an actively managed fund charges.
+
+That gap looks trivial in one year and decisive over twenty. A difference of one percentage point in annual cost, compounded across a working life, is a large amount of money that stays in your account instead of the fund's.
+
+## What you actually own
+
+A Nifty 50 ETF gives you a proportional stake in India's fifty largest listed companies in a single trade. If those companies collectively rise, so does your ETF, minus the fee. If they fall, so does it. You are accepting the market's return rather than trying to beat it — and consistently beating it turns out to be rare.
+
+Beyond equity indices, ETFs exist for gold, for bonds, for international indices, and for narrower themes and sectors. The broad, boring ones are generally the ones worth owning; the narrow thematic ones concentrate risk in exactly the way an ETF is supposed to avoid.
+
+## ETF or index fund?
+
+They do the same job through different plumbing, and for most people the [index fund](/glossary/index-fund) is the more practical choice.
+
+An index fund needs no demat account, charges no brokerage, and accepts a [SIP](/glossary/sip) — you can automate ₹2,000 a month and never think about it. An ETF needs a demat and trading account and cannot be automated in the same way, but gives you intraday pricing and often a marginally lower expense ratio.
+
+If you are investing a fixed amount every month and want it hands-off, the index fund wins on convenience. If you already trade, hold a demat account, and are deploying larger sums at once, the ETF's lower running cost starts to matter.
+
+Either way you get instant [diversification](/glossary/diversification) at a low cost, which is the substance of the decision. The wrapper is a detail.`,
     related: ["index-fund", "mutual-fund", "nav", "expense-ratio", "diversification"],
   },
   {
@@ -236,11 +304,45 @@ For example, if you invested ₹5,000 monthly for three years and the final valu
     category: "Investing",
     short:
       "An IPO (Initial Public Offering) is the first time a private company sells shares to the public and lists on a stock exchange.",
-    bodyMarkdown: `Before an IPO, a company is privately owned by founders and early investors. In the IPO it issues shares to the public for the first time, and afterwards those shares trade freely on an exchange like the NSE or BSE.
+    bodyMarkdown: `Before an IPO, a company is privately owned by its founders, employees and early investors. In the IPO it sells shares to the public for the first time, and once listing day passes those shares trade freely on an exchange such as the NSE or BSE.
 
-Companies do this to raise capital for growth and to give early backers a way to sell. Investors apply for shares at the offer price, often through the ASBA process in their bank or broker app.
+## Why companies go public
 
-For example, if a company offers shares at ₹500 and lists at ₹650, early allottees see a listing gain. But IPOs can also fall below the offer price, so they carry real risk and are never a guaranteed profit.`,
+Two reasons, usually at once. The company raises capital it does not have to repay, funding expansion or clearing debt. And early backers — founders, employees, venture investors who have been locked in for years — finally get a market where they can sell.
+
+That second reason matters to you as a buyer. An IPO where the company issues new shares brings money into the business. An offer for sale, where existing shareholders simply sell their stakes, brings the company nothing at all — the cash goes to the sellers. The offer document says which is which, and the mix tells you something about who the listing is really for.
+
+## How to apply
+
+You apply through ASBA, which stands for Application Supported by Blocked Amount, from your bank's net banking or your broker's app. Your money is not debited when you apply — it is **blocked** in your account. If you get an allotment, the amount is taken; if you do not, the block simply lifts and the money was never gone.
+
+You apply in lots at a price within the announced band, and the issue stays open for a few days. Retail applications up to ₹2 lakh fall in the retail category, which has its own reserved portion.
+
+## What happens when it is oversubscribed
+
+Popular issues attract far more applications than there are shares. When that happens, retail investors go into a lottery: applications are randomly selected, and you either get one full lot or nothing at all.
+
+This has a practical consequence people learn the hard way. Applying for a larger quantity does not improve your odds in the retail lottery, because selection happens per application, not per rupee. Nor does applying on the last day, or the first.
+
+## Grey market premium is not information
+
+Before listing, you will see a widely-quoted grey market premium purporting to predict the listing price. It is worth knowing what this actually is: an unofficial, unregulated, entirely opaque number produced by an off-market trading circle, with no disclosure requirements and no enforceable settlement behind it.
+
+It is frequently wrong, it can be moved by people who benefit from moving it, and it says nothing about whether the business is worth owning. Treat it as noise.
+
+## The real risk
+
+If a company offers shares at ₹500 and lists at ₹650, early allottees see a listing gain. That is the version that gets discussed. Issues also list below their offer price, and there is no mechanism protecting you when they do.
+
+The deeper problem is that an IPO is the one moment when the seller controls the timing, the price band and the narrative, and knows the business far better than you do. Companies list when conditions favour sellers, not buyers. That does not make every IPO bad, but it does mean the odds are not naturally tilted your way.
+
+## How to look at one seriously
+
+Read the red herring prospectus rather than the coverage. It is long, but the sections that matter are short: what the money will be used for, the risk factors, the financial history, and whether promoters are selling.
+
+Compare the asking valuation to already-listed peers you can actually check. A company priced at a large premium to established competitors needs a specific reason for that premium, and if you cannot articulate the reason, that is your answer.
+
+Finally, size the position as though it might halve, because sometimes it does. If you want equity exposure without judging individual listings, a [mutual fund](/glossary/mutual-fund) or [index fund](/glossary/index-fund) gets you there without needing to be right about any single company. When you do sell, remember the profit is taxable — see [capital gains](/glossary/capital-gains).`,
     related: ["dividend", "capital-gains", "mutual-fund", "diversification"],
   },
   {
@@ -408,11 +510,49 @@ The catch is that Section 80C only applies under the old tax regime. The new reg
     category: "Credit",
     short:
       "A CIBIL score is a three-digit number from 300 to 900 that summarises your credit history; lenders use it to decide loan and card approvals.",
-    bodyMarkdown: `CIBIL is India's best-known credit bureau, and its score is the number most lenders check first. It ranges from 300 to 900, and a score above 750 is generally considered good enough for easy loan approval.
+    bodyMarkdown: `CIBIL is India's oldest and best-known credit bureau, and its score is the number most lenders pull first. It runs from **300 to 900**, and above **750** is generally treated as comfortable for approval.
 
-The score is built from your repayment history, how much of your available credit you use, the length of your credit history, and how often you apply for new credit. Paying bills on time and keeping card balances low are the biggest levers.
+## What the bands actually mean
 
-For example, someone who always pays on time and uses under 30% of their card limit tends to score well above 750, unlocking lower interest rates. To raise a low score, see our guide on [how to improve your credit score](/blog/how-to-improve-credit-score).`,
+Below 600 you will struggle to get an unsecured loan or a decent card at all, and offers that do arrive carry high rates. Between 600 and 700 approval becomes possible but the pricing is poor. Between 700 and 750 most lenders will say yes at ordinary rates. Above 750 you reach the band where you can negotiate, and above 800 you are in the territory where banks compete for you.
+
+A special case trips people up: a score of **-1** or **NA/NH** does not mean bad credit. It means there is no credit history to score — usually a young applicant who has never borrowed. Lenders treat it as an unknown rather than a negative, but it can still slow a first loan.
+
+## What moves the number
+
+Five inputs, and they are not equally weighted.
+
+**Repayment history** is the single largest factor. One payment more than 30 days late is recorded and visibly drags the score for a long time. This is the lever that matters most, and it is entirely within your control.
+
+**Credit utilisation** is how much of your available limit you are using. Keeping it under **30%** is the widely-used benchmark. Someone with a ₹2 lakh limit who habitually carries a ₹1.6 lakh balance looks stretched, even if every payment is on time.
+
+**Length of history** rewards age. The oldest card on your file is doing quiet work, which is why closing it can lower your score rather than tidying things up.
+
+**Credit mix** slightly favours a blend of secured borrowing, like a home or car loan, and unsecured borrowing like cards.
+
+**Recent enquiries** count. Each formal application triggers a hard enquiry, and several within a short window reads as someone urgently seeking credit. Checking your own score does not do this — that is a soft enquiry and is free of consequence.
+
+## How to check it without cost
+
+Every credit bureau operating in India is required to give you one free full credit report each year. You can also see a score free through many banking and fintech apps, though those often show a bureau other than CIBIL, so the number may differ slightly from the one your lender sees.
+
+There is no reason to pay for routine monitoring, and no legitimate service can remove accurate negative information from your file.
+
+## Fixing errors, which are more common than people expect
+
+Pull the full report, not just the score, and read the account list line by line. Loans you never took, accounts you closed years ago still showing open, an incorrect overdue amount, a duplicate entry — all of these appear regularly, and each one is costing you.
+
+Disputes are raised free on the bureau's own website. The bureau must investigate with the lender, and the timeline is measured in weeks. Correcting a genuine error is the fastest available improvement, because it does not require you to change any behaviour.
+
+## Rebuilding a low score
+
+There is no shortcut, and anyone selling one is selling a fraud. What works is unglamorous.
+
+Clear every current overdue first, because an active default outweighs everything else. Then pay every bill on time without exception, since recent behaviour carries more weight than old behaviour. Bring utilisation down, either by paying balances or by requesting a higher limit and not using it. Stop applying for new credit while you repair. And keep old accounts open, because their age is an asset.
+
+If you have no history at all, a secured card against a fixed deposit is the standard way to start one.
+
+Expect visible movement in three to six months and a genuine recovery over a year or two. Our guide on [how to improve your credit score](/blog/how-to-improve-credit-score) sets out the sequence in more detail, and the related [credit score](/glossary/credit-score) entry covers how the other bureaus differ.`,
     related: ["credit-score", "emi", "term-insurance", "net-worth"],
     relatedHref: "/blog/how-to-improve-credit-score",
     relatedLabel: "How to Improve Your Credit Score",
@@ -423,11 +563,53 @@ For example, someone who always pays on time and uses under 30% of their card li
     category: "Credit",
     short:
       "A credit score is a number showing how reliably you repay borrowed money; a higher score means lower risk and better loan and card rates.",
-    bodyMarkdown: `A credit score condenses your borrowing track record into a single figure. In India the CIBIL, Experian and Equifax scores run from 300 to 900; in other countries the scales differ, but the idea is the same.
+    bodyMarkdown: `A credit score condenses your entire borrowing track record into a single figure a lender can read in seconds. In India the CIBIL, Experian, Equifax and CRIF High Mark scores all run from **300 to 900**. Other countries use different scales — FICO in the United States runs 300 to 850 — but the logic is identical everywhere: a number standing in for how reliably you repay.
 
-Five things drive it: payment history (the biggest factor), credit utilisation, length of history, credit mix and recent applications. Missing payments or maxing out cards pulls the score down; consistent on-time payments push it up.
+## India has four bureaus, not one
 
-For example, two people may earn the same salary, but the one with a 780 score gets a home loan approved faster and at a lower rate than the one at 650. It is one of the most valuable numbers in your financial life. See [CIBIL score](/glossary/cibil-score) for the Indian version.`,
+This surprises people who assume there is one official score. There are four bureaus licensed by the RBI, they each hold their own data, and lenders do not all report to all of them at the same time.
+
+The practical consequence is that your scores will differ, sometimes by a noticeable margin, and none of them is the wrong one. A lender checking Experian sees a different file from one checking CIBIL. If you are preparing for a large loan, it is worth pulling more than one report, because an error may sit on one file and not another.
+
+## The five things that drive it
+
+**Payment history** dominates. It is the largest single input at every bureau, and a single default sits on your record far longer than most people expect.
+
+**Credit utilisation** comes next: the proportion of your available limit you actually use, where under 30% is the usual benchmark.
+
+**Length of credit history** rewards accounts that have been open and well-handled for years.
+
+**Credit mix** gives modest credit for handling both secured borrowing, such as a home loan, and unsecured borrowing, such as a card.
+
+**Recent applications** count against you when they cluster, because several hard enquiries in a short period read as distress.
+
+## What it costs you in rupees
+
+The abstraction hides how expensive this is, so it is worth making concrete.
+
+Two people apply for a ₹50 lakh home loan over 20 years. One has a score of 780 and is offered 8.5%; the other has 650 and is offered 9.5%. The monthly EMI differs by roughly ₹3,300. Over the full term that is about **₹8 lakh** in additional interest, paid by the person with the weaker score for exactly the same house.
+
+Many lenders now price risk explicitly this way, publishing different rates for different score bands. The number is not a formality — it is a price tag. You can see how a rate change moves your own instalment with the [EMI calculator](/calculators/emi).
+
+## Where else it is used
+
+Lending is no longer the only application. Credit-linked checks now appear in some rental agreements, in post-paid telecom and utility connections, and increasingly in insurance underwriting. In parts of the financial sector it is also referenced in hiring for roles involving money handling.
+
+The score has quietly become a general-purpose reliability signal, which is a good argument for maintaining it even in years when you are not borrowing.
+
+## Common misconceptions
+
+**Checking your own score does not hurt it.** That is a soft enquiry. Only a lender's formal application check is a hard enquiry.
+
+**Closing an old card is often counterproductive.** You lose that account's history and reduce your total limit, which raises utilisation on what remains.
+
+**A high income does not produce a high score.** Income is not an input. A well-paid person who pays late will score below a modestly-paid person who never does.
+
+**Carrying a balance to build history is a myth.** Using the card and paying it in full builds history perfectly well and costs nothing in interest.
+
+**No one can legally delete accurate negative information.** Services promising to do so are frauds. Genuine errors can and should be disputed free with the bureau, but accurate records stay until they age out.
+
+For the India-specific bureau and its score bands, see [CIBIL score](/glossary/cibil-score).`,
     related: ["cibil-score", "emi", "term-insurance", "net-worth"],
     relatedHref: "/blog/how-to-improve-credit-score",
     relatedLabel: "How to Improve Your Credit Score",
@@ -455,11 +637,49 @@ For example, a ₹20 lakh home loan at 9% over 20 years works out to an EMI of a
     category: "Banking",
     short:
       "A fixed deposit (FD) locks a lump sum with a bank for a fixed term at a guaranteed interest rate, earning more than a regular savings account.",
-    bodyMarkdown: `With an FD you deposit a sum — say ₹1 lakh — for a chosen period, from 7 days to 10 years, at a rate fixed on the day you invest. The bank pays that rate regardless of what happens to interest rates afterwards, which makes returns predictable.
+    bodyMarkdown: `With a fixed deposit you place a lump sum with a bank for a chosen period — anywhere from 7 days to 10 years — at a rate fixed on the day you invest. The bank pays that rate for the full term no matter what happens to interest rates afterwards, which is what makes an FD predictable in a way almost nothing else is.
 
-FDs are considered very safe: deposits up to ₹5 lakh per bank are insured by the DICGC. The trade-off is lower returns than market investments, and breaking the FD early usually costs a small penalty.
+## How the return is actually calculated
 
-For example, ₹1 lakh in a 5-year FD at 7% compounded quarterly grows to about ₹1.41 lakh. The interest is taxable, and banks deduct [TDS](/glossary/tds) if it crosses the annual threshold.`,
+Most bank FDs compound quarterly, which is why the maturity value is a little higher than simple interest would suggest.
+
+Put ₹1,00,000 into a 5-year FD at 7% compounded quarterly and it matures at roughly **₹1,41,478**. Simple interest at the same rate would have given ₹1,35,000. The extra ₹6,478 is interest earning interest — modest over five years, and the reason longer terms pull ahead disproportionately. You can test any combination in the [FD calculator](/calculators/fd).
+
+Note that the advertised rate is annual. A "7% FD" does not pay 7% per quarter.
+
+## Cumulative or payout
+
+An FD comes in two shapes, and the right one depends on whether you need income now.
+
+A **cumulative** FD reinvests the interest, so nothing is paid out until maturity and the whole sum compounds. This is the version that produces the ₹1,41,478 above, and it suits anyone who does not need the money in the meantime.
+
+A **non-cumulative** FD pays interest out monthly or quarterly. The total return is slightly lower because nothing compounds, but it produces regular income — which is why retirees frequently choose it.
+
+## How safe it really is
+
+Deposits are insured by the DICGC up to **₹5 lakh per depositor per bank**, and that limit is worth reading carefully. It covers principal and interest combined, it applies per bank rather than per deposit, and it aggregates across all your accounts at that bank including savings.
+
+Someone holding ₹12 lakh at a single bank is insured for ₹5 lakh, not ₹12 lakh. Spreading large sums across banks is the straightforward fix, and it matters most with small finance banks and co-operative banks, which is precisely where the highest advertised rates tend to appear. A higher rate is compensation for higher risk, not a free gift.
+
+## Tax, and the TDS threshold people miss
+
+FD interest is fully taxable at your slab rate, and it is taxable **as it accrues** each year, not only when the deposit matures. People with 5-year cumulative FDs are regularly caught out by this, having declared nothing for four years.
+
+Banks deduct [TDS](/glossary/tds) once interest crosses the annual threshold, and that deduction shows in your Form 26AS and AIS. If your total income is below the taxable limit you can file Form 15G, or Form 15H if you are a senior citizen, to stop the deduction — but neither form makes the income tax-free, only the withholding.
+
+Senior citizens also receive a higher interest rate at most banks, usually around half a percentage point.
+
+## Breaking it early
+
+You can withdraw before maturity, and it costs you twice. The bank applies a penalty, typically around 0.5% to 1%, and — more significantly — recalculates your interest at the rate applicable to the period you actually stayed invested, not the rate you originally booked.
+
+Break a 5-year FD after 18 months and you earn the 18-month rate minus the penalty, which can be far below what you expected. Splitting a large amount into several smaller FDs is a simple hedge: you break only the one you need.
+
+## Where an FD fits
+
+An FD is the right home for money you cannot afford to see fall — an emergency fund, a house deposit you need next year, cash you will spend within a defined period. It is a poor vehicle for long-horizon wealth building, because the post-tax return often barely clears [inflation](/glossary/inflation).
+
+For goals a decade away, a [SIP](/glossary/sip) into equity has historically done far better while being far more volatile along the way. The comparison in our [PPF vs FD vs NPS guide](/blog/ppf-vs-fd-vs-nps) sets out where each one belongs. See also [recurring deposit](/glossary/recurring-deposit) if you want FD-like safety but are saving monthly rather than investing a lump sum.`,
     related: ["recurring-deposit", "ppf", "tds", "compound-interest"],
     relatedHref: "/calculators/fd",
     relatedLabel: "FD Calculator",
@@ -470,11 +690,47 @@ For example, ₹1 lakh in a 5-year FD at 7% compounded quarterly grows to about 
     category: "Banking",
     short:
       "A recurring deposit (RD) lets you save a fixed amount every month for a set term at a guaranteed rate, like a fixed deposit built in instalments.",
-    bodyMarkdown: `An RD is like a fixed deposit you build up in instalments. You commit to depositing a set amount — for example ₹5,000 a month — for a term such as one to five years, and the bank pays a fixed rate on your growing balance.
+    bodyMarkdown: `An RD is a fixed deposit you build in instalments. You commit to depositing a set amount every month — say ₹5,000 — for a term usually between six months and ten years, and the bank pays a fixed rate on the growing balance. The rate is locked when you open the RD and does not change if rates move afterwards.
 
-It suits people who want FD-like safety and returns but do not have a lump sum to invest upfront. Each monthly deposit earns interest for the remaining months of the term.
+## Who it is actually for
 
-For instance, ₹5,000 a month for 3 years at 7% grows to roughly ₹2 lakh, of which about ₹20,000 is interest. Like an FD, RD interest is taxable and the deposit is safe, but returns trail equity [mutual funds](/glossary/mutual-fund) over the long run.`,
+An RD suits someone who wants [fixed deposit](/glossary/fixed-deposit) safety and predictability but does not have a lump sum to place. That is most salaried people early in their careers, and anyone saving toward a defined near-term goal from monthly income.
+
+The commitment is the feature. Money leaves the account on a fixed date before it can be spent, which is the same behavioural trick that makes a [SIP](/glossary/sip) work — with a guaranteed return instead of a market-linked one.
+
+## Why the return is lower than an FD at the same rate
+
+This is the single most misunderstood thing about RDs, and it is not a trick or a hidden charge.
+
+In a fixed deposit the entire amount earns interest for the whole term. In a recurring deposit each instalment only earns interest for the months remaining after it is paid. Your first ₹5,000 earns for the full term; your last ₹5,000 earns for about a month.
+
+Deposit ₹5,000 a month for 12 months at 7% and you will have paid in ₹60,000 and receive roughly **₹62,275** at maturity — about ₹2,275 of interest. A single ₹60,000 FD at the same 7% for the same year would have earned closer to ₹4,300, because all of it was working from day one.
+
+Neither is a better rate. They are the same rate applied to different amounts of time, which is exactly what you would expect. The RD's real comparison is not against an FD you could not have funded — it is against leaving the money in a savings account, where it would have earned considerably less.
+
+## RD or SIP?
+
+They solve the same behavioural problem and produce very different outcomes, so the choice comes down to your time horizon.
+
+An RD gives a **guaranteed** return, taxed at your slab rate, with no possibility of loss. Over one to three years, for money you know you will spend — a deposit, a wedding, a planned purchase — that certainty is worth more than a higher expected return.
+
+An equity SIP has no guarantee and can be worth less than you put in at any given moment. Over ten years or more it has historically delivered considerably more, and its long-term gains are taxed more favourably than interest income. For money you will not touch for a decade, that trade has usually been worth making.
+
+The mistake is using an RD for a twenty-year goal, where inflation quietly erodes it, or a SIP for money you need in fourteen months, where a bad quarter can force you to sell at the worst time.
+
+## Missing an instalment
+
+Miss a month and the bank levies a small penalty, and repeated defaults can lead to the account being closed prematurely with interest recalculated on less favourable terms. Set the standing instruction for a date shortly after your salary lands rather than late in the month.
+
+## Tax
+
+RD interest is fully taxable at your slab rate, and taxable as it accrues rather than only at maturity. Banks deduct [TDS](/glossary/tds) once interest crosses the annual threshold across your deposits at that bank, and it appears in your Form 26AS and AIS. Form 15G, or 15H for senior citizens, stops the withholding if your income is below the taxable limit — it does not make the interest tax-free.
+
+Senior citizens generally receive a higher rate, and the same **₹5 lakh per depositor per bank** DICGC insurance that covers fixed deposits covers recurring deposits too, counted together across all your accounts at that bank.
+
+## Before you open one
+
+Compare rates across banks, since the spread is wider than people assume, and check the premature-closure terms rather than assuming they are standard. Use the [RD calculator](/calculators/rd) to see the actual maturity value for your amount and term before committing — the number is usually lower than a first guess, for the timing reason above, and it is better to know that at the start.`,
     related: ["fixed-deposit", "ppf", "sip", "tds"],
     relatedHref: "/calculators/fd",
     relatedLabel: "FD Calculator",
