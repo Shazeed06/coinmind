@@ -109,8 +109,10 @@ export default async function Page({
       <header className="mt-6">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
+            {/* "<Tool> Review" matches the query these pages target; a bare
+                product name competes with the vendor's own homepage. */}
             <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-              {tool.name}
+              {tool.name} Review
             </h1>
             <p className="mt-2 text-ink-faint font-medium">
               by {tool.maker} · {tool.category} · {tool.region}
@@ -146,7 +148,7 @@ export default async function Page({
 
       {/* Overview */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">Overview</h2>
+        <h2 className="font-display text-2xl font-600 text-ink">What is {tool.name}?</h2>
         <p className="mt-3 text-ink-soft leading-relaxed text-[1.05rem]">
           {detail.overview}
         </p>
@@ -154,7 +156,7 @@ export default async function Page({
 
       {/* Key benefits */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">Why people like it</h2>
+        <h2 className="font-display text-2xl font-600 text-ink">Why people like {tool.name}</h2>
         <ul className="mt-4 grid sm:grid-cols-2 gap-3">
           {tool.benefits.map((b) => (
             <li key={b} className="flex items-start gap-2.5 rounded-xl border border-line bg-card p-4 text-sm text-ink-soft">
@@ -167,7 +169,7 @@ export default async function Page({
 
       {/* Use cases */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">Best use cases</h2>
+        <h2 className="font-display text-2xl font-600 text-ink">Best {tool.name} use cases</h2>
         <div className="mt-4 space-y-2.5">
           {detail.useCases.map((u, i) => (
             <div key={u} className="flex items-start gap-3 rounded-xl bg-paper-2 p-4">
@@ -183,7 +185,7 @@ export default async function Page({
       {/* Hacks / pro tips */}
       <section className="mt-10">
         <h2 className="font-display text-2xl font-600 text-ink flex items-center gap-2">
-          <IconBolt className="h-6 w-6 text-brass" /> Pro tips &amp; hacks
+          <IconBolt className="h-6 w-6 text-brass" /> {tool.name} tips &amp; hacks
         </h2>
         <ul className="mt-4 space-y-3">
           {detail.hacks.map((h) => (
@@ -197,7 +199,7 @@ export default async function Page({
 
       {/* Pricing box */}
       <section className="mt-10 rounded-2xl border border-line bg-card p-6">
-        <h2 className="font-display text-xl font-600 text-ink">Pricing</h2>
+        <h2 className="font-display text-xl font-600 text-ink">{tool.name} pricing</h2>
         <p className="mt-2 text-ink-soft">{tool.pricing}</p>
         <p className="mt-2 text-xs text-ink-faint">
           Pricing is indicative and can change — always confirm on the{" "}

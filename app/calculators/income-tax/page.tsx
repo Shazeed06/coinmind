@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import IncomeTaxCalculator from "@/components/calc/IncomeTaxCalculator";
 import CalcPage from "@/components/calc/CalcPage";
+import { TAX_SALARIES, salarySlug, salaryLabel } from "@/lib/pseo-tax";
 
 export const metadata: Metadata = {
   title: { absolute: "Income Tax Calculator FY 2026-27 — New vs Old Regime" },
@@ -10,9 +12,49 @@ export const metadata: Metadata = {
   openGraph: { url: "/calculators/income-tax" },
 };
 
+// Links into the "income tax on ₹X salary" pages. Only /income-tax/12-lakh had
+// an inbound link from outside its own cluster, leaving the other 14 at click
+// depth 5 with no equity. This hub brings all of them to depth 3.
+function TaxBySalary() {
+  return (
+    <div className="max-w-3xl">
+      <h2 className="font-display text-2xl font-600 text-ink">
+        Income tax by salary
+      </h2>
+      <p className="mt-2 text-ink-soft leading-relaxed">
+        Already know your package? Each salary has its own page with the
+        slab-by-slab breakdown, the effective rate and an old-vs-new comparison.
+      </p>
+      <div className="mt-5 flex flex-wrap gap-2.5">
+        {TAX_SALARIES.map((s) => (
+          <Link
+            key={s}
+            href={`/income-tax/${salarySlug(s)}`}
+            className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-forest hover:text-forest"
+          >
+            ₹{salaryLabel(s)}
+          </Link>
+        ))}
+      </div>
+      <p className="mt-5 text-ink-soft leading-relaxed">
+        Deciding between the regimes? Our{" "}
+        <Link
+          href="/tax-regime-break-even"
+          className="text-forest underline underline-offset-2"
+        >
+          old vs new regime break-even grid
+        </Link>{" "}
+        gives the exact deduction amount at which the old regime starts winning,
+        for every income from ₹6 lakh to ₹50 lakh.
+      </p>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <CalcPage
+      extra={<TaxBySalary />}
       slug="income-tax"
       title="Income Tax Calculator"
       subtitle="Compare the new and old regimes for FY 2026-27 and see which one saves you more."

@@ -124,8 +124,10 @@ export default async function Page({
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           {term.category} term
         </span>
+        {/* The H1 mirrors the query ("what is X") rather than the bare term —
+            these pages exist to answer a definition search, not to label one. */}
         <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          {term.term}
+          What Is {term.term}? Meaning &amp; Example
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
           A plain-English definition of {term.term} &mdash; what it means, how it

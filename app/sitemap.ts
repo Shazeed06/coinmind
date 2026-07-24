@@ -63,6 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/news",
     "/blog",
     "/about",
+    "/tax-regime-break-even",
     "/editorial-standards",
     "/affiliate-disclosure",
     "/contact",
@@ -99,7 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Real last-modified dates. Google ignores lastmod that's always "now", so we
   // use each blog post's own date and a stable site-update constant elsewhere
   // (bump it when content actually changes) — never the build timestamp.
-  const siteUpdated = new Date("2026-07-20");
+  const siteUpdated = new Date("2026-07-24");
   const postDateByPath = new Map(posts.map((p) => [`/blog/${p.slug}`, p.date]));
 
   return all.map((path) => {

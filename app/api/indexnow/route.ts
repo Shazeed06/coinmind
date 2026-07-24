@@ -68,6 +68,7 @@ function allUrls(): string[] {
     "/news",
     "/blog",
     "/about",
+    "/tax-regime-break-even",
     "/editorial-standards",
     "/affiliate-disclosure",
     "/contact",

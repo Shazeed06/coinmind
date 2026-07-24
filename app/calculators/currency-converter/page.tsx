@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CurrencyConverter from "@/components/calc/CurrencyConverter";
 import CalcPage from "@/components/calc/CalcPage";
+import { CURRENCY_PAIRS, pairSlug } from "@/lib/pseo-currency";
 
 export const metadata: Metadata = {
   title: { absolute: "Currency Converter — Live Exchange Rates" },
@@ -10,9 +12,39 @@ export const metadata: Metadata = {
   openGraph: { url: "/calculators/currency-converter" },
 };
 
+// Internal links to the "<X> to INR" programmatic pages. Without these the 17
+// currency pages are reachable only from each other and from the sitemap, so
+// they receive no internal link equity at all (the orphan-page problem we
+// already fixed for /sip/*).
+function PopularCurrencyPairs() {
+  return (
+    <div className="max-w-3xl">
+      <h2 className="font-display text-2xl font-600 text-ink">
+        Popular currency pairs
+      </h2>
+      <p className="mt-2 text-ink-soft leading-relaxed">
+        Each pair has its own page with the live rate, a conversion table for
+        common amounts, and what actually moves that exchange rate.
+      </p>
+      <div className="mt-5 flex flex-wrap gap-2.5">
+        {CURRENCY_PAIRS.map((pair) => (
+          <Link
+            key={pairSlug(pair)}
+            href={`/currency/${pairSlug(pair)}`}
+            className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-forest hover:text-forest"
+          >
+            {pair.from} to {pair.to}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <CalcPage
+      extra={<PopularCurrencyPairs />}
       slug="currency-converter"
       title="Currency Converter"
       subtitle="Convert between 20+ world currencies at live exchange rates."

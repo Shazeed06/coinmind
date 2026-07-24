@@ -45,8 +45,12 @@ function newRegimeTax(taxable: number): number {
  * which surfaces both whole and half steps from 3 LPA up to 40+ LPA.
  */
 export const INHAND_LPA: number[] = [
-  3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 11, 12, 13, 14,
-  15, 16, 16.5, 17, 18, 19, 20, 22, 24, 25, 28, 30, 32, 35, 40, 45, 50,
+  // Half-steps below 10 LPA — autocomplete shows heavy demand for 3.5, 4.5,
+  // 6.5 etc., which the round-number-only competitors do not cover.
+  2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5,
+  10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17,
+  17.5, 18, 18.5, 19, 19.5, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32, 34,
+  35, 36, 38, 40, 42, 45, 48, 50, 55, 60, 65, 70, 75, 80, 90, 100,
 ];
 
 const LAKH = 100000;

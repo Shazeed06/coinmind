@@ -125,8 +125,10 @@ export default function CalcPage({
 
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
+        {/* Keyword-bearing rather than generic: this single line puts the page's
+            primary keyword into an H2 on every calculator that uses CalcPage. */}
         <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
+          {title} &mdash; frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
           {faqs.map((f) => (
@@ -158,7 +160,7 @@ export default function CalcPage({
       {/* Related */}
       <section className="mt-16 mb-8">
         <h2 className="font-display text-2xl font-600 text-ink">
-          More calculators
+          More free {category ? `${category.toLowerCase()} ` : ""}calculators
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {related.map((c) => (

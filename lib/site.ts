@@ -11,7 +11,7 @@ export const site = {
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
   email: "hello@coinmind.in",
   description:
-    "Free SIP, EMI, income tax & FD calculators, 40+ tools and honest AI reviews — smarter money decisions for India, the US & UK. No sign-up.",
+    "46 free calculators (SIP, EMI, income tax, FD), 44 free tools and honest AI reviews — smarter money decisions for India, the US & UK. No sign-up.",
   locale: "en",
   authorName: "Sahil",
   // Named author/editor behind the content — E-E-A-T "Who" for a YMYL finance

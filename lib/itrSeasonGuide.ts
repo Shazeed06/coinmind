@@ -9,7 +9,7 @@ import type { Post } from "./data";
 export const itrSeasonGuide: Post[] = [
   {
     slug: "penalty-for-filing-itr-after-31-july",
-    title: "Penalty for Filing ITR After 31 July 2026: What It Actually Costs",
+    title: "ITR Late Filing Penalty After 31 July 2026",
     excerpt:
       "Missed the ITR deadline? Here is the exact late fee under Section 234F, the interest under 234A and 234B, and what you quietly lose beyond the money.",
     category: "Tax",

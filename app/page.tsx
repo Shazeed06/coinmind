@@ -14,15 +14,20 @@ import {
 } from "@/components/icons";
 import CoverArt from "@/components/CoverArt";
 
+const liveCalcs = calculators.filter((c) => c.live);
+
+// Counts quoted on the page. The calculator figure is derived so it can never
+// drift; TOOL_COUNT is the number of directories under app/tools and must be
+// bumped by hand when a tool is added.
+const CALC_COUNT = liveCalcs.length;
+const TOOL_COUNT = 44;
+
 export const metadata: Metadata = {
   title: { absolute: "Free Online Calculators, Tools & AI — CoinMind" },
-  description:
-    "30+ free calculators (SIP, EMI, income tax, FD) and 40+ free tools — resume, PDF, image & AI writers — plus honest AI reviews. No sign-up needed.",
+  description: `${CALC_COUNT} free calculators (SIP, EMI, income tax, FD) and ${TOOL_COUNT} free tools — resume, PDF, image & AI writers — plus honest AI reviews. No sign-up needed.`,
   alternates: { canonical: "/" },
   openGraph: { url: site.url },
 };
-
-const liveCalcs = calculators.filter((c) => c.live);
 
 export default function Home() {
   return (
@@ -76,9 +81,10 @@ function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-              30+ free calculators for SIP, EMI, income tax and more — plus free
-              tools like a resume builder, PDF and image tools, and AI writers.
-              Honest AI reviews and plain-English guides. No sign-up, no fluff.
+              {CALC_COUNT} free calculators for SIP, EMI, income tax and more —
+              plus {TOOL_COUNT} free tools like a resume builder, PDF and image
+              tools, and AI writers. Honest AI reviews and plain-English guides.
+              No sign-up, no fluff.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -98,8 +104,8 @@ function Hero() {
 
             <dl className="mt-10 grid grid-cols-3 gap-6 max-w-md">
               {[
-                { n: "30+", l: "Free calculators" },
-                { n: "40+", l: "Free tools" },
+                { n: String(CALC_COUNT), l: "Free calculators" },
+                { n: String(TOOL_COUNT), l: "Free tools" },
                 { n: "0", l: "Sign-up needed" },
               ].map((s) => (
                 <div key={s.l}>
