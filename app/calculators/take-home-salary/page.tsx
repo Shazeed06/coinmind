@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TakeHomeSalaryCalculator from "@/components/calc/TakeHomeSalaryCalculator";
 import CalcPage from "@/components/calc/CalcPage";
+import { INHAND_LPA, lpaSlug, lpaLabel } from "@/lib/pseo-inhand";
 
 export const metadata: Metadata = {
   title: { absolute: "Take-Home Salary Calculator: CTC to In-Hand" },
@@ -86,6 +87,26 @@ export default function Page() {
       extra={
         <div className="max-w-3xl">
           <h2 className="font-display text-2xl font-600 text-ink">
+            In-hand salary by CTC
+          </h2>
+          <p className="mt-3 text-ink-soft leading-relaxed">
+            Already know your package? Jump straight to a full breakdown for
+            your CTC — each page shows the monthly figure, every deduction, and
+            how the answer changes with your basic-salary percentage.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2.5">
+            {INHAND_LPA.map((v) => (
+              <Link
+                key={v}
+                href={`/in-hand-salary/${lpaSlug(v)}`}
+                className="inline-flex items-center rounded-full border border-line bg-card px-4 py-2 text-sm text-ink-soft hover:border-forest hover:text-forest transition-colors"
+              >
+                {lpaLabel(v)}
+              </Link>
+            ))}
+          </div>
+
+          <h2 className="mt-12 font-display text-2xl font-600 text-ink">
             Related salary &amp; tax tools
           </h2>
           <p className="mt-3 text-ink-soft leading-relaxed">

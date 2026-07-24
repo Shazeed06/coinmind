@@ -5,6 +5,7 @@ import { aiToolDetails } from "@/lib/aiToolDetails";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { SIP_SLUGS } from "@/lib/pseo-sip";
+import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 import { GLOSSARY_SLUGS } from "@/lib/glossary";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -83,6 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...TAX_SLUGS.map((s) => `/income-tax/${s}`),
     ...PAIR_SLUGS.map((s) => `/currency/${s}`),
     ...SIP_SLUGS.map((s) => `/sip/${s}`),
+    ...INHAND_SLUGS.map((s) => `/in-hand-salary/${s}`),
     ...GLOSSARY_SLUGS.map((s) => `/glossary/${s}`),
   ];
 
