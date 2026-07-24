@@ -3,6 +3,7 @@ import Link from "next/link";
 import SipCalculator from "@/components/calc/SipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 import { SIP_AMOUNTS, sipSlug } from "@/lib/pseo-sip";
+import { SIP_YEARS, sipYearSlug } from "@/lib/pseo-sip-years";
 import { formatCurrency } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -33,6 +34,29 @@ function PopularSipAmounts() {
             className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-forest hover:text-forest"
           >
             {formatCurrency(amt)}/mo
+          </Link>
+        ))}
+      </div>
+
+      {/* Entry point into the /sip-returns/* grid. Each of these pages links
+          every other duration for its amount and every other amount for its
+          duration, so one hub link makes the whole grid reachable. */}
+      <h2 className="mt-12 font-display text-2xl font-600 text-ink">
+        SIP returns by duration
+      </h2>
+      <p className="mt-2 text-ink-soft leading-relaxed">
+        Want one horizon in focus instead of the full table? These pages show the
+        corpus at 8%, 10%, 12% and 15% for a single duration, plus what starting
+        late costs you.
+      </p>
+      <div className="mt-5 flex flex-wrap gap-2.5">
+        {SIP_YEARS.map((y) => (
+          <Link
+            key={y}
+            href={`/sip-returns/${sipYearSlug(5000, y)}`}
+            className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft transition-colors hover:border-forest hover:text-forest"
+          >
+            ₹5,000/mo for {y} years
           </Link>
         ))}
       </div>
