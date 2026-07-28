@@ -114,6 +114,11 @@ export default function Page() {
         </p>
       </header>
 
+      <div className="flex items-start gap-2 p-4 rounded-card bg-brand/5 border border-brand/20 text-sm text-text-muted mb-6">
+        <span className="text-brand font-bold shrink-0">AI</span>
+        <span>This tool generates AI-assisted output. Results may contain inaccuracies. Always review, edit and verify names, dates, figures and facts before use. AI output is not a substitute for professional judgement.</span>
+      </div>
+
       {/* The tool */}
       <div className="mt-8">
         <AiGrammarChecker />

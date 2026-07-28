@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PasswordGenerator from "@/components/tools/PasswordGenerator";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,23 +30,31 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Are the passwords sent to a server?",
-    a: "No. Every password is generated entirely in your browser using the Web Crypto API. Nothing is uploaded, logged or stored — the passwords never leave your device, and the tool even works offline.",
+    a: "No. Every password is generated entirely in your browser using the Web Crypto API, the same cryptographic primitives browsers use for HTTPS encryption. Nothing is uploaded, logged, or stored anywhere — the passwords never leave your device, and the tool works offline once the page has loaded because no server interaction is involved at any point.",
   },
   {
     q: "How random are the passwords?",
-    a: "They use crypto.getRandomValues, the browser's cryptographically secure random number generator, with rejection sampling to avoid statistical bias. That is far stronger than Math.random, which is not safe for passwords.",
+    a: "They use crypto.getRandomValues, the browser's cryptographically secure pseudo-random number generator, with rejection sampling to avoid statistical bias toward any particular character. This is the same class of randomness relied upon for TLS session keys and other security-critical browser functions. It is fundamentally stronger than Math.random, which is designed for speed and statistical distribution — not for security — and must never be used to generate passwords or tokens.",
   },
   {
     q: "How long should my password be?",
-    a: "Aim for at least 16 characters. Length matters more than anything else because each extra character multiplies the number of possible combinations an attacker must try. The strength meter updates live as you change the length.",
+    a: "Aim for at least 16 characters. Length is the single most powerful factor in password strength because every additional character multiplies the number of possible combinations an attacker must try by the size of the character pool — typically around 90 or more if you include mixed case, digits, and symbols. A 16-character random password drawn from a 90-character set has more possible combinations than there are seconds in the age of the universe, making brute-force attacks infeasible. The strength meter above updates in real time as you adjust the length.",
   },
   {
     q: "What are ambiguous characters?",
-    a: "Characters that are easy to misread, like the letter O and the number 0, or the lowercase l, capital I and number 1. Turn on 'Exclude ambiguous characters' when you might have to type or copy the password by hand.",
+    a: "Characters that are easy to misread or mistype, such as the uppercase letter O and the digit 0, the lowercase letter l, the uppercase I, and the digit 1. Turn on \"Exclude ambiguous characters\" when you anticipate needing to type the password manually rather than pasting it. This is especially useful for passwords you might need to enter on a TV remote, a game console, or any device without a convenient paste function.",
   },
   {
     q: "Should I use the same password everywhere?",
-    a: "Never. If one site is breached, reused passwords let attackers into your other accounts. Generate a unique password for every account and store them in a reputable password manager.",
+    a: "Never. Password reuse is one of the most common and dangerous security mistakes. When a website you use suffers a data breach — and breaches happen routinely — attackers take the leaked email-and-password pairs and try them on banking sites, email providers, and online retailers in automated attacks called credential stuffing. A unique password per account contains the damage to the one service that was breached. Use a reputable password manager to generate, store, and autofill unique passwords so you do not have to remember them.",
+  },
+  {
+    q: "What is a password manager and do I need one?",
+    a: "A password manager is an application that stores all of your passwords in an encrypted vault protected by one master password that only you know. It can generate strong random passwords for new accounts, autofill them on websites and apps, and sync across your devices. Using a password manager is widely recommended by security professionals because it makes using long, unique, random passwords for every account practical — something that is essentially impossible to do by memory alone.",
+  },
+  {
+    q: "What makes a password-phrase different from a password?",
+    a: "A passphrase is a sequence of random, unrelated words strung together — something like \"correct-horse-battery-staple\" — rather than a shorter jumble of characters and symbols. Passphrases are easier to remember and type while still being very strong if they are long enough and the words are chosen randomly rather than forming a meaningful sentence. This generator produces traditional character-based passwords, which tend to be stronger at shorter lengths, but both approaches are valid as long as the result is long and unpredictable.",
   },
 ];
 
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -87,159 +95,64 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Password Generator</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Password Generator
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Create strong, random passwords instantly &mdash; with full control
-          over length and character types, all inside your browser.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Password Generator"
+        description="Create strong, cryptographically random passwords with full control over length and character types. Toggle uppercase letters, lowercase letters, numbers, and symbols on or off, exclude ambiguous characters that are easy to misread, and get an instant strength estimate — all inside your browser with the Web Crypto API. Nothing is ever uploaded or stored."
+        howToUse={[
+          {
+            step: "Set your desired password length",
+            detail: "Use the length slider or input field to choose the number of characters. The strength meter updates in real time and shows you whether the current length is weak, fair, good, strong, or excellent. For important accounts such as email, banking, and password manager master passwords, aim for at least 16 characters — the jump from 12 to 16 characters increases the number of possible combinations by a factor measured in the billions.",
+          },
+          {
+            step: "Choose which character types to include",
+            detail: "Toggle the checkboxes for uppercase letters (A–Z), lowercase letters (a–z), numbers (0–9), and symbols (!@#$ and similar). A password that draws from all four categories has a character pool of roughly 90 symbols, giving far more possible combinations than one limited to only letters. The generator ensures at least one character from each selected type appears in the result, so you never get a password missing a category you turned on.",
+          },
+          {
+            step: "Decide whether to exclude ambiguous characters",
+            detail: "If you will need to type this password manually — on a phone, a smart TV, a game console, or any device without a paste function — check \"Exclude ambiguous characters\" to remove lookalikes like O and 0, l and I. The character pool shrinks slightly when this option is on, so the generator compensates by still drawing from the remaining pool with full randomness.",
+          },
+          {
+            step: "Generate and review the password",
+            detail: "Click the Generate button to produce a fresh random password. You can click it as many times as you like — each press uses a new call to the browser's secure random number generator, so no two outputs are related. The strength meter recalculates immediately for the new value. If you do not like the look of the result, generate again until you get one you are comfortable with.",
+          },
+          {
+            step: "Copy and use the password securely",
+            detail: "Click the copy button to put the password onto your clipboard. Paste it directly into the account registration form or password-change field, and also save it in your password manager. The clipboard is cleared after a short timeout in many browsers, but it is a good habit to copy the password immediately rather than leaving it visible on screen. Generate a new, unique password for every account — never reuse the same one.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "You are creating a new online account",
+            detail: "Every new account — an email address, a shopping site, a streaming service, a forum — should get its own unique, randomly generated password. Using this tool for every sign-up ensures you never fall back on a weak, memorable password or, worse, reuse one you already use elsewhere. Pair the generated password with a password manager so you never have to type or remember it.",
+          },
+          {
+            scenario: "You are replacing old or compromised passwords",
+            detail: "If a service you use announces a data breach, change your password on that service immediately using a freshly generated random password. You should also proactively replace any password that is short, predictable, or based on a dictionary word, a name, a birthday, or a keyboard walk like \"qwerty.\" Old passwords that pre-date your use of a password manager are especially worth auditing and replacing.",
+          },
+          {
+            scenario: "You are setting up shared or temporary access",
+            detail: "When you need to give someone temporary access — a contractor logging into your Wi-Fi, a family member using a shared streaming account, a colleague accessing a staging server — generate a strong random password for that purpose alone. Revoke or change it when access is no longer needed. This prevents temporary credentials from becoming permanent backdoors because someone reused a memorable password.",
+          },
+        ]}
+        howItWorks="This generator uses the Web Crypto API, specifically the crypto.getRandomValues method, to produce cryptographically secure random numbers directly in your browser. The generator builds a pool of allowed characters based on the toggles you select — uppercase letters, lowercase letters, numbers, and symbols — and rejects ambiguous characters if that option is enabled. It then draws characters from that pool one at a time using rejection sampling, which ensures a statistically uniform distribution with no bias toward any particular character. The strength meter estimates entropy in bits based on the character set size and password length, mapping the result to a qualitative label from Weak to Excellent. Every step of this process runs locally in your browser's JavaScript engine with no network requests, no logging, and no data storage of any kind."
+        tips={[
+          "Use a password manager alongside this generator. Generating strong random passwords is only half the battle — storing and retrieving them securely is the other half. A password manager fills both roles: generate the password here, save it in the manager, and let the manager autofill it on websites and apps going forward.",
+          "Favour length over complexity. A 20-character password using only lowercase letters is often stronger than a 10-character password using mixed case, digits, and symbols, because length contributes exponentially to the number of possible combinations. Do not sacrifice length for the sake of adding a symbol that you will struggle to type later.",
+          "Treat the strength meter as a rough guide, not a guarantee. It estimates mathematical entropy — how hard the password would be to brute-force — but it cannot account for real-world weaknesses like using your pet's name, a date, or a phrase that appears in a known password list. Randomness is the property that makes the estimate meaningful.",
+          "Change passwords after a breach, not on a fixed schedule. Security research shows that mandatory periodic password changes — every 90 days, for instance — often lead to weaker passwords because people make small, predictable modifications. Focus your effort on generating a strong password once and changing it only when there is evidence of compromise.",
+          "Do not share passwords through insecure channels. If you need to send a generated password to someone else, use an end-to-end encrypted messaging app, a password manager's sharing feature, or a one-time secret link that expires after being viewed. Never send passwords over email, SMS, or unencrypted chat.",
+        ]}
+        faqs={faqs}
+        relatedTools={[
+          { label: "QR Code Generator", href: "/tools/qr-code-generator" },
+          { label: "Unit Converter", href: "/tools/unit-converter" },
+          { label: "Invoice Generator", href: "/tools/invoice-generator" },
+          { label: "Resume Builder", href: "/resume-builder" },
+        ]}
+        disclaimerType="general"
+      >
         <PasswordGenerator />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-card p-6">
-          <p className="text-xs font-semibold uppercase tracking-wider text-brass">
-            Quick answer
-          </p>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            A strong password is <strong className="text-ink">long</strong> and{" "}
-            <strong className="text-ink">unpredictable</strong>. Set the length
-            to at least 16 characters, keep uppercase, lowercase, numbers and
-            symbols switched on, then copy the result. This tool builds each
-            password with your browser&apos;s secure random generator, so no two
-            are the same and none are ever sent over the internet.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>What makes a password strong</h2>
-        <p>
-          A password is strong when it is hard to guess &mdash; not just by a
-          person, but by software that tries billions of combinations per
-          second. Two things drive that difficulty:{" "}
-          <strong>length</strong> and <strong>variety</strong>. A longer
-          password drawn from a bigger pool of characters (upper and lower case
-          letters, numbers and symbols) has astronomically more possible
-          combinations, which is measured as <em>entropy</em> in bits. The
-          strength meter above estimates that entropy live so you can see the
-          effect of every change. Predictable choices &mdash; dictionary words,
-          names, birthdays, keyboard patterns like{" "}
-          <span className="font-mono">qwerty</span> &mdash; slash the real
-          strength no matter how the password looks, which is exactly why a
-          random generator beats anything you would invent yourself.
-        </p>
-
-        <h2>Why length matters most</h2>
-        <p>
-          Every character you add multiplies the number of possibilities an
-          attacker has to work through. Adding one character to a password built
-          from about 90 possible symbols makes it roughly ninety times harder to
-          crack; adding several makes brute force hopeless. That is why length
-          beats clever substitutions like swapping{" "}
-          <span className="font-mono">a</span> for{" "}
-          <span className="font-mono">@</span>, which attackers&apos; tools
-          already expect. A 12-character password is a reasonable floor, 16 is a
-          comfortable target for important accounts, and going longer costs you
-          nothing when a password manager remembers it for you.
-        </p>
-
-        <h2>Never reuse passwords</h2>
-        <p>
-          Even a perfect password becomes a liability the moment you use it in
-          two places. When a website is breached &mdash; and breaches happen
-          constantly &mdash; attackers take the leaked email-and-password pairs
-          and try them on banks, email and shopping sites in what is called{" "}
-          <em>credential stuffing</em>. A unique password per account contains
-          the damage to the one site that was breached. The practical way to
-          live with dozens of unique passwords is a reputable password manager:
-          generate a fresh one here, paste it in when you create or change the
-          account, and let the manager store and autofill it from then on.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/compress-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Compress Image
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Shrink JPG, PNG and WebP files with a quality slider &mdash; in
-              your browser.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              All tools
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

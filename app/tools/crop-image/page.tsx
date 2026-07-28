@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import CropImage from "@/components/tools/CropImage";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "Are my images uploaded to a server?",
     a: "No. The cropper works entirely in your browser using the HTML Canvas API. The image is decoded, cut to your selection and re-encoded on your own device — it is never uploaded or seen by anyone.",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "How do the aspect-ratio presets work?",
-    a: "Pick 1:1, 4:3 or 16:9 and the crop box locks to that shape — perfect for square profile pictures, standard photos or widescreen thumbnails. Choose 'Free' to crop to any proportions you like.",
+    a: "Pick 1:1, 4:3 or 16:9 and the crop box locks to that shape — perfect for square profile pictures, standard photos or widescreen thumbnails. Choose Free to crop to any proportions you like.",
   },
   {
     q: "Does cropping reduce the image quality?",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Can I crop on my phone?",
     a: "Yes. The crop box supports touch, so you can drag it and its corners on a phone or tablet, or use the number fields if you prefer precise values. Everything still runs locally on your device.",
   },
+  {
+    q: "What image formats can I upload?",
+    a: "The tool accepts JPG, PNG, WebP, GIF, BMP and most common raster image formats that modern browsers can decode and render onto a canvas.",
+  },
+  {
+    q: "Can I undo a crop after downloading?",
+    a: "No — the downloaded file is a new image containing only the cropped region. Always keep your original photo, and use this tool on a copy if you think you might want to revert later.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,139 +94,76 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Crop Image</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Crop Image
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Trim a photo to just the part you want &mdash; drag the crop box, snap to a
-          1:1, 4:3 or 16:9 ratio, or type exact pixel values, all in your browser
-          with nothing uploaded.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Crop Image"
+        description="Trim a photo to just the part you want — drag the crop box, snap to a 1:1, 4:3 or 16:9 ratio, or type exact pixel values, all in your browser with nothing uploaded."
+        howToUse={[
+          {
+            step: "Upload your image",
+            detail:
+              "Drag and drop an image onto the upload area, or click to browse your device. The tool supports JPG, PNG, WebP, GIF, BMP and most common raster formats.",
+          },
+          {
+            step: "Choose an aspect ratio preset",
+            detail:
+              "Pick 1:1 for a perfect square, 4:3 for standard photo proportions, or 16:9 for widescreen thumbnails and banners. Select Free to crop to any shape without restrictions.",
+          },
+          {
+            step: "Drag the crop box",
+            detail:
+              "Click and drag the crop box to reposition it over the part of the image you want to keep. Drag any corner handle inward or outward to resize the selection area.",
+          },
+          {
+            step: "Fine-tune with pixel values",
+            detail:
+              "For pixel-perfect precision, type exact X, Y, width and height values in the number fields. Each value is in pixels of the original image, and the crop box snaps to those coordinates instantly.",
+          },
+          {
+            step: "Select your output format",
+            detail:
+              "Choose JPG for smaller file sizes ideal for web use, PNG for pixel-perfect lossless quality, or WebP for a modern balance of small size and high fidelity.",
+          },
+          {
+            step: "Download your cropped image",
+            detail:
+              "Click the download button. The tool extracts only the pixels inside your selection, encodes a fresh image file in your chosen format, and saves it to your device — all processed locally in your browser.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Making a profile picture or avatar",
+            detail:
+              "Crop a headshot or portrait to a clean 1:1 square for social media profiles, professional resumes, team pages, or ID photos — with the aspect ratio locked perfectly.",
+          },
+          {
+            scenario: "Removing unwanted background or distractions",
+            detail:
+              "Cut out photobombers, cluttered edges, empty sky, or distracting objects from the borders of an otherwise great photo.",
+          },
+          {
+            scenario: "Creating a thumbnail or hero image",
+            detail:
+              "Crop a wide photo to an exact 16:9 region for a YouTube thumbnail, blog header, or social media preview card that fits platform requirements precisely.",
+          },
+        ]}
+        howItWorks="The cropper uses the HTML Canvas API running entirely in your browser. When you load an image, it is drawn onto an invisible canvas at its original resolution. The crop box defines a rectangular region — X and Y mark the top-left corner in pixels, and width and height set the dimensions of the selection. When you download, the tool draws only the pixels inside that region onto a new canvas sized to match the crop, then exports it in your chosen format. Because everything is done client-side with no server involved, your image never leaves your device, and the tool works offline once loaded."
+        tips={[
+          "Lock an aspect ratio before you start dragging — it saves time when you need a specific shape and the box stays perfectly proportioned as you resize.",
+          "Use the pixel input fields for batch consistency — if you need several images cropped to the exact same dimensions, type the values instead of dragging by hand.",
+          "Export as PNG if you plan to do further edits — PNG is lossless so no quality is lost before you apply additional adjustments in another tool.",
+          "Check the output dimensions shown above the download button — those pixel values are exactly what you will get in the saved file.",
+          "For very large images, crop to the rough area first and then use the resize tool separately — this gives you finer control over the final pixel dimensions and file size.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Resize Image", href: "/tools/resize-image" },
+          { label: "Rotate & Flip Image", href: "/tools/rotate-image" },
+          { label: "Convert Image", href: "/tools/convert-image" },
+          { label: "Compress Image", href: "/tools/compress-image" },
+        ]}
+      >
         <CropImage />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">Quick answer</h2>
-        <p className="mt-3 rounded-2xl border border-line bg-card p-5 text-ink-soft leading-relaxed">
-          To crop an image, upload it above, then drag the{" "}
-          <strong className="text-ink">crop box</strong> to reposition it and drag a{" "}
-          <strong className="text-ink">corner</strong> to resize &mdash; or type
-          exact <strong className="text-ink">X, Y, width and height</strong> values.
-          Pick an aspect-ratio preset if you need a fixed shape, then download.
-          Nothing is uploaded and there are no watermarks.
-        </p>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-10 max-w-3xl article">
-        <h2>How cropping an image works</h2>
-        <p>
-          Cropping keeps a rectangular region of your picture and discards the rest.
-          This tool reads the pixels inside your selection and draws them onto a
-          hidden HTML canvas the size of the crop, then exports a new file. Nothing is
-          rescaled or stretched, so the pixels you keep are identical to the original.
-          Because everything happens on your device, the tool is fast, works offline
-          and never uploads your image.
-        </p>
-
-        <h2>Choosing an aspect ratio</h2>
-        <p>
-          A <strong>1:1</strong> square suits profile pictures and product photos on
-          most social platforms. <strong>4:3</strong> matches classic camera and
-          presentation shapes, while <strong>16:9</strong> is ideal for video
-          thumbnails, banners and widescreen headers. Lock one of these presets and the
-          crop box holds that proportion as you drag; switch to <strong>Free</strong>{" "}
-          when you want to cut to any shape at all.
-        </p>
-
-        <h2>Drag or type &mdash; whichever is faster</h2>
-        <p>
-          For a quick visual crop, drag the box and its corners over the preview. For a
-          pixel-perfect result &mdash; say a 1080&nbsp;&times;&nbsp;1080 square from a
-          specific spot &mdash; type the position and size into the number fields
-          instead. If after cropping you also need a smaller pixel size, follow up with
-          the <Link href="/tools/resize-image">image resizer</Link>.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free image tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/resize-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">Resize Image</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Change width and height in pixels or by percentage, with an aspect lock.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools/rotate-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Rotate &amp; Flip Image
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Rotate 90&deg; left or right and flip horizontally or vertically.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

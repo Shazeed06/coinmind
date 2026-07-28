@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ScientificCalculator from "@/components/tools/ScientificCalculator";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "Is this scientific calculator free to use?",
     a: "Yes. This online scientific calculator is completely free with no sign-up, no ads in the way and no limits. It runs entirely in your browser, so you can use it as often as you like on your phone, tablet or computer.",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Is my calculation private?",
     a: "Yes. Everything is computed on your own device with JavaScript — no expression is uploaded, stored or sent to a server. The calculator even keeps working offline once the page has loaded.",
   },
+  {
+    q: "Can I see my calculation history?",
+    a: "No — the calculator does not store history, previous expressions or results. Each calculation is isolated, which keeps the tool simple, fast and fully private with nothing recorded anywhere.",
+  },
+  {
+    q: "Why does my expression show Error?",
+    a: "An Error usually means the parser could not make sense of your input. Check for mismatched parentheses, missing operators between numbers and function names, or invalid characters that are not part of a mathematical expression.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,148 +94,71 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Scientific Calculator</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Scientific Calculator
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          A full online scientific calculator &mdash; trig, logarithms, powers,
-          roots and factorial, with keyboard support and a Deg/Rad toggle, right
-          in your browser.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Scientific Calculator"
+        description="A full online scientific calculator — trig, logarithms, powers, roots and factorial, with keyboard support and a Deg/Rad toggle, right in your browser."
+        howToUse={[
+          {
+            step: "Set your angle mode",
+            detail:
+              "Tap the Deg/Rad toggle in the display corner to choose whether trigonometric functions read angles in degrees or radians. Deg is the default and works for most everyday calculations like sin(30) = 0.5.",
+          },
+          {
+            step: "Type or click your expression",
+            detail:
+              "Use the on-screen buttons or your physical keyboard to enter an expression. Digits, operators (+, -, *, /), parentheses, and function keys like sin, cos, tan all work from the keyboard.",
+          },
+          {
+            step: "Use scientific functions",
+            detail:
+              "Click sin, cos or tan for trigonometry; ln for natural log or log for base-10; xʸ (or the ^ key) for powers like 2^10; √ for square roots; and n! for factorials. Use the π and e buttons for those constants.",
+          },
+          {
+            step: "Press equals or Enter",
+            detail:
+              "Press = on screen or Enter on your keyboard to evaluate. The expression is parsed following standard mathematical precedence: parentheses first, then powers, then multiplication and division, then addition and subtraction.",
+          },
+          {
+            step: "Clear and start over",
+            detail:
+              "Press C on screen or Escape on your keyboard to clear the display and begin a fresh calculation. The calculator keeps no history and remembers nothing between sessions.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Doing homework or exam preparation",
+            detail:
+              "Need to check trigonometric identities, logarithmic equations or multi-step algebraic expressions? This calculator handles everything a physical scientific calculator does, with no device to carry around.",
+          },
+          {
+            scenario: "Quick on-the-fly calculations at work",
+            detail:
+              "No need to find a physical calculator or wait for a heavy application to launch. This loads instantly in any browser tab and is ready for calculations the moment the page appears.",
+          },
+          {
+            scenario: "Working offline or on a locked-down device",
+            detail:
+              "Since everything runs locally in the browser with no server dependency, the calculator works without an internet connection and on devices where you cannot install any software.",
+          },
+        ]}
+        howItWorks="The calculator uses a custom expression parser built in JavaScript — not the browser's eval function, which would be a security risk. When you press equals, the parser tokenizes your input into numbers, operators and functions, then evaluates them using a recursive-descent algorithm that respects the correct order of operations. Powers are right-associative (so 2^3^2 = 2^(3^2) = 512), unary minus is handled correctly for negative numbers, and implicit multiplication next to constants like 2π is supported. The entire computation happens in your browser with zero network requests."
+        tips={[
+          "Use parentheses liberally — when in doubt about operator precedence, wrap parts of your expression in parentheses to make the intended order explicit and avoid surprises.",
+          "Switch between Deg and Rad before typing your expression — the toggle only affects trig functions evaluated after you switch, not any number already on the display.",
+          "Remember that the % key divides by 100 — typing 50% produces 0.5. This is convenient for percentage calculations but can be confusing if you expect a different behaviour.",
+          "Factorial (n!) works only on non-negative integers — entering 5! correctly returns 120, but 3.5! or (-2)! will show an Error on the display.",
+          "On desktop, always use the keyboard — it is significantly faster than clicking on-screen buttons. All standard keys work: digits, arithmetic operators, parentheses, Enter for equals, and Escape to clear.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Unit Converter", href: "/tools/unit-converter" },
+          { label: "GPA Calculator", href: "/tools/gpa-calculator" },
+          { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
+          { label: "Age Calculator", href: "/tools/age-calculator" },
+        ]}
+      >
         <ScientificCalculator />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-forest-soft/50 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">Quick answer</h2>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            A scientific calculator handles far more than basic arithmetic:
-            trigonometry (sin, cos, tan), logarithms (ln and log), powers and
-            roots, parentheses and factorials. Type an expression with the
-            buttons or your keyboard, press <strong>=</strong>, and the answer
-            appears instantly. Everything runs in your browser, so it is free,
-            private and works offline once loaded.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>What a scientific calculator can do</h2>
-        <p>
-          Where a basic calculator stops at add, subtract, multiply and divide,
-          an <strong>online scientific calculator</strong> adds the functions
-          you need for algebra, trigonometry, statistics and science homework.
-          This one covers the trigonometric functions{" "}
-          <strong>sin, cos and tan</strong>, natural and base-10 logarithms
-          (<strong>ln</strong> and <strong>log</strong>), square roots, any
-          power through the <strong>xʸ</strong> key, factorials, the constants{" "}
-          <strong>π</strong> and <strong>e</strong>, and full parentheses so you
-          can build multi-step expressions and let the calculator respect the
-          correct order of operations.
-        </p>
-
-        <h2>Order of operations and precedence</h2>
-        <p>
-          The calculator follows standard mathematical precedence, so you can
-          type a whole expression in one go. Powers are evaluated before
-          multiplication and division, which come before addition and
-          subtraction, and anything inside parentheses is worked out first.
-          Because the parser is right-associative for exponents,{" "}
-          <strong>2^3^2</strong> is read as 2^(3^2) = 512, exactly as it would be
-          on paper. If you ever mistype and the expression cannot be parsed, the
-          display simply shows <strong>Error</strong> so you can correct it.
-        </p>
-
-        <h2>Degrees, radians and privacy</h2>
-        <p>
-          Use the <strong>Deg/Rad toggle</strong> in the corner of the display
-          to tell the trig functions whether your angles are in degrees or
-          radians &mdash; a common source of wrong answers in homework. On a
-          computer you can skip the buttons entirely and type with your keyboard:
-          Enter evaluates and Escape clears. Every calculation is performed
-          locally with JavaScript using a safe expression parser (no{" "}
-          <code>eval</code>), so nothing you enter is uploaded or stored, and the
-          tool keeps working even without an internet connection.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">More free tools</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/unit-converter"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Unit Converter
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Convert length, weight, temperature and more, instantly.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">All tools</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

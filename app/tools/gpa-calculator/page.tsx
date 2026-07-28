@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import GpaCalculator from "@/components/tools/GpaCalculator";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "How is GPA calculated?",
     a: "Your GPA is a credit-weighted average of your grade points. Each course's grade point is multiplied by its number of credits, those products are added up, and the total is divided by the total credits. Courses worth more credits therefore influence the result more than lighter ones.",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Is my data saved or uploaded anywhere?",
     a: "No. Every calculation happens in your browser with JavaScript. Your courses, credits and grades are never sent to a server, stored or seen by anyone, so it is safe to use for real transcripts.",
   },
+  {
+    q: "Can I calculate SGPA separately from CGPA?",
+    a: "This calculator gives you the cumulative GPA or CGPA for all courses you enter. To calculate a single semester's SGPA, enter only that semester's courses, note the result, and then clear before entering the next semester.",
+  },
+  {
+    q: "What if my university uses a different grade-to-point mapping?",
+    a: "On the 10-point CGPA scale, you enter the numerical grade point directly — any value from 0 to 10 — so you can match your university's exact grading scheme. On the 4.0 scale, the tool uses the standard unweighted letter-grade mapping, which works for most institutions.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,153 +94,76 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">GPA &amp; CGPA Calculator</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          GPA &amp; CGPA Calculator
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Add your courses, credits and grades to get a live weighted GPA (4.0
-          scale) or CGPA (10-point) &mdash; with a built-in CGPA to percentage
-          converter, right in your browser.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="GPA & CGPA Calculator"
+        description="Add your courses, credits and grades to get a live weighted GPA (4.0 scale) or CGPA (10-point) — with a built-in CGPA to percentage converter, right in your browser."
+        howToUse={[
+          {
+            step: "Choose your grading scale",
+            detail:
+              "Toggle between GPA (4.0 scale, used across US colleges and universities) and CGPA (10-point scale, common in Indian universities and technical boards). The grade options and input fields change automatically to match.",
+          },
+          {
+            step: "Add a course",
+            detail:
+              "Enter a course name for your reference, type the number of credits (or credit hours) the course carries, and select the grade you received. Courses with more credits carry proportionally more weight in the final average.",
+          },
+          {
+            step: "Add all your courses",
+            detail:
+              "Click Add course to include every subject from your semester or entire programme. Your cumulative GPA or CGPA updates live at the top as you add, edit or remove entries.",
+          },
+          {
+            step: "Review your weighted average",
+            detail:
+              "The calculator displays your overall GPA or CGPA prominently. It is a credit-weighted average, not a simple mean — so a five-credit core subject moves your score five times more than a one-credit elective.",
+          },
+          {
+            step: "Use the CGPA to percentage converter",
+            detail:
+              "When using the CGPA (10-point) scale, type your CGPA into the converter box to see the approximate percentage using the widely-used CBSE formula: percentage = CGPA × 9.5.",
+          },
+          {
+            step: "Start over or edit as needed",
+            detail:
+              "Clear all courses to calculate a fresh set, modify individual entries to see hypothetical what-if scenarios, or adjust a grade to find out what you need in remaining courses to hit a target CGPA.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Planning your semester or academic year",
+            detail:
+              "Add your expected or target grades to forecast what GPA you will land if you score certain marks in each subject. It takes the uncertainty out of academic planning.",
+          },
+          {
+            scenario: "Verifying your transcript or mark sheet",
+            detail:
+              "Enter your actual grades from an official transcript to double-check your university's calculation. Spotting an error early can save weeks of administrative back-and-forth later.",
+          },
+          {
+            scenario: "Setting targets for remaining courses",
+            detail:
+              "Enter the grades you already have, then experiment with different grades for your remaining subjects to see exactly what you need to reach a target CGPA — useful before final exams or placement season.",
+          },
+        ]}
+        howItWorks="GPA and CGPA are credit-weighted averages, not simple arithmetic means. For each course, the grade point (for example, A = 4.0, B = 3.0 on the 4.0 scale, or a numerical value on the 10-point scale) is multiplied by the number of credits the course carries. All these products are summed across every course you enter, then the total is divided by the sum of all credits. A 5-credit course therefore has five times the influence on your average compared to a 1-credit elective. This tool performs all calculations locally in your browser using JavaScript, with no data sent to any server."
+        tips={[
+          "Double-check every credit value — entering a wrong credit count for even one course can noticeably shift your overall GPA, especially if you are calculating across a small number of courses.",
+          "Use the correct scale for your institution — GPA (4.0) and CGPA (10-point) are fundamentally different systems. Toggling between them mid-calculation will reset your entries.",
+          "Remember that A and A+ both map to 4.0 on the unweighted 4.0 scale — some schools award 4.3 or higher for A+, so confirm your institution's specific mapping if precision matters.",
+          "The CGPA to percentage conversion is an estimate — while CGPA × 9.5 is the most widely recognised formula in India, your specific university or board may publish a different official conversion. Always check for applications.",
+          "This tool works offline — once the page has loaded, all calculations happen locally in your browser without any internet connection, so you can use it in a classroom, library or anywhere.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Scientific Calculator", href: "/tools/scientific-calculator" },
+          { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
+          { label: "Unit Converter", href: "/tools/unit-converter" },
+          { label: "All tools", href: "/tools" },
+        ]}
+      >
         <GpaCalculator />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-forest-soft/50 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
-            Quick answer
-          </h2>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            A GPA calculator turns your individual course grades into one
-            overall score. Pick a grading scale &mdash;{" "}
-            <strong className="text-ink">GPA (4.0)</strong> used across US
-            colleges, or the Indian{" "}
-            <strong className="text-ink">CGPA (10-point)</strong> scale &mdash;
-            then add each course with its credits and grade. Your weighted
-            average updates instantly, and the CGPA to percentage helper applies
-            the popular &times;9.5 formula. Everything runs in your browser, so
-            your marks stay private.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>How GPA and CGPA are calculated</h2>
-        <p>
-          Both GPA and CGPA are <strong>credit-weighted averages</strong>, not a
-          simple mean of your grades. For each course you multiply its grade
-          point by the number of credits it carries, add up those figures across
-          all courses, and divide by the total credits. This is why a five-credit
-          core subject moves your average far more than a one-credit elective.
-          The formula is the same whether you work on a 4.0 or a 10-point scale
-          &mdash; only the grade points differ.
-        </p>
-
-        <h2>GPA (4.0 scale) vs CGPA (10-point scale)</h2>
-        <p>
-          The <strong>4.0 scale</strong> is standard in the United States, where
-          letter grades map to grade points: an A is 4.0, a B is 3.0, a C is 2.0
-          and so on, with plus and minus grades adding or subtracting roughly
-          0.3. The <strong>10-point CGPA scale</strong> is the norm at most
-          Indian universities and technical boards, where each subject is graded
-          from 0 to 10. Use the toggle at the top to switch between them; the
-          calculator handles the weighting for you either way.
-        </p>
-
-        <h2>Converting CGPA to percentage</h2>
-        <p>
-          Employers and application forms often ask for a percentage rather than
-          a CGPA. The most common conversion, popularised by CBSE and used widely
-          across India, is <strong>percentage = CGPA &times; 9.5</strong>. So a
-          CGPA of 9.2 becomes 87.4%. Keep in mind this is an approximation:
-          several universities publish their own official formula, and some
-          simply multiply by 10 or apply a subject-wise method. When accuracy
-          matters &mdash; for a job application or further study &mdash; confirm
-          the exact rule your institution uses.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/unit-converter"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Unit Converter
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Convert length, weight, temperature and more instantly.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              All tools
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

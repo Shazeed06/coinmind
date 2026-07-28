@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import RotatePdf from "@/components/tools/RotatePdf";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "Is my PDF uploaded anywhere?",
     a: "No. Rotation happens entirely in your browser with JavaScript. Your PDF never leaves your device — nothing is uploaded, stored or shared, which keeps sensitive documents private.",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Can I rotate a password-protected PDF?",
     a: "The tool tries to read encrypted PDFs where possible, but files with strong protection may fail to load. If a file can't be read, remove the password first and try again.",
   },
+  {
+    q: "Can I rotate different pages by different amounts in one go?",
+    a: "The tool applies one rotation setting at a time to the pages you select. To rotate page 2 by 90 degrees and page 5 by 180 degrees, run the tool twice on the same file — the rotations stack correctly.",
+  },
+  {
+    q: "Does rotation affect how the PDF prints?",
+    a: "Yes — the saved rotation is applied automatically when you print, so pages come out correctly oriented without you having to adjust any printer settings.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,147 +94,70 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Rotate PDF</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free tool · 100% in your browser
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Rotate PDF
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Turn every page or a single page 90, 180 or 270 degrees and download
-          the fixed file — your document never leaves your device.
-        </p>
-      </header>
-
-      {/* Tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Rotate PDF"
+        description="Turn every page or a single page 90, 180 or 270 degrees and download the corrected file — your document never leaves your device."
+        howToUse={[
+          {
+            step: "Drop your PDF",
+            detail:
+              "Drag your PDF file onto the upload area or click to browse. The tool reads the document and shows a page preview with the current orientation of every page.",
+          },
+          {
+            step: "Choose the rotation angle",
+            detail:
+              "Select 90, 180 or 270 degrees. All rotation is clockwise: 90 turns a portrait page to landscape, 180 flips it completely upside down, and 270 is equivalent to a 90-degree left turn.",
+          },
+          {
+            step: "Pick all pages or a single page",
+            detail:
+              "Choose All pages to rotate the entire document uniformly in one step. Choose One page and type the page number to correct a single stray page while leaving the rest untouched.",
+          },
+          {
+            step: "Preview the result",
+            detail:
+              "The preview updates to show how each page will look after rotation. Verify the orientation is correct — especially the page numbers — before you commit the change.",
+          },
+          {
+            step: "Rotate and download",
+            detail:
+              "Click the rotate button to apply the change. The tool updates each selected page's rotation flag and triggers a download of the corrected PDF — your original file stays untouched.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Fixing a sideways scan",
+            detail:
+              "A document was fed into the scanner the wrong way or upside down. Rotate the entire file in one click to make every page readable and properly oriented.",
+          },
+          {
+            scenario: "Correcting a single stray page",
+            detail:
+              "Page 7 of a 50-page report was scanned in landscape while everything else is portrait. Rotate just that one page without touching the rest of the document.",
+          },
+          {
+            scenario: "Preparing a presentation or slide deck",
+            detail:
+              "Slides exported in the wrong orientation need a quick 90-degree turn before sharing with colleagues or presenting on a projector.",
+          },
+        ]}
+        howItWorks="Rotation in a PDF is handled by a simple rotation flag stored on each page — the actual content is never re-rendered or reprocessed. This tool uses the pdf-lib library to read your document entirely in your browser, then updates the rotation property for the pages you selected. When you download, the modified PDF retains all original text, images and vector graphics at full quality because only the metadata-level rotation setting has changed. Nothing is uploaded to any server, and the tool works offline once the page has loaded."
+        tips={[
+          "Check the preview carefully — a single mis-rotated page buried in a long document is easy to miss and awkward to explain later.",
+          "Use 270 degrees instead of searching for an anti-clockwise option — since rotation is clockwise, 270 degrees gives the exact same result as turning 90 degrees left.",
+          "Rotating a page 180 degrees is the same as flipping it — if a page is upside down, 180 degrees sets it right-side up in one click.",
+          "If a PDF fails to load, check whether it's password-protected — encrypted files may need the password removed first before the tool can read and modify them.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Organize PDF", href: "/tools/organize-pdf" },
+          { label: "Split PDF", href: "/tools/split-pdf" },
+          { label: "Merge PDF", href: "/tools/merge-pdf" },
+          { label: "Compress PDF", href: "/tools/compress-pdf" },
+        ]}
+      >
         <RotatePdf />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-forest-soft/50 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
-            Quick answer
-          </h2>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            To rotate a PDF, drop your file above, pick a turn of 90, 180 or 270
-            degrees, and choose whether to apply it to every page or just one.
-            The preview shows the new orientation before you commit. Click rotate
-            and download to save the corrected PDF. It all runs in your browser,
-            so your document stays private and works even offline once the page
-            has loaded.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>Why pages end up sideways</h2>
-        <p>
-          Rotated PDF pages are one of the most common scanning and export
-          annoyances. A document fed into a scanner the wrong way, a phone photo
-          saved in landscape, or a page merged in from another file can all leave
-          you tilting your head to read the result. Rotating fixes the page so it
-          displays and prints the right way up, without you having to re-scan or
-          rebuild anything.
-        </p>
-
-        <h2>Rotate everything or a single page</h2>
-        <p>
-          Sometimes the whole file is turned the wrong way; sometimes it&apos;s
-          just page seven. This tool handles both. Choose{" "}
-          <strong>all pages</strong> to spin the entire document in one step, or{" "}
-          <strong>one page</strong> and type the page number to correct a single
-          stray page while leaving the rest alone. Rotation is clockwise, so 90
-          degrees swings a portrait page into landscape and 180 degrees flips an
-          upside-down scan back over.
-        </p>
-
-        <h2>Private by design</h2>
-        <p>
-          The pages you need to straighten are often the sensitive ones —
-          signed agreements, scanned IDs, statements. Uploading them to an online
-          rotator means handing those documents to a server. This tool avoids
-          that entirely. Using the <strong>pdf-lib</strong> library in your
-          browser, only each page&apos;s rotation flag is changed, locally on
-          your machine. Nothing is uploaded, nothing is stored, and the text
-          stays fully intact.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More PDF tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/organize-pdf"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Organize PDF
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Reorder pages and remove the ones you don&apos;t need.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools/split-pdf"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Split PDF
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Extract a page range or split every page into its own file.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

@@ -11,7 +11,7 @@ export const site = {
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
   email: "coinmindofficial@gmail.com",
   description:
-    "46 free calculators (SIP, EMI, income tax, FD), 44 free tools and honest AI reviews — smarter money decisions for India, the US & UK. No sign-up.",
+    "Free personal finance calculators for India — SIP, EMI, income tax, FD, PPF and more. Educational guides, explained clearly. No sign-up.",
   locale: "en",
   authorName: "Sahil",
   // Named author/editor behind the content — E-E-A-T "Who" for a YMYL finance
@@ -48,15 +48,16 @@ export type NavItem = {
   label: string;
   href: string;
   desc?: string;
+  group?: string;
 };
 
 export const primaryNav: NavItem[] = [
-  { label: "Calculators", href: "/calculators", desc: "SIP, EMI, tax, FD & more" },
-  { label: "Free Tools", href: "/tools", desc: "Resume, PDF & image tools" },
-  { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant" },
-  { label: "AI Tools", href: "/ai-tools", desc: "Reviews & comparisons" },
-  { label: "News", href: "/news", desc: "Plain-English finance & AI explainers" },
-  { label: "Guides", href: "/blog", desc: "How-to & money tips" },
+  { label: "Calculators", href: "/calculators", desc: "SIP, EMI, tax, FD & more", group: "Finance" },
+  { label: "Guides", href: "/blog", desc: "How-to & money tips", group: "Finance" },
+  { label: "Glossary", href: "/glossary", desc: "Finance & AI terms", group: "Finance" },
+  { label: "Free Tools", href: "/tools", desc: "PDF, image & resume tools", group: "Tools" },
+  { label: "AI Tools", href: "/ai-tools", desc: "Reviews & comparisons", group: "AI" },
+  { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant", group: "AI" },
 ];
 
 export const footerNav: { title: string; items: NavItem[] }[] = [

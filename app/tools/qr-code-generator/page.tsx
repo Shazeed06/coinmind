@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import QrCodeGenerator from "@/components/tools/QrCodeGenerator";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,27 +30,31 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Are my QR codes generated privately?",
-    a: "Yes. Everything runs in your browser — the text or URL you enter is turned into a QR code on your own device and is never uploaded, stored or seen by anyone. You can even use the tool offline once the page has loaded.",
+    a: "Yes. Everything runs in your browser — the text or URL you enter is turned into a QR code on your own device and is never uploaded, stored, or seen by anyone. You can even use the tool offline once the page has loaded, since the QR generation happens entirely in JavaScript with no server dependency.",
   },
   {
     q: "What do the error-correction levels (L, M, Q, H) mean?",
-    a: "Error correction lets a QR code still be read when part of it is dirty, damaged or covered by a logo. Level L recovers about 7% of the code, M about 15%, Q about 25% and H about 30%. Higher levels are more robust but pack the data more densely, so the pattern looks busier. M is a good default for screens; choose H if the code will be printed, laminated onto packaging or have a logo placed over it.",
+    a: "Error correction lets a QR code still be read when part of it is dirty, damaged, or covered by a logo. Level L recovers about 7% of the code area, M about 15%, Q about 25%, and H about 30%. Higher levels are more robust but pack data more densely, so the pattern looks busier. Level M is a good default for on-screen use; choose H if the code will be printed on packaging, laminated, or have a logo placed over the centre.",
   },
   {
     q: "Should I download the PNG or the SVG?",
-    a: "Use the PNG for websites, social posts, slides and messaging apps — it is a ready-to-use image at the exact pixel size you chose. Use the SVG for print and large formats such as posters, banners or business cards: it is a vector file that stays perfectly crisp at any size.",
+    a: "Use the PNG for websites, social media posts, presentation slides, and messaging apps — it is a ready-to-use raster image at the exact pixel dimensions you chose. Use the SVG for print and large-format applications such as posters, banners, or business cards: it is a vector file that stays perfectly crisp at any size, from a sticker to a billboard, with no pixelation.",
   },
   {
     q: "Do these QR codes expire or stop working?",
-    a: "No. These are static QR codes, meaning the link or text is encoded directly into the pattern. There is no tracking redirect and no account, so the code will keep working forever — but it also cannot be edited later, so double-check the URL before you print it.",
+    a: "No. These are static QR codes, meaning the link or text is encoded directly into the pattern of black and white modules. There is no tracking redirect service and no account involved, so the code will keep working indefinitely — but it also cannot be edited later. Double-check the URL before you print it, because changing the destination afterwards requires generating a new code.",
   },
   {
     q: "What can I put in a QR code?",
-    a: "Almost anything short enough to fit: a website URL, plain text, an email address, a phone number, an SMS, Wi-Fi login details or a vCard contact. Very long content reduces how reliably the code scans, so keep it concise — for long links, a short URL usually gives a cleaner, easier-to-scan code.",
+    a: "Almost anything short enough to fit: a website URL, plain text, an email address, a phone number, an SMS message, Wi-Fi login credentials, or a vCard contact. Very long content reduces the code's reliability when scanned, so keep the input concise. For lengthy URLs, run them through a URL shortener first to produce a cleaner, less dense code that scans faster and from greater distances.",
   },
   {
     q: "Why won't my custom colours scan?",
-    a: "Scanners rely on strong contrast between the dark pattern and the light background. Keep the foreground noticeably darker than the background, avoid inverting them (light pattern on a dark background often fails), and leave the quiet-zone margin around the code. If a code won't read, revert to classic black on white.",
+    a: "QR scanners rely on strong contrast between the dark pattern modules and the light background. Keep the foreground noticeably darker than the background, never invert them (a light pattern on a dark background often fails entirely), and leave the quiet-zone margin around the code untouched. If a code refuses to scan, revert to classic black on white and test again before printing.",
+  },
+  {
+    q: "What is the quiet zone and why does it matter?",
+    a: "The quiet zone is the blank margin that surrounds a QR code on all four sides. Scanners use this empty border to distinguish the code from surrounding text, graphics, or other visual elements. Without an adequate quiet zone — typically at least four modules wide — a scanner may fail to locate the code at all. The PNG and SVG exports from this tool include the quiet zone automatically.",
   },
 ];
 
@@ -81,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -91,173 +95,64 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">QR Code Generator</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          QR Code Generator
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Turn any link or text into a custom QR code &mdash; pick the size,
-          colours and error correction, then download a PNG or SVG. Nothing is
-          uploaded.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="QR Code Generator"
+        description="Turn any website link or piece of text into a custom QR code in seconds. Choose your preferred size and colours, set the error-correction level, and download a crisp PNG for screens or a vector SVG for print — everything happens in your browser with nothing uploaded."
+        howToUse={[
+          {
+            step: "Enter your link or text",
+            detail: "Paste a URL into the input field, or type any short piece of text you want the QR code to contain. This could be a website address, a Wi-Fi network password, a phone number, or even a plain-text message. For long URLs, consider using a link shortener first — shorter input produces a less dense QR code that scans faster and more reliably from a distance or in low light.",
+          },
+          {
+            step: "Adjust the size and colours",
+            detail: "Use the size slider to set the pixel dimensions of your exported code. Larger sizes work better for print; smaller sizes are fine for on-screen use. If you want a branded look, pick custom foreground and background colours instead of the default black and white. Keep the foreground dark and the background light — strong contrast between the two is essential for reliable scanning.",
+          },
+          {
+            step: "Choose an error-correction level",
+            detail: "Select L, M, Q, or H from the dropdown. Level M is a safe default for most uses: it recovers about 15% of the code if damaged and keeps the pattern relatively clean. Step up to H (30% recovery) if the code will be printed on rough material, exposed to wear, or have a logo placed in the centre. The live preview updates instantly so you can see how each level changes the density of the code.",
+          },
+          {
+            step: "Check the live preview",
+            detail: "The preview updates in real time as you change any setting — the text, size, colours, or error correction. This lets you experiment freely without needing to download a file to see the result. Make sure the code looks visually clean and that your chosen colours maintain enough contrast for phone cameras to read the pattern easily.",
+          },
+          {
+            step: "Download as PNG or SVG",
+            detail: "Once you are happy with the result, click Download PNG for a raster image ready to drop into a website, social post, or presentation. Choose Download SVG if the code is destined for print — vector graphics stay perfectly sharp at any size, from a small sticker to a large poster. Both formats include the necessary quiet-zone margin around the code for reliable scanning.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "You are printing marketing materials",
+            detail: "Flyers, posters, business cards, product packaging, and event banners all benefit from a QR code that takes someone straight to a website, menu, or sign-up page. Adding a scannable code removes the friction of typing a URL — particularly on mobile, where QR scanning is built into the default camera app on both iOS and Android. Customise the colours to match your brand palette so the code looks like an intentional part of the design rather than an afterthought.",
+          },
+          {
+            scenario: "You are sharing Wi-Fi access with guests",
+            detail: "Instead of spelling out a long network password or typing it into each person's phone individually, encode your Wi-Fi credentials into a QR code. Guests scan the code with their phone camera and connect instantly. Print the code and frame it in a guest room, add it to a welcome card, or display it at the counter of a café or co-working space.",
+          },
+          {
+            scenario: "You need a quick digital-to-physical bridge",
+            detail: "QR codes shine when you want to connect something physical — a sticker, a label, a slide in a presentation, a printed receipt — to something digital like a survey, a payment page, an app download link, or a calendar event. Instead of asking people to type a URL, you put the destination one scan away. The PNG download is ready to drop into any document or design tool.",
+          },
+        ]}
+        howItWorks="This generator builds QR codes entirely in your browser using a JavaScript QR encoding library. When you enter text or a URL, the library converts it into a two-dimensional matrix of black and white squares called modules, adding position markers in three corners, timing patterns, and the error-correction data you select. The tool renders this matrix onto an HTML canvas element in real time, which is why you see the preview update instantly as you adjust settings. When you click download, the canvas is exported to either a PNG file (a raster image at your chosen pixel size) or an SVG file (a vector graphic that stays sharp at any size). No data ever leaves your browser during this entire process."
+        tips={[
+          "Test every QR code with at least two different phones before you print or publish it. Different camera apps, lighting conditions, and screen types can affect scannability. Testing catches contrast issues and encoding errors that the preview might not reveal.",
+          "Keep your input short. A concise URL or text block produces a less dense QR code with larger, more distinct modules. Dense codes packed with data require the scanner to work harder and are more likely to fail at small sizes or in uneven lighting.",
+          "Never invert the colours to a light pattern on a dark background. QR scanners are calibrated to look for dark modules on a light field, and inverted codes fail on most devices. If you need a dark-themed QR code, test it thoroughly on multiple phones before committing.",
+          "Leave the quiet zone alone. The blank border around the code is not decorative — it is a functional part of the QR specification that helps scanners isolate the code from surrounding graphics. Trimming the quiet zone is a reliable way to make a code unscannable.",
+          "Use SVG for anything that will be printed. Raster formats like PNG have a fixed pixel grid and will look blurry or pixelated when enlarged beyond their native size. SVG files are mathematical descriptions of shapes that scale cleanly to any dimension, making them the right choice for posters, banners, and packaging.",
+        ]}
+        faqs={faqs}
+        relatedTools={[
+          { label: "Password Generator", href: "/tools/password-generator" },
+          { label: "Invoice Generator", href: "/tools/invoice-generator" },
+          { label: "Unit Converter", href: "/tools/unit-converter" },
+          { label: "Resume Builder", href: "/resume-builder" },
+        ]}
+        disclaimerType="general"
+      >
         <QrCodeGenerator />
-      </div>
-
-      {/* Quick answer intro */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-card p-6">
-          <p className="text-xs font-semibold uppercase tracking-wider text-brass">
-            Quick answer
-          </p>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            A <strong className="text-ink">QR code generator</strong> converts a
-            piece of text &mdash; usually a website link &mdash; into a scannable
-            square barcode. Paste your URL or text above, adjust the size and
-            colours if you like, then download the code as a{" "}
-            <strong className="text-ink">PNG</strong> for screens or an{" "}
-            <strong className="text-ink">SVG</strong> for print. It is free, needs
-            no sign-up, and the code is built entirely in your browser, so your
-            data stays private.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>What is a QR code?</h2>
-        <p>
-          A QR code (short for &ldquo;Quick Response&rdquo; code) is a
-          two-dimensional barcode made of black and white squares called
-          modules. Unlike a traditional barcode that only stores data in one
-          direction, a QR code holds information both horizontally and
-          vertically, letting it pack in far more &mdash; a full web address,
-          contact details or a chunk of text &mdash; while still scanning in a
-          fraction of a second from a phone camera. The three large squares in
-          the corners are position markers that tell a scanner how the code is
-          oriented, which is why a QR code reads correctly from almost any angle.
-        </p>
-
-        <h2>What people use QR codes for</h2>
-        <p>
-          QR codes bridge the gap between the physical and digital world. Shops
-          and restaurants use them to open menus, payment pages and review
-          links; marketers add them to flyers, packaging and posters to send
-          people straight to a landing page; and businesses put them on
-          cards and email signatures to share a website or save a contact
-          instantly. Beyond links, a single code can carry Wi-Fi credentials so
-          guests join a network without typing a password, a phone number for
-          one-tap dialling, or a vCard that adds someone to your contacts. Because
-          modern phones scan QR codes with the built-in camera, no separate app
-          is needed.
-        </p>
-
-        <h2>Error correction, explained</h2>
-        <p>
-          Every QR code includes built-in <strong>error correction</strong>,
-          spare data that lets a scanner rebuild the message even when part of
-          the code is scratched, smudged or hidden. You choose how much
-          protection to add. <strong>Level L</strong> reserves about 7% of the
-          code for recovery and keeps the pattern light and simple.{" "}
-          <strong>Level M</strong> (~15%) is the everyday default and works well
-          on screens. <strong>Level Q</strong> (~25%) and{" "}
-          <strong>Level H</strong> (~30%) add more resilience for printed codes,
-          rough environments, or when you want to drop a logo in the middle. The
-          trade-off is density: the more recovery you add, the more modules the
-          code needs, so it looks busier and benefits from a larger size. When in
-          doubt, stick with M for digital use and step up to H for anything
-          printed.
-        </p>
-
-        <h2>Tips for codes that always scan</h2>
-        <p>
-          Keep your content short &mdash; a concise URL produces a cleaner, less
-          dense code that scans faster from a distance. Preserve strong contrast
-          between the foreground and background, and never invert them to a light
-          pattern on a dark field, which many scanners reject. Leave the quiet
-          margin around the code untouched, and export a large PNG or an SVG when
-          the code will be printed so it stays crisp. Finally, always test the
-          finished code with a couple of different phones before you publish or
-          print it.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/compress-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Compress Image
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Shrink JPG, PNG and WebP files right in your browser.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              All tools
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

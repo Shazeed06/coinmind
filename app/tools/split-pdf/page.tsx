@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import SplitPdf from "@/components/tools/SplitPdf";
 import { site } from "@/lib/site";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
   title: { absolute: "Split PDF — Extract Pages from a PDF Free" },
@@ -27,27 +27,95 @@ export const metadata: Metadata = {
   },
 };
 
+const howToUse = [
+  {
+    step: "Add your PDF",
+    detail: "Click the drop zone or browse to select the PDF you want to split. The tool reads the file immediately and shows you the total page count so you know what you're working with.",
+  },
+  {
+    step: "Choose your split mode",
+    detail: "You have two options. Pick Extract a page range if you want a single new PDF containing a continuous slice of pages. Pick Split into single pages if you want each page saved as its own separate one-page PDF file.",
+  },
+  {
+    step: "Enter the page range (range mode only)",
+    detail: "Type the first and last page numbers you want. For example, entering 2 as the first page and 5 as the last page extracts pages 2, 3, 4, and 5 as one new PDF. The tool validates these numbers against the actual page count.",
+  },
+  {
+    step: "Click the split button",
+    detail: "Press the split button and wait briefly while your browser copies the requested pages into new PDF documents. For single-page mode, a 10-page PDF will produce 10 separate files.",
+  },
+  {
+    step: "Allow multiple downloads if prompted",
+    detail: "When using single-page mode, your browser may ask permission before downloading several files in quick succession — choose Allow to receive all the individual page PDFs. The range mode downloads just one file, so no prompt appears.",
+  },
+  {
+    step: "Save your extracted PDFs",
+    detail: "Each file downloads automatically. Your original PDF remains completely untouched — the split creates new files without modifying the source document in any way.",
+  },
+];
+
+const whenToUse = [
+  {
+    scenario: "Extracting a specific chapter or section from a long document",
+    detail: "When a 200-page report contains just one 15-page section you need to share with a colleague, extract that range as its own PDF instead of sending the entire file and asking someone to scroll through it.",
+  },
+  {
+    scenario: "Separating individually signed forms from a merged batch",
+    detail: "If you received a single PDF containing ten signed forms merged together, splitting each page into its own file gives you ten neat one-page PDFs — one per signatory — that you can file, forward, or archive independently.",
+  },
+  {
+    scenario: "Removing confidential appendices before sharing",
+    detail: "A report may contain a public-facing body followed by a confidential appendix with sensitive data. Extract only the pages meant for the recipient and keep the appendix private on your device.",
+  },
+];
+
+const howItWorksParagraph =
+  "When you upload a PDF, this tool reads the entire document using the pdf-lib library running locally in your browser. It then copies only the pages you requested — either a continuous range like pages 3 through 7, or every page individually — into brand-new PDF files. Each new file receives the original page content byte for byte, so text, images, vector graphics, and formatting remain pixel-perfect identical to the source. No data is sent over the internet; all page copying and file creation happens on your own machine. In single-page mode, the tool iterates through the document and creates one download per page. Because pdf-lib works with raw byte streams, the tool functions even when you're offline after the initial page load, and it never stores, caches, or transmits your document to any server.";
+
+const tips = [
+  "Always double-check your page range before splitting. Entering the wrong first or last page number is the most common mistake — verify against the total page count shown after you load the file.",
+  "When splitting every page, your browser may block multiple automatic downloads. If only the first file saves, look for a pop-up or icon in the address bar asking permission to download more files and click Allow.",
+  "For large documents with hundreds of pages, splitting into single pages may briefly slow down your browser as it creates and downloads many files. Consider working in smaller batches if needed.",
+  "Original PDF quality is preserved perfectly — pages are copied at the byte level, never re-compressed or re-rendered. The output PDFs will look and print exactly like the source.",
+  "If you need to split and then reorder pages, first split the file and then use the Merge PDF tool to combine the extracted pages back together in any new order you like.",
+];
+
 const faqs = [
   {
     q: "Is my PDF uploaded anywhere?",
-    a: "No. Splitting happens entirely in your browser with JavaScript. Your PDF never leaves your device — nothing is uploaded, stored or shared, which keeps sensitive documents private.",
+    a: "No. Splitting happens entirely in your browser with JavaScript using the pdf-lib library. Your PDF never leaves your device — nothing is uploaded, stored, or shared, which keeps sensitive documents completely private. The tool works offline too once the page has loaded, so you can split documents without an active internet connection.",
   },
   {
     q: "What is the difference between extracting a range and splitting every page?",
-    a: "Extracting a range pulls a run of pages — say pages 2 to 5 — into a single new PDF. Splitting every page saves each page as its own one-page PDF, so a 10-page file becomes 10 separate downloads.",
+    a: "Extracting a range pulls a continuous slice of pages — say pages 2 through 5 — into a single new PDF file with all those pages inside. It's best when you want one document containing a specific section. Splitting every page creates one standalone PDF file per page: a 10-page document produces 10 separate downloads, each containing exactly one page. This is ideal when you need to break a merged batch back into its original individual documents.",
   },
   {
     q: "Why do I get a prompt to allow multiple downloads?",
-    a: "When you split every page, the tool downloads one file per page in quick succession. Browsers sometimes ask permission before downloading several files from one page — choose Allow to receive them all.",
+    a: "When you use single-page split mode, the tool downloads one file per page in rapid succession. Modern browsers consider multiple automatic downloads from one page as potentially unwanted behavior, so they ask for your permission before proceeding. Look for a small pop-up or an icon near the address bar and choose Allow. The range extraction mode downloads only one file, so no permission prompt appears.",
   },
   {
     q: "Can I split a password-protected PDF?",
-    a: "The tool tries to read encrypted PDFs where possible, but files with strong protection may fail to load. If a file can't be read, remove the password first and try again.",
+    a: "The tool attempts to read encrypted PDFs where possible, and many standard password-protected files open without issue. However, files with strong or custom encryption may fail to load. If a file can't be read, remove the password first using a desktop PDF application like Adobe Acrobat or macOS Preview, save an unprotected copy, and then load that copy into the tool.",
   },
   {
     q: "Will the extracted pages lose any quality?",
-    a: "No. Pages are copied as-is into the new document, so text, images and formatting stay exactly the same. Nothing is re-rendered, re-compressed or downgraded.",
+    a: "No. Pages are copied as-is into the new document. The pdf-lib library reads each page's raw content — text, images, fonts, vector graphics, and annotations — and writes it directly into the output PDF without re-compressing, re-rendering, or converting anything. The extracted pages are pixel-identical to the original.",
   },
+  {
+    q: "What page numbering should I use — the printed page number or the PDF page number?",
+    a: "Always use the PDF page number, which starts counting from the first physical page of the document as page 1. If your document has a cover, table of contents, or Roman-numeral front matter, those pages count too. The printed page number shown on the page (e.g., page 42 of a book) may differ from the PDF page number, so count from the very first page of the file.",
+  },
+  {
+    q: "Is there a limit on file size or page count?",
+    a: "There's no fixed limit. Because everything runs locally on your device using only browser memory, the practical limit is determined by your computer's available RAM. Splitting a typical document with a few hundred pages works reliably. Extremely large files with thousands of high-resolution scanned pages may use significant memory, and in that case splitting in smaller batches can help.",
+  },
+];
+
+const relatedTools = [
+  { label: "Merge PDF", href: "/tools/merge-pdf" },
+  { label: "Organize PDF", href: "/tools/organize-pdf" },
+  { label: "Image to PDF", href: "/tools/image-to-pdf" },
+  { label: "Compress PDF", href: "/tools/compress-pdf" },
 ];
 
 export default function Page() {
@@ -77,7 +145,16 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <ToolPageLayout
+      title="Split PDF"
+      description="Extract a page range into a new PDF, or split every page into its own separate file. Choose exactly which pages to keep — your document never leaves your device."
+      howToUse={howToUse}
+      whenToUse={whenToUse}
+      howItWorks={howItWorksParagraph}
+      tips={tips}
+      faqs={faqs}
+      relatedTools={relatedTools}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,149 +163,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Split PDF</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free tool · 100% in your browser
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Split PDF
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Extract a page range into a new PDF, or split every page into its own
-          file — your document never leaves your device.
-        </p>
-      </header>
-
-      {/* Tool */}
-      <div className="mt-8">
-        <SplitPdf />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-forest-soft/50 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
-            Quick answer
-          </h2>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            To split a PDF, drop your file above and choose how you want it
-            divided. Enter a first and last page to pull a range — for example
-            pages 2 to 5 — into a single new PDF, or click split into single
-            pages to save every page as its own file. Everything runs in your
-            browser, so your document stays private and works even offline once
-            the page has loaded.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>When splitting a PDF helps</h2>
-        <p>
-          A single PDF often holds far more than you need to share. A scanned
-          bundle might contain one contract, one invoice and three receipts;
-          a report might have a confidential appendix you&apos;d rather keep
-          back. Splitting lets you send just the pages that matter instead of
-          the whole file — cleaner for the recipient and safer for you. Because
-          this tool copies pages exactly as they are, the extracted PDF is
-          identical to the original in quality and layout.
-        </p>
-
-        <h2>Extract a range or split every page</h2>
-        <p>
-          There are two common jobs, and this tool covers both. Use{" "}
-          <strong>extract a page range</strong> when you want a continuous slice
-          — chapters 3 to 4, or the middle of a scanned stack — bundled into one
-          new document. Use <strong>split into single pages</strong> when you
-          need each page on its own, such as separating individually signed
-          forms or breaking a merged batch back into its parts. The single-page
-          option downloads one file per page, so a ten-page PDF hands you ten
-          neat one-page PDFs.
-        </p>
-
-        <h2>Private by design</h2>
-        <p>
-          PDFs frequently carry sensitive information — bank statements, medical
-          records, agreements. Uploading them to an online splitter means
-          trusting a server with those documents. This tool avoids that
-          entirely. Using the <strong>pdf-lib</strong> library running in your
-          browser, pages are read and copied locally on your own machine.
-          Nothing is uploaded, nothing is stored, and the split works even
-          offline once the page has loaded.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More PDF tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/merge-pdf"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Merge PDF
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Join several PDFs back into a single document.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools/organize-pdf"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Organize PDF
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Reorder pages and drop the ones you don&apos;t need.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      <SplitPdf />
+    </ToolPageLayout>
   );
 }

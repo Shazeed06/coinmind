@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import IncomePercentile from "@/components/tools/IncomePercentile";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "What does an income percentile actually mean?",
     a: "Your income percentile is the share of people who earn less than you. If you're in the 80th percentile, you earn more than roughly 80% of earners in that country — and are in the top 20%. It's a way to see where your salary sits in the bigger picture.",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Why does the same salary rank differently across countries?",
     a: "Because typical incomes differ hugely between countries. A salary that's top-10% in India might be around the median in the United States once you convert it, simply because average earnings and prices are different. That's why we ask for your country before ranking you.",
   },
+  {
+    q: "What countries are supported?",
+    a: "The tool includes India, the United States, the United Kingdom, Canada, Australia and several other countries where sufficient public income distribution data is available. More countries are added as reference data becomes accessible and verifiable.",
+  },
+  {
+    q: "Is my income data stored or shared?",
+    a: "No. Your salary is processed entirely in your browser and never leaves your device. There are no accounts, no servers and no tracking — the calculation runs locally and nothing you enter is recorded or transmitted anywhere.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,142 +94,65 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Are You Rich?</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free &amp; private
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Are You Rich?
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Enter your income and country to estimate your income percentile
-          &mdash; and see how you rank against everyone else. Everything runs in
-          your browser; nothing is uploaded.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Are You Rich?"
+        description="Enter your income and country to estimate your income percentile — and see how you rank against everyone else. Everything runs in your browser; nothing is uploaded."
+        howToUse={[
+          {
+            step: "Enter your annual income",
+            detail:
+              "Type your pre-tax personal income. If you are paid monthly, multiply your monthly salary by 12. If you are paid weekly, multiply by 52. The tool converts everything to an annual figure for comparison against the reference data.",
+          },
+          {
+            step: "Select your country",
+            detail:
+              "Pick your country from the dropdown list. Income distributions vary enormously between countries — the same salary can rank in the top 10% in one country and around the median in another — so this is essential for an accurate comparison.",
+          },
+          {
+            step: "See your income percentile",
+            detail:
+              "The tool estimates where your income ranks in the selected country. For example, a result of 80th percentile means you earn more than roughly 80% of individual earners — placing you in the top 20% of that population.",
+          },
+          {
+            step: "Read the context card",
+            detail:
+              "Below your percentile, a plain-language explanation describes what your rank means — whether it is considered low, middle, upper-middle or top-earner in your country — along with perspective on what the number does and does not tell you.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Curiosity about where you stand",
+            detail:
+              "Ever wondered how your salary really compares to everyone else around you, not just your immediate circle? This gives you a data-backed answer in seconds with no account or sign-up required.",
+          },
+          {
+            scenario: "Evaluating a job offer or career move",
+            detail:
+              "See how a proposed salary stacks up against the broader population in your country before you negotiate. It provides objective context that goes beyond industry averages.",
+          },
+          {
+            scenario: "Understanding income inequality across borders",
+            detail:
+              "Compare what the same absolute salary means in different countries. A number that feels modest in one place can represent a completely different standard of living and social standing elsewhere.",
+          },
+        ]}
+        howItWorks="The calculator stores a small set of approximate reference points for each supported country — rough income figures for the 10th, 25th, 50th (median), 75th, 90th, 95th and 99th percentiles, based on publicly available income distribution data from sources like national statistics offices and global databases. When you enter a salary, the tool converts it to an annual figure, finds which two reference points bracket your income, and interpolates between them to estimate your percentile. The result is deliberately presented as an approximation — useful for a general sense of where you stand, not for official or precise financial rankings."
+        tips={[
+          "Use individual income, not household income — the reference data is based on personal earnings. Including a partner's or family member's salary will overstate your percentile.",
+          "Enter pre-tax (gross) income — the distribution data reflects earnings before tax and deductions, so entering your net take-home pay will underestimate your true rank.",
+          "Remember that income and wealth are not the same — a high income percentile does not mean you are rich if you carry high expenses, debt or live in an expensive area. Your net worth tells a different story.",
+          "Cost of living changes the practical picture — the same salary goes much further in a small town than in a major metro city. The percentile compares you nationally, not locally, so adjust your interpretation accordingly.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Income Tax Calculator", href: "/calculators/income-tax" },
+          { label: "SIP Calculator", href: "/calculators/sip" },
+          { label: "Compound Interest Calculator", href: "/calculators/compound-interest" },
+          { label: "All tools", href: "/tools" },
+        ]}
+      >
         <IncomePercentile />
-      </div>
-
-      {/* SEO copy */}
-      <section className="mt-14 max-w-3xl article">
-        <h2>What &ldquo;income percentile&rdquo; really means</h2>
-        <p>
-          An income percentile answers a simple question: out of everyone who
-          earns money, what share earns less than you? If your income lands you
-          in the 90th percentile, you out-earn about nine in ten people &mdash;
-          and sit in the top 10%. It&apos;s a more honest picture than comparing
-          yourself to friends or your social feed, because it stacks your salary
-          against a whole country rather than a lucky few.
-        </p>
-
-        <h2>How this calculator estimates your rank</h2>
-        <p>
-          We store a small set of reference points for each country &mdash;
-          rough, round figures for what income sits at the 25th, 50th, 90th, 99th
-          percentile and so on, based on public income data for individual
-          pre-tax earnings. When you type a number, we convert it to an annual
-          figure and interpolate between those reference points to estimate your
-          percentile. Because it&apos;s built from approximate anchors, the
-          result is a ballpark: great for a gut check, not for a tax return.
-        </p>
-
-        <h2>Income is not the same as wealth</h2>
-        <p>
-          A big salary and being &ldquo;rich&rdquo; are related but not identical.{" "}
-          <strong>Income</strong> is the money that flows in each year;{" "}
-          <strong>wealth</strong> is what you&apos;ve accumulated &mdash;
-          savings, investments and property, minus any debt. Someone earning a
-          top-percentile income who spends it all can have far less wealth than a
-          modest earner who has saved for decades. Cost of living matters too: a
-          salary that feels comfortable in one city can feel stretched in
-          another. Use your percentile as a starting point, then look at what you
-          actually keep and grow over time.
-        </p>
-
-        <h2>A note on the numbers</h2>
-        <p>
-          These distributions are intentionally simplified and clearly
-          approximate. Official statistics differ by agency, definition and year,
-          and household income tells a different story from individual income.
-          Nothing here is financial advice or an official statistic &mdash;
-          it&apos;s a lighthearted way to see roughly where your income sits.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/calculators/income-tax"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Income Tax Calculator
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Estimate your take-home pay after tax under the latest slabs.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              All tools
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

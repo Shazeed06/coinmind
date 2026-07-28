@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import RotateFlipImage from "@/components/tools/RotateFlipImage";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "Are my images uploaded to a server?",
     a: "No. Rotating and flipping happen entirely in your browser using the HTML Canvas API. The image is transformed and re-encoded on your own device, so it is never uploaded, stored or seen by anyone.",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Can I combine a rotation and a flip?",
     a: "Yes. The buttons stack, so you can rotate 90° and then flip horizontally, for example. The preview always shows the final result, and the downloaded file matches exactly what you see.",
   },
+  {
+    q: "Does rotating or flipping change the file size?",
+    a: "Rotating or flipping does not change the number of pixels in the image, so the uncompressed data is the same size. The final file size depends on your chosen output format and its compression settings.",
+  },
+  {
+    q: "Can I rotate or flip multiple images at once?",
+    a: "This tool processes one image at a time. For multiple images, run them through one by one — each takes only a few seconds since all processing happens locally on your device with no upload wait time.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,139 +94,70 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Rotate &amp; Flip Image</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Rotate &amp; Flip Image
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Straighten a sideways photo or mirror an image in one click &mdash; rotate
-          90&deg; left or right and flip horizontally or vertically, with a live
-          preview and nothing uploaded.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Rotate & Flip Image"
+        description="Straighten a sideways photo or mirror an image in one click — rotate 90° left or right and flip horizontally or vertically, with a live preview and nothing uploaded."
+        howToUse={[
+          {
+            step: "Upload your image",
+            detail:
+              "Drag and drop an image file onto the upload area, or click to browse your device. A live preview appears immediately showing your image in its current state.",
+          },
+          {
+            step: "Rotate left or right",
+            detail:
+              "Click Rotate left to turn the image 90 degrees anti-clockwise, or Rotate right for a 90-degree clockwise turn. Click the button multiple times to reach 180 or 270 degrees of rotation.",
+          },
+          {
+            step: "Flip horizontally or vertically",
+            detail:
+              "Click Flip horizontal to mirror the image left-to-right — like looking in a mirror. Click Flip vertical to mirror it top-to-bottom, creating an upside-down reflection.",
+          },
+          {
+            step: "Check the live preview",
+            detail:
+              "The preview updates after every single action, so you always see exactly what the saved file will look like before you download. Rotations and flips stack, and the preview reflects the combined result.",
+          },
+          {
+            step: "Choose format and download",
+            detail:
+              "Select JPG, PNG or WebP as your output format, then click download. The transformed image is encoded as a fresh file and saved to your device — all processing happens in your browser.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Fixing a sideways or upside-down photo",
+            detail:
+              "A picture from your phone or camera imported in the wrong orientation. Rotate it right-side up in one or two clicks — no need to open editing software.",
+          },
+          {
+            scenario: "Un-mirroring a selfie",
+            detail:
+              "Front-facing cameras often flip images horizontally by default. Use Flip horizontal to restore the photo so text reads correctly and faces look natural.",
+          },
+          {
+            scenario: "Creating a reflected or symmetrical design",
+            detail:
+              "Flip an image vertically to produce a water-reflection effect, or flip a graphic element horizontally to create a symmetrical composition for a design project.",
+          },
+        ]}
+        howItWorks="The tool uses the HTML Canvas API to transform your image in the browser. Rotation swaps the canvas width and height and redraws every pixel at the new angle. Flipping mirrors the canvas along the horizontal or vertical axis by applying a canvas transformation matrix. Because 90-degree rotations and flips only rearrange existing pixels — they never resample, interpolate or blend — the transform itself is completely lossless. The only quality consideration is the output format you select: PNG preserves every pixel exactly, while JPG and WebP apply compression that may introduce minor artefacts."
+        tips={[
+          "Combine rotation and flipping freely — you can rotate 90 degrees right and then flip horizontally. The actions stack, and the live preview always shows the final combined result.",
+          "On desktop, rotating right twice is faster than rotating left four times if you need a 180-degree turn — two clicks instead of four.",
+          "Export as PNG if you plan to do more edits on the image later — the lossless format means there is no generation loss from repeated saves.",
+          "If an image already looks correctly oriented on your device but appears rotated here, check the EXIF orientation metadata — some cameras and phones store a rotation flag that browsers ignore.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Crop Image", href: "/tools/crop-image" },
+          { label: "Resize Image", href: "/tools/resize-image" },
+          { label: "Convert Image", href: "/tools/convert-image" },
+          { label: "Compress Image", href: "/tools/compress-image" },
+        ]}
+      >
         <RotateFlipImage />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">Quick answer</h2>
-        <p className="mt-3 rounded-2xl border border-line bg-card p-5 text-ink-soft leading-relaxed">
-          To rotate or flip an image, upload it above, then use{" "}
-          <strong className="text-ink">Rotate left</strong> or{" "}
-          <strong className="text-ink">Rotate right</strong> to turn it in 90&deg;
-          steps, or <strong className="text-ink">Flip horizontal / vertical</strong>{" "}
-          to mirror it. The preview updates live; download when it looks right.
-          Everything runs in your browser, so nothing is uploaded.
-        </p>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-10 max-w-3xl article">
-        <h2>How rotating and flipping work</h2>
-        <p>
-          Both actions redraw your image onto a hidden HTML canvas using a transform.
-          A <strong>rotation</strong> turns the canvas in 90&deg; steps around its
-          centre &mdash; and because a quarter turn swaps width and height, the output
-          dimensions swap too. A <strong>flip</strong> mirrors the canvas along the
-          horizontal or vertical axis. The file is then re-encoded from that canvas, all
-          on your own device, so the process is instant and completely private.
-        </p>
-
-        <h2>When to rotate vs flip</h2>
-        <p>
-          Reach for <strong>rotate</strong> when a photo imported sideways or upside
-          down and you need to set it upright. Reach for <strong>flip</strong> when you
-          want a mirror image &mdash; for example, to face a portrait the other way, undo
-          the mirror effect from a selfie camera, or create a symmetrical design. You can
-          apply a rotation and a flip together; the preview always reflects the final
-          combination.
-        </p>
-
-        <h2>Keeping quality intact</h2>
-        <p>
-          Rotating in 90&deg; steps and flipping never resample your pixels, so there is
-          no quality loss from the transform itself. To keep the file pixel-perfect,
-          export as <strong>PNG</strong>; for a smaller file, choose{" "}
-          <strong>JPG</strong> or <strong>WebP</strong>. If you also need to change the
-          size, pair this with the{" "}
-          <Link href="/tools/resize-image">image resizer</Link> or{" "}
-          <Link href="/tools/crop-image">image cropper</Link>.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free image tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/crop-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">Crop Image</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Trim an image to a region or fixed aspect ratio with a draggable box.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools/resize-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">Resize Image</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Change width and height in pixels or by percentage, with an aspect lock.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

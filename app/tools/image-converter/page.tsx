@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ImageConverter from "@/components/tools/ImageConverter";
 import { site } from "@/lib/site";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
   title: { absolute: "Image Converter — JPG, PNG & WebP Online Free" },
@@ -27,31 +27,95 @@ export const metadata: Metadata = {
   },
 };
 
+const howToUse = [
+  {
+    step: "Add your images",
+    detail: "Click the drop zone or browse to select one or more images in JPG, PNG, or WebP format. You can add files in any mix of formats — the converter handles them all together, and you can keep adding more images after the initial batch.",
+  },
+  {
+    step: "Pick your target output format",
+    detail: "Use the format selector to choose whether you want every image converted to JPG, PNG, or WebP. The same setting applies to all images in your batch, so pick the format that makes sense for your entire set.",
+  },
+  {
+    step: "Review the conversion preview",
+    detail: "Each image shows a thumbnail preview of how it will look in the target format. This is especially useful when converting from PNG to JPG — you can check that any transparency areas were filled with white as expected and the overall appearance is correct.",
+  },
+  {
+    step: "Convert all images",
+    detail: "The conversion happens immediately when you select a format — there's no separate convert button. The tool re-encodes each image in memory using your browser's Canvas API, replacing just the file format while keeping the pixel content intact.",
+  },
+  {
+    step: "Download individually or all at once",
+    detail: "Each converted image has its own download button for saving one at a time with the original filename but a new extension. Use the Download all button to save every converted image in a single batch download.",
+  },
+  {
+    step: "Clear and start a new batch",
+    detail: "Once you've saved your converted images, use the clear button to remove everything and start fresh with a new set of files. Your original images on disk remain untouched throughout.",
+  },
+];
+
+const whenToUse = [
+  {
+    scenario: "Preparing images for a website that requires a specific format",
+    detail: "Your CMS or website builder may only accept JPG uploads, but your designer sent logo files as PNGs with transparent backgrounds. Convert them to JPG here — the tool fills transparency with white automatically — and upload directly without needing desktop software.",
+  },
+  {
+    scenario: "Converting a batch of screenshots from PNG to WebP for faster page loads",
+    detail: "Screenshots saved by your operating system are typically large PNG files. Converting them to WebP can reduce their size by 50–70% with no visible quality loss, making your site dramatically faster for visitors without changing how the images look.",
+  },
+  {
+    scenario: "Fixing format mismatches from different devices and apps",
+    detail: "Some platforms produce images in formats that other apps can't open — a design tool may export WebP while your presentation software only reads JPG and PNG. Batch-convert everything to a universally supported format in one go.",
+  },
+];
+
+const howItWorksParagraph =
+  "This converter uses the HTML Canvas API built into every modern browser to re-encode images between formats without any server involvement. When you add an image, the browser decodes it into raw pixel data and draws it onto an invisible canvas element at full resolution. The canvas then exports that pixel data in whatever format you chose — JPG, PNG, or WebP — using the browser's native encoding engine. Because the encoding happens at the operating system level through the browser, it's fast, reliable, and respects format-specific features: JPG output strips transparency and replaces it with a white background, PNG output preserves every pixel losslessly, and WebP output balances small file size with quality. All of this runs entirely on your device; your images are never uploaded, stored, or transmitted over the network. The tool works offline as well once the page has loaded, and the original files on your disk are never modified.";
+
+const tips = [
+  "When converting PNG to JPG, transparency is filled with solid white. If your design relies on a transparent background, either keep it as PNG or convert to WebP instead — WebP supports transparency and produces much smaller files than PNG.",
+  "Batch-convert with a clear purpose. Rather than converting everything to a single format by default, think about where the images will end up: JPG for email and social media, PNG for documents and presentations that need crisp edges, WebP for anything going on a website.",
+  "Converting from JPG to PNG won't restore quality. If a JPG was originally compressed at low quality, converting it to PNG preserves that already-degraded state — it doesn't magically recover lost detail. Always work from the highest-quality original you have.",
+  "The converter handles mixed-format batches smoothly: you can drop in JPGs, PNGs, and WebPs together and convert all of them to a single target format in one go. This saves time when you have a folder full of mixed image types.",
+  "If you're converting for the web, prefer WebP as your target format. All modern browsers support it, and WebP consistently produces files 25–35% smaller than JPG or PNG at equivalent quality — which translates directly to faster page loads for your visitors.",
+];
+
 const faqs = [
   {
     q: "Are my images uploaded anywhere?",
-    a: "No. The converter runs entirely in your browser using the HTML Canvas API. Your images are processed locally and never uploaded, so they stay completely private.",
+    a: "No. The converter runs entirely in your browser using the HTML Canvas API. Your images are decoded and re-encoded locally on your own device — they are never uploaded, stored, cached on any server, or seen by anyone else. The tool continues to work offline once the page has loaded, so you can convert images without an active internet connection.",
   },
   {
     q: "Which formats can I convert between?",
-    a: "You can convert freely between JPG, PNG and WebP. Upload any of the three and export to any of the three — including mixed batches of multiple images at once.",
+    a: "You can convert freely between JPG (JPEG), PNG, and WebP. Upload any of the three formats as input and export to any of the three as output. The tool handles mixed-format batches — you can add JPGs, PNGs, and WebPs all at once and convert the entire batch to a single target format with one setting.",
   },
   {
     q: "What happens to transparency when I convert to JPG?",
-    a: "JPG does not support transparency, so any transparent areas are filled with white before export. If you need to keep transparency, choose PNG or WebP instead.",
+    a: "JPG does not support transparency — it has no alpha channel. When you convert a PNG or WebP with transparent areas to JPG, the tool fills those transparent regions with solid white before export. The rest of the image converts normally. If you need to preserve transparency, choose PNG or WebP as your output format instead. WebP is usually the better choice because it supports transparency and produces much smaller files than PNG.",
   },
   {
     q: "Which format should I choose?",
-    a: "Use JPG for photos where small size matters, PNG for logos, icons and screenshots that need transparency or crisp edges, and WebP when you want the best of both — small files with transparency support.",
+    a: "Use JPG for photographs and images with smooth colour gradients where small file size matters and transparency isn't needed — it's universally supported and produces compact files. Use PNG for logos, icons, screenshots with text, and any graphic with sharp edges, flat colours, or transparency requirements — PNG is lossless so text stays crisp. Use WebP when you want the best of both worlds: it supports transparency like PNG, produces files 25–35% smaller than JPG at equivalent quality, and is supported by every current browser.",
   },
   {
     q: "Does converting reduce image quality?",
-    a: "Converting to PNG is lossless. Converting to JPG or WebP re-encodes at high quality (about 92%), which is visually near-identical for most images while keeping files small.",
+    a: "Converting to PNG is lossless — every pixel is preserved exactly, so there is zero quality loss regardless of the source format. Converting to JPG or WebP re-encodes the image at high quality (approximately 92% on the quality scale), which is visually near-identical to the original for most images while keeping the output file reasonably small. However, if you convert a JPG to another JPG (changing format for compatibility), you're re-compressing an already-compressed image, which may introduce minor generational loss.",
   },
   {
     q: "Can I convert several images at once?",
-    a: "Yes. Drop or select multiple images, pick your output format, and download them individually or all at once with the Download all button.",
+    a: "Yes. Drop or select multiple images at the same time, pick your desired output format, and the tool converts every image in the batch simultaneously. Each image gets its own individual download button, and the Download all button lets you save every converted image at once as a batch.",
   },
+  {
+    q: "Does the converter change image dimensions or file size?",
+    a: "The converter keeps the original pixel width and height exactly — it only changes the file format and container. File size will change depending on the formats involved: converting a large PNG photo to JPG or WebP usually shrinks the file dramatically; converting a heavily compressed JPG to PNG may actually increase the file size because PNG stores every pixel losslessly. If you specifically want a smaller file, use the Compress Image tool instead.",
+  },
+];
+
+const relatedTools = [
+  { label: "Compress Image", href: "/tools/compress-image" },
+  { label: "Resize Image", href: "/tools/resize-image" },
+  { label: "Crop Image", href: "/tools/crop-image" },
+  { label: "Image to PDF", href: "/tools/image-to-pdf" },
 ];
 
 export default function Page() {
@@ -81,7 +145,16 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <ToolPageLayout
+      title="Image Converter"
+      description="Convert images between JPG, PNG, and WebP instantly. Batch-convert multiple images to a single format in one click — everything happens in your browser, with nothing uploaded."
+      howToUse={howToUse}
+      whenToUse={whenToUse}
+      howItWorks={howItWorksParagraph}
+      tips={tips}
+      faqs={faqs}
+      relatedTools={relatedTools}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -90,137 +163,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Image Converter</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Image Converter
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Convert images between JPG, PNG and WebP in one click &mdash; right in
-          your browser, with nothing uploaded.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
-        <ImageConverter />
-      </div>
-
-      {/* SEO copy */}
-      <section className="mt-14 max-w-3xl article">
-        <h2>JPG, PNG and WebP — what&apos;s the difference?</h2>
-        <p>
-          These three formats cover almost every image on the web, and each is
-          built for a different job. Converting between them is really just
-          re-encoding the same pixels using a different compression scheme. This
-          tool does that on a hidden canvas inside your browser, so your files
-          are converted instantly and never leave your device.
-        </p>
-
-        <h2>When to use JPG</h2>
-        <p>
-          <strong>JPG</strong> (also written JPEG) uses lossy compression tuned
-          for photographs and other images with smooth colour gradients. It
-          produces small files and is supported everywhere, which makes it the
-          default choice for photos on websites, email and social media. Its
-          limitation: it has no transparency, and repeatedly re-saving a JPG
-          slowly degrades quality.
-        </p>
-
-        <h2>When to use PNG</h2>
-        <p>
-          <strong>PNG</strong> is lossless and supports full transparency, so
-          it&apos;s perfect for logos, icons, screenshots, and any graphic with
-          sharp edges or flat colour. Text and lines stay crisp with no
-          artefacts. The trade-off is file size: PNG photos are much larger than
-          the JPG or WebP equivalent, so reserve PNG for graphics rather than
-          photographs.
-        </p>
-
-        <h2>When to use WebP</h2>
-        <p>
-          <strong>WebP</strong> is the modern all-rounder. It supports both
-          lossy and lossless compression <em>and</em> transparency, and it
-          typically produces files 25–35% smaller than JPG or PNG at comparable
-          quality. It&apos;s supported by every current browser, so WebP is usually
-          the best choice for images you serve on a website. Keep JPG or PNG on
-          hand for older software or platforms that still expect them.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/compress-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Compress Image
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Shrink JPG, PNG and WebP file size with a quality slider.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              All tools
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      <ImageConverter />
+    </ToolPageLayout>
   );
 }

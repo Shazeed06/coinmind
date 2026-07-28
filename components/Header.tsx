@@ -56,19 +56,33 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
-          {primaryNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`rounded-pill px-3.5 py-2 text-sm font-medium transition-colors ${
-                isActive(item.href)
-                  ? "text-brand bg-brand/10"
-                  : "text-text-muted hover:text-text hover:bg-bg-alt"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {primaryNav.map((item, i) => {
+            const prev = i > 0 ? primaryNav[i - 1] : null;
+            const groupChanged = item.group && item.group !== prev?.group;
+            return (
+              <>
+                {groupChanged && (
+                  <>
+                    <span className="w-px h-5 bg-border/60 mx-1.5" aria-hidden="true" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-text-muted/60 px-1 select-none">
+                      {item.group}
+                    </span>
+                  </>
+                )}
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-pill px-3.5 py-2 text-sm font-medium transition-colors ${
+                    isActive(item.href)
+                      ? "text-brand bg-brand/10"
+                      : "text-text-muted hover:text-text hover:bg-bg-alt"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </>
+            );
+          })}
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
@@ -102,18 +116,28 @@ export default function Header() {
       {menuOpen && (
         <div className="fixed inset-0 top-16 z-40 md:hidden bg-white">
           <nav className="container-main py-4 flex flex-col gap-1">
-            {primaryNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center justify-between rounded-card px-4 py-3 ${
-                  isActive(item.href) ? "bg-brand/10 text-brand" : "hover:bg-bg-alt text-text"
-                }`}
-              >
-                <span className="font-medium">{item.label}</span>
-                {item.desc && <span className="text-xs text-text-muted">{item.desc}</span>}
-              </Link>
-            ))}
+            {primaryNav.map((item, i) => {
+              const prev = i > 0 ? primaryNav[i - 1] : null;
+              const groupChanged = item.group && item.group !== prev?.group;
+              return (
+                <div key={item.href}>
+                  {groupChanged && (
+                    <div className="mt-3 mb-1 px-4 text-[10px] font-bold uppercase tracking-widest text-text-muted/50">
+                      {item.group}
+                    </div>
+                  )}
+                  <Link
+                    href={item.href}
+                    className={`flex items-center justify-between rounded-card px-4 py-3 ${
+                      isActive(item.href) ? "bg-brand/10 text-brand" : "hover:bg-bg-alt text-text"
+                    }`}
+                  >
+                    <span className="font-medium">{item.label}</span>
+                    {item.desc && <span className="text-xs text-text-muted">{item.desc}</span>}
+                  </Link>
+                </div>
+              );
+            })}
             <button
               onClick={() => { setSearchOpen(true); setMenuOpen(false); }}
               className="mt-2 flex items-center justify-center rounded-card bg-bg-alt px-4 py-3 font-medium text-text gap-2"

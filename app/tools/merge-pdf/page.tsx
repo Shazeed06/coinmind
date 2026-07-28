@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import MergePdf from "@/components/tools/MergePdf";
 import { site } from "@/lib/site";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
   title: { absolute: "Merge PDF — Combine PDF Files Online Free" },
@@ -27,31 +27,95 @@ export const metadata: Metadata = {
   },
 };
 
+const howToUse = [
+  {
+    step: "Add your PDF files",
+    detail: "Click the drop zone or use the file picker to select all the PDFs you want to combine. You can add as many files as you need in one go, and drag additional files onto the zone at any time.",
+  },
+  {
+    step: "Arrange the page order",
+    detail: "Each file appears as a card in the list. Use the up and down arrow buttons on each card to set the exact sequence — files at the top of the list appear first in the merged document, files lower down appear later.",
+  },
+  {
+    step: "Remove unwanted files",
+    detail: "Click the remove button (the × icon) on any file you decide you don't want. The card disappears immediately and that file won't be included in the merged output.",
+  },
+  {
+    step: "Verify the page count",
+    detail: "Each file card shows the number of pages it contains. Scan the list quickly to make sure you haven't accidentally included a file with far more pages than expected, such as a long report when you only meant to add its cover page.",
+  },
+  {
+    step: "Click the merge button",
+    detail: "Press the merge button and wait a second or two while your browser reads every page from every file and assembles them into a brand-new PDF document.",
+  },
+  {
+    step: "Download the merged PDF",
+    detail: "Your browser will prompt you to save the single combined PDF. The original files on your device remain completely untouched — the merge creates a fresh file without altering the source PDFs.",
+  },
+];
+
+const whenToUse = [
+  {
+    scenario: "Combining business documents into one package",
+    detail: "When you need to send a contract along with its appendices, terms, signature pages, and cover letter as one tidy file instead of a zip folder full of loose PDFs that the recipient has to open one at a time.",
+  },
+  {
+    scenario: "Joining separately scanned pages",
+    detail: "If your scanner or photo app produced one PDF per page — common with mobile scanning apps and some multifunction printers — merge them back into a single document that's far easier to read, print, or archive.",
+  },
+  {
+    scenario: "Bundling academic or research submissions",
+    detail: "Students, researchers, and grant applicants often need to submit a single PDF containing the main paper, references, figures, supplementary materials, and cover sheets. Merging avoids the upload platform rejecting multi-file submissions.",
+  },
+];
+
+const howItWorksParagraph =
+  "When you drop your PDF files, this tool reads each document using the pdf-lib library running entirely inside your browser. It copies every page from every source file — preserving text, images, fonts, vector graphics, and formatting exactly as they appear in the originals — and assembles them into a brand-new PDF in the order you arranged. Nothing travels over the network: all processing happens on your device's CPU and memory. The result is a clean, single-file PDF that you download instantly. Because pdf-lib operates directly on the raw byte content of each page, even many password-protected or partially encrypted PDFs can be read and merged successfully. Once the page has loaded, the tool works fully offline as well.";
+
+const tips = [
+  "Keep the number of files reasonable — merging dozens of large, image-heavy PDFs in one go can use significant browser memory. If your device starts to slow down, split the job into smaller batches and merge the batches afterward.",
+  "Check each PDF's page count shown on its card before merging. A file with an unexpectedly high page count — say a 150-page report when you only intended to include its 2-page executive summary — might be the wrong file.",
+  "Remove filler pages like blank separator sheets or duplicate covers before merging rather than after. It's much easier to spot and drop them in the file list than to edit them out of the finished document.",
+  "The merge preserves original quality exactly — pages are copied byte for byte, with no re-compression, re-rendering, or downscaling. There's no risk of degraded text, blurry images, or shifted layouts.",
+  "If a password-protected PDF won't load, remove its encryption first using any desktop PDF reader (Adobe Acrobat, Preview on Mac, etc.) and then add the unprotected copy to the merge list.",
+];
+
 const faqs = [
   {
     q: "Are my PDFs uploaded anywhere?",
-    a: "No. Merging happens entirely in your browser with JavaScript. Your PDFs never leave your device — nothing is uploaded, stored, or shared, which keeps sensitive documents private.",
+    a: "No. Merging happens entirely in your browser with JavaScript using the pdf-lib library. Your PDFs never leave your device — nothing is uploaded, stored, or shared, which keeps sensitive documents completely private. The tool even works offline once the page has loaded, so you can merge files without an active internet connection.",
   },
   {
     q: "Can I reorder the files before merging?",
-    a: "Yes. Each PDF appears in a list with its page count. Use the up and down buttons to set the order, or remove any file you don't want. The merged PDF follows the order shown.",
+    a: "Yes. Each PDF appears as a card in the file list with its filename and page count clearly displayed. Use the up and down arrow buttons on each card to move files into the exact order you want. The merged PDF follows the list order from top to bottom, so the file at the top of the list becomes page 1 of the output.",
   },
   {
     q: "What about password-protected PDFs?",
-    a: "The tool tries to read encrypted PDFs where possible, but files with strong protection or unusual encoding may fail to load. If a file can't be read, remove the protection first and try again.",
+    a: "The tool attempts to read encrypted PDFs where possible, and many password-protected files with standard encryption open without issue. However, files with strong protection, custom encryption schemes, or unusual encoding may fail to load. If a file can't be read, remove the protection first using a desktop PDF application and try adding the unprotected version again.",
   },
   {
     q: "Is there a limit on the number or size of PDFs?",
-    a: "There's no fixed limit. Since everything runs locally, very large files depend on your device's available memory, but merging several ordinary documents is quick and reliable.",
+    a: "There's no fixed limit built into the tool — you can add as many PDFs as you like. Because everything runs locally on your device, the real limit is your computer's available memory. Merging a handful of ordinary text-based documents is quick and reliable. Very large batches of image-heavy or scanned PDFs may use significant RAM, so if your browser becomes sluggish, split the work into smaller groups and merge the results afterward.",
   },
   {
     q: "Will the quality change after merging?",
-    a: "No. Pages are copied as-is into the new document, so text, images, and formatting stay exactly the same. Nothing is re-compressed or downgraded.",
+    a: "No. Pages are copied as-is into the new document. The pdf-lib library reads each page's raw content — text, images, vector graphics, fonts, and annotations — and writes it directly into the output PDF without re-compressing, re-rendering, or converting anything. The merged file is identical to the originals in visual quality and layout.",
+  },
+  {
+    q: "Will the merged PDF retain bookmarks, links, or form fields?",
+    a: "Bookmarks, internal page links, and hyperlinks are generally preserved because pdf-lib copies page-level annotations along with the page content. Interactive form fields, embedded JavaScript, and document-level metadata, however, may not carry over consistently since those features depend on cross-page structures that aren't always portable between documents. If your workflow relies on fillable forms or scripts, test a small sample merge first.",
   },
   {
     q: "Is it free to use?",
-    a: "Yes, completely free with no sign-up and no watermark. Merge as many PDFs as you need.",
+    a: "Yes, completely free with no sign-up, no account, and no watermark. Merge as many PDFs as you need, as often as you like. There are no hidden limits, paid tiers, or premium features — the tool is fully functional for everyone, forever.",
   },
+];
+
+const relatedTools = [
+  { label: "Split PDF", href: "/tools/split-pdf" },
+  { label: "Organize PDF", href: "/tools/organize-pdf" },
+  { label: "Image to PDF", href: "/tools/image-to-pdf" },
+  { label: "Compress PDF", href: "/tools/compress-pdf" },
 ];
 
 export default function Page() {
@@ -81,7 +145,16 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <ToolPageLayout
+      title="Merge PDF"
+      description="Combine multiple PDF files into one document. Reorder pages, remove the files you don't need, and download a single clean PDF — your files never leave your device."
+      howToUse={howToUse}
+      whenToUse={whenToUse}
+      howItWorks={howItWorksParagraph}
+      tips={tips}
+      faqs={faqs}
+      relatedTools={relatedTools}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -90,90 +163,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Merge PDF</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free tool · 100% in your browser
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Merge PDF
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Combine multiple PDF files into one. Reorder, remove, and download —
-          your files never leave your device.
-        </p>
-      </header>
-
-      {/* Tool */}
-      <div className="mt-8">
-        <MergePdf />
-      </div>
-
-      {/* SEO copy */}
-      <section className="mt-14 max-w-3xl">
-        <p className="text-ink-soft leading-relaxed">
-          Combining several PDFs into one file makes them far easier to send,
-          print, and archive — whether you&apos;re stitching together a contract
-          and its annexes, joining scanned pages, or bundling invoices for the
-          month. This free merge PDF tool does it instantly in your browser. Add
-          your files, arrange them in the order you want, and download a single,
-          clean PDF in seconds.
-        </p>
-      </section>
-
-      <section className="mt-10 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Private by design
-        </h2>
-        <div className="mt-4 text-ink-soft leading-relaxed space-y-4">
-          <p>
-            PDFs often carry sensitive information — statements, agreements, IDs.
-            Uploading them to an online converter means trusting a server with
-            those documents. This tool avoids that entirely.
-          </p>
-          <p>
-            Using the <strong className="text-ink">pdf-lib</strong> library
-            running in your browser, every page is copied and combined locally on
-            your own machine. Nothing is uploaded, nothing is stored, and the
-            merge works even offline once the page has loaded — private, fast,
-            and free.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-    </div>
+      <MergePdf />
+    </ToolPageLayout>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ResizeImage from "@/components/tools/ResizeImage";
 import { site } from "@/lib/site";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
   title: { absolute: "Resize Image — Free Online Image Resizer (JPG/PNG)" },
@@ -27,27 +27,95 @@ export const metadata: Metadata = {
   },
 };
 
+const howToUse = [
+  {
+    step: "Add your image",
+    detail: "Click the drop zone or browse to select the image you want to resize. The tool supports JPG, PNG, and WebP formats and immediately displays a preview along with the current width and height in pixels.",
+  },
+  {
+    step: "Choose your resizing method",
+    detail: "You can resize by typing exact pixel dimensions for width and height — great for hitting a specific target like 1200 px wide for a blog header. Or use the percentage scale field to shrink or enlarge relative to the original size, such as entering 50 to halve the image or 200 to double it.",
+  },
+  {
+    step: "Lock the aspect ratio (recommended)",
+    detail: "Keep the Lock aspect ratio toggle turned on to prevent distortion. When locked, changing the width automatically recalculates the height proportionally, and vice versa. Turn it off only if you intentionally want to stretch or squash the image to fit non-proportional dimensions.",
+  },
+  {
+    step: "Pick an output format (optional)",
+    detail: "By default, the resized image saves in its original format. You can switch to JPG, PNG, or WebP if you want a different format for the output — useful when shrinking a large PNG photo that you'd rather save as a compact JPG or WebP.",
+  },
+  {
+    step: "Preview and download",
+    detail: "The tool shows a live preview of the resized image with the new dimensions displayed below. Once satisfied, click the download button to save the resized image. Your original file remains completely untouched on your device.",
+  },
+  {
+    step: "Repeat or switch images",
+    detail: "After downloading, you can adjust the dimensions again for a different size or click the clear button to remove the current image and start over with a new file. There are no limits on how many times you resize.",
+  },
+];
+
+const whenToUse = [
+  {
+    scenario: "Resizing photos for a website or blog to exact dimensions",
+    detail: "Your blog theme expects header images to be exactly 1200 pixels wide. Use pixel mode to set the width to 1200 with the aspect ratio locked — the height adjusts automatically — and upload a perfectly sized image that won't be stretched or cropped by your CMS.",
+  },
+  {
+    scenario: "Shrinking large photos before email or messaging",
+    detail: "A photo fresh from your phone might be 4000 pixels wide and 8 MB — far too large for email or WhatsApp, which will compress it aggressively and ruin the quality anyway. Resize it down to 1200–1600 pixels wide first so the file is manageable and the recipient sees exactly what you intended.",
+  },
+  {
+    scenario: "Creating thumbnails or social media assets at specific sizes",
+    detail: "Instagram posts work best at 1080 × 1080 pixels, YouTube thumbnails at 1280 × 720, and Twitter cards at 1200 × 675. Use pixel mode with the aspect ratio unlocked to hit precise non-square dimensions, or crop first to the right ratio and then resize to the exact pixel target.",
+  },
+];
+
+const howItWorksParagraph =
+  "This resizer uses the HTML Canvas API built into every modern browser to change an image's pixel dimensions without any server involvement. When you add an image, the browser decodes the original file into raw pixel data and draws it onto a hidden canvas element. The canvas is then resized to the exact width and height you specified — either in pixels directly or calculated from the percentage scale you entered. The browser's built-in image scaling engine handles the interpolation, using bicubic or bilinear algorithms depending on the platform, to produce smooth results when shrinking and acceptable results when enlarging. Once the canvas is at the target size, the tool exports it as a new image file in the format you chose. Every step happens in memory on your own device: the original image is never uploaded, transmitted, or stored on any server, and your source file on disk is never modified. The tool works offline once the page has loaded.";
+
+const tips = [
+  "Always resize down, never up. Making an image larger than its original size stretches existing pixels, which doesn't create new detail — it just makes the blur and blockiness more obvious. Start from the largest original you have and shrink to the desired size.",
+  "Keep Lock aspect ratio on unless you have a specific reason to turn it off. An unlocked aspect ratio is the most common source of accidentally distorted images — stretched faces, squashed logos, or warped screenshots that look unprofessional.",
+  "Use the percentage scale for quick proportional changes. Entering 50 halves both dimensions, 25 quarters them, and 200 doubles them. It's faster than calculating pixel dimensions and eliminates arithmetic errors, especially with unusual image sizes.",
+  "Combine resizing with format selection to kill two birds with one stone. If you have a 4000-pixel-wide PNG photo, resize it to 1200 pixels wide and switch the output to WebP or JPG. You'll get a much smaller file both from the reduced dimensions and the more efficient format.",
+  "If you only want a smaller file size without changing the visual dimensions, use the Compress Image tool instead. Compression reduces the file size in bytes by lowering encoding quality, while resizing changes the actual pixel count. They serve different purposes and are often used together.",
+];
+
 const faqs = [
   {
     q: "Are my images uploaded to a server?",
-    a: "No. The resizer runs entirely in your browser using the HTML Canvas API. Your image is decoded, redrawn at the new size and re-encoded on your own device — it never leaves your computer.",
+    a: "No. The resizer runs entirely in your browser using the HTML Canvas API. Your image is decoded, rendered at the new size on a hidden canvas, and re-encoded — all on your own device. It is never uploaded, stored, cached on any server, or seen by anyone else. The tool also works offline once the page has loaded, so you can resize images without an active internet connection.",
   },
   {
     q: "How do I keep the image from looking stretched?",
-    a: "Turn on 'Lock aspect ratio'. When it's on, changing the width updates the height automatically (and vice versa) so the picture keeps its original proportions and never looks squashed.",
+    a: "Turn on the Lock aspect ratio toggle. When it's enabled, changing either the width or height automatically recalculates the other dimension to preserve the original proportions. For example, if your image is 3000 × 2000 pixels (a 3:2 ratio) and you set the width to 1500, the height updates to 1000 automatically. Leave it locked at all times unless you specifically intend to stretch or squash the image to non-proportional dimensions for a creative effect.",
   },
   {
     q: "What does the scale percentage do?",
-    a: "The scale field resizes both dimensions together relative to the original. Enter 50 to make the image half its size, or 200 to double it. It's the quickest way to shrink or enlarge without doing the maths.",
+    a: "The scale field resizes both width and height simultaneously relative to the original dimensions. Enter 50 to make the image exactly half its original size in both directions (one quarter the total pixels), 200 to double it, or any other percentage. When the aspect ratio is locked — which it should be — scale percentage gives you the fastest way to shrink or enlarge proportionally without doing any pixel arithmetic yourself.",
   },
   {
     q: "Will enlarging an image make it sharper?",
-    a: "No. Making an image larger than its original size stretches the existing pixels, so it can look soft or blocky. For the crispest result, resize down from a bigger original rather than up from a small one.",
+    a: "No. Making an image larger than its original pixel dimensions — for example, taking a 500-pixel-wide thumbnail and enlarging it to 2000 pixels — forces the browser to interpolate and invent new pixels that don't exist in the source. The result will look soft, blurry, or blocky because no new detail is being recovered. For the sharpest output, always start from the largest original you have and resize down to the target size.",
   },
   {
     q: "Which output format should I choose?",
-    a: "Keep the original format for a like-for-like copy. Pick JPG for photos you want small, PNG when you need transparency or crisp text, and WebP for the best size-to-quality balance on the web.",
+    a: "Keep the original format for a like-for-like copy where you only want different dimensions. Choose JPG for photographs where file size matters and transparency isn't needed — it produces compact files universally supported everywhere. Choose PNG when you need transparency, crisp text, or pixel-perfect reproduction of logos and screenshots — but expect larger files. Choose WebP for the best size-to-quality balance on the web, with transparency support and files typically 25–35% smaller than JPG at equivalent quality.",
   },
+  {
+    q: "Does resizing change the file size?",
+    a: "Yes. Reducing pixel dimensions almost always results in a smaller file size in bytes because the image contains fewer pixels to store. However, the amount of reduction depends on the output format: resizing a PNG screenshot from 4000 to 1200 pixels wide will shrink the file dramatically, while resizing an already well-compressed JPG may produce a smaller but proportionally less dramatic reduction. If you need to minimise file size further after resizing, use the Compress Image tool on the resized output.",
+  },
+  {
+    q: "Is there a limit on input image size?",
+    a: "There's no fixed limit, but very large images — such as 50-megapixel photos or enormous panoramic stitches — use more browser memory when decoded and rendered on the canvas. Most images from smartphones, DSLRs, and the web (up to around 6000–8000 pixels on the long edge) resize smoothly. If you encounter sluggish performance with an extremely large image, try resizing it in stages or temporarily closing other browser tabs to free memory.",
+  },
+];
+
+const relatedTools = [
+  { label: "Compress Image", href: "/tools/compress-image" },
+  { label: "Crop Image", href: "/tools/crop-image" },
+  { label: "Image Converter", href: "/tools/image-converter" },
+  { label: "Image to PDF", href: "/tools/image-to-pdf" },
 ];
 
 export default function Page() {
@@ -77,7 +145,16 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <ToolPageLayout
+      title="Resize Image"
+      description="Change an image's width and height in pixels or by percentage. Lock the aspect ratio to avoid distortion, pick a new output format if needed, and download — all in your browser, with nothing uploaded."
+      howToUse={howToUse}
+      whenToUse={whenToUse}
+      howItWorks={howItWorksParagraph}
+      tips={tips}
+      faqs={faqs}
+      relatedTools={relatedTools}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,141 +163,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Resize Image</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Resize Image
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Change an image&apos;s width and height in pixels or by percentage, with
-          an optional aspect-ratio lock &mdash; right in your browser, with nothing
-          uploaded.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
-        <ResizeImage />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">Quick answer</h2>
-        <p className="mt-3 rounded-2xl border border-line bg-card p-5 text-ink-soft leading-relaxed">
-          To resize an image, upload it above, type the new{" "}
-          <strong className="text-ink">width</strong> or{" "}
-          <strong className="text-ink">height</strong> in pixels (or set a scale
-          percentage), keep <strong className="text-ink">Lock aspect ratio</strong>{" "}
-          on to avoid stretching, then download. Everything happens in your browser,
-          so the image is never uploaded and there are no watermarks or limits.
-        </p>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-10 max-w-3xl article">
-        <h2>How resizing an image works</h2>
-        <p>
-          Resizing changes how many pixels an image is made of. This tool decodes
-          your picture, redraws it onto a hidden HTML canvas at the exact width and
-          height you ask for, then exports a fresh file. Scaling down throws away
-          pixels the eye won&apos;t miss and produces smaller files; scaling up
-          invents new pixels by interpolation, which is why enlarged images can look
-          soft. Because all of this runs on your device, the tool works offline and
-          keeps your files completely private.
-        </p>
-
-        <h2>Pixels vs percentage</h2>
-        <p>
-          Use <strong>pixel dimensions</strong> when you have an exact target &mdash;
-          a 1200&nbsp;px-wide blog header, a 512&nbsp;px app icon or a profile photo
-          that must fit a box. Use the <strong>percentage scale</strong> when you
-          simply want the image a bit smaller or larger and don&apos;t care about the
-          precise numbers. With the aspect-ratio lock on, either method keeps the
-          picture&apos;s proportions intact so nothing looks stretched.
-        </p>
-
-        <h2>Tips for the best results</h2>
-        <p>
-          Always resize <strong>down</strong> from the largest original you have
-          rather than up from a small copy. If you also want a smaller file, export
-          to <strong>WebP</strong> or <strong>JPG</strong> rather than PNG. And if you
-          only need to reduce the file size without changing the dimensions, use the{" "}
-          <Link href="/tools/compress-image">image compressor</Link> instead &mdash;
-          it re-encodes at a lower quality while keeping the pixel size the same.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free image tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/crop-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">Crop Image</h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Trim an image to a region or fixed aspect ratio with a draggable box.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools/compress-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Compress Image
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Shrink JPG, PNG and WebP file sizes with a quality slider.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      <ResizeImage />
+    </ToolPageLayout>
   );
 }

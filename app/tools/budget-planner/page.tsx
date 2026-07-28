@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import BudgetPlanner from "@/components/tools/BudgetPlanner";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,23 +30,27 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How do I make a monthly budget?",
-    a: "Start with your take-home income, then list every regular expense — rent or EMI, groceries, bills, transport, fun and savings. Subtract total expenses from income to see what's left. If the number is positive you have room to save more; if it's negative you're overspending and need to trim. This planner does the maths live as you type.",
+    a: "Start with your take-home income, then list every regular expense — rent or EMI, groceries, bills, transport, discretionary spending and the money you deliberately set aside to invest or save. Subtract your total expenses from your income to see what is left over. If the number is positive you have room to save more; if it is negative your spending has outrun your earnings and something needs to be cut. This planner does all the arithmetic live as you type, so you can experiment and see the effect of each change immediately.",
   },
   {
     q: "What is the 50/30/20 budget rule?",
-    a: "It's a simple guideline: put 50% of your take-home pay toward needs (rent, food, bills, transport, health), 30% toward wants (dining, shopping, subscriptions) and save 20% (investments, an emergency fund, debt payoff). Tag each expense in the planner as a Need, Want or Save and it shows how your real spending compares.",
+    a: "It is a simple guideline that splits your take-home pay into three buckets: roughly 50% for needs (housing, food, utilities, transport, healthcare), 30% for wants (dining out, shopping, entertainment, subscriptions) and 20% for savings (investments, an emergency fund, paying down debt). Tag each expense in the planner as a Need, Want or Save and the visual breakdown shows how your real spending compares with the rule-of-thumb targets, with any unspent money automatically counted toward savings.",
   },
   {
     q: "What is a good savings rate?",
-    a: "Saving 20% of your income is the classic target, but any consistent saving is progress. If you can push past 20% you'll build wealth and reach goals faster. The planner counts both your explicit savings category and any money left over at the end of the month toward your savings rate.",
+    a: "Saving 20% of your income is the classic personal-finance target, but any consistent saving is genuine progress. If you can push beyond 20% you will build wealth and reach your goals faster. The planner counts both your explicit savings category and any money left over at the end of the month toward your effective savings rate, so you see the full picture.",
   },
   {
     q: "Is my budget data private?",
-    a: "Yes. Everything runs in your browser and your budget is saved only to your own device using local storage. Nothing is uploaded to a server, so your income and expenses never leave your computer or phone.",
+    a: "Yes. Everything runs in your browser and your budget is saved only to your own device using the browser's local storage. Nothing is uploaded to a server, so your income figures and expense breakdowns never leave your computer or phone. The tool also works offline once the page has loaded.",
   },
   {
     q: "What should I do if my expenses are more than my income?",
-    a: "The planner flags a deficit in red. Focus first on your largest wants — dining out, shopping and subscriptions are usually the easiest to cut. If needs alone exceed your income, look at bigger moves such as cheaper rent, refinancing loans or raising your income. Aim to get back to a positive number before adding new spending.",
+    a: "The planner flags a deficit in red so you cannot miss it. Focus your cuts first on your largest wants — dining out, shopping, and subscriptions are usually the easiest categories to trim without hurting your quality of life. If your needs alone already exceed your income, look at bigger structural moves such as reducing your housing cost, refinancing high-interest loans, or finding ways to increase your earnings. The goal is to get back to a positive number before you add any new recurring spending.",
+  },
+  {
+    q: "How often should I review my budget?",
+    a: "A monthly review is the sweet spot for most people — frequent enough to catch creeping spending early, but not so frequent that it becomes a chore. Pick a regular day, such as the first Sunday of each month, and spend fifteen minutes comparing your actual spending against the plan. Adjust categories that consistently run over budget and redirect any surplus toward your highest-priority goal.",
   },
 ];
 
@@ -77,7 +81,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -87,155 +91,64 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Budget Planner</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Budget Planner
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Enter your income and monthly expenses to see exactly what&apos;s left to
-          save, your savings rate and a live 50/30/20 breakdown &mdash; saved
-          privately in your browser.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Budget Planner"
+        description="Enter your monthly income and every recurring expense to see exactly what is left to save, your effective savings rate, and a live 50/30/20 breakdown that shows how your real spending compares with a healthy budget. All your numbers stay private in your browser — nothing is ever uploaded or stored on a server."
+        howToUse={[
+          {
+            step: "Enter your monthly take-home income",
+            detail: "Start with the amount that actually lands in your bank account each month, not your gross salary. This is your income after tax, provident fund deductions, insurance premiums, and any other automatic deductions. Using your take-home figure rather than your headline salary ensures your budget reflects the money you can actually spend and save.",
+          },
+          {
+            step: "List every regular expense",
+            detail: "Go through your bank statement from the last two or three months and write down every recurring outgoing. Include housing costs like rent or EMI, utility bills, groceries, transport, insurance premiums, loan repayments, subscriptions, and the money you deliberately set aside each month for investing or saving. Be thorough — small, regular expenses like a streaming subscription or a daily coffee add up to significant amounts over a month.",
+          },
+          {
+            step: "Tag each expense as a Need, Want, or Save",
+            detail: "For every expense line you add, use the tag dropdown to mark it as a Need (essentials you cannot skip), a Want (lifestyle spending that improves your quality of life), or Save (money directed toward investments, an emergency fund, or debt repayment beyond the minimum). This tagging drives the automatic 50/30/20 comparison bars, so tag honestly — classing a weekend takeaway as a \"Need\" will give you a misleading picture.",
+          },
+          {
+            step: "Review the savings rate and surplus",
+            detail: "As you type, three key numbers update live: your total spending, the amount left over after all expenses, and your effective savings rate as a percentage of income. The savings rate counts both your explicit Save category and any leftover surplus. A green number means you are in surplus; a red number means you are spending more than you earn and need to trim some categories.",
+          },
+          {
+            step: "Adjust your plan and recheck",
+            detail: "If your surplus is smaller than you would like, start trimming from the Wants column first — these are the easiest expenses to reduce without affecting your basic standard of living. Try cancelling one unused subscription, cooking a couple more meals at home, or setting a monthly cap on discretionary shopping. Re-run the numbers each month, especially when your income changes or a major expense like rent adjusts, and redirect any new surplus toward your savings goals.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "You are trying to figure out where your money goes each month",
+            detail: "Many people reach the end of the month surprised by how little is left without being able to point to any single obvious overspend. A budget planner forces you to list every outgoing, which surfaces the small, frequent expenses that quietly eat into your surplus — subscriptions you forgot about, delivery fees, impulse purchases. Seeing the monthly total of each category is often enough to change behaviour immediately.",
+          },
+          {
+            scenario: "You are saving toward a specific goal",
+            detail: "Whether it is an emergency fund of six months' expenses, a home down payment, a wedding, or an international trip, a tangible savings goal needs a realistic timeline. By lining up your income against your expenses, you can calculate exactly how many months it will take to hit your target at your current savings rate — and then decide whether to cut spending, increase income, or adjust the timeline.",
+          },
+          {
+            scenario: "Your income or expenses have recently changed",
+            detail: "A new job, a raise, a rent increase, the arrival of a baby, or paying off a loan all shift the financial ground under you. Running your numbers through a budget planner after any major change ensures your spending and saving habits match your new reality rather than drifting on autopilot. It is the fastest way to confirm that you are still on track — or to course-correct before a small drift becomes a large problem.",
+          },
+        ]}
+        howItWorks="This budget planner runs entirely in your browser using JavaScript and the browser's local storage for persistence. You enter your monthly take-home income at the top, then add individual expense lines — each with a name, a monthly amount, and a tag marking it as a Need, Want, or Save. The tool instantly calculates your total expenses, your surplus or deficit, and your effective savings rate as a percentage of income. It also draws live 50/30/20 comparison bars that show how your real split of Needs, Wants, and Savings compares with the rule-of-thumb ideal. All arithmetic happens on your device with no server calls, and your data is saved to local storage so you can close the page and return later without losing your work."
+        tips={[
+          "Use your take-home pay, not your gross salary. Your budget should be built on the money that actually reaches your bank account after tax, deductions, and contributions. Basing your plan on a larger headline figure that you never see will make every category feel affordable until the end of the month proves otherwise.",
+          "Track irregular expenses with an annual average. Costs like car maintenance, annual insurance premiums, holiday gifts, or school fees arrive in lump sums but are entirely predictable. Estimate what you spend in a year on each and divide by twelve to turn them into a monthly budget line. This prevents surprise expenses from blowing a hole in a single month.",
+          "Automate your savings on payday. Set up a recurring transfer that moves your target savings amount into a separate account or investment the moment your salary arrives. Money you do not see in your main account is far less likely to be spent, and automation removes the willpower required to save manually each month.",
+          "Review your subscriptions every quarter. Streaming services, apps, gym memberships, and cloud storage plans often renew quietly long after you stop using them. A quarterly audit through your bank statement or payment history usually finds at least one charge you can cancel, freeing up money for categories that matter more.",
+          "Do not aim for a perfect budget on your first attempt. The goal of a budget is not to predict every rupee to the last decimal — it is to build awareness and make intentional choices. Start with rough estimates, check against your actual spending after a month, and refine. A budget you stick to loosely beats a perfect one you abandon after two weeks.",
+        ]}
+        faqs={faqs}
+        relatedTools={[
+          { label: "Invoice Generator", href: "/tools/invoice-generator" },
+          { label: "Resume Builder", href: "/resume-builder" },
+          { label: "Unit Converter", href: "/tools/unit-converter" },
+          { label: "Password Generator", href: "/tools/password-generator" },
+        ]}
+        disclaimerType="general"
+      >
         <BudgetPlanner />
-      </div>
-
-      {/* SEO copy */}
-      <section className="mt-14 max-w-3xl article">
-        <h2>How to budget your money each month</h2>
-        <p>
-          A budget is simply a plan for where your money goes before the month
-          begins. Start with your <strong>take-home income</strong> &mdash; the
-          amount that actually lands in your account after tax and deductions.
-          List every recurring expense you can think of, from rent and loan EMIs
-          to groceries, bills, transport, the odd night out and the money you set
-          aside to invest. Subtract those expenses from your income and you have
-          the single most useful number in personal finance: how much is left.
-          When that number is positive you have breathing room to save or invest
-          more; when it&apos;s negative, your spending has outrun your earnings and
-          something has to give.
-        </p>
-        <p>
-          The goal isn&apos;t to track every rupee, dollar or pound with perfect
-          precision &mdash; it&apos;s to make deliberate choices. Reviewing your budget
-          once a month is usually enough to catch subscriptions you forgot about,
-          spot categories that are quietly creeping up, and redirect that money
-          toward goals that matter more to you.
-        </p>
-
-        <h2>The 50/30/20 rule explained</h2>
-        <p>
-          Popularised by US senator Elizabeth Warren, the{" "}
-          <strong>50/30/20 rule</strong> is a friendly starting framework that
-          splits your take-home pay into three buckets. Roughly{" "}
-          <strong>50% goes to needs</strong> &mdash; the essentials you can&apos;t
-          skip, such as housing, food, utilities, transport and healthcare.{" "}
-          <strong>30% goes to wants</strong> &mdash; the lifestyle spending that
-          makes life enjoyable, like dining out, shopping, streaming services and
-          hobbies. The final <strong>20% goes to savings</strong> &mdash; building
-          an emergency fund, investing for the future and paying down debt faster
-          than the minimum.
-        </p>
-        <p>
-          Treat these percentages as targets, not rigid rules. In high-cost
-          cities your needs may swallow more than half your income, which simply
-          means your wants and savings have to flex. What matters is that you can
-          see the split clearly and nudge it in the right direction over time. In
-          this planner, tag each expense as a <em>Need</em>, <em>Want</em> or{" "}
-          <em>Save</em> and the bars show how your real budget compares with the
-          50/30/20 ideal, with any leftover money counted toward savings.
-        </p>
-
-        <h2>Turn your plan into action</h2>
-        <p>
-          Once you know your numbers, small changes compound quickly. Cancelling
-          one unused subscription, cooking a few more meals at home or automating
-          a transfer to your investments on payday can move your savings rate by
-          several points. If your budget shows a deficit, attack your largest
-          wants first &mdash; they&apos;re usually the easiest to trim without hurting
-          your quality of life. Re-check your plan whenever your income or costs
-          change, and let the surplus flow straight into your goals.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-links */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Keep going
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/blog/50-30-20-budget-rule"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              The 50/30/20 rule, in depth
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              A plain-English guide to budgeting your salary with the 50/30/20
-              method.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Read the guide &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/calculators/take-home-salary"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Take-home salary calculator
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Work out your monthly in-hand pay after tax &mdash; the starting
-              point for any budget.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

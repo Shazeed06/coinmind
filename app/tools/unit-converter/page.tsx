@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import UnitConverter from "@/components/tools/UnitConverter";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,23 +30,31 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is this unit converter free and private?",
-    a: "Yes. It's completely free with no sign-up, and every calculation runs inside your browser using plain JavaScript. Nothing you type is uploaded, tracked or stored, so it also works offline once the page has loaded.",
+    a: "Yes. It is completely free with no sign-up requirement, and every calculation runs inside your browser using plain JavaScript. Nothing you type is uploaded, tracked, or stored on any server. The tool also works offline once the page has finished loading, since all conversion logic is client-side and requires no network calls.",
   },
   {
     q: "How do you convert Celsius to Fahrenheit?",
-    a: "Multiply the Celsius value by 9/5 (that's 1.8) and add 32. So 20°C becomes 20 × 1.8 + 32 = 68°F. To go the other way, subtract 32 first, then divide by 1.8. The temperature tab above does this automatically.",
+    a: "Multiply the Celsius value by 9/5 (which is 1.8) and add 32. So 20°C becomes 20 × 1.8 + 32 = 68°F. To go the other direction, subtract 32 first, then divide by 1.8. The temperature tab in this converter applies the exact formula automatically, and it also handles Kelvin conversions using the K = °C + 273.15 relationship.",
   },
   {
     q: "Is a US gallon the same as a UK gallon?",
-    a: "No — they're different sizes. A US gallon is about 3.785 litres, while a UK (imperial) gallon is about 4.546 litres, roughly 20% larger. The volume tab includes both so you can pick the right one.",
+    a: "No — they are different sizes, which is a common source of confusion. A US liquid gallon equals approximately 3.785 litres, while a UK imperial gallon equals about 4.546 litres, making the UK gallon roughly 20% larger. The volume tab in this converter includes both US and UK gallons as separate options so you can select the correct one for your context.",
   },
   {
     q: "Does 1 KB equal 1000 or 1024 bytes?",
-    a: "This converter uses the binary (1024-based) definition, where 1 KB = 1024 bytes, 1 MB = 1024 KB and so on. That matches how operating systems such as Windows report file and drive sizes. Storage manufacturers often use the decimal 1000-based definition instead, which is why a 1 TB drive can show as roughly 931 GB.",
+    a: "This converter uses the binary (1024-based) definition, where 1 KB = 1024 bytes, 1 MB = 1024 KB and so on. That matches how operating systems such as Windows and Linux report file and drive sizes. Storage manufacturers typically use the decimal (1000-based) definition instead, which is why a drive labelled 1 TB on the box shows roughly 931 GB when you plug it into a computer — both numbers describe the same amount of storage, just using different units.",
   },
   {
     q: "How many feet are in a metre?",
-    a: "One metre equals about 3.28084 feet, and one foot is exactly 0.3048 metres. For a quick estimate you can multiply metres by 3.28 or divide feet by 3.28.",
+    a: "One metre equals approximately 3.28084 feet, and one foot is defined as exactly 0.3048 metres by international agreement. For a quick mental estimate you can multiply metres by 3.28 or divide feet by 3.28. The length tab in this converter uses the exact international definition, so results are precise rather than approximate.",
+  },
+  {
+    q: "Why does the converter use a base-unit system?",
+    a: "For most categories except temperature, the converter stores each unit as a scaling factor relative to a single base unit — the metre for length, the kilogram for weight, the litre for volume, and so on. A conversion from any unit to any other is then a single multiplication and division: value × from-factor ÷ to-factor. This approach avoids chaining multiple conversions together, which would accumulate rounding errors, and keeps every result accurate to the limits of JavaScript's floating-point arithmetic.",
+  },
+  {
+    q: "What categories does the converter support?",
+    a: "Eight categories are available: length (metres, feet, inches, kilometres, miles, centimetres, millimetres, yards), weight (kilograms, pounds, grams, ounces, tonnes), temperature (Celsius, Fahrenheit, Kelvin), area (square metres, square feet, acres, hectares), volume (litres, US gallons, UK gallons, millilitres, cubic metres), speed (km/h, mph, m/s, knots), time (seconds, minutes, hours, days, weeks, years), and digital storage (bytes, KB, MB, GB, TB). Each category includes the most commonly used units for that measurement type.",
   },
 ];
 
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -87,190 +95,64 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Unit Converter</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free browser tool
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Unit Converter
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Convert length, weight, temperature, area, volume, speed, time and
-          digital storage &mdash; instantly and accurately, right in your
-          browser.
-        </p>
-      </header>
-
-      {/* The tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Unit Converter"
+        description="Convert measurements across eight categories — length, weight, temperature, area, volume, speed, time, and digital storage — with instant, accurate results. Pick your starting unit and target unit, type a value, and see the answer update live as you type. Every conversion runs locally in your browser with exact factors and formulas, never rounded until display."
+        howToUse={[
+          {
+            step: "Pick a measurement category",
+            detail: "Use the category tabs at the top of the converter to choose the type of measurement you need — length, weight, temperature, area, volume, speed, time, or digital storage. Each category loads its own set of relevant units, so you only see the options that make sense for what you are converting. Switching categories resets the unit dropdowns to sensible defaults for that measurement type.",
+          },
+          {
+            step: "Select your 'from' and 'to' units",
+            detail: "Choose the unit you are converting from in the first dropdown and the unit you want the answer in from the second. The converter supports common metric and imperial units within each category. For example, in the length tab you can go from metres to feet, kilometres to miles, or inches to centimetres — any pair within the category works in both directions.",
+          },
+          {
+            step: "Type or paste your value",
+            detail: "Enter the number you want to convert in the input field. The converted result appears live as you type — there is no submit button to press. Decimals are supported, and the converter handles both integer and fractional inputs. The input field also shows a quick reference line like \"1 metre = 3.28084 feet\" so you can sanity-check the scale of the result before relying on it.",
+          },
+          {
+            step: "Read the converted result",
+            detail: "The result displays below the input in a clean, highlighted format with the target-unit abbreviation. Underneath, a second readout shows the reverse conversion — how many of the target unit equal one of the source unit — which is useful when you need to think in both directions. Clear the input and the result area shows a dash, never an error or a misleading \"0.\"",
+          },
+          {
+            step: "Swap units or change categories as needed",
+            detail: "Click the swap button between the two unit dropdowns to reverse the direction of your conversion instantly — this is handy when you realise you need the opposite of what you first selected. Switch to a different category tab at any time to start a new conversion; the previous result stays visible until you type a new value, so you can refer back to it while working through a multi-step calculation.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "You are cooking or baking with a recipe from another country",
+            detail: "Recipes written in cups, fluid ounces, and Fahrenheit need to be converted to millilitres, grams, and Celsius — or vice versa. A single wrong conversion can ruin a dish, especially in baking where precision matters. Use the volume and weight tabs for ingredient quantities and the temperature tab for oven settings to follow any international recipe accurately.",
+          },
+          {
+            scenario: "You are travelling or moving between countries",
+            detail: "When you are comparing apartment sizes in square feet versus square metres, checking whether a 70 mph speed limit is fast or slow in km/h, or trying to understand a weather forecast given in a temperature scale you are not used to, a unit converter bridges the gap instantly. Keep the page bookmarked on your phone for quick checks while abroad or during travel planning.",
+          },
+          {
+            scenario: "You are working on a DIY, engineering, or academic project",
+            detail: "Whether you are buying lumber measured in feet for a project planned in metres, converting laboratory measurements between metric and imperial, or calculating data transfer sizes for a technical specification, precise unit conversion matters. This tool uses internationally defined conversion factors — such as 1 inch = exactly 0.0254 metres — so your answers are standards-accurate rather than based on rough rules of thumb.",
+          },
+        ]}
+        howItWorks="This converter stores every unit as a scaling factor relative to a single base unit within each category. For length, the base is the metre; for weight, the kilogram; for volume, the litre. A conversion from any unit to any other is a straightforward operation: multiply the input value by the source unit's factor to reach the base unit, then divide by the target unit's factor. Temperature is the exception — because Celsius, Fahrenheit, and Kelvin have different zero points, simple ratios do not work. The temperature tab uses the exact linear conversion formulas instead (°F = °C × 9/5 + 32, K = °C + 273.15). All arithmetic runs in JavaScript inside your browser, so there is zero network latency and your numbers stay private."
+        tips={[
+          "Use the reference line to verify the scale of your result. The converter shows \"1 unit A = X unit B\" below the input field, which lets you quickly check that the conversion factor looks right before you rely on the calculated number. If the reference line seems off, you may have selected the wrong unit in either dropdown.",
+          "For temperature, remember that the scales do not share a common zero point. A common mistake is multiplying or dividing temperature values as though they were lengths or weights. This tool applies the correct formula automatically, but if you are doing mental arithmetic, always apply the full formula (add or subtract the offset, then multiply) rather than treating degrees as interchangeable ratios.",
+          "For digital storage, note the difference between binary (1024-based) and decimal (1000-based) units. This converter uses binary definitions matching how operating systems report sizes. If you are comparing against a storage device's labelled capacity, expect a discrepancy because manufacturers use decimal units — the converter is giving you the OS-reported size, not the marketing number.",
+          "Bookmark the specific conversion you use most often. The URL does not change as you switch categories, but keeping the page in your browser bookmarks or phone home screen gives you one-tap access whenever you need a quick conversion, without searching or downloading an app.",
+          "If you clear the input completely, the result area shows a dash rather than a zero. This is intentional — it prevents confusion between \"the answer is zero\" and \"no value has been entered yet.\" The converter only produces a result when you have typed a valid number.",
+        ]}
+        faqs={faqs}
+        relatedTools={[
+          { label: "Budget Planner", href: "/tools/budget-planner" },
+          { label: "QR Code Generator", href: "/tools/qr-code-generator" },
+          { label: "Password Generator", href: "/tools/password-generator" },
+          { label: "Invoice Generator", href: "/tools/invoice-generator" },
+        ]}
+        disclaimerType="general"
+      >
         <UnitConverter />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-10 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-paper-2 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
-            Quick answer
-          </h2>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            A unit converter changes a measurement from one unit into another
-            &mdash; metres to feet, kilograms to pounds, Celsius to Fahrenheit,
-            and more. Pick a category above, choose your{" "}
-            <strong className="text-ink">from</strong> and{" "}
-            <strong className="text-ink">to</strong> units, type a value, and the
-            result updates as you type. Every unit is converted through a common
-            base unit for accuracy, while temperature uses exact scale formulas.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>How to use the unit converter</h2>
-        <p>
-          Start by choosing a category &mdash; length, weight, temperature, area,
-          volume, speed, time or digital storage. Then select the unit you are
-          converting <strong>from</strong> and the unit you want the answer{" "}
-          <strong>in</strong>, and enter your amount. The converted value appears
-          live, along with a handy &ldquo;1 unit = X&rdquo; reference line so you
-          can sanity-check the scale. The swap button flips the two units in a
-          single click, which is useful when you realise you need the reverse
-          conversion.
-        </p>
-
-        <h2>Metric vs imperial units</h2>
-        <p>
-          Most of the world uses the <strong>metric</strong> system (metres,
-          kilograms, litres, Celsius), while the United States and, for some
-          everyday measures, the United Kingdom still use{" "}
-          <strong>imperial</strong> or US customary units (feet, pounds, gallons,
-          Fahrenheit). Converting between the two is where most people get stuck,
-          because the ratios are rarely round numbers. This tool stores exact
-          conversion factors &mdash; for example 1 inch is defined as exactly
-          0.0254 metres and 1 pound as 0.45359237 kilograms &mdash; so your
-          answers stay precise rather than relying on rough rules of thumb.
-        </p>
-
-        <h2>Common conversions at a glance</h2>
-        <p>
-          These are some of the conversions people search for most often. Use the
-          tool above for any exact value, but this table is handy for quick
-          mental checks.
-        </p>
-        <div className="overflow-x-auto rounded-xl border border-line">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-paper-2 text-left text-ink">
-                <th className="px-4 py-2.5 font-semibold">From</th>
-                <th className="px-4 py-2.5 font-semibold">Equals</th>
-              </tr>
-            </thead>
-            <tbody className="text-ink-soft">
-              {[
-                ["1 metre", "3.28084 feet"],
-                ["1 kilometre", "0.621371 miles"],
-                ["1 inch", "2.54 centimetres"],
-                ["1 kilogram", "2.20462 pounds"],
-                ["1 pound", "0.453592 kilograms"],
-                ["0°C", "32°F"],
-                ["100°C", "212°F"],
-                ["1 US gallon", "3.78541 litres"],
-                ["1 mile / hour", "1.60934 km/h"],
-                ["1 GB", "1024 MB"],
-              ].map(([a, b]) => (
-                <tr key={a} className="border-t border-line">
-                  <td className="px-4 py-2.5">{a}</td>
-                  <td className="px-4 py-2.5 font-medium text-ink">{b}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <h2>How the converter stays accurate</h2>
-        <p>
-          For length, weight, area, volume, speed, time and data, each unit is
-          stored as a factor relative to a single base unit, so a conversion is
-          just <em>value × from-factor ÷ to-factor</em>. Temperature is the
-          exception: because Celsius, Fahrenheit and Kelvin have different zero
-          points, it can&apos;t use a simple ratio, so the tool applies the exact
-          scale formulas instead. Results are then tidied to remove
-          floating-point noise, and there are no &ldquo;NaN&rdquo; surprises if
-          you clear the box &mdash; you&apos;ll just see a dash until you type a
-          number.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More free tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/compress-image"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Compress Image
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Shrink JPG, PNG and WebP files with a quality slider.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              All tools
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free, private, browser-based tool on CoinMind.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Browse &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

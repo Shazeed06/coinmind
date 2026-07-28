@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ImageToPdf from "@/components/tools/ImageToPdf";
 import { site } from "@/lib/site";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
   title: { absolute: "Image to PDF — Convert JPG & PNG to PDF Free" },
@@ -27,31 +27,95 @@ export const metadata: Metadata = {
   },
 };
 
+const howToUse = [
+  {
+    step: "Add your images",
+    detail: "Click the drop zone or browse to select the JPG or PNG images you want to turn into a PDF. You can add as many as you need — photographs, scanned documents, screenshots, or any combination of formats. Add more images at any time by dragging them onto the zone.",
+  },
+  {
+    step: "Arrange the image order",
+    detail: "Each image appears as a card in the list with a small thumbnail preview. Use the up and down arrow buttons on each card to set the exact page order — the image at the top of the list becomes page 1 of your PDF, the next becomes page 2, and so on. Remove any image you don't want with the delete button.",
+  },
+  {
+    step: "Choose the page size and layout",
+    detail: "Pick Fit to image to give each page exactly the dimensions of its image — ideal for photos and scans where you want the page to match the content. Or pick A4 or Letter to place each image centred on a standard page size. You can also toggle between portrait and landscape orientation and set a margin if you want a clean white border around each image.",
+  },
+  {
+    step: "Set the image scaling (optional)",
+    detail: "By default, images are scaled to fit within the page dimensions while keeping their original aspect ratio. If you want images to fill the entire page edge to edge, choose the fill option — though this may crop parts of images whose aspect ratio doesn't match the selected page size.",
+  },
+  {
+    step: "Click the create PDF button",
+    detail: "Press the button and wait a moment while your browser reads each image, scales it according to your page size and margin settings, and embeds it as a page in a brand-new PDF document. The processing happens entirely on your device.",
+  },
+  {
+    step: "Download your PDF",
+    detail: "Your browser will prompt you to save the completed PDF. All images are embedded at their full resolution within the PDF, so the document will print and display clearly. Your original image files remain untouched on your device.",
+  },
+];
+
+const whenToUse = [
+  {
+    scenario: "Bundling receipts or invoices for expense claims",
+    detail: "Take photos of your paper receipts throughout the month, then combine them all into one clean PDF to attach to an expense report or send to accounting. One file instead of twenty separate image attachments makes submission far simpler for everyone involved.",
+  },
+  {
+    scenario: "Creating a scannable ID or document package",
+    detail: "When an employer, landlord, or government agency asks for scans of multiple ID documents — passport, driver's licence, utility bill, bank statement — combine them into a single PDF rather than sending half a dozen separate image files. It's more professional and reduces the chance of a file being missed.",
+  },
+  {
+    scenario: "Packaging presentation slides exported as images",
+    detail: "If your design tool exports presentation slides as individual PNG or JPG files, combine them into one PDF to share as a read-only handout or to upload to a platform that only accepts PDF uploads. Add margins and choose A4 in landscape for a polished slide-deck look.",
+  },
+];
+
+const howItWorksParagraph =
+  "This tool uses the pdf-lib library to create a valid PDF document directly in your browser. When you add images, each one is read as raw image data. Depending on the page size you selected, the tool either creates a page that precisely matches the image's pixel dimensions (Fit to image mode) or places the image centred on a standard A4 or Letter canvas. It calculates the correct scaling factor so that the image fills the page proportionally without distortion, applies any margin you set, and embeds the image into the PDF using its original resolution. The result is a standards-compliant PDF where each image sits on its own page, exactly as you arranged. Every operation — reading the images, calculating dimensions, assembling the PDF — happens in memory on your device using JavaScript. No files are uploaded or stored on any server, and the tool works offline once the page has loaded.";
+
+const tips = [
+  "If your images are in WebP, HEIC, or another format not directly supported by the tool, convert them to JPG or PNG first using the Image Converter and then add the converted files here.",
+  "For the smallest PDF file size, use JPG images rather than PNG images as input. JPG images embedded in PDFs produce much smaller documents because the image data is already compressed, whereas PNG images embed their full uncompressed pixel data into the PDF.",
+  "When selecting page size, choose Fit to image for scans and photos where you want each page to exactly match the content with no whitespace. Choose A4 or Letter when creating a document meant for printing or when you want a uniform look across all pages regardless of individual image dimensions.",
+  "Use the margin setting to add breathing room. A margin of 10–20 mm gives your document a polished, print-ready feel and ensures no content gets clipped by printer margins. If your images are edge-to-edge scans, a small margin prevents accidental cropping.",
+  "Check your image order carefully before creating the PDF. Once generated, the page order is fixed. If you need to reorder afterward, you can use the Organize PDF tool to rearrange pages in the finished document.",
+];
+
 const faqs = [
   {
     q: "Are my images uploaded to a server?",
-    a: "No. This tool runs entirely in your browser using JavaScript. Your images never leave your device, which makes it private and fast — nothing is uploaded, stored, or shared.",
+    a: "No. This tool runs entirely in your browser using JavaScript and the pdf-lib library. Your images are read, scaled, and embedded into a new PDF on your own device. Nothing is uploaded, stored, cached on any server, or seen by anyone else — your files stay completely private. The tool also works offline once the page has loaded, so you can create PDFs without an active internet connection.",
   },
   {
     q: "Which image formats are supported?",
-    a: "JPG (JPEG) and PNG are supported. WebP, HEIC and other formats aren't supported for direct embedding — convert them to JPG or PNG first, then add them here.",
+    a: "JPG (JPEG) and PNG are fully supported and can be embedded directly. WebP, HEIC, AVIF, BMP, TIFF, and other less common formats are not supported for direct embedding by the pdf-lib library. If you have images in those formats, convert them to JPG or PNG first using the Image Converter tool on this site and then add the converted versions here.",
   },
   {
-    q: "Can I control the order of pages?",
-    a: "Yes. After adding images you can reorder them with the up and down buttons, or remove any you don't want. The PDF is built in the exact order shown.",
+    q: "Can I control the order of pages in the PDF?",
+    a: "Yes. After adding your images, each one appears as a card in the list with a thumbnail preview. Use the up and down arrow buttons to arrange the cards into the exact order you want. The PDF is built following the list order from top to bottom — the image at the top becomes page 1. You can also remove any image from the list if you change your mind without needing to restart.",
   },
   {
     q: "Can I choose the page size?",
-    a: "Yes. Pick 'Fit to image' for a page that matches each image exactly, or A4 / Letter to place each image on a standard page. You can also set orientation and add a margin.",
+    a: "Yes. You have three options. Fit to image creates each page at exactly the dimensions of its image, so photos and scans fill the page edge to edge. A4 (210 × 297 mm) and Letter (8.5 × 11 inches) place each image on a standard-sized page, centred by default. You can also set the page orientation to portrait or landscape and add a margin in millimetres for a clean border around each image.",
   },
   {
     q: "Is there a limit on how many images I can add?",
-    a: "There's no fixed limit. Because everything runs locally, very large batches depend on your device's memory — but typical documents of dozens of images work fine.",
+    a: "There's no fixed limit built into the tool. Because everything runs locally on your device using only browser memory, the practical limit depends on your computer's available RAM. Typical documents with a few dozen standard-resolution images work smoothly. Very large batches of high-resolution photos may use significant memory, and in that case creating the PDF in smaller groups and then merging the resulting PDFs can help manage browser performance.",
+  },
+  {
+    q: "Will the images lose quality when embedded in the PDF?",
+    a: "No. Images are embedded at their full original resolution. The pdf-lib library embeds the raw image bytes directly into the PDF container without re-compressing or re-encoding them. The images in the PDF will display and print at the same quality as the original files — no detail is lost during the conversion process.",
   },
   {
     q: "Is it really free?",
-    a: "Yes, completely free with no sign-up and no watermark. Create as many PDFs as you like.",
+    a: "Yes, completely free with no sign-up, no account required, and no watermark on the output PDF. Create as many PDFs as you like, as often as you like. There are no hidden limits, no paid tiers, and no premium features locked behind a subscription. The tool is fully functional for everyone, and your data stays on your device the entire time.",
   },
+];
+
+const relatedTools = [
+  { label: "Merge PDF", href: "/tools/merge-pdf" },
+  { label: "Split PDF", href: "/tools/split-pdf" },
+  { label: "Image Converter", href: "/tools/image-converter" },
+  { label: "Compress Image", href: "/tools/compress-image" },
 ];
 
 export default function Page() {
@@ -81,7 +145,16 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <ToolPageLayout
+      title="Image to PDF"
+      description="Combine JPG and PNG images into a single PDF document. Reorder your images, choose a page size from Fit to image, A4, or Letter, set orientation and margins, and download — your files never leave your device."
+      howToUse={howToUse}
+      whenToUse={whenToUse}
+      howItWorks={howItWorksParagraph}
+      tips={tips}
+      faqs={faqs}
+      relatedTools={relatedTools}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -90,93 +163,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Image to PDF</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free tool · 100% in your browser
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Image to PDF
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Combine JPG and PNG images into a single PDF. Reorder, choose a page
-          size, and download — your files never leave your device.
-        </p>
-      </header>
-
-      {/* Tool */}
-      <div className="mt-8">
-        <ImageToPdf />
-      </div>
-
-      {/* SEO copy */}
-      <section className="mt-14 max-w-3xl">
-        <p className="text-ink-soft leading-relaxed">
-          Turning photos and scanned images into a single PDF is one of the most
-          common everyday document tasks — bundling receipts for an expense
-          claim, sending a set of ID photos, or packaging screenshots into one
-          shareable file. This free image to PDF converter does it instantly in
-          your browser. Add your JPG or PNG images, drag them into the right
-          order, pick whether each page should fit the image or sit on a clean
-          A4 / Letter sheet, and download a polished PDF in seconds.
-        </p>
-      </section>
-
-      <section className="mt-10 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Why convert in the browser?
-        </h2>
-        <div className="mt-4 text-ink-soft leading-relaxed space-y-4">
-          <p>
-            Most online converters upload your files to a server, process them
-            there, and send back a download. That means your images — which
-            might be receipts, contracts, or personal photos — leave your
-            computer and sit on someone else&apos;s machine.
-          </p>
-          <p>
-            This tool is different. It uses the{" "}
-            <strong className="text-ink">pdf-lib</strong> library running
-            directly in your browser, so every image is embedded locally.
-            Nothing is uploaded, nothing is stored, and it works even if your
-            connection drops after the page loads. That&apos;s faster and far
-            more private.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-    </div>
+      <ImageToPdf />
+    </ToolPageLayout>
   );
 }

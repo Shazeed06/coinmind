@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import OrganizePdf from "@/components/tools/OrganizePdf";
+import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const faqs = [
+const faqData = [
   {
     q: "Is my PDF uploaded anywhere?",
     a: "No. Reordering and removing pages happens entirely in your browser with JavaScript. Your PDF never leaves your device — nothing is uploaded, stored or shared, which keeps sensitive documents private.",
@@ -48,13 +48,21 @@ const faqs = [
     q: "Will reordering change the page quality?",
     a: "No. Pages are copied as-is into the new document, so text, images and formatting stay exactly the same. Nothing is re-rendered, re-compressed or downgraded.",
   },
+  {
+    q: "Can I reorder pages from multiple PDFs at once?",
+    a: "No, this tool works with one PDF at a time. If you need to combine pages from several files, use the Merge PDF tool first, then come back here to reorder the combined document.",
+  },
+  {
+    q: "Does this tool work on mobile?",
+    a: "Yes — the page list, buttons and thumbnails are fully responsive and work on phones and tablets. All processing still happens locally on your device.",
+  },
 ];
 
 export default function Page() {
   const faqJson = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: faqData.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -77,7 +85,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
@@ -86,144 +94,76 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
       />
-
-      {/* Breadcrumb */}
-      <nav className="text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/tools" className="hover:text-forest">
-          Tools
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Organize PDF</span>
-      </nav>
-
-      {/* Header */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Free tool · 100% in your browser
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Organize PDF
-        </h1>
-        <p className="mt-3 text-lg text-ink-soft">
-          Reorder pages, remove the ones you don&apos;t need, and rebuild a clean
-          PDF — your document never leaves your device.
-        </p>
-      </header>
-
-      {/* Tool */}
-      <div className="mt-8">
+      <ToolPageLayout
+        title="Organize PDF"
+        description="Reorder pages, remove the ones you don't need and rebuild a clean PDF — your document never leaves your device."
+        howToUse={[
+          {
+            step: "Drop your PDF",
+            detail:
+              "Drag and drop your PDF file onto the upload area, or click to browse and select it from your device. The tool reads all pages instantly in your browser and displays them as individual rows.",
+          },
+          {
+            step: "Review the page list",
+            detail:
+              "Every page appears as a numbered row with a thumbnail preview. Scroll through to see the current order and quickly spot pages you want to move or remove.",
+          },
+          {
+            step: "Reorder pages",
+            detail:
+              "Click the up arrow to move a page earlier in the sequence or the down arrow to push it later. The list order from top to bottom becomes the final page order in the rebuilt document.",
+          },
+          {
+            step: "Remove unwanted pages",
+            detail:
+              "Click the remove button on any page you want to leave out of the final PDF. Removed pages are only marked for exclusion — your original file is never modified, so this is safe and reversible.",
+          },
+          {
+            step: "Restore pages if needed",
+            detail:
+              "Changed your mind about a removal? Click Undo on any removed page to bring it back into the sequence. You can toggle pages in and out as many times as you like before building.",
+          },
+          {
+            step: "Build and download",
+            detail:
+              "Once the order looks right and at least one page is kept, click Build new PDF. The tool assembles a fresh PDF document in your browser and triggers the download — all locally on your machine.",
+          },
+        ]}
+        whenToUse={[
+          {
+            scenario: "Fixing a merged PDF",
+            detail:
+              "You combined several files into one but the pages ended up in the wrong sequence. Reorder them here in seconds instead of starting the merge over.",
+          },
+          {
+            scenario: "Removing blank or duplicate pages",
+            detail:
+              "Scanned documents often include blank sheets, scanner artefacts or accidental duplicates between sections. Strip them out cleanly before sharing or archiving.",
+          },
+          {
+            scenario: "Cleaning up a report before sharing",
+            detail:
+              "Remove internal notes, draft pages or sensitive sections before sending a client-facing PDF. The tool makes it easy to check every page and drop what shouldn't be seen.",
+          },
+        ]}
+        howItWorks="The tool uses the pdf-lib library running entirely in your browser. When you drop a PDF, every page is extracted and displayed as a numbered row with a thumbnail. Reordering changes the index of each page in an internal array, and removing a page toggles a flag without touching your original file. When you click build, the tool copies only the kept pages — in their new order — into a fresh PDF document, then triggers a download. Because everything runs locally, nothing is uploaded to any server, and the tool works even offline once the page has loaded."
+        tips={[
+          "Work from top to bottom — arrange the first page first, then work your way down. It's less confusing than jumping around the list.",
+          "Use remove rather than trying to drag pages out of the way — it's faster, cleaner, and you can always undo any removal with one click.",
+          "Check the final page count before building — the button shows exactly how many pages will be in the output so there are no surprises.",
+          "Always keep your original file — the tool never modifies your source PDF, but having a backup is good practice for any document you're reorganising.",
+          "For large documents with 50+ pages, scroll through the thumbnails quickly first to spot outliers — blank pages, wrong orientation or stray pages — before you start reordering.",
+        ]}
+        faqs={faqData}
+        relatedTools={[
+          { label: "Merge PDF", href: "/tools/merge-pdf" },
+          { label: "Split PDF", href: "/tools/split-pdf" },
+          { label: "Rotate PDF", href: "/tools/rotate-pdf" },
+          { label: "Compress PDF", href: "/tools/compress-pdf" },
+        ]}
+      >
         <OrganizePdf />
-      </div>
-
-      {/* Quick answer */}
-      <section className="mt-14 max-w-3xl">
-        <div className="rounded-2xl border border-line bg-forest-soft/50 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
-            Quick answer
-          </h2>
-          <p className="mt-2 text-ink-soft leading-relaxed">
-            To organize a PDF, drop your file above to see every page as a row.
-            Use the up and down buttons to reorder pages and the remove button to
-            drop the ones you don&apos;t want — changes are easy to undo. When the
-            order looks right, click build new PDF to download the rebuilt file.
-            It all runs in your browser, so your document stays private and works
-            even offline once the page has loaded.
-          </p>
-        </div>
-      </section>
-
-      {/* SEO copy */}
-      <section className="mt-12 max-w-3xl article">
-        <h2>Get pages into the right order</h2>
-        <p>
-          Merged and scanned PDFs rarely arrive in perfect shape. A cover page
-          lands at the back, two sections are swapped, or a blank scan and a
-          duplicate sneak in. Organizing lets you set the running order and drop
-          the clutter so the finished document reads exactly as intended —
-          without opening heavy desktop software or paying for a subscription.
-        </p>
-
-        <h2>Reorder and remove in one place</h2>
-        <p>
-          Every page shows up as a numbered row. Move a page with the{" "}
-          <strong>up and down</strong> buttons to slot it where it belongs, and
-          use <strong>remove</strong> to leave a page out of the final file. A
-          removed page is only marked, never deleted from your original, so a
-          single click restores it if you change your mind. When you build the
-          new PDF, the tool copies just the pages you kept, in the order you set.
-        </p>
-
-        <h2>Private by design</h2>
-        <p>
-          The documents worth tidying are often the private ones — contracts,
-          reports, records. Uploading them to an online editor means trusting a
-          server with those files. This tool avoids that entirely. Using the{" "}
-          <strong>pdf-lib</strong> library in your browser, pages are copied and
-          reassembled locally on your own machine. Nothing is uploaded, nothing
-          is stored, and the rebuild works even offline once the page has loaded.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          Frequently asked questions
-        </h2>
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer items-center justify-between gap-4 text-ink font-medium list-none">
-                {f.q}
-                <span className="text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* Cross-link */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
-          More PDF tools
-        </h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Link
-            href="/tools/split-pdf"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Split PDF
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Extract a page range or split every page into its own file.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-          <Link
-            href="/tools/rotate-pdf"
-            className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-          >
-            <h3 className="font-display text-lg font-600 text-ink">
-              Rotate PDF
-            </h3>
-            <p className="mt-1.5 text-sm text-ink-soft">
-              Turn every page or a single page 90, 180 or 270 degrees.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open &rarr;
-            </span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      </ToolPageLayout>
+    </>
   );
 }

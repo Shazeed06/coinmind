@@ -45,9 +45,9 @@ function mk(path: string, d: SeoDef): Metadata {
 // ─────────────────────── PAGE META ───────────────────────
 
 export const HOME = mk("/", {
-  title: "CoinMind — India's Smartest Free Personal Finance Platform",
-  desc: `${site.name} has 46 free calculators (SIP, EMI, income tax, FD, PPF), 44 free tools, and expert guides. Calculate returns, compare options, and build wealth — no sign-up, always free.`,
-  keywords: ["SIP calculator", "EMI calculator", "income tax calculator", "FD calculator", "PPF calculator", "personal finance India", "mutual fund calculator", "free financial tools"],
+  title: "CoinMind — Free Personal Finance Calculators for India",
+  desc: "Free personal finance calculators for India — SIP, EMI, income tax, FD, PPF and more. Educational guides, explained clearly. No sign-up.",
+  keywords: ["SIP calculator", "EMI calculator", "income tax calculator", "FD calculator", "PPF calculator", "personal finance India", "free financial calculators", "finance guides"],
 });
 
 export function calcMeta(slug: string, title: string, desc: string, category?: string): Metadata {
