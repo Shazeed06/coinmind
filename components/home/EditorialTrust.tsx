@@ -16,7 +16,7 @@ export default function EditorialTrust() {
         title="Editorial Standards & Accuracy"
         subline="How we ensure everything on CoinMind is trustworthy."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {ITEMS.map((item) => (
           <Card key={item.title}>
             <CardBody className="text-center">

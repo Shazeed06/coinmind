@@ -18,13 +18,13 @@ export default function TrustTimeline() {
         title="Built on Transparency and Accuracy"
         subline="Six principles that guide everything we build."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {PRINCIPLES.map((p) => (
           <Card key={p.title}>
             <CardBody>
-              <p.icon className="h-8 w-8 text-brand" />
-              <h3 className="text-base font-semibold text-text mt-3">{p.title}</h3>
-              <p className="text-sm text-text-muted mt-1">{p.desc}</p>
+              <p.icon className="h-8 w-8 text-brand mx-auto sm:mx-0" />
+              <h3 className="text-base font-semibold text-text mt-3 text-center sm:text-left">{p.title}</h3>
+              <p className="text-sm text-text-muted mt-1 text-center sm:text-left">{p.desc}</p>
             </CardBody>
           </Card>
         ))}

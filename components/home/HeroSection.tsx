@@ -9,10 +9,10 @@ export default function HeroSection() {
   return (
     <section className="min-h-[88vh] flex items-center">
       <div className="container-main w-full py-16">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-6 space-y-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-1.5 rounded-pill border border-border bg-bg-alt px-4 py-1.5 text-sm text-text-muted">
-              <span className="text-sm">🇮🇳</span> 100% Free · No Signup Required
+              <span>100% Free · No Signup Required</span>
             </div>
 
             <h1 className="display text-text">
@@ -20,20 +20,20 @@ export default function HeroSection() {
               <span className="underline-stroke">Personal Finance</span> Platform
             </h1>
 
-            <p className="text-lg text-text-muted max-w-[480px] leading-relaxed">
+            <p className="text-lg text-text-muted max-w-[480px] leading-relaxed mx-auto lg:mx-0">
               Free financial calculators, tools and guides to plan investments, manage loans and save taxes — all in one place.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/calculators"
-                className="inline-flex items-center gap-2 h-13 rounded-pill bg-brand px-6 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center gap-2 h-[52px] w-full sm:w-auto rounded-pill bg-brand px-6 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
               >
                 Explore Calculators <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 h-13 rounded-pill border border-border px-6 text-sm font-medium text-text hover:border-brand hover:text-brand transition-colors"
+                className="inline-flex items-center justify-center gap-2 h-[52px] w-full sm:w-auto rounded-pill border border-border px-6 text-sm font-medium text-text hover:border-brand hover:text-brand transition-colors"
               >
                 Learn Finance
               </Link>
@@ -48,7 +48,7 @@ export default function HeroSection() {
               />
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
               {["SIP", "EMI", "Income Tax", "FD"].map((item) => (
                 <Link
                   key={item}
@@ -60,7 +60,7 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="border-t border-border pt-8 grid grid-cols-4 gap-4">
+            <div className="border-t border-border pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
               {[
                 { n: `${CALC_COUNT}+`, l: "Calculators" },
                 { n: `${GUIDE_COUNT}+`, l: "Expert Guides" },
@@ -68,17 +68,17 @@ export default function HeroSection() {
                 { n: "99.9%", l: "Uptime" },
               ].map(({ n, l }) => (
                 <div key={l}>
-                  <p className="text-[28px] font-bold text-text leading-none">{n}</p>
-                  <p className="text-sm text-text-muted mt-1">{l}</p>
+                  <p className="text-2xl sm:text-[28px] font-bold text-text leading-none">{n}</p>
+                  <p className="text-xs sm:text-sm text-text-muted mt-1">{l}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 w-[400px] h-[400px] mx-auto bg-brand/10 rounded-full blur-3xl" />
-              <div className="relative animate-float bg-white border border-border rounded-2xl shadow-card p-8 w-[380px]">
+          <div className="lg:col-span-6 flex justify-center mt-8 lg:mt-0">
+            <div className="relative w-full max-w-[380px]">
+              <div className="absolute inset-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] mx-auto bg-brand/10 rounded-full blur-3xl" />
+              <div className="relative animate-float bg-white border border-border rounded-2xl shadow-card p-6 sm:p-8">
                 <p className="eyebrow text-brand">SIP Calculator</p>
                 <h3 className="h3 mt-2 text-text">Monthly Investment</h3>
                 <div className="mt-6 space-y-5">
@@ -97,8 +97,8 @@ export default function HeroSection() {
                 </div>
                 <div className="mt-6 pt-6 border-t border-border">
                   <p className="small text-text-muted">Projected Corpus</p>
-                  <p className="text-[32px] font-bold text-accent leading-tight mt-1">₹50.4 Lakh</p>
-                  <div className="flex justify-between text-sm text-text-muted mt-2">
+                  <p className="text-[28px] sm:text-[32px] font-bold text-accent leading-tight mt-1">₹50.4 Lakh</p>
+                  <div className="flex justify-between text-xs sm:text-sm text-text-muted mt-2">
                     <span>Invested: ₹18 Lakh</span>
                     <span>Returns: ₹32.4 Lakh</span>
                   </div>

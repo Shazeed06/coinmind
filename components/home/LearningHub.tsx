@@ -16,9 +16,9 @@ export default function LearningHub() {
       />
       <div className="grid lg:grid-cols-12 gap-8">
         <div className="lg:col-span-8 space-y-6">
-          {guides.map((g, i) => (
-            <Link key={g.slug} href={`/blog/${g.slug}`} className={`card card-h-full ${i === 0 ? "lg:col-span-2" : ""}`}>
-              <div className="h-[200px] bg-bg-alt flex items-center justify-center rounded-t-card border-b border-border">
+          {guides.map((g) => (
+            <Link key={g.slug} href={`/blog/${g.slug}`} className="card card-h-full block">
+              <div className="h-[160px] sm:h-[200px] bg-bg-alt flex items-center justify-center rounded-t-card border-b border-border">
                 <BookOpen className="h-12 w-12 text-text-muted/30" />
               </div>
               <div className="p-5">
@@ -30,7 +30,7 @@ export default function LearningHub() {
           ))}
         </div>
         <div className="lg:col-span-4">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-text-muted">Topics</h3>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-text-muted text-center lg:text-left">Topics</h3>
           <div className="mt-4 space-y-1">
             {CATEGORIES.map((cat) => {
               const count = posts.filter((p) => p.category === cat).length;
@@ -38,7 +38,7 @@ export default function LearningHub() {
                 <Link
                   key={cat}
                   href={`/blog?category=${cat.toLowerCase()}`}
-                  className="flex items-center justify-between rounded-card px-3 py-2.5 text-sm text-text hover:bg-bg-alt transition-colors"
+                  className="flex items-center justify-between rounded-card px-4 py-3 text-sm text-text hover:bg-bg-alt transition-colors"
                 >
                   <span>{cat}</span>
                   <span className="flex items-center gap-2">

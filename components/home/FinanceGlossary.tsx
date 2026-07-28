@@ -16,16 +16,16 @@ export default function FinanceGlossary() {
       />
       <div className="flex flex-wrap gap-1.5 justify-center mb-8">
         {ALPHABETS.map((l) => (
-          <button key={l} className="w-8 h-8 rounded-input text-xs font-medium text-text-muted hover:text-brand hover:bg-brand/10 transition-colors">
+          <button key={l} className="w-7 h-7 sm:w-8 sm:h-8 rounded-input text-xs font-medium text-text-muted hover:text-brand hover:bg-brand/10 transition-colors">
             {l}
           </button>
         ))}
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {terms.map((t) => (
           <Link key={t.slug} href={`/glossary/${t.slug}`} className="card card-h-full p-4">
-            <p className="text-sm font-semibold text-text">{t.term}</p>
-            <p className="text-xs text-text-muted mt-1 line-clamp-2">{t.short}</p>
+            <p className="text-sm font-semibold text-text text-center sm:text-left">{t.term}</p>
+            <p className="text-xs text-text-muted mt-1 line-clamp-2 text-center sm:text-left">{t.short}</p>
           </Link>
         ))}
       </div>

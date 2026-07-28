@@ -18,7 +18,7 @@ export default function HowCalculatorsWork() {
       />
       <div className="relative">
         <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-border" />
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {STEPS.map((s, i) => (
             <div key={s.step} className="relative text-center">
               <div className="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center text-lg font-bold mx-auto relative z-10">

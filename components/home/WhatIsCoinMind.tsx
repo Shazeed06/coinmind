@@ -19,18 +19,18 @@ export default function WhatIsCoinMind() {
         subline="Built for India, used worldwide — with accuracy and transparency at our core."
       />
       <div className="grid lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-7">
-          <p className="body text-text-muted leading-relaxed max-w-[680px]">
+        <div className="lg:col-span-7 text-center lg:text-left">
+          <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0">
             CoinMind is a free, privacy-first personal finance platform with 46 calculators, 44 tools, and expert guides.
             Every formula is verified against official sources and updated after every Union Budget.
           </p>
-          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {FEATURES.map((f) => (
-              <Card key={f.title} className="!p-4">
+              <Card key={f.title}>
                 <CardBody>
                   <div className="flex items-start gap-3">
                     <f.icon className="h-5 w-5 text-brand shrink-0 mt-0.5" />
-                    <div>
+                    <div className="text-left">
                       <p className="text-sm font-semibold text-text">{f.title}</p>
                       <p className="text-sm text-text-muted">{f.desc}</p>
                     </div>
@@ -41,23 +41,23 @@ export default function WhatIsCoinMind() {
           </div>
         </div>
         <div className="lg:col-span-5">
-          <Card className="!p-6 h-full">
+          <Card>
             <CardBody>
-              <div className="flex items-center gap-2 mb-4 text-brand">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-brand">
                 <Globe className="h-5 w-5" />
                 <span className="eyebrow">Built for India</span>
               </div>
-              <p className="text-sm text-text-muted mb-4">
+              <p className="text-sm text-text-muted mb-4 text-center lg:text-left">
                 Designed for Indian investors, taxpayers and savers — with support for INR, Indian tax regimes, and local financial products.
               </p>
               <div className="space-y-4">
                 {[
-                  { country: "🇮🇳 India", desc: "Primary audience — 46 calculators with Indian tax, SIP, PPF, NPS support" },
-                  { country: "🇺🇸 United States", desc: "Mortgage, retirement, currency — USD support throughout" },
-                  { country: "🇬🇧 United Kingdom", desc: "GBP support, mortgage and VAT calculators" },
+                  { country: "India", desc: "Primary audience — 46 calculators with Indian tax, SIP, PPF, NPS support" },
+                  { country: "United States", desc: "Mortgage, retirement, currency — USD support throughout" },
+                  { country: "United Kingdom", desc: "GBP support, mortgage and VAT calculators" },
                 ].map(({ country, desc }) => (
-                  <div key={country} className="flex gap-3">
-                    <span className="text-lg shrink-0">{country}</span>
+                  <div key={country} className="flex flex-col sm:flex-row gap-1 sm:gap-3 text-center sm:text-left">
+                    <span className="text-sm font-semibold text-text shrink-0">{country}</span>
                     <p className="text-sm text-text-muted">{desc}</p>
                   </div>
                 ))}

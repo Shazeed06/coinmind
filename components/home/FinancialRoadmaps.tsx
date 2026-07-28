@@ -53,15 +53,15 @@ export default function FinancialRoadmaps() {
         title="Your Financial Journey, Mapped Out"
         subline="Start where you are — we will show you the next step."
       />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {ROADMAPS.map((r) => (
           <Card key={r.title}>
             <CardBody>
-              <h3 className="text-base font-semibold text-text">{r.title}</h3>
+              <h3 className="text-base font-semibold text-text text-center sm:text-left">{r.title}</h3>
               <ul className="mt-4 space-y-2.5">
                 {r.items.map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} className="text-sm text-text-muted hover:text-brand transition-colors flex items-center gap-1.5">
+                    <Link href={item.href} className="text-sm text-text-muted hover:text-brand transition-colors flex items-center gap-1.5 justify-center sm:justify-start">
                       <ArrowRight className="h-3 w-3 shrink-0" />
                       {item.label}
                     </Link>
