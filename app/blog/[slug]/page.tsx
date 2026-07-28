@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import { posts } from "@/lib/data";
 import { site } from "@/lib/site";
-import { ChevronRight, BookOpen, Calculator, ArrowRight } from "lucide-react";
+import { ChevronRight, Calculator, ArrowRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
 import ArticleMarkdown from "@/components/ArticleMarkdown";
 import AuthorReviewBox from "@/components/AuthorReviewBox";
@@ -492,8 +492,8 @@ export default async function Page({
       </section>
 
       <div className="container-main section-pad pt-8">
-        <div className="h-[320px] rounded-card border border-border overflow-hidden bg-bg-alt flex items-center justify-center mb-8">
-          <BookOpen className="h-16 w-16 text-text-muted/20" />
+        <div className="aspect-[2/1] rounded-card border border-border overflow-hidden mb-8">
+          <CoverArt seed={post.slug} variant={post.art.variant} palette={post.art.palette} label={post.category} className="h-full w-full" />
         </div>
       </div>
 

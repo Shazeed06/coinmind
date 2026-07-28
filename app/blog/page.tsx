@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { posts } from "@/lib/data";
-import { BookOpen, ArrowRight, Search } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
+import CoverArt from "@/components/CoverArt";
 import { Pill, EmptyState } from "@/components/ui";
 
 const ALL_CATEGORIES = ["All", "Investing", "Tax", "Credit", "Personal Finance", "AI + Money", "AI Tools", "Productivity"] as const;
@@ -53,8 +54,8 @@ export default function Page() {
           <div className="container-main">
             <Link href={`/blog/${lead.slug}`} className="card overflow-hidden block hover:border-brand">
               <div className="grid md:grid-cols-12">
-                <div className="md:col-span-7 h-[280px] bg-bg-alt flex items-center justify-center">
-                  <BookOpen className="h-16 w-16 text-text-muted/20" />
+                <div className="md:col-span-7 h-[280px] overflow-hidden">
+                  <CoverArt seed={lead.slug} variant={lead.art.variant} palette={lead.art.palette} label={lead.category} className="h-full w-full" />
                 </div>
                 <div className="md:col-span-5 p-8 flex flex-col justify-center">
                   <p className="eyebrow text-brand">{lead.category} · {lead.readMinutes} min read</p>
@@ -112,8 +113,8 @@ export default function Page() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {paginated.map((p) => (
                   <Link key={p.slug} href={`/blog/${p.slug}`} className="card card-h-full overflow-hidden">
-                    <div className="h-[200px] bg-bg-alt flex items-center justify-center">
-                      <BookOpen className="h-12 w-12 text-text-muted/20" />
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <CoverArt seed={p.slug} variant={p.art.variant} palette={p.art.palette} className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]" />
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <p className="eyebrow text-brand">{p.category} · {p.readMinutes} min</p>
