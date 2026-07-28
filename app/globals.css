@@ -1,182 +1,82 @@
 @import "tailwindcss";
 
-/*
-  CoinMind — Design System
-  Modern AI-fintech palette: cool near-white surfaces, deep navy ink,
-  electric indigo primary + violet AI accent. Clean sans (Inter).
-  Goal: reads like a modern AI/fintech product, trustworthy and current.
-  NOTE: the brand variables are still named --color-forest / --color-brass
-  for historical reasons; their VALUES are now indigo / violet. Changing the
-  values here recolours the whole site.
-*/
-
 @theme {
-  /* Surfaces — cool, clean */
-  --color-paper: #f5f6fb;
-  --color-paper-2: #ebedf6;
-  --color-card: #ffffff;
-  --color-ink: #0f1424;
-  --color-ink-soft: #3f4661;
-  /* Darkened from #6b7288 → passes WCAG AA (4.5:1) on paper/paper-2 surfaces
-     too (was 4.10–4.43 → now ~5.6–6.5); fixes the Lighthouse contrast flag. */
-  --color-ink-faint: #565d75;
-  --color-line: #e5e7f2;
-  --color-line-strong: #d3d7e8;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f9fc;
+  --color-bg-invert: #1b2a4e;
+  --color-bg-invert-end: #2f5bea;
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-border: #e6eaf2;
+  --color-brand: #2f5bea;
+  --color-accent: #16a34a;
 
-  /* Brand — royal blue primary, matching the CoinMind logo (name kept as "forest") */
-  --color-forest: #2563eb;
-  --color-forest-deep: #1e40af;
-  --color-forest-soft: #e7effe;
-  /* Accent — green, matching the logo (name kept as "brass"); high contrast with
-     the blue and semantic for finance: returns / gains / positive money. */
-  --color-brass: #16a34a;
-  --color-brass-soft: #e6f6ec;
-  --color-berry: #db2777;
-
-  /* Fonts — Inter across the board (display + body) */
   --font-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  /* Rounding */
-  --radius-lg: 18px;
+  --radius-card: 12px;
+  --radius-input: 8px;
+  --radius-pill: 999px;
 }
 
 :root {
-  --background: var(--color-paper);
-  --foreground: var(--color-ink);
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
-* {
-  border-color: var(--color-line);
-}
+* { border-color: var(--color-border); }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-sans);
   font-feature-settings: "kern", "liga", "cv05";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Display serif — used sparingly for headings & brand */
-.font-display {
-  font-family: var(--font-display);
-  /* Headings render bold. NB: the `font-600` class used in JSX is a no-op in
-     Tailwind v4 (no numeric weight utility), so weight is set here instead. */
-  font-weight: 700;
-  font-optical-sizing: auto;
-  letter-spacing: -0.015em;
+.display { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+.h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+.h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+.body { font-size: 1rem; font-weight: 400; line-height: 1.65; }
+.small { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
+.eyebrow { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.section-pad { padding-top: clamp(3rem, 6vw, 6rem); padding-bottom: clamp(3rem, 6vw, 6rem); }
+.container-main { max-width: 1200px; margin: 0 auto; padding-inline: clamp(1rem, 2vw, 1.5rem); }
+.prose-container { max-width: 720px; margin: 0 auto; }
+
+.card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: transform 150ms ease, border-color 150ms ease; }
+.card:hover { transform: translateY(-2px); border-color: var(--color-brand); }
+.card-h-full { display: flex; flex-direction: column; height: 100%; }
+.card-h-full .card-body { flex: 1; }
+.card-h-full .card-footer { margin-top: auto; }
+
+.underline-stroke { position: relative; display: inline-block; }
+.underline-stroke::after {
+  content: ""; position: absolute; bottom: -4px; left: 0; width: 100%; height: 10px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%232F5BEA' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background-size: 100% 100%;
 }
 
-/* Thin top hairline accent used on cards/sections */
-.rule-brass {
-  background: linear-gradient(90deg, var(--color-brass) 0%, transparent 60%);
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float { animation: none; }
+  .card { transition: none; }
+  .card:hover { transform: none; }
 }
 
-/* Subtle paper grain / vignette for warmth (very light) */
-.paper-texture {
-  background-image: radial-gradient(
-    120% 120% at 50% 0%,
-    rgba(37, 99, 235, 0.06) 0%,
-    transparent 45%
-  );
-}
+.bg-gradient-invert { background: linear-gradient(135deg, var(--color-bg-invert), var(--color-bg-invert-end)); }
 
-/* Editorial link underline that feels hand-set */
-.link-editorial {
-  text-decoration: underline;
-  text-decoration-color: var(--color-line-strong);
-  text-underline-offset: 3px;
-  transition: text-decoration-color 0.15s ease, color 0.15s ease;
-}
-.link-editorial:hover {
-  text-decoration-color: var(--color-forest);
-  color: var(--color-forest);
-}
+input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--color-border); outline: none; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(47, 91, 234, 0.4); cursor: pointer; }
+input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; cursor: pointer; }
 
-/* Range input styling for calculators */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--color-line-strong);
-  outline: none;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--color-forest);
-  border: 3px solid #fff;
-  box-shadow: 0 1px 4px rgba(30, 64, 175, 0.4);
-  cursor: pointer;
-}
-input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--color-forest);
-  border: 3px solid #fff;
-  cursor: pointer;
-}
-
-/* Reveal-on-scroll — progressive enhancement, no layout shift */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: reveal-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-  @keyframes reveal-in {
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-}
-
-::selection {
-  background: var(--color-forest);
-  color: #fff;
-}
-
-/* Long-form article typography */
-.article {
-  color: var(--color-ink-soft);
-  font-size: 1.075rem;
-  line-height: 1.75;
-}
-.article > p {
-  margin-bottom: 1.35rem;
-}
-.article h2 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  color: var(--color-ink);
-  font-size: 1.6rem;
-  line-height: 1.2;
-  margin: 2.25rem 0 1rem;
-}
-.article strong {
-  color: var(--color-ink);
-  font-weight: 600;
-}
-.article em {
-  font-style: italic;
-}
-.article a {
-  color: var(--color-forest);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+::selection { background: var(--color-brand); color: #fff; }
+:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }

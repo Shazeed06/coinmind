@@ -1,67 +1,56 @@
 import Link from "next/link";
+import { Section, SectionHeader } from "@/components/ui";
 import { posts } from "@/lib/data";
-import { IconArrow } from "@/components/icons";
-import CoverArt from "@/components/CoverArt";
+import { BookOpen, ChevronRight } from "lucide-react";
 
-const ICON_GUIDES = [
-  { label: "How SIP Works", href: "/blog/sip-vs-lumpsum", cat: "Investing" },
-  { label: "Tax Saving Guide", href: "/blog/how-to-save-income-tax", cat: "Tax" },
-  { label: "Mutual Fund Guide", href: "/blog/mutual-funds-beginners-india", cat: "Investing" },
-  { label: "Budget Planning", href: "/blog/50-30-20-budget-rule", cat: "Personal Finance" },
-  { label: "Financial Freedom", href: "/blog/fire-retire-early-india", cat: "Personal Finance" },
-  { label: "Emergency Fund", href: "/blog/emergency-fund-guide", cat: "Personal Finance" },
-  { label: "Gold Investment", href: "/blog/gold-investment-guide-india", cat: "Investing" },
-  { label: "Credit Score", href: "/blog/how-to-improve-credit-score", cat: "Credit" },
-];
+const CATEGORIES = ["Investing", "Tax", "Personal Finance", "Credit", "AI + Money", "AI Tools"];
 
 export default function LearningHub() {
-  const featured = posts.slice(0, 3);
+  const guides = posts.slice(0, 3);
   return (
-    <section className="bg-paper-2 border-y border-line">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-brass">Learn</p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl font-600 text-ink leading-tight">
-              Guides That Build Financial Confidence
-            </h2>
-            <p className="mt-2 text-ink-soft max-w-xl">
-              Original, researched, and written in plain English. From beginner basics to advanced strategies.
-            </p>
-          </div>
-          <Link href="/blog" className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-forest hover:gap-2.5 transition-all">
-            All guides <IconArrow className="h-4 w-4" />
-          </Link>
+    <Section variant="white">
+      <SectionHeader
+        eyebrow="Guides"
+        title="Guides That Build Financial Confidence"
+        subline="Practical, jargon-free guides written for India."
+      />
+      <div className="grid lg:grid-cols-12 gap-8">
+        <div className="lg:col-span-8 space-y-6">
+          {guides.map((g, i) => (
+            <Link key={g.slug} href={`/blog/${g.slug}`} className={`card card-h-full ${i === 0 ? "lg:col-span-2" : ""}`}>
+              <div className="h-[200px] bg-bg-alt flex items-center justify-center rounded-t-card border-b border-border">
+                <BookOpen className="h-12 w-12 text-text-muted/30" />
+              </div>
+              <div className="p-5">
+                <p className="eyebrow text-brand">{g.category} · {g.readMinutes} min</p>
+                <h3 className="text-base font-semibold text-text mt-2 line-clamp-2">{g.title}</h3>
+                <p className="text-sm text-text-muted mt-1 line-clamp-2">{g.excerpt}</p>
+              </div>
+            </Link>
+          ))}
         </div>
-
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {featured.map((p) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col">
-                <div className="aspect-[16/10] rounded-xl overflow-hidden border border-line">
-                  <CoverArt seed={p.slug} variant={p.art.variant} palette={p.art.palette} className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]" />
-                </div>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-brass">{p.category}</p>
-                <h3 className="mt-0.5 font-display text-base font-600 leading-snug text-ink group-hover:text-forest transition-colors">{p.title}</h3>
-                <p className="mt-0.5 text-xs text-ink-faint">{p.readMinutes} min read</p>
-              </Link>
-            ))}
-          </div>
-
-          <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-wider text-ink-faint">Popular Topics</p>
-            {ICON_GUIDES.map((g) => (
-              <Link key={g.href} href={g.href} className="flex items-center justify-between rounded-xl border border-line bg-card px-4 py-3 transition-all hover:border-forest hover:shadow-sm group">
-                <div>
-                  <span className="text-xs text-ink-faint">{g.cat}</span>
-                  <p className="text-sm font-medium text-ink group-hover:text-forest transition-colors">{g.label}</p>
-                </div>
-                <IconArrow className="h-4 w-4 shrink-0 text-ink-faint group-hover:text-forest transition-colors" />
-              </Link>
-            ))}
+        <div className="lg:col-span-4">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-text-muted">Topics</h3>
+          <div className="mt-4 space-y-1">
+            {CATEGORIES.map((cat) => {
+              const count = posts.filter((p) => p.category === cat).length;
+              return (
+                <Link
+                  key={cat}
+                  href={`/blog?category=${cat.toLowerCase()}`}
+                  className="flex items-center justify-between rounded-card px-3 py-2.5 text-sm text-text hover:bg-bg-alt transition-colors"
+                >
+                  <span>{cat}</span>
+                  <span className="flex items-center gap-2">
+                    <span className="text-xs text-text-muted">{count}</span>
+                    <ChevronRight className="h-3.5 w-3.5 text-text-muted" />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

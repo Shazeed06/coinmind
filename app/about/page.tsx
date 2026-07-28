@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { site } from "@/lib/site";
 import { ABOUT } from "@/lib/seo";
+import { LegalPage } from "@/components/LegalPage";
 
 export const metadata: Metadata = ABOUT;
 
@@ -20,23 +20,9 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <header className="pt-14">
-        <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          About {site.name}
-        </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-          We build tools and write guides that help ordinary people make
-          confident decisions about money and technology — without the jargon,
-          the sales pitch, or the paywall.
-        </p>
-      </header>
-
-      <div className="article mt-10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LegalPage pill="About" title={`About ${site.name}`}>
         <h2>Why we exist</h2>
         <p>
           Good financial information is either buried in dense PDFs or wrapped in
@@ -85,7 +71,7 @@ export default function Page() {
           occasional affiliate links. This lets us keep every tool free and
           available to everyone, with no account required.
         </p>
-      </div>
-    </div>
+      </LegalPage>
+    </>
   );
 }

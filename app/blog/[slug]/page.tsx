@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import { posts } from "@/lib/data";
 import { site } from "@/lib/site";
-import { IconArrow } from "@/components/icons";
+import { ChevronRight, BookOpen, Calculator, ArrowRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
 import ArticleMarkdown from "@/components/ArticleMarkdown";
 import AuthorReviewBox from "@/components/AuthorReviewBox";
+import { Pill, Prose } from "@/components/ui";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -457,91 +458,97 @@ export default async function Page({
     });
   }
   const articleJson = { "@context": "https://schema.org", "@graph": graph };
+  const TOC = [{ id: `post-${post.slug}`, label: post.title }];
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJson) }}
-      />
+    <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJson) }} />
 
-      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">Home</Link>
-        <span>/</span>
-        <Link href="/blog" className="hover:text-forest">Guides</Link>
-      </nav>
+      <section className="section-pad pb-0 bg-white">
+        <div className="container-main">
+          <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-4" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-brand transition-colors">Home</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <Link href="/blog" className="hover:text-brand transition-colors">Guides</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="text-text">{post.title}</span>
+          </nav>
 
-      <header className="mt-6">
-        <p className="text-xs font-semibold uppercase tracking-wide text-brass">
-          {post.category} · {post.readMinutes} min read · {post.date}
-        </p>
-        <h1 className="mt-3 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.06]">
-          {post.title}
-        </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-          {post.excerpt}
-        </p>
-        <div className="mt-5 flex items-center gap-3 border-t border-line pt-5">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-forest text-white text-sm font-semibold">
-            {site.author.name.charAt(0)}
-          </span>
-          <div className="text-sm">
-            <p className="font-semibold text-ink">
-              Written by{" "}
-              <Link href="/about#author" className="hover:text-forest hover:underline">
-                {site.author.name}
-              </Link>
-              <span className="font-normal text-ink-faint"> · {site.author.credential}</span>
-            </p>
-            <p className="text-ink-faint">
-              <Link href="/editorial-standards" className="hover:text-forest underline underline-offset-2">
-                Reviewed for accuracy
-              </Link>{" "}
-              · Educational, not advice
-            </p>
+          <Pill>{post.category}</Pill>
+          <h1 className="h2 text-text mt-3 max-w-[720px]">{post.title}</h1>
+
+          <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white text-sm font-semibold">
+              {site.author.name.charAt(0)}
+            </span>
+            <div className="text-sm">
+              <p className="font-semibold text-text">
+                {site.author.name} <span className="font-normal text-text-muted">· {site.author.credential}</span>
+              </p>
+              <p className="text-text-muted">{post.date} · {post.readMinutes} min read</p>
+            </div>
           </div>
         </div>
-      </header>
-
-      <div className="mt-8 aspect-[2/1] rounded-2xl border border-line overflow-hidden">
-        <CoverArt
-          seed={post.slug}
-          variant={post.art.variant}
-          palette={post.art.palette}
-          label={post.category}
-          className="h-full w-full"
-        />
-      </div>
-
-      <article className="article mt-10">{body}</article>
-
-      <AuthorReviewBox className="mt-12" />
-
-      <div className="mt-6 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
-        <strong className="text-ink">A note on trust:</strong> this guide is for
-        education, not personalised financial advice. Figures are illustrative —
-        confirm anything that affects a real decision.
-      </div>
-
-      <section className="mt-16 mb-8">
-        <h2 className="font-display text-2xl font-600 text-ink">Keep reading</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          {more.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/blog/${p.slug}`}
-              className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-            >
-              <h3 className="font-display text-base font-600 text-ink leading-snug group-hover:text-forest transition-colors">
-                {p.title}
-              </h3>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-forest">
-                Read <IconArrow className="h-3.5 w-3.5" />
-              </span>
-            </Link>
-          ))}
-        </div>
       </section>
+
+      <div className="container-main section-pad pt-8">
+        <div className="h-[320px] rounded-card border border-border overflow-hidden bg-bg-alt flex items-center justify-center mb-8">
+          <BookOpen className="h-16 w-16 text-text-muted/20" />
+        </div>
+      </div>
+
+      <div className="container-main section-pad pt-0">
+        <div className="grid lg:grid-cols-12 gap-8">
+          <aside className="hidden lg:block lg:col-span-2">
+            <div className="sticky top-24 space-y-1">
+              <p className="eyebrow text-text-muted mb-3">On this page</p>
+              {TOC.map(({ id, label }) => (
+                <a key={id} href={`#${id}`} className="block text-sm py-1.5 border-l-2 border-border pl-3 text-text-muted hover:text-text hover:border-text-muted transition-colors">{label}</a>
+              ))}
+            </div>
+          </aside>
+
+          <article className="lg:col-span-7">
+            <Prose>
+              <p className="text-lg text-text-muted mb-8 leading-relaxed">{post.excerpt}</p>
+              {body}
+            </Prose>
+
+            <div className="mt-12 border-t border-border pt-8">
+              <AuthorReviewBox />
+            </div>
+
+            <div className="mt-6 p-5 rounded-card bg-bg-alt border border-border text-sm text-text-muted">
+              <strong className="text-text">A note on trust:</strong> this guide is for education, not personalised financial advice.
+              Figures are illustrative — confirm anything that affects a real decision.
+            </div>
+          </article>
+
+          <aside className="hidden lg:block lg:col-span-3">
+            <div className="sticky top-24 space-y-6">
+              <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent">
+                <Calculator className="h-8 w-8 text-brand" />
+                <p className="text-sm font-semibold text-text mt-3">Try Related Calculator</p>
+                <p className="text-xs text-text-muted mt-1">See the numbers for yourself</p>
+                <Link href="/calculators/sip" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline">
+                  Open <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              <div>
+                <p className="eyebrow text-text-muted mb-3">Keep reading</p>
+                <div className="space-y-3">
+                  {more.map((p) => (
+                    <Link key={p.slug} href={`/blog/${p.slug}`} className="block">
+                      <p className="text-sm text-text hover:text-brand transition-colors line-clamp-2">{p.title}</p>
+                      <p className="text-xs text-text-muted mt-0.5">{p.readMinutes} min read</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
     </div>
   );
 }

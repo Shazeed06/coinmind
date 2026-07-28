@@ -1,68 +1,71 @@
-import Link from "next/link";
-import { calculators, posts } from "@/lib/data";
-import { IconCheck, IconArrow } from "@/components/icons";
+import { Section, SectionHeader, Grid, Card, CardBody } from "@/components/ui";
+import { ShieldCheck, UserCheck, FileText, Eye, TrendingUp, Zap, Globe } from "lucide-react";
 
-const liveCalcs = calculators.filter((c) => c.live);
+const FEATURES = [
+  { icon: ShieldCheck, title: "RBI-Aligned", desc: "Formulas follow official guidelines" },
+  { icon: UserCheck, title: "Expert-Reviewed", desc: "Checked by CA (Final) candidate" },
+  { icon: FileText, title: "Post-Budget Updates", desc: "Updated within 48 hours of every Budget" },
+  { icon: Eye, title: "Privacy-First", desc: "All calculations run in your browser" },
+  { icon: TrendingUp, title: "No Login", desc: "No sign-up, no account, no email" },
+  { icon: Zap, title: "100% Free", desc: "Every tool is completely free, forever" },
+];
 
 export default function WhatIsCoinMind() {
   return (
-    <section className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20">
-      <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-brass">About</p>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-600 text-ink leading-tight">
-            More Than a Calculator Website
-          </h2>
-          <div className="mt-6 space-y-4 text-sm text-ink-soft leading-relaxed">
-            <p>
-              CoinMind is India&apos;s personal finance knowledge platform. We combine{" "}
-              <strong className="text-ink">{liveCalcs.length} free financial calculators</strong>,{" "}
-              <strong className="text-ink">{posts.length} expert-written guides</strong>, and{" "}
-              <strong className="text-ink">AI-powered planning tools</strong> into one place, so you can learn, calculate, compare, and plan every financial decision with confidence.
-            </p>
-            <p>
-              Most finance websites either give you a calculator or an article. We give you both — plus the context to understand what the numbers mean for your life. Whether you are calculating an{" "}
-              <Link href="/calculators/emi" className="text-forest underline underline-offset-2">EMI</Link>, planning a{" "}
-              <Link href="/calculators/sip" className="text-forest underline underline-offset-2">SIP</Link>, comparing{" "}
-              <Link href="/tax-regime-break-even" className="text-forest underline underline-offset-2">tax regimes</Link>, or learning about{" "}
-              <Link href="/blog/mutual-funds-beginners-india" className="text-forest underline underline-offset-2">mutual funds</Link> — you get the tool and the knowledge together.
-            </p>
-            <p>
-              CoinMind exists because financial literacy should not require a paid subscription, a sign-up form, or a finance degree. Every calculator is free. Every guide is original and fact-checked. No hidden charges, no upsells, no data collection.
-            </p>
-          </div>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            {[
-              "RBI-aligned formulas", "Expert-reviewed content", "Updated after every Budget",
-              "Privacy-first (no data leaves your browser)", "No login required", "100% free — forever",
-            ].map((s) => (
-              <span key={s} className="flex items-center gap-2 text-sm text-ink"><IconCheck className="h-4 w-4 text-forest shrink-0" />{s}</span>
-            ))}
-          </div>
-          <Link href="/about" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-forest hover:gap-2.5 transition-all">
-            Learn more about CoinMind <IconArrow className="h-4 w-4" />
-          </Link>
-        </div>
-
-        <div className="bg-paper-2 rounded-2xl border border-line p-6 sm:p-8">
-          <p className="text-sm font-semibold text-ink">Built for India, Used Worldwide</p>
-          <p className="mt-3 text-sm text-ink-soft leading-relaxed">
-            CoinMind serves readers in India, the United States, and the United Kingdom with region-aware calculators, currency support (₹, $, £), and locally relevant financial content. Our calculators handle Indian income tax slabs, US mortgage calculations, and UK tax scenarios.
+    <Section variant="alt">
+      <SectionHeader
+        eyebrow="More Than a Calculator Website"
+        title="More Than a Calculator Website"
+        subline="Built for India, used worldwide — with accuracy and transparency at our core."
+      />
+      <div className="grid lg:grid-cols-12 gap-8">
+        <div className="lg:col-span-7">
+          <p className="body text-text-muted leading-relaxed max-w-[680px]">
+            CoinMind is a free, privacy-first personal finance platform with 46 calculators, 44 tools, and expert guides.
+            Every formula is verified against official sources and updated after every Union Budget.
           </p>
-          <div className="mt-5 space-y-3">
-            {[
-              { n: "India", d: "Income tax, SIP, EMI, PPF, NPS, GST" },
-              { n: "United States", d: "Mortgage, 401(k), capital gains, sales tax" },
-              { n: "United Kingdom", d: "Mortgage, income tax, VAT, stamp duty" },
-            ].map((r) => (
-              <div key={r.n} className="flex items-center justify-between py-2 border-b border-line last:border-0">
-                <span className="text-sm font-medium text-ink">{r.n}</span>
-                <span className="text-xs text-ink-faint">{r.d}</span>
-              </div>
+          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+            {FEATURES.map((f) => (
+              <Card key={f.title} className="!p-4">
+                <CardBody>
+                  <div className="flex items-start gap-3">
+                    <f.icon className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm font-semibold text-text">{f.title}</p>
+                      <p className="text-sm text-text-muted">{f.desc}</p>
+                    </div>
+                  </div>
+                </CardBody>
+              </Card>
             ))}
           </div>
+        </div>
+        <div className="lg:col-span-5">
+          <Card className="!p-6 h-full">
+            <CardBody>
+              <div className="flex items-center gap-2 mb-4 text-brand">
+                <Globe className="h-5 w-5" />
+                <span className="eyebrow">Built for India</span>
+              </div>
+              <p className="text-sm text-text-muted mb-4">
+                Designed for Indian investors, taxpayers and savers — with support for INR, Indian tax regimes, and local financial products.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { country: "🇮🇳 India", desc: "Primary audience — 46 calculators with Indian tax, SIP, PPF, NPS support" },
+                  { country: "🇺🇸 United States", desc: "Mortgage, retirement, currency — USD support throughout" },
+                  { country: "🇬🇧 United Kingdom", desc: "GBP support, mortgage and VAT calculators" },
+                ].map(({ country, desc }) => (
+                  <div key={country} className="flex gap-3">
+                    <span className="text-lg shrink-0">{country}</span>
+                    <p className="text-sm text-text-muted">{desc}</p>
+                  </div>
+                ))}
+              </div>
+            </CardBody>
+          </Card>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

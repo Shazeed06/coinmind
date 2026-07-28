@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { calculators, posts } from "@/lib/data";
-import { site } from "@/lib/site";
 import { HOME } from "@/lib/seo";
 import StructuredData from "@/components/home/StructuredData";
 import HeroSection from "@/components/home/HeroSection";
@@ -17,11 +15,6 @@ import FinanceGlossary from "@/components/home/FinanceGlossary";
 import FaqSection from "@/components/home/FaqSection";
 import EditorialTrust from "@/components/home/EditorialTrust";
 import ClosingCta from "@/components/home/ClosingCta";
-
-const liveCalcs = calculators.filter((c) => c.live);
-const CALC_COUNT = liveCalcs.length;
-const GUIDE_COUNT = posts.length;
-const TOOL_COUNT = 44;
 
 export const metadata: Metadata = HOME;
 

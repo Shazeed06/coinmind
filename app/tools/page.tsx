@@ -1,356 +1,236 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
-import { site } from "@/lib/site";
-import { IconArrow, IconSparkle, IconShield } from "@/components/icons";
-import { TOOLS } from "@/lib/seo";
+import { useState, useMemo } from "react";
+import { Search, FileText, FileImage, FileCode, Shuffle, WandSparkles, Cpu, Calculator, Clock, Sparkles, Gamepad2, Wrench, Shield, Briefcase, GraduationCap, ArrowRight, Image, FileType, FileDown, FileUp, Scissors, RotateCw, Combine, Crop, PaintBucket, RefreshCw, Hash, TextSelect, Braces, CaseSensitive, Terminal, Key, QrCode, Ruler, Receipt, PiggyBank, DollarSign, Dices, Target, List, Repeat, Percent, BicepsFlexed, Baby, FileOutput } from "lucide-react";
+import { Pill, EmptyState } from "@/components/ui";
 
-export const metadata: Metadata = TOOLS;
-
-type Tool = {
-  slug: string;
-  href: string;
-  emoji: string;
-  title: string;
-  blurb: string;
-  tag: string;
-  featured?: boolean;
+const ICON_MAP: Record<string, typeof FileText> = {
+  "File Text": FileText, "Image": Image, "File Type": FileType, "Workflow": Shuffle,
+  "AI": WandSparkles, "Code": FileCode, "Calculator": Calculator, "Clock": Clock,
+  "Sparkles": Sparkles, "Game": Gamepad2, "Wrench": Wrench, "Shield": Shield,
+  "Business": Briefcase, "Students": GraduationCap, "PDF": FileDown, "Image Convert": RefreshCw,
+  "Image Editor": PaintBucket, "Image Utility": Crop, "Text": Hash, "Text Format": TextSelect,
+  "Dev": Braces, "Dev Tool": Terminal, "Security": Key, "Utility": QrCode,
+  "Convert": Ruler, "Money": DollarSign, "PDF Editor": Scissors, "PDF Tool": Combine,
+  "Fun": Dices, "Time": Clock, "Image Generate": Image,
 };
 
-const tools: Tool[] = [
-  {
-    slug: "resume-builder",
-    href: "/resume-builder",
-    emoji: "📄",
-    title: "Resume Builder",
-    blurb:
-      "Build a clean, professional CV with a live preview and one-click PDF download. Optional AI polish for your summary.",
-    tag: "Careers",
-    featured: true,
-  },
-  {
-    slug: "compress-image",
-    href: "/tools/compress-image",
-    emoji: "🗜️",
-    title: "Compress Image",
-    blurb:
-      "Shrink JPG, PNG and WebP file sizes with a quality slider. See the exact savings before you download.",
-    tag: "Image",
-  },
-  {
-    slug: "image-converter",
-    href: "/tools/image-converter",
-    emoji: "🔄",
-    title: "Image Converter",
-    blurb:
-      "Convert images between JPG, PNG and WebP in one click — great for uploads, sharing and the web.",
-    tag: "Image",
-  },
-  {
-    slug: "image-to-pdf",
-    href: "/tools/image-to-pdf",
-    emoji: "🖼️",
-    title: "Image to PDF",
-    blurb:
-      "Combine JPG and PNG images into a single PDF. Reorder pages, pick A4 or Letter, and export instantly.",
-    tag: "PDF",
-  },
-  {
-    slug: "merge-pdf",
-    href: "/tools/merge-pdf",
-    emoji: "📑",
-    title: "Merge PDF",
-    blurb:
-      "Join multiple PDF files into one document. Reorder and remove files, then download the merged PDF.",
-    tag: "PDF",
-  },
-  {
-    slug: "scientific-calculator",
-    href: "/tools/scientific-calculator",
-    emoji: "🧮",
-    title: "Scientific Calculator",
-    blurb:
-      "Trig, logs, powers, roots, factorials, π and more — a full scientific calculator in your browser.",
-    tag: "Calculators",
-  },
-  {
-    slug: "gpa-calculator",
-    href: "/tools/gpa-calculator",
-    emoji: "🎓",
-    title: "GPA & CGPA Calculator",
-    blurb:
-      "Work out your GPA (4.0) or CGPA (10-point), plus CGPA-to-percentage, from your grades and credits.",
-    tag: "Students",
-  },
-  {
-    slug: "color-picker",
-    href: "/tools/color-picker",
-    emoji: "🎨",
-    title: "Color Picker",
-    blurb:
-      "Pick a colour and get HEX, RGB and HSL in sync, with tints, shades and one-click copy.",
-    tag: "Dev",
-  },
-  {
-    slug: "character-counter",
-    href: "/tools/character-counter",
-    emoji: "🔡",
-    title: "Character Counter",
-    blurb:
-      "Live character, word and line counts with Twitter, SMS and meta-tag limits.",
-    tag: "Text",
-  },
-  {
-    slug: "ai-summarizer",
-    href: "/tools/ai-summarizer",
-    emoji: "📝",
-    title: "AI Text Summarizer",
-    blurb:
-      "Paste any article, essay or report and get an instant AI summary — short, medium or detailed.",
-    tag: "AI",
-  },
-  {
-    slug: "ai-paraphraser",
-    href: "/tools/ai-paraphraser",
-    emoji: "♻️",
-    title: "AI Paraphraser",
-    blurb:
-      "Reword and rephrase any text in seconds — fluent, formal, casual, simple, shorten or expand.",
-    tag: "AI",
-  },
-  {
-    slug: "ai-grammar-checker",
-    href: "/tools/ai-grammar-checker",
-    emoji: "✅",
-    title: "AI Grammar Checker",
-    blurb:
-      "Fix grammar, spelling and punctuation instantly with AI — a free Grammarly alternative.",
-    tag: "AI",
-  },
-  {
-    slug: "ai-email-writer",
-    href: "/tools/ai-email-writer",
-    emoji: "✉️",
-    title: "AI Email & Cover Letter Writer",
-    blurb:
-      "Describe it in a few words, pick a tone, and get a ready-to-send email or cover letter.",
-    tag: "AI",
-  },
-  {
-    slug: "ai-business-name-generator",
-    href: "/tools/ai-business-name-generator",
-    emoji: "💡",
-    title: "AI Business Name Generator",
-    blurb:
-      "Describe your idea, pick a style, and get 15 creative, brandable startup name ideas.",
-    tag: "AI",
-  },
-  {
-    slug: "ai-caption-generator",
-    href: "/tools/ai-caption-generator",
-    emoji: "#️⃣",
-    title: "AI Caption & Hashtag Generator",
-    blurb:
-      "Turn a one-line post idea into 5 platform-tuned captions plus matching hashtags.",
-    tag: "AI",
-  },
-  {
-    slug: "word-counter",
-    href: "/tools/word-counter",
-    emoji: "🔤",
-    title: "Word Counter",
-    blurb:
-      "Count words, characters, sentences and reading time live as you type.",
-    tag: "Text",
-  },
-  {
-    slug: "case-converter",
-    href: "/tools/case-converter",
-    emoji: "🔠",
-    title: "Case Converter",
-    blurb:
-      "Change text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.",
-    tag: "Text",
-  },
-  {
-    slug: "password-generator",
-    href: "/tools/password-generator",
-    emoji: "🔑",
-    title: "Password Generator",
-    blurb:
-      "Create strong, random passwords with a length slider — generated securely in your browser.",
-    tag: "Security",
-  },
-  {
-    slug: "qr-code-generator",
-    href: "/tools/qr-code-generator",
-    emoji: "🔳",
-    title: "QR Code Generator",
-    blurb:
-      "Create custom QR codes for any link or text — set size and colours, download PNG or SVG.",
-    tag: "Utility",
-  },
-  {
-    slug: "unit-converter",
-    href: "/tools/unit-converter",
-    emoji: "📏",
-    title: "Unit Converter",
-    blurb:
-      "Convert length, weight, temperature, area, volume, speed, time and digital storage.",
-    tag: "Convert",
-  },
-  {
-    slug: "invoice-generator",
-    href: "/tools/invoice-generator",
-    emoji: "🧾",
-    title: "Invoice Generator",
-    blurb:
-      "Create professional invoices with a live preview and one-click PDF — nothing uploaded.",
-    tag: "Business",
-  },
-  {
-    slug: "budget-planner",
-    href: "/tools/budget-planner",
-    emoji: "📊",
-    title: "Budget Planner",
-    blurb:
-      "Plan your month — see what's left to save, your savings rate and a live 50/30/20 breakdown.",
-    tag: "Money",
-  },
-  {
-    slug: "are-you-rich",
-    href: "/tools/are-you-rich",
-    emoji: "💸",
-    title: "Are You Rich?",
-    blurb:
-      "Enter your income and country to estimate your income percentile and see how you rank.",
-    tag: "Money",
-  },
-  { slug: "split-pdf", href: "/tools/split-pdf", emoji: "✂️", title: "Split PDF", blurb: "Extract a page range into a new PDF, or split every page into its own file.", tag: "PDF" },
-  { slug: "rotate-pdf", href: "/tools/rotate-pdf", emoji: "🔃", title: "Rotate PDF", blurb: "Turn every page or just one 90, 180 or 270 degrees, then download the fixed file.", tag: "PDF" },
-  { slug: "organize-pdf", href: "/tools/organize-pdf", emoji: "🗂️", title: "Organize PDF", blurb: "Reorder pages and remove the ones you don't need, then rebuild a clean PDF.", tag: "PDF" },
-  { slug: "resize-image", href: "/tools/resize-image", emoji: "📐", title: "Resize Image", blurb: "Change an image's width and height in pixels or by percentage, with aspect lock.", tag: "Image" },
-  { slug: "crop-image", href: "/tools/crop-image", emoji: "🔲", title: "Crop Image", blurb: "Trim a photo with a draggable crop box or exact pixel values, plus common ratios.", tag: "Image" },
-  { slug: "rotate-image", href: "/tools/rotate-image", emoji: "↪️", title: "Rotate & Flip Image", blurb: "Rotate 90° left or right and flip images horizontally or vertically, with a live preview.", tag: "Image" },
-  { slug: "favicon-generator", href: "/tools/favicon-generator", emoji: "🔖", title: "Favicon Generator", blurb: "Turn any logo into favicon PNGs at every size — 16 to 512 px — with the HTML tags.", tag: "Image" },
-  { slug: "meme-generator", href: "/tools/meme-generator", emoji: "😂", title: "Meme Generator", blurb: "Add classic Impact top and bottom text to any image, then download the meme.", tag: "Image" },
-  { slug: "image-to-base64", href: "/tools/image-to-base64", emoji: "🧬", title: "Image to Base64", blurb: "Encode any image as a data URI with ready-to-copy HTML and CSS snippets.", tag: "Image" },
-  { slug: "number-to-words", href: "/tools/number-to-words", emoji: "🔢", title: "Number to Words", blurb: "Turn any number into words — Indian Lakh/Crore or International, with currency wording.", tag: "Text" },
-  { slug: "lorem-ipsum-generator", href: "/tools/lorem-ipsum-generator", emoji: "📃", title: "Lorem Ipsum Generator", blurb: "Generate placeholder text by paragraphs, sentences or words — copy in one click.", tag: "Text" },
-  { slug: "text-compare", href: "/tools/text-compare", emoji: "⚖️", title: "Text Compare", blurb: "Compare two blocks of text line by line and see added, removed and unchanged lines.", tag: "Text" },
-  { slug: "remove-duplicate-lines", href: "/tools/remove-duplicate-lines", emoji: "🧹", title: "Remove Duplicate Lines", blurb: "Delete repeated lines from a list, with case-insensitive matching, trimming and sorting.", tag: "Text" },
-  { slug: "json-formatter", href: "/tools/json-formatter", emoji: "🧩", title: "JSON Formatter", blurb: "Beautify, minify and validate JSON with 2/4-space indent and precise error locations.", tag: "Dev" },
-  { slug: "base64", href: "/tools/base64", emoji: "🔡", title: "Base64 Encode / Decode", blurb: "Convert text to and from Base64 with full Unicode and emoji support.", tag: "Dev" },
-  { slug: "url-encode-decode", href: "/tools/url-encode-decode", emoji: "🔗", title: "URL Encode / Decode", blurb: "Percent-encode and decode URLs and query strings with encodeURIComponent or encodeURI.", tag: "Dev" },
-  { slug: "stopwatch-timer", href: "/tools/stopwatch-timer", emoji: "⏱️", title: "Stopwatch & Timer", blurb: "A precise online stopwatch with lap times, plus a countdown timer with an alarm.", tag: "Time" },
-  { slug: "countdown-to-date", href: "/tools/countdown-to-date", emoji: "📅", title: "Countdown to Date", blurb: "Count down the days, hours, minutes and seconds to any date or big event.", tag: "Time" },
-  { slug: "random-wheel", href: "/tools/random-wheel", emoji: "🎡", title: "Random Wheel Picker", blurb: "Enter your options, spin a colourful wheel and let it land on a random winner.", tag: "Fun" },
-  { slug: "coin-flip", href: "/tools/coin-flip", emoji: "🎲", title: "Coin Flip & Dice", blurb: "Flip a coin with a running heads/tails count, or roll 1–6 dice from d4 to d20.", tag: "Fun" },
-  { slug: "random-number-generator", href: "/tools/random-number-generator", emoji: "🎯", title: "Random Number Generator", blurb: "Generate fair random numbers in any range — choose how many and allow or block duplicates.", tag: "Fun" },
+type Tool = {
+  slug: string; href: string; title: string; blurb: string; tag: string; category: string;
+};
+
+const TOOLS: Tool[] = [
+  { slug: "resume-builder", href: "/resume-builder", title: "Resume Builder", blurb: "Build a clean, professional CV with live preview and one-click PDF download.", tag: "Careers", category: "Business" },
+  { slug: "compress-image", href: "/tools/compress-image", title: "Compress Image", blurb: "Shrink JPG, PNG and WebP file sizes with a quality slider.", tag: "Image", category: "Image" },
+  { slug: "image-converter", href: "/tools/image-converter", title: "Image Converter", blurb: "Convert images between JPG, PNG and WebP in one click.", tag: "Image", category: "Image" },
+  { slug: "image-to-pdf", href: "/tools/image-to-pdf", title: "Image to PDF", blurb: "Combine JPG and PNG images into a single PDF.", tag: "PDF", category: "PDF" },
+  { slug: "merge-pdf", href: "/tools/merge-pdf", title: "Merge PDF", blurb: "Join multiple PDF files into one document.", tag: "PDF", category: "PDF" },
+  { slug: "split-pdf", href: "/tools/split-pdf", title: "Split PDF", blurb: "Extract a page range into a new PDF.", tag: "PDF", category: "PDF" },
+  { slug: "rotate-pdf", href: "/tools/rotate-pdf", title: "Rotate PDF", blurb: "Turn pages 90, 180 or 270 degrees.", tag: "PDF", category: "PDF" },
+  { slug: "organize-pdf", href: "/tools/organize-pdf", title: "Organize PDF", blurb: "Reorder and remove pages from a PDF.", tag: "PDF", category: "PDF" },
+  { slug: "resize-image", href: "/tools/resize-image", title: "Resize Image", blurb: "Change image dimensions by pixels or percentage.", tag: "Image", category: "Image" },
+  { slug: "crop-image", href: "/tools/crop-image", title: "Crop Image", blurb: "Trim a photo with a draggable crop box.", tag: "Image", category: "Image" },
+  { slug: "rotate-image", href: "/tools/rotate-image", title: "Rotate & Flip Image", blurb: "Rotate and flip images with a live preview.", tag: "Image", category: "Image" },
+  { slug: "favicon-generator", href: "/tools/favicon-generator", title: "Favicon Generator", blurb: "Turn any logo into favicon PNGs at every size.", tag: "Image", category: "Image" },
+  { slug: "meme-generator", href: "/tools/meme-generator", title: "Meme Generator", blurb: "Add classic Impact text to any image.", tag: "Fun", category: "Fun" },
+  { slug: "image-to-base64", href: "/tools/image-to-base64", title: "Image to Base64", blurb: "Encode any image as a data URI.", tag: "Image", category: "Image" },
+  { slug: "ai-summarizer", href: "/tools/ai-summarizer", title: "AI Text Summarizer", blurb: "Paste any article and get an instant AI summary.", tag: "AI", category: "AI" },
+  { slug: "ai-paraphraser", href: "/tools/ai-paraphraser", title: "AI Paraphraser", blurb: "Reword and rephrase any text in seconds.", tag: "AI", category: "AI" },
+  { slug: "ai-grammar-checker", href: "/tools/ai-grammar-checker", title: "AI Grammar Checker", blurb: "Fix grammar, spelling and punctuation instantly.", tag: "AI", category: "AI" },
+  { slug: "ai-email-writer", href: "/tools/ai-email-writer", title: "AI Email Writer", blurb: "Generate ready-to-send emails and cover letters.", tag: "AI", category: "AI" },
+  { slug: "ai-business-name-generator", href: "/tools/ai-business-name-generator", title: "AI Business Name Generator", blurb: "Get creative startup name ideas.", tag: "AI", category: "AI" },
+  { slug: "ai-caption-generator", href: "/tools/ai-caption-generator", title: "AI Caption Generator", blurb: "Create platform-tuned captions and hashtags.", tag: "AI", category: "AI" },
+  { slug: "scientific-calculator", href: "/tools/scientific-calculator", title: "Scientific Calculator", blurb: "Trig, logs, powers, roots — a full scientific calculator.", tag: "Calculators", category: "Calculator" },
+  { slug: "gpa-calculator", href: "/tools/gpa-calculator", title: "GPA Calculator", blurb: "Work out GPA and CGPA from your grades.", tag: "Students", category: "Students" },
+  { slug: "color-picker", href: "/tools/color-picker", title: "Color Picker", blurb: "Pick colours and get HEX, RGB and HSL values.", tag: "Dev", category: "Dev" },
+  { slug: "character-counter", href: "/tools/character-counter", title: "Character Counter", blurb: "Live character, word and line counts.", tag: "Text", category: "Text" },
+  { slug: "word-counter", href: "/tools/word-counter", title: "Word Counter", blurb: "Count words, characters, sentences and reading time.", tag: "Text", category: "Text" },
+  { slug: "case-converter", href: "/tools/case-converter", title: "Case Converter", blurb: "Change text case — upper, lower, title, camelCase.", tag: "Text", category: "Text" },
+  { slug: "number-to-words", href: "/tools/number-to-words", title: "Number to Words", blurb: "Turn numbers into words in Lakh/Crore format.", tag: "Text", category: "Text" },
+  { slug: "lorem-ipsum-generator", href: "/tools/lorem-ipsum-generator", title: "Lorem Ipsum", blurb: "Generate placeholder text instantly.", tag: "Text", category: "Text" },
+  { slug: "text-compare", href: "/tools/text-compare", title: "Text Compare", blurb: "Compare two texts side-by-side.", tag: "Text", category: "Text" },
+  { slug: "remove-duplicate-lines", href: "/tools/remove-duplicate-lines", title: "Remove Duplicate Lines", blurb: "Delete repeated lines from a list.", tag: "Text", category: "Text" },
+  { slug: "json-formatter", href: "/tools/json-formatter", title: "JSON Formatter", blurb: "Beautify, minify and validate JSON.", tag: "Dev", category: "Dev" },
+  { slug: "base64", href: "/tools/base64", title: "Base64 Encode/Decode", blurb: "Convert text to and from Base64.", tag: "Dev", category: "Dev" },
+  { slug: "url-encode-decode", href: "/tools/url-encode-decode", title: "URL Encode/Decode", blurb: "Percent-encode and decode URLs.", tag: "Dev", category: "Dev" },
+  { slug: "password-generator", href: "/tools/password-generator", title: "Password Generator", blurb: "Create strong, random passwords.", tag: "Security", category: "Security" },
+  { slug: "qr-code-generator", href: "/tools/qr-code-generator", title: "QR Code Generator", blurb: "Create custom QR codes for any link.", tag: "Utility", category: "Utility" },
+  { slug: "unit-converter", href: "/tools/unit-converter", title: "Unit Converter", blurb: "Convert length, weight, temperature, area and more.", tag: "Convert", category: "Convert" },
+  { slug: "invoice-generator", href: "/tools/invoice-generator", title: "Invoice Generator", blurb: "Create professional invoices with live preview.", tag: "Business", category: "Business" },
+  { slug: "budget-planner", href: "/tools/budget-planner", title: "Budget Planner", blurb: "Plan your month with a 50/30/20 breakdown.", tag: "Money", category: "Business" },
+  { slug: "are-you-rich", href: "/tools/are-you-rich", title: "Are You Rich?", blurb: "See your income percentile by country.", tag: "Money", category: "Business" },
+  { slug: "stopwatch-timer", href: "/tools/stopwatch-timer", title: "Stopwatch & Timer", blurb: "Precise stopwatch with lap times and countdown.", tag: "Time", category: "Time" },
+  { slug: "countdown-to-date", href: "/tools/countdown-to-date", title: "Countdown to Date", blurb: "Count down to any date or event.", tag: "Time", category: "Time" },
+  { slug: "random-wheel", href: "/tools/random-wheel", title: "Random Wheel Picker", blurb: "Spin a wheel to pick a random winner.", tag: "Fun", category: "Fun" },
+  { slug: "coin-flip", href: "/tools/coin-flip", title: "Coin Flip & Dice", blurb: "Flip a coin or roll 1-6 dice.", tag: "Fun", category: "Fun" },
+  { slug: "random-number-generator", href: "/tools/random-number-generator", title: "Random Number", blurb: "Generate random numbers in any range.", tag: "Fun", category: "Fun" },
 ];
 
+const CATEGORIES = ["All", "AI", "Image", "PDF", "Text", "Dev", "Business", "Security", "Utility", "Convert", "Time", "Fun", "Students", "Calculator"] as const;
+
+const CAT_ICONS: Record<string, typeof Sparkles> = {
+  AI: WandSparkles, Image, PDF: FileDown, Text: Hash, Dev: FileCode, Business: Briefcase,
+  Security: Shield, Utility: Wrench, Convert: Ruler, Time: Clock, Fun: Gamepad2,
+  Students: GraduationCap, Calculator: Calculator,
+};
+
+function padRow<T>(items: T[], cols: number): (T | null)[] {
+  const r = items.length % cols;
+  return r === 0 ? items : [...items, ...Array(cols - r).fill(null)];
+}
+
 export default function Page() {
-  const featured = tools.filter((t) => t.featured);
-  const rest = tools.filter((t) => !t.featured);
+  const [activeCat, setActiveCat] = useState("All");
+  const [search, setSearch] = useState("");
+
+  const filtered = useMemo(() => {
+    return TOOLS.filter((t) => {
+      if (activeCat !== "All" && t.category !== activeCat) return false;
+      if (search) {
+        const q = search.toLowerCase();
+        return t.title.toLowerCase().includes(q) || t.blurb.toLowerCase().includes(q);
+      }
+      return true;
+    });
+  }, [activeCat, search]);
+
+  const grouped = useMemo(() => {
+    const map = new Map<string, Tool[]>();
+    const cats = activeCat === "All" ? CATEGORIES.slice(1) : [activeCat];
+    for (const cat of cats) {
+      const items = filtered.filter((t) => t.category === cat);
+      if (items.length) map.set(cat, items);
+    }
+    return map;
+  }, [filtered, activeCat]);
+
+  const resumeTool = TOOLS.find((t) => t.slug === "resume-builder");
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <header className="pt-14 pb-8 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          <IconSparkle className="h-3.5 w-3.5" /> Free tools
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Premium tools, completely free
-        </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-          The utilities other sites lock behind sign-ups and paywalls — a resume
-          builder, PDF merger and image tools — free and instant. Everything runs
-          in your browser, so your files are never uploaded.
-        </p>
-        <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-line bg-card px-3.5 py-2 text-sm text-ink-soft">
-          <IconShield className="h-4 w-4 text-brass" />
-          100% private — your files never leave your device
-        </p>
-      </header>
-
-      {/* Featured */}
-      {featured.map((t) => (
-        <Link
-          key={t.slug}
-          href={t.href}
-          className="group mb-8 block rounded-2xl border border-line bg-gradient-to-br from-forest-soft to-card p-6 sm:p-8 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(30,64,175,0.4)]"
-        >
-          <div className="flex items-start gap-5">
-            <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-card text-2xl shadow-sm">
-              {t.emoji}
-            </span>
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <h2 className="font-display text-2xl font-600 text-ink">
-                  {t.title}
-                </h2>
-                <span className="rounded-full bg-forest px-2.5 py-0.5 text-[11px] font-semibold text-white">
-                  Popular
-                </span>
-              </div>
-              <p className="mt-2 max-w-xl text-ink-soft leading-relaxed">
-                {t.blurb}
-              </p>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-                Open {t.title}{" "}
-                <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </div>
+    <div>
+      <section className="section-pad bg-white">
+        <div className="container-main">
+          <Pill>Free Tools</Pill>
+          <h1 className="h1 text-text mt-3">Premium Tools, Completely Free</h1>
+          <p className="body text-text-muted mt-3 max-w-[640px]">
+            44 free browser tools — resume builder, PDF merger, image editor, AI utilities and more. No sign-up, no upload.
+          </p>
+          <div className="mt-4 inline-flex items-center gap-2 rounded-pill border border-border bg-bg-alt px-4 py-2 text-sm text-text-muted">
+            <Shield className="h-4 w-4 text-brand" />
+            100% private — your files never leave your device
           </div>
-        </Link>
-      ))}
+        </div>
+      </section>
 
-      {/* Grid */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 mb-14">
-        {rest.map((t) => (
-          <Link
-            key={t.slug}
-            href={t.href}
-            className="group rounded-2xl border border-line bg-card p-6 transition-all hover:border-forest hover:shadow-[0_16px_36px_-24px_rgba(30,64,175,0.4)]"
-          >
-            <div className="flex items-center justify-between">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-forest-soft text-xl">
-                {t.emoji}
-              </span>
-              <span className="rounded-full bg-paper-2 px-2.5 py-1 text-[11px] font-semibold text-ink-faint">
-                {t.tag}
-              </span>
-            </div>
-            <h3 className="mt-4 font-display text-lg font-600 text-ink">
-              {t.title}
-            </h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
-              {t.blurb}
-            </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-              Open{" "}
-              <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </span>
-          </Link>
-        ))}
+      {resumeTool && (
+        <section className="pb-12 bg-white">
+          <div className="container-main">
+            <Link href={resumeTool.href} className="card overflow-hidden block hover:border-brand">
+              <div className="grid md:grid-cols-12">
+                <div className="md:col-span-7 p-8 flex flex-col justify-center">
+                  <div className="flex items-center gap-2">
+                    <Pill>Popular</Pill>
+                    <span className="eyebrow text-text-muted">{resumeTool.tag}</span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-text mt-3">{resumeTool.title}</h2>
+                  <p className="text-sm text-text-muted mt-2">{resumeTool.blurb}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+                    Open {resumeTool.title} <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+                <div className="md:col-span-5 bg-bg-alt flex items-center justify-center min-h-[200px]">
+                  <FileText className="h-16 w-16 text-text-muted/30" />
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+        <div className="container-main py-3 space-y-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search tools..."
+              className="w-full h-10 pl-10 pr-4 rounded-input border border-border text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
+            />
+          </div>
+          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+            {CATEGORIES.map((cat) => {
+              const count = cat === "All" ? TOOLS.length : TOOLS.filter((t) => t.category === cat).length;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCat(cat)}
+                  className={`whitespace-nowrap rounded-pill px-3 py-1.5 text-sm font-medium transition-colors ${
+                    activeCat === cat
+                      ? "bg-brand text-white"
+                      : "bg-bg-alt text-text-muted hover:text-text border border-border"
+                  }`}
+                >
+                  {cat} <span className="ml-1 text-xs opacity-60">({count})</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      {/* Cross-link */}
-      <section className="mb-16 rounded-2xl border border-line bg-paper-2 p-6 sm:p-8">
-        <h2 className="font-display text-xl font-600 text-ink">
-          Looking for money tools?
-        </h2>
-        <p className="mt-2 text-ink-soft">
-          Try our free{" "}
-          <Link href="/calculators" className="font-semibold text-forest hover:underline">
-            financial calculators
-          </Link>{" "}
-          (SIP, EMI, income tax and more) or ask the{" "}
-          <Link href="/ai-assistant" className="font-semibold text-forest hover:underline">
-            AI money assistant
-          </Link>{" "}
-          anything about saving, investing and taxes.
-        </p>
+      <section className="section-pad bg-bg-alt">
+        <div className="container-main">
+          {filtered.length === 0 ? (
+            <EmptyState message="No tools match your filters." onClear={() => { setSearch(""); setActiveCat("All"); }} />
+          ) : (
+            <div className="space-y-16">
+              {[...grouped.entries()].map(([cat, items]) => {
+                const CatIcon = CAT_ICONS[cat] || Wrench;
+                const cols = ["AI", "Image", "PDF", "Text", "Dev", "Business", "Utility", "Convert", "Time", "Fun"].includes(cat) ? 4 : 3;
+                return (
+                  <section key={cat}>
+                    <div className="flex items-center gap-2 mb-6">
+                      <CatIcon className="h-5 w-5 text-brand" />
+                      <h2 className="text-base font-semibold text-text">{cat}</h2>
+                    </div>
+                    <div className={`grid sm:grid-cols-2 gap-4`} style={{ gridTemplateColumns: cols === 4 ? "repeat(4, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))" }}>
+                      {(items.length > cols ? padRow(items, cols) : items).map((t, i) => {
+                        if (!t) return <div key={`spacer-${i}`} className="hidden sm:block" />;
+                        const Icon = ICON_MAP[t.tag] || Wrench;
+                        return (
+                          <Link key={t.slug} href={t.href} className="card card-h-full p-4">
+                            <div className="flex items-start justify-between">
+                              <Icon className="h-8 w-8 text-brand" />
+                              <span className="eyebrow text-text-muted">{t.tag}</span>
+                            </div>
+                            <CardBody>
+                              <h3 className="text-sm font-semibold text-text mt-2">{t.title}</h3>
+                              <p className="text-xs text-text-muted mt-1 line-clamp-2">{t.blurb}</p>
+                            </CardBody>
+                            <CardFooter>
+                              <span className="text-xs font-medium text-brand">Open</span>
+                            </CardFooter>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );
+}
+
+function CardBody({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`card-body ${className}`}>{children}</div>;
+}
+function CardFooter({ children }: { children: React.ReactNode }) {
+  return <div className="card-footer pt-3">{children}</div>;
 }

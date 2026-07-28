@@ -83,7 +83,7 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icon.svg" />
       </head>
-      <body className="min-h-full flex flex-col paper-texture">
+      <body className="min-h-full flex flex-col">
         <GtmNoScript id={site.gtmId} />
         <SiteJsonLd />
         <GlobalSeo pathname={pathname} />

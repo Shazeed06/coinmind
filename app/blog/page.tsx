@@ -1,83 +1,157 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { posts } from "@/lib/data";
-import { IconArrow } from "@/components/icons";
-import CoverArt from "@/components/CoverArt";
-import { BLOG } from "@/lib/seo";
+"use client";
 
-export const metadata: Metadata = BLOG;
+import Link from "next/link";
+import { useState, useMemo } from "react";
+import { posts } from "@/lib/data";
+import { BookOpen, ArrowRight, Search } from "lucide-react";
+import { Pill, EmptyState } from "@/components/ui";
+
+const ALL_CATEGORIES = ["All", "Investing", "Tax", "Credit", "Personal Finance", "AI + Money", "AI Tools", "Productivity"] as const;
+const PER_PAGE = 12;
 
 export default function Page() {
-  const [lead, ...rest] = posts;
-  return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6">
-      <header className="pt-14 pb-10 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          Guides
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Money & AI, explained clearly
-        </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-          No filler, no fake urgency — just practical guides that help you keep
-          more of your money and get more done with AI.
-        </p>
-      </header>
+  const [activeCat, setActiveCat] = useState("All");
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
-      {/* Lead post */}
-      <Link
-        href={`/blog/${lead.slug}`}
-        className="group block rounded-3xl border border-line bg-card overflow-hidden"
-      >
-        <div className="grid md:grid-cols-2">
-          <div className="min-h-[220px] overflow-hidden">
-            <CoverArt
-              seed={lead.slug}
-              variant={lead.art.variant}
-              palette={lead.art.palette}
-              label={lead.category}
-              className="h-full w-full"
+  const [lead, ...rest] = posts;
+
+  const filtered = useMemo(() => {
+    return rest.filter((p) => {
+      if (activeCat !== "All" && p.category !== activeCat) return false;
+      if (search) {
+        const q = search.toLowerCase();
+        return p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q);
+      }
+      return true;
+    });
+  }, [activeCat, search, rest]);
+
+  const paginated = filtered.slice(0, page * PER_PAGE);
+  const hasMore = paginated.length < filtered.length;
+
+  const categoryCount = useMemo(() => {
+    const map = new Map<string, number>();
+    posts.forEach((p) => map.set(p.category, (map.get(p.category) || 0) + 1));
+    return map;
+  }, []);
+
+  return (
+    <div>
+      <section className="section-pad bg-white">
+        <div className="container-main">
+          <Pill>Guides</Pill>
+          <h1 className="h1 text-text mt-3">Money & AI, Explained Clearly</h1>
+          <p className="body text-text-muted mt-3 max-w-[640px]">
+            Practical, jargon-free guides on personal finance, investing, mutual funds, income tax, and working smarter with AI.
+          </p>
+        </div>
+      </section>
+
+      {lead && (
+        <section className="pb-12 bg-white">
+          <div className="container-main">
+            <Link href={`/blog/${lead.slug}`} className="card overflow-hidden block hover:border-brand">
+              <div className="grid md:grid-cols-12">
+                <div className="md:col-span-7 h-[280px] bg-bg-alt flex items-center justify-center">
+                  <BookOpen className="h-16 w-16 text-text-muted/20" />
+                </div>
+                <div className="md:col-span-5 p-8 flex flex-col justify-center">
+                  <p className="eyebrow text-brand">{lead.category} · {lead.readMinutes} min read</p>
+                  <h2 className="text-2xl font-bold text-text mt-2 leading-tight">{lead.title}</h2>
+                  <p className="text-sm text-text-muted mt-3 line-clamp-3">{lead.excerpt}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+                    Read guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+        <div className="container-main py-3 space-y-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+              placeholder="Search guides..."
+              className="w-full h-10 pl-10 pr-4 rounded-input border border-border text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
             />
           </div>
-          <div className="p-8 sm:p-10 flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-wide text-brass">
-              {lead.category} · {lead.readMinutes} min read
-            </p>
-            <h2 className="mt-3 font-display text-3xl font-600 text-ink leading-tight group-hover:text-forest transition-colors">
-              {lead.title}
-            </h2>
-            <p className="mt-3 text-ink-soft leading-relaxed">{lead.excerpt}</p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-forest">
-              Read guide{" "}
-              <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </span>
+          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+            {ALL_CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => { setActiveCat(cat); setPage(1); }}
+                className={`whitespace-nowrap rounded-pill px-3 py-1.5 text-sm font-medium transition-colors ${
+                  activeCat === cat
+                    ? "bg-brand text-white"
+                    : "bg-bg-alt text-text-muted hover:text-text border border-border"
+                }`}
+              >
+                {cat}
+                {cat !== "All" && (
+                  <span className="ml-1.5 text-xs opacity-60">({categoryCount.get(cat) || 0})</span>
+                )}
+              </button>
+            ))}
           </div>
         </div>
-      </Link>
-
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {rest.map((p) => (
-          <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col">
-            <div className="aspect-[16/10] rounded-2xl border border-line overflow-hidden">
-              <CoverArt
-                seed={p.slug}
-                variant={p.art.variant}
-                palette={p.art.palette}
-                className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-            </div>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-brass">
-              {p.category} · {p.readMinutes} min
-            </p>
-            <h3 className="mt-1.5 font-display text-xl font-600 leading-snug text-ink group-hover:text-forest transition-colors">
-              {p.title}
-            </h3>
-            <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-              {p.excerpt}
-            </p>
-          </Link>
-        ))}
       </div>
+
+      <section className="section-pad bg-bg-alt">
+        <div className="container-main">
+          {paginated.length === 0 ? (
+            <EmptyState message="No guides match your filters." onClear={() => { setSearch(""); setActiveCat("All"); }} />
+          ) : (
+            <>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {paginated.map((p) => (
+                  <Link key={p.slug} href={`/blog/${p.slug}`} className="card card-h-full overflow-hidden">
+                    <div className="h-[200px] bg-bg-alt flex items-center justify-center">
+                      <BookOpen className="h-12 w-12 text-text-muted/20" />
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <p className="eyebrow text-brand">{p.category} · {p.readMinutes} min</p>
+                      <h3 className="text-base font-semibold text-text mt-2 line-clamp-2">{p.title}</h3>
+                      <p className="text-sm text-text-muted mt-1 line-clamp-2 flex-1">{p.excerpt}</p>
+                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand">
+                        Read <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {hasMore && (
+                <div className="mt-12 text-center">
+                  <button
+                    onClick={() => setPage((p) => p + 1)}
+                    className="inline-flex items-center gap-2 rounded-pill border border-border px-6 py-3 text-sm font-medium text-text hover:border-brand hover:text-brand transition-colors"
+                  >
+                    Load more guides ({filtered.length - paginated.length} remaining)
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </section>
+
+      <section className="section-pad bg-gradient-invert text-white text-center">
+        <div className="container-main max-w-[640px]">
+          <h2 className="text-2xl font-bold">Stay Updated</h2>
+          <p className="text-white/60 mt-3 text-sm">Get the latest guides and money tips delivered to your inbox.</p>
+          <form className="mt-6 flex gap-3 max-w-[480px] mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <input type="email" placeholder="your@email.com" className="flex-1 h-11 rounded-input px-4 text-sm text-text bg-white outline-none" />
+            <button type="submit" className="h-11 rounded-pill bg-white text-brand px-6 text-sm font-semibold hover:opacity-90 transition-opacity">Subscribe</button>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }

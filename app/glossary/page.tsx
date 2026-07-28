@@ -1,145 +1,103 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { useState, useMemo } from "react";
 import { site } from "@/lib/site";
-import {
-  GLOSSARY,
-  GLOSSARY_CATEGORIES,
-  type GlossaryCategory,
-} from "@/lib/glossary";
-import { IconArrow } from "@/components/icons";
-import { GLOSSARY as GLOSSARY_SEO } from "@/lib/seo";
+import { GLOSSARY, GLOSSARY_CATEGORIES } from "@/lib/glossary";
+import { Search, ArrowRight } from "lucide-react";
+import { Pill, Breadcrumb } from "@/components/ui";
 
-export const metadata: Metadata = GLOSSARY_SEO;
-
-// One-line intro shown under each category heading.
-const CATEGORY_BLURB: Record<GlossaryCategory, string> = {
-  Investing: "Funds, returns and the building blocks of growing your money.",
-  Tax: "Deductions, indirect taxes and what the taxman actually takes.",
-  Credit: "Scores and the numbers lenders judge you by.",
-  Banking: "Deposits, loans, insurance and everyday money.",
-  AI: "The language of artificial intelligence, explained simply.",
-};
+const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 export default function Page() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "DefinedTermSet",
-        name: "CoinMind Finance & AI Glossary",
-        description:
-          "Plain-English definitions of key finance and AI terms — SIP, EMI, PPF, NPS, CAGR, LLM and more — each with a simple example and a link to the right tool.",
-        url: `${site.url}/glossary`,
-        hasDefinedTerm: GLOSSARY.map((t) => ({
-          "@type": "DefinedTerm",
-          name: t.term,
-          description: t.short,
-          url: `${site.url}/glossary/${t.slug}`,
-        })),
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Glossary",
-            item: `${site.url}/glossary`,
-          },
-        ],
-      },
-    ],
-  };
+  const [search, setSearch] = useState("");
+  const [activeLetter, setActiveLetter] = useState("");
+
+  const filtered = useMemo(() => {
+    let result = GLOSSARY;
+    if (search) {
+      const q = search.toLowerCase();
+      result = result.filter((t) => t.term.toLowerCase().includes(q) || t.short.toLowerCase().includes(q));
+    }
+    if (activeLetter) {
+      result = result.filter((t) => t.term.startsWith(activeLetter));
+    }
+    return result;
+  }, [search, activeLetter]);
+
+  const grouped = useMemo(() => {
+    const map = new Map<string, typeof GLOSSARY>();
+    for (const cat of GLOSSARY_CATEGORIES) {
+      const items = filtered.filter((t) => t.category === cat);
+      if (items.length) map.set(cat, items);
+    }
+    return map;
+  }, [filtered]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 pb-14">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div>
+      <section className="section-pad bg-white">
+        <div className="container-main">
+          <Breadcrumb items={[{ label: "Glossary" }]} />
+          <Pill>{GLOSSARY.length} terms explained</Pill>
+          <h1 className="h1 text-text mt-3">Finance & AI Glossary</h1>
+          <p className="body text-text-muted mt-3 max-w-[640px]">
+            Money and AI are full of jargon. Here every key term is defined in plain English — with examples and links to the right calculator.
+          </p>
+        </div>
+      </section>
 
-      {/* Breadcrumb */}
-      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">
-          Home
-        </Link>
-        <span>/</span>
-        <span className="text-ink">Glossary</span>
-      </nav>
-
-      {/* Hero */}
-      <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          {GLOSSARY.length} terms explained
-        </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
-          Finance &amp; AI Glossary
-        </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-          Money and AI are full of jargon. Here every key term is defined in
-          plain English &mdash; short enough to grasp in seconds, with a real
-          example so it actually sticks.
-        </p>
-      </header>
-
-      {/* Category jump nav */}
-      <nav className="mt-8 flex flex-wrap gap-2.5">
-        {GLOSSARY_CATEGORIES.map((cat) => (
-          <a
-            key={cat}
-            href={`#${cat.toLowerCase()}`}
-            className="inline-flex items-center rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft hover:border-forest hover:text-forest transition-colors"
-          >
-            {cat}
-          </a>
-        ))}
-      </nav>
-
-      {/* Terms grouped by category */}
-      {GLOSSARY_CATEGORIES.map((cat) => {
-        const terms = GLOSSARY.filter((t) => t.category === cat);
-        if (terms.length === 0) return null;
-        return (
-          <section key={cat} id={cat.toLowerCase()} className="mt-14 scroll-mt-24">
-            <div className="flex items-baseline justify-between gap-4 border-b border-line pb-4">
-              <h2 className="font-display text-2xl font-600 text-ink">{cat}</h2>
-              <span className="text-sm text-ink-faint">
-                {terms.length} terms
-              </span>
-            </div>
-            <p className="mt-3 text-ink-soft">{CATEGORY_BLURB[cat]}</p>
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {terms.map((t) => (
-                <Link
-                  key={t.slug}
-                  href={`/glossary/${t.slug}`}
-                  className="group flex flex-col rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-                >
-                  <h3 className="font-display text-lg font-600 text-ink group-hover:text-forest transition-colors">
-                    {t.term}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-ink-soft leading-relaxed">
-                    {t.short}
-                  </p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-                    Read definition{" "}
-                    <IconArrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        );
-      })}
-
-      <div className="mt-14 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
-        <strong className="text-ink">A note on accuracy:</strong> these
-        definitions are for general education, not personalised financial or tax
-        advice. Figures are illustrative and rules can change &mdash; confirm
-        anything that affects a real decision.
+      <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+        <div className="container-main py-3 space-y-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setActiveLetter(""); }}
+              placeholder="Search glossary..."
+              className="w-full h-10 pl-10 pr-4 rounded-input border border-border text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
+            />
+          </div>
+          <div className="flex items-center gap-1 overflow-x-auto pb-1">
+            {ALPHABETS.map((l) => (
+              <button
+                key={l}
+                onClick={() => { setActiveLetter(activeLetter === l ? "" : l); setSearch(""); }}
+                className={`w-8 h-8 shrink-0 rounded-input text-xs font-medium transition-colors ${
+                  activeLetter === l ? "bg-brand text-white" : "text-text-muted hover:text-brand hover:bg-brand/10"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+            {activeLetter && (
+              <button onClick={() => setActiveLetter("")} className="text-xs text-text-muted hover:text-brand ml-2">Clear</button>
+            )}
+          </div>
+        </div>
       </div>
+
+      <section className="section-pad bg-bg-alt">
+        <div className="container-main space-y-16">
+          {[...grouped.entries()].map(([cat, items]) => (
+            <section key={cat}>
+              <h2 className="h3 text-text mb-6">{cat}</h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {items.map((t) => (
+                  <Link key={t.slug} href={`/glossary/${t.slug}`} className="card card-h-full p-4 min-h-[100px]">
+                    <p className="text-sm font-semibold text-text">{t.term}</p>
+                    <p className="text-xs text-text-muted mt-1 line-clamp-2">{t.short}</p>
+                    <span className="mt-auto pt-2 inline-flex items-center gap-1 text-xs text-brand font-medium">
+                      Read <ArrowRight className="h-3 w-3" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
