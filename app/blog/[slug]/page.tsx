@@ -413,42 +413,50 @@ export default async function Page({
   );
   const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
-  const articleJson = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        headline: post.title,
-        description: post.excerpt,
-        image: [`${site.url}/opengraph-image`],
-        author: {
-          "@type": "Person",
-          name: site.author.name,
-          url: `${site.url}/about`,
-          jobTitle: site.author.role,
-          description: site.author.bio,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: site.name,
-          url: site.url,
-          logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
-        },
-        publishingPrinciples: `${site.url}/editorial-standards`,
-        datePublished: new Date(post.date).toISOString(),
-        dateModified: new Date(post.date).toISOString(),
-        mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "Article",
+      headline: post.title,
+      description: post.excerpt,
+      image: [`${site.url}/opengraph-image`],
+      author: {
+        "@type": "Person",
+        name: site.author.name,
+        url: `${site.url}/about`,
+        jobTitle: site.author.role,
+        description: site.author.bio,
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-          { "@type": "ListItem", position: 2, name: "Guides", item: `${site.url}/blog` },
-          { "@type": "ListItem", position: 3, name: post.title, item: `${site.url}/blog/${post.slug}` },
-        ],
+      publisher: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+        logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
       },
-    ],
-  };
+      publishingPrinciples: `${site.url}/editorial-standards`,
+      datePublished: new Date(post.date).toISOString(),
+      dateModified: new Date(post.date).toISOString(),
+      mainEntityOfPage: `${site.url}/blog/${post.slug}`,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Guides", item: `${site.url}/blog` },
+        { "@type": "ListItem", position: 3, name: post.title, item: `${site.url}/blog/${post.slug}` },
+      ],
+    },
+  ];
+  if (post.faq) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: post.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  const articleJson = { "@context": "https://schema.org", "@graph": graph };
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6">

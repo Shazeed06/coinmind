@@ -7,6 +7,7 @@ import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { SIP_SLUGS } from "@/lib/pseo-sip";
 import { SIP_YEAR_SLUGS } from "@/lib/pseo-sip-years";
 import { INHAND_SLUGS } from "@/lib/pseo-inhand";
+import { FD_SLUGS } from "@/lib/pseo-fd";
 import { GLOSSARY_SLUGS } from "@/lib/glossary";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -88,6 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...SIP_SLUGS.map((s) => `/sip/${s}`),
     ...SIP_YEAR_SLUGS.map((s) => `/sip-returns/${s}`),
     ...INHAND_SLUGS.map((s) => `/in-hand-salary/${s}`),
+    ...FD_SLUGS.map((s) => `/calculators/fd/${s}`),
     ...GLOSSARY_SLUGS.map((s) => `/glossary/${s}`),
   ];
 
