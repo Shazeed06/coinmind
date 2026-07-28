@@ -68,6 +68,7 @@ export async function generateMetadata({
     )} in 15 years and ${lakhCrore(
       c20
     )} in 20. Full 5–30 year returns table plus a free SIP calculator.`,
+    robots: { index: false, follow: true },
     alternates: { canonical: `/sip/${slug}` },
     openGraph: {
       type: "article",

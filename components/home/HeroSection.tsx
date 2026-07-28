@@ -63,9 +63,9 @@ export default function HeroSection() {
             <div className="border-t border-border pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
               {[
                 { n: `${CALC_COUNT}+`, l: "Calculators" },
-                { n: `${GUIDE_COUNT}+`, l: "Expert Guides" },
-                { n: `${TOOL_COUNT}+`, l: "Free Tools" },
-                { n: "99.9%", l: "Uptime" },
+                { n: `${GUIDE_COUNT}+`, l: "In-Depth Guides" },
+                { n: `${TOOL_COUNT}+`, l: "Productivity Tools" },
+                { n: "Jul 2026", l: "Last Updated" },
               ].map(({ n, l }) => (
                 <div key={l}>
                   <p className="text-2xl sm:text-[28px] font-bold text-text leading-none">{n}</p>

@@ -12,7 +12,7 @@ const bg: Record<string, string> = {
 
 export function Section({ children, variant = "white" }: SectionProps) {
   return (
-    <section className={`section-pad ${bg[variant]}`}>
+    <section className={`section-pad relative isolation-isolate ${bg[variant]}`}>
       <div className="container-main">{children}</div>
     </section>
   );

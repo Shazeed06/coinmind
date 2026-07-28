@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online case converter. Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more — in your browser.",
   alternates: { canonical: "/tools/case-converter" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

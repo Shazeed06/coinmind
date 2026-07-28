@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online JSON formatter, beautifier and validator. Pretty-print, minify, and see the exact parse error with its location — 100% private.",
   alternates: { canonical: "/tools/json-formatter" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

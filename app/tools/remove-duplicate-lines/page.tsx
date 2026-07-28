@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free tool to remove duplicate lines from a list. Options for case-insensitive matching, trimming, sorting and dropping blank lines. Private — runs in browser.",
   alternates: { canonical: "/tools/remove-duplicate-lines" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

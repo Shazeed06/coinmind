@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free favicon generator. Turn any image or logo into favicon PNGs at 16, 32, 180, 192 & 512 px, with ready-to-paste HTML. 100% private, made in your browser.",
   alternates: { canonical: "/tools/favicon-generator" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

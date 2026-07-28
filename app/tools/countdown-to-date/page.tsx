@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free live countdown timer to any date and time. See the days, hours, minutes and seconds remaining until New Year, a birthday or your next big event.",
   alternates: { canonical: "/tools/countdown-to-date" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

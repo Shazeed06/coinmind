@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free image to Base64 encoder. Convert any image to a data URI with ready-to-copy HTML <img> and CSS snippets. 100% private — encoded in your browser.",
   alternates: { canonical: "/tools/image-to-base64" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

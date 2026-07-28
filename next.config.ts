@@ -45,6 +45,17 @@ const nextConfig: NextConfig = {
     return [
       { source: "/calc/:slug*", destination: "/calculators/:slug*", permanent: true },
       { source: "/tool/:slug*", destination: "/tools/:slug*", permanent: true },
+      // Phase 1.3: remove medical calculators (YMYL red flag on finance site)
+      { source: "/calculators/bmi", destination: "/calculators", permanent: true },
+      { source: "/calculators/calorie", destination: "/calculators", permanent: true },
+      { source: "/calculators/ideal-weight", destination: "/calculators", permanent: true },
+      { source: "/calculators/pregnancy-due-date", destination: "/calculators", permanent: true },
+      // Phase 2.1: delete entertainment utilities
+      { source: "/tools/coin-flip", destination: "/tools", permanent: true },
+      { source: "/tools/random-number-generator", destination: "/tools", permanent: true },
+      { source: "/tools/random-wheel", destination: "/tools", permanent: true },
+      { source: "/tools/meme-generator", destination: "/tools", permanent: true },
+      { source: "/tools/lorem-ipsum-generator", destination: "/tools", permanent: true },
     ];
   },
   poweredByHeader: false,

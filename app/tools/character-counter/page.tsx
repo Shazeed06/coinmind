@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online character counter. Live character count with and without spaces, plus words, sentences and Twitter, SMS & meta limits. 100% private.",
   alternates: { canonical: "/tools/character-counter" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

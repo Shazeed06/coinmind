@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online Base64 encoder and decoder. Convert text to Base64 and back with full Unicode and emoji support. 100% private — everything runs in your browser.",
   alternates: { canonical: "/tools/base64" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

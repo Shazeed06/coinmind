@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free text compare and diff checker. Paste two versions and see added, removed and unchanged lines highlighted instantly. 100% private — runs in your browser.",
   alternates: { canonical: "/tools/text-compare" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

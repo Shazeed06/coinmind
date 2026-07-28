@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online URL encoder and decoder. Percent-encode query values and whole URLs with encodeURIComponent or encodeURI, and decode them back.",
   alternates: { canonical: "/tools/url-encode-decode" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

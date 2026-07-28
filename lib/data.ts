@@ -324,7 +324,7 @@ export const calculators: Calculator[] = [
       "Find your body mass index from height and weight (metric or imperial), your category, and the healthy weight range for your height.",
     category: "Health",
     region: "Global",
-    live: true,
+    live: false,
     keywords: ["bmi calculator", "body mass index calculator", "bmi chart"],
   },
   {
@@ -335,7 +335,7 @@ export const calculators: Calculator[] = [
       "Estimate a healthy body weight for your height and sex using the Robinson, Miller, Devine and Hamwi formulas.",
     category: "Health",
     region: "Global",
-    live: true,
+    live: false,
     keywords: ["ideal weight calculator", "ideal body weight", "healthy weight for height"],
   },
   {
@@ -346,7 +346,7 @@ export const calculators: Calculator[] = [
       "Estimate your daily maintenance calories (TDEE) with the Mifflin-St Jeor equation, plus targets for losing or gaining weight.",
     category: "Health",
     region: "Global",
-    live: true,
+    live: false,
     keywords: ["calorie calculator", "tdee calculator", "maintenance calories", "bmr calculator"],
   },
   {
@@ -357,7 +357,7 @@ export const calculators: Calculator[] = [
       "Estimate your due date from your last period or conception date, and see how many weeks pregnant you are.",
     category: "Health",
     region: "Global",
-    live: true,
+    live: false,
     keywords: ["pregnancy due date calculator", "due date calculator", "how many weeks pregnant"],
   },
   {

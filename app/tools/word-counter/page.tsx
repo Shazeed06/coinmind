@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online word counter. Get live word, character, sentence and paragraph counts plus reading and speaking time. 100% private — runs in your browser.",
   alternates: { canonical: "/tools/word-counter" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

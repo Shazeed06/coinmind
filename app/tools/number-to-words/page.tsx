@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free number to words converter for the Indian (Lakh, Crore) and International (Million, Billion) systems. Spell amounts as Rupees or Dollars. 100% private.",
   alternates: { canonical: "/tools/number-to-words" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

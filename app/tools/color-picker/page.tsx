@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online color picker. Pick a color and get HEX, RGB and HSL values that stay in sync, with one-click copy and instant tints and shades. 100% private.",
   alternates: { canonical: "/tools/color-picker" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Free online stopwatch and countdown timer. Time laps with a precise stopwatch, or set a countdown timer with an alarm beep — all in your browser.",
   alternates: { canonical: "/tools/stopwatch-timer" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,

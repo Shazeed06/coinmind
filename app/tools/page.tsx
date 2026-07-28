@@ -33,7 +33,6 @@ const TOOLS: Tool[] = [
   { slug: "crop-image", href: "/tools/crop-image", title: "Crop Image", blurb: "Trim a photo with a draggable crop box.", tag: "Image", category: "Image" },
   { slug: "rotate-image", href: "/tools/rotate-image", title: "Rotate & Flip Image", blurb: "Rotate and flip images with a live preview.", tag: "Image", category: "Image" },
   { slug: "favicon-generator", href: "/tools/favicon-generator", title: "Favicon Generator", blurb: "Turn any logo into favicon PNGs at every size.", tag: "Image", category: "Image" },
-  { slug: "meme-generator", href: "/tools/meme-generator", title: "Meme Generator", blurb: "Add classic Impact text to any image.", tag: "Fun", category: "Fun" },
   { slug: "image-to-base64", href: "/tools/image-to-base64", title: "Image to Base64", blurb: "Encode any image as a data URI.", tag: "Image", category: "Image" },
   { slug: "ai-summarizer", href: "/tools/ai-summarizer", title: "AI Text Summarizer", blurb: "Paste any article and get an instant AI summary.", tag: "AI", category: "AI" },
   { slug: "ai-paraphraser", href: "/tools/ai-paraphraser", title: "AI Paraphraser", blurb: "Reword and rephrase any text in seconds.", tag: "AI", category: "AI" },
@@ -48,7 +47,6 @@ const TOOLS: Tool[] = [
   { slug: "word-counter", href: "/tools/word-counter", title: "Word Counter", blurb: "Count words, characters, sentences and reading time.", tag: "Text", category: "Text" },
   { slug: "case-converter", href: "/tools/case-converter", title: "Case Converter", blurb: "Change text case — upper, lower, title, camelCase.", tag: "Text", category: "Text" },
   { slug: "number-to-words", href: "/tools/number-to-words", title: "Number to Words", blurb: "Turn numbers into words in Lakh/Crore format.", tag: "Text", category: "Text" },
-  { slug: "lorem-ipsum-generator", href: "/tools/lorem-ipsum-generator", title: "Lorem Ipsum", blurb: "Generate placeholder text instantly.", tag: "Text", category: "Text" },
   { slug: "text-compare", href: "/tools/text-compare", title: "Text Compare", blurb: "Compare two texts side-by-side.", tag: "Text", category: "Text" },
   { slug: "remove-duplicate-lines", href: "/tools/remove-duplicate-lines", title: "Remove Duplicate Lines", blurb: "Delete repeated lines from a list.", tag: "Text", category: "Text" },
   { slug: "json-formatter", href: "/tools/json-formatter", title: "JSON Formatter", blurb: "Beautify, minify and validate JSON.", tag: "Dev", category: "Dev" },
@@ -62,12 +60,9 @@ const TOOLS: Tool[] = [
   { slug: "are-you-rich", href: "/tools/are-you-rich", title: "Are You Rich?", blurb: "See your income percentile by country.", tag: "Money", category: "Business" },
   { slug: "stopwatch-timer", href: "/tools/stopwatch-timer", title: "Stopwatch & Timer", blurb: "Precise stopwatch with lap times and countdown.", tag: "Time", category: "Time" },
   { slug: "countdown-to-date", href: "/tools/countdown-to-date", title: "Countdown to Date", blurb: "Count down to any date or event.", tag: "Time", category: "Time" },
-  { slug: "random-wheel", href: "/tools/random-wheel", title: "Random Wheel Picker", blurb: "Spin a wheel to pick a random winner.", tag: "Fun", category: "Fun" },
-  { slug: "coin-flip", href: "/tools/coin-flip", title: "Coin Flip & Dice", blurb: "Flip a coin or roll 1-6 dice.", tag: "Fun", category: "Fun" },
-  { slug: "random-number-generator", href: "/tools/random-number-generator", title: "Random Number", blurb: "Generate random numbers in any range.", tag: "Fun", category: "Fun" },
 ];
 
-const CATEGORIES = ["All", "AI", "Image", "PDF", "Text", "Dev", "Business", "Security", "Utility", "Convert", "Time", "Fun", "Students", "Calculator"] as const;
+const CATEGORIES = ["All", "AI", "Image", "PDF", "Text", "Dev", "Business", "Security", "Utility", "Convert", "Time", "Students", "Calculator"] as const;
 
 const CAT_ICONS: Record<string, typeof Sparkles> = {
   AI: WandSparkles, Image, PDF: FileDown, Text: Hash, Dev: FileCode, Business: Briefcase,
