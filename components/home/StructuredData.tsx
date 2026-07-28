@@ -1,6 +1,6 @@
 import { calculators, posts } from "@/lib/data";
 import { site } from "@/lib/site";
-import { FAQS } from "./FaqSection";
+import { FAQS } from "@/lib/faqs";
 
 const liveCalcs = calculators.filter((c) => c.live);
 
