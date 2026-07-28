@@ -13,7 +13,7 @@ export default function StructuredData() {
       logo: `${site.url}/icon.svg`,
       description: site.description,
       email: site.email,
-      founder: { "@type": "Person", name: site.author.name },
+      founder: { "@type": "Person", name: site.author.fullName },
     },
     {
       "@type": "WebSite",
@@ -28,7 +28,7 @@ export default function StructuredData() {
     },
     {
       "@type": "Person",
-      name: site.author.name,
+      name: site.author.fullName,
       jobTitle: site.author.role,
       description: site.author.bio,
       url: `${site.url}/about`,

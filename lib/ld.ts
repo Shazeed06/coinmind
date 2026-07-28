@@ -41,7 +41,7 @@ export function person(): Thing {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${site.url}/#person`,
-    name: site.author.name,
+    name: site.author.fullName,
     description: site.author.bio,
     knowsAbout: ["Personal finance", "Indian income tax", "Mutual funds", "Financial planning"],
   };
@@ -114,7 +114,7 @@ export function article(headline: string, description: string, date: string, ima
     "@type": "Article",
     headline,
     description,
-    author: { "@type": "Person", name: site.author.name, knowsAbout: "Personal finance, mutual funds, taxation" },
+    author: { "@type": "Person", name: site.author.fullName, knowsAbout: "Personal finance, mutual funds, taxation" },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: date,
     dateModified: date,

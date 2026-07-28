@@ -17,10 +17,16 @@ export const site = {
   // Named author/editor behind the content — E-E-A-T "Who" for a YMYL finance
   // site. CA (Final) is a genuine, relevant finance credential.
   author: {
-    name: "Sahil",
+    firstName: "Sahil",
+    lastName: "", // TODO: fill in real last name before AdSense reapplication
+    fullName: "Sahil",
+    slug: "sahil",
     role: "Founder & Editor",
     credential: "CA (Final) candidate",
     bio: "Sahil is the founder and editor of CoinMind and is pursuing the Chartered Accountancy (CA) Final. He built CoinMind to make finance calculators and money guidance genuinely free, accurate and free of jargon.",
+    education: "Pursuing Chartered Accountancy (CA) Final",
+    location: "India", // TODO: fill in real city, state
+    sebiDisclaimer: "Not a SEBI-registered investment adviser. This site is educational.",
   },
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):
   gaId: "G-1ZQB0YPJCS", // GA4 Measurement ID
@@ -88,7 +94,8 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "About", href: "/about" },
       { label: "Editorial Standards", href: "/editorial-standards" },
-      { label: "Affiliate Disclosure", href: "/affiliate-disclosure" },
+      { label: "Methodology", href: "/methodology" },
+      { label: "Corrections", href: "/corrections" },
       { label: "Contact", href: "/contact" },
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Disclaimer", href: "/disclaimer" },

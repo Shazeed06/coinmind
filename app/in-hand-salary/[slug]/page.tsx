@@ -161,7 +161,7 @@ export default async function Page({
         image: [`${site.url}/opengraph-image`],
         author: {
           "@type": "Person",
-          name: site.author.name,
+          name: site.author.fullName,
           jobTitle: site.author.credential,
           url: `${site.url}/about#author`,
         },

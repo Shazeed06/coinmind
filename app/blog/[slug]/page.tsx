@@ -422,7 +422,7 @@ export default async function Page({
       image: [`${site.url}/opengraph-image`],
       author: {
         "@type": "Person",
-        name: site.author.name,
+        name: site.author.fullName,
         url: `${site.url}/about`,
         jobTitle: site.author.role,
         description: site.author.bio,
@@ -479,11 +479,11 @@ export default async function Page({
 
           <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white text-sm font-semibold">
-              {site.author.name.charAt(0)}
+              {site.author.fullName.charAt(0)}
             </span>
             <div className="text-sm">
               <p className="font-semibold text-text">
-                {site.author.name} <span className="font-normal text-text-muted">· {site.author.credential}</span>
+                {site.author.fullName} <span className="font-normal text-text-muted">· {site.author.credential}</span>
               </p>
               <p className="text-text-muted">{post.date} · {post.readMinutes} min read</p>
             </div>
