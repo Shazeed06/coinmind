@@ -9,7 +9,7 @@ export const site = {
   url: "https://www.coinmind.in",
   // ⚠️ Set up this mailbox (e.g. free email forwarding from your domain provider,
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
-  email: "hello@coinmind.in",
+  email: "coinmindofficial@gmail.com",
   description:
     "46 free calculators (SIP, EMI, income tax, FD), 44 free tools and honest AI reviews — smarter money decisions for India, the US & UK. No sign-up.",
   locale: "en",

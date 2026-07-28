@@ -9,7 +9,11 @@ export type CoverVariant =
   | "card"
   | "spark"
   | "nodes"
-  | "candles";
+  | "candles"
+  | "piggy"
+  | "plant"
+  | "shield"
+  | "graph-up";
 
 export type CoverPalette = "forest" | "brass" | "berry" | "deep";
 
@@ -208,6 +212,71 @@ function Motif({
               </g>
             );
           })}
+        </g>
+      );
+
+    case "piggy":
+      return (
+        <g transform="translate(166 80)">
+          <ellipse cx="34" cy="46" rx="34" ry="26" fill={p.ink} opacity="0.88" />
+          <ellipse cx="52" cy="38" rx="20" ry="14" fill={p.ink} opacity="0.76" />
+          <circle cx="48" cy="26" r="5" fill={p.soft} opacity="0.5" />
+          <circle cx="62" cy="26" r="5" fill={p.soft} opacity="0.5" />
+          <ellipse cx="34" cy="50" rx="12" ry="4" fill={p.ink} opacity="0.5" />
+          <text x="34" y="56" textAnchor="middle" fontSize="18" fontWeight="700" fontFamily="var(--font-inter), sans-serif" fill={p.accent}>₹</text>
+          <path d="M 58 38 L 74 30 L 80 34 L 66 42 Z" fill={p.accent} opacity="0.7" />
+          <circle cx="54" cy="75" r="4" fill={p.ink} opacity="0.2" />
+          <circle cx="60" cy="77" r="3" fill={p.ink} opacity="0.2" />
+          <circle cx="8" cy="59" r="3" fill={p.ink} opacity="0.3" />
+          <circle cx="12" cy="63" r="2.5" fill={p.ink} opacity="0.3" />
+        </g>
+      );
+
+    case "plant":
+      return (
+        <g>
+          <rect x="180" y="195" width="40" height="14" rx="7" fill={p.ink} opacity="0.2" />
+          <path d="M 200 195 Q 200 160 176 152 Q 166 148 164 140 Q 160 126 172 116 Q 180 110 182 100 Q 186 86 200 80" fill="none" stroke={p.accent} strokeWidth="4.5" strokeLinecap="round" />
+          <path d="M 200 195 Q 200 160 224 152 Q 234 148 236 140 Q 240 126 228 116 Q 220 110 218 100 Q 214 86 200 80" fill="none" stroke={p.ink} strokeWidth="4.5" strokeLinecap="round" opacity="0.7" />
+          <circle cx="200" cy="74" r="10" fill={p.accent} />
+          <text x="200" y="79" textAnchor="middle" fontSize="16" fontWeight="700" fontFamily="var(--font-inter), sans-serif" fill={p.soft}>↑</text>
+          {[158, 186, 224, 244].map((x, i) => (
+            <ellipse key={i} cx={x} cy={120 + i * 10} rx="14" ry="7" fill={p.accent} opacity={0.15 + i * 0.08} />
+          ))}
+        </g>
+      );
+
+    case "shield":
+      return (
+        <g transform="translate(140 50)">
+          <path d="M 60 0 L 120 24 L 120 90 Q 120 156 60 180 Q 0 156 0 90 L 0 24 Z" fill={p.ink} opacity="0.1" />
+          <path d="M 60 8 L 112 28 L 112 88 Q 112 146 60 168 Q 8 146 8 88 L 8 28 Z" fill={p.ink} opacity="0.8" />
+          <path d="M 60 16 L 104 33 L 104 86 Q 104 138 60 156 Q 16 138 16 86 L 16 33 Z" fill={p.soft} opacity="0.15" />
+          <text x="60" y="102" textAnchor="middle" fontSize="36" fontFamily="var(--font-inter), sans-serif" fill={p.accent}>✓</text>
+          <circle cx="24" cy="128" r="6" fill={p.accent} opacity="0.3" />
+          <circle cx="96" cy="128" r="6" fill={p.accent} opacity="0.3" />
+          <circle cx="60" cy="172" r="4" fill={p.accent} opacity="0.2" />
+        </g>
+      );
+
+    case "graph-up":
+      return (
+        <g>
+          {[0, 1, 2, 3].map((i) => {
+            const x = 80 + i * 70;
+            const h = 46 + i * 28;
+            return (
+              <rect key={i} x={x + 8} y={190 - h} width="54" height={h} rx="6" fill={p.ink} opacity={0.08 + i * 0.08} />
+            );
+          })}
+          <polyline points="108,168 158,138 228,142 298,78" fill="none" stroke={p.accent} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="298" cy="78" r="9" fill={p.accent} stroke={p.soft} strokeWidth="3" />
+          <path d="M 290 70 L 306 68 L 302 86 Z" fill={p.accent} />
+          <polyline points="108,168 158,138 228,142 298,78" fill="none" stroke={p.ink} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.2" transform="translate(0 6)" />
+          <text x="108" y="180" fontSize="10" fontWeight="600" fontFamily="var(--font-inter), sans-serif" fill={p.ink} opacity="0.4">Q1</text>
+          <text x="178" y="154" fontSize="10" fontWeight="600" fontFamily="var(--font-inter), sans-serif" fill={p.ink} opacity="0.4">Q2</text>
+          <text x="248" y="156" fontSize="10" fontWeight="600" fontFamily="var(--font-inter), sans-serif" fill={p.ink} opacity="0.4">Q3</text>
+          <text x="318" y="92" fontSize="10" fontWeight="600" fontFamily="var(--font-inter), sans-serif" fill={p.ink} opacity="0.4">Q4</text>
         </g>
       );
   }
