@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { ABOUT } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "Who is behind CoinMind, why we build free financial calculators and AI tool reviews, and the editorial standards we hold ourselves to.",
-  alternates: { canonical: "/about" },
-  openGraph: { url: "/about" },
-};
+export const metadata: Metadata = ABOUT;
 
 export default function Page() {
   const jsonLd = {

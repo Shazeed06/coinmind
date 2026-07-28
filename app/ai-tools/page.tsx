@@ -3,14 +3,9 @@ import Link from "next/link";
 import { aiTools, type Region } from "@/lib/data";
 import { detailByName } from "@/lib/aiToolDetails";
 import { IconSparkle, IconStar, IconCheck, IconArrow } from "@/components/icons";
+import { AI_TOOLS } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "Best AI Tools 2026 — US, China & India Compared" },
-  description:
-    "Up-to-date directory of top AI tools from the US, China and India — ratings, benefits and pricing for ChatGPT, Claude, Gemini, DeepSeek, Qwen and more.",
-  alternates: { canonical: "/ai-tools" },
-  openGraph: { url: "/ai-tools" },
-};
+export const metadata: Metadata = AI_TOOLS;
 
 const regions: { key: Region; label: string; flag: string; note: string }[] = [
   {

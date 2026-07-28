@@ -2,22 +2,9 @@ import type { Metadata } from "next";
 import ResumeBuilder from "@/components/tools/ResumeBuilder";
 import { IconSparkle } from "@/components/icons";
 import { site } from "@/lib/site";
+import { RESUME } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Free Resume Builder — Make a Professional CV Online",
-  },
-  description:
-    "Free resume builder with live preview and one-click PDF. Create an ATS-friendly, professional CV in minutes — with optional AI help. No sign-up.",
-  alternates: { canonical: "/resume-builder" },
-  openGraph: {
-    title: "Free Resume Builder — Make a Professional CV Online",
-    description:
-      "Build an ATS-friendly resume with a live preview and free PDF download. Optional AI help to polish your wording. No sign-up.",
-    url: `${site.url}/resume-builder`,
-    type: "website",
-  },
-};
+export const metadata: Metadata = RESUME;
 
 const FAQS = [
   {

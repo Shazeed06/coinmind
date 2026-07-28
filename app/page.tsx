@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { calculators, posts } from "@/lib/data";
 import { site } from "@/lib/site";
+import { HOME } from "@/lib/seo";
 import StructuredData from "@/components/home/StructuredData";
 import HeroSection from "@/components/home/HeroSection";
 import WhatIsCoinMind from "@/components/home/WhatIsCoinMind";
@@ -22,19 +23,7 @@ const CALC_COUNT = liveCalcs.length;
 const GUIDE_COUNT = posts.length;
 const TOOL_COUNT = 44;
 
-export const metadata: Metadata = {
-  title: { absolute: "CoinMind — India's Smartest Personal Finance Platform" },
-  description: `${CALC_COUNT} free financial calculators, ${TOOL_COUNT} free tools, ${GUIDE_COUNT} expert guides, and AI-powered resources. Calculate SIP, EMI, income tax, FD, PPF, NPS and more. India's trusted personal finance education platform — no sign-up needed.`,
-  alternates: { canonical: "/" },
-  openGraph: {
-    url: site.url,
-    siteName: site.name,
-    locale: "en_IN",
-    title: "CoinMind — India's Smartest Personal Finance Platform",
-    description: `${CALC_COUNT} free financial calculators, ${GUIDE_COUNT} expert guides, and AI resources. SIP, EMI, tax, FD, PPF and more.`,
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-  },
-};
+export const metadata: Metadata = HOME;
 
 export default function Home() {
   return (

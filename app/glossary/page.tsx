@@ -7,30 +7,9 @@ import {
   type GlossaryCategory,
 } from "@/lib/glossary";
 import { IconArrow } from "@/components/icons";
+import { GLOSSARY as GLOSSARY_SEO } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "Finance & AI Glossary — Terms Explained Simply" },
-  description:
-    "A plain-English glossary of finance and AI terms — from SIP, EMI and mutual funds to LLMs and AI agents — each explained simply with a real example.",
-  alternates: { canonical: "/glossary" },
-  openGraph: {
-    type: "website",
-    url: `${site.url}/glossary`,
-    siteName: site.name,
-    locale: "en_IN",
-    title: "Finance & AI Glossary — Terms Explained Simply",
-    description:
-      "Clear definitions of key finance and AI terms, from SIP and mutual funds to LLMs and AI agents — each with a simple, real-world example.",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "CoinMind Finance & AI Glossary",
-      },
-    ],
-  },
-};
+export const metadata: Metadata = GLOSSARY_SEO;
 
 // One-line intro shown under each category heading.
 const CATEGORY_BLURB: Record<GlossaryCategory, string> = {

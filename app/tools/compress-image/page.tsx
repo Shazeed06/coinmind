@@ -2,30 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CompressImage from "@/components/tools/CompressImage";
 import { site } from "@/lib/site";
+import { TOOL_COMPRESS } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "Compress Image — Shrink JPG, PNG & WebP Free" },
-  description:
-    "Free online image compressor. Reduce JPG, PNG and WebP file size with a quality slider. 100% private — images are compressed in your browser.",
-  alternates: { canonical: "/tools/compress-image" },
-  openGraph: {
-    type: "website",
-    siteName: site.name,
-    url: "https://www.coinmind.in/tools/compress-image",
-    title: "Compress Image — Shrink JPG, PNG & WebP Free",
-    description:
-      "Reduce JPG, PNG and WebP file size with a quality slider. 100% private — your images never leave your browser.",
-    locale: "en_US",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Compress Image tool",
-      },
-    ],
-  },
-};
+export const metadata: Metadata = TOOL_COMPRESS;
 
 const faqs = [
   {

@@ -3,14 +3,9 @@ import Link from "next/link";
 import { posts } from "@/lib/data";
 import { IconArrow } from "@/components/icons";
 import CoverArt from "@/components/CoverArt";
+import { BLOG } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Guides & How-Tos — Money and AI, Explained",
-  description:
-    "Practical, jargon-free guides on personal finance, investing, credit and working smarter with AI. Written by people, checked for accuracy.",
-  alternates: { canonical: "/blog" },
-  openGraph: { url: "/blog" },
-};
+export const metadata: Metadata = BLOG;
 
 export default function Page() {
   const [lead, ...rest] = posts;

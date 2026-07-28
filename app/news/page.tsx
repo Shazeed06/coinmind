@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { news } from "@/lib/data";
 import { IconNews } from "@/components/icons";
 import CoverArt, { type CoverVariant, type CoverPalette } from "@/components/CoverArt";
+import { NEWS } from "@/lib/seo";
 
-// Pick on-brand cover art per story from its category (varied by position).
+export const metadata: Metadata = NEWS;
+
 function newsArt(
   category: string,
   i: number
@@ -17,14 +19,6 @@ function newsArt(
     ? { variant: "nodes", palette: "deep" }
     : { variant: "spark", palette: "berry" };
 }
-
-export const metadata: Metadata = {
-  title: "Finance & AI Explainers — In Plain English",
-  description:
-    "Original, plain-English explainers of the finance and AI developments that matter — markets, rates, AI models and tools.",
-  alternates: { canonical: "/news" },
-  openGraph: { url: "/news" },
-};
 
 export default function Page() {
   const [lead, ...rest] = news;

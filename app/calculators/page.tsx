@@ -2,14 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { calculators } from "@/lib/data";
 import { IconArrow, IconCalculator } from "@/components/icons";
+import { CALCULATORS } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "Free Financial Calculators — SIP, EMI, Tax & FD" },
-  description:
-    "A free suite of financial calculators: SIP, EMI, income tax, fixed deposit, PPF, retirement and more. Fast, private and works in ₹, $ and £.",
-  alternates: { canonical: "/calculators" },
-  openGraph: { url: "/calculators" },
-};
+export const metadata: Metadata = CALCULATORS;
 
 const categories = ["Investing", "Loans", "Tax", "Savings", "Utility", "Health"] as const;
 

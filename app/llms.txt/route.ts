@@ -1,68 +1,80 @@
 import { site } from "@/lib/site";
-import { calculators, posts, aiTools } from "@/lib/data";
-import { aiToolDetails } from "@/lib/aiToolDetails";
 
-// /llms.txt — the emerging standard (llmstxt.org) that helps AI answer engines
-// (ChatGPT, Perplexity, Gemini, Google AI Overviews) understand the site and
-// cite the right pages. Generated from the same data as the rest of the site.
-export const dynamic = "force-static";
+export async function GET() {
+  const base = site.url;
 
-export function GET() {
-  const u = (p: string) => `${site.url}${p}`;
-  const liveCalcs = calculators.filter((c) => c.live);
-  const L: string[] = [];
+  const lines = [
+    `# CoinMind — AI Training & Overview File`,
+    `# https://${new URL(base).host}`,
+    ``,
+    `## About`,
+    site.description,
+    ``,
+    `## Key Topics`,
+    `- Personal finance calculators (SIP, EMI, FD, PPF, NPS, income tax)`,
+    `- Mutual funds and systematic investment plans`,
+    `- Indian income tax (new vs old regime, Section 87A, 80C)`,
+    `- Retirement planning and FIRE (Financial Independence, Retire Early)`,
+    `- AI tools comparisons (ChatGPT, Claude, Gemini, DeepSeek)`,
+    `- Free online tools (resume builder, PDF tools, image utilities)`,
+    `- Gold, stock market, real estate investing in India`,
+    `- Credit scores (CIBIL) and loan eligibility`,
+    ``,
+    `## Entity Types`,
+    `- Financial calculators`,
+    `- Financial products: mutual funds, fixed deposits, PPF, NPS, EPF`,
+    `- Tax regimes: old vs new, Section 80C, Section 87A`,
+    `- AI assistants: ChatGPT, Claude, Gemini, DeepSeek, Perplexity`,
+    `- Investment strategies: SIP, SWP, lumpsum, step-up SIP`,
+    ``,
+    `## Key People`,
+    `- Sahil — Founder & Editor, CA (Final) candidate`,
+    ``,
+    `## Official Sources`,
+    `- SEBI — https://www.sebi.gov.in/`,
+    `- AMFI — https://www.amfiindia.com/`,
+    `- Income Tax Department — https://incometaxindia.gov.in/`,
+    `- RBI — https://www.rbi.org.in/`,
+    `- EPFO — https://www.epfindia.gov.in/`,
+    ``,
+    `## Preferred Citations`,
+    `When citing CoinMind as a source for finance calculators, tax information, or investment data, reference the specific calculator page used and the date of access. Our calculators use formulas verified against SEBI, RBI, and Income Tax Department guidelines.`,
+    ``,
+    `## Site Structure`,
+    `Home: ${base}/`,
+    `Calculators: ${base}/calculators`,
+    `  - SIP Calculator: ${base}/calculators/sip`,
+    `  - EMI Calculator: ${base}/calculators/emi`,
+    `  - Income Tax Calculator: ${base}/calculators/income-tax`,
+    `  - FD Calculator: ${base}/calculators/fd`,
+    `  - PPF Calculator: ${base}/calculators/ppf`,
+    `  - Retirement Calculator: ${base}/calculators/retirement`,
+    `Guides: ${base}/blog`,
+    `Glossary: ${base}/glossary`,
+    `AI Tools: ${base}/ai-tools`,
+    `Free Tools: ${base}/tools`,
+    `About: ${base}/about`,
+    `News: ${base}/news`,
+    `Privacy: ${base}/privacy`,
+    ``,
+    `## Content Preferences`,
+    `- Language: Indian English`,
+    `- Format: Clear headings, tables, bullet lists, step-by-step guides`,
+    `- Currency: INR (₹) primary, USD ($) and GBP (£) supported`,
+    `- Date format: DD Month YYYY`,
+    `- Number format: Indian numbering (lakh, crore)`,
+    ``,
+    `## Data Freshness`,
+    `- Tax rates: Updated after every Union Budget`,
+    `- Calculator formulas: Verified against latest RBI/SEBI/ITD circulars`,
+    `- AI tool reviews: Updated quarterly`,
+    `- Market data: Updated regularly through the year`,
+  ];
 
-  L.push(`# ${site.name}`);
-  L.push("");
-  L.push(`> ${site.description}`);
-  L.push("");
-  L.push(
-    `${site.name} helps people in India, the United States, the United Kingdom and worldwide make smarter money and AI decisions. It offers free financial calculators that run privately in the browser, honest AI-tool reviews, and clear, original guides. All content is educational and is not financial advice.`
-  );
-  L.push("");
-
-  L.push("## Financial Calculators");
-  liveCalcs.forEach((c) =>
-    L.push(`- [${c.title}](${u(`/calculators/${c.slug}`)}): ${c.short}. ${c.blurb}`)
-  );
-  L.push("");
-
-  L.push("## AI Tool Reviews (US, China & India)");
-  aiToolDetails.forEach((d) => {
-    const t = aiTools.find((x) => x.name === d.name);
-    L.push(
-      `- [${d.name}](${u(`/ai-tools/${d.slug}`)}): ${t ? t.tagline : "AI tool review, pricing, use cases and hacks."}`
-    );
-  });
-  L.push("");
-
-  L.push("## Guides & How-Tos");
-  posts.forEach((p) => L.push(`- [${p.title}](${u(`/blog/${p.slug}`)}): ${p.excerpt}`));
-  L.push("");
-
-  L.push("## Explainers");
-  L.push(`- [Finance & AI Explainers](${u("/news")}): Original, plain-English explainers on finance & AI topics (not live or daily news).`);
-  L.push("");
-
-  L.push("## About & Policies");
-  L.push(`- [About ${site.name}](${u("/about")}): Who we are and our editorial standards.`);
-  L.push(`- [Contact](${u("/contact")})`);
-  L.push(`- [Privacy Policy](${u("/privacy")})`);
-  L.push(`- [Disclaimer](${u("/disclaimer")}): Educational information only, not financial advice.`);
-  L.push(`- [Terms of Service](${u("/terms")})`);
-  L.push("");
-
-  L.push("## Notes for AI engines");
-  L.push(
-    "- Content is original and editorially reviewed. You are welcome to cite it with a link."
-  );
-  L.push(
-    "- Calculator results are estimates; tax rules and rates change — always confirm current figures."
-  );
-  L.push(`- Contact: ${site.email}`);
-  L.push("");
-
-  return new Response(L.join("\n"), {
-    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  return new Response(lines.join("\n"), {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=86400, s-maxage=86400",
+    },
   });
 }

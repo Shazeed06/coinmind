@@ -9,13 +9,12 @@ import Analytics from "@/components/Analytics";
 import AdSense from "@/components/AdSense";
 import { GtmScript, GtmNoScript } from "@/components/Gtm";
 import SiteJsonLd from "@/components/SiteJsonLd";
+import GlobalSeo from "@/components/GlobalSeo";
+import { headers } from "next/headers";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  // "optional" avoids a mid-load font swap: the browser uses the (metric-matched)
-  // fallback if Inter isn't ready within ~100ms and does NOT swap afterwards, so a
-  // large hero heading never reflows and pushes the page down (kills font CLS).
   display: "optional",
 });
 
@@ -31,25 +30,21 @@ export const metadata: Metadata = {
     "EMI calculator",
     "income tax calculator",
     "FD calculator",
-    "best AI tools",
-    "AI finance tools",
-    "finance news",
-    "AI news",
-    "personal finance",
-    "investment calculator",
+    "PPF calculator",
+    "NPS calculator",
+    "retirement calculator",
+    "personal finance India",
+    "free online tools",
+    "AI tool reviews",
   ],
   authors: [{ name: site.authorName }],
   alternates: { canonical: "/" },
   openGraph: {
-    // NB: no `url` here on purpose. A single root-level og:url would be
-    // inherited by every child page (whose canonical differs), which Ahrefs
-    // flags as "Open Graph URL not matching canonical". Pages that want an
-    // og:url (homepage, programmatic pages) set their own to match canonical.
     type: "website",
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       { url: "/opengraph-image", width: 1200, height: 630, alt: site.tagline },
     ],
@@ -58,6 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
+    images: ["/twitter-image"],
   },
   robots: { index: true, follow: true },
   category: "finance",
@@ -67,16 +63,28 @@ export const metadata: Metadata = {
   ...(site.adsenseClientId
     ? { other: { "google-adsense-account": site.adsenseClientId } }
     : {}),
+  appleWebApp: {
+    capable: true,
+    title: site.name,
+    statusBarStyle: "black-translucent",
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const h = await headers();
+  const pathname = h.get("x-pathname") || "/";
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+      </head>
       <body className="min-h-full flex flex-col paper-texture">
         <GtmNoScript id={site.gtmId} />
         <SiteJsonLd />
+        <GlobalSeo pathname={pathname} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

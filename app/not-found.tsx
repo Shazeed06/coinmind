@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { IconArrow } from "@/components/icons";
+import { NOT_FOUND } from "@/lib/seo";
+
+export const metadata: Metadata = NOT_FOUND;
 
 export default function NotFound() {
   return (

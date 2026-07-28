@@ -2,19 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { IconArrow, IconSparkle, IconShield } from "@/components/icons";
+import { TOOLS } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: { absolute: "Free Online Tools — Resume, PDF & Image Utilities" },
-  description:
-    "Free browser tools others charge for: resume builder, PDF merger, image compressor and converter. No sign-up — everything runs privately in your browser.",
-  alternates: { canonical: "/tools" },
-  openGraph: {
-    title: "Free Online Tools — Resume, PDF & Image Utilities",
-    description:
-      "A resume builder, PDF merger, image compressor and converter — free, private and instant.",
-    url: `${site.url}/tools`,
-  },
-};
+export const metadata: Metadata = TOOLS;
 
 type Tool = {
   slug: string;
