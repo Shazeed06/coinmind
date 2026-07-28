@@ -15,7 +15,9 @@ import { headers } from "next/headers";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  display: "optional",
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "Segoe UI", "Roboto", "sans-serif"],
 });
 
 export const metadata: Metadata = {

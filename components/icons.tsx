@@ -68,3 +68,15 @@ export const IconStar = ({ className }: P) => (
     <path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 18.9 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9L12 2.5Z" />
   </svg>
 );
+
+export const IconSearch = ({ className }: P) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={base} strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="7.5" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+  </svg>
+);
+
+export const IconX = ({ className }: P) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={base} strokeLinecap="round" strokeLinejoin="round">
+    <line x1="5" y1="5" x2="19" y2="19" /><line x1="19" y1="5" x2="5" y2="19" />
+  </svg>
+);

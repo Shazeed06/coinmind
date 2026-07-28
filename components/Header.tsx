@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { primaryNav } from "@/lib/site";
 import Logo from "./Logo";
+import { IconSearch } from "./icons";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -65,7 +66,14 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-2">
+            <Link
+              href="/search"
+              className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-ink-soft hover:text-ink hover:bg-paper-2 transition-colors"
+              aria-label="Search"
+            >
+              <IconSearch className="h-4 w-4" />
+            </Link>
             <Link
               href="/calculators"
               className="inline-flex items-center gap-1.5 rounded-full bg-forest px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-forest-deep"
@@ -125,8 +133,14 @@ export default function Header() {
             </Link>
           ))}
           <Link
+            href="/search"
+            className="mt-2 inline-flex items-center justify-center rounded-xl bg-paper-2 px-4 py-3 font-semibold text-ink"
+          >
+            Search
+          </Link>
+          <Link
             href="/calculators"
-            className="mt-2 inline-flex items-center justify-center rounded-xl bg-forest px-4 py-3 font-semibold text-white"
+            className="inline-flex items-center justify-center rounded-xl bg-forest px-4 py-3 font-semibold text-white"
           >
             Start calculating
           </Link>
