@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import SukanyaSamriddhiCalculator from "@/components/calc/SukanyaSamriddhiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Sukanya Samriddhi Yojana Calculator — SSY Maturity" },
-  description:
-    "Free Sukanya Samriddhi Yojana (SSY) calculator. Estimate your girl child's SSY maturity value and tax-free interest with yearly deposits over 21 years.",
-  alternates: { canonical: "/calculators/sukanya-samriddhi" },
-  openGraph: { url: "/calculators/sukanya-samriddhi" },
-};
+const CALC = calculators.find((c) => c.slug === "sukanya-samriddhi")!;
+export const metadata = calcMeta("sukanya-samriddhi", CALC.title + " — SSY Maturity", CALC.blurb);
 
 export default function Page() {
   return (

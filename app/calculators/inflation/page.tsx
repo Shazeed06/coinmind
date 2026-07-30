@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import InflationCalculator from "@/components/calc/InflationCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Inflation Calculator — Future Value of Money" },
-  description:
-    "Free inflation calculator. See what today's money will cost in the future and how inflation erodes the purchasing power of your savings over time.",
-  alternates: { canonical: "/calculators/inflation" },
-  openGraph: { url: "/calculators/inflation" },
-};
+const CALC = calculators.find((c) => c.slug === "inflation")!;
+export const metadata = calcMeta("inflation", CALC.title + " — Future Value of Money", CALC.blurb);
 
 export default function Page() {
   return (

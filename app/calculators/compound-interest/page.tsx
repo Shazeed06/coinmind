@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import CompoundInterestCalculator from "@/components/calc/CompoundInterestCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Compound Interest Calculator — Daily, Monthly & Yearly" },
-  description:
-    "Free compound interest calculator. See how your money grows with monthly, quarterly or yearly compounding for any principal, rate and time.",
-  alternates: { canonical: "/calculators/compound-interest" },
-  openGraph: { url: "/calculators/compound-interest" },
-};
+const CALC = calculators.find((c) => c.slug === "compound-interest")!;
+export const metadata = calcMeta("compound-interest", CALC.title + " — Daily, Monthly & Yearly", CALC.blurb);
 
 export default function Page() {
   return (

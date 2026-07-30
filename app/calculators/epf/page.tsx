@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import EpfCalculator from "@/components/calc/EpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "EPF Calculator — PF Balance & Maturity Value" },
-  description:
-    "Free EPF calculator for India. Estimate your Employee Provident Fund corpus at retirement from your basic salary, contribution rate and EPF interest.",
-  alternates: { canonical: "/calculators/epf" },
-  openGraph: { url: "/calculators/epf" },
-};
+const CALC = calculators.find((c) => c.slug === "epf")!;
+export const metadata = calcMeta("epf", CALC.title + " — PF Balance & Maturity Value", CALC.blurb);
 
 export default function Page() {
   return (

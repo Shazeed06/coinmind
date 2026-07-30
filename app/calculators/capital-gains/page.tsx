@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import CapitalGainsCalculator from "@/components/calc/CapitalGainsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Capital Gains Tax Calculator — LTCG & STCG" },
-  description:
-    "Free capital gains tax calculator for India. Work out LTCG and STCG on equity, mutual funds, property and gold under FY 2026-27 rules, with tax owed.",
-  alternates: { canonical: "/calculators/capital-gains" },
-  openGraph: { url: "/calculators/capital-gains" },
-};
+const CALC = calculators.find((c) => c.slug === "capital-gains")!;
+export const metadata = calcMeta("capital-gains", CALC.title + " — LTCG & STCG", CALC.blurb);
 
 export default function Page() {
   return (

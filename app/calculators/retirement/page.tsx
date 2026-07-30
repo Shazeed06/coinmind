@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import RetirementCalculator from "@/components/calc/RetirementCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Retirement Calculator — How Much Do You Need to Retire?" },
-  description:
-    "Free retirement planning calculator. Find the corpus you need to retire and the monthly investment required to get there, adjusted for inflation.",
-  alternates: { canonical: "/calculators/retirement" },
-  openGraph: { url: "/calculators/retirement" },
-};
+const CALC = calculators.find((c) => c.slug === "retirement")!;
+export const metadata = calcMeta("retirement", CALC.title + " — How Much Do You Need to Retire?", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import HourlyToSalaryCalculator from "@/components/calc/HourlyToSalaryCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Hourly to Salary Calculator — Annual Pay" },
-  description:
-    "Free hourly to salary calculator. Convert an hourly wage into annual, monthly, weekly and daily pay using your hours and weeks worked.",
-  alternates: { canonical: "/calculators/hourly-to-salary" },
-  openGraph: { url: "/calculators/hourly-to-salary" },
-};
+const CALC = calculators.find((c) => c.slug === "hourly-to-salary")!;
+export const metadata = calcMeta("hourly-to-salary", CALC.title + " — Annual Pay", CALC.blurb);
 
 export default function Page() {
   return (

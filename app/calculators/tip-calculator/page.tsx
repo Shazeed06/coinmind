@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import TipCalculator from "@/components/calc/TipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Tip Calculator — Split the Bill & Tip Fairly" },
-  description:
-    "Free tip calculator. Enter your bill, pick a tip % (10–25%), split between any number of people, and see the tip, total and per-person share instantly.",
-  alternates: { canonical: "/calculators/tip-calculator" },
-  openGraph: { url: "/calculators/tip-calculator" },
-};
+const CALC = calculators.find((c) => c.slug === "tip-calculator")!;
+export const metadata = calcMeta("tip-calculator", CALC.title + " — Split the Bill & Tip Fairly", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import HraCalculator from "@/components/calc/HraCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "HRA Calculator — House Rent Allowance Exemption" },
-  description:
-    "Free HRA exemption calculator for Indian income tax. See how much of your house rent allowance is tax-free under Section 10(13A) of the old regime.",
-  alternates: { canonical: "/calculators/hra" },
-  openGraph: { url: "/calculators/hra" },
-};
+const CALC = calculators.find((c) => c.slug === "hra")!;
+export const metadata = calcMeta("hra", CALC.title + " — House Rent Allowance Exemption", CALC.blurb);
 
 export default function Page() {
   return (

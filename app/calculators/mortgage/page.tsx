@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import MortgageCalculator from "@/components/calc/MortgageCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Mortgage Calculator — Monthly Payment & Interest" },
-  description:
-    "Free mortgage calculator. Estimate your monthly home loan payment, total interest and total paid from the home price, down payment, term and interest rate.",
-  alternates: { canonical: "/calculators/mortgage" },
-  openGraph: { url: "/calculators/mortgage" },
-};
+const CALC = calculators.find((c) => c.slug === "mortgage")!;
+export const metadata = calcMeta("mortgage", CALC.title + " — Monthly Payment & Interest", CALC.blurb);
 
 export default function Page() {
   return (

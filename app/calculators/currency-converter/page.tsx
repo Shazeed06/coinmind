@@ -1,16 +1,12 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import CurrencyConverter from "@/components/calc/CurrencyConverter";
 import CalcPage from "@/components/calc/CalcPage";
 import { CURRENCY_PAIRS, pairSlug } from "@/lib/pseo-currency";
 
-export const metadata: Metadata = {
-  title: { absolute: "Currency Converter — Live Exchange Rates" },
-  description:
-    "Free currency converter with live mid-market rates. Convert USD to INR, EUR, GBP and 20+ currencies instantly — no sign-up, quick and accurate.",
-  alternates: { canonical: "/calculators/currency-converter" },
-  openGraph: { url: "/calculators/currency-converter" },
-};
+const CALC = calculators.find((c) => c.slug === "currency-converter")!;
+export const metadata = calcMeta("currency-converter", CALC.title + " — Live Exchange Rates", CALC.blurb);
 
 // Internal links to the "<X> to INR" programmatic pages. Without these the 17
 // currency pages are reachable only from each other and from the sitemap, so

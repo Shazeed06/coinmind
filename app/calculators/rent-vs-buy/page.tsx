@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import RentVsBuyCalculator from "@/components/calc/RentVsBuyCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Rent vs Buy Calculator — Should You Buy?" },
-  description:
-    "Should you rent or buy a house? This rent vs buy calculator compares your net worth from buying against renting and investing the difference over your stay.",
-  alternates: { canonical: "/calculators/rent-vs-buy" },
-  openGraph: { url: "/calculators/rent-vs-buy" },
-};
+const CALC = calculators.find((c) => c.slug === "rent-vs-buy")!;
+export const metadata = calcMeta("rent-vs-buy", CALC.title + " — Should You Buy?", CALC.blurb);
 
 export default function Page() {
   return (

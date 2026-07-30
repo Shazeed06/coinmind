@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import SalesTaxCalculator from "@/components/calc/SalesTaxCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Sales Tax & VAT Calculator — Add or Remove Tax" },
-  description:
-    "Free sales tax and VAT calculator. Add or remove tax from any amount at any rate. Works for US sales tax and UK & EU VAT.",
-  alternates: { canonical: "/calculators/sales-tax" },
-  openGraph: { url: "/calculators/sales-tax" },
-};
+const CALC = calculators.find((c) => c.slug === "sales-tax")!;
+export const metadata = calcMeta("sales-tax", CALC.title + " — Add or Remove Tax", CALC.blurb);
 
 export default function Page() {
   return (

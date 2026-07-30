@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import GstCalculator from "@/components/calc/GstCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "GST Calculator — Add or Remove GST (5%, 12%, 18%, 28%)" },
-  description:
-    "Free GST calculator for India. Add GST to a price or remove GST from an inclusive amount at 5%, 12%, 18% or 28%, with CGST/SGST breakdown.",
-  alternates: { canonical: "/calculators/gst" },
-  openGraph: { url: "/calculators/gst" },
-};
+const CALC = calculators.find((c) => c.slug === "gst")!;
+export const metadata = calcMeta("gst", CALC.title + " — Add or Remove GST (5%, 12%, 18%, 28%)", CALC.blurb);
 
 export default function Page() {
   return (

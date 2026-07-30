@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import FdCalculator from "@/components/calc/FdCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "FD Calculator — Fixed Deposit Maturity & Interest" },
-  description:
-    "Free fixed deposit (FD) calculator. Find the maturity value and interest earned on your FD with quarterly, monthly or yearly compounding.",
-  alternates: { canonical: "/calculators/fd" },
-  openGraph: { url: "/calculators/fd" },
-};
+const CALC = calculators.find((c) => c.slug === "fd")!;
+export const metadata = calcMeta("fd", CALC.title + " — Fixed Deposit Maturity & Interest", CALC.blurb);
 
 export default function Page() {
   return (

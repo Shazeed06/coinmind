@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import NpsCalculator from "@/components/calc/NpsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "NPS Calculator — Pension & Corpus Estimate" },
-  description:
-    "Free NPS calculator. Estimate your retirement corpus, tax-free lump sum and monthly pension from the National Pension System for any contribution and return.",
-  alternates: { canonical: "/calculators/nps" },
-  openGraph: { url: "/calculators/nps" },
-};
+const CALC = calculators.find((c) => c.slug === "nps")!;
+export const metadata = calcMeta("nps", CALC.title + " — Pension & Corpus Estimate", CALC.blurb);
 
 export default function Page() {
   return (

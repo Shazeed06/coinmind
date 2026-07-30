@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import DateDifferenceCalculator from "@/components/calc/DateDifferenceCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Date Difference Calculator — Days Between Dates" },
-  description:
-    "Free date difference calculator. Find days, weeks, months and years between two dates, or add and subtract days from any date. No sign-up.",
-  alternates: { canonical: "/calculators/date-difference-calculator" },
-  openGraph: { url: "/calculators/date-difference-calculator" },
-};
+const CALC = calculators.find((c) => c.slug === "date-difference-calculator")!;
+export const metadata = calcMeta("date-difference-calculator", CALC.title + " — Days Between Dates", CALC.blurb);
 
 export default function Page() {
   return (

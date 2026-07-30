@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import MutualFundReturnsCalculator from "@/components/calc/MutualFundReturnsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Mutual Fund Returns Calculator — Growth & CAGR" },
-  description:
-    "Free mutual fund returns calculator. Project the future value, total return, absolute return and CAGR of a one-time lumpsum mutual fund investment.",
-  alternates: { canonical: "/calculators/mutual-fund-returns" },
-  openGraph: { url: "/calculators/mutual-fund-returns" },
-};
+const CALC = calculators.find((c) => c.slug === "mutual-fund-returns")!;
+export const metadata = calcMeta("mutual-fund-returns", CALC.title + " — Growth & CAGR", CALC.blurb);
 
 export default function Page() {
   return (

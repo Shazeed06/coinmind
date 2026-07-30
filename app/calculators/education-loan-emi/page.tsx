@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import EmiCalculator from "@/components/calc/EmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Education Loan EMI Calculator — Student Loan EMI" },
-  description:
-    "Free education loan EMI calculator. Estimate your student loan EMI, total interest and payment at 8–13%, and see how a moratorium affects repayment.",
-  alternates: { canonical: "/calculators/education-loan-emi" },
-  openGraph: { url: "/calculators/education-loan-emi" },
-};
+const CALC = calculators.find((c) => c.slug === "education-loan-emi")!;
+export const metadata = calcMeta("education-loan-emi", CALC.title + " — Student Loan EMI", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import PercentageCalculator from "@/components/calc/PercentageCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Percentage Calculator — % of a Number, Change & More" },
-  description:
-    "Free percentage calculator. Find X% of a number, work out what percent one number is of another, and calculate percentage increase or decrease instantly.",
-  alternates: { canonical: "/calculators/percentage-calculator" },
-  openGraph: { url: "/calculators/percentage-calculator" },
-};
+const CALC = calculators.find((c) => c.slug === "percentage-calculator")!;
+export const metadata = calcMeta("percentage-calculator", CALC.title + " — % of a Number, Change & More", CALC.blurb);
 
 export default function Page() {
   return (

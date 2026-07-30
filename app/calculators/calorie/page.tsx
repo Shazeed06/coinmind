@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import CalorieCalculator from "@/components/calc/CalorieCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Calorie Calculator — Daily Calories (TDEE)" },
-  description:
-    "Free calorie calculator. Estimate your daily maintenance calories (TDEE) and targets for weight loss or gain using the Mifflin-St Jeor equation.",
-  alternates: { canonical: "/calculators/calorie" },
-  openGraph: { url: "/calculators/calorie" },
-};
+const CALC = calculators.find((c) => c.slug === "calorie")!;
+export const metadata = calcMeta("calorie", CALC.title + " — Daily Calories (TDEE)", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import EmiCalculator from "@/components/calc/EmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Personal Loan EMI Calculator — Monthly EMI" },
-  description:
-    "Free personal loan EMI calculator. Work out your monthly EMI, total interest and total payment on an unsecured personal loan at 11–18% over 1–5 years.",
-  alternates: { canonical: "/calculators/personal-loan-emi" },
-  openGraph: { url: "/calculators/personal-loan-emi" },
-};
+const CALC = calculators.find((c) => c.slug === "personal-loan-emi")!;
+export const metadata = calcMeta("personal-loan-emi", CALC.title + " — Monthly EMI", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import GratuityCalculator from "@/components/calc/GratuityCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Gratuity Calculator — How Much Gratuity Will You Get?" },
-  description:
-    "Free gratuity calculator for India. Work out the gratuity payable based on your last drawn salary and years of service, under the Gratuity Act.",
-  alternates: { canonical: "/calculators/gratuity" },
-  openGraph: { url: "/calculators/gratuity" },
-};
+const CALC = calculators.find((c) => c.slug === "gratuity")!;
+export const metadata = calcMeta("gratuity", CALC.title + " — How Much Gratuity Will You Get?", CALC.blurb);
 
 export default function Page() {
   return (

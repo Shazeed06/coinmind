@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import IdealWeightCalculator from "@/components/calc/IdealWeightCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Ideal Weight Calculator — By Height & Sex" },
-  description:
-    "Free ideal weight calculator. Enter your height and sex to see your ideal body weight from the Robinson, Miller, Devine and Hamwi formulas.",
-  alternates: { canonical: "/calculators/ideal-weight" },
-  openGraph: { url: "/calculators/ideal-weight" },
-};
+const CALC = calculators.find((c) => c.slug === "ideal-weight")!;
+export const metadata = calcMeta("ideal-weight", CALC.title + " — By Height & Sex", CALC.blurb);
 
 export default function Page() {
   return (

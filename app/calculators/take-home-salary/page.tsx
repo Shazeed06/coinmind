@@ -1,16 +1,12 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import TakeHomeSalaryCalculator from "@/components/calc/TakeHomeSalaryCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 import { INHAND_LPA, lpaSlug, lpaLabel } from "@/lib/pseo-inhand";
 
-export const metadata: Metadata = {
-  title: { absolute: "Take-Home Salary Calculator: CTC to In-Hand" },
-  description:
-    "Free India take-home salary calculator. Convert annual CTC to monthly in-hand pay with PF, professional tax and new-regime income tax.",
-  alternates: { canonical: "/calculators/take-home-salary" },
-  openGraph: { url: "/calculators/take-home-salary" },
-};
+const CALC = calculators.find((c) => c.slug === "take-home-salary")!;
+export const metadata = calcMeta("take-home-salary", CALC.title + ": CTC to In-Hand", CALC.blurb);
 
 export default function Page() {
   return (

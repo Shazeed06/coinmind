@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import SwpCalculator from "@/components/calc/SwpCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "SWP Calculator — Systematic Withdrawal Plan" },
-  description:
-    "Free SWP calculator. See how long your mutual-fund corpus lasts, your total withdrawals and remaining balance for any monthly payout and return rate.",
-  alternates: { canonical: "/calculators/swp" },
-  openGraph: { url: "/calculators/swp" },
-};
+const CALC = calculators.find((c) => c.slug === "swp")!;
+export const metadata = calcMeta("swp", CALC.title + " — Systematic Withdrawal Plan", CALC.blurb);
 
 export default function Page() {
   return (

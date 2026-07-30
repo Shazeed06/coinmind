@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import NscCalculator from "@/components/calc/NscCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "NSC Calculator — National Savings Certificate" },
-  description:
-    "Free NSC calculator. Find your National Savings Certificate maturity value and total interest over the fixed 5-year term at the current rate.",
-  alternates: { canonical: "/calculators/nsc" },
-  openGraph: { url: "/calculators/nsc" },
-};
+const CALC = calculators.find((c) => c.slug === "nsc")!;
+export const metadata = calcMeta("nsc", CALC.title + " — National Savings Certificate", CALC.blurb);
 
 export default function Page() {
   return (

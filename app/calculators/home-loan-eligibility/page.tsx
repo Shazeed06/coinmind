@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import HomeLoanEligibilityCalculator from "@/components/calc/HomeLoanEligibilityCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Home Loan Eligibility Calculator — How Much Can I Get?" },
-  description:
-    "See how much home loan you qualify for on your salary. Free eligibility calculator using FOIR, your existing EMIs, interest rate and tenure.",
-  alternates: { canonical: "/calculators/home-loan-eligibility" },
-  openGraph: { url: "/calculators/home-loan-eligibility" },
-};
+const CALC = calculators.find((c) => c.slug === "home-loan-eligibility")!;
+export const metadata = calcMeta("home-loan-eligibility", CALC.title + " — How Much Can I Get?", CALC.blurb);
 
 export default function Page() {
   return (

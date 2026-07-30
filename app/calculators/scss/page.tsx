@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import ScssCalculator from "@/components/calc/ScssCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "SCSS Calculator — Senior Citizen Savings Scheme" },
-  description:
-    "Free SCSS calculator. Find your Senior Citizen Savings Scheme quarterly payout, annual income and total interest over the 5-year term.",
-  alternates: { canonical: "/calculators/scss" },
-  openGraph: { url: "/calculators/scss" },
-};
+const CALC = calculators.find((c) => c.slug === "scss")!;
+export const metadata = calcMeta("scss", CALC.title + " — Senior Citizen Savings Scheme", CALC.blurb);
 
 export default function Page() {
   return (

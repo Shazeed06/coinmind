@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import AgeCalculator from "@/components/calc/AgeCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Age Calculator — Exact Age in Years, Months & Days" },
-  description:
-    "Free age calculator. Find your exact age in years, months and days — plus total weeks, days, hours and your next birthday countdown. No sign-up.",
-  alternates: { canonical: "/calculators/age-calculator" },
-  openGraph: { url: "/calculators/age-calculator" },
-};
+const CALC = calculators.find((c) => c.slug === "age-calculator")!;
+export const metadata = calcMeta("age-calculator", CALC.title + " — Exact Age in Years, Months & Days", CALC.blurb);
 
 export default function Page() {
   return (

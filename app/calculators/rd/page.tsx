@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import RdCalculator from "@/components/calc/RdCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "RD Calculator — Recurring Deposit Maturity & Interest" },
-  description:
-    "Free RD calculator to find your recurring deposit maturity value and total interest, with quarterly compounding. Works for bank and post office RD plans.",
-  alternates: { canonical: "/calculators/rd" },
-  openGraph: { url: "/calculators/rd" },
-};
+const CALC = calculators.find((c) => c.slug === "rd")!;
+export const metadata = calcMeta("rd", CALC.title + " — Recurring Deposit Maturity & Interest", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import GoalSipCalculator from "@/components/calc/GoalSipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "SIP for 1 Crore — Goal SIP & Crorepati Calculator" },
-  description:
-    "Find the exact monthly SIP needed to reach ₹1 crore (or any goal) at 12%. Free reverse-SIP crorepati calculator with instant results.",
-  alternates: { canonical: "/calculators/goal-sip" },
-  openGraph: { url: "/calculators/goal-sip" },
-};
+const CALC = calculators.find((c) => c.slug === "goal-sip")!;
+export const metadata = calcMeta("goal-sip", "SIP for 1 Crore — Goal SIP & Crorepati Calculator", CALC.blurb);
 
 export default function Page() {
   return (

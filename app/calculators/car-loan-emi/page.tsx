@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import EmiCalculator from "@/components/calc/EmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Car Loan EMI Calculator — Monthly Car Loan EMI" },
-  description:
-    "Free car loan EMI calculator. Work out your monthly car loan EMI, total interest and total payment for any car price, 8–12% rate and 5–7 year tenure.",
-  alternates: { canonical: "/calculators/car-loan-emi" },
-  openGraph: { url: "/calculators/car-loan-emi" },
-};
+const CALC = calculators.find((c) => c.slug === "car-loan-emi")!;
+export const metadata = calcMeta("car-loan-emi", CALC.title + " — Monthly Car Loan EMI", CALC.blurb);
 
 export default function Page() {
   return (

@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import PostOfficeMisCalculator from "@/components/calc/PostOfficeMisCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Post Office MIS Calculator — Monthly Income Scheme" },
-  description:
-    "Free Post Office MIS calculator. Find your Monthly Income Scheme monthly payout, annual income and total interest over the 5-year term.",
-  alternates: { canonical: "/calculators/post-office-mis" },
-  openGraph: { url: "/calculators/post-office-mis" },
-};
+const CALC = calculators.find((c) => c.slug === "post-office-mis")!;
+export const metadata = calcMeta("post-office-mis", CALC.title + " — Monthly Income Scheme", CALC.blurb);
 
 export default function Page() {
   return (

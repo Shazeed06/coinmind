@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import PregnancyDueDateCalculator from "@/components/calc/PregnancyDueDateCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Pregnancy Due Date Calculator — Weeks & Trimester" },
-  description:
-    "Free due date calculator. Estimate your due date from your last period (LMP) or conception date, and see how many weeks pregnant you are.",
-  alternates: { canonical: "/calculators/pregnancy-due-date" },
-  openGraph: { url: "/calculators/pregnancy-due-date" },
-};
+const CALC = calculators.find((c) => c.slug === "pregnancy-due-date")!;
+export const metadata = calcMeta("pregnancy-due-date", CALC.title + " — Weeks & Trimester", CALC.blurb);
 
 export default function Page() {
   return (

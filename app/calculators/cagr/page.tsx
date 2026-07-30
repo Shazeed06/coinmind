@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import CagrCalculator from "@/components/calc/CagrCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "CAGR Calculator — Compound Annual Growth Rate" },
-  description:
-    "Free CAGR calculator. Find the compound annual growth rate, absolute return and total gain of any investment from its initial value, final value and duration.",
-  alternates: { canonical: "/calculators/cagr" },
-  openGraph: { url: "/calculators/cagr" },
-};
+const CALC = calculators.find((c) => c.slug === "cagr")!;
+export const metadata = calcMeta("cagr", CALC.title + " — Compound Annual Growth Rate", CALC.blurb);
 
 export default function Page() {
   return (

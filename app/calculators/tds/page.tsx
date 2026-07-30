@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import TdsCalculator from "@/components/calc/TdsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "TDS Calculator — Tax Deducted at Source" },
-  description:
-    "Free TDS calculator to estimate tax deducted at source on interest, professional fees, rent, contractor and commission payments, plus the net amount.",
-  alternates: { canonical: "/calculators/tds" },
-  openGraph: { url: "/calculators/tds" },
-};
+const CALC = calculators.find((c) => c.slug === "tds")!;
+export const metadata = calcMeta("tds", CALC.title + " — Tax Deducted at Source", CALC.blurb);
 
 export default function Page() {
   return (

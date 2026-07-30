@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import PpfCalculator from "@/components/calc/PpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "PPF Calculator — Public Provident Fund Maturity" },
-  description:
-    "Free PPF calculator for India. Estimate your Public Provident Fund maturity and tax-free interest with yearly contributions over 15+ years.",
-  alternates: { canonical: "/calculators/ppf" },
-  openGraph: { url: "/calculators/ppf" },
-};
+const CALC = calculators.find((c) => c.slug === "ppf")!;
+export const metadata = calcMeta("ppf", CALC.title + " — Public Provident Fund Maturity", CALC.blurb);
 
 export default function Page() {
   return (

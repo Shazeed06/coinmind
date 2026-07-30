@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import DiscountCalculator from "@/components/calc/DiscountCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Discount Calculator — Sale Price & Savings" },
-  description:
-    "Free discount calculator. Enter an original price and discount % to see the final sale price and how much you save. Percent off made simple.",
-  alternates: { canonical: "/calculators/discount" },
-  openGraph: { url: "/calculators/discount" },
-};
+const CALC = calculators.find((c) => c.slug === "discount")!;
+export const metadata = calcMeta("discount", CALC.title + " — Sale Price & Savings", CALC.blurb);
 
 export default function Page() {
   return (

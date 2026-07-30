@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import Link from "next/link";
 import StepUpSipCalculator from "@/components/calc/StepUpSipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Step-up SIP Calculator — Top-up SIP Returns" },
-  description:
-    "Free step-up SIP calculator. See how increasing your monthly SIP each year grows your corpus vs a flat SIP. Estimate top-up SIP returns in ₹, $ or £.",
-  alternates: { canonical: "/calculators/step-up-sip" },
-  openGraph: { url: "/calculators/step-up-sip" },
-};
+const CALC = calculators.find((c) => c.slug === "step-up-sip")!;
+export const metadata = calcMeta("step-up-sip", CALC.title + " — Top-up SIP Returns", CALC.blurb);
 
 export default function Page() {
   return (

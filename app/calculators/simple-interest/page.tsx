@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { calcMeta } from "@/lib/seo";
+import { calculators } from "@/lib/data";
 import SimpleInterestCalculator from "@/components/calc/SimpleInterestCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-export const metadata: Metadata = {
-  title: { absolute: "Simple Interest Calculator — Interest & Amount" },
-  description:
-    "Free simple interest calculator. Work out interest and total amount using the SI = P×R×T/100 formula, and see how it compares with compound interest.",
-  alternates: { canonical: "/calculators/simple-interest" },
-  openGraph: { url: "/calculators/simple-interest" },
-};
+const CALC = calculators.find((c) => c.slug === "simple-interest")!;
+export const metadata = calcMeta("simple-interest", CALC.title + " — Interest & Amount", CALC.blurb);
 
 export default function Page() {
   return (
