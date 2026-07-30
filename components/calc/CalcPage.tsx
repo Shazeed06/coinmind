@@ -76,18 +76,6 @@ export default function CalcPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJson) }}
-      />
 
       {/* Breadcrumb */}
       <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">

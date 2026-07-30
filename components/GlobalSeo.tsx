@@ -69,11 +69,10 @@ export default function GlobalSeo({ pathname }: { pathname: string }) {
   // Speakable — mark key pages for AI voice/overview consumption
   schemas.push(...getSpeakableSchemas());
 
-  // FAQ schemas — match by path prefix
-  for (const [prefix, faqs] of Object.entries(FAQS_BY_PATH)) {
-    if (pathname === prefix || pathname.startsWith(prefix + "/")) {
-      schemas.push(faqPage(faqs));
-    }
+  // FAQ schemas — match EXACT path only, not sub-paths
+  const faq = FAQS_BY_PATH[pathname];
+  if (faq) {
+    schemas.push(faqPage(faq));
   }
 
   // HowTo schemas
