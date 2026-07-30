@@ -7,8 +7,8 @@ const CAT_ICONS: Record<string, typeof Calculator> = {
   Investing: TrendingUp, Loans: Landmark, Tax: Receipt, Savings: PiggyBank, Utility: Wrench, Health: Calculator,
 };
 
-const cats = (["Investing", "Loans", "Tax", "Savings", "Utility", "Health"] as const)
-  .map((cat) => ({ cat, items: calculators.filter((c) => c.category === cat).slice(0, 2) }))
+const cats = (["Investing", "Loans", "Tax", "Savings", "Utility"] as const)
+  .map((cat) => ({ cat, items: calculators.filter((c) => c.category === cat && c.live).slice(0, 2) }))
   .filter(({ items }) => items.length);
 
 export default function FinanceCategories() {

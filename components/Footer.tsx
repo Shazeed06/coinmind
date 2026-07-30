@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 lg:mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
           <p>&copy; 2026 {site.name}. All rights reserved.</p>
-          <Link href="/sitemap" className="hover:text-brand transition-colors">Sitemap</Link>
+          <Link href="/sitemap.xml" className="hover:text-brand transition-colors">Sitemap</Link>
         </div>
       </div>
     </footer>

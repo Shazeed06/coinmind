@@ -42,11 +42,11 @@ export default function LearningHub() {
             <div className="divide-y divide-border">
               {CATEGORIES.map((cat) => {
                 const count = posts.filter((p) => p.category === cat).length;
-                return (
-                  <Link
-                    key={cat}
-                    href={`/blog?category=${cat.toLowerCase()}`}
-                    className="flex items-center justify-between h-11 text-sm text-text hover:bg-bg-alt transition-colors px-1 -mx-1 rounded-input"
+              return (
+                <Link
+                  key={cat}
+                  href={`/blog?category=${encodeURIComponent(cat.toLowerCase())}`}
+                  className="flex items-center justify-between h-11 text-sm text-text hover:bg-bg-alt transition-colors px-1 -mx-1 rounded-input"
                   >
                     <span>{cat}</span>
                     <span className="flex items-center gap-2">

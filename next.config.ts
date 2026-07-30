@@ -56,6 +56,8 @@ const nextConfig: NextConfig = {
       { source: "/tools/random-wheel", destination: "/tools", permanent: true },
       { source: "/tools/meme-generator", destination: "/tools", permanent: true },
       { source: "/tools/lorem-ipsum-generator", destination: "/tools", permanent: true },
+      // Broken link fixes
+      { source: "/blog/fd-vs-sip", destination: "/blog/sip-vs-lumpsum", permanent: true },
     ];
   },
   poweredByHeader: false,
