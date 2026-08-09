@@ -191,7 +191,7 @@ export default function Page() {
                       <CatIcon className="h-5 w-5 text-brand" />
                       <h2 className="text-base font-semibold text-text">{cat}</h2>
                     </div>
-                    <div className={`grid sm:grid-cols-2 gap-4`} style={{ gridTemplateColumns: cols === 4 ? "repeat(4, minmax(0, 1fr))" : "repeat(3, minmax(0, 1fr))" }}>
+                    <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 ${cols === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
                       {(items.length > cols ? padRow(items, cols) : items).map((t, i) => {
                         if (!t) return <div key={`spacer-${i}`} className="hidden sm:block" />;
                         const Icon = ICON_MAP[t.tag] || Wrench;

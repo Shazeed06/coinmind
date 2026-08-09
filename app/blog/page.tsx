@@ -54,10 +54,10 @@ export default function Page() {
           <div className="container-main">
             <Link href={`/blog/${lead.slug}`} className="card overflow-hidden block hover:border-brand">
               <div className="grid md:grid-cols-12">
-                <div className="md:col-span-7 h-[280px] overflow-hidden">
+                <div className="md:col-span-7 h-[180px] sm:h-[280px] overflow-hidden">
                   <CoverArt seed={lead.slug} variant={lead.art.variant} palette={lead.art.palette} label={lead.category} className="h-full w-full" />
                 </div>
-                <div className="md:col-span-5 p-8 flex flex-col justify-center">
+                <div className="md:col-span-5 p-5 sm:p-8 flex flex-col justify-center">
                   <p className="eyebrow text-brand">{lead.category} · {lead.readMinutes} min read</p>
                   <h2 className="text-2xl font-bold text-text mt-2 leading-tight">{lead.title}</h2>
                   <p className="text-sm text-text-muted mt-3 line-clamp-3">{lead.excerpt}</p>
