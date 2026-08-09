@@ -3,7 +3,7 @@ import { Section, SectionHeader, Card, CardBody, CardFooter } from "@/components
 import { ArrowRight } from "lucide-react";
 
 const COMPARISONS = [
-  { a: "SIP", b: "FD", desc: "Market-linked growth vs guaranteed returns.", href: "/blog/sip-vs-lumpsum" },
+  { a: "SIP", b: "Lumpsum", desc: "Spread entry vs all-at-once. SIP reduces timing risk.", href: "/blog/sip-vs-lumpsum" },
   { a: "New Tax Regime", b: "Old Tax Regime", desc: "Lower rates with fewer deductions vs higher rates with 80C, HRA.", href: "/calculators/income-tax" },
   { a: "SIP", b: "Lumpsum", desc: "Spread entry vs all-at-once. SIP reduces timing risk.", href: "/blog/sip-vs-lumpsum" },
   { a: "Flat SIP", b: "Step-Up SIP", desc: "Fixed vs annually increasing. Step-up can double your corpus.", href: "/calculators/step-up-sip" },

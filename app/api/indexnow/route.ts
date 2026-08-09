@@ -3,10 +3,8 @@ import { calculators, posts } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
-import { SIP_SLUGS } from "@/lib/pseo-sip";
-import { SIP_YEAR_SLUGS } from "@/lib/pseo-sip-years";
 import { INHAND_SLUGS } from "@/lib/pseo-inhand";
-import { GLOSSARY_SLUGS } from "@/lib/glossary";
+import { GLOSSARY } from "@/lib/glossary";
 
 // GET /api/indexnow — submits every public URL to IndexNow (Bing, Yandex, Naver,
 // Seznam). Bing's index feeds ChatGPT Search, so this gets pages discovered in
@@ -44,25 +42,8 @@ function allUrls(): string[] {
     "/tools/resize-image",
     "/tools/crop-image",
     "/tools/rotate-image",
-    "/tools/favicon-generator",
-    "/tools/meme-generator",
-    "/tools/image-to-base64",
-    "/tools/number-to-words",
-    "/tools/lorem-ipsum-generator",
-    "/tools/text-compare",
-    "/tools/remove-duplicate-lines",
-    "/tools/json-formatter",
-    "/tools/base64",
-    "/tools/url-encode-decode",
-    "/tools/stopwatch-timer",
-    "/tools/countdown-to-date",
-    "/tools/random-wheel",
-    "/tools/coin-flip",
-    "/tools/random-number-generator",
     "/tools/scientific-calculator",
     "/tools/gpa-calculator",
-    "/tools/color-picker",
-    "/tools/character-counter",
     "/ai-assistant",
     "/ai-tools",
     "/glossary",
@@ -76,15 +57,16 @@ function allUrls(): string[] {
     "/privacy",
     "/disclaimer",
     "/terms",
+    "/methodology",
+    "/corrections",
+    "/authors/sahil",
     ...calculators.filter((c) => c.live).map((c) => `/calculators/${c.slug}`),
     ...posts.map((p) => `/blog/${p.slug}`),
     ...aiToolDetails.map((d) => `/ai-tools/${d.slug}`),
     ...TAX_SLUGS.map((s) => `/income-tax/${s}`),
     ...PAIR_SLUGS.map((s) => `/currency/${s}`),
-    ...SIP_SLUGS.map((s) => `/sip/${s}`),
-    ...SIP_YEAR_SLUGS.map((s) => `/sip-returns/${s}`),
     ...INHAND_SLUGS.map((s) => `/in-hand-salary/${s}`),
-    ...GLOSSARY_SLUGS.map((s) => `/glossary/${s}`),
+    ...GLOSSARY.map((g) => `/glossary/${g.slug}`),
   ];
   return paths.map((p) => `${site.url}${p}`);
 }
