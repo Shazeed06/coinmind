@@ -36,6 +36,7 @@ body {
   font-feature-settings: "kern", "liga", "cv05";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 .display { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
@@ -47,7 +48,11 @@ body {
 .eyebrow { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
 .section-pad { padding-top: clamp(3rem, 6vw, 6rem); padding-bottom: clamp(3rem, 6vw, 6rem); }
-.container-main { max-width: 1200px; margin: 0 auto; padding-inline: clamp(1rem, 2vw, 1.5rem); }
+.container-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+}
 .prose-container { max-width: 720px; margin: 0 auto; }
 
 .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: transform 150ms ease, border-color 150ms ease; }

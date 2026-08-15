@@ -31,7 +31,7 @@ export default function AiAssistant() {
               <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${msg.role === "ai" ? "bg-brand" : "bg-white/10"}`}>
                 {msg.role === "ai" ? <Bot className="h-4 w-4 text-white" /> : <User className="h-4 w-4 text-white/80" />}
               </div>
-              <div className={`rounded-card p-3 sm:p-4 max-w-[85%] sm:max-w-[70%] ${msg.role === "ai" ? "bg-white/10 border border-white/10" : "bg-brand border border-brand"}`}>
+              <div className={`rounded-card p-3 sm:p-4 max-w-[82%] sm:max-w-[70%] ${msg.role === "ai" ? "bg-white/10 border border-white/10" : "bg-brand border border-brand"}`}>
                 <p className={`text-xs sm:text-sm ${msg.role === "ai" ? "text-white/80" : "text-white"}`}>{msg.text}</p>
               </div>
             </div>

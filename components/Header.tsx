@@ -46,7 +46,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-colors duration-200 h-16 flex items-center ${
+      className={`sticky top-0 z-50 transition-colors duration-200 h-16 sm:h-20 flex items-center ${
         scrolled ? "bg-white/90 backdrop-blur-md border-b border-border" : "bg-white border-b border-transparent"
       }`}
     >
@@ -114,8 +114,8 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="fixed inset-0 top-16 z-40 md:hidden bg-white">
-          <nav className="container-main py-4 flex flex-col gap-1">
+        <div className="fixed inset-0 top-16 sm:top-20 z-40 md:hidden bg-white overflow-y-auto">
+          <nav className="container-main py-4 sm:py-6 flex flex-col gap-1 pb-10">
             {primaryNav.map((item, i) => {
               const prev = i > 0 ? primaryNav[i - 1] : null;
               const groupChanged = item.group && item.group !== prev?.group;
@@ -164,8 +164,8 @@ export default function Header() {
 function SearchModal({ query, onQueryChange, onClose }: { query: string; onQueryChange: (v: string) => void; onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-black/40" onClick={onClose}>
-      <div className="w-full max-w-[640px] mx-4 bg-white rounded-card border border-border shadow-xl" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-center border-b border-border px-4">
+      <div className="w-full max-w-[640px] mx-4 sm:mx-6 bg-white rounded-card border border-border shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center border-b border-border px-4 sm:px-5">
           <Search className="h-4 w-4 text-text-muted shrink-0" />
           <input
             type="text"
@@ -179,7 +179,7 @@ function SearchModal({ query, onQueryChange, onClose }: { query: string; onQuery
             Esc
           </button>
         </div>
-        <div className="p-4 text-sm text-text-muted text-center">
+        <div className="p-4 sm:p-5 text-sm text-text-muted text-center">
           {query ? "Press Enter to search" : "Type to search calculators, guides, glossary terms and tools"}
         </div>
       </div>

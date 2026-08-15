@@ -21,10 +21,10 @@ export default function Footer() {
             <p className="mt-3 text-xs text-text-muted/70">Educational only — not financial advice.</p>
           </div>
           {footerNav.map((col, i) => (
-            <div key={col.title}>
+            <div key={col.title} className="border-t border-border/60 pt-4 lg:border-0 lg:pt-0">
               <button
                 onClick={() => setOpenCol(openCol === i ? null : i)}
-                className="lg:cursor-default w-full text-left lg:text-left flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-text-muted lg:pointer-events-none"
+                className="lg:cursor-default w-full text-left lg:text-left flex items-center justify-between py-1 text-xs font-semibold uppercase tracking-wider text-text-muted lg:pointer-events-none"
               >
                 {col.title}
                 <ChevronDown className={`h-3.5 w-3.5 lg:hidden transition-transform ${openCol === i ? "rotate-180" : ""}`} />
@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-12 lg:mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
+        <div className="mt-12 lg:mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted text-center sm:text-left">
           <p>&copy; 2026 {site.name}. All rights reserved.</p>
           <Link href="/sitemap.xml" className="hover:text-brand transition-colors">Sitemap</Link>
         </div>

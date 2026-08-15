@@ -35,7 +35,7 @@ export function ToolPageLayout({
           <div className="max-w-[720px]">
             <Breadcrumb items={[{ label: "Tools", href: "/tools" }, { label: title }]} />
             <Pill>Free Tool</Pill>
-            <h1 className="h1 text-text mt-3">{title}</h1>
+            <h1 className="h1 text-text mt-3 break-words">{title}</h1>
             <p className="body text-text-muted mt-3">{description}</p>
             <AuthorByline className="mt-5 pt-5 border-t border-border" />
           </div>
@@ -63,7 +63,7 @@ export function ToolPageLayout({
               <h2 className="h3 text-text">How to use this tool</h2>
               <ol className="mt-6 space-y-4">
                 {howToUse.map((step, i) => (
-                  <li key={i} className="flex gap-4">
+                  <li key={i} className="flex gap-3 sm:gap-4">
                     <span className="w-7 h-7 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {i + 1}
                     </span>
@@ -154,7 +154,7 @@ export function ToolPageLayout({
               <h2 className="h3 text-text">Related tools</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 {relatedTools.map((tool) => (
-                  <a key={tool.href} href={tool.href} className="rounded-pill border border-border px-4 py-2 text-sm text-text-muted hover:text-brand hover:border-brand transition-colors">
+                  <a key={tool.href} href={tool.href} className="rounded-pill border border-border px-3 py-2 text-sm text-text-muted hover:text-brand hover:border-brand transition-colors">
                     {tool.label}
                   </a>
                 ))}

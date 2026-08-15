@@ -8,10 +8,10 @@ const TOOL_COUNT = 44;
 export default function HeroSection() {
   return (
     <section className="min-h-[88vh] flex items-center">
-      <div className="container-main w-full py-16">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="container-main w-full py-12 sm:py-16">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-1.5 rounded-pill border border-border bg-bg-alt px-4 py-1.5 text-sm text-text-muted">
+            <div className="inline-flex max-w-full items-center gap-1.5 rounded-pill border border-border bg-bg-alt px-4 py-1.5 text-xs sm:text-sm text-text-muted">
               <span>100% Free · No Signup Required</span>
             </div>
 
@@ -20,11 +20,11 @@ export default function HeroSection() {
               <span className="underline-stroke">Personal Finance</span> Platform
             </h1>
 
-            <p className="text-lg text-text-muted max-w-[480px] leading-relaxed mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg text-text-muted max-w-[480px] leading-relaxed mx-auto lg:mx-0">
               Free financial calculators, tools and guides to plan investments, manage loans and save taxes — all in one place.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/calculators"
                 className="inline-flex items-center justify-center gap-2 h-[52px] w-full sm:w-auto rounded-pill bg-brand px-6 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
@@ -39,7 +39,7 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <div className="relative">
+            <div className="relative max-w-[520px] mx-auto lg:mx-0">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
               <input
                 type="text"
@@ -60,7 +60,7 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="border-t border-border pt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div className="border-t border-border pt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 text-center">
               {[
                 { n: `${CALC_COUNT}+`, l: "Calculators" },
                 { n: `${GUIDE_COUNT}+`, l: "In-Depth Guides" },
@@ -77,7 +77,7 @@ export default function HeroSection() {
 
           <div className="lg:col-span-6 flex justify-center mt-8 lg:mt-0">
             <div className="relative w-full max-w-[380px]">
-              <div className="absolute inset-0 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] mx-auto bg-brand/10 rounded-full blur-3xl" />
+              <div className="absolute inset-0 mx-auto aspect-square max-w-[320px] sm:max-w-[400px] bg-brand/10 rounded-full blur-3xl" />
               <div className="relative animate-float bg-white border border-border rounded-2xl shadow-card p-6 sm:p-8">
                 <p className="eyebrow text-brand">SIP Calculator</p>
                 <h3 className="h3 mt-2 text-text">Monthly Investment</h3>

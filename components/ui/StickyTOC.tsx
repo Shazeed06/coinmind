@@ -24,7 +24,7 @@ export function StickyTOC({ items }: { items: TOCItem[] }) {
   }, [items]);
 
   return (
-    <nav aria-label="Table of contents" className="sticky top-24 space-y-1">
+    <nav aria-label="Table of contents" className="sticky top-24 hidden lg:block space-y-1">
       <p className="eyebrow text-text-muted mb-3">On this page</p>
       {items.map(({ id, label }) => (
         <a

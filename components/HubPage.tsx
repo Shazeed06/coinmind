@@ -15,8 +15,8 @@ export function HubSection({ title, links, columns = 3 }: HubSectionDef) {
     4: "sm:grid-cols-2 lg:grid-cols-4",
   };
   return (
-    <section className="mb-12">
-      <h2 className="font-display text-2xl font-600 text-ink mb-4">{title}</h2>
+    <section className="mb-10 sm:mb-12">
+      <h2 className="font-display text-xl sm:text-2xl font-600 text-ink mb-4">{title}</h2>
       <div className={`grid gap-3 ${gridCols[columns]}`}>
         {links.map((l) => (
           <Link
@@ -43,15 +43,15 @@ type HubPageProps = {
 
 export default function HubPage({ title, description, badge, sections, relatedHubs }: HubPageProps) {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-14">
       <header className="max-w-3xl mb-12">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           {badge}
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 font-display text-3xl sm:text-5xl font-600 text-ink leading-[1.05]">
           {title}
         </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">
           {description}
         </p>
       </header>

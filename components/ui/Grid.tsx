@@ -14,7 +14,7 @@ const colMap: Record<number, string> = {
 
 export function Grid({ children, cols, gap = 24 }: GridProps) {
   return (
-    <div className={`grid gap-6 lg:gap-${gap} ${colMap[cols]}`}>
+    <div className={`grid gap-4 sm:gap-6 ${gap === 32 ? "lg:gap-8" : "lg:gap-6"} ${colMap[cols]}`}>
       {children}
     </div>
   );
