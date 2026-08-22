@@ -15,7 +15,7 @@ type FilterBarProps = {
 
 export function FilterBar({ chips, activeChip, onChipChange, searchValue, onSearchChange, resultCount }: FilterBarProps) {
   return (
-    <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border py-4 space-y-3">
+    <div className="sticky top-16 sm:top-20 z-40 bg-white/80 backdrop-blur-md border-b border-border py-4 space-y-3">
       {onSearchChange && (
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />

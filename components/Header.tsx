@@ -163,7 +163,7 @@ export default function Header() {
 
 function SearchModal({ query, onQueryChange, onClose }: { query: string; onQueryChange: (v: string) => void; onClose: () => void }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-black/40" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[8vh] sm:pt-[15vh] bg-black/40" onClick={onClose}>
       <div className="w-full max-w-[640px] mx-4 sm:mx-6 bg-white rounded-card border border-border shadow-xl overflow-hidden" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center border-b border-border px-4 sm:px-5">
           <Search className="h-4 w-4 text-text-muted shrink-0" />

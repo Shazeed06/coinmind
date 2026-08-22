@@ -67,7 +67,7 @@ export function Field({
             }}
             onChange={(e) => handleType(e.target.value)}
             onBlur={handleBlur}
-            className="w-28 bg-transparent text-right text-sm font-semibold text-ink outline-none"
+            className="w-20 sm:w-28 bg-transparent text-right text-sm font-semibold text-ink outline-none"
             aria-label={label}
           />
           {suffix && (

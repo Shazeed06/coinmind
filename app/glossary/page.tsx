@@ -47,7 +47,7 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+      <div className="sticky top-16 sm:top-20 z-40 bg-white/80 backdrop-blur-md border-b border-border">
         <div className="container-main py-3 space-y-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />

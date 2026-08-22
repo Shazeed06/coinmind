@@ -58,7 +58,7 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+      <div className="sticky top-16 sm:top-20 z-40 bg-white/80 backdrop-blur-md border-b border-border">
         <div className="container-main py-3 space-y-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
@@ -137,8 +137,8 @@ export default function Page() {
                   const cols = cat === "Health" ? 2 : 3;
                   return (
                     <section key={cat} id={`cat-${cat}`} style={{ scrollMarginTop: "8rem" }}>
-                      <h2 className="h3 text-text mb-6 sticky top-32 bg-bg-alt py-2 z-10">{cat}</h2>
-                      <div className={`grid sm:grid-cols-2 gap-6`} style={{ gridTemplateColumns: cols === 3 ? "repeat(3, minmax(0, 1fr))" : undefined }}>
+                      <h2 className="h3 text-text mb-6 sticky top-[7.5rem] sm:top-[9rem] bg-bg-alt py-2 z-10">{cat}</h2>
+                      <div className={`grid sm:grid-cols-2 gap-6 ${cols === 3 ? "lg:grid-cols-3" : ""}`}>
                         {(items.length > cols ? padRow(items, cols) : items).map((c, i) =>
                           c ? (
                             <Link key={c.slug} href={c.live ? `/calculators/${c.slug}` : "#"} className="card card-h-full p-5 group" {...(c.live ? {} : {})}>

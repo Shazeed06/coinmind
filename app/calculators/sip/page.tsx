@@ -86,13 +86,13 @@ export default function Page() {
         <div className="container-main">
           <Card className="!p-0 overflow-hidden">
             <div className="grid lg:grid-cols-12">
-              <div className="lg:col-span-5 p-6 border-r border-border">
+              <div className="lg:col-span-5 p-6 border-b lg:border-b-0 lg:border-r border-border">
                 <h2 className="text-base font-semibold text-text mb-4">Enter your details</h2>
                 <SipCalculator />
               </div>
               <div className="lg:col-span-7 p-6 bg-bg-alt">
                 <p className="eyebrow text-text-muted mb-2">Your projected corpus</p>
-                <p className="text-[40px] font-bold text-accent leading-tight">₹50.4 Lakh</p>
+                <p className="text-[28px] sm:text-[40px] font-bold text-accent leading-tight">₹50.4 Lakh</p>
                 <p className="text-sm text-text-muted mt-1">Invested: ₹18 Lakh · Returns: ₹32.4 Lakh</p>
                 <div className="mt-6 h-[200px] bg-bg rounded-card border border-border flex items-center justify-center text-sm text-text-muted">
                   Growth chart appears here

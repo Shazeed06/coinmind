@@ -11,6 +11,33 @@
   --color-brand: #2f5bea;
   --color-accent: #16a34a;
 
+  --color-ink: #0f172a;
+  --color-ink-soft: #64748b;
+  --color-ink-faint: #94a3b8;
+  --color-ink-muted: #64748b;
+  --color-line: #e6eaf2;
+  --color-line-strong: #cbd5e1;
+  --color-card: #ffffff;
+  --color-paper-2: #f1f5f9;
+  --color-forest: #16a34a;
+  --color-forest-soft: #f0fdf4;
+  --color-forest-deep: #15803d;
+  --color-brass: #d97706;
+  --color-brass-soft: #fffbeb;
+  --color-blue: #2f5bea;
+  --color-blue-soft: #eff6ff;
+  --color-amber: #d97706;
+  --color-amber-soft: #fffbeb;
+  --color-purple: #7c3aed;
+  --color-purple-soft: #f5f3ff;
+  --color-sky: #0284c7;
+  --color-sky-soft: #f0f9ff;
+  --color-paper: #ffffff;
+  --color-berry: #e11d48;
+  --color-berry-soft: #fff1f2;
+
+  --font-weight-600: 600;
+
   --font-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 

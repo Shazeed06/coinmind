@@ -470,8 +470,8 @@ export default async function Page({
             <Link href="/" className="hover:text-brand transition-colors">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/blog" className="hover:text-brand transition-colors">Guides</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-text">{post.title}</span>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0" />
+            <span className="text-text truncate">{post.title}</span>
           </nav>
 
           <Pill>{post.category}</Pill>

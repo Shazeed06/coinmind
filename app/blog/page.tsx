@@ -71,7 +71,7 @@ export default function Page() {
         </section>
       )}
 
-      <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+      <div className="sticky top-16 sm:top-20 z-40 bg-white/80 backdrop-blur-md border-b border-border">
         <div className="container-main py-3 space-y-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
@@ -147,9 +147,9 @@ export default function Page() {
         <div className="container-main max-w-[640px]">
           <h2 className="text-2xl font-bold">Stay Updated</h2>
           <p className="text-white/60 mt-3 text-sm">Get the latest guides and money tips delivered to your inbox.</p>
-          <form className="mt-6 flex gap-3 max-w-[480px] mx-auto" onSubmit={(e) => e.preventDefault()}>
+          <form className="mt-6 flex flex-col sm:flex-row gap-3 max-w-[480px] mx-auto" onSubmit={(e) => e.preventDefault()}>
             <input type="email" placeholder="your@email.com" className="flex-1 h-11 rounded-input px-4 text-sm text-text bg-white outline-none" />
-            <button type="submit" className="h-11 rounded-pill bg-white text-brand px-6 text-sm font-semibold hover:opacity-90 transition-opacity">Subscribe</button>
+            <button type="submit" className="h-11 rounded-pill bg-white text-brand px-6 text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap">Subscribe</button>
           </form>
         </div>
       </section>
