@@ -8,6 +8,12 @@ import { fdGuide } from "./fdGuide";
 import { investingGuide } from "./investingGuide";
 import { itrGuide } from "./itrGuide";
 import { itrSeasonGuide } from "./itrSeasonGuide";
+import { augPosts } from "./augPosts";
+import { trafficPosts1 } from "./trafficPosts1";
+import { trafficPosts2 } from "./trafficPosts2";
+import { trafficPosts3 } from "./trafficPosts3";
+import { trafficPosts4 } from "./trafficPosts4";
+import { trafficPosts5 } from "./trafficPosts5";
 
 export type Calculator = {
   slug: string;
@@ -1604,4 +1610,10 @@ export const posts: Post[] = [
   ...investingGuide,
   ...itrGuide,
   ...itrSeasonGuide,
+  ...augPosts,
+  ...trafficPosts1,
+  ...trafficPosts2,
+  ...trafficPosts3,
+  ...trafficPosts4,
+  ...trafficPosts5,
 ];
