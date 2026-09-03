@@ -11,11 +11,15 @@ export function FinancialDisclaimer({ type = "general" }: FinancialDisclaimerPro
   };
 
   return (
-    <div className="flex items-start gap-2 p-4 rounded-card bg-bg-alt border border-border text-xs text-text-muted">
-      <AlertTriangle className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+    // Same .panel surface and 12px radius as the author box and the affiliate
+    // block, which are the other three asides that appear alongside it. gap-2
+    // (8px) was tighter than every other icon-plus-text row on the site; gap-3
+    // matches AuthorReviewBox.
+    <div className="panel flex items-start gap-3 bg-bg-alt p-4 text-xs leading-relaxed text-text-muted">
+      <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden="true" />
       <span>
         {messages[type]}{" "}
-        <Link href="/disclaimer" className="text-brand underline underline-offset-2">Full disclaimer</Link>.
+        <Link href="/disclaimer" className="text-brand underline underline-offset-2 decoration-brand/40 transition-colors hover:decoration-brand">Full disclaimer</Link>.
       </span>
     </div>
   );

@@ -12,6 +12,13 @@ export function org(): Thing {
     logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
     description: site.description,
     email: site.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      url: `${site.url}/contact`,
+      email: site.email,
+      availableLanguage: ["en"],
+    },
     foundingDate: "2026",
     areaServed: ["IN", "US", "GB", "Worldwide"],
     publishingPrinciples: `${site.url}/editorial-standards`,

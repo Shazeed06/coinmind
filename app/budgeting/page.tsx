@@ -191,9 +191,9 @@ export default function Page() {
           columns: 2,
           links: [
             { title: "50/30/20 Budget Rule", href: "/blog/50-30-20-budget-rule", desc: "Simple budgeting framework with Indian examples" },
-            { title: "Emergency Fund Guide", href: "/blog/emergency-fund-india", desc: "How much emergency savings you need" },
-            { title: "Saving Money Tips", href: "/blog/saving-money-tips-india", desc: "Practical saving strategies for Indian households" },
-            { title: "Expense Tracking Guide", href: "/blog/expense-tracking", desc: "How to track expenses without spreadsheets" },
+            { title: "Emergency Fund Guide", href: "/blog/emergency-fund-guide", desc: "How much emergency savings you need and where to park it" },
+            { title: "Cut Your Electricity Bill", href: "/blog/how-to-reduce-electricity-bill", desc: "Practical ways to shrink a recurring household expense" },
+            { title: "AI Tools for Personal Finance", href: "/blog/best-ai-tools-for-personal-finance", desc: "Apps that help track spending and organise money" },
           ],
         },
         {

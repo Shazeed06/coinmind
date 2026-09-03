@@ -31,7 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const canonical = `${site.url}/authors/${slug}`;
 
   return {
-    title: { absolute: `${title} · ${site.name}` },
+    // `title` already ends in "at CoinMind", so it is used as the absolute title
+    // as-is. Appending the brand template here rendered "... at CoinMind · CoinMind".
+    title: { absolute: title },
     description,
     alternates: { canonical },
     openGraph: {
@@ -88,7 +90,7 @@ export default async function AuthorPage({ params }: { params: Promise<{ slug: s
             {author.fullName.charAt(0)}
           </div>
           <div>
-            <h1 className="h2 text-text">{author.fullName}</h1>
+            <h1 className="h1-article text-text">{author.fullName}</h1>
             <p className="text-lg text-text-muted mt-1">{author.role} at {site.name}</p>
             <p className="text-sm text-text-muted mt-0.5">{author.credential}</p>
           </div>

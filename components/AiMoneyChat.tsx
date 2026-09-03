@@ -59,7 +59,7 @@ export default function AiMoneyChat() {
             <span className="grid h-14 w-14 place-items-center rounded-2xl bg-forest-soft text-forest">
               <IconSparkle className="h-7 w-7" />
             </span>
-            <h2 className="mt-4 font-display text-2xl font-600 text-ink">
+            <h2 className="mt-4 text-2xl text-ink">
               Ask me anything about money & AI
             </h2>
             <p className="mt-2 text-ink-soft max-w-md">

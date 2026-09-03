@@ -14,13 +14,14 @@ type Result = {
   type: "Calculator" | "Guide" | "Glossary" | "AI Tool" | "Tool";
 };
 
-const toolNames: { slug: string; title: string; desc: string }[] = [
+// `href` is only set for the handful of tools that live outside /tools/<slug>.
+const toolNames: { slug: string; title: string; desc: string; href?: string }[] = [
   { slug: "compress-image", title: "Compress Image", desc: "Shrink JPG, PNG and WebP file sizes" },
   { slug: "image-converter", title: "Image Converter", desc: "Convert between JPG, PNG, WebP formats" },
   { slug: "image-to-pdf", title: "Image to PDF", desc: "Convert images to PDF documents" },
   { slug: "merge-pdf", title: "Merge PDF", desc: "Combine multiple PDFs into one file" },
   { slug: "split-pdf", title: "Split PDF", desc: "Extract pages from a PDF" },
-  { slug: "resume-builder", title: "Resume Builder", desc: "Create ATS-friendly resume" },
+  { slug: "resume-builder", title: "Resume Builder", desc: "Create ATS-friendly resume", href: "/resume-builder" },
   { slug: "password-generator", title: "Password Generator", desc: "Create secure passwords" },
   { slug: "qr-code-generator", title: "QR Code Generator", desc: "Custom QR codes with logo" },
   { slug: "invoice-generator", title: "Invoice Generator", desc: "Professional invoices as PDF" },
@@ -31,7 +32,6 @@ const toolNames: { slug: string; title: string; desc: string }[] = [
   { slug: "ai-email-writer", title: "AI Email Writer", desc: "Generate professional emails" },
   { slug: "word-counter", title: "Word Counter", desc: "Count words and characters" },
   { slug: "unit-converter", title: "Unit Converter", desc: "Convert length, weight, temperature" },
-  { slug: "meme-generator", title: "Meme Generator", desc: "Create memes with custom text" },
   { slug: "color-picker", title: "Color Picker", desc: "HEX, RGB and HSL color values" },
 ];
 
@@ -43,7 +43,7 @@ const allResults: Result[] = [
     title: p.title, href: `/blog/${p.slug}`, desc: p.excerpt, type: "Guide" as const,
   })),
   ...toolNames.map((t) => ({
-    title: t.title, href: `/tools/${t.slug}`, desc: t.desc, type: "Tool" as const,
+    title: t.title, href: t.href ?? `/tools/${t.slug}`, desc: t.desc, type: "Tool" as const,
   })),
   ...GLOSSARY.map((g) => ({
     title: g.term, href: `/glossary/${g.slug}`, desc: g.short, type: "Glossary" as const,
@@ -65,6 +65,14 @@ export default function SearchClient() {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Seed from ?q= so the header's search box can hand off to this page. Read
+  // from the URL after mount rather than via useSearchParams, which would put
+  // this whole client tree behind a Suspense boundary for one optional value.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setQuery(q);
+  }, []);
 
   useEffect(() => { inputRef.current?.focus(); }, []);
 
@@ -92,7 +100,7 @@ export default function SearchClient() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-14">
-      <h1 className="font-display text-3xl sm:text-4xl font-600 text-ink leading-tight mb-6">
+      <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-6">
         Search CoinMind
       </h1>
 
@@ -107,14 +115,16 @@ export default function SearchClient() {
           className="w-full rounded-xl border border-line bg-white pl-12 pr-10 py-3.5 text-ink placeholder:text-ink-muted outline-none focus:border-forest focus:ring-2 focus:ring-forest/20 text-base"
         />
         {query && (
-          <button onClick={() => setQuery("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink">
+          <button type="button" aria-label="Clear search" onClick={() => setQuery("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-muted hover:text-ink">
             <IconX className="h-5 w-5" />
           </button>
         )}
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div role="group" aria-label="Filter results by type" className="flex flex-wrap gap-2 mb-8">
         <button
+          type="button"
+          aria-pressed={typeFilter === null}
           onClick={() => setTypeFilter(null)}
           className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
             typeFilter === null ? "bg-ink text-white" : "bg-line text-ink-soft hover:bg-line/80"
@@ -125,6 +135,8 @@ export default function SearchClient() {
         {types.map((t) => (
           <button
             key={t}
+            type="button"
+            aria-pressed={typeFilter === t}
             onClick={() => setTypeFilter(typeFilter === t ? null : t)}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
               typeFilter === t ? "bg-ink text-white" : "bg-line text-ink-soft hover:bg-line/80"

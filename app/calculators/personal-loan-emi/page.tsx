@@ -78,7 +78,7 @@ export default function Page() {
       sources={[{ label: "Reserve Bank of India", href: "https://www.rbi.org.in" }]}
       extra={
         <div className="max-w-3xl">
-          <h2 className="font-display text-2xl font-600 text-ink">
+          <h2 className="font-display text-2xl text-ink">
             Compare your other loans
           </h2>
           <p className="mt-4 text-ink-soft leading-relaxed">

@@ -2,12 +2,31 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+const OG_TITLE = "Editorial Standards & How We Ensure Accuracy";
+const OG_DESC =
+  "How CoinMind researches, writes, reviews and updates its finance calculators and guides: the official sources we use and our corrections policy.";
+
 export const metadata: Metadata = {
   title: { absolute: "Editorial Standards & How We Ensure Accuracy · CoinMind" },
-  description:
-    "How CoinMind researches, writes, reviews and updates its finance calculators and guides: the official sources we use and our corrections policy.",
+  description: OG_DESC,
   alternates: { canonical: "/editorial-standards" },
-  openGraph: { url: "/editorial-standards" },
+  // openGraph is REPLACED, not merged, so a partial object here would delete the
+  // root layout's og:title, og:description, og:image, og:type and og:site_name.
+  openGraph: {
+    title: OG_TITLE,
+    description: OG_DESC,
+    url: "/editorial-standards",
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESC,
+    images: ["/opengraph-image"],
+  },
 };
 
 const SOURCES: { label: string; href: string; what: string }[] = [
@@ -42,7 +61,7 @@ export default function EditorialStandardsPage() {
       </nav>
 
       <header className="mt-6">
-        <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
           Editorial standards &amp; how we ensure accuracy
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed">

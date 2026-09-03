@@ -1,50 +1,19 @@
-import { site } from "@/lib/site";
+import { graph, org, website } from "@/lib/ld";
 
 // Sitewide Organization + WebSite structured data. Helps Google and AI answer
 // engines understand who publishes the site, for richer results and citations.
+//
+// The nodes come from lib/ld.ts so there is exactly ONE definition of each
+// entity. This component used to hand-roll its own copy, which silently drifted:
+// the copy lost the WebSite SearchAction, and the homepage shipped a second,
+// @id-less Organization and WebSite for the same entity. Both duplicates are
+// gone; anything that needs to reference these nodes points at their @id
+// (/#organization, /#website) instead of restating them.
 export default function SiteJsonLd() {
-  const graph = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${site.url}/#organization`,
-        name: site.name,
-        url: site.url,
-        logo: {
-          "@type": "ImageObject",
-          url: `${site.url}/icon.svg`,
-        },
-        description: site.description,
-        email: site.email,
-        foundingDate: "2026",
-        areaServed: ["IN", "US", "GB", "Worldwide"],
-        publishingPrinciples: `${site.url}/editorial-standards`,
-        knowsAbout: [
-          "Personal finance",
-          "Income tax",
-          "Mutual funds and SIP",
-          "Fixed deposits",
-          "PPF, EPF and NPS",
-          "AI tools",
-        ],
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${site.url}/#website`,
-        name: site.name,
-        url: site.url,
-        description: site.description,
-        publisher: { "@id": `${site.url}/#organization` },
-        inLanguage: "en",
-      },
-    ],
-  };
-
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph([org(), website()])) }}
     />
   );
 }

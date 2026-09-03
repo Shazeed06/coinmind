@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { Section, SectionHeader } from "@/components/ui";
+import { Section } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { GLOSSARY } from "@/lib/glossary";
 import { ArrowRight } from "lucide-react";
 
@@ -24,7 +25,7 @@ export default function FinanceGlossary() {
 
   return (
     <Section variant="white">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Glossary"
         title="A-Z Finance Terms"
         subline="Plain-English definitions of key finance and AI terms."
@@ -54,8 +55,15 @@ export default function FinanceGlossary() {
         })}
       </div>
 
+      {/* Most letters match none of the twelve featured terms, so the empty
+          state is the common case, not a rare one. A bare centred sentence
+          collapsed the section to a sliver and the page jumped every time a
+          letter was pressed. The dashed panel holds roughly one card row of
+          height so the layout stays put. */}
       {filtered.length === 0 ? (
-        <p className="text-center text-sm text-text-muted py-8">No terms found for this letter.</p>
+        <div className="flex min-h-[112px] items-center justify-center rounded-card border border-dashed border-border bg-bg-alt/60 px-6 py-10 text-center">
+          <p className="text-sm text-text-muted">No terms found for this letter.</p>
+        </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
           {filtered.map((t) => (

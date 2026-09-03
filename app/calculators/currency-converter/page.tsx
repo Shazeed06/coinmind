@@ -15,7 +15,7 @@ export const metadata = calcMeta("currency-converter", CALC.title + " - Live Exc
 function PopularCurrencyPairs() {
   return (
     <div className="max-w-3xl">
-      <h2 className="font-display text-2xl font-600 text-ink">
+      <h2 className="font-display text-2xl text-ink">
         Popular currency pairs
       </h2>
       <p className="mt-2 text-ink-soft leading-relaxed">

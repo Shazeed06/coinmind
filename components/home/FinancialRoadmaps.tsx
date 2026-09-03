@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Section, SectionHeader } from "@/components/ui";
+import { Section } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { Sprout, TrendingUp, Sunset, Target, ArrowRight } from "lucide-react";
 
 const ROADMAPS = [
@@ -56,7 +57,7 @@ const ROADMAPS = [
 export default function FinancialRoadmaps() {
   return (
     <Section variant="alt">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Journeys"
         title="Your Financial Journey, Mapped Out"
         subline="Start where you are. We will show you the next step."

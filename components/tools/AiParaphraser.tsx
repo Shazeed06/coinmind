@@ -211,7 +211,7 @@ export default function AiParaphraser() {
       {output && (
         <div className="rounded-2xl border border-line bg-paper-2 p-6">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Paraphrased text
             </h2>
             <button

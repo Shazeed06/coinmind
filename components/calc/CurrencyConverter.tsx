@@ -17,6 +17,30 @@ const NAMES: Record<string, string> = {
   MXN: "Mexican Peso", THB: "Thai Baht",
 };
 
+// Sole upstream for every rate on the site, named wherever a rate is shown.
+const SOURCE_NAME = "open.er-api.com";
+
+// The upstream stamp is an RFC 1123 string ("Thu, 03 Sep 2026 00:02:31 +0000").
+// Turn it into an ISO value for the datetime attribute plus a readable form in
+// the site's usual "Sep 3, 2026" convention.
+const DAY_FMT = new Intl.DateTimeFormat("en-US", {
+  month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
+});
+const CLOCK_FMT = new Intl.DateTimeFormat("en-GB", {
+  hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC",
+});
+
+function parseStamp(raw: string | null): { iso: string; label: string } | null {
+  if (!raw) return null;
+  const t = Date.parse(raw);
+  if (!Number.isFinite(t)) return null;
+  const d = new Date(t);
+  return {
+    iso: d.toISOString(),
+    label: `${DAY_FMT.format(d)} at ${CLOCK_FMT.format(d)} UTC`,
+  };
+}
+
 export default function CurrencyConverter({
   initialFrom = "USD",
   initialTo = "INR",
@@ -26,6 +50,7 @@ export default function CurrencyConverter({
 } = {}) {
   const [rates, setRates] = useState<Record<string, number> | null>(null);
   const [updated, setUpdated] = useState<string | null>(null);
+  const [stale, setStale] = useState(false);
   const [amount, setAmount] = useState(1000);
   const [from, setFrom] = useState(initialFrom);
   const [to, setTo] = useState(initialTo);
@@ -37,7 +62,10 @@ export default function CurrencyConverter({
       .then((d) => {
         if (d.rates) {
           setRates(d.rates);
-          setUpdated(d.updated);
+          setUpdated(d.updated ?? null);
+          // stale:true means the proxy could not reach the upstream and served
+          // the last payload it held. Usable, but not a live rate, so say so.
+          setStale(Boolean(d.stale));
         } else setError(true);
       })
       .catch(() => setError(true));
@@ -53,6 +81,8 @@ export default function CurrencyConverter({
     if (!rates || !rates[from] || !rates[to]) return null;
     return rates[to] / rates[from];
   }, [rates, from, to]);
+
+  const stamp = useMemo(() => parseStamp(updated), [updated]);
 
   const fmt = (v: number, cur: string) =>
     new Intl.NumberFormat("en-US", {
@@ -112,10 +142,26 @@ export default function CurrencyConverter({
       <div className="mt-6 rounded-xl bg-paper-2 p-5">
         {error ? (
           <p className="text-sm text-ink-soft">
-            Live rates are unavailable right now. Please try again shortly.
+            Live rates are unavailable right now. This converter reads the same
+            feed ({SOURCE_NAME}) as the rest of the page, so when that feed is
+            down neither can show a live figure. Please try again shortly.
           </p>
         ) : result !== null ? (
           <>
+            {stale && (
+              <p className="mb-3 rounded-lg border border-line bg-card px-3 py-2 text-xs text-ink leading-relaxed">
+                <strong className="font-600">Not a live rate.</strong>{" "}
+                {SOURCE_NAME} cannot be reached, so this is the last rate
+                retrieved
+                {stamp ? (
+                  <>
+                    {" "}
+                    (<time dateTime={stamp.iso}>{stamp.label}</time>)
+                  </>
+                ) : null}
+                . Confirm the current rate before you convert money.
+              </p>
+            )}
             <p className="font-display text-3xl font-600 text-forest break-words">
               {fmt(result, to)}
             </p>
@@ -123,9 +169,15 @@ export default function CurrencyConverter({
               1 {from} ({NAMES[from]}) ={" "}
               <strong className="text-ink">{oneUnit?.toFixed(4)} {to}</strong>
             </p>
-            {updated && (
-              <p className="mt-1 text-xs text-ink-faint">Rates: {updated}</p>
-            )}
+            <p className="mt-1 text-xs text-ink-faint">
+              Mid-market rate from {SOURCE_NAME}
+              {stamp ? (
+                <>
+                  , {stale ? "retrieved" : "updated"}{" "}
+                  <time dateTime={stamp.iso}>{stamp.label}</time>
+                </>
+              ) : null}
+            </p>
           </>
         ) : (
           <p className="text-sm text-ink-faint">Loading live rates…</p>

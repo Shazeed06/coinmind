@@ -196,7 +196,7 @@ export default function AiCaptionGenerator() {
       {(loading || result) && (
         <div className="rounded-2xl border border-line bg-paper-2 p-6">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Captions &amp; hashtags
             </h2>
             {result && !loading && (

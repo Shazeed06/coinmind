@@ -18,7 +18,9 @@ export default function Footer() {
             <p className="mt-4 small text-text-muted leading-relaxed">
               {site.tagline}. Free calculators, tools and guides. No sign-up.
             </p>
-            <p className="mt-3 text-xs text-text-muted/70">Educational only, not financial advice.</p>
+            {/* Full-strength muted, not /70: at 12px the faded variant measured
+                3.53:1, under the 4.5:1 AA floor for a line of real prose. */}
+            <p className="mt-3 text-xs text-text-muted">Educational only, not financial advice.</p>
           </div>
           {footerNav.map((col, i) => (
             <div key={col.title} className="border-t border-border/60 pt-4 lg:border-0 lg:pt-0">

@@ -6,7 +6,7 @@
 // AI Overviews and cited by ChatGPT/Perplexity (AEO/GEO), so keep it accurate
 // and self-contained (max 160 chars for the meta description). `bodyMarkdown` is
 // prose rendered by components/ArticleMarkdown.tsx. It supports ## headings,
-// paragraphs, **bold** and [links](/path) but NO markdown lists.
+// paragraphs, **bold** and inline links to internal routes, plus pipe tables.
 
 export type GlossaryCategory = "Investing" | "Tax" | "Credit" | "Banking" | "AI";
 
@@ -4053,6 +4053,1219 @@ The sensible current posture is to use them where the work is easy to verify and
     related: ["large-language-model", "prompt-engineering", "generative-ai", "artificial-intelligence"],
     relatedHref: "/ai-tools",
     relatedLabel: "AI Tools Directory",
+  },
+
+  // -- Credit (borrowing mechanics) ---------------------------------------
+  {
+    slug: "foir",
+    term: "FOIR",
+    category: "Credit",
+    short:
+      "FOIR, or Fixed Obligation to Income Ratio, is the share of your monthly income already going to EMIs. Lenders cap it when sizing a new loan.",
+    bodyMarkdown: `FOIR stands for Fixed Obligation to Income Ratio. It is the single number that decides how large a loan a bank will actually give you, and it is the reason two people on the same salary get very different sanction letters.
+
+The calculation is deliberately simple. Add up every fixed monthly obligation you already carry, divide by your net monthly income, and express it as a percentage. A lender then checks whether adding the proposed new EMI would push that percentage past its internal ceiling.
+
+Your [credit score](/glossary/credit-score) decides whether a lender will lend to you at all and at what rate. FOIR decides how much. Both have to clear before a loan is sanctioned.
+
+## What counts as a fixed obligation
+
+Lenders include existing home, car, personal, education and gold loan EMIs, credit card minimum dues or a notional percentage of the outstanding card balance, and any statutory or contractual commitment such as court-ordered maintenance. Most lenders also add the proposed new EMI itself, which is the whole point of the exercise.
+
+What they usually exclude is ordinary living cost. Groceries, school fees, utilities and rent are typically not counted, though some lenders do treat rent as an obligation for a personal loan applicant who is not buying a house. This is exactly why FOIR is a lender's affordability test rather than yours. A 50% FOIR can look comfortable on paper and still leave a household with nothing left after school fees.
+
+## Which income figure banks use
+
+Almost always net take-home pay, not CTC. Employer PF, professional tax and TDS are stripped out first. Some lenders will add back a portion of stable variable pay, rental income or spouse income if the spouse is a co-applicant, and most discount irregular income such as commissions or freelance receipts to a conservative average of the last twelve to twenty-four months.
+
+## A worked example
+
+Take a salaried applicant with Rs 80,000 net take-home pay each month, an existing car loan EMI of Rs 12,000 and a personal loan EMI of Rs 6,000.
+
+Current fixed obligations are Rs 18,000, so the existing FOIR is 18,000 divided by 80,000, which is 22.5%.
+
+If the lender works to a 50% ceiling, total permitted obligations are Rs 40,000. Subtracting the Rs 18,000 already committed leaves headroom of Rs 22,000 a month for a new EMI.
+
+At an interest rate of 9% over 20 years, an EMI of roughly Rs 900 services about Rs 1 lakh of principal, so Rs 22,000 supports a home loan of approximately Rs 24.5 lakh. Clearing the Rs 6,000 personal loan first would lift the headroom to Rs 28,000 and the eligible loan to roughly Rs 31 lakh, without the applicant earning a single rupee more.
+
+Run your own version of this with the [home loan eligibility calculator](/calculators/home-loan-eligibility) and check the EMI at different tenures with the [EMI calculator](/calculators/emi).
+
+## Typical FOIR bands
+
+Ceilings are set by each lender rather than by regulation, and they move with income, employment type and product. The pattern below is the one applicants most commonly encounter.
+
+| Monthly net income | Typical FOIR ceiling | Practical reading |
+| --- | --- | --- |
+| Below Rs 30,000 | 40% to 45% | Little room for a second loan |
+| Rs 30,000 to Rs 60,000 | 45% to 50% | Standard salaried band |
+| Rs 60,000 to Rs 1.5 lakh | 50% to 55% | Most home loan applicants sit here |
+| Above Rs 1.5 lakh | 55% to 65% | Higher surplus after living costs |
+| Self-employed | Often stricter | Assessed on ITR-declared income |
+
+Treat these as indicative. Confirm the ceiling with the specific lender, because the difference between 45% and 55% on the same salary can change your sanction by several lakh rupees.
+
+## How to improve your FOIR before applying
+
+The fastest lever is closing or prepaying the smallest high-EMI loan, because FOIR responds to the monthly outflow rather than the outstanding balance. Paying off a Rs 40,000 credit card balance can remove a notional obligation worth far more than Rs 40,000 of eligibility.
+
+The second lever is tenure. Stretching a home loan from 15 to 20 years cuts the EMI and therefore the FOIR, at the cost of considerably more total interest, so it buys eligibility rather than savings.
+
+The third is adding an earning co-applicant, which raises the income side of the ratio. A spouse or parent with steady income can lift eligibility substantially, though they take on joint liability for the whole loan.
+
+Finally, avoid taking any new credit in the six months before a large application. A new car loan taken two months before a home loan application reduces your eligible loan by many times the car loan's value.`,
+    faq: [
+      {
+        q: "What is a good FOIR for a home loan in India?",
+        a: "Most lenders want total fixed obligations, including the proposed EMI, to stay within 50% to 55% of net monthly income. Below 40% is comfortable and improves your negotiating position on rate. Applicants with high incomes are sometimes allowed 60% or more, because a large absolute surplus remains after the EMIs.",
+      },
+      {
+        q: "Does FOIR use gross salary or take-home pay?",
+        a: "Take-home pay in almost every case. Lenders start from net salary credited to your bank account after employer PF, professional tax and TDS, not CTC. Some will add back a share of stable variable pay, rental income or a co-applicant's salary, but the base figure is what actually reaches your account.",
+      },
+      {
+        q: "Are credit card dues included in FOIR?",
+        a: "Yes. Lenders typically count either the minimum amount due or a notional percentage of your outstanding card balance as a fixed obligation. This is why carrying a large revolving balance can quietly reduce your home loan eligibility by several lakh rupees even though no formal EMI exists.",
+      },
+      {
+        q: "How can I increase my loan eligibility if my FOIR is too high?",
+        a: "Close or prepay your smallest high-EMI loan first, since FOIR reacts to monthly outflow rather than balance. Then consider a longer tenure to reduce the EMI, or add an earning co-applicant to raise the income side. Avoid taking any new credit in the six months before applying.",
+      },
+      {
+        q: "Is FOIR the same as debt-to-income ratio?",
+        a: "They are close cousins. Debt-to-income ratio is the international term and is usually computed on gross income, while FOIR is the Indian lending term and is normally computed on net take-home pay. Both measure the same thing: how much of your income is already committed before the new loan starts.",
+      },
+      {
+        q: "Do lenders count rent in FOIR?",
+        a: "It varies. For a home loan the rent usually disappears once you move into the purchased property, so most lenders exclude it. For personal and car loans some lenders do include rent as a fixed obligation, particularly for applicants in expensive metros. Ask the specific lender rather than assuming.",
+      },
+    ],
+    related: ["emi", "credit-score", "cibil-score", "amortisation"],
+    relatedHref: "/calculators/home-loan-eligibility",
+    relatedLabel: "Home Loan Eligibility Calculator",
+  },
+  {
+    slug: "amortisation",
+    term: "Amortisation",
+    category: "Credit",
+    short:
+      "Amortisation is repaying a loan in equal instalments where each payment covers interest first, so the principal falls slowly at the start.",
+    bodyMarkdown: `Amortisation is the schedule behind an [EMI](/glossary/emi). Your monthly payment stays the same for the life of the loan, but the split inside it changes every single month. Early on, most of the EMI is interest. Late on, most of it is principal.
+
+Understanding this split is what turns a vague sense that "loans are expensive" into a decision you can act on, because it explains exactly why prepaying in year three is worth many times more than prepaying in year fifteen.
+
+## How the split is calculated
+
+Each month the lender charges interest on the outstanding balance at that moment. Whatever is left of your EMI after that interest is deducted goes to reducing the principal. Next month, the balance is slightly smaller, so the interest charge is slightly smaller, so slightly more of the same EMI goes to principal. The effect compounds gently in your favour, but it starts almost invisibly.
+
+## A worked example on a Rs 50 lakh home loan
+
+Take Rs 50,00,000 borrowed at 9% a year over 20 years. The EMI works out to roughly Rs 44,990.
+
+In the first month, interest is the outstanding balance times the monthly rate: Rs 50,00,000 times 0.75%, which is Rs 37,500. Only about Rs 7,490 of that first EMI reduces the loan. Put differently, **83% of your first payment is pure interest**.
+
+Twelve payments later you have paid roughly Rs 5.4 lakh and the outstanding balance has fallen by less than Rs 1 lakh. That is not a mistake and it is not a bad loan. It is simply what amortisation looks like.
+
+The crossover, the month where principal repayment finally exceeds interest, arrives around year 12 of a 20-year loan at this rate. From there the balance falls quickly.
+
+Over the full term you pay roughly Rs 1.08 crore for a Rs 50 lakh loan, so total interest is close to Rs 58 lakh, more than the amount borrowed. Test the same numbers at different tenures with the [EMI calculator](/calculators/emi).
+
+## Why early prepayment is so powerful
+
+A prepayment goes entirely to principal. In year three of the loan above, every Rs 1 lakh prepaid removes not just Rs 1 lakh of debt but every future interest charge that Rs 1 lakh would have generated for the remaining 17 years. In year eighteen the same Rs 1 lakh saves interest for only two years.
+
+There are two ways a lender can apply a prepayment. **Reducing the tenure keeps the EMI the same and ends the loan sooner, which saves far more interest. Reducing the EMI keeps the tenure and lowers the monthly outflow, which helps cash flow but saves much less.** Ask which one your lender is applying, because the default is not always the one you want.
+
+Under RBI rules, floating-rate home loans taken by individuals for non-business purposes cannot carry foreclosure or prepayment penalties. Fixed-rate loans and many business loans still can, so check your sanction letter.
+
+## What an amortisation schedule shows
+
+| Column | What it tells you |
+| --- | --- |
+| Opening balance | Principal outstanding at the start of the month |
+| EMI | The fixed instalment, unchanged through the term |
+| Interest portion | Opening balance times the monthly rate |
+| Principal portion | EMI minus the interest portion |
+| Closing balance | Opening balance minus the principal portion |
+
+Ask your lender for this schedule at sanction and again after any rate change. For a home loan it is also the document you use at tax time, because the interest and principal columns map directly to the deductions you can claim.
+
+## Where amortisation shows up beyond home loans
+
+Car loans, personal loans, education loans and mortgages all amortise the same way. The shorter the tenure and the lower the rate, the less lopsided the early split becomes. A five-year personal loan at 14% still front-loads interest, but the crossover arrives in about year three rather than year twelve.
+
+The two common loans that are **not** amortised this way are credit card revolving balances, where interest is charged daily on the full balance and a minimum payment can leave the principal untouched for years, and flat-rate loans priced on [simple interest](/glossary/simple-interest), where interest is calculated on the original amount for the whole tenure regardless of what you have repaid.
+
+## The practical takeaway
+
+Do not judge a loan by its EMI alone. Ask for the total interest over the term, ask what a Rs 1 lakh prepayment in year three would save, and ask whether prepayments cut the tenure or the EMI. Those three questions are worth more than a 0.1% rate negotiation.`,
+    faq: [
+      {
+        q: "Why is most of my home loan EMI going to interest?",
+        a: "Because interest is charged on the outstanding balance, which is at its largest in the early years. On a Rs 50 lakh loan at 9% over 20 years, about 83% of the first EMI is interest and only around Rs 7,500 reduces the principal. The split shifts steadily and principal overtakes interest around year 12.",
+      },
+      {
+        q: "Should prepayment reduce my EMI or my tenure?",
+        a: "Reducing the tenure saves considerably more interest, because you keep paying the same amount but for fewer months. Reducing the EMI helps monthly cash flow but leaves the loan running its full term. Lenders do not always apply the option you would prefer by default, so state it in writing.",
+      },
+      {
+        q: "Is there a prepayment penalty on home loans in India?",
+        a: "RBI rules bar foreclosure charges and prepayment penalties on floating-rate home loans taken by individuals for non-business purposes. Fixed-rate loans, loans to businesses and many personal and car loans can still carry charges, commonly a percentage of the amount prepaid. Check the sanction letter before you prepay.",
+      },
+      {
+        q: "What is an amortisation schedule and how do I get one?",
+        a: "It is a month-by-month table showing the opening balance, EMI, interest portion, principal portion and closing balance for the whole loan. Every lender must provide it, usually in net banking or on request, and you should ask for a fresh one after any interest rate reset so the figures match reality.",
+      },
+      {
+        q: "Does a longer loan tenure mean I pay more interest?",
+        a: "Substantially more. A longer tenure lowers the EMI, which is why lenders offer it to improve eligibility, but the balance stays high for longer and interest accrues on it every month. Moving a Rs 50 lakh loan from 20 years to 15 raises the EMI but cuts total interest by many lakhs.",
+      },
+      {
+        q: "Do car loans and personal loans amortise the same way?",
+        a: "Yes, when they are reducing-balance loans, which most bank personal and car loans are. The shorter tenure just makes the front-loading less extreme. Watch out for flat-rate or simple-interest loans from some dealers and NBFCs, where interest is charged on the original amount for the entire tenure.",
+      },
+    ],
+    related: ["emi", "compound-interest", "simple-interest", "foir"],
+    relatedHref: "/calculators/emi",
+    relatedLabel: "EMI Calculator",
+  },
+  {
+    slug: "credit-utilization",
+    term: "Credit Utilisation",
+    category: "Credit",
+    short:
+      "Credit utilisation is the share of your card limit you are using. Bureaus read it on your statement date, and under 30% protects your score.",
+    bodyMarkdown: `Credit utilisation is the percentage of your available credit card limit that you are actually using. It is the second-largest input into an Indian [credit score](/glossary/credit-score) after payment history, contributing somewhere around a quarter to a third of the total, and it is by far the fastest input to change.
+
+Payment history takes years to repair. Utilisation can move your score within two or three billing cycles, which makes it the first thing to fix before any large loan application.
+
+## How it is measured, and the detail that trips everyone up
+
+The formula is total balance divided by total limit across all your cards. Two cards with limits of Rs 2,00,000 and Rs 1,00,000 give you Rs 3,00,000 of available credit. A combined statement balance of Rs 1,20,000 is 40% utilisation.
+
+Here is the part almost nobody knows: **bureaus see the balance reported on your statement date, not the balance after you pay the bill.** Your card issuer sends the statement figure to CIBIL, Experian, Equifax and CRIF High Mark. If you spend Rs 1,20,000, let the statement generate, and then pay in full before the due date, you paid no interest at all and still reported 40% utilisation to every bureau.
+
+This is why people who never carry a balance and never miss a payment are sometimes puzzled by a score stuck in the low 700s.
+
+## A worked example
+
+Suppose you have the Rs 3,00,000 combined limit above and you typically run Rs 1,20,000 of monthly spending through your cards, paying in full every month.
+
+Reported utilisation is 40%, which sits in the band that costs points.
+
+Pay Rs 60,000 towards the balance a few days **before** the statement date rather than after it, and the reported balance falls to Rs 60,000, which is 20% utilisation. Your spending has not changed, your interest cost has not changed, and nothing has left your pocket that was not leaving anyway. Only the timing changed.
+
+Do this consistently for two or three cycles and a 30 to 50 point improvement is a realistic expectation for a file that is otherwise clean.
+
+## The bands lenders and bureaus react to
+
+| Reported utilisation | Effect on score |
+| --- | --- |
+| Under 10% | Best band, the level associated with scores above 800 |
+| 10% to 30% | Healthy, no meaningful drag |
+| 30% to 50% | Noticeable drag, and lenders start reading credit hunger |
+| 50% to 75% | Significant damage, unsecured approvals get harder |
+| Above 75% | Severe, often read as financial stress regardless of payment record |
+| 0% on every card | Not ideal either, since an unused card generates no positive data |
+
+Per-card utilisation matters as well as the overall figure. Maxing one card to 95% while three others sit empty still hurts, so spread spending rather than concentrating it.
+
+## Raising the denominator instead of cutting the numerator
+
+Utilisation is a ratio, and the limit is the half most people ignore. Requesting a credit limit increase on an existing card lowers utilisation mechanically without changing a single spending habit. A limit review with your existing issuer is usually a soft enquiry, unlike a new card application which triggers a hard enquiry.
+
+Raising the Rs 3,00,000 limit above to Rs 4,50,000 takes the same Rs 1,20,000 balance from 40% to 27% by itself.
+
+The obvious trap is that a higher limit tempts higher spending. If that is a real risk for you, use the pay-before-statement method instead. It achieves the same reported number without adding temptation.
+
+## Other things that move the number
+
+Closing an old card removes its limit from the denominator and can push utilisation up sharply overnight, which is one of the two reasons closing your oldest card is usually a mistake. The other is the loss of credit history length.
+
+Converting a large card balance into a personal loan also helps twice over: it moves the debt off the revolving line, and personal loan rates of 12% to 18% are far below typical card rates of 36% to 46%. See [personal loan versus credit card](/blog/personal-loan-vs-credit-card) for how that comparison usually plays out.
+
+Checking your own utilisation or score is a soft enquiry and never damages anything, so check before a big application and give yourself two or three cycles to fix the number. The step-by-step version is in our [guide to checking and improving a CIBIL score](/blog/cibil-score-check-improve-guide).`,
+    faq: [
+      {
+        q: "What is a good credit utilisation ratio in India?",
+        a: "Below 30% is the standard target and below 10% is what files scoring above 800 typically show. Zero on every card is not ideal either, because an unused card generates no positive repayment data. Aim for consistent low single-digit or low double-digit usage rather than a single good month.",
+      },
+      {
+        q: "Does paying my credit card in full every month fix utilisation?",
+        a: "Not necessarily. Bureaus receive the balance shown on your statement date, not the balance after you pay. If your statement generates while the balance is high, that high figure is reported even though you clear it in full before the due date and pay no interest. Pay down before the statement date instead.",
+      },
+      {
+        q: "How fast does credit utilisation affect my score?",
+        a: "Faster than any other factor. Because the reported figure resets with each billing cycle, a sustained drop in utilisation often shows up in your score within two or three cycles, roughly two to three months. Payment history, by contrast, takes years of clean behaviour to repair.",
+      },
+      {
+        q: "Will increasing my credit limit improve my score?",
+        a: "Usually yes, provided your spending does not rise with it. A higher limit lowers utilisation mechanically. Request a limit review from an existing issuer, which is normally a soft enquiry, rather than opening a new card, which triggers a hard enquiry and shortens your average account age.",
+      },
+      {
+        q: "Does credit utilisation include personal loans and home loans?",
+        a: "No. Utilisation applies to revolving credit, which in practice means credit cards and overdraft lines. Term loans such as home, car, personal and education loans affect your score through payment history and credit mix instead, and they count towards FOIR when a lender assesses affordability.",
+      },
+      {
+        q: "Does closing a credit card raise my utilisation?",
+        a: "Yes, immediately. Closing a card removes its limit from your total available credit, so the same spending becomes a larger percentage. Closing your oldest card also eventually shortens your credit history. Keep old cards open with one small recurring charge paid automatically in full, unless a high annual fee makes it not worth holding.",
+      },
+    ],
+    related: ["credit-score", "cibil-score", "credit-report", "loan-default"],
+    relatedHref: "/credit-score",
+    relatedLabel: "Credit Score Hub",
+  },
+  {
+    slug: "credit-report",
+    term: "Credit Report",
+    category: "Credit",
+    short:
+      "A credit report is the full record a bureau holds on you: every loan and card, a month-by-month payment grid, and every enquiry.",
+    bodyMarkdown: `A credit report is the underlying file. A [credit score](/glossary/credit-score) is a three-digit summary of that file. Lenders look at both, and when they decline an application that has a decent score, it is almost always because of something in the report rather than the number.
+
+Four bureaus are licensed by the RBI in India: TransUnion CIBIL, Experian, Equifax and CRIF High Mark. Each builds its own report from data that banks, NBFCs and card issuers submit, and each does so on its own schedule. That is why your four reports will not be identical.
+
+## What is actually inside the report
+
+**Identity section.** Name, date of birth, PAN, Aadhaar reference where linked, addresses, phone numbers and employer details as reported by your lenders. Wrong entries here are the most common cause of someone else's account appearing on your file.
+
+**Account section.** Every loan and credit card, open or closed, with the sanctioned amount, current balance, ownership type (sole, joint or guarantor) and account status. A guarantor entry matters: if you guaranteed a relative's loan, their missed payments sit on your report.
+
+**Payment history grid.** A month-by-month record, usually covering the last 36 months, showing whether each account was paid on time or how many days it was overdue. This grid is the single heaviest input into the score.
+
+**Enquiry section.** Every hard enquiry from a lender who pulled your report because you applied for credit, usually for the last one to two years. Checking your own report is a soft enquiry and does not appear here.
+
+**Adverse flags.** Written-off, settled, suit-filed and wilful defaulter markers. These are the entries that block borrowing regardless of what the score says. A clean report at 730 routinely beats a 780 carrying a settlement.
+
+## Score versus report, in practice
+
+| What it is | Credit score | Credit report |
+| --- | --- | --- |
+| Format | One number, 300 to 900 | Multi-page document |
+| What lenders use it for | Initial filter and pricing | Final underwriting decision |
+| What you use it for | Tracking progress | Finding and fixing errors |
+| Where errors are visible | Not visible at all | Fully visible |
+| Free access | Widely available in bank apps | One free full report per bureau per year |
+
+You cannot dispute a score. You can only dispute the entries in the report that produced it, which is why pulling the full report matters more than tracking the number.
+
+## Getting yours free
+
+Every RBI-licensed bureau must give you **one free full credit report per calendar year** on request through its own consumer portal. Because there are four bureaus, that is four free full reports a year if you stagger them, which is enough to check quarterly.
+
+Bank apps and consumer finance apps also show a bureau score, often continuously and at no charge. Those are convenient for tracking but they usually show a summary rather than the full report, and the apps are lead-generation businesses for loan offers. Use them to monitor, and go to the bureau portal when you need the actual document.
+
+Every one of these checks is a soft enquiry. Checking your own report can never reduce your score, no matter how often you do it.
+
+## Disputing an error
+
+Bureau errors are common in India, and a corrected error can add points immediately with no change in behaviour. The usual offenders are a closed loan still showing as active, a late marker on a payment you made on time, an account you never opened, a duplicate entry of the same loan, and a loan settled in full but flagged as "settled" rather than "closed".
+
+File the dispute through the bureau's online dispute portal with supporting documents such as the loan closure letter or NOC. **The bureau is required to investigate and respond, typically within 30 days.** It contacts the lender, and if the lender confirms the correction the report is updated. If the lender disputes your version, escalate to the lender's grievance officer and then to the RBI Ombudsman scheme.
+
+Keep the NOC every time you close a loan, then verify a month later that the bureau reflects it. That single habit prevents most of the disputes people end up filing years later.
+
+## When to check
+
+Pull all four reports at least once a year as a routine, and always **three to six months before a large loan application** so there is time for a dispute to run its 30-day course. Applying with an uncorrected error costs you either the loan or a worse rate, and both are avoidable.`,
+    faq: [
+      {
+        q: "How can I get my credit report free in India?",
+        a: "Every RBI-licensed bureau, meaning CIBIL, Experian, Equifax and CRIF High Mark, must provide one free full credit report per calendar year through its consumer portal. Staggering the four gives you roughly quarterly coverage at no cost. Bank apps also show a score continuously, though usually as a summary rather than the full report.",
+      },
+      {
+        q: "What is the difference between a credit score and a credit report?",
+        a: "The report is the full file: every account, a month-by-month payment grid, all enquiries and any adverse flags. The score is a single number summarising it. Lenders filter on the score but underwrite on the report, which is why a clean file at 730 often beats a 780 carrying a settlement flag.",
+      },
+      {
+        q: "How do I dispute an error on my credit report?",
+        a: "Raise it through the bureau's online dispute portal with supporting documents such as a loan closure letter or NOC. The bureau contacts the lender and is required to investigate and respond, typically within 30 days. If the lender disputes your version, escalate to its grievance officer and then to the RBI Ombudsman scheme.",
+      },
+      {
+        q: "How long does negative information stay on an Indian credit report?",
+        a: "The detailed payment grid normally covers the last 36 months, while accounts and serious events such as write-offs, settlements and suit-filed flags remain visible for several years. You cannot have accurate negative information removed. Its weight fades with time and a consistent record of on-time payments afterwards.",
+      },
+      {
+        q: "Why is my CIBIL report different from my Experian report?",
+        a: "Lenders report to each bureau on their own schedule and not every lender reports to all four. Combined with different scoring models, a 30 to 50 point gap between bureaus is normal. Since you cannot control which bureau a lender pulls, check all four before a major application.",
+      },
+      {
+        q: "Does checking my own credit report lower my score?",
+        a: "No. Checking your own report is a soft enquiry, it is recorded separately from lender enquiries, and it has no effect on the score however often you do it. Only hard enquiries, generated when you formally apply and a lender pulls your file, can reduce it.",
+      },
+    ],
+    related: ["credit-score", "cibil-score", "credit-utilization", "loan-default"],
+    relatedHref: "/blog/cibil-score-check-improve-guide",
+    relatedLabel: "Check and Improve Your CIBIL Score",
+  },
+  {
+    slug: "loan-default",
+    term: "Loan Default",
+    category: "Credit",
+    short:
+      "A default is a lender formally recognising that you have stopped repaying. In India an account is usually classed as an NPA after 90 days.",
+    bodyMarkdown: `A default is not the same as a late payment, and the difference matters enormously. A payment that lands a week after the due date is a delinquency: it costs you a late fee, some interest and a mark on your [credit report](/glossary/credit-report). A default is the point at which the lender stops treating the account as performing and starts treating it as a loss to be recovered.
+
+Under RBI norms, a loan account is generally classified as a **non-performing asset once payment is overdue for more than 90 days**. That is the threshold most lenders work to, and it is the line between a problem you can quietly fix and one that follows you for years.
+
+## The stages before a default
+
+**1 to 30 days overdue.** A late fee is charged, penal interest may apply, and the account is reported as 30 days past due in the bureau payment grid. This alone can cost 50 to 80 score points. Collection calls usually begin.
+
+**31 to 60 days.** The account is reported as 60 days past due. Contact from the lender becomes more insistent and a field visit may be arranged.
+
+**61 to 90 days.** Reported as 90 days past due. This is the last window in which a normal payment restores the account to standard classification without a lasting flag.
+
+**Beyond 90 days.** The account is classified as an NPA. Recovery action begins in earnest, and the report starts carrying markers that no future lender will overlook.
+
+## What appears on your report afterwards
+
+| Flag | What it means | How lenders read it |
+| --- | --- | --- |
+| Days past due | Payment late by 30, 60 or 90 days | A warning, recoverable with clean behaviour |
+| Sub-standard or doubtful | Lender's internal NPA grading | Serious, unsecured credit becomes hard to get |
+| Settled | You paid less than owed and the lender accepted | Severe, blocks mainstream borrowing for years |
+| Written off | Lender gave up on recovery | Among the worst markers on a file |
+| Suit filed | Lender has gone to court | Effectively closes mainstream credit |
+| Wilful defaulter | Lender says you could pay and chose not to | The most serious classification in Indian lending |
+
+**"Settled" is the flag people walk into by accident.** A collections agent offering to "close" a Rs 5 lakh outstanding for Rs 3 lakh sounds like relief. It is recorded as a settlement, which tells every future lender that you did not repay in full, and it can block borrowing for years. Where you can, negotiate a repayment plan that ends in full closure rather than a settlement, and get the closure in writing with an NOC.
+
+## What the lender can actually do
+
+For an **unsecured** loan or credit card, the lender has no asset to seize. It can charge penal interest, report you to the bureaus, use recovery agents within the RBI's rules on conduct and calling hours, and eventually file a civil suit or a proceeding under the negotiable instruments law if a cheque bounced.
+
+For a **secured** loan, the lender can enforce the collateral. Under the SARFAESI Act, a secured creditor can issue a 60-day demand notice on an NPA account and, if unpaid, take possession of and sell the mortgaged property without a court order for qualifying loans. A gold loan lender can auction the pledged gold after due notice. A car financier can repossess the vehicle. This is the core practical difference explained in [secured versus unsecured loans](/glossary/secured-vs-unsecured-loan).
+
+Borrowers retain real protections. Recovery agents must identify themselves, cannot use intimidation, and are restricted on when and how they may contact you. Complaints go to the lender's grievance officer and then to the RBI Ombudsman.
+
+## A worked example of the cost
+
+Suppose you carry a Rs 5,00,000 personal loan at 15% with an EMI of about Rs 12,000 and you stop paying.
+
+By day 90 you have missed three EMIs of Rs 12,000, roughly Rs 36,000, plus late fees and penal interest that commonly add 2% to 3% a month on the overdue amount. The account becomes an NPA. Your score may fall by 100 points or more, and the flag remains visible for years.
+
+The knock-on cost is larger than the arrears. With an NPA on file, a Rs 50 lakh home loan two years later either gets declined or gets priced 1% to 1.5% higher. On a 20-year loan that is several lakh rupees of extra interest, so a Rs 36,000 shortfall becomes a multi-lakh problem.
+
+## What to do if you are heading towards default
+
+Talk to the lender before the 90-day line, not after. Restructuring, a tenure extension, an EMI moratorium or a temporary interest-only period are all things banks would rather do than write a loan off, and all of them are far less damaging than an NPA classification.
+
+If the pressure comes from card debt at 36% to 46%, converting it to a personal loan at 12% to 18% often makes the EMI survivable. And protect the emergency fund that exists precisely for this: see the [budgeting hub](/budgeting) for how to size one before it is needed.`,
+    faq: [
+      {
+        q: "After how many missed EMIs is a loan considered a default in India?",
+        a: "Under RBI norms a loan account is generally classified as a non-performing asset once a payment is overdue by more than 90 days, which usually means three consecutive missed EMIs. Earlier misses are reported as 30 or 60 days past due and already damage the score, but the 90-day mark is the formal line.",
+      },
+      {
+        q: "How long does a loan default stay on my credit report?",
+        a: "Default-related markers such as written-off, settled and suit-filed entries remain visible on your report for several years, considerably longer than the 36-month payment grid. You cannot have accurate negative information removed. Its weight fades gradually as newer on-time payments accumulate, but no legitimate service can delete it.",
+      },
+      {
+        q: "Is settling a loan the same as closing it?",
+        a: "No, and the difference is severe. Closure means you repaid in full and receive an NOC. A settlement means the lender accepted less than owed, and it is flagged as such on your report, telling every future lender you did not repay fully. Where possible negotiate a repayment plan ending in full closure instead.",
+      },
+      {
+        q: "Can a bank seize my property if I default on a personal loan?",
+        a: "Not directly, because a personal loan is unsecured and no asset is pledged. The lender can charge penal interest, report the default, use recovery agents within RBI conduct rules and eventually file a civil suit. Only secured loans allow enforcement of specific collateral, such as SARFAESI action on a mortgaged property.",
+      },
+      {
+        q: "What should I do if I cannot pay my EMI this month?",
+        a: "Contact the lender before the payment is missed rather than after. Restructuring, extending the tenure, a short moratorium or a temporary interest-only period are all outcomes banks prefer to a write-off. Getting the arrangement in writing keeps the account performing and avoids a lasting flag on your report.",
+      },
+      {
+        q: "Can I get a loan after a default?",
+        a: "Yes, though it takes time and usually starts with secured borrowing. A loan against a fixed deposit, a gold loan or a secured credit card issued against an FD depends far more on the collateral than the score. Twelve to twenty-four months of clean repayment on such an account rebuilds a file that mainstream lenders will look at.",
+      },
+    ],
+    related: ["credit-report", "credit-score", "secured-vs-unsecured-loan", "emi"],
+    relatedHref: "/credit-score",
+    relatedLabel: "Credit Score Hub",
+  },
+  {
+    slug: "secured-vs-unsecured-loan",
+    term: "Secured vs Unsecured Loan",
+    category: "Credit",
+    short:
+      "A secured loan is backed by an asset the lender can seize, such as a house or gold. An unsecured loan is backed only by your income and credit record.",
+    bodyMarkdown: `Every loan in India falls into one of two families, and which family it belongs to explains almost everything about its interest rate, its approval odds and what happens if you cannot pay.
+
+A **secured loan** is backed by collateral: a specific asset the lender has a legal charge over and can sell if you default. A **home loan**, car loan, gold loan, loan against property and loan against a fixed deposit are all secured.
+
+An **unsecured loan** has no collateral behind it. The lender's only protection is your promise to repay, assessed through your income and your [credit report](/glossary/credit-report). Personal loans, credit cards, most education loans below a threshold, consumer durable loans and business loans without collateral sit here.
+
+## Why the rate gap is so wide
+
+When a lender can seize an asset, its loss on a default is limited to the shortfall after selling the asset. When it cannot, a default means losing the entire outstanding amount. That risk difference is priced directly into the interest rate, and the gap in India is large.
+
+| Feature | Secured loan | Unsecured loan |
+| --- | --- | --- |
+| Typical rate range | 8% to 12% for home loans, higher for gold and LAP | 11% to 18% for personal loans, 36% to 46% on card revolving balances |
+| Loan size | Driven by asset value, often Rs 50 lakh and above | Usually capped, commonly Rs 25 lakh or less |
+| Tenure | Up to 20 to 30 years | Typically 1 to 5 years |
+| Approval speed | Slower, needs valuation and title checks | Fast, sometimes within hours |
+| Credit score sensitivity | Lower, the asset carries the risk | High, often the deciding factor |
+| Consequence of default | Lender can enforce and sell the collateral | Recovery action, legal proceedings, no specific asset seized |
+| Paperwork | Heavy, including title and valuation documents | Light, mostly income proof and KYC |
+
+The practical implication is simple. If you have an asset to pledge, borrowing against it is nearly always cheaper. If you do not, you are paying for the lender's uncertainty about you.
+
+## A worked example
+
+Take a household needing Rs 10,00,000 for a medical emergency, with property they could pledge.
+
+An unsecured personal loan at 15% over 5 years carries an EMI of roughly Rs 23,790 and total interest of about Rs 4.27 lakh.
+
+A loan against property at 10% over the same 5 years carries an EMI of roughly Rs 21,250 and total interest of about Rs 2.75 lakh. That is around **Rs 1.5 lakh saved on the same borrowing**.
+
+The trade-off is not free. The property is now encumbered, the loan takes weeks rather than days to arrange, there are valuation and legal charges, and a default puts the home itself at risk rather than just the credit file. For a short-term need with a clear repayment path, many households reasonably choose the costlier unsecured loan precisely to keep the house out of the equation. Model both with the [EMI calculator](/calculators/emi).
+
+## Where a low credit score changes the answer
+
+Below roughly 650, mainstream lenders decline unsecured credit outright, but secured borrowing often remains available because the collateral, not the score, carries the risk. A gold loan, a loan against a fixed deposit and a secured credit card issued against an FD are the three routes that usually stay open.
+
+That last one is also the standard way to rebuild. A secured credit card reports to bureaus exactly like a normal card, so twelve months of low [credit utilisation](/glossary/credit-utilization) and on-time payments builds a file that mainstream lenders will look at again.
+
+## What happens on default in each case
+
+For secured loans, the lender enforces the collateral. Under the SARFAESI Act a secured creditor can issue a demand notice on a non-performing account and, after the statutory notice period, take possession of and sell mortgaged property for qualifying loans without going to court. A gold loan lender can auction pledged gold after due notice.
+
+For unsecured loans the lender must pursue you rather than an asset: penal interest, bureau reporting, recovery agents operating within RBI conduct rules, and eventually a civil suit. Slower for the lender, but it does not cost you your home. Either path leaves lasting marks, as covered under [loan default](/glossary/loan-default).
+
+## Choosing between them
+
+Ask three questions. First, is the need genuinely worth the cheaper rate given the paperwork and the timeline? Second, is the repayment plan robust enough that you are comfortable putting the asset behind it? Third, does your [FOIR](/glossary/foir) leave room for the EMI at all, because neither type of loan is affordable if the monthly outflow does not fit.
+
+For anything you can repay within a year or two, the rate difference is often smaller in rupees than it looks in percentages, and keeping the asset unencumbered has real value.`,
+    faq: [
+      {
+        q: "Which is better, a secured or an unsecured loan?",
+        a: "Secured loans are cheaper, larger and longer, so they win on cost whenever you have an asset to pledge and time to complete the paperwork. Unsecured loans win on speed and on keeping your assets free of any charge. For short-term needs the rate gap in rupees is often smaller than it appears in percentage terms.",
+      },
+      {
+        q: "Is a personal loan secured or unsecured?",
+        a: "Unsecured. No collateral is pledged, so approval rests entirely on your income and credit record, which is why rates typically run 11% to 18% against 8% to 12% for a home loan. It also means a lender cannot seize a specific asset if you default, though it can still pursue recovery and legal action.",
+      },
+      {
+        q: "Can I get a secured loan with a low CIBIL score?",
+        a: "Often yes. Because the collateral carries the risk, gold loans, loans against a fixed deposit and loans against property remain available well below the roughly 650 mark where unsecured credit gets declined. Terms will be less favourable, but the asset makes approval far less dependent on the score.",
+      },
+      {
+        q: "What can a lender do if I default on a secured loan?",
+        a: "Enforce the collateral. Under the SARFAESI Act a secured creditor can issue a demand notice on a non-performing account and, after the statutory notice period, take possession of and sell mortgaged property for qualifying loans without a court order. A gold loan lender can auction the pledged gold after due notice.",
+      },
+      {
+        q: "Are education loans secured or unsecured?",
+        a: "It depends on the amount. Indian banks commonly lend smaller education loans without collateral against a co-applicant's income, and require tangible security above a higher threshold. The exact cut-offs vary by bank and by whether the course is in India or abroad, so confirm the current policy with the specific lender.",
+      },
+      {
+        q: "Does a secured loan build credit the same way as an unsecured one?",
+        a: "Yes. Both report to the bureaus with the same payment grid, and holding a healthy mix of secured and unsecured credit slightly helps the credit mix component of the score. A secured credit card issued against a fixed deposit reports exactly like a normal card, which is why it is the standard rebuilding tool.",
+      },
+    ],
+    related: ["emi", "foir", "loan-default", "credit-score"],
+    relatedHref: "/loans",
+    relatedLabel: "Loans Hub",
+  },
+  {
+    slug: "simple-interest",
+    term: "Simple Interest",
+    category: "Banking",
+    short:
+      "Simple interest is calculated only on the original principal, never on interest already earned. It is principal times rate times time.",
+    bodyMarkdown: `Simple interest is the more basic of the two ways interest is calculated. It applies only to the original principal for the whole term, and interest already earned never earns anything further.
+
+The formula is:
+
+**Simple interest = Principal times Rate times Time, divided by 100**, where rate is per year and time is in years.
+
+Its counterpart, [compound interest](/glossary/compound-interest), adds each period's interest back to the balance so the next period's interest is charged on a larger amount. That single difference is why simple interest is a poor deal when you are saving and, deceptively, an expensive deal when you are borrowing.
+
+## A worked example on savings
+
+Invest Rs 1,00,000 at 8% a year for 10 years.
+
+Under simple interest you earn Rs 8,000 every year without variation. Over 10 years that is Rs 80,000, and the total value is Rs 1,80,000.
+
+Under annual compounding, the same Rs 1,00,000 at 8% grows to roughly Rs 2,15,890, so interest earned is about Rs 1,15,890.
+
+The gap is roughly **Rs 35,890 on the identical rate and term**, and it widens sharply with time. Over 20 years the simple interest total is Rs 2,60,000 while compounding reaches about Rs 4,66,000. Test this with the [compound interest calculator](/calculators/compound-interest).
+
+## Where you actually meet simple interest in India
+
+Genuine simple interest is rarer than people assume, but it appears in several places worth recognising.
+
+Savings account interest is calculated on the daily closing balance and typically **credited quarterly**, at which point it starts earning too, so it is effectively compounded quarterly rather than simple.
+
+Most bank fixed deposits compound quarterly. However, a **non-cumulative FD**, where interest is paid out monthly or quarterly instead of being reinvested, behaves like simple interest from the depositor's point of view, because the payout never joins the principal. This is a real and reasonable choice for retirees who need the income, but it is important to know it earns less than the cumulative option over the same term.
+
+Short-term loans of under a year, some corporate fixed deposits, certain post office instruments and many informal loans are also quoted on a simple interest basis.
+
+## The flat rate trap on car and consumer loans
+
+This is where simple interest costs borrowers real money. Some dealers, consumer finance companies and NBFCs quote a **flat rate**, where interest is computed on the original loan amount for the entire tenure even though your outstanding balance falls every month.
+
+Take a Rs 2,00,000 car loan quoted at "8% flat" over 5 years.
+
+Interest is Rs 2,00,000 times 8% times 5, which is Rs 80,000. Total repayment is Rs 2,80,000, so the EMI is Rs 2,80,000 divided by 60, which is Rs 4,667.
+
+That looks cheap next to a bank quoting 14%. It is not. By the final year you owe only a fraction of the original Rs 2,00,000, yet you are still being charged interest as though the full amount were outstanding. The equivalent reducing-balance rate on that EMI is roughly **14.2%, close to double the quoted flat rate**.
+
+| Basis | Quoted rate | What interest is charged on | EMI on Rs 2 lakh over 5 years |
+| --- | --- | --- | --- |
+| Flat or simple | 8% | The original Rs 2,00,000, every month | About Rs 4,667 |
+| Reducing balance | 14.2% | The falling outstanding balance | About Rs 4,667 |
+
+The two rows describe the same loan. **A flat rate roughly doubles when converted to a reducing-balance rate**, so always ask for the reducing-balance or annual percentage rate before comparing offers, and check the EMI itself with the [car loan EMI calculator](/calculators/car-loan-emi) rather than trusting the headline percentage.
+
+## The rule of thumb worth remembering
+
+You want compounding on money you are saving and reducing-balance calculation on money you are borrowing. Any product that offers you the reverse is doing so because the reverse is cheaper for the institution.
+
+When you are shown a rate, ask one question: is interest charged on the original amount or on what I still owe? The answer changes the true cost by nearly a factor of two, and it is the fastest way to compare two loans that look nothing alike on paper. The mechanics of the alternative are covered under [amortisation](/glossary/amortisation).`,
+    faq: [
+      {
+        q: "What is the simple interest formula?",
+        a: "Simple interest equals principal multiplied by the annual rate multiplied by time in years, divided by 100. On Rs 1,00,000 at 8% for 10 years that is Rs 80,000 of interest, paid at a flat Rs 8,000 a year, because the interest already earned never itself earns anything further.",
+      },
+      {
+        q: "Do Indian banks use simple or compound interest on fixed deposits?",
+        a: "Most bank fixed deposits compound quarterly, which is why the effective yield is slightly above the quoted rate. A non-cumulative FD that pays interest out monthly or quarterly behaves like simple interest for the depositor, since the payout never joins the principal, and therefore earns less over the same term.",
+      },
+      {
+        q: "What is a flat interest rate on a car loan?",
+        a: "A flat rate charges interest on the original loan amount for the entire tenure, even though your outstanding balance falls every month. It sounds far cheaper than it is. An 8% flat rate over five years works out to roughly 14.2% on a reducing-balance basis, close to double the quoted figure.",
+      },
+      {
+        q: "Is simple interest better than compound interest?",
+        a: "It depends which side you are on. For money you are saving, compounding is clearly better because earned interest starts earning too. For money you are borrowing, you want interest charged on the falling outstanding balance rather than on the original amount, which is what a reducing-balance loan does.",
+      },
+      {
+        q: "How do I convert a flat rate to a reducing-balance rate?",
+        a: "As a rough guide, multiply the flat rate by about 1.8 to 1.9 for a typical multi-year loan. The precise figure depends on the tenure. Rather than estimating, ask the lender for the annual percentage rate or the reducing-balance rate in writing, which lenders are expected to disclose.",
+      },
+      {
+        q: "Does a savings account pay simple interest?",
+        a: "Not quite. Interest is calculated on the daily closing balance but is typically credited to the account quarterly, and once credited it starts earning too. That makes it effectively quarterly compounding rather than true simple interest, though at typical savings rates the difference over a year is small.",
+      },
+    ],
+    related: ["compound-interest", "emi", "amortisation", "fixed-deposit"],
+    relatedHref: "/calculators/compound-interest",
+    relatedLabel: "Compound Interest Calculator",
+  },
+
+  // -- Gold ---------------------------------------------------------------
+  {
+    slug: "sovereign-gold-bond",
+    term: "Sovereign Gold Bond",
+    category: "Investing",
+    short:
+      "A Sovereign Gold Bond is a government security denominated in grams of gold that pays 2.5% annual interest over an 8-year term.",
+    bodyMarkdown: `A Sovereign Gold Bond, or SGB, is a government security whose value is denominated in grams of gold. You are not buying metal, you are buying a bond issued by the Reserve Bank of India on behalf of the Government of India whose redemption value moves with the gold price.
+
+It was designed to solve a specific Indian problem: households buying physical gold as an investment and losing 8% to 25% of the value to making charges, plus storage cost and purity risk. An SGB removes all three.
+
+## What makes it different from every other gold option
+
+The defining feature is the **2.5% annual interest, paid half-yearly on the original issue value**. Physical gold, [gold ETFs](/glossary/gold-etf) and [digital gold](/glossary/digital-gold) all pay nothing. Gold sitting in a locker generates no income at all. An SGB pays you to hold it while still giving you the full price movement of the metal.
+
+There are no making charges, no storage cost, no insurance to arrange and no purity question. The bond is a book entry, held in your demat account or as a certificate.
+
+## Term, exit and how the money actually works
+
+The tenure is **8 years**, with an option to redeem early from the end of the fifth year on an interest payment date. Bonds are also listed on the stock exchanges, so a demat-held bond can be sold before that, though secondary market liquidity has often been thin and the price can trade at a discount to the underlying gold value.
+
+Redemption value at maturity is based on the prevailing price of gold at that time, calculated on a published average, and is paid in rupees. You never receive physical gold.
+
+## A worked example
+
+Suppose you subscribe to 50 grams at an issue price of Rs 6,000 per gram, so an outlay of Rs 3,00,000.
+
+The 2.5% coupon is calculated on that Rs 3,00,000, giving Rs 7,500 a year, paid as Rs 3,750 every six months. Over the full 8 years that is Rs 60,000 of interest, or 20% of the amount invested, entirely separate from what gold does.
+
+If gold at maturity is worth Rs 9,000 per gram, the 50 grams redeem at Rs 4,50,000. Your total return is Rs 4,50,000 plus Rs 60,000 of interest against Rs 3,00,000 invested.
+
+The same 50 grams bought as jewellery would have cost noticeably more upfront because of making charges, paid nothing along the way, and been sold at a discount for those same making charges. That gap, not the gold price, is the argument for the instrument.
+
+## The tax treatment, which is the other headline
+
+**Capital gains arising on redemption of an SGB at maturity are exempt from tax for individual investors.** This is a genuinely unusual concession and the strongest single reason to hold to term.
+
+The 2.5% interest is fully taxable as income at your slab rate, and is not exempt.
+
+If you sell on the exchange before maturity rather than redeeming, the exemption does not apply and normal [capital gains](/glossary/capital-gains) rules do. Because tax rules on gold and on listed securities have been changed in recent Budgets, verify the current position on incometax.gov.in before you sell.
+
+## How SGBs compare with the other ways to own gold
+
+| Feature | SGB | Gold ETF | Digital gold | Physical gold |
+| --- | --- | --- | --- | --- |
+| Extra income | 2.5% a year | None | None | None |
+| Upfront cost | None beyond issue price | Brokerage plus expense ratio | GST plus a buy-sell spread | Making charges of 8% to 25% |
+| Storage and purity risk | None | None | Held by provider | Yours to manage |
+| Exit | Maturity at 8 years, early exit from year 5, or sell on exchange | Sell on exchange any trading day | Sell back to the provider | Sell to a jeweller at a discount |
+| Regulator | RBI and Government of India | SEBI | Not directly regulated | Not applicable |
+
+## The one practical catch
+
+New SGB tranches are announced by the RBI and there is often no tranche open at a given moment. **Check the RBI website for whether a fresh issue is available before assuming you can subscribe.** When none is open, the alternatives are buying existing bonds on the exchange, which may trade at a discount and in small volume, or using a gold ETF instead.
+
+For how gold fits alongside equity and debt in a portfolio at all, see [asset allocation](/glossary/asset-allocation) and our [gold investment guide](/blog/gold-investment-guide-india).`,
+    faq: [
+      {
+        q: "What is the interest rate on Sovereign Gold Bonds?",
+        a: "2.5% a year, paid half-yearly and calculated on the original issue value rather than the current gold price. On a Rs 3,00,000 subscription that is Rs 7,500 a year, or Rs 3,750 every six months. This income is fully taxable at your slab rate and is separate from any gain on the gold price itself.",
+      },
+      {
+        q: "Are Sovereign Gold Bonds tax free?",
+        a: "Partly. Capital gains arising on redemption at maturity are exempt from tax for individual investors, which is the scheme's biggest advantage. The 2.5% interest, however, is fully taxable at your slab rate. If you sell on the exchange before maturity instead of redeeming, normal capital gains rules apply rather than the exemption.",
+      },
+      {
+        q: "Can I exit a Sovereign Gold Bond before 8 years?",
+        a: "Yes, in two ways. You can redeem early from the end of the fifth year on an interest payment date, or sell on the stock exchange at any time if the bond is held in demat form. Exchange liquidity has often been thin and bonds can trade at a discount to the underlying gold value.",
+      },
+      {
+        q: "Are new SGB tranches still being issued?",
+        a: "Issuance depends on tranches announced by the RBI, and there is frequently no tranche open at a given time. Check rbi.org.in for the current position rather than assuming you can subscribe. When nothing is open, the alternatives are buying existing bonds on the exchange or using a gold ETF.",
+      },
+      {
+        q: "SGB or gold ETF, which is better?",
+        a: "For an eight-year horizon, SGBs are hard to beat because of the 2.5% coupon and the maturity gains exemption. Gold ETFs win on flexibility, since you can buy and sell any trading day at close to the market price, and they are always available whereas SGB tranches are not.",
+      },
+      {
+        q: "Do I get physical gold when an SGB matures?",
+        a: "No. Redemption is settled in rupees based on the prevailing gold price at maturity, calculated on a published average. The bond is a government security denominated in grams of gold, not a claim on metal, which is precisely why it carries no storage cost, insurance requirement or purity risk.",
+      },
+    ],
+    related: ["gold-etf", "digital-gold", "capital-gains", "asset-allocation"],
+    relatedHref: "/gold",
+    relatedLabel: "Gold Investment Hub",
+  },
+  {
+    slug: "gold-etf",
+    term: "Gold ETF",
+    category: "Investing",
+    short:
+      "A gold ETF is an exchange-listed mutual fund unit tracking the domestic gold price, backed by physical gold held with a custodian.",
+    bodyMarkdown: `A gold exchange-traded fund is a SEBI-regulated mutual fund scheme that holds physical gold and issues units that trade on the stock exchange like a share. One unit typically represents a small, fixed quantity of gold, commonly one gram or a fraction of it, and the unit price tracks the domestic gold price closely.
+
+You get the price exposure of gold without a locker, without making charges and without any question about purity, because the gold backing the scheme is held in vaults by a custodian and is subject to periodic audit.
+
+## How buying and selling actually works
+
+You need a demat account and a trading account, exactly as you would for a share. During market hours you place a buy order, the units settle into your demat account, and you can sell them on any trading day at the prevailing market price.
+
+Two costs apply. **Brokerage** on each trade, which is whatever your broker charges, and the scheme's **expense ratio**, deducted daily from the fund's assets, typically in the region of 0.4% to 0.8% a year for Indian gold ETFs. The [expense ratio](/glossary/expense-ratio) is not billed to you separately, it quietly reduces the [NAV](/glossary/nav).
+
+There is also a small **tracking difference**. Because of expenses and cash held for redemptions, the fund's return is normally a fraction below the pure gold price. This is expected and is not a sign of a bad fund, but a fund with a persistently large tracking difference is worth avoiding.
+
+## Gold ETF versus gold fund of funds
+
+Many people conflate these. A **gold ETF** requires a demat account and is bought on the exchange. A **gold fund of funds** is a regular mutual fund scheme that invests in a gold ETF, needs no demat account, can be bought directly from the fund house and supports a monthly [SIP](/glossary/sip). It carries the underlying ETF's expense ratio plus its own small layer on top.
+
+If you want to accumulate gold monthly without a broker, the fund of funds is usually the more practical route. If you want the lowest cost and already have a demat account, the ETF wins.
+
+## A worked example
+
+Suppose you invest Rs 1,00,000 in a gold ETF where each unit represents one gram and the price per unit is Rs 6,200. You get roughly 16.1 units after brokerage.
+
+If gold rises 12% over the next year, the units are worth about Rs 1,12,000 before costs. Subtract an expense ratio of, say, 0.5%, and roughly Rs 560 is absorbed, leaving about Rs 1,11,440 before tax and exit brokerage.
+
+Compare that with buying 16 grams of 22 carat jewellery. At a making charge of 12% you would have paid roughly Rs 12,000 extra at purchase, and a jeweller buying it back would typically not return those making charges. Gold would need to rise substantially just to reach break-even. That gap is the entire practical case for holding gold in paper form.
+
+## How it compares with the alternatives
+
+| Feature | Gold ETF | SGB | Digital gold | Physical gold |
+| --- | --- | --- | --- | --- |
+| Regulator | SEBI | RBI and Government of India | Not directly regulated | Not applicable |
+| Extra income | None | 2.5% a year | None | None |
+| Ongoing cost | Expense ratio of roughly 0.4% to 0.8% | None | Storage free only for a limited period | Locker and insurance |
+| Entry cost | Brokerage | None beyond issue price | GST plus a buy-sell spread | Making charges of 8% to 25% |
+| Liquidity | Any trading day | Maturity, year 5 exit, or thin exchange market | Sell back to the provider | Sell to a jeweller at a discount |
+| Needs demat | Yes, unless using a fund of funds | Optional | No | No |
+
+## Tax, and why you must check the current rule
+
+The taxation of gold ETFs and gold funds in India has been changed more than once in recent Budgets, and the treatment can depend on when the units were purchased. Rather than relying on any figure quoted online, confirm the applicable holding period and rate for your purchase date on incometax.gov.in or with a tax adviser before you sell. The general framework is covered under [capital gains](/glossary/capital-gains).
+
+## How much gold to hold at all
+
+Gold pays no dividend, no rent and no coupon. Its role in a portfolio is diversification rather than growth: it has historically held value when equity has fallen, which is why a modest allocation, commonly discussed in the 5% to 15% range, is a defensible position rather than a bet. See [asset allocation](/glossary/asset-allocation) for how that decision fits with everything else, and the [gold hub](/gold) for the full comparison.`,
+    faq: [
+      {
+        q: "Do I need a demat account to buy a gold ETF?",
+        a: "For a gold ETF, yes, because units trade on the stock exchange like shares. If you would rather not open one, a gold fund of funds is a regular mutual fund that invests in a gold ETF, needs no demat account, can be bought directly from the fund house and supports a monthly SIP.",
+      },
+      {
+        q: "What are the charges on a gold ETF in India?",
+        a: "Two. Brokerage on each buy and sell trade, set by your broker, and the scheme's expense ratio, typically around 0.4% to 0.8% a year, which is deducted daily from the fund's assets and shows up as a slightly lower NAV rather than a separate bill. A small tracking difference against the gold price is normal.",
+      },
+      {
+        q: "Is a gold ETF safer than physical gold?",
+        a: "On the risks people usually worry about, yes. There is no theft or storage risk, no purity uncertainty and no making charge loss on exit, and the scheme is SEBI-regulated with gold held by a custodian and periodically audited. You still carry the full price risk of gold itself, which can fall substantially.",
+      },
+      {
+        q: "Gold ETF or Sovereign Gold Bond, which should I choose?",
+        a: "For an eight-year horizon SGBs are usually better, because of the 2.5% annual coupon and the exemption on capital gains at maturity. Gold ETFs win when you want to buy or sell on any trading day, when no SGB tranche is open, or when the horizon is shorter than five years.",
+      },
+      {
+        q: "How is a gold ETF taxed in India?",
+        a: "The rules for gold ETFs and gold funds have changed in recent Budgets and the treatment can depend on your purchase date, so any single figure quoted online risks being out of date. Confirm the applicable holding period and rate for your specific purchase on incometax.gov.in or with a tax adviser before selling.",
+      },
+      {
+        q: "Can I convert gold ETF units into physical gold?",
+        a: "Not as a normal retail investor. Redemption in physical form is generally available only in large creation-unit sizes through authorised participants, which is far beyond an ordinary holding. In practice you sell the units on the exchange for cash and buy metal separately if you actually want it.",
+      },
+    ],
+    related: ["sovereign-gold-bond", "digital-gold", "etf", "expense-ratio"],
+    relatedHref: "/gold",
+    relatedLabel: "Gold Investment Hub",
+  },
+  {
+    slug: "digital-gold",
+    term: "Digital Gold",
+    category: "Investing",
+    short:
+      "Digital gold lets you buy gold online from as little as Rs 1, stored in an insured vault. It is convenient but not directly regulated.",
+    bodyMarkdown: `Digital gold is gold you buy through an app or a payments platform in tiny amounts, with the corresponding physical metal held in an insured vault by the provider on your behalf. It is offered through partnerships with a small number of refiners and vaulting companies, and it appears inside many popular payment and broking apps.
+
+The appeal is obvious. You can buy Rs 100 of gold on a phone in under a minute, accumulate over time, and eventually take delivery as a coin or bar if you want the metal.
+
+## The three costs, and why they matter more than the convenience
+
+**GST of 3%** applies on purchase, exactly as it does on physical gold. Buy Rs 10,000 of digital gold and roughly Rs 9,700 of gold value actually reaches your holding.
+
+**A buy-sell spread.** The provider quotes one price to buy and a lower price to sell back at the same moment. That gap has commonly run in the region of 3% to 6%.
+
+**Storage.** Vaulting is typically free only for a limited period, often around five years, after which the provider may charge a fee, require delivery or require you to sell.
+
+Put the first two together and the arithmetic is uncomfortable for short holdings. **After GST and a mid-range spread, the gold price needs to rise roughly 8% before you break even on a same-year exit.** For a purchase held for a few months, that is a high hurdle.
+
+## A worked example
+
+You buy Rs 10,000 of digital gold. GST of 3% takes Rs 300, so Rs 9,700 of gold is credited to your account at the buy price.
+
+Suppose the gold price rises 5% over the next year, taking that holding to about Rs 10,185 at the buy price. But you sell at the sell price, and with a 5% spread the realisable value is closer to Rs 9,676.
+
+**You are marginally down despite gold having risen 5%.** Nothing has gone wrong and no one has cheated you. The costs simply consumed the gain.
+
+Run the same 5% rise through a [gold ETF](/glossary/gold-etf) with a 0.5% expense ratio and small brokerage and you keep almost all of it, because there is no GST on the units and no dealer spread.
+
+## The regulatory gap that matters most
+
+**Digital gold is not directly regulated by SEBI or the RBI.** It is not a security, not a mutual fund and not a bank deposit. Your protection comes from the contract with the provider, the independent vaulting and insurance arrangements, and any trustee appointed to hold the metal.
+
+SEBI has previously directed registered intermediaries to stop offering unregulated digital gold products, which is why some broking apps withdrew it. That is a meaningful signal about where the product sits.
+
+This does not make it a scam. It does mean you are relying on a private company's arrangements rather than on a statutory framework, and that is a materially different risk from an SGB backed by the Government of India or a SEBI-regulated ETF.
+
+## Where digital gold genuinely fits
+
+| Use case | Is digital gold the right tool? |
+| --- | --- |
+| Buying Rs 100 to Rs 500 at a time as a habit | Yes, nothing else allows amounts this small |
+| Accumulating towards a future jewellery purchase | Yes, delivery as coins or bars is the design intent |
+| Gifting small amounts | Yes, convenient and instant |
+| Building a 5% to 15% portfolio allocation to gold | No, use an SGB or a gold ETF instead |
+| Holding gold for 5 years or more | No, the storage window and spread work against you |
+| Short-term trading on the gold price | No, the spread alone defeats it |
+
+## The practical rule
+
+Treat digital gold as a savings habit that ends in physical metal, not as an investment vehicle. If your intention is to own gold as part of a portfolio, a [Sovereign Gold Bond](/glossary/sovereign-gold-bond) pays you 2.5% a year to hold it and exempts capital gains at maturity, and a gold ETF costs a fraction of a percent a year with no GST on the units.
+
+If you do use it, check three things with your specific provider before buying: the current buy-sell spread quoted side by side, how long storage is free and what happens at the end of that period, and who the vaulting partner and trustee actually are. Those three answers tell you more than any advertised feature list. The full comparison across all four ways of owning gold is in the [gold hub](/gold).`,
+    faq: [
+      {
+        q: "Is digital gold safe in India?",
+        a: "The metal is normally held in an insured vault by a third party, but digital gold is not directly regulated by SEBI or the RBI. It is not a security, a mutual fund or a deposit, so your protection comes from the provider's contract and vaulting arrangements rather than a statutory framework. SEBI has previously told registered intermediaries to stop offering it.",
+      },
+      {
+        q: "What are the charges on digital gold?",
+        a: "Three. GST of 3% on purchase, a buy-sell spread that has commonly run around 3% to 6%, and storage which is typically free only for a limited period, often around five years. Together the first two mean gold usually needs to rise roughly 8% before a same-year exit breaks even.",
+      },
+      {
+        q: "Digital gold or gold ETF, which is better?",
+        a: "For anything you intend to hold as an investment, a gold ETF is materially cheaper and is SEBI-regulated, with no GST on units and an expense ratio of well under 1% a year. Digital gold wins only on minimum ticket size, since you can buy Rs 100 at a time, and on the ability to take delivery as coins.",
+      },
+      {
+        q: "Can I convert digital gold into physical gold?",
+        a: "Yes, that is the design intent. Once your holding reaches the provider's minimum, usually equivalent to a standard coin or bar weight, you can request delivery. Making, packaging and delivery charges apply on top of what you have already paid, so factor those in before treating delivery as free.",
+      },
+      {
+        q: "What happens after the free storage period on digital gold ends?",
+        a: "It depends on the provider, but the usual outcomes are that a storage fee starts, you are asked to take delivery of the metal, or you are asked to sell the holding back. Confirm the exact policy and the timeline with your specific provider before buying, because the window is commonly around five years.",
+      },
+      {
+        q: "Is there a minimum amount to buy digital gold?",
+        a: "It is extremely low, often Rs 1 to Rs 100 depending on the platform, which is the product's main advantage over every other way of owning gold. That does make it useful for a small recurring savings habit, but the GST and spread mean it works poorly for building a long-term portfolio allocation.",
+      },
+    ],
+    related: ["sovereign-gold-bond", "gold-etf", "hallmark", "gst"],
+    relatedHref: "/gold",
+    relatedLabel: "Gold Investment Hub",
+  },
+  {
+    slug: "hallmark",
+    term: "Hallmark",
+    category: "Banking",
+    short:
+      "A hallmark is the BIS purity mark on Indian gold jewellery, carrying the BIS logo, the purity in carats and fineness, and a unique six-digit HUID code.",
+    bodyMarkdown: `A hallmark is an official certification of the purity of a precious metal article. In India it is administered by the Bureau of Indian Standards, and hallmarking of gold jewellery and artefacts has been made mandatory for sellers in notified districts, with the scheme expanded in stages since 2021.
+
+The point of it is simple. Gold is sold by weight and priced by purity, and without an independent mark you have no way to verify what you are actually buying. A piece sold as 22 carat that is really 18 carat overstates the metal content by a large margin, and the difference is not visible to the eye.
+
+## What the mark actually contains
+
+Since the introduction of the HUID system, a hallmarked gold article carries **three marks**:
+
+**The BIS logo**, a standard triangular mark identifying the Bureau of Indian Standards.
+
+**The purity and fineness**, such as 22K916, 18K750 or 14K585. The number is parts of gold per thousand.
+
+**A six-digit alphanumeric HUID**, the Hallmark Unique Identification code, which is unique to that individual article and is recorded against the jeweller who registered it.
+
+The HUID is the part that changed the system meaningfully. It is verifiable: the BIS Care app lets you enter the six-digit code and see the registered details of that specific piece, including the jeweller and the purity it was certified at. **If a code does not verify, walk away.**
+
+## Reading purity by the numbers
+
+| Carat | Fineness | Gold content | Common use |
+| --- | --- | --- | --- |
+| 24K | 999 | 99.9% | Coins and bars, too soft for jewellery |
+| 22K | 916 | 91.6% | Traditional Indian gold jewellery |
+| 18K | 750 | 75% | Diamond and studded jewellery |
+| 14K | 585 | 58.5% | Lighter and more durable pieces |
+
+Pure 24 carat gold is too soft to hold a setting, which is why jewellery is alloyed. That is legitimate. The problem is only ever a piece being sold as a higher purity than it is.
+
+## A worked example of what purity is worth
+
+Take 10 grams sold to you as 22 carat when it is actually 18 carat.
+
+At 22K the metal is 91.6% gold, so 10 grams contains 9.16 grams of gold. At 18K it is 75%, so 7.5 grams.
+
+You have paid for 9.16 grams of gold and received 7.5 grams, a shortfall of 1.66 grams. That is an overpayment of about **18% of the metal value**, on top of whatever making charges were added. On a Rs 60,000 purchase that is roughly Rs 11,000 gone, invisibly.
+
+This is exactly the loss the hallmark exists to prevent, and it is why the six-digit code being verifiable matters more than the mark simply being present.
+
+## Making charges are a separate question
+
+Hallmarking certifies purity. It says nothing about price. **Making charges of 8% to 25% are still added on top of the metal value, and they are almost never recovered when you sell.** A jeweller buying back a piece typically pays for the gold content at the prevailing rate, minus a deduction, and returns nothing for the craftsmanship you paid for.
+
+That is the core reason jewellery is a poor investment even when it is perfectly hallmarked, and why gold held for investment is better owned as a [Sovereign Gold Bond](/glossary/sovereign-gold-bond) or a [gold ETF](/glossary/gold-etf), which carry no making charges at all.
+
+## What to check at the counter
+
+Ask to see the HUID and verify it in the BIS Care app before paying, not after. Get an invoice that states the net gold weight separately from the weight of any stones, the purity in carats, the making charges as a distinct line and the applicable GST. Stones are commonly weighed as part of the gross weight and charged at the gold rate, which is a well-known way of inflating a bill.
+
+Keep the invoice. It is what establishes your purchase cost when you eventually sell, which matters for [capital gains](/glossary/capital-gains), and it is what a jeweller will ask for during a buyback or exchange.
+
+Complaints about a piece that does not match its hallmark can be raised with BIS through the BIS Care app, which is a genuine and usable route rather than a theoretical one. For the wider question of how much gold to hold and in what form, see the [gold hub](/gold).`,
+    faq: [
+      {
+        q: "What is HUID in gold hallmarking?",
+        a: "HUID stands for Hallmark Unique Identification. It is a six-digit alphanumeric code unique to each individual hallmarked article, recorded against the jeweller who registered it. You can verify it in the BIS Care app, which shows the registered purity and jeweller for that specific piece. A code that does not verify is a reason to walk away.",
+      },
+      {
+        q: "Is hallmarking of gold jewellery compulsory in India?",
+        a: "Hallmarking of gold jewellery and artefacts has been made mandatory for sellers in notified districts, with the scheme rolled out in stages since 2021 and extended over time. Because the list of notified districts and covered categories has expanded in phases, check the current position on the BIS website for your location.",
+      },
+      {
+        q: "What do 916 and 750 mean on gold jewellery?",
+        a: "They are fineness marks giving parts of gold per thousand. 916 means 91.6% gold, which is 22 carat, the standard for traditional Indian jewellery. 750 means 75%, which is 18 carat and common in studded and diamond pieces. 999 is 24 carat, used for coins and bars because it is too soft for jewellery.",
+      },
+      {
+        q: "How do I check if my gold is really hallmarked?",
+        a: "Look for all three marks: the BIS logo, the purity and fineness such as 22K916, and the six-digit alphanumeric HUID. Then enter the HUID in the BIS Care app to confirm it matches the piece and the jeweller. Do this before paying rather than after, and keep the itemised invoice.",
+      },
+      {
+        q: "Does a hallmark mean I am paying a fair price?",
+        a: "No. A hallmark certifies purity only and says nothing about price. Making charges of 8% to 25% are added on top of the metal value and are generally not recovered when you sell. Ask for the net gold weight, purity, making charges and GST as separate lines on the invoice.",
+      },
+      {
+        q: "Can I sell old gold jewellery that has no hallmark?",
+        a: "Yes. The mandate applies to sellers rather than to consumers holding older pieces. A jeweller buying it back will typically test the purity, commonly by an XRF machine or a touchstone test, and pay on the assessed gold content. Expect a deduction, and expect nothing back for the original making charges.",
+      },
+    ],
+    related: ["digital-gold", "sovereign-gold-bond", "gold-etf", "gst"],
+    relatedHref: "/gold",
+    relatedLabel: "Gold Investment Hub",
+  },
+
+  // -- Portfolio and retirement -------------------------------------------
+  {
+    slug: "asset-allocation",
+    term: "Asset Allocation",
+    category: "Investing",
+    short:
+      "Asset allocation is how you split money across equity, debt, gold and cash. It drives risk and return far more than fund choice does.",
+    bodyMarkdown: `Asset allocation is the decision about how much of your money sits in each broad asset class: equity, debt, gold, real estate and cash. It is made before any fund or stock is chosen, and it explains far more of what eventually happens to a portfolio than the choice of fund does.
+
+The reason is that asset classes behave differently from one another, while funds within the same class mostly move together. Two large-cap equity funds will rise and fall in near lockstep. Equity and short-duration debt will not. So the split between them, not the choice between the two funds, is what determines how much your portfolio falls in a bad year.
+
+## What each asset class is actually for
+
+**Equity** is the growth engine. Over long periods it has delivered the highest returns of the main classes in India, and it is also the only one that can fall 30% or more in a year. It belongs to money you will not need for at least five to seven years.
+
+**Debt** covers fixed deposits, debt mutual funds, PPF, EPF and bonds. Its job is stability and predictability, not returns. It is what lets you leave equity alone during a crash instead of selling it.
+
+**Gold** is a diversifier. It pays no income at all, but it has historically held or gained value in periods when equity has fallen, which is the whole argument for a modest holding. See the [gold hub](/gold) for how to own it.
+
+**Cash** is the emergency fund and near-term goals. It is not an investment and should not be judged as one.
+
+## A simple worked example, including the rebalancing
+
+Take a Rs 20,00,000 portfolio at a 60% equity, 30% debt, 10% gold allocation. That is Rs 12,00,000 in equity, Rs 6,00,000 in debt and Rs 2,00,000 in gold.
+
+Say over a year equity returns 25%, debt returns 7% and gold returns 10%. The holdings become Rs 15,00,000, Rs 6,42,000 and Rs 2,20,000, a total of Rs 23,62,000.
+
+Equity is now **63.5% of the portfolio rather than 60%**. Nothing was done wrong. Good performance itself pushed the portfolio into taking more risk than you chose.
+
+Rebalancing means selling about Rs 83,000 of equity and moving roughly Rs 67,000 into debt and Rs 16,000 into gold, restoring 60/30/10.
+
+Notice what that mechanically does: it sells the asset that has run up and buys the ones that have lagged. It is a rule that makes you sell high and buy low without requiring you to predict anything, which is why it is one of the few genuinely reliable pieces of portfolio discipline.
+
+## Choosing a split
+
+There is no single correct allocation, and anyone who gives you one without asking about your horizon and your income stability is guessing. The variables that actually matter are how many years until you need the money, how much of a fall you can sit through without selling, and how stable your income is.
+
+| Horizon and situation | A commonly discussed starting point |
+| --- | --- |
+| Under 3 years, goal is fixed | Mostly debt and cash, little or no equity |
+| 3 to 7 years | Balanced, often around 40% to 50% equity |
+| 7 years or more, stable income | Equity-heavy, often 65% to 80% |
+| Approaching retirement | Reducing equity steadily, raising debt |
+| Already retired, drawing income | Enough debt to cover several years of withdrawals |
+
+These are illustrations of how the trade-off is usually framed, not recommendations. **This site does not give personalised investment advice, and an allocation is a personal decision best made with a SEBI-registered investment adviser if you want it tailored.**
+
+The old rule of thumb of "100 minus your age in equity" is a memorable starting point and nothing more. It ignores income stability, existing assets, dependants and whether you have a pension, all of which matter more than the birthday.
+
+## The mistakes that cost most
+
+The commonest is **having no allocation at all**, just a collection of funds bought at different times for different reasons. If you cannot state your equity percentage, you do not have an allocation, you have an accumulation.
+
+The second is **owning eight equity funds and calling it [diversification](/glossary/diversification)**. Eight funds holding the same fifty large-cap stocks is one bet wearing eight labels.
+
+The third is **changing the allocation after a crash**, which converts a temporary fall into a permanent loss and usually results in returning to equity only after the recovery.
+
+The fourth is **ignoring EPF and PPF**. For many salaried Indians these are the largest debt holdings they own, and a portfolio that looks 100% equity in a broking app may actually be closer to 60/40 once they are counted. Count everything, then decide.
+
+Rebalance on a schedule, once a year is plenty, or when a class drifts more than five percentage points from target. Track the whole picture with the [net worth](/glossary/net-worth) view rather than fund by fund.`,
+    faq: [
+      {
+        q: "What is a good asset allocation by age in India?",
+        a: "The old rule of thumb is to hold 100 minus your age in equity, so 70% equity at 30. It is a starting point rather than an answer, because it ignores income stability, dependants, existing assets and whether you have a pension. Horizon and your ability to sit through a fall matter more than the birthday.",
+      },
+      {
+        q: "How often should I rebalance my portfolio?",
+        a: "Once a year is enough for most people, or whenever an asset class drifts more than about five percentage points from its target. Rebalancing more often adds transaction costs and tax events without improving outcomes. The discipline matters more than the frequency, because it mechanically sells what has run up and buys what has lagged.",
+      },
+      {
+        q: "Does asset allocation include my EPF and PPF?",
+        a: "It should. For many salaried Indians, EPF and PPF are the largest debt holdings they own, and leaving them out badly overstates the equity share. A portfolio that looks entirely equity in a broking app may be closer to 60/40 once these are counted, which changes what you should be buying next.",
+      },
+      {
+        q: "How much gold should be in my portfolio?",
+        a: "A modest allocation, commonly discussed in the 5% to 15% range, is the usual framing, because gold pays no income but has historically held value when equity has fallen. The right figure depends on your overall plan. Owning it as a Sovereign Gold Bond or a gold ETF avoids the making charges that make jewellery a poor holding.",
+      },
+      {
+        q: "Is asset allocation the same as diversification?",
+        a: "They are related but not identical. Asset allocation is the split between broad classes such as equity, debt and gold. Diversification is spreading risk within a class, for example across sectors and market capitalisations. Owning eight equity funds that hold the same fifty stocks is neither, it is one bet under eight labels.",
+      },
+      {
+        q: "Should I change my asset allocation when markets fall?",
+        a: "Changing the target allocation because of a fall is usually the most expensive decision an investor makes, since it converts a temporary decline into a permanent loss and typically leads to buying back only after the recovery. Rebalancing back to your existing target is the opposite action and is generally the right one.",
+      },
+    ],
+    related: ["diversification", "mutual-fund", "sip", "net-worth"],
+    relatedHref: "/investing",
+    relatedLabel: "Investing Hub",
+  },
+  {
+    slug: "annuity",
+    term: "Annuity",
+    category: "Banking",
+    short:
+      "An annuity is a contract where you pay an insurer a lump sum and receive a guaranteed income for life. NPS requires buying one at exit.",
+    bodyMarkdown: `An annuity is a contract with a life insurance company. You hand over a lump sum, called the purchase price, and in exchange the insurer pays you a fixed income at regular intervals, most commonly monthly, usually for the rest of your life.
+
+It is the one retirement product that solves longevity risk, which is the risk of outliving your money. Every other retirement approach requires you to guess how long you will live. An annuity moves that guess onto the insurer's balance sheet.
+
+That protection is real, and it is also the reason annuities feel expensive: you are buying insurance, not chasing a return.
+
+## The main variants sold in India
+
+**Immediate annuity** starts paying shortly after purchase. This is what almost every Indian retiree buys.
+
+**Deferred annuity** takes the money now and begins paying at a chosen future date, accumulating in the meantime.
+
+**Life annuity without return of purchase price** pays the highest income, and the capital is gone when you die. Nothing passes to your heirs.
+
+**Life annuity with return of purchase price** pays a noticeably lower income, but the original lump sum is returned to your nominee on death. This is the most popular option in India for exactly that reason.
+
+**Joint life annuity** continues paying the surviving spouse, at the same or a reduced rate, and therefore starts lower than a single life annuity.
+
+**Annuity with a guaranteed period** pays for a minimum number of years even if the annuitant dies earlier.
+
+Each additional protection lowers the monthly income. There is no free option in that list.
+
+## Where an annuity is compulsory: NPS
+
+For most people the first real encounter with an annuity is the [NPS](/glossary/nps) exit rule. On exiting NPS at the normal retirement age, **at least 40% of the accumulated corpus must be used to buy an annuity from an empanelled insurer**, and up to 60% can be withdrawn as a lump sum, which is tax-exempt. Smaller corpuses below a threshold can be withdrawn in full, and different rules apply on early exit and on death.
+
+Because this is compulsory rather than optional, it is worth understanding the pricing before you reach 60 rather than after.
+
+## A worked example
+
+Suppose you retire at 60 with an NPS corpus of Rs 50,00,000.
+
+You withdraw 60%, which is Rs 30,00,000, as a tax-free lump sum. The remaining Rs 20,00,000 must buy an annuity.
+
+Annuity rates quoted by Indian insurers have commonly sat somewhere in the region of 5.5% to 7% depending on the option chosen, the age at purchase and the insurer, so treat the following as an illustration and get live quotes rather than relying on any figure here.
+
+At an illustrative 6% on a life annuity without return of purchase price, Rs 20,00,000 produces about Rs 1,20,000 a year, roughly **Rs 10,000 a month before tax**, for life, with nothing left for heirs.
+
+Choosing return of purchase price instead might drop the rate to around 5%, giving roughly Rs 8,300 a month, but the Rs 20,00,000 goes to your nominee on death.
+
+**The annuity income is fully taxable at your slab rate**, which is the detail most people miss when comparing it with other options.
+
+## How it compares with a systematic withdrawal plan
+
+| Feature | Annuity | SWP from mutual funds |
+| --- | --- | --- |
+| Income certainty | Guaranteed for life | Depends on markets and withdrawal rate |
+| Longevity risk | Carried by the insurer | Carried by you |
+| Capital access | Locked, cannot be withdrawn | Fully accessible at any time |
+| Growth on remaining capital | None to you | Continues to be invested |
+| Legacy to heirs | Only with return of purchase price | Whatever remains |
+| Taxation | Income taxed at slab rate | Only the gain portion, under capital gains rules |
+| Flexibility to change | Effectively none | Change or stop the withdrawal anytime |
+
+A [systematic withdrawal plan](/glossary/swp) usually produces a better outcome on paper and leaves the capital accessible. An annuity produces certainty. Many retirees reasonably use both: an annuity sized to cover non-negotiable monthly costs such as food, utilities and medicines, and an SWP for everything above that. Model the SWP side with the [SWP calculator](/calculators/swp) and the corpus itself with the [retirement calculator](/calculators/retirement).
+
+## Before you buy one
+
+Get quotes from several empanelled insurers on the same date for the same option, because rates differ meaningfully between them and the choice is effectively irreversible. Compare like with like: a higher headline rate is often a life annuity without return of purchase price sitting next to a with-return quote.
+
+And be clear about what the product does not do. **A fixed annuity income does not rise with inflation.** At 6% inflation, Rs 10,000 a month buys roughly half as much in twelve years. That is the strongest argument for not annuitising more of the corpus than the compulsory portion, and for keeping the rest invested. This is general information and not personalised advice.`,
+    faq: [
+      {
+        q: "Is buying an annuity compulsory in NPS?",
+        a: "Yes for most subscribers. On exiting NPS at the normal retirement age, at least 40% of the accumulated corpus must be used to buy an annuity from an empanelled insurer, with up to 60% withdrawable as a tax-exempt lump sum. Smaller corpuses below a threshold can be withdrawn in full, and different rules apply on early exit.",
+      },
+      {
+        q: "Is annuity income taxable in India?",
+        a: "Yes. Annuity payouts are taxable as income at your applicable slab rate, in full, for the whole life of the annuity. This is a key difference from a systematic withdrawal plan from mutual funds, where only the gain portion of each withdrawal is taxed and it is taxed under capital gains rules.",
+      },
+      {
+        q: "What is return of purchase price in an annuity?",
+        a: "It is an option under which the original lump sum you paid is returned to your nominee when you die, instead of the capital being retained by the insurer. It is the most popular choice in India, and it comes at a real cost: the monthly income is noticeably lower than a life annuity without it.",
+      },
+      {
+        q: "Annuity or SWP, which is better for retirement income?",
+        a: "An annuity gives certainty and removes the risk of outliving your money, but the capital is locked, the income does not rise with inflation and it is fully taxable. An SWP keeps capital accessible and invested and is taxed more lightly, but the income depends on markets. Many retirees use an annuity for essential costs and an SWP above that.",
+      },
+      {
+        q: "What annuity rate can I expect in India?",
+        a: "Rates quoted by Indian insurers have commonly sat somewhere in the region of 5.5% to 7%, varying by insurer, by your age at purchase and heavily by the option chosen. Because the decision is effectively irreversible, get live quotes from several empanelled insurers on the same date for the same option before deciding.",
+      },
+      {
+        q: "Can I surrender or exit an annuity after buying it?",
+        a: "Generally no. An annuity is designed to be irreversible once the free-look period ends, which is precisely why the income can be guaranteed for life. A small number of products allow surrender under specific conditions, usually at a significant cost. Treat the purchase as permanent and compare quotes carefully beforehand.",
+      },
+    ],
+    related: ["nps", "swp", "4-percent-rule", "epf"],
+    relatedHref: "/calculators/nps",
+    relatedLabel: "NPS Calculator",
+  },
+  {
+    slug: "4-percent-rule",
+    term: "4% Rule",
+    category: "Investing",
+    short:
+      "The 4% rule says you withdraw 4% of your retirement corpus in year one, then raise it with inflation. In India it is seen as aggressive.",
+    bodyMarkdown: `The 4% rule is a rule of thumb for how much a retiree can withdraw from an investment portfolio each year without running out of money. It says: withdraw 4% of the corpus in the first year, then increase that rupee amount by inflation every year afterwards, regardless of what markets do.
+
+The convenient corollary is the **25 times rule**: if 4% is your withdrawal rate, then the corpus you need is 25 times your first year of expenses.
+
+It originated in American research on US market history over rolling 30-year retirement periods, most famously the Trinity Study. That origin is the whole reason it needs adjusting before being applied in India.
+
+## The arithmetic, with Indian numbers
+
+Suppose your annual expenses at retirement are Rs 9,00,000, which is Rs 75,000 a month.
+
+At 4%, the corpus needed is 25 times that, which is **Rs 2.25 crore**.
+
+At 3.5%, the multiple becomes about 28.6 times, so **Rs 2.57 crore**.
+
+At 3%, it is 33.3 times, so **Rs 3 crore**.
+
+Half a percentage point on the withdrawal rate changed the target by more than Rs 30 lakh. This is why the number you assume matters far more than which funds you pick.
+
+| Annual expenses at retirement | Corpus at 4% | Corpus at 3.5% | Corpus at 3% |
+| --- | --- | --- | --- |
+| Rs 6,00,000 | Rs 1.5 crore | Rs 1.71 crore | Rs 2 crore |
+| Rs 9,00,000 | Rs 2.25 crore | Rs 2.57 crore | Rs 3 crore |
+| Rs 12,00,000 | Rs 3 crore | Rs 3.43 crore | Rs 4 crore |
+| Rs 18,00,000 | Rs 4.5 crore | Rs 5.14 crore | Rs 6 crore |
+
+Work out your own figure with the [retirement calculator](/calculators/retirement), and remember to inflate today's expenses to what they will cost at your retirement date before applying any multiple.
+
+## Why 4% is usually considered too high for India
+
+**Inflation has historically run higher than in the US.** The rule was built around long-run US inflation. Indian retirees have generally faced higher general inflation, and medical inflation in particular has typically outpaced the headline rate. A withdrawal that rises faster in rupee terms drains a corpus faster.
+
+**The horizon is often longer.** The original research tested 30-year retirements. Someone retiring early, which is the whole premise of the [FIRE movement in India](/blog/fire-retire-early-india), may need the money to last 40 or 50 years. The rule was never tested for that.
+
+**Sequence of returns risk is unforgiving.** Two retirees with identical average returns can end very differently depending on when the bad years arrive. A severe fall in the first three years, while withdrawals continue, permanently reduces the capital base that the later recovery works on.
+
+**Costs and tax reduce the real rate.** Every fund charges an [expense ratio](/glossary/expense-ratio), and withdrawals attract [capital gains](/glossary/capital-gains) tax. A 4% gross withdrawal is a smaller net amount in your hand.
+
+For these reasons, Indian planners commonly discuss **3% to 3.5%** as a more defensible starting rate, which translates to a corpus of roughly 28 to 33 times annual expenses.
+
+## What the rule leaves out entirely
+
+It assumes a fixed real withdrawal forever, which no real retiree actually does. In practice people spend more in the early active years, less in the middle, and more again on healthcare later.
+
+It ignores other income. A pension, [NPS](/glossary/nps) annuity, rental income or part-time earnings all reduce what the portfolio has to provide, and therefore reduce the corpus needed.
+
+It assumes you hold your nerve through every crash without cutting spending, which is both unrealistic and unnecessary. A retiree who simply skips the inflation increase after a bad year materially improves the odds of the money lasting, at very little cost to their life.
+
+And it says nothing about health cover. In India, adequate health insurance is arguably a bigger determinant of whether a retirement corpus survives than the withdrawal rate is, because a single uninsured hospitalisation can remove years of planned withdrawals at once.
+
+## How to use it sensibly
+
+Treat it as a sanity check, not a plan. Use 25 times expenses to know roughly what order of magnitude you are aiming at, then plan against a lower withdrawal rate, keep two to three years of expenses in [debt or cash](/glossary/asset-allocation) so you never have to sell equity into a crash, and stay flexible about the inflation increase in bad years.
+
+This is general educational information about a widely discussed rule of thumb, not personalised financial advice. For a plan matched to your own situation, speak to a SEBI-registered investment adviser.`,
+    faq: [
+      {
+        q: "Does the 4% rule work in India?",
+        a: "Most Indian planners treat it as too aggressive. It was derived from US market and inflation history over 30-year retirements, while Indian retirees have generally faced higher inflation, particularly medical inflation, and early retirees may need the money to last 40 years or more. A 3% to 3.5% starting rate is the more commonly discussed range.",
+      },
+      {
+        q: "How much corpus do I need to retire in India?",
+        a: "As a rough sanity check, 25 times your first year of retirement expenses at a 4% withdrawal rate, or roughly 28 to 33 times at the more conservative 3% to 3.5%. On Rs 9 lakh of annual expenses that is Rs 2.25 crore to Rs 3 crore. Inflate today's expenses to your retirement date first.",
+      },
+      {
+        q: "What is the 25 times rule for retirement?",
+        a: "It is the 4% rule stated the other way round. If you can safely withdraw 4% of a corpus each year, then the corpus you need is one divided by 0.04, which is 25 times your annual expenses. At a 3.5% withdrawal rate the multiple rises to about 28.6, and at 3% to about 33.",
+      },
+      {
+        q: "What is sequence of returns risk?",
+        a: "It is the risk that a market fall arrives early in retirement, while you are withdrawing. Two retirees with identical average returns can end very differently depending on the order those returns arrive, because withdrawing during a fall permanently shrinks the capital that the later recovery works on. Holding two to three years of expenses in debt reduces it.",
+      },
+      {
+        q: "Should my withdrawal rate change during retirement?",
+        a: "In practice most retirees do vary it, and that flexibility improves the odds of the money lasting. Skipping the inflation increase after a bad market year is a small change in lifestyle with a large effect on portfolio survival. Spending also naturally shifts, higher in the early active years and again later on healthcare.",
+      },
+      {
+        q: "Does the 4% rule account for taxes and fund charges?",
+        a: "No. It describes a gross withdrawal from the portfolio. Fund expense ratios reduce returns before you see them, and withdrawals attract capital gains tax, so the amount reaching your bank account is less than 4% of the corpus. Building both into your own assumption is one reason a lower rate is safer.",
+      },
+    ],
+    related: ["swp", "nps", "asset-allocation", "inflation"],
+    relatedHref: "/calculators/retirement",
+    relatedLabel: "Retirement Calculator",
   },
 ];
 

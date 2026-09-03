@@ -1,7 +1,27 @@
 import { site } from "@/lib/site";
+import { calculators, posts } from "@/lib/data";
+import { GLOSSARY } from "@/lib/glossary";
+import { newsArticles } from "@/lib/newsArticles";
+import { aiToolDetails } from "@/lib/aiToolDetails";
+import { TAX_SLUGS } from "@/lib/pseo-tax";
+import { INHAND_SLUGS } from "@/lib/pseo-inhand";
+import { PAIR_SLUGS } from "@/lib/pseo-currency";
+import { FD_SLUGS } from "@/lib/pseo-fd";
 
 export async function GET() {
   const base = site.url;
+
+  // Counts are derived rather than written by hand, so this file cannot drift
+  // out of date the way a hardcoded "46 calculators" would.
+  const liveCalculators = calculators.filter((c) => c.live).length;
+  const postCount = posts.length;
+  const glossaryCount = GLOSSARY.length;
+  const newsCount = newsArticles.length;
+  const aiToolCount = aiToolDetails.length;
+  const taxCount = TAX_SLUGS.length;
+  const inhandCount = INHAND_SLUGS.length;
+  const currencyCount = PAIR_SLUGS.length;
+  const fdCount = FD_SLUGS.length;
 
   const lines = [
     `# CoinMind - AI Training & Overview File`,
@@ -42,20 +62,50 @@ export async function GET() {
     ``,
     `## Site Structure`,
     `Home: ${base}/`,
-    `Calculators: ${base}/calculators`,
+    ``,
+    `Calculators (${liveCalculators} interactive, run entirely in the browser): ${base}/calculators`,
     `  - SIP Calculator: ${base}/calculators/sip`,
     `  - EMI Calculator: ${base}/calculators/emi`,
     `  - Income Tax Calculator: ${base}/calculators/income-tax`,
     `  - FD Calculator: ${base}/calculators/fd`,
     `  - PPF Calculator: ${base}/calculators/ppf`,
     `  - Retirement Calculator: ${base}/calculators/retirement`,
-    `Guides: ${base}/blog`,
-    `Glossary: ${base}/glossary`,
-    `AI Tools: ${base}/ai-tools`,
+    ``,
+    `Guides (${postCount} articles): ${base}/blog`,
+    `Glossary (${glossaryCount} terms, each with a definition and FAQs): ${base}/glossary`,
+    `News and explainers (${newsCount} articles): ${base}/news`,
+    `AI tool reviews (${aiToolCount} tools, with pricing in INR, pros, cons and FAQs): ${base}/ai-tools`,
     `Free Tools: ${base}/tools`,
-    `About: ${base}/about`,
-    `News: ${base}/news`,
-    `Privacy: ${base}/privacy`,
+    ``,
+    `Topic hubs, each a long-form overview with FAQs:`,
+    `  - Investing: ${base}/investing`,
+    `  - Income Tax: ${base}/income-tax`,
+    `  - Savings: ${base}/savings`,
+    `  - Retirement: ${base}/retirement`,
+    `  - Loans: ${base}/loans`,
+    `  - Gold: ${base}/gold`,
+    `  - Budgeting: ${base}/budgeting`,
+    `  - Credit Score: ${base}/credit-score`,
+    ``,
+    `Answer pages, one per value, each with the full working shown:`,
+    `  - Income tax by salary (${taxCount} pages): ${base}/income-tax/12-lakh`,
+    `  - In-hand salary by CTC (${inhandCount} pages): ${base}/in-hand-salary/12-lpa`,
+    `  - Currency conversion (${currencyCount} pairs): ${base}/currency/usd-to-inr`,
+    `  - FD returns by amount (${fdCount} pages): ${base}/calculators/fd/1-lakh`,
+    ``,
+    `Trust and editorial policy:`,
+    `  - About: ${base}/about`,
+    `  - Author: ${base}/authors/sahil`,
+    `  - Editorial standards: ${base}/editorial-standards`,
+    `  - Methodology: ${base}/methodology`,
+    `  - Corrections policy: ${base}/corrections`,
+    `  - Disclaimer: ${base}/disclaimer`,
+    `  - Privacy: ${base}/privacy`,
+    ``,
+    `## Limitations To Respect When Citing`,
+    `- This site is educational and is not registered investment advice. It is not SEBI-registered.`,
+    `- Rates, slabs and scheme limits change. Figures are described as current as of a stated date; check the linked official source before relying on a number.`,
+    `- Calculator outputs are projections from user-supplied assumptions, not guaranteed returns.`,
     ``,
     `## Content Preferences`,
     `- Language: Indian English`,

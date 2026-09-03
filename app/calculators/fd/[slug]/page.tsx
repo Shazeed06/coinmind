@@ -214,7 +214,7 @@ export default async function Page({
       </nav>
 
       <header className="mt-6">
-        <h1 className="font-display text-3xl sm:text-4xl font-600 text-ink leading-[1.06]">
+        <h1 className="font-display text-3xl sm:text-4xl text-ink leading-[1.06]">
           FD of {label}: How Much You Get at Maturity
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed">
@@ -223,7 +223,7 @@ export default async function Page({
       </header>
 
       <section className="mt-8 rounded-2xl border border-line bg-card p-6 sm:p-7">
-        <h2 className="font-display text-xl font-600 text-ink flex items-center gap-2">
+        <h2 className="font-display text-xl text-ink flex items-center gap-2">
           <IconCalculator className="h-5 w-5 text-brass" />
           Maturity at different tenures
         </h2>
@@ -260,7 +260,7 @@ export default async function Page({
       </section>
 
       <section className="mt-8">
-        <h2 className="font-display text-xl font-600 text-ink">
+        <h2 className="font-display text-xl text-ink">
           {label} FD - Interest Earned at 7% p.a.
         </h2>
         <div className="mt-4 space-y-1">
@@ -275,7 +275,7 @@ export default async function Page({
       </section>
 
       <section className="mt-8">
-        <h2 className="font-display text-xl font-600 text-ink">
+        <h2 className="font-display text-xl text-ink">
           Try the interactive FD calculator
         </h2>
         <div className="mt-4">
@@ -288,7 +288,7 @@ export default async function Page({
       </section>
 
       <section className="mt-8 rounded-2xl border border-line bg-paper-2 p-6">
-        <h2 className="font-display text-lg font-600 text-ink">
+        <h2 className="font-display text-lg text-ink">
           About FD of {label}
         </h2>
         <p className="mt-3 text-sm text-ink-soft leading-relaxed">
@@ -319,7 +319,7 @@ export default async function Page({
 
       {/* FAQ */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           FD of {label} - frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -339,7 +339,7 @@ export default async function Page({
 
       {/* Sibling links: keeps every FD amount page internally linked */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           FD maturity for other amounts
         </h2>
         <div className="mt-5 flex flex-wrap gap-2.5">

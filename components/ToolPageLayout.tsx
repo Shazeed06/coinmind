@@ -48,13 +48,20 @@ export function ToolPageLayout({
             <Breadcrumb items={[{ label: "Tools", href: "/tools" }, { label: title }]} />
             <Pill>Free Tool</Pill>
             <h1 className="h1 text-text mt-3 break-words">{title}</h1>
-            <p className="body text-text-muted mt-3">{description}</p>
-            <AuthorByline className="mt-5 pt-5 border-t border-border" />
+            {/* 16px rather than 12px: this h1 reaches 56px, and the description
+                needs to clear its descenders to read as the same unit. */}
+            <p className="body text-text-muted mt-4 max-w-[600px]">{description}</p>
+            <AuthorByline className="mt-6 pt-6 border-t border-border" />
           </div>
         </div>
       </section>
 
-      <section className="section-pad pt-8 bg-white">
+      {/* The disclaimer carried a full section-pad, so it sat 32px below the
+          header but 109px above the tool: the one-line notice looked stranded
+          in the middle of the white band. It is a spacer between two blocks of
+          the same colour, not its own band, so it now only holds its own gap
+          and lets the tool section own the padding below. */}
+      <section className="pt-8 bg-white">
         <div className="container-main">
           <div className="max-w-[720px]">
             <FinancialDisclaimer type={disclaimerType} />
@@ -73,7 +80,7 @@ export function ToolPageLayout({
           <div className="container-main">
             <div className="max-w-[720px]">
               <h2 className="h3 text-text">How to use this tool</h2>
-              <ol className="mt-6 space-y-4">
+              <ol className="mt-5 space-y-4">
                 {howToUse.map((step, i) => (
                   <li key={i} className="flex gap-3 sm:gap-4">
                     <span className="w-7 h-7 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
@@ -96,7 +103,7 @@ export function ToolPageLayout({
           <div className="container-main">
             <div className="max-w-[720px]">
               <h2 className="h3 text-text">When you&apos;d use this</h2>
-              <div className="mt-6 space-y-5">
+              <div className="mt-5 space-y-6">
                 {whenToUse.map((scenario, i) => (
                   <div key={i}>
                     <p className="text-base font-semibold text-text">{scenario.scenario}</p>
@@ -114,7 +121,7 @@ export function ToolPageLayout({
           <div className="container-main">
             <div className="max-w-[720px]">
               <h2 className="h3 text-text">How it works</h2>
-              <p className="body text-text-muted mt-4">{howItWorks}</p>
+              <p className="body text-text-muted mt-5 max-w-[600px]">{howItWorks}</p>
             </div>
           </div>
         </section>
@@ -125,7 +132,7 @@ export function ToolPageLayout({
           <div className="container-main">
             <div className="max-w-[720px]">
               <h2 className="h3 text-text">Tips & common mistakes</h2>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-5 space-y-3">
                 {tips.map((tip, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm text-text-muted">
                     <span className="text-brand font-bold shrink-0">•</span>
@@ -143,14 +150,23 @@ export function ToolPageLayout({
           <div className="container-main">
             <div className="max-w-[720px]">
               <h2 className="h3 text-text">Frequently asked questions</h2>
-              <div className="mt-6 space-y-1">
+              {/* space-y-1 put a 4px hole between each row and the border-b of
+                  the row above it, so the rules floated free of the list rather
+                  than dividing it. divide-y draws one rule per boundary with no
+                  gap, and border-y closes the list at both ends.
+
+                  py-5 replaces py-4 so questions are 40px apart in the closed
+                  state, and the answer moves from 8px to 12px below its
+                  question with a prose measure, which is what separates the two
+                  now that both are 14px muted-to-dark text. */}
+              <div className="mt-5 divide-y divide-border border-y border-border">
                 {faqs.map((faq, i) => (
-                  <details key={i} className="border-b border-border py-4 group" open={i < 3}>
-                    <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-text">
-                      {faq.q}
-                      <span className="text-text-muted text-lg ml-4 group-open:rotate-45 transition-transform">+</span>
+                  <details key={i} className="py-5 group" open={i < 3}>
+                    <summary className="flex items-start justify-between gap-4 cursor-pointer text-sm font-medium text-text transition-colors hover:text-brand">
+                      <span>{faq.q}</span>
+                      <span className="text-text-muted text-lg leading-none mt-0.5 shrink-0 group-open:rotate-45 transition-transform">+</span>
                     </summary>
-                    <p className="text-sm text-text-muted mt-2">{faq.a}</p>
+                    <p className="text-sm text-text-muted mt-3 pr-8 max-w-[600px] leading-relaxed">{faq.a}</p>
                   </details>
                 ))}
               </div>
@@ -164,7 +180,7 @@ export function ToolPageLayout({
           <div className="container-main">
             <div className="max-w-[720px]">
               <h2 className="h3 text-text">Related tools</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap gap-2">
                 {relatedTools.map((tool) => (
                   <a key={tool.href} href={tool.href} className="rounded-pill border border-border px-3 py-2 text-sm text-text-muted hover:text-brand hover:border-brand transition-colors">
                     {tool.label}

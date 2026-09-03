@@ -304,7 +304,7 @@ export default function BudgetPlanner() {
       {/* -------------------------------------------------- inputs card */}
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <h2 className="font-display text-xl font-600 text-ink">Your budget</h2>
+          <h2 className="font-display text-xl text-ink">Your budget</h2>
           <CurrencyToggle value={currency} onChange={setCurrency} />
         </div>
 
@@ -444,7 +444,7 @@ export default function BudgetPlanner() {
 
         {/* 50/30/20 comparison */}
         <div className="mt-7 rounded-xl border border-line bg-card p-5">
-          <h3 className="font-display text-base font-600 text-ink">
+          <h3 className="font-display text-base text-ink">
             50 / 30 / 20 check
           </h3>
           <p className="mt-1 text-xs text-ink-faint">

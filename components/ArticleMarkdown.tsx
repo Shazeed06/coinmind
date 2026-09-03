@@ -23,11 +23,11 @@ function renderInline(text: string): ReactNode[] {
       const internal = href.startsWith("/");
       nodes.push(
         internal ? (
-          <Link key={key++} href={href} className="text-forest underline underline-offset-2">
+          <Link key={key++} href={href} className="text-forest underline underline-offset-2 decoration-forest/40 hover:decoration-forest transition-colors">
             {m[4]}
           </Link>
         ) : (
-          <a key={key++} href={href} className="text-forest underline underline-offset-2" target="_blank" rel="noopener noreferrer">
+          <a key={key++} href={href} className="text-forest underline underline-offset-2 decoration-forest/40 hover:decoration-forest transition-colors" target="_blank" rel="noopener noreferrer">
             {m[4]}
           </a>
         )
@@ -69,7 +69,7 @@ export default function ArticleMarkdown({ markdown }: { markdown: string }) {
           const head = splitRow(lines[0]);
           const rows = lines.slice(2).map(splitRow);
           return (
-            <div key={i} className="overflow-x-auto">
+            <div key={i} className="table-scroll">
               <table>
                 <thead>
                   <tr>

@@ -118,7 +118,7 @@ export default async function Page({
           <div>
             {/* "<Tool> Review" matches the query these pages target; a bare
                 product name competes with the vendor's own homepage. */}
-            <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+            <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
               {tool.name} Review
             </h1>
             <p className="mt-2 text-ink-faint font-medium">
@@ -155,7 +155,7 @@ export default async function Page({
 
       {/* Overview */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">What is {tool.name}?</h2>
+        <h2 className="font-display text-2xl text-ink">What is {tool.name}?</h2>
         <p className="mt-3 text-ink-soft leading-relaxed text-[1.05rem]">
           {detail.overview}
         </p>
@@ -168,12 +168,12 @@ export default async function Page({
 
       {/* Pros & cons */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           {tool.name} pros and cons
         </h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-line bg-card p-5">
-            <h3 className="font-display text-base font-600 text-forest">Pros</h3>
+            <h3 className="font-display text-base text-forest">Pros</h3>
             <ul className="mt-3 space-y-2.5">
               {detail.pros.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-sm text-ink-soft">
@@ -184,7 +184,7 @@ export default async function Page({
             </ul>
           </div>
           <div className="rounded-2xl border border-line bg-card p-5">
-            <h3 className="font-display text-base font-600 text-berry">Cons</h3>
+            <h3 className="font-display text-base text-berry">Cons</h3>
             <ul className="mt-3 space-y-2.5">
               {detail.cons.map((c) => (
                 <li key={c} className="flex items-start gap-2.5 text-sm text-ink-soft">
@@ -215,7 +215,7 @@ export default async function Page({
 
       {/* Key benefits */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">Why people like {tool.name}</h2>
+        <h2 className="font-display text-2xl text-ink">Why people like {tool.name}</h2>
         <ul className="mt-4 grid sm:grid-cols-2 gap-3">
           {tool.benefits.map((b) => (
             <li key={b} className="flex items-start gap-2.5 rounded-xl border border-line bg-card p-4 text-sm text-ink-soft">
@@ -228,7 +228,7 @@ export default async function Page({
 
       {/* Use cases */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">Best {tool.name} use cases</h2>
+        <h2 className="font-display text-2xl text-ink">Best {tool.name} use cases</h2>
         <div className="mt-4 space-y-2.5">
           {detail.useCases.map((u, i) => (
             <div key={u} className="flex items-start gap-3 rounded-xl bg-paper-2 p-4">
@@ -243,7 +243,7 @@ export default async function Page({
 
       {/* Hacks / pro tips */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink flex items-center gap-2">
+        <h2 className="font-display text-2xl text-ink flex items-center gap-2">
           <IconBolt className="h-6 w-6 text-brass" /> {tool.name} tips &amp; hacks
         </h2>
         <ul className="mt-4 space-y-3">
@@ -258,7 +258,7 @@ export default async function Page({
 
       {/* Pricing box */}
       <section className="mt-10 rounded-2xl border border-line bg-card p-6">
-        <h2 className="font-display text-xl font-600 text-ink">{tool.name} pricing</h2>
+        <h2 className="font-display text-xl text-ink">{tool.name} pricing</h2>
         <p className="mt-2 text-ink-soft">{tool.pricing}</p>
         <p className="mt-2 text-xs text-ink-faint">
           Pricing is indicative and can change, so always confirm on the{" "}
@@ -271,7 +271,7 @@ export default async function Page({
 
       {/* Verdict */}
       <section className="mt-10 rounded-2xl border border-forest/30 bg-forest-soft/60 p-6">
-        <h2 className="font-display text-xl font-600 text-ink flex items-center gap-2">
+        <h2 className="font-display text-xl text-ink flex items-center gap-2">
           <IconStar className="h-5 w-5 text-brass" /> Our verdict on {tool.name}
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">{detail.verdict}</p>
@@ -282,7 +282,7 @@ export default async function Page({
 
       {/* FAQ */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           {tool.name} FAQs
         </h2>
         <p className="mt-2 text-ink-soft">
@@ -292,7 +292,7 @@ export default async function Page({
         <div className="mt-5 space-y-3">
           {detail.faq.map((f) => (
             <div key={f.q} className="rounded-2xl border border-line bg-card p-5">
-              <h3 className="font-display text-base font-600 text-ink">{f.q}</h3>
+              <h3 className="font-display text-base text-ink">{f.q}</h3>
               <p className="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
             </div>
           ))}
@@ -307,7 +307,7 @@ export default async function Page({
 
       {/* Related */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">More {tool.region} tools</h2>
+        <h2 className="font-display text-2xl text-ink">More {tool.region} tools</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {related.map((t) => {
             const d = detailByName(t.name);
@@ -317,7 +317,7 @@ export default async function Page({
                 href={d ? `/ai-tools/${d.slug}` : "/ai-tools"}
                 className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
               >
-                <h3 className="font-display text-base font-600 text-ink group-hover:text-forest transition-colors">
+                <h3 className="font-display text-base text-ink group-hover:text-forest transition-colors">
                   {t.name}
                 </h3>
                 <p className="mt-1 text-xs text-ink-faint">{t.category}</p>

@@ -1,23 +1,72 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
+/**
+ * Crawl policy.
+ *
+ * Previously GPTBot and CCBot were allowed only on /blog/ and /glossary/ and
+ * disallowed everywhere else, on the reasoning that an assistant can answer
+ * from a calculator's explainer without sending anyone to the calculator.
+ *
+ * That reasoning holds for the interactive utilities and nothing else, and the
+ * old rule was far broader than its stated intent: it also shut out the news
+ * explainers, the AI tool reviews, the topic hubs and every programmatic guide,
+ * which is most of the site's written content. It also contradicted
+ * /llms.txt, which explicitly invites assistants to cite this site.
+ *
+ * The policy now matches the goal. Assistants may read the editorial content,
+ * because a citation there is the point. They stay out of /calculators/ and
+ * /tools/, where the value is the running tool rather than the prose, and out
+ * of the internals.
+ *
+ * Named individually rather than with a wildcard because robots.txt matches a
+ * user-agent by prefix, not by pattern, so an unlisted crawler silently falls
+ * through to the "*" group.
+ */
+const AI_CRAWLERS = [
+  "GPTBot",            // OpenAI, ChatGPT browsing and training
+  "OAI-SearchBot",     // OpenAI, ChatGPT search
+  "ChatGPT-User",      // OpenAI, user-initiated fetch
+  "ClaudeBot",         // Anthropic
+  "anthropic-ai",      // Anthropic, legacy token
+  "Claude-Web",        // Anthropic, user-initiated fetch
+  "PerplexityBot",     // Perplexity
+  "Perplexity-User",   // Perplexity, user-initiated fetch
+  "Google-Extended",   // Google, Gemini grounding (separate from Googlebot)
+  "Applebot-Extended", // Apple Intelligence
+  "CCBot",             // Common Crawl, feeds many downstream models
+  "meta-externalagent",
+  "Bytespider",
+];
+
+/** The interactive utilities: their worth is the tool, not the copy around it. */
+const TOOL_PATHS = ["/calculators/", "/tools/"];
+
+/**
+ * Only the API. `/_next/` must stay crawlable: it holds the CSS and JS chunks
+ * and the image optimizer, and Google needs all three to render the page it is
+ * judging. Blocking it degrades rendering and Core Web Vitals assessment on
+ * every route.
+ */
+const INTERNAL_PATHS = ["/api/"];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/", "/_next/"] },
-      // Allow AI crawlers on blog and glossary for citation/visibility.
-      // Block calculators: AI can substitute for the tool directly.
       {
-        userAgent: "GPTBot",
-        allow: ["/blog/", "/glossary/"],
-        disallow: "/",
+        userAgent: "*",
+        allow: "/",
+        // /search is noindex via its own metadata; keeping it crawlable lets
+        // search engines follow the links it surfaces.
+        disallow: INTERNAL_PATHS,
       },
-      {
-        userAgent: "CCBot",
-        allow: ["/blog/", "/glossary/"],
-        disallow: "/",
-      },
+      ...AI_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: [...INTERNAL_PATHS, ...TOOL_PATHS],
+      })),
     ],
     sitemap: `${site.url}/sitemap.xml`,
+    host: site.url,
   };
 }

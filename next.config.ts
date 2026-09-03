@@ -43,6 +43,24 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Legacy /calc/* and /tool/* prefixes for pages that were later removed.
+      // These exact rules must stay ABOVE the generic prefix rules below:
+      // first match wins, so without them /calc/bmi would rewrite to
+      // /calculators/bmi and then take a second 301 to /calculators. Sending
+      // them straight to the section index keeps every old link to a single
+      // hop. Kept in sync with the removal rules further down.
+      { source: "/calc/bmi", destination: "/calculators", permanent: true },
+      { source: "/calc/calorie", destination: "/calculators", permanent: true },
+      { source: "/calc/ideal-weight", destination: "/calculators", permanent: true },
+      { source: "/calc/pregnancy-due-date", destination: "/calculators", permanent: true },
+      { source: "/tool/coin-flip", destination: "/tools", permanent: true },
+      { source: "/tool/random-number-generator", destination: "/tools", permanent: true },
+      { source: "/tool/random-wheel", destination: "/tools", permanent: true },
+      { source: "/tool/meme-generator", destination: "/tools", permanent: true },
+      { source: "/tool/lorem-ipsum-generator", destination: "/tools", permanent: true },
+
+      // Generic legacy-prefix rules. Everything not matched above maps
+      // one-to-one onto a live route, so these resolve in a single hop.
       { source: "/calc/:slug*", destination: "/calculators/:slug*", permanent: true },
       { source: "/tool/:slug*", destination: "/tools/:slug*", permanent: true },
       // Phase 1.3: remove medical calculators (YMYL red flag on finance site)
@@ -72,7 +90,7 @@ const nextConfig: NextConfig = {
       // each at the closest equivalent page rather than the homepage, so the
       // redirect stays topically relevant (and is not read as a soft 404).
       // Neither source shadows a route: there is no app/currency/page.tsx or
-      // app/in-hand-salary/page.tsx — only the [slug] children, which these
+      // app/in-hand-salary/page.tsx, only the [slug] children, which these
       // exact-match rules do not touch.
       { source: "/currency", destination: "/calculators/currency-converter", permanent: true },
       { source: "/in-hand-salary", destination: "/calculators/take-home-salary", permanent: true },

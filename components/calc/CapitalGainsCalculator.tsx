@@ -128,7 +128,7 @@ export default function CapitalGainsCalculator() {
   return (
     <div className="grid lg:grid-cols-[1fr_0.9fr] gap-6">
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
-        <h2 className="font-display text-xl font-600 text-ink">
+        <h2 className="font-display text-xl text-ink">
           Sale details
         </h2>
         <p className="mt-1 text-sm text-ink-faint">FY 2026-27 · India</p>

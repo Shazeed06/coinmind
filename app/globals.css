@@ -1,30 +1,52 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Colour tokens.
+
+   The site grew two parallel names for the same thing: bg/text/border/brand on
+   one side and paper/ink/line/blue on the other. Both are kept because ~1500
+   call sites use each, but every duplicated pair below is now pinned to one
+   literal value and marked, so the two halves cannot drift apart again. Pick
+   either name; they render identically.
+
+   Text ramp (the three steps below --color-text) was reset for WCAG AA. It used
+   to run #0f172a / #64748b / #94a3b8, where the faint step measured 2.56:1 on
+   white and 2.34:1 on the tinted panel fill: well under the 4.5:1 required for
+   body text, and it was carrying real sentences (the byline note in
+   AuthorReviewBox, the affiliate disclosure, card metadata). Shifting the ramp
+   one step darker fixes that and, as a side effect, pulls description text and
+   metadata apart, which is what made card interiors read flat.
+
+     --color-text        #0f172a   17.9:1 on white   titles
+     --color-*-soft      #475569    7.5:1 on white   descriptions, article body
+     --color-*-faint     #64748b    4.8:1 on white   metadata, fine print
+--------------------------------------------------------------------------- */
 @theme {
   --color-bg: #ffffff;
   --color-bg-alt: #f7f9fc;
   --color-bg-invert: #1b2a4e;
   --color-bg-invert-end: #2f5bea;
   --color-text: #0f172a;
-  --color-text-muted: #64748b;
+  --color-text-muted: #475569;
   --color-border: #e6eaf2;
   --color-brand: #2f5bea;
-  --color-accent: #16a34a;
+  --color-accent: #15803d;
 
-  --color-ink: #0f172a;
-  --color-ink-soft: #64748b;
-  --color-ink-faint: #94a3b8;
-  --color-ink-muted: #64748b;
-  --color-line: #e6eaf2;
+  /* Aliases of the five above. Same values, second naming system. */
+  --color-ink: #0f172a;          /* = --color-text */
+  --color-ink-soft: #475569;     /* = --color-text-muted */
+  --color-ink-faint: #64748b;
+  --color-ink-muted: #475569;    /* = --color-text-muted */
+  --color-line: #e6eaf2;         /* = --color-border */
   --color-line-strong: #cbd5e1;
-  --color-card: #ffffff;
-  --color-paper-2: #f1f5f9;
-  --color-forest: #16a34a;
+  --color-card: #ffffff;         /* = --color-bg */
+  --color-paper-2: #f7f9fc;      /* = --color-bg-alt */
+  --color-forest: #15803d;       /* = --color-accent */
   --color-forest-soft: #f0fdf4;
-  --color-forest-deep: #15803d;
+  --color-forest-deep: #14672f;
   --color-brass: #d97706;
   --color-brass-soft: #fffbeb;
-  --color-blue: #2f5bea;
+  --color-blue: #2f5bea;         /* = --color-brand */
   --color-blue-soft: #eff6ff;
   --color-amber: #d97706;
   --color-amber-soft: #fffbeb;
@@ -32,13 +54,21 @@
   --color-purple-soft: #f5f3ff;
   --color-sky: #0284c7;
   --color-sky-soft: #f0f9ff;
-  --color-paper: #ffffff;
+  --color-paper: #ffffff;        /* = --color-bg */
   --color-berry: #e11d48;
   --color-berry-soft: #fff1f2;
 
   --font-weight-600: 600;
 
-  --font-display: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Elevation. Two steps only: cards sit on the first and rise to the second on
+     hover; anything that floats over the page (the consent bar) uses --shadow-
+     overlay. These live in @theme so `shadow-card` etc. work as utilities and
+     one-off shadow-[...] arbitrary values are no longer needed. */
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.04);
+  --shadow-card-lift: 0 2px 6px rgba(15, 23, 42, 0.08), 0 14px 32px rgba(15, 23, 42, 0.09);
+  --shadow-overlay: 0 4px 12px rgba(15, 23, 42, 0.08), 0 16px 40px rgba(15, 23, 42, 0.16);
+
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   --radius-card: 12px;
@@ -49,7 +79,12 @@
 :root {
   --background: var(--color-bg);
   --foreground: var(--color-text);
-  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.06), 0 8px 24px rgba(15, 23, 42, 0.04);
+
+  /* One spacing scale for card and panel interiors, so the same visual role is
+     not p-4 on /tools, p-5 on /calculators and p-6 on /glossary. */
+  --space-card: 1.25rem;      /* 20px: grid cards */
+  --space-panel: 1.5rem;      /* 24px: full-width panels from sm up */
+  --space-stack: 1rem;        /* 16px: gap between a card's body and its footer */
 }
 
 * { border-color: var(--color-border); }
@@ -66,13 +101,70 @@ body {
   overflow-x: clip;
 }
 
-.display { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
-.h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
-.h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
-.h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+/* ---------------------------------------------------------------------------
+   Type scale.
+
+   The site previously ran two heading systems side by side: the .h1/.h2/.h3
+   utility classes at weight 700/700/600, and inline `font-display ... font-600`
+   at weight 600. So an h1 was 700 on ten pages and 600 on forty-seven, which is
+   what made the weights look uneven from page to page.
+
+   Now there is one rule. Every heading takes its family, weight, tracking and
+   leading from its own element selector below, so the level of the heading is
+   what decides how it looks, not which utility a page happened to use.
+   Descending weight (800 / 700 / 600 / 600) keeps the hierarchy readable at a
+   glance, and the display face carries all of them.
+--------------------------------------------------------------------------- */
+h1, h2, h3, h4, .display, .h1, .h2, .h3 {
+  font-family: var(--font-display);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+h1, .display, .h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+}
+
+h2, .h2 {
+  font-size: clamp(1.625rem, 3.2vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+h3, .h3 {
+  font-size: clamp(1.1875rem, 1.8vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
+}
+
+h4 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.008em;
+}
+
+/* Article and news headlines run far longer than a landing-page h1, so they get
+   their own step: still the heaviest thing on the page and clearly above h2,
+   but short of the full 56px, which a two-line title would overwhelm. */
+.h1-article {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.024em;
+}
+
 .body { font-size: 1rem; font-weight: 400; line-height: 1.65; }
 .small { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
 .eyebrow { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Long-form copy reads better slightly larger with a measure cap. */
+.article-body p, .prose p { font-size: 1.0625rem; line-height: 1.75; }
 
 .section-pad { padding-top: clamp(3rem, 6vw, 6rem); padding-bottom: clamp(3rem, 6vw, 6rem); }
 .container-main {
@@ -101,18 +193,63 @@ body {
 .article-body ul { list-style: disc; }
 .article-body ol { list-style: decimal; }
 .article-body li { margin-bottom: 0.375rem; }
-.article-body table {
-  width: 100%; margin: 1.25rem 0; border-collapse: collapse; font-size: 0.9rem;
-}
-.article-body th, .article-body td {
-  border: 1px solid var(--color-line); padding: 0.625rem 0.75rem;
-  text-align: left; vertical-align: top;
-}
-.article-body th { background: var(--color-paper-2); color: var(--color-ink); font-weight: 600; }
-.article-body td { color: var(--color-ink-soft); }
+/* Tables here and in <DataTable/> are the same visual role, so they get the
+   same frame: one outer rounded border, a tinted header row, and hairlines
+   between rows rather than a full grid of boxes.
 
-.card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: transform 150ms ease, border-color 150ms ease; }
-.card:hover { transform: translateY(-2px); border-color: var(--color-brand); }
+   The frame hangs off `.table-scroll`, the wrapper <ArticleMarkdown/> puts round
+   every table, and NOT off `.article-body`, because that component is also
+   rendered outside an .article-body container (HubPage does this). Scoping the
+   scroll wrapper to .article-body would leave those tables with no horizontal
+   overflow and push the page sideways on a phone. */
+.table-scroll {
+  max-width: 100%;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+}
+:is(.article-body, .table-scroll) table {
+  width: 100%; border-collapse: collapse; font-size: 0.9rem;
+}
+.table-scroll table { margin: 0; }
+.article-body table { margin: 1.5rem 0; }
+:is(.article-body, .table-scroll) :is(th, td) {
+  padding: 0.75rem; text-align: left; vertical-align: top;
+}
+:is(.article-body, .table-scroll) th {
+  background: var(--color-bg-alt); color: var(--color-ink); font-weight: 600;
+  border-bottom: 1px solid var(--color-line);
+}
+:is(.article-body, .table-scroll) td {
+  color: var(--color-ink-soft); border-top: 1px solid var(--color-line);
+}
+:is(.article-body, .table-scroll) tbody tr:first-child td { border-top: 0; }
+
+/* ---------------------------------------------------------------------------
+   Card.
+
+   Hover used to move the card and recolour its border but leave the shadow
+   flat, so the card lifted without casting anything: it read as a glitch rather
+   than elevation. Shadow is now part of the same transition, and there is an
+   active state so a click has a visible bottom.
+--------------------------------------------------------------------------- */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-brand);
+  box-shadow: var(--shadow-card-lift);
+}
+.card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-card);
+}
 .card-h-full { display: flex; flex-direction: column; height: 100%; }
 .card-h-full .card-body { flex: 1; }
 .card-h-full .card-footer { margin-top: auto; }
@@ -127,10 +264,72 @@ body {
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 .animate-float { animation: float 6s ease-in-out infinite; }
 
+/* ---------------------------------------------------------------------------
+   Shared component classes.
+
+   These live in @layer components so a page can still override any single
+   property with a utility. They exist so the recurring roles (a bordered
+   panel, a tag, a button) have one definition instead of being re-typed with
+   slightly different padding and radius in each component.
+--------------------------------------------------------------------------- */
+@layer components {
+  /* A card's footer row. Bare `.card-footer` elements previously had no top
+     spacing at all, so in a short card the call to action sat flush against the
+     description while in a tall one `margin-top: auto` opened a large gap. */
+  .card-footer { padding-top: var(--space-stack); }
+
+  /* Bordered surface for asides and callouts: the author box, the affiliate
+     block, the consent bar, the disclaimer. All four were rounded-2xl (16px)
+     while the cards beside them were 12px. */
+  .panel {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background: var(--color-bg);
+  }
+
+  /* Static tag. Interactive filter chips are a different role and stay in
+     FilterBar; this is the non-clickable label used by Pill and CardBadge. */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    white-space: nowrap;
+    border-radius: var(--radius-pill);
+    padding: 0.25rem 0.75rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 100ms ease;
+  }
+  .btn:active { transform: translateY(1px); }
+
+  .btn-accent { background: var(--color-accent); color: #fff; }
+  .btn-accent:hover { background: var(--color-forest-deep); }
+
+  .btn-outline {
+    background: var(--color-bg);
+    color: var(--color-text);
+    border-color: var(--color-line-strong);
+  }
+  .btn-outline:hover { border-color: var(--color-accent); color: var(--color-accent); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float { animation: none; }
-  .card { transition: none; }
-  .card:hover { transform: none; }
+  .card, .btn { transition: none; }
+  .card:hover, .card:active, .btn:active { transform: none; }
 }
 
 .bg-gradient-invert { background: linear-gradient(135deg, var(--color-bg-invert), var(--color-bg-invert-end)); }
@@ -140,4 +339,23 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance
 input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; cursor: pointer; }
 
 ::selection { background: var(--color-brand); color: #fff; }
-:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------------------------------------------------------------------------
+   Keyboard focus.
+
+   This rule used to also set `border-radius: 4px`. It is unlayered, so it beat
+   every Tailwind utility in the utilities layer: tabbing to a pill, a card or
+   the primary button snapped its corners from 999px / 12px / 8px down to 4px,
+   and the element visibly changed shape under the ring. The radius declaration
+   is gone; browsers already draw an outline that follows the element's own
+   corners, so the ring now traces whatever shape the element actually has.
+
+   `:focus:not(:focus-visible)` clears the ring for mouse users on elements that
+   opt into `focus:` styling of their own, which keeps the two conventions in
+   the codebase from stacking two rings on one input.
+--------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) { outline: none; }

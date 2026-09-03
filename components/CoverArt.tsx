@@ -17,14 +17,20 @@ export type CoverVariant =
 
 export type CoverPalette = "forest" | "brass" | "berry" | "deep";
 
+// The blues here were #2563eb and the pink was #db2777: near misses for the
+// brand blue (#2f5bea) and the berry token (#e11d48). Cover art sits directly
+// above a heading and beside brand-blue pills on every card, so a blue that is
+// close but not equal reads as a printing error. Every colour below is now the
+// token it was approximating. The `bg2` wash lands on --color-bg-alt so a cover
+// fades into the same off-white the page uses.
 const palettes: Record<
   CoverPalette,
   { bg1: string; bg2: string; ink: string; accent: string; soft: string }
 > = {
-  forest: { bg1: "#e7effe", bg2: "#f5f6fb", ink: "#2563eb", accent: "#16a34a", soft: "#ffffff" },
-  brass: { bg1: "#e6f6ec", bg2: "#f5f6fb", ink: "#16a34a", accent: "#2563eb", soft: "#ffffff" },
-  berry: { bg1: "#fbe8f1", bg2: "#f5f6fb", ink: "#db2777", accent: "#2563eb", soft: "#ffffff" },
-  deep: { bg1: "#2563eb", bg2: "#1e40af", ink: "#ffffff", accent: "#4ade80", soft: "#93c5fd" },
+  forest: { bg1: "#e7effe", bg2: "#f7f9fc", ink: "#2f5bea", accent: "#16a34a", soft: "#ffffff" },
+  brass: { bg1: "#e6f6ec", bg2: "#f7f9fc", ink: "#16a34a", accent: "#2f5bea", soft: "#ffffff" },
+  berry: { bg1: "#fce8ee", bg2: "#f7f9fc", ink: "#e11d48", accent: "#2f5bea", soft: "#ffffff" },
+  deep: { bg1: "#2f5bea", bg2: "#1b2a4e", ink: "#ffffff", accent: "#4ade80", soft: "#93c5fd" },
 };
 
 export default function CoverArt({

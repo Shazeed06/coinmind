@@ -1,4 +1,5 @@
-import { Section, SectionHeader, Card, CardBody } from "@/components/ui";
+import { Section, Card, CardBody } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { CheckCircle, BookOpen, RefreshCw, FileSearch } from "lucide-react";
 
 const ITEMS = [
@@ -10,8 +11,10 @@ const ITEMS = [
 
 export default function EditorialTrust() {
   return (
-    <Section variant="alt">
-      <SectionHeader
+    // White, not "alt": FaqSection immediately above is already the alt tint, so
+    // two alt bands in a row merged into one 1,364px slab of grey with no seam.
+    <Section variant="white">
+      <SectionIntro
         eyebrow="Editorial Integrity"
         title="Editorial Standards & Accuracy"
         subline="How we ensure everything on CoinMind is trustworthy."

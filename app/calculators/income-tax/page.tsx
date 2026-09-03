@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 function TaxBySalary() {
   return (
     <div className="max-w-3xl">
-      <h2 className="font-display text-2xl font-600 text-ink">Income tax by salary</h2>
+      <h2 className="font-display text-2xl text-ink">Income tax by salary</h2>
       <p className="mt-2 text-ink-soft leading-relaxed">
         Already know your package? Each salary has its own page with the slab-by-slab breakdown, the effective rate and an old-vs-new comparison.
       </p>
@@ -39,7 +39,7 @@ function BreakEvenTable() {
   return (
     <div className="max-w-3xl space-y-8">
       <div>
-        <h2 className="font-display text-2xl font-600 text-ink">The regime break-even point</h2>
+        <h2 className="font-display text-2xl text-ink">The regime break-even point</h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
           The new regime is the default. It wins for most people, but not everyone. The break-even is the deduction amount at which the old regime starts saving you more tax. If your actual deductions exceed this number, pick the old regime.
         </p>
@@ -67,7 +67,7 @@ function BreakEvenTable() {
       </div>
 
       <div>
-        <h2 className="font-display text-2xl font-600 text-ink">Three worked examples</h2>
+        <h2 className="font-display text-2xl text-ink">Three worked examples</h2>
         <div className="mt-4 space-y-6">
           <div className="rounded-2xl border border-line bg-card p-5">
             <h3 className="font-semibold text-ink">₹8,00,000 salary</h3>
@@ -103,7 +103,7 @@ function BreakEvenTable() {
       </div>
 
       <div>
-        <h2 className="font-display text-2xl font-600 text-ink">Who should NOT switch to the new regime</h2>
+        <h2 className="font-display text-2xl text-ink">Who should NOT switch to the new regime</h2>
         <ul className="mt-3 space-y-2 text-ink-soft leading-relaxed">
           <li>• Anyone with <strong>home loan interest above ₹1.5 lakh</strong>: the Section 24 deduction of up to ₹2 lakh applies only under the old regime.</li>
           <li>• Anyone claiming <strong>full Section 80C (₹1.5 lakh) plus 80D (₹25,000) plus NPS (₹50,000)</strong>: at higher incomes, these stack to overcome the new regime's lower rates.</li>
@@ -113,7 +113,7 @@ function BreakEvenTable() {
       </div>
 
       <div>
-        <h2 className="font-display text-2xl font-600 text-ink">How often can you switch between regimes?</h2>
+        <h2 className="font-display text-2xl text-ink">How often can you switch between regimes?</h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
           For salaried individuals, you can choose your regime every financial year, independently. You can be in the new regime in FY 2025-26 and switch to the old regime in FY 2026-27, or vice versa. There is no lock-in and no restriction on the number of times you switch across years.
         </p>

@@ -47,7 +47,7 @@ export default function StepUpSipCalculator() {
       {/* Inputs */}
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <h2 className="font-display text-xl font-600 text-ink">
+          <h2 className="font-display text-xl text-ink">
             Your investment
           </h2>
           <CurrencyToggle value={currency} onChange={setCurrency} />

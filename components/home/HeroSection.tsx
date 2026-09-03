@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Calculator, ArrowRight, Search, TrendingUp } from "lucide-react";
+import { calculators, posts } from "@/lib/data";
 
-const CALC_COUNT = 46;
-const GUIDE_COUNT = 37;
-const TOOL_COUNT = 44;
+// Derived, not hand-written. The previous literals claimed 46 calculators and
+// 44 tools; only 42 calculators are live and 24 tools are indexable, and the
+// same overstated pair had already leaked onto the shared social card.
+const CALC_COUNT = calculators.filter((c) => c.live).length;
+const GUIDE_COUNT = posts.length;
+const TOOL_COUNT = 24;
 
 export default function HeroSection() {
   return (
@@ -15,9 +19,14 @@ export default function HeroSection() {
               <span>100% Free · No Signup Required</span>
             </div>
 
+            {/* Carries the head term the page actually targets. The previous
+                "India's Smartest Personal Finance Platform" contained neither
+                "free" nor "calculators", and led with a superlative the site's
+                own corrections log says it stopped making. */}
             <h1 className="display text-text">
-              India&apos;s Smartest{" "}
-              <span className="underline-stroke">Personal Finance</span> Platform
+              Free{" "}
+              <span className="underline-stroke">Personal Finance</span>{" "}
+              Calculators for India
             </h1>
 
             <p className="text-base sm:text-lg text-text-muted max-w-[480px] leading-relaxed mx-auto lg:mx-0">
@@ -39,14 +48,31 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            <div className="relative max-w-[520px] mx-auto lg:mx-0">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
-              <input
-                type="text"
-                placeholder="Search calculators, guides, comparisons..."
-                className="w-full h-12 pl-12 pr-4 rounded-input border border-border bg-bg text-sm focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
+            {/* A plain GET form, so this works with no client JavaScript and
+                keeps the section a server component. It was previously a bare
+                input with no state, no handler and no form: typing and pressing
+                Enter did nothing at all. /search reads the q parameter. */}
+            <form
+              action="/search"
+              method="GET"
+              role="search"
+              className="relative max-w-[520px] mx-auto lg:mx-0"
+            >
+              <label htmlFor="hero-search" className="sr-only">
+                Search calculators, guides and tools
+              </label>
+              <Search
+                className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none"
+                aria-hidden="true"
               />
-            </div>
+              <input
+                id="hero-search"
+                name="q"
+                type="search"
+                placeholder="Search calculators, guides, comparisons..."
+                className="w-full h-12 pl-12 pr-4 rounded-input border border-border bg-bg text-sm focus:border-brand"
+              />
+            </form>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2">
               {["SIP", "EMI", "Income Tax", "FD"].map((item) => (

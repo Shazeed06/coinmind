@@ -208,7 +208,7 @@ export default function Page() {
             { title: "Diversification", href: "/glossary/diversification", desc: "Spreading risk across assets" },
             { title: "Expense Ratio", href: "/glossary/expense-ratio", desc: "What funds charge you" },
             { title: "Asset Allocation", href: "/glossary/asset-allocation", desc: "Split across equity, debt, gold" },
-            { title: "LTCG", href: "/glossary/long-term-capital-gains", desc: "Long-term capital gains tax" },
+            { title: "Capital Gains", href: "/glossary/capital-gains", desc: "How long-term and short-term gains are taxed" },
           ],
         },
       ]}

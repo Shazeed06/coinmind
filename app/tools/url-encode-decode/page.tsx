@@ -118,7 +118,7 @@ export default function Page() {
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           Free browser tool
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           URL Encode &amp; Decode
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
@@ -135,7 +135,7 @@ export default function Page() {
       {/* Quick answer */}
       <section className="mt-14 max-w-3xl">
         <div className="rounded-2xl border border-line bg-forest-soft/50 p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
+          <h2 className="font-display text-lg text-ink">
             Quick answer
           </h2>
           <p className="mt-2 text-ink-soft leading-relaxed">
@@ -200,7 +200,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -220,7 +220,7 @@ export default function Page() {
 
       {/* Cross-link */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           More free tools
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -228,7 +228,7 @@ export default function Page() {
             href="/tools/json-formatter"
             className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
           >
-            <h3 className="font-display text-lg font-600 text-ink">
+            <h3 className="font-display text-lg text-ink">
               JSON Formatter &amp; Validator
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
@@ -242,7 +242,7 @@ export default function Page() {
             href="/tools"
             className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
           >
-            <h3 className="font-display text-lg font-600 text-ink">
+            <h3 className="font-display text-lg text-ink">
               All tools
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">

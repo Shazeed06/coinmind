@@ -100,7 +100,11 @@ export default function Page() {
     return map;
   }, [filtered, activeCat]);
 
-  const resumeTool = TOOLS.find((t) => t.slug === "resume-builder");
+  // The featured card sits above the filter bar, so it only makes sense while the
+  // full list is showing. Once someone searches or picks a category it would sit
+  // there contradicting their filter.
+  const isFiltering = search.trim() !== "" || activeCat !== "All";
+  const resumeTool = isFiltering ? undefined : TOOLS.find((t) => t.slug === "resume-builder");
 
   return (
     <div>
@@ -164,6 +168,8 @@ export default function Page() {
               return (
                 <button
                   key={cat}
+                  type="button"
+                  aria-pressed={activeCat === cat}
                   onClick={() => setActiveCat(cat)}
                   className={`whitespace-nowrap rounded-pill px-3 py-1.5 text-sm font-medium transition-colors ${
                     activeCat === cat

@@ -243,7 +243,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
           <IconCalculator className="h-3.5 w-3.5" /> Monthly SIP · {years}-year
           horizon
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           {amt} SIP for {years} Years
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
@@ -277,7 +277,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
       </section>
 
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           {amt} SIP for {years} years at different returns
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -325,7 +325,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
 
       {/* The differentiator: cost of delay */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           What waiting costs you
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -358,7 +358,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Change the numbers yourself
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -370,7 +370,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Before you rely on this figure
         </h2>
         <div className="mt-3 space-y-4 text-ink-soft leading-relaxed">
@@ -437,7 +437,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -457,7 +457,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
 
       {/* Sibling links on both axes: keeps all 91 pages interlinked */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           {amt} SIP over other durations
         </h2>
         <div className="mt-5 flex flex-wrap gap-2.5">
@@ -473,7 +473,7 @@ export default function SipYearsPage({ slug }: { slug: string }) {
           ))}
         </div>
 
-        <h2 className="mt-10 font-display text-2xl font-600 text-ink">
+        <h2 className="mt-10 text-2xl text-ink">
           Other monthly amounts for {years} years
         </h2>
         <div className="mt-5 flex flex-wrap gap-2.5">

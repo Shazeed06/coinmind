@@ -265,7 +265,7 @@ export default function AiBusinessNameGenerator() {
       {names.length > 0 && (
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               {names.length} name{names.length === 1 ? "" : "s"} for you
             </h2>
             <button

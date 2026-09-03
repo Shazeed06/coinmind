@@ -42,8 +42,14 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} className="space-y-4">
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="text-sm font-medium text-ink-soft">Your name</label>
+          {/* Every label needs htmlFor: without it these inputs had no
+              accessible name and clicking the label text did nothing. */}
+          <label htmlFor="contact-name" className="text-sm font-medium text-ink-soft">Your name</label>
           <input
+            id="contact-name"
+            name="name"
+            type="text"
+            autoComplete="name"
             required
             value={form.name}
             onChange={update("name")}
@@ -52,10 +58,13 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-ink-soft">Email</label>
+          <label htmlFor="contact-email" className="text-sm font-medium text-ink-soft">Email</label>
           <input
+            id="contact-email"
+            name="email"
             required
             type="email"
+            autoComplete="email"
             value={form.email}
             onChange={update("email")}
             className={`mt-1.5 ${field}`}
@@ -64,8 +73,10 @@ export default function ContactForm() {
         </div>
       </div>
       <div>
-        <label className="text-sm font-medium text-ink-soft">Message</label>
+        <label htmlFor="contact-message" className="text-sm font-medium text-ink-soft">Message</label>
         <textarea
+          id="contact-message"
+          name="message"
           required
           value={form.message}
           onChange={update("message")}

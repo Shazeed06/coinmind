@@ -1,12 +1,31 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
+const OG_TITLE = "Terms of Service - Using CoinMind's Calculators & Content";
+const OG_DESC =
+  "The terms and conditions for using CoinMind's free calculators, tools and content: what you can expect from us, and the limits of our educational information.";
+
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description:
-    "The terms and conditions for using CoinMind's free calculators, tools and content: what you can expect from us, and the limits of our educational information.",
+  description: OG_DESC,
   alternates: { canonical: "/terms" },
-  openGraph: { url: "/terms" },
+  // openGraph is REPLACED, not merged, so a partial object here would delete the
+  // root layout's og:title, og:description, og:image, og:type and og:site_name.
+  openGraph: {
+    title: OG_TITLE,
+    description: OG_DESC,
+    url: "/terms",
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESC,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function Page() {
@@ -28,7 +47,7 @@ export default function Page() {
       />
 
       <header className="pt-14">
-        <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
           Terms of Service
         </h1>
         <p className="mt-3 text-sm text-ink-faint">Last updated: 14 July 2026</p>

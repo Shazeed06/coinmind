@@ -9,7 +9,7 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-xl px-4 sm:px-6 py-28 text-center">
       <p className="font-display text-7xl font-600 text-forest">404</p>
-      <h1 className="mt-4 font-display text-3xl font-600 text-ink">
+      <h1 className="mt-4 text-3xl text-ink">
         This page took an unplanned withdrawal
       </h1>
       <p className="mt-3 text-ink-soft">

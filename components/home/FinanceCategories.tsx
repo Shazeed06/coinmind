@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Section, SectionHeader } from "@/components/ui";
+import { Section } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { calculators } from "@/lib/data";
 import { Calculator, TrendingUp, Landmark, Receipt, PiggyBank, Wrench } from "lucide-react";
 
@@ -14,12 +15,16 @@ const cats = (["Investing", "Loans", "Tax", "Savings", "Utility"] as const)
 export default function FinanceCategories() {
   return (
     <Section variant="alt">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Explore"
         title="Explore Every Aspect of Personal Finance"
         subline="8 categories covering everything from investments to taxes."
       />
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Five categories x two calculators = ten cards. At lg:grid-cols-4 that
+          left two orphans stranded on a third row; five columns lands them as
+          two clean rows and makes this the one tighter, wider grid on the page
+          instead of a fourth repeat of the same 4-up card layout. */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         {cats.flatMap(({ cat, items }) => {
           const Icon = CAT_ICONS[cat] || Calculator;
           return items.map((c) => (

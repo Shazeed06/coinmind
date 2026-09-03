@@ -242,7 +242,7 @@ export default function AiEmailWriter() {
       <section className="lg:sticky lg:top-6 self-start">
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="font-display text-lg font-600 text-ink capitalize">
+            <h2 className="font-display text-lg text-ink capitalize">
               Your {docType}
             </h2>
             {result && (

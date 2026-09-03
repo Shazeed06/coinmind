@@ -1,4 +1,5 @@
-import { Section, SectionHeader, Card, CardBody } from "@/components/ui";
+import { Section, Card, CardBody } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { ShieldCheck, FileText, Eye, RefreshCw, Lock, CheckCircle } from "lucide-react";
 
 const PRINCIPLES = [
@@ -13,7 +14,7 @@ const PRINCIPLES = [
 export default function TrustTimeline() {
   return (
     <Section variant="white">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Trust & Accuracy"
         title="Built on Transparency and Accuracy"
         subline="Six principles that guide everything we build."
@@ -22,9 +23,16 @@ export default function TrustTimeline() {
         {PRINCIPLES.map((p) => (
           <Card key={p.title}>
             <CardBody>
-              <p.icon className="h-8 w-8 text-brand mx-auto sm:mx-0" />
-              <h3 className="text-base font-semibold text-text mt-3 text-center sm:text-left">{p.title}</h3>
-              <p className="text-sm text-text-muted mt-1 text-center sm:text-left">{p.desc}</p>
+              {/* Green accent rather than the site-wide blue: this is the one
+                  trust/accuracy block on the page, and every other card grid
+                  above and below it is a row of blue icons on white. The soft
+                  chip also gives the icon a shape so the cards stop reading as
+                  identical text blocks. */}
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent mx-auto sm:mx-0">
+                <p.icon className="h-5 w-5" />
+              </span>
+              <h3 className="text-base font-semibold text-text mt-4 text-center sm:text-left">{p.title}</h3>
+              <p className="text-sm text-text-muted mt-1.5 leading-relaxed text-center sm:text-left">{p.desc}</p>
             </CardBody>
           </Card>
         ))}

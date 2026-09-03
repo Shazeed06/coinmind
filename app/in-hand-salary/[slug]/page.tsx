@@ -247,7 +247,7 @@ export default async function Page({
           <IconCalculator className="h-3.5 w-3.5" /> India · New regime · FY
           2026-27
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           ₹{label} In-Hand Salary Per Month
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
@@ -284,7 +284,7 @@ export default async function Page({
 
       {/* Full breakdown */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Where every rupee of your ₹{label} goes
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -332,7 +332,7 @@ export default async function Page({
 
       {/* The differentiator: assumptions made explicit */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Why other sites quote a different number
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -390,7 +390,7 @@ export default async function Page({
 
       {/* Interactive tool */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Change the numbers yourself
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -403,7 +403,7 @@ export default async function Page({
 
       {/* Tax context */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           The tax on a ₹{label} salary
         </h2>
         <div className="mt-3 space-y-4 text-ink-soft leading-relaxed">
@@ -474,7 +474,7 @@ export default async function Page({
 
       {/* FAQ */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -494,7 +494,7 @@ export default async function Page({
 
       {/* Sibling links: keeps the whole cluster internally linked */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           In-hand salary for other CTCs
         </h2>
         <div className="mt-5 flex flex-wrap gap-2.5">

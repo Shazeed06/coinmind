@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
 import HubPage from "@/components/HubPage";
 import { site } from "@/lib/site";
+import { FD_AMOUNTS, fdLabel, fdSlug } from "@/lib/pseo-fd";
+
+// The FD landing pages are generated per deposit amount, not per bank, so the
+// links below are built from the same source the routes are (FD_AMOUNTS +
+// fdSlug). The filter keeps this honest: an amount that ever leaves
+// FD_AMOUNTS silently drops out instead of becoming a 404.
+const FD_FEATURED = [100000, 500000, 1000000, 10000000].filter((a) =>
+  FD_AMOUNTS.includes(a),
+);
+
+const FD_AMOUNT_LINKS = FD_FEATURED.map((amount) => ({
+  title: `FD of ${fdLabel(amount)}`,
+  href: `/calculators/fd/${fdSlug(amount)}`,
+  desc: `Maturity and interest on a ${fdLabel(amount)} deposit across common rates and tenures`,
+}));
 
 export const metadata: Metadata = {
   title: { absolute: "Savings Guide India - FD, PPF, NPS, NSC, SSY & Post Office Schemes" },
@@ -165,23 +180,18 @@ export default function Page() {
           ],
         },
         {
-          title: "FD by Bank",
+          title: "FD by Deposit Amount",
           columns: 4,
-          links: [
-            { title: "SBI FD Calculator", href: "/calculators/fd/sbi-fd-rates", desc: "SBI fixed deposit rates and maturity" },
-            { title: "HDFC FD Calculator", href: "/calculators/fd/hdfc-fd-rates", desc: "HDFC fixed deposit rates and maturity" },
-            { title: "ICICI FD Calculator", href: "/calculators/fd/icici-fd-rates", desc: "ICICI fixed deposit rates and maturity" },
-            { title: "Post Office FD Calculator", href: "/calculators/fd/post-office-fd-rates", desc: "Post Office time deposit rates" },
-          ],
+          links: FD_AMOUNT_LINKS,
         },
         {
           title: "Comparisons",
           columns: 2,
           links: [
             { title: "PPF vs FD vs NPS", href: "/blog/ppf-vs-fd-vs-nps", desc: "Returns, tax, lock-in, and who each suits best" },
-            { title: "FD vs RD", href: "/blog/fd-vs-rd", desc: "Fixed deposit vs recurring deposit comparison" },
-            { title: "PPF vs EPF", href: "/blog/ppf-vs-epf", desc: "Public Provident Fund vs Employee Provident Fund" },
-            { title: "Savings Account vs FD", href: "/blog/savings-vs-fd", desc: "Savings account interest vs fixed deposit returns" },
+            { title: "FD vs RD vs PPF", href: "/blog/fd-vs-rd-vs-ppf", desc: "Lump sum, monthly deposit or 15-year lock-in: which fits the goal" },
+            { title: "ELSS vs PPF vs NPS", href: "/blog/elss-vs-ppf-vs-nps", desc: "The three main 80C options on returns, lock-in and tax" },
+            { title: "Best Savings Accounts 2026", href: "/blog/best-savings-account-india-2026", desc: "Savings account interest rates and features compared" },
           ],
         },
         {

@@ -51,17 +51,19 @@ export default function RdCalculator() {
     <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6">
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <h2 className="font-display text-xl font-600 text-ink">Deposit details</h2>
+          <h2 className="font-display text-xl text-ink">Deposit details</h2>
           <CurrencyToggle value={currency} onChange={setCurrency} />
         </div>
         <div className="mt-6 space-y-7">
+          {/* Step must divide (max - min), or the slider stops short of the
+              maximum: at 500 it capped out at 999,600. */}
           <Field
             label="Monthly deposit"
             value={monthly}
             onChange={setMonthly}
             min={100}
             max={1000000}
-            step={500}
+            step={100}
             prefix={sym}
           />
           <Field

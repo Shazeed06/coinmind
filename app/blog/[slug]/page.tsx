@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
-import { posts } from "@/lib/data";
+import { posts, type Post } from "@/lib/data";
 import { site } from "@/lib/site";
 import { ChevronRight, Calculator, ArrowRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
@@ -255,8 +255,10 @@ const bodies: Record<string, ReactNode> = {
         Gemini has a natural edge here through its tie-in with Google Search,
         while ChatGPT and Claude both browse the web well. For source-cited
         research, many people add {""}
-        <a href="/ai-tools">Perplexity</a> alongside whichever assistant they
-        choose.
+        <Link href="/ai-tools/perplexity" className="link-editorial text-forest">
+          Perplexity
+        </Link>{" "}
+        alongside whichever assistant they choose.
       </p>
       <h2>Value for money</h2>
       <p>
@@ -308,8 +310,10 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <p>
         Explore all of these and more in our{" "}
-        <a href="/ai-tools">AI tools directory</a>, where we tag exactly which
-        ones are free.
+        <Link href="/ai-tools" className="link-editorial text-forest">
+          AI tools directory
+        </Link>
+        , where we tag exactly which ones are free.
       </p>
     </>
   ),
@@ -325,7 +329,11 @@ const bodies: Record<string, ReactNode> = {
       <p>
         Up to ₹1.5 lakh a year through PPF, ELSS funds, life insurance, EPF,
         or tuition fees. It&apos;s the biggest single lever for most people. Use
-        our <a href="/calculators/ppf">PPF calculator</a> to see how it grows.
+        our{" "}
+        <Link href="/calculators/ppf" className="link-editorial text-forest">
+          PPF calculator
+        </Link>{" "}
+        to see how it grows.
       </p>
       <h2>2. Claim 80D for health insurance</h2>
       <p>
@@ -346,8 +354,10 @@ const bodies: Record<string, ReactNode> = {
       <p>
         The new regime has lower rates but few deductions; the old regime rewards
         those with big deductions. Run your numbers in our{" "}
-        <a href="/calculators/income-tax">income tax calculator</a> before you
-        decide. It tells you which one actually saves you more.
+        <Link href="/calculators/income-tax" className="link-editorial text-forest">
+          income tax calculator
+        </Link>{" "}
+        before you decide. It tells you which one actually saves you more.
       </p>
       <h2>The rest</h2>
       <p>
@@ -398,6 +408,104 @@ const bodies: Record<string, ReactNode> = {
   ),
 };
 
+// ---------------------------------------------------------------------------
+// FAQ visibility
+//
+// The FAQPage node below used to be emitted for every post carrying a `faq`
+// array while the page rendered nothing for it, which is exactly Google's
+// "marked-up content is not visible to users" violation. The fix is to render
+// the FAQs, matching the section in app/news/[slug]/page.tsx.
+//
+// The wrinkle: 20 posts also carry their own FAQ section inside bodyMarkdown,
+// and those markdown sections have drifted out of sync with the array (they
+// cover some of the questions, never all of them). Blanket-rendering the array
+// on those posts would print the same Q and A twice.
+//
+// The rule chosen is per question rather than per post:
+//   1. A question whose text already appears in the visible body is skipped.
+//      The markdown section is its visible answer, so the markup is honest.
+//   2. Every other question is rendered in the FAQ block below the article.
+//   3. If the body happens to cover all of them, nothing extra is rendered and
+//      the JSON-LD is still fully backed by visible text.
+// Either way the FAQPage node and the visible page carry the same set of
+// questions, with nothing duplicated. No FAQPage node is ever emitted for
+// questions a reader cannot see.
+// ---------------------------------------------------------------------------
+
+const FAQ_HEADING =
+  /^#{1,6}\s*(?:frequently asked questions|faqs?|common questions)\b/im;
+
+function normalizeText(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function faqToRender(post: Post) {
+  const markdown = post.bodyMarkdown ?? "";
+  const bodyText = normalizeText(markdown);
+  const items = (post.faq ?? []).filter(
+    (f) => !bodyText.includes(normalizeText(f.q)),
+  );
+  return { items, bodyHasFaqSection: FAQ_HEADING.test(markdown) };
+}
+
+// ---------------------------------------------------------------------------
+// "Keep reading"
+//
+// This was posts.filter(...).slice(0, 3), so all 159 posts recommended the
+// same first three entries in lib/data.ts. Scored instead: same category wins,
+// then exact shared keywords, then shared keyword words, then the more recent
+// post, then original data order. Every tiebreak is deterministic because
+// these pages are statically generated and must not change between builds.
+// ---------------------------------------------------------------------------
+
+const KEYWORD_STOPWORDS = new Set([
+  "the", "and", "for", "with", "your", "how", "what", "why", "best", "top",
+  "vs", "guide", "india", "indian", "2024", "2025", "2026", "calculator",
+  "online", "free", "new", "list",
+]);
+
+function keywordWords(keywords: string[]) {
+  const words = new Set<string>();
+  for (const keyword of keywords) {
+    for (const word of keyword.toLowerCase().split(/[^a-z0-9]+/)) {
+      if (word.length > 2 && !KEYWORD_STOPWORDS.has(word)) words.add(word);
+    }
+  }
+  return words;
+}
+
+function relatedPosts(post: Post, limit = 3) {
+  const exactKeywords = new Set(post.keywords.map((k) => k.toLowerCase()));
+  const words = keywordWords(post.keywords);
+
+  return posts
+    .map((candidate, index) => ({ candidate, index }))
+    .filter(({ candidate }) => candidate.slug !== post.slug)
+    .map(({ candidate, index }) => {
+      const exact = candidate.keywords.filter((k) =>
+        exactKeywords.has(k.toLowerCase()),
+      ).length;
+      let overlap = 0;
+      for (const word of keywordWords(candidate.keywords)) {
+        if (words.has(word)) overlap++;
+      }
+      return {
+        candidate,
+        index,
+        score:
+          (candidate.category === post.category ? 100 : 0) +
+          exact * 10 +
+          overlap,
+        time: Date.parse(candidate.date) || 0,
+      };
+    })
+    .sort(
+      (a, b) => b.score - a.score || b.time - a.time || a.index - b.index,
+    )
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
+}
+
 export default async function Page({
   params,
 }: {
@@ -412,7 +520,8 @@ export default async function Page({
   ) : (
     bodies[post.slug]
   );
-  const more = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const more = relatedPosts(post);
+  const { items: faqItems, bodyHasFaqSection } = faqToRender(post);
 
   const graph: Record<string, unknown>[] = [
     {
@@ -447,7 +556,9 @@ export default async function Page({
       ],
     },
   ];
-  if (post.faq) {
+  // Every question here is visible on the page: the ones in `faqItems` render
+  // in the FAQ section below, the rest are already spelled out in the body.
+  if (post.faq?.length) {
     graph.push({
       "@type": "FAQPage",
       mainEntity: post.faq.map((f) => ({
@@ -458,7 +569,10 @@ export default async function Page({
     });
   }
   const articleJson = { "@context": "https://schema.org", "@graph": graph };
-  const TOC = [{ id: `post-${post.slug}`, label: post.title }];
+  const TOC = [
+    { id: `post-${post.slug}`, label: post.title },
+    ...(faqItems.length ? [{ id: "faq", label: "Frequently asked questions" }] : []),
+  ];
 
   return (
     <div>
@@ -475,7 +589,7 @@ export default async function Page({
           </nav>
 
           <Pill>{post.category}</Pill>
-          <h1 className="h2 text-text mt-3 max-w-[720px]">{post.title}</h1>
+          <h1 className="h1-article text-text mt-3 max-w-[720px]">{post.title}</h1>
 
           <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white text-sm font-semibold">
@@ -508,11 +622,36 @@ export default async function Page({
             </div>
           </aside>
 
-          <article className="lg:col-span-7">
+          {/* The "On this page" link targets this id. Without it the anchor
+              resolved to nothing and clicking it did nothing at all. */}
+          <article id={`post-${post.slug}`} className="lg:col-span-7 scroll-mt-24">
             <Prose>
               <p className="text-lg text-text-muted mb-8 leading-relaxed">{post.excerpt}</p>
               {body}
             </Prose>
+
+            {faqItems.length > 0 && (
+              <section className="mt-12 border-t border-border pt-8 scroll-mt-24" id="faq">
+                <h2 className="h3 text-text">
+                  {bodyHasFaqSection
+                    ? "More frequently asked questions"
+                    : "Frequently asked questions"}
+                </h2>
+                <div className="mt-5 space-y-4">
+                  {faqItems.map((f, i) => (
+                    <details
+                      key={i}
+                      className="group rounded-card border border-border bg-bg-alt p-4"
+                    >
+                      <summary className="cursor-pointer list-none text-sm font-semibold text-text marker:hidden">
+                        {f.q}
+                      </summary>
+                      <p className="mt-2 text-sm text-text-muted leading-relaxed">{f.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <div className="mt-12 border-t border-border pt-8">
               <AuthorReviewBox />

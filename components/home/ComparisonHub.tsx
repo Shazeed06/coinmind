@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Section, SectionHeader, Card, CardBody, CardFooter } from "@/components/ui";
+import { Section, Card, CardBody, CardFooter } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { ArrowRight } from "lucide-react";
 
 const COMPARISONS = [
@@ -14,7 +15,7 @@ const COMPARISONS = [
 export default function ComparisonHub() {
   return (
     <Section variant="alt">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Comparisons"
         title="Side-by-Side Comparisons"
         subline="See how different options stack up, before you decide."

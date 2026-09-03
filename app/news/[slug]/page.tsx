@@ -164,7 +164,7 @@ export default async function Page({
             <span className="text-xs text-text-muted">{article.tag}</span>
           </div>
 
-          <h1 className="h2 text-text mt-3 max-w-[720px]">{article.title}</h1>
+          <h1 className="h1-article text-text mt-3 max-w-[720px]">{article.title}</h1>
 
           <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white text-sm font-semibold">

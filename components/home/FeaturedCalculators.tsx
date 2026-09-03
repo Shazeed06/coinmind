@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Section, SectionHeader, Card, CardBody, CardFooter, CardBadge } from "@/components/ui";
+import { Section, Card, CardBody, CardFooter, CardBadge } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { calculators } from "@/lib/data";
 import { Calculator, ArrowRight } from "lucide-react";
 
@@ -9,7 +10,7 @@ const featured = liveCalcs.slice(0, 8);
 export default function FeaturedCalculators() {
   return (
     <Section variant="white">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Calculators"
         title={`${liveCalcs.length} Free Financial Calculators`}
         subline="Plan investments, size a loan, or estimate your tax, instantly and privately."

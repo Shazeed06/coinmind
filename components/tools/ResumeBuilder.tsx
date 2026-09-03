@@ -358,7 +358,7 @@ export default function ResumeBuilder() {
         <div className="no-print space-y-6">
           {/* Basics */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Your details
             </h2>
             <div className="mt-5 grid gap-4">
@@ -421,7 +421,7 @@ export default function ResumeBuilder() {
           {/* Summary */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between gap-3">
-              <h2 className="font-display text-lg font-600 text-ink">
+              <h2 className="font-display text-lg text-ink">
                 Professional summary
               </h2>
               <button
@@ -456,7 +456,7 @@ export default function ResumeBuilder() {
           {/* Experience */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between">
-              <h2 className="font-display text-lg font-600 text-ink">
+              <h2 className="font-display text-lg text-ink">
                 Work experience
               </h2>
               <button
@@ -599,7 +599,7 @@ export default function ResumeBuilder() {
           {/* Education */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between">
-              <h2 className="font-display text-lg font-600 text-ink">
+              <h2 className="font-display text-lg text-ink">
                 Education
               </h2>
               <button
@@ -671,7 +671,7 @@ export default function ResumeBuilder() {
 
           {/* Skills */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg font-600 text-ink">Skills</h2>
+            <h2 className="font-display text-lg text-ink">Skills</h2>
             <p className="mt-1 text-sm text-ink-faint">
               Separate with commas. They show as tidy chips on your resume.
             </p>

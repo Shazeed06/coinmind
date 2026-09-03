@@ -179,7 +179,7 @@ export default function Page() {
             { title: "FIRE in India", href: "/blog/fire-retire-early-india", desc: "The real corpus you need for financial independence in India" },
             { title: "NPS Explained", href: "/blog/nps-explained", desc: "Complete guide to NPS tiers, tax benefits, and returns" },
             { title: "PPF vs FD vs NPS", href: "/blog/ppf-vs-fd-vs-nps", desc: "Where should you save for retirement?" },
-            { title: "How Much for Retirement?", href: "/blog/how-much-retirement-corpus", desc: "Calculating your retirement number the right way" },
+            { title: "Senior Citizen Savings Scheme", href: "/blog/senior-citizen-savings-scheme-2026", desc: "Guaranteed quarterly income for retirees, and its limits" },
           ],
         },
         {
@@ -190,7 +190,7 @@ export default function Page() {
             { title: "PPF", href: "/glossary/ppf", desc: "Public Provident Fund" },
             { title: "EPF", href: "/glossary/epf", desc: "Employee Provident Fund" },
             { title: "Annuity", href: "/glossary/annuity", desc: "Regular pension payments explained" },
-            { title: "SWP", href: "/glossary/systematic-withdrawal-plan", desc: "Systematic Withdrawal Plan" },
+            { title: "SWP", href: "/glossary/swp", desc: "Systematic Withdrawal Plan" },
             { title: "4% Rule", href: "/glossary/4-percent-rule", desc: "Safe withdrawal rate for retirement" },
           ],
         },

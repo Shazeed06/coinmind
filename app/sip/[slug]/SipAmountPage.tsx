@@ -227,7 +227,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconCalculator className="h-3.5 w-3.5" /> SIP projection
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           SIP of {amt} per Month
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
@@ -256,7 +256,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
 
       {/* Returns table: unique, extractable, great for AI Overviews */}
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           {amt} SIP returns by duration
         </h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
@@ -326,7 +326,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
       {/* Interactive calculator */}
       <section className="mt-14">
         <div className="max-w-3xl">
-          <h2 className="font-display text-2xl font-600 text-ink">
+          <h2 className="font-display text-2xl text-ink">
             Adjust it yourself
           </h2>
           <p className="mt-2 text-ink-soft leading-relaxed">
@@ -342,7 +342,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
 
       {/* Explainer */}
       <section className="mt-14 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           What a {amt} SIP really means
         </h2>
         <div className="mt-4 space-y-4 text-ink-soft leading-relaxed">
@@ -377,7 +377,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
 
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -397,7 +397,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
 
       {/* Related tools */}
       <section className="mt-16 mb-8 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Keep planning
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -405,7 +405,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
             href="/calculators/sip"
             className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
           >
-            <h3 className="font-display text-lg font-600 text-ink flex items-center gap-2">
+            <h3 className="font-display text-lg text-ink flex items-center gap-2">
               <IconCalculator className="h-5 w-5 text-forest" /> Full SIP
               Calculator
             </h3>
@@ -421,7 +421,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
             href="/calculators/step-up-sip"
             className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
           >
-            <h3 className="font-display text-lg font-600 text-ink flex items-center gap-2">
+            <h3 className="font-display text-lg text-ink flex items-center gap-2">
               <IconCheck className="h-5 w-5 text-forest" /> Step-up SIP
               Calculator
             </h3>
@@ -438,7 +438,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
         {/* Other SIP amounts: sibling internal links so every /sip page has
             incoming links (no orphan pages) and shares link equity. */}
         <div className="mt-8">
-          <h3 className="font-display text-lg font-600 text-ink">
+          <h3 className="font-display text-lg text-ink">
             Other popular SIP amounts
           </h3>
           <div className="mt-4 flex flex-wrap gap-2.5">

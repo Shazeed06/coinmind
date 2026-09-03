@@ -169,7 +169,7 @@ export default function FaviconGenerator() {
           accept={ACCEPT}
           onFiles={onFiles}
           label="Drop your logo or image here"
-          hint="or click to browse. A square image works best (PNG, JPG, WebP, SVG)"
+          hint="or click or tap to browse. A square image works best (PNG, JPG, WebP, SVG)"
         />
       )}
 

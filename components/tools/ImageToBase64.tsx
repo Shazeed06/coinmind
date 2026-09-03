@@ -134,7 +134,7 @@ export default function ImageToBase64() {
           accept={ACCEPT}
           onFiles={onFiles}
           label="Drop an image to encode"
-          hint="or click to browse: PNG, JPG, WebP, SVG, GIF"
+          hint="or click or tap to browse: PNG, JPG, WebP, SVG, GIF"
         />
       )}
 
@@ -246,8 +246,8 @@ export default function ImageToBase64() {
           <p className="text-xs text-ink-faint">
             Need to go the other way? Paste any{" "}
             <span className="font-mono text-ink-soft">data:image</span> URI into
-            your browser&apos;s address bar to view it, then right-click to save
-            it back to a file.
+            your browser&apos;s address bar to view it, then right-click (or
+            long-press on a phone) to save it back to a file.
           </p>
 
           {/* Encode another */}

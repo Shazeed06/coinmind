@@ -2,13 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SipCalculator from "@/components/calc/SipCalculator";
 import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
+import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
 import { calculators, posts } from "@/lib/data";
+import { breadcrumb, faqPage, graph, webApp } from "@/lib/ld";
 import { site } from "@/lib/site";
 import { SIP_AMOUNTS, sipSlug } from "@/lib/pseo-sip";
 import { SIP_YEARS, sipYearSlug } from "@/lib/pseo-sip-years";
 import { formatCurrency } from "@/lib/format";
 import { Calculator, ArrowRight, TrendingUp, Landmark, PiggyBank, BarChart3, CheckCircle, AlertTriangle, Lightbulb, BookOpen, ShieldCheck, User, ChevronRight } from "lucide-react";
-import { Breadcrumb, Pill, Prose, DataTable, Card, CardBody, CardFooter, Grid } from "@/components/ui";
+import { Breadcrumb, Pill, Prose, DataTable, CardBody, CardFooter, Grid } from "@/components/ui";
 
 const CALC = calculators.find((c) => c.slug === "sip")!;
 const CAT = CALC.category;
@@ -65,17 +67,63 @@ const TOC_ITEMS = [
   { id: "references", label: "References" },
 ];
 
+// Future value of a level monthly SIP with monthly compounding:
+//   FV = P * [((1 + i)^n - 1) / i] * (1 + i),  i = annual/12, n = years * 12
+// This mirrors computeSip() in components/calc/SipCalculator.tsx exactly, so the
+// milestone table below and the live tool cannot disagree. The previous version
+// of this table compounded a Rs 10 lakh lumpsum annually, which overstated the
+// 5-year corpus by 120 percent and understated the 30-year corpus by 15 percent.
+function sipFutureValue(monthly: number, annualRatePct: number, years: number): number {
+  const n = years * 12;
+  const i = annualRatePct / 100 / 12;
+  if (i === 0) return monthly * n;
+  return monthly * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+}
+
+const MILESTONE_SIP = 10000;
+const MILESTONE_RATE = 12;
+const LAKH = 100000;
+
+const GROWTH_ROWS = [5, 10, 15, 20, 25, 30].map((year) => {
+  const invested = MILESTONE_SIP * 12 * year;
+  const corpus = sipFutureValue(MILESTONE_SIP, MILESTONE_RATE, year);
+  return {
+    year,
+    invested: invested / LAKH,
+    corpus: corpus / LAKH,
+    returns: (corpus - invested) / LAKH,
+  };
+});
+
+// This page predates the shared CalcPage shell and so emitted no structured data
+// at all. Same helpers, same node set and same order as components/calc/CalcPage.tsx
+// so the SIP page stays consistent with the other 43 calculator routes.
+const SCHEMA_GRAPH = graph([
+  faqPage(FAQS),
+  breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Calculators", path: "/calculators" },
+    { name: CALC.title, path: "/calculators/sip" },
+  ]),
+  webApp(CALC.title, "calculators/sip", CAT, `Free ${CALC.title}: instant, private, no sign-up.`),
+]);
+
 export default function Page() {
   const relatedCalcs = calculators.filter((c) => c.live && c.slug !== "sip" && c.category === CAT).slice(0, 6);
   const relatedPosts = posts.slice(0, 6);
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_GRAPH) }}
+      />
+
       <section className="section-pad pb-0 bg-white">
         <div className="container-main">
           <Breadcrumb items={[{ label: "Calculators", href: "/calculators" }, { label: "SIP Calculator" }]} />
           <Pill>SIP Calculator</Pill>
-          <h1 className="h2 text-text mt-3">SIP Calculator India - Monthly Returns, Maturity & Tax Impact</h1>
+          <h1 className="h1-article text-text mt-3">SIP Calculator India - Monthly Returns, Maturity & Tax Impact</h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
             Calculate SIP returns with step-up, LTCG tax, and inflation-adjusted real value. Free, instant and private.
           </p>
@@ -84,22 +132,15 @@ export default function Page() {
 
       <section className="section-pad pt-12 bg-white" id="calculator">
         <div className="container-main">
-          <Card className="!p-0 overflow-hidden">
-            <div className="grid lg:grid-cols-12">
-              <div className="lg:col-span-5 p-6 border-b lg:border-b-0 lg:border-r border-border">
-                <h2 className="text-base font-semibold text-text mb-4">Enter your details</h2>
-                <SipCalculator />
-              </div>
-              <div className="lg:col-span-7 p-6 bg-bg-alt">
-                <p className="eyebrow text-text-muted mb-2">Your projected corpus</p>
-                <p className="text-[28px] sm:text-[40px] font-bold text-accent leading-tight">₹50.4 Lakh</p>
-                <p className="text-sm text-text-muted mt-1">Invested: ₹18 Lakh · Returns: ₹32.4 Lakh</p>
-                <div className="mt-6 h-[200px] bg-bg rounded-card border border-border flex items-center justify-center text-sm text-text-muted">
-                  Growth chart appears here
-                </div>
-              </div>
-            </div>
-          </Card>
+          {/* SipCalculator renders its own inputs and its own live results panel
+              (projected value, invested/returns donut, LTCG and inflation stats).
+              A second, hard-coded "Rs 50.4 Lakh" panel used to sit beside it with
+              a placeholder chart box; nothing bound it to the calculator's state,
+              so the headline number never moved when a visitor changed the inputs. */}
+          <SipCalculator />
+          <div className="mt-6 max-w-[720px]">
+            <FinancialDisclaimer type="investment" />
+          </div>
         </div>
       </section>
 
@@ -191,17 +232,15 @@ export default function Page() {
                       <th>Invested</th>
                       <th>Corpus</th>
                       <th>Returns</th>
-                      <th className="text-brand">12%</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {[5, 10, 15, 20, 25, 30].map((y) => (
-                      <tr key={y}>
-                        <td className="font-semibold text-text">{y}</td>
-                        <td>₹{y * 1.2}L</td>
-                        <td className="font-semibold text-text">₹{Math.round(10 * Math.pow(1.12, y)).toFixed(1)}L</td>
-                        <td className="text-accent">₹{(Math.round(10 * Math.pow(1.12, y)) - y * 1.2).toFixed(1)}L</td>
-                        <td className="font-bold text-brand">{12}%</td>
+                    {GROWTH_ROWS.map((row) => (
+                      <tr key={row.year}>
+                        <td className="font-semibold text-text">{row.year}</td>
+                        <td>₹{row.invested.toFixed(1)}L</td>
+                        <td className="font-semibold text-text">₹{row.corpus.toFixed(1)}L</td>
+                        <td className="text-accent">₹{row.returns.toFixed(1)}L</td>
                       </tr>
                     ))}
                   </tbody>

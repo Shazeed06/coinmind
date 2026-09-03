@@ -7,8 +7,21 @@ import { Calculator, ArrowRight, Search } from "lucide-react";
 import { Pill } from "@/components/ui";
 import { EmptyState } from "@/components/ui";
 
-const CATEGORIES = ["All", "Investing", "Loans", "Tax", "Savings", "Utility", "Health"] as const;
-const REGIONS = ["All", "India", "Global"] as const;
+// Only calculators that actually have a page. The retired medical ones are
+// still in the data with live: false and next.config.ts 308-redirects their
+// URLs back here, so listing them handed people links that bounced them
+// straight back to this page.
+const LIVE = calculators.filter((c) => c.live);
+
+const ALL_CATEGORIES = ["Investing", "Loans", "Tax", "Savings", "Utility", "Health"] as const;
+const CATEGORIES = ["All", ...ALL_CATEGORIES.filter((cat) => LIVE.some((c) => c.category === cat))];
+// The button labels people read, mapped to the region codes stored on each
+// calculator. "India" is shown, "IN" is what the data actually holds.
+const REGIONS = [
+  { label: "All", value: "All" },
+  { label: "India", value: "IN" },
+  { label: "Global", value: "Global" },
+] as const;
 
 function padRow<T>(items: T[], cols: number): (T | null)[] {
   const remainder = items.length % cols;
@@ -22,7 +35,7 @@ export default function Page() {
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
-    return calculators.filter((c) => {
+    return LIVE.filter((c) => {
       if (activeCat !== "All" && c.category !== activeCat) return false;
       if (activeRegion !== "All" && c.region !== activeRegion) return false;
       if (search) {
@@ -44,7 +57,9 @@ export default function Page() {
   }, [filtered, activeCat]);
 
   const isHealthOnly = activeCat === "Health";
-  const healthCalcs = calculators.filter((c) => c.category === "Health");
+  // Health calculators live in their own trailing section, but they still have to
+  // respect the search box and the category/region filters like everything else.
+  const healthCalcs = filtered.filter((c) => c.category === "Health");
 
   return (
     <div>
@@ -52,7 +67,7 @@ export default function Page() {
         <div className="container-main">
           <Pill>Calculators</Pill>
           <h1 className="h1 text-text mt-3">
-            {calculators.filter((c) => c.live).length} Free Financial Calculators
+            {LIVE.length} Free Financial Calculators
           </h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
             Free, private and instant financial calculators for India: SIP, EMI, income tax, FD, PPF, NPS,
@@ -79,6 +94,8 @@ export default function Page() {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
+                type="button"
+                aria-pressed={activeCat === cat}
                 onClick={() => { setActiveCat(cat); setActiveRegion("All"); }}
                 className={`whitespace-nowrap rounded-pill px-3 py-1.5 text-sm font-medium transition-colors ${
                   activeCat === cat
@@ -88,7 +105,7 @@ export default function Page() {
               >
                 {cat === "All" ? "All" : cat}
                 {cat !== "All" && (
-                  <span className="ml-1.5 text-xs opacity-60">({calculators.filter((c) => c.category === cat).length})</span>
+                  <span className="ml-1.5 text-xs opacity-60">({LIVE.filter((c) => c.category === cat).length})</span>
                 )}
               </button>
             ))}
@@ -96,13 +113,15 @@ export default function Page() {
           <div className="flex items-center gap-2">
             {REGIONS.map((r) => (
               <button
-                key={r}
-                onClick={() => setActiveRegion(r)}
+                key={r.value}
+                type="button"
+                aria-pressed={activeRegion === r.value}
+                onClick={() => setActiveRegion(r.value)}
                 className={`text-xs rounded-pill px-2.5 py-1 font-medium transition-colors ${
-                  activeRegion === r ? "bg-brand/10 text-brand" : "text-text-muted hover:text-text"
+                  activeRegion === r.value ? "bg-brand/10 text-brand" : "text-text-muted hover:text-text"
                 }`}
               >
-                {r}
+                {r.label}
               </button>
             ))}
             <span className="text-xs text-text-muted ml-auto">{filtered.length} calculators</span>
@@ -120,10 +139,12 @@ export default function Page() {
                 <nav className="sticky top-40 space-y-1">
                   <p className="eyebrow text-text-muted mb-2">Categories</p>
                   {CATEGORIES.slice(1).map((cat) => {
-                    const count = calculators.filter((c) => c.category === cat).length;
+                    const count = LIVE.filter((c) => c.category === cat).length;
                     return (
                       <button
                         key={cat}
+                        type="button"
+                        aria-pressed={activeCat === cat}
                         onClick={() => setActiveCat(cat)}
                         className={`w-full text-left text-sm py-2 px-3 rounded-input transition-colors ${
                           activeCat === cat ? "bg-brand/10 text-brand font-medium" : "text-text-muted hover:text-text hover:bg-bg"
@@ -144,9 +165,10 @@ export default function Page() {
                     <section key={cat} id={`cat-${cat}`} style={{ scrollMarginTop: "8rem" }}>
                       <h2 className="h3 text-text mb-6 sticky top-[7.5rem] sm:top-[9rem] bg-bg-alt py-2 z-10">{cat}</h2>
                       <div className={`grid sm:grid-cols-2 gap-6 ${cols === 3 ? "lg:grid-cols-3" : ""}`}>
-                        {(items.length > cols ? padRow(items, cols) : items).map((c, i) =>
-                          c ? (
-                            <Link key={c.slug} href={c.live ? `/calculators/${c.slug}` : "#"} className="card card-h-full p-5 group" {...(c.live ? {} : {})}>
+                        {(items.length > cols ? padRow(items, cols) : items).map((c, i) => {
+                          if (!c) return <div key={`spacer-${i}`} className="hidden sm:block" />;
+                          const inner = (
+                            <>
                               <div className="flex items-start justify-between">
                                 <Calculator className="h-10 w-10 text-brand" />
                                 <Pill>{c.region === "IN" ? "India" : "Global"}</Pill>
@@ -164,11 +186,20 @@ export default function Page() {
                                   <span className="text-xs text-text-muted">Coming soon</span>
                                 )}
                               </div>
+                            </>
+                          );
+                          // A calculator that is not built yet has nowhere to go, so it stays a
+                          // plain card rather than a link to "#" that silently does nothing.
+                          return c.live ? (
+                            <Link key={c.slug} href={`/calculators/${c.slug}`} className="card card-h-full p-5 group">
+                              {inner}
                             </Link>
                           ) : (
-                            <div key={`spacer-${i}`} className="hidden sm:block" />
-                          )
-                        )}
+                            <div key={c.slug} aria-disabled="true" className="card card-h-full p-5 opacity-60">
+                              {inner}
+                            </div>
+                          );
+                        })}
                       </div>
                     </section>
                   );
@@ -179,13 +210,29 @@ export default function Page() {
                     <h2 className="h3 text-text-muted/60 mb-4">Other Free Calculators</h2>
                     <p className="text-sm text-text-muted mb-6">Health and general-purpose calculators, not strictly finance, but useful to have.</p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {healthCalcs.map((c) => (
-                        <Link key={c.slug} href={`/calculators/${c.slug}`} className="card card-h-full p-4 opacity-75 hover:opacity-100 transition-opacity">
-                          <Calculator className="h-6 w-6 text-text-muted" />
-                          <h3 className="text-sm font-semibold text-text mt-2">{c.title}</h3>
-                          <p className="text-xs text-text-muted mt-1 line-clamp-2">{c.blurb}</p>
-                        </Link>
-                      ))}
+                      {healthCalcs.map((c) => {
+                        const inner = (
+                          <>
+                            <Calculator className="h-6 w-6 text-text-muted" />
+                            <h3 className="text-sm font-semibold text-text mt-2">{c.title}</h3>
+                            <p className="text-xs text-text-muted mt-1 line-clamp-2">{c.blurb}</p>
+                          </>
+                        );
+                        // Same rule as the main grid above: the retired health
+                        // calculators are live:false and next.config.ts redirects
+                        // their URLs back to this page, so linking them would
+                        // publish links that bounce the reader straight back here.
+                        return c.live ? (
+                          <Link key={c.slug} href={`/calculators/${c.slug}`} className="card card-h-full p-4 opacity-75 hover:opacity-100 transition-opacity">
+                            {inner}
+                          </Link>
+                        ) : (
+                          <div key={c.slug} aria-disabled="true" className="card card-h-full p-4 opacity-60">
+                            {inner}
+                            <p className="text-xs text-text-muted mt-2">Coming soon</p>
+                          </div>
+                        );
+                      })}
                     </div>
                   </section>
                 )}

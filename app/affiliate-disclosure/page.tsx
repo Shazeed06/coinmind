@@ -2,12 +2,31 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+const OG_TITLE = "Affiliate Disclosure - How CoinMind Makes Money";
+const OG_DESC =
+  "How CoinMind uses affiliate links: they are clearly marked, we may earn a commission at no cost to you, and they never affect our tools or recommendations.";
+
 export const metadata: Metadata = {
   title: { absolute: "Affiliate Disclosure · CoinMind" },
-  description:
-    "How CoinMind uses affiliate links: they are clearly marked, we may earn a commission at no cost to you, and they never affect our tools or recommendations.",
+  description: OG_DESC,
   alternates: { canonical: "/affiliate-disclosure" },
-  openGraph: { url: "/affiliate-disclosure" },
+  // openGraph is REPLACED, not merged, so a partial object here would delete the
+  // root layout's og:title, og:description, og:image, og:type and og:site_name.
+  openGraph: {
+    title: OG_TITLE,
+    description: OG_DESC,
+    url: "/affiliate-disclosure",
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESC,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function AffiliateDisclosurePage() {
@@ -35,7 +54,7 @@ export default function AffiliateDisclosurePage() {
       </nav>
 
       <header className="mt-6">
-        <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
           Affiliate disclosure
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed">

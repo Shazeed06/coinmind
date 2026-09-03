@@ -50,7 +50,7 @@ export default function HraCalculator() {
   return (
     <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6">
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
-        <h2 className="font-display text-xl font-600 text-ink">Salary &amp; rent</h2>
+        <h2 className="font-display text-xl text-ink">Salary &amp; rent</h2>
 
         <div className="mt-5">
           <p className="text-sm font-medium text-ink-soft mb-2.5">City type</p>

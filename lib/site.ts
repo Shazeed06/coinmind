@@ -60,6 +60,123 @@ export const primaryNav: NavItem[] = [
   { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant", group: "AI" },
 ];
 
+/**
+ * Header navigation, grouped into a small number of top-level menus.
+ *
+ * The previous flat bar rendered all six primaryNav links plus their group
+ * captions inline, so the header showed nine competing elements and the
+ * captions read like links. Four menus with a panel each keeps the bar quiet
+ * and gives every section room to show its most-wanted destinations.
+ *
+ * `href` on a menu is the section landing page: the trigger stays a real link
+ * so the section is reachable without opening the panel.
+ */
+export type NavMenu = {
+  label: string;
+  href: string;
+  /** Shown at the top of the panel to frame what the section covers. */
+  blurb: string;
+  columns: { heading?: string; items: NavItem[] }[];
+  /** Optional link rendered as the panel's closing action. */
+  footer?: NavItem;
+};
+
+export const navMenus: NavMenu[] = [
+  {
+    label: "Calculators",
+    href: "/calculators",
+    blurb: "Free, private and instant. Every calculator runs in your browser.",
+    columns: [
+      {
+        heading: "Most used",
+        items: [
+          { label: "SIP Calculator", href: "/calculators/sip", desc: "Monthly mutual fund returns" },
+          { label: "EMI Calculator", href: "/calculators/emi", desc: "Home, car and personal loans" },
+          { label: "Income Tax Calculator", href: "/calculators/income-tax", desc: "New vs old regime" },
+        ],
+      },
+      {
+        heading: "Savings and retirement",
+        items: [
+          { label: "FD Calculator", href: "/calculators/fd", desc: "Maturity and interest" },
+          { label: "PPF Calculator", href: "/calculators/ppf", desc: "Tax-free corpus" },
+          { label: "Retirement Calculator", href: "/calculators/retirement", desc: "How much you need" },
+        ],
+      },
+    ],
+    footer: { label: "Browse all calculators", href: "/calculators" },
+  },
+  {
+    label: "Learn",
+    href: "/blog",
+    blurb: "Plain-English money and AI explainers, written for Indian readers.",
+    columns: [
+      {
+        items: [
+          { label: "Guides", href: "/blog", desc: "How-to articles and comparisons" },
+          { label: "Glossary", href: "/glossary", desc: "Finance and AI terms explained" },
+          { label: "News", href: "/news", desc: "What changed and why it matters" },
+        ],
+      },
+      {
+        heading: "Popular topics",
+        items: [
+          { label: "Investing", href: "/investing", desc: "Where to put your money" },
+          { label: "Income Tax", href: "/income-tax", desc: "Regimes, deductions, filing" },
+          { label: "Credit Score", href: "/credit-score", desc: "Check and improve your CIBIL" },
+        ],
+      },
+    ],
+    footer: { label: "Read the latest guides", href: "/blog" },
+  },
+  {
+    label: "Tools",
+    href: "/tools",
+    blurb: "Everyday utilities that work offline in your browser. Nothing is uploaded.",
+    columns: [
+      {
+        heading: "Documents",
+        items: [
+          { label: "Merge PDF", href: "/tools/merge-pdf", desc: "Join files into one" },
+          { label: "Image to PDF", href: "/tools/image-to-pdf", desc: "Photos into a document" },
+          { label: "Invoice Generator", href: "/tools/invoice-generator", desc: "Professional invoices" },
+        ],
+      },
+      {
+        heading: "Everyday",
+        items: [
+          { label: "Resume Builder", href: "/resume-builder", desc: "ATS-friendly resume" },
+          { label: "Compress Image", href: "/tools/compress-image", desc: "Smaller files, same quality" },
+          { label: "Budget Planner", href: "/tools/budget-planner", desc: "Track income and spending" },
+        ],
+      },
+    ],
+    footer: { label: "Browse all free tools", href: "/tools" },
+  },
+  {
+    label: "AI",
+    href: "/ai-tools",
+    blurb: "Hands-on reviews of the AI tools worth your time, plus a free assistant.",
+    columns: [
+      {
+        items: [
+          { label: "AI Tool Reviews", href: "/ai-tools", desc: "Pricing, pros and cons" },
+          { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant" },
+        ],
+      },
+      {
+        heading: "Popular reviews",
+        items: [
+          { label: "ChatGPT", href: "/ai-tools/chatgpt", desc: "The default first stop" },
+          { label: "Gemini", href: "/ai-tools/gemini", desc: "Best Indic language support" },
+          { label: "DeepSeek", href: "/ai-tools/deepseek", desc: "Frontier quality, free" },
+        ],
+      },
+    ],
+    footer: { label: "Compare all AI tools", href: "/ai-tools" },
+  },
+];
+
 export const footerNav: { title: string; items: NavItem[] }[] = [
   {
     title: "Calculators",

@@ -177,7 +177,7 @@ export default function CharacterCounter() {
 
       {/* Limit meters */}
       <div className="rounded-2xl border border-line bg-card p-6">
-        <h2 className="font-display text-lg font-600 text-ink">Platform limits</h2>
+        <h2 className="font-display text-lg text-ink">Platform limits</h2>
         <p className="mt-1 text-sm text-ink-faint">
           Live used / remaining counts against common character limits.
         </p>

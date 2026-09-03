@@ -1094,7 +1094,7 @@ export const posts: Post[] = [
     slug: "ai-hallucinations-explained",
     title: "AI Hallucinations Explained: Why AI Makes Things Up and How to Spot Fake Information",
     excerpt:
-      "AI confidently told someone that the Taj Mahal was built in 1632 - wrong year. It cited a research paper that does not exist. Here is why AI hallucinates, the 5 types of hallucination, and how to catch them before you share them.",
+      "AI confidently told someone the Taj Mahal was completed in 1632. It was 1653. It also cited a research paper that does not exist. Here is why AI hallucinates, the 5 types of hallucination, and how to catch them before you share them.",
     category: "AI Tools",
     readMinutes: 8,
     date: "Aug 3, 2026",

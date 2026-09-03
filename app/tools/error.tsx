@@ -10,7 +10,7 @@ export default function Error({
   return (
     <div className="mx-auto max-w-xl px-4 py-20 text-center">
       <div className="text-6xl mb-4">!</div>
-      <h1 className="font-display text-2xl font-600 text-ink mb-2">
+      <h1 className="font-display text-2xl text-ink mb-2">
         Something went wrong
       </h1>
       <p className="text-ink-soft mb-6">

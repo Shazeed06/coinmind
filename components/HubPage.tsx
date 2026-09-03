@@ -19,17 +19,24 @@ export function HubSection({ title, links, columns = 3 }: HubSectionDef) {
     4: "sm:grid-cols-2 lg:grid-cols-4",
   };
   return (
-    <section className="mb-10 sm:mb-12">
-      <h2 className="font-display text-xl sm:text-2xl font-600 text-ink mb-4">{title}</h2>
-      <div className={`grid gap-3 ${gridCols[columns]}`}>
+    // 56px between link groups, up from 40/48. These sections have no
+    // background change to separate them, so the gap is the only thing telling
+    // the reader where one group ends, and it has to beat the 20px gap between
+    // a group heading and its own cards by a clear margin.
+    <section className="mb-12 sm:mb-14">
+      <h2 className="font-display text-xl sm:text-2xl text-ink mb-5">{title}</h2>
+      {/* gap-4, and cards laid out as columns: a link whose desc is empty or
+          short no longer leaves its title floating against the top of a card
+          stretched to match a two-line neighbour. */}
+      <div className={`grid gap-4 ${gridCols[columns]}`}>
         {links.map((l) => (
           <Link
             key={l.href}
             href={l.href}
-            className="block rounded-xl border border-line p-4 hover:border-forest/40 hover:bg-forest-soft/30 transition-colors"
+            className="flex flex-col rounded-xl border border-line p-4 hover:border-forest/40 hover:bg-forest-soft/30 transition-colors"
           >
             <h3 className="font-semibold text-ink leading-snug">{l.title}</h3>
-            {l.desc && <p className="mt-1 text-sm text-ink-soft line-clamp-2">{l.desc}</p>}
+            {l.desc && <p className="mt-1.5 text-sm text-ink-soft line-clamp-2">{l.desc}</p>}
           </Link>
         ))}
       </div>
@@ -56,11 +63,22 @@ const bodyProse = [
   "[&>*:first-child]:mt-0",
   "[&_h2]:font-display [&_h2]:text-xl sm:[&_h2]:text-2xl [&_h2]:font-600 [&_h2]:text-ink [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:leading-snug",
   "[&_h3]:font-display [&_h3]:text-base sm:[&_h3]:text-lg [&_h3]:font-600 [&_h3]:text-ink [&_h3]:mt-6 [&_h3]:mb-2",
-  "[&_p]:text-ink-soft [&_p]:leading-relaxed [&_p]:mb-4",
-  "[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_ul]:space-y-1.5 [&_ul]:text-ink-soft",
-  "[&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-4 [&_ol]:space-y-1.5 [&_ol]:text-ink-soft",
+  // The body column is max-w-3xl so its tables have room, but at 768px a
+  // paragraph runs about 98 characters per line. Capping the running text at
+  // 600px brings it to roughly 75 while leaving tables and headings full width.
+  "[&_p]:text-ink-soft [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:max-w-[600px]",
+  "[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_ul]:space-y-1.5 [&_ul]:text-ink-soft [&_ul]:max-w-[600px]",
+  "[&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-4 [&_ol]:space-y-1.5 [&_ol]:text-ink-soft [&_ol]:max-w-[600px]",
   "[&_li]:leading-relaxed",
+  // <ArticleMarkdown/> wraps every table in .table-scroll, but the rule that
+  // makes that wrapper scroll lives at `.article-body .table-scroll`, and this
+  // column is not .article-body. So the 560px min-width below had nothing to
+  // scroll inside and pushed the whole document to 576px at a 375px viewport:
+  // the entire page scrolled sideways. The wrapper now carries its own
+  // overflow, and the table keeps its min-width and scrolls within it.
+  "[&_.table-scroll]:my-6 [&_.table-scroll]:overflow-x-auto [&_.table-scroll]:rounded-xl [&_.table-scroll]:border [&_.table-scroll]:border-line",
   "[&_table]:w-full [&_table]:min-w-[560px] [&_table]:border-collapse [&_table]:text-sm [&_table]:my-6",
+  "[&_.table-scroll_table]:my-0",
   "[&_th]:border-b [&_th]:border-line [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold [&_th]:text-ink [&_th]:align-bottom",
   "[&_td]:border-b [&_td]:border-line [&_td]:px-3 [&_td]:py-2 [&_td]:text-ink-soft [&_td]:align-top",
   "[&_strong]:text-ink [&_strong]:font-semibold",
@@ -91,18 +109,22 @@ export default function HubPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
-      <header className="max-w-3xl mb-12">
+      {/* 64px below the header, matching the gap this page uses between its
+          other major blocks. The two lead paragraphs are capped at 600px (~75
+          characters) instead of running the full 768px column, which read as
+          ~98 characters per line on a desktop screen. */}
+      <header className="max-w-3xl mb-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           {badge}
         </span>
-        <h1 className="mt-4 font-display text-3xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-3xl sm:text-5xl text-ink leading-[1.05]">
           {title}
         </h1>
-        <p className="mt-4 text-base sm:text-lg text-ink-soft leading-relaxed">
+        <p className="mt-4 max-w-[600px] text-base sm:text-lg text-ink-soft leading-relaxed">
           {description}
         </p>
         {intro && (
-          <p className="mt-4 text-sm sm:text-base text-ink-soft leading-relaxed">
+          <p className="mt-4 max-w-[600px] text-sm sm:text-base text-ink-soft leading-relaxed">
             {intro}
           </p>
         )}
@@ -112,8 +134,13 @@ export default function HubPage({
         <HubSection key={s.title} {...s} />
       ))}
 
+      {/* The three trailing blocks each open with a rule, but they used to set
+          their own space around it: mt-2/pt-8, pt-8 with no top margin, and
+          mt-8/pt-8. Rules landed at three different distances from the content
+          above them. They now share one measure, 48px of air above the rule and
+          40px below it, so the page closes on a steady beat. */}
       {bodyMarkdown && (
-        <section className="border-t border-line pt-8 mt-2 mb-10 sm:mb-12">
+        <section className="mt-12 border-t border-line pt-10">
           <div className={`max-w-3xl ${bodyProse}`}>
             <ArticleMarkdown markdown={bodyMarkdown} />
           </div>
@@ -121,15 +148,17 @@ export default function HubPage({
       )}
 
       {faqs && faqs.length > 0 && (
-        <section className="border-t border-line pt-8 mb-10 sm:mb-12">
-          <h2 className="font-display text-xl sm:text-2xl font-600 text-ink mb-4">
+        <section className="mt-12 border-t border-line pt-10">
+          <h2 className="font-display text-xl sm:text-2xl text-ink mb-5">
             Frequently Asked Questions
           </h2>
-          <div className="grid gap-3 max-w-3xl">
+          {/* gap-4 and a 600px answer measure: at gap-3 the stacked cards read
+              as one block rather than as separate questions. */}
+          <div className="grid gap-4 max-w-3xl">
             {faqs.map((f) => (
               <div key={f.q} className="rounded-xl border border-line bg-card p-4 sm:p-5">
                 <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
-                <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
+                <p className="mt-2 max-w-[600px] text-sm text-ink-soft leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>
@@ -137,8 +166,8 @@ export default function HubPage({
       )}
 
       {relatedHubs && relatedHubs.length > 0 && (
-        <section className="border-t border-line pt-8 mt-8">
-          <h2 className="font-display text-xl font-600 text-ink mb-4">Related Topics</h2>
+        <section className="mt-12 border-t border-line pt-10">
+          <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
           <div className="flex flex-wrap gap-3">
             {relatedHubs.map((r) => (
               <Link

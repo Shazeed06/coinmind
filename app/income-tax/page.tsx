@@ -1,6 +1,26 @@
 import type { Metadata } from "next";
 import HubPage from "@/components/HubPage";
 import { site } from "@/lib/site";
+import { TAX_SALARIES, salarySlug, salaryLabel } from "@/lib/pseo-tax";
+
+// Driven straight off TAX_SALARIES so the hub can never link a subset of the
+// generated pages again. Every slug in generateStaticParams gets a card here.
+const salaryLinks = TAX_SALARIES.map((s) => {
+  const label = salaryLabel(s);
+  // ₹12L is the Section 87A rebate threshold and the most-searched page in the
+  // set, so it gets a description that answers the query rather than a template.
+  const desc =
+    s === 1200000
+      ? "Zero tax at ₹12 lakh: how the Section 87A rebate wipes out the liability"
+      : s > 5000000
+        ? `Tax on a ₹${label} salary including surcharge, cess and the full slab breakdown`
+        : `Tax on a ₹${label} salary under both regimes, with the full slab breakdown`;
+  return {
+    title: `₹${label} Salary Tax`,
+    href: `/income-tax/${salarySlug(s)}`,
+    desc,
+  };
+});
 
 export const metadata: Metadata = {
   title: { absolute: "Income Tax India Guide - New vs Old Regime, Deductions & Filing" },
@@ -32,15 +52,12 @@ export default function Page() {
           columns: 2,
           links: [
             { title: "Old vs New Tax Regime", href: "/tax-regime-break-even", desc: "Find the exact deduction amount where the old regime beats the new one." },
-            { title: "₹6 Lakh Salary Tax", href: "/income-tax/6-lakh", desc: "Tax on ₹6 lakh salary under both regimes" },
-            { title: "₹10 Lakh Salary Tax", href: "/income-tax/10-lakh", desc: "Tax on ₹10 lakh salary under both regimes" },
-            { title: "₹15 Lakh Salary Tax", href: "/income-tax/15-lakh", desc: "Tax on ₹15 lakh salary under both regimes" },
-            { title: "₹20 Lakh Salary Tax", href: "/income-tax/20-lakh", desc: "Tax on ₹20 lakh salary under both regimes" },
-            { title: "₹25 Lakh Salary Tax", href: "/income-tax/25-lakh", desc: "Tax on ₹25 lakh salary under both regimes" },
-            { title: "₹30 Lakh Salary Tax", href: "/income-tax/30-lakh", desc: "Tax on ₹30 lakh salary under both regimes" },
-            { title: "₹50 Lakh Salary Tax", href: "/income-tax/50-lakh", desc: "Tax on ₹50 lakh salary under both regimes" },
-            { title: "₹1 Crore Salary Tax", href: "/income-tax/1-crore", desc: "Tax on ₹1 crore salary under both regimes" },
           ],
+        },
+        {
+          title: "Income Tax by Salary",
+          columns: 3,
+          links: salaryLinks,
         },
         {
           title: "Tax-Saving Investments",

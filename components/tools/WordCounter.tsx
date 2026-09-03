@@ -184,7 +184,7 @@ export default function WordCounter() {
       {/* Top keywords */}
       {stats.keywords.length > 0 && (
         <div className="rounded-2xl border border-line bg-card p-6">
-          <h2 className="font-display text-lg font-600 text-ink">
+          <h2 className="font-display text-lg text-ink">
             Top keywords
           </h2>
           <p className="mt-1 text-sm text-ink-faint">

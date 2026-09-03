@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: "How do I turn a data URI back into an image?",
-    a: "Paste the full data:image URI into your browser's address bar and press Enter to view it, then right-click and choose Save image to write it back to a file. Any Base64 decoder will also convert it back to the original bytes.",
+    a: "Paste the full data:image URI into your browser's address bar and press Enter to view it, then right-click (or long-press on a phone) and choose Save image to write it back to a file. Any Base64 decoder will also convert it back to the original bytes.",
   },
   {
     q: "Which image formats can I encode, and is there a size limit?",
@@ -118,7 +118,7 @@ export default function Page() {
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           Free browser tool
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           Image to Base64
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
@@ -204,7 +204,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -224,7 +224,7 @@ export default function Page() {
 
       {/* Cross-link */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           More free tools
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -232,7 +232,7 @@ export default function Page() {
             href="/tools/compress-image"
             className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
           >
-            <h3 className="font-display text-lg font-600 text-ink">
+            <h3 className="font-display text-lg text-ink">
               Compress Image
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
@@ -246,7 +246,7 @@ export default function Page() {
             href="/tools"
             className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
           >
-            <h3 className="font-display text-lg font-600 text-ink">
+            <h3 className="font-display text-lg text-ink">
               All tools
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">

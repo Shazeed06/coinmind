@@ -171,7 +171,7 @@ export default function MergePdf() {
           Drop PDF files here
         </p>
         <p className="mt-1.5 text-sm text-ink-soft">
-          or click to browse. Add two or more to combine them.
+          or click or tap to browse. Add two or more to combine them.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
           Files never leave your device. Everything runs in your browser.
@@ -193,7 +193,7 @@ export default function MergePdf() {
       {items.length > 0 && (
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               {items.length} PDF{items.length > 1 ? "s" : ""}
               <span className="ml-2 text-sm font-normal text-ink-faint">
                 {totalPages} page{totalPages > 1 ? "s" : ""} total

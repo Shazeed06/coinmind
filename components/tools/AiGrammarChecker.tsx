@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { IconSparkle, IconCheck } from "@/components/icons";
 
 /* ------------------------------------------------------------------ */
@@ -22,6 +22,15 @@ export default function AiGrammarChecker() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+
+  // Show the modifier key this visitor actually has. Detected after mount so the
+  // server and client render the same markup on the first pass.
+  const [modifierKey, setModifierKey] = useState("Ctrl");
+  useEffect(() => {
+    if (/Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent)) {
+      setModifierKey("Cmd");
+    }
+  }, []);
 
   const chars = text.length;
   const empty = text.trim().length === 0;
@@ -159,7 +168,7 @@ export default function AiGrammarChecker() {
             Clear
           </button>
           <span className="ml-auto hidden text-xs text-ink-faint sm:inline">
-            Tip: press Ctrl/Cmd + Enter to check
+            Tip: press {modifierKey} + Enter to check
           </span>
         </div>
       </div>
@@ -178,7 +187,7 @@ export default function AiGrammarChecker() {
       {result && (
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Corrected text
             </h2>
             <button

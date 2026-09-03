@@ -132,6 +132,38 @@ const BLANK: InvoiceData = {
   notes: "",
 };
 
+// Every field below is bound to a controlled input, so a null or a number
+// surviving out of localStorage would flip that input to uncontrolled and make
+// React complain. Coerce each value back to a string before it reaches state.
+const str = (v: unknown, fallback = ""): string =>
+  typeof v === "string" ? v : v == null ? fallback : String(v);
+
+function fromStorage(parsed: Partial<InvoiceData>): InvoiceData {
+  const items = Array.isArray(parsed.items) ? parsed.items : [];
+  return {
+    bizName: str(parsed.bizName),
+    bizEmail: str(parsed.bizEmail),
+    bizAddress: str(parsed.bizAddress),
+    logoText: str(parsed.logoText),
+    clientName: str(parsed.clientName),
+    clientAddress: str(parsed.clientAddress),
+    invoiceNumber: str(parsed.invoiceNumber, BLANK.invoiceNumber),
+    invoiceDate: str(parsed.invoiceDate),
+    dueDate: str(parsed.dueDate),
+    currency: currencyOf(str(parsed.currency)).code,
+    items: items.length
+      ? items.map((it) => ({
+          id: str(it?.id) || uid(),
+          description: str(it?.description),
+          qty: str(it?.qty, "1"),
+          price: str(it?.price),
+        }))
+      : [emptyItem()],
+    taxPercent: str(parsed.taxPercent),
+    notes: str(parsed.notes),
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Small presentational helpers
 // ---------------------------------------------------------------------------
@@ -167,12 +199,7 @@ export default function InvoiceGenerator() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<InvoiceData>;
-        setData({
-          ...BLANK,
-          ...parsed,
-          items:
-            parsed.items && parsed.items.length ? parsed.items : [emptyItem()],
-        });
+        setData(fromStorage(parsed));
       } else {
         setData(SAMPLE);
       }
@@ -300,7 +327,7 @@ export default function InvoiceGenerator() {
         <div className="no-print space-y-6">
           {/* Your business */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Your business
             </h2>
             <div className="mt-5 grid gap-4">
@@ -345,7 +372,7 @@ export default function InvoiceGenerator() {
 
           {/* Bill to */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg font-600 text-ink">Bill to</h2>
+            <h2 className="font-display text-lg text-ink">Bill to</h2>
             <div className="mt-5 grid gap-4">
               <Labeled label="Client name">
                 <input
@@ -369,7 +396,7 @@ export default function InvoiceGenerator() {
 
           {/* Invoice details */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Invoice details
             </h2>
             <div className="mt-5 grid gap-4">
@@ -420,7 +447,7 @@ export default function InvoiceGenerator() {
           {/* Line items */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between">
-              <h2 className="font-display text-lg font-600 text-ink">
+              <h2 className="font-display text-lg text-ink">
                 Line items
               </h2>
               <button
@@ -517,7 +544,7 @@ export default function InvoiceGenerator() {
 
           {/* Notes / terms */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               Notes &amp; terms
             </h2>
             <p className="mt-1 text-sm text-ink-faint">

@@ -226,7 +226,7 @@ export default function ImageToPdf() {
           Drop JPG or PNG images here
         </p>
         <p className="mt-1.5 text-sm text-ink-soft">
-          or click to browse. You can add several at once.
+          or click or tap to browse. You can add several at once.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
           Files never leave your device. Everything runs in your browser.
@@ -249,7 +249,7 @@ export default function ImageToPdf() {
       {items.length > 0 && (
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               {items.length} image{items.length > 1 ? "s" : ""}
             </h2>
             <button

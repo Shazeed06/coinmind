@@ -5,7 +5,7 @@ import { useState, useMemo } from "react";
 import { site } from "@/lib/site";
 import { GLOSSARY, GLOSSARY_CATEGORIES } from "@/lib/glossary";
 import { Search, ArrowRight } from "lucide-react";
-import { Pill, Breadcrumb } from "@/components/ui";
+import { Pill, Breadcrumb, EmptyState } from "@/components/ui";
 
 const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
@@ -62,10 +62,12 @@ export default function Page() {
               className="w-full h-10 pl-10 pr-4 rounded-input border border-border text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
             />
           </div>
-          <div className="flex items-center gap-1 overflow-x-auto pb-1">
+          <div role="group" aria-label="Filter terms by first letter" className="flex items-center gap-1 overflow-x-auto pb-1">
             {ALPHABETS.map((l) => (
               <button
                 key={l}
+                type="button"
+                aria-pressed={activeLetter === l}
                 onClick={() => { setActiveLetter(activeLetter === l ? "" : l); setSearch(""); }}
                 className={`w-8 h-8 shrink-0 rounded-input text-xs font-medium transition-colors ${
                   activeLetter === l ? "bg-brand text-white" : "text-text-muted hover:text-brand hover:bg-brand/10"
@@ -75,7 +77,7 @@ export default function Page() {
               </button>
             ))}
             {activeLetter && (
-              <button onClick={() => setActiveLetter("")} className="text-xs text-text-muted hover:text-brand ml-2">Clear</button>
+              <button type="button" onClick={() => setActiveLetter("")} className="text-xs text-text-muted hover:text-brand ml-2">Clear</button>
             )}
           </div>
         </div>
@@ -83,6 +85,12 @@ export default function Page() {
 
       <section className="section-pad bg-bg-alt">
         <div className="container-main space-y-16">
+          {grouped.size === 0 && (
+            <EmptyState
+              message="No glossary terms match your search."
+              onClear={() => { setSearch(""); setActiveLetter(""); }}
+            />
+          )}
           {[...grouped.entries()].map(([cat, items]) => (
             <section key={cat}>
               <h2 className="h3 text-text mb-6">{cat}</h2>

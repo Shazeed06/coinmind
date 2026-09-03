@@ -188,7 +188,7 @@ export default function SplitPdf() {
           Drop a PDF file here
         </p>
         <p className="mt-1.5 text-sm text-ink-soft">
-          or click to browse. Extract a page range or split every page.
+          or click or tap to browse. Extract a page range or split every page.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
           Files never leave your device. Everything runs in your browser.
@@ -210,7 +210,7 @@ export default function SplitPdf() {
       {loaded && (
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               <span className="truncate" title={loaded.name}>
                 {loaded.name}
               </span>

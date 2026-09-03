@@ -16,7 +16,7 @@ export const metadata = calcMeta("fd", CALC.title + " - Fixed Deposit Maturity &
 function FdByAmount() {
   return (
     <div className="max-w-3xl">
-      <h2 className="font-display text-2xl font-600 text-ink">
+      <h2 className="font-display text-2xl text-ink">
         FD maturity by deposit amount
       </h2>
       <p className="mt-3 text-ink-soft leading-relaxed">

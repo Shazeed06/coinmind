@@ -1,28 +1,49 @@
 "use client";
 
 import { useState } from "react";
-import { Section, SectionHeader } from "@/components/ui";
+import { Section } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { ChevronDown } from "lucide-react";
 import { FAQS } from "@/lib/faqs";
+
+// Number of FAQs shown before the reader clicks "Show all".
+const PREVIEW_COUNT = 5;
 
 export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
   const [showAll, setShowAll] = useState(false);
-  const visible = showAll ? FAQS : FAQS.slice(0, 5);
 
+  // Every FAQ is rendered into the DOM, always. The homepage emits a FAQPage
+  // with all of FAQS in it, and Google requires each declared Q and A to have an
+  // on-page counterpart in the served HTML. Collapsing the extras with CSS is
+  // fine; slicing them out of the array (which is what this used to do) left
+  // three structured-data entries with nothing behind them.
   return (
     <Section variant="alt">
-      <SectionHeader eyebrow="FAQ" title="Frequently Asked Questions" />
+      <SectionIntro eyebrow="FAQ" title="Frequently Asked Questions" />
       <div className="max-w-[760px] mx-auto" role="region" aria-label="Frequently asked questions">
-        {visible.map((faq, i) => {
+        {FAQS.map((faq, i) => {
           const isOpen = open === i;
           const id = `faq-${i}`;
           const panelId = `faq-panel-${i}`;
+          // Collapsed visually (height and opacity), never unmounted, so the
+          // text stays in the served HTML. Collapsed rows are also taken out of
+          // the tab order, since an invisible focusable button is a trap.
+          const collapsed = i >= PREVIEW_COUNT && !showAll;
           return (
-            <div key={i} className="border-b border-border first:border-t">
+            <div
+              key={i}
+              className={`border-border first:border-t transition-all duration-200 ${
+                collapsed
+                  ? "max-h-0 overflow-hidden opacity-0 pointer-events-none"
+                  : "border-b"
+              }`}
+              aria-hidden={collapsed}
+            >
               <button
                 id={id}
                 onClick={() => setOpen(isOpen ? null : i)}
+                tabIndex={collapsed ? -1 : undefined}
                 className="flex items-center justify-between w-full py-5 px-0 text-left text-base font-medium text-text"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
@@ -44,7 +65,7 @@ export default function FaqSection() {
           );
         })}
 
-        {!showAll && FAQS.length > 5 && (
+        {!showAll && FAQS.length > PREVIEW_COUNT && (
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAll(true)}

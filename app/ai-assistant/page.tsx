@@ -122,7 +122,7 @@ export default function Page() {
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconSparkle className="h-3.5 w-3.5" /> Free AI Assistant
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           Your free AI money assistant
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed max-w-xl mx-auto">
@@ -139,7 +139,7 @@ export default function Page() {
       <AiMoneyChat />
 
       <section className="mt-14 max-w-3xl mx-auto">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           What can it help with?
         </h2>
         <div className="mt-4 grid sm:grid-cols-2 gap-3 text-sm text-ink-soft">
@@ -158,13 +158,13 @@ export default function Page() {
       </section>
 
       <section className="mt-14 max-w-3xl mx-auto">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Questions people ask about this assistant
         </h2>
         <div className="mt-5 space-y-4">
           {FAQS.map((f) => (
             <div key={f.q} className="rounded-xl border border-line bg-card p-5">
-              <h3 className="text-base font-600 text-ink">{f.q}</h3>
+              <h3 className="text-base text-ink">{f.q}</h3>
               <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
             </div>
           ))}
@@ -172,7 +172,7 @@ export default function Page() {
       </section>
 
       <section className="mt-12 max-w-3xl mx-auto rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
-        <h2 className="font-display text-lg font-600 text-ink">
+        <h2 className="font-display text-lg text-ink">
           Prefer to run the numbers yourself?
         </h2>
         <p className="mt-2 leading-relaxed">

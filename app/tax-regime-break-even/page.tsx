@@ -125,7 +125,7 @@ export default function Page() {
           <IconCalculator className="h-3.5 w-3.5" /> FY 2026-27 · Computed, not
           estimated
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           Old vs New Tax Regime: The Exact Break-Even
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
@@ -151,7 +151,7 @@ export default function Page() {
 
       {/* The grid */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           The break-even grid
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -210,7 +210,7 @@ export default function Page() {
 
       {/* The two findings */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Two things the grid shows that nobody mentions
         </h2>
 
@@ -253,7 +253,7 @@ export default function Page() {
 
       {/* Methodology */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Methodology and assumptions
         </h2>
         <div className="mt-3 space-y-4 text-ink-soft leading-relaxed">
@@ -319,7 +319,7 @@ export default function Page() {
       </section>
 
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Use this data
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
@@ -333,7 +333,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">

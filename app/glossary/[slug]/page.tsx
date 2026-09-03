@@ -136,7 +136,7 @@ export default async function Page({
         </span>
         {/* The H1 mirrors the query ("what is X") rather than the bare term.
             These pages exist to answer a definition search, not to label one. */}
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           What Is {term.term}? Meaning &amp; Example
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
@@ -163,7 +163,7 @@ export default async function Page({
       {/* FAQs: visible Q&A, mirrored into the FAQPage JSON-LD above */}
       {term.faq && term.faq.length > 0 && (
         <section className="mt-12">
-          <h2 className="font-display text-2xl font-600 text-ink">
+          <h2 className="font-display text-2xl text-ink">
             {term.term} FAQs
           </h2>
           <p className="mt-2 text-ink-soft">
@@ -173,7 +173,7 @@ export default async function Page({
           <div className="mt-5 space-y-3">
             {term.faq.map((f) => (
               <div key={f.q} className="rounded-2xl border border-line bg-card p-5">
-                <h3 className="font-display text-base font-600 text-ink">
+                <h3 className="font-display text-base text-ink">
                   {f.q}
                 </h3>
                 <p className="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
@@ -187,7 +187,7 @@ export default async function Page({
       {term.relatedHref && (
         <section className="mt-10 rounded-2xl border border-line bg-forest-soft p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h2 className="font-display text-xl font-600 text-ink">
+            <h2 className="font-display text-xl text-ink">
               Put {term.term} into practice
             </h2>
             <p className="mt-1 text-sm text-ink-soft">
@@ -206,7 +206,7 @@ export default async function Page({
       {/* Related terms */}
       {relatedTerms.length > 0 && (
         <section className="mt-12">
-          <h2 className="font-display text-2xl font-600 text-ink">
+          <h2 className="font-display text-2xl text-ink">
             Related terms
           </h2>
           <div className="mt-5 flex flex-wrap gap-2.5">
@@ -227,7 +227,7 @@ export default async function Page({
       {/* Back to full glossary */}
       <section className="mt-12 rounded-2xl border border-line bg-paper-2 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="font-display text-xl font-600 text-ink">
+          <h2 className="font-display text-xl text-ink">
             Browse the full glossary
           </h2>
           <p className="mt-1 text-sm text-ink-soft">

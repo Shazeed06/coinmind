@@ -169,7 +169,7 @@ export default function OrganizePdf() {
           Drop a PDF file here
         </p>
         <p className="mt-1.5 text-sm text-ink-soft">
-          or click to browse. Reorder pages and remove the ones you don&apos;t
+          or click or tap to browse. Reorder pages and remove the ones you don&apos;t
           need.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
@@ -192,7 +192,7 @@ export default function OrganizePdf() {
       {loaded && pages.length > 0 && (
         <div className="rounded-2xl border border-line bg-card p-6">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="font-display text-lg font-600 text-ink">
+            <h2 className="font-display text-lg text-ink">
               <span className="truncate" title={loaded.name}>
                 {loaded.name}
               </span>

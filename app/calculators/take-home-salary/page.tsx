@@ -94,7 +94,7 @@ export default function Page() {
       ]}
       extra={
         <div className="max-w-3xl">
-          <h2 className="font-display text-2xl font-600 text-ink">
+          <h2 className="font-display text-2xl text-ink">
             In-hand salary by CTC
           </h2>
           <p className="mt-3 text-ink-soft leading-relaxed">
@@ -114,7 +114,7 @@ export default function Page() {
             ))}
           </div>
 
-          <h2 className="mt-12 font-display text-2xl font-600 text-ink">
+          <h2 className="mt-12 text-2xl text-ink">
             Related salary &amp; tax tools
           </h2>
           <p className="mt-3 text-ink-soft leading-relaxed">

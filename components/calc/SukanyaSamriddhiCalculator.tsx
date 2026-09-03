@@ -35,17 +35,19 @@ export default function SukanyaSamriddhiCalculator() {
     <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6">
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <h2 className="font-display text-xl font-600 text-ink">Account details</h2>
+          <h2 className="font-display text-xl text-ink">Account details</h2>
           <CurrencyToggle value={currency} onChange={setCurrency} />
         </div>
         <div className="mt-6 space-y-7">
+          {/* Step must divide (max - min), or the slider stops short of the
+              1.5 lakh cap: at 1000 it capped out at 149,250. */}
           <Field
             label="Yearly deposit"
             value={yearly}
             onChange={setYearly}
             min={250}
             max={150000}
-            step={1000}
+            step={250}
             prefix={sym}
             hint="SSY allows ₹250 to ₹1.5 lakh per financial year."
           />

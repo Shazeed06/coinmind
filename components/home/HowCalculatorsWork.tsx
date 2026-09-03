@@ -1,4 +1,5 @@
-import { Section, SectionHeader } from "@/components/ui";
+import { Section } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { Search, Calculator, BarChart3, CheckCircle } from "lucide-react";
 
 const STEPS = [
@@ -11,14 +12,18 @@ const STEPS = [
 export default function HowCalculatorsWork() {
   return (
     <Section variant="alt">
-      <SectionHeader
+      <SectionIntro
         eyebrow="How It Works"
         title="How Our Calculators Work"
         subline="From entering your numbers to actionable insight, in seconds."
       />
       <div className="relative">
-        <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-border" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* The step circles are 48px tall and start at y=0, so their centres sit
+            at y=24. The connector was pinned at top-12 (48px), which drew it
+            along the bottom edge of the circles instead of through them.
+            -mt-px re-centres the 2px rule on the 24px axis. */}
+        <div className="hidden lg:block absolute top-6 -mt-px left-[12.5%] right-[12.5%] border-t-2 border-dashed border-border" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-8 items-start">
           {STEPS.map((s, i) => (
             <div key={s.step} className="relative text-center">
               <div className="w-12 h-12 rounded-full bg-brand text-white flex items-center justify-center text-lg font-bold mx-auto relative z-10">

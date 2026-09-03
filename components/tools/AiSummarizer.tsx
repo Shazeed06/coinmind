@@ -182,7 +182,7 @@ export default function AiSummarizer() {
       {(loading || result) && (
         <div className="rounded-2xl border border-line bg-paper-2 p-6">
           <div className="flex items-center justify-between gap-3">
-            <h2 className="font-display text-lg font-600 text-ink">Summary</h2>
+            <h2 className="font-display text-lg text-ink">Summary</h2>
             {result && !loading && (
               <button
                 type="button"

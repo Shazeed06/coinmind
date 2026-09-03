@@ -41,7 +41,7 @@ export default function Page() {
         <span className="inline-flex items-center gap-2 rounded-full bg-brass-soft px-3 py-1.5 text-xs font-semibold text-brass">
           <IconSparkle className="h-3.5 w-3.5" /> AI Tools Directory
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           The most important AI tools, from the US, China & India
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed">
@@ -73,7 +73,7 @@ export default function Page() {
         return (
           <section key={r.key} id={r.key.toLowerCase()} className="mb-16 scroll-mt-24">
             <div className="border-b border-line pb-4">
-              <h2 className="font-display text-3xl font-600 text-ink flex items-center gap-3">
+              <h2 className="font-display text-3xl text-ink flex items-center gap-3">
                 <span aria-hidden>{r.flag}</span> {r.label}
               </h2>
               <p className="mt-2 text-ink-soft max-w-3xl">{r.note}</p>
@@ -87,7 +87,7 @@ export default function Page() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="font-display text-2xl font-600 text-ink">
+                      <h3 className="font-display text-2xl text-ink">
                         {t.name}
                       </h3>
                       <p className="text-sm font-medium text-ink-faint">
@@ -146,7 +146,7 @@ export default function Page() {
       })}
 
       <section className="mt-4 mb-4 max-w-3xl">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           How we rate AI tools
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">

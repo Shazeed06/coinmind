@@ -1,12 +1,31 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
+const OG_TITLE = "Disclaimer - Educational Information, Not Financial Advice";
+const OG_DESC =
+  "CoinMind provides educational information and free tools only, not financial, investment, tax or legal advice. Read our full disclaimer.";
+
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description:
-    "CoinMind provides educational information and free tools only, not financial, investment, tax or legal advice. Read our full disclaimer.",
+  description: OG_DESC,
   alternates: { canonical: "/disclaimer" },
-  openGraph: { url: "/disclaimer" },
+  // openGraph is REPLACED, not merged, so a partial object here would delete the
+  // root layout's og:title, og:description, og:image, og:type and og:site_name.
+  openGraph: {
+    title: OG_TITLE,
+    description: OG_DESC,
+    url: "/disclaimer",
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESC,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function Page() {
@@ -28,7 +47,7 @@ export default function Page() {
       />
 
       <header className="pt-14">
-        <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
           Disclaimer
         </h1>
         <p className="mt-3 text-sm text-ink-faint">Last updated: 14 July 2026</p>

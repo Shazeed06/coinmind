@@ -6,6 +6,7 @@ import { posts } from "@/lib/data";
 import { ArrowRight, Search } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
 import { Pill, EmptyState } from "@/components/ui";
+import { site } from "@/lib/site";
 
 const ALL_CATEGORIES = ["All", "Investing", "Tax", "Credit", "Personal Finance", "AI + Money", "AI Tools", "Productivity"] as const;
 const PER_PAGE = 12;
@@ -14,6 +15,18 @@ export default function Page() {
   const [activeCat, setActiveCat] = useState("All");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  // No newsletter backend yet, so the sign-up hands off to the reader's mail
+  // client the same way the contact form does. Swap for a real endpoint later.
+  const subscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent("Newsletter signup");
+    const body = encodeURIComponent(`Please add ${email} to the CoinMind newsletter.`);
+    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    setSubscribed(true);
+  };
 
   const [lead, ...rest] = posts;
 
@@ -31,10 +44,37 @@ export default function Page() {
   const paginated = filtered.slice(0, page * PER_PAGE);
   const hasMore = paginated.length < filtered.length;
 
+  // Count over the same list the grid filters (`rest`), not all posts. The lead
+  // post is pulled out above and never appears in the grid, so counting it here
+  // made every badge for its category one too high.
   const categoryCount = useMemo(() => {
     const map = new Map<string, number>();
-    posts.forEach((p) => map.set(p.category, (map.get(p.category) || 0) + 1));
+    posts.slice(1).forEach((p) => map.set(p.category, (map.get(p.category) || 0) + 1));
     return map;
+  }, []);
+
+  // Crawlable archive of every guide.
+  //
+  // The grid above is paginated in the browser, so the server-rendered HTML
+  // only ever carried the lead post plus the first PER_PAGE cards. The other
+  // 146 guides had no href a crawler (or a reader without JavaScript) could
+  // follow, and the category filter is button-driven, so they were reachable
+  // by sitemap alone.
+  //
+  // Rather than splitting this page into a server shell plus a client island,
+  // the archive is rendered unconditionally inside the same component. It is
+  // not tied to any piece of state, so it ships complete in the initial HTML
+  // while the grid, search, filters and "load more" keep working exactly as
+  // before. Groups come from the post data itself, not ALL_CATEGORIES, so
+  // categories missing from the filter row still get their links crawled.
+  const archive = useMemo(() => {
+    const groups = new Map<string, typeof posts>();
+    posts.forEach((p) => {
+      const list = groups.get(p.category);
+      if (list) list.push(p);
+      else groups.set(p.category, [p]);
+    });
+    return [...groups.entries()];
   }, []);
 
   return (
@@ -90,6 +130,8 @@ export default function Page() {
             {ALL_CATEGORIES.map((cat) => (
               <button
                 key={cat}
+                type="button"
+                aria-pressed={activeCat === cat}
                 onClick={() => { setActiveCat(cat); setPage(1); }}
                 className={`whitespace-nowrap rounded-pill px-3 py-1.5 text-sm font-medium transition-colors ${
                   activeCat === cat
@@ -134,6 +176,7 @@ export default function Page() {
               {hasMore && (
                 <div className="mt-12 text-center">
                   <button
+                    type="button"
                     onClick={() => setPage((p) => p + 1)}
                     className="inline-flex items-center gap-2 rounded-pill border border-border px-6 py-3 text-sm font-medium text-text hover:border-brand hover:text-brand transition-colors"
                   >
@@ -146,14 +189,62 @@ export default function Page() {
         </div>
       </section>
 
+      <section className="section-pad bg-white border-t border-border" aria-labelledby="all-guides">
+        <div className="container-main">
+          <h2 id="all-guides" className="text-xl font-bold text-text">All guides</h2>
+          <p className="text-sm text-text-muted mt-2 max-w-[640px]">
+            The complete index, grouped by topic. Every guide on the site is linked here.
+          </p>
+          <div className="mt-8 space-y-8">
+            {archive.map(([category, items]) => (
+              <div key={category}>
+                <h3 className="eyebrow text-brand">
+                  {category} <span className="text-text-muted">({items.length})</span>
+                </h3>
+                <ul className="mt-3 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {items.map((p) => (
+                    <li key={p.slug}>
+                      <Link
+                        href={`/blog/${p.slug}`}
+                        className="text-sm text-text-muted hover:text-brand transition-colors"
+                      >
+                        {p.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-pad bg-gradient-invert text-white text-center">
         <div className="container-main max-w-[640px]">
           <h2 className="text-2xl font-bold">Stay Updated</h2>
           <p className="text-white/60 mt-3 text-sm">Get the latest guides and money tips delivered to your inbox.</p>
-          <form className="mt-6 flex flex-col sm:flex-row gap-3 max-w-[480px] mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="your@email.com" className="flex-1 h-11 rounded-input px-4 text-sm text-text bg-white outline-none" />
-            <button type="submit" className="h-11 rounded-pill bg-white text-brand px-6 text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap">Subscribe</button>
-          </form>
+          {subscribed ? (
+            <p className="mt-6 text-sm text-white" role="status">
+              Your email app should have opened with the request. If it did not, write to{" "}
+              <span className="font-semibold">{site.email}</span> and we will add you.
+            </p>
+          ) : (
+            <form className="mt-6 flex flex-col sm:flex-row gap-3 max-w-[480px] mx-auto" onSubmit={subscribe}>
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+              <input
+                id="newsletter-email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                className="flex-1 h-11 rounded-input px-4 text-sm text-text bg-white outline-none"
+              />
+              <button type="submit" className="h-11 rounded-pill bg-white text-brand px-6 text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap">Subscribe</button>
+            </form>
+          )}
         </div>
       </section>
     </div>

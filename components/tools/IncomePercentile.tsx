@@ -189,7 +189,7 @@ export default function IncomePercentile() {
     <div className="grid lg:grid-cols-[1fr_0.9fr] gap-6">
       {/* Input card */}
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
-        <h2 className="font-display text-xl font-600 text-ink">Your income</h2>
+        <h2 className="font-display text-xl text-ink">Your income</h2>
 
         <div className="mt-5 space-y-6">
           {/* Country */}

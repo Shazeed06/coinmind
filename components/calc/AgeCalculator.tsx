@@ -165,7 +165,7 @@ export default function AgeCalculator() {
     <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6">
       {/* Inputs */}
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
-        <h2 className="font-display text-xl font-600 text-ink">Your dates</h2>
+        <h2 className="font-display text-xl text-ink">Your dates</h2>
         <div className="mt-6 space-y-6">
           <div>
             <label

@@ -298,7 +298,7 @@ export default function GpaCalculator() {
 
       {/* CGPA → percentage helper */}
       <div className="rounded-2xl border border-line bg-paper-2 p-6">
-        <h2 className="font-display text-lg font-600 text-ink">
+        <h2 className="font-display text-lg text-ink">
           CGPA to percentage
         </h2>
         <p className="mt-1 text-sm text-ink-faint">

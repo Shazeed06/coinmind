@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Section, SectionHeader } from "@/components/ui";
+import { Section } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { Pill } from "@/components/ui";
 import { posts } from "@/lib/data";
 import { BookOpen, ArrowRight } from "lucide-react";
@@ -11,7 +12,7 @@ export default function LearningHub() {
 
   return (
     <Section variant="white">
-      <SectionHeader
+      <SectionIntro
         eyebrow="Guides"
         title="Guides That Build Financial Confidence"
         subline="Practical, jargon-free guides written for India."

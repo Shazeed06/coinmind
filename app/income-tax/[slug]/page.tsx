@@ -12,8 +12,12 @@ import {
   computeNewRegimeTax,
   computeOldRegimeTax,
   newRegimeSlabBreakdown,
+  surchargeBandLabel,
+  formatReviewDate,
+  TAX_RULES_REVIEWED,
 } from "@/lib/pseo-tax";
 import IncomeTaxCalculator from "@/components/calc/IncomeTaxCalculator";
+import AuthorReviewBox from "@/components/AuthorReviewBox";
 import { IconArrow, IconCalculator, IconCheck } from "@/components/icons";
 
 // Only the salaries listed in TAX_SALARIES are generated; anything else 404s.
@@ -49,13 +53,18 @@ export async function generateMetadata({
   if (salary === null) return {};
 
   const label = salaryLabel(salary);
-  const { totalTax, effectiveRate } = computeNewRegimeTax(salary);
+  const { totalTax, effectiveRate, surcharge, surchargeRate } =
+    computeNewRegimeTax(salary);
   const taxStr = formatCurrency(totalTax);
   const rateStr = fmtRate(effectiveRate);
+  const surchargeNote =
+    surcharge > 0
+      ? ` Includes the ${Math.round(surchargeRate * 100)}% surcharge and 4% cess.`
+      : "";
 
   return {
     title: { absolute: `Income Tax on ₹${label} Salary (FY 2026-27)` },
-    description: `New regime income tax on a ₹${label} salary for FY 2026-27 is ${taxStr}, an effective rate of ${rateStr}%. See the full slab breakdown.`,
+    description: `New regime income tax on a ₹${label} salary for FY 2026-27 is ${taxStr}, an effective rate of ${rateStr}%.${surchargeNote} See the full slab breakdown.`,
     alternates: { canonical: `/income-tax/${slug}` },
     openGraph: {
       type: "article",
@@ -136,16 +145,32 @@ export default async function Page({
   const savings = old.totalTax - res.totalTax; // > 0 means new regime is cheaper
   const lpaLabel = salary < CRORE ? `${salary / LPA} LPA` : "a ₹1 crore salary";
 
+  // Surcharge context: only pages above the ₹50 lakh taxable-income threshold
+  // show a surcharge row, so nothing below it sprouts an empty line.
+  const hasSurcharge = res.surcharge > 0;
+  const surchargePct = Math.round(res.surchargeRate * 100);
+  const surchargeStr = formatCurrency(res.surcharge);
+  const surchargeBand = surchargeBandLabel(res.surchargeRate, res.surchargeThreshold);
+  const thresholdLabel = res.surchargeThreshold
+    ? `₹${salaryLabel(res.surchargeThreshold)}`
+    : "₹50 Lakh";
+  const showSurchargeRow = hasSurcharge || old.surcharge > 0;
+  const reviewedLabel = formatReviewDate(TAX_RULES_REVIEWED);
+
   const quickAnswer = `On a ₹${label} salary under the new tax regime for FY 2026-27, you pay ${
     zeroTax ? "no income tax (₹0)" : `approximately ${taxStr} in income tax`
-  }, an effective rate of ${rateStr}%. Your monthly take-home is about ${monthlyInHandStr}.`;
+  }, an effective rate of ${rateStr}%.${
+    hasSurcharge
+      ? ` That figure includes a ${surchargePct}% surcharge of ${surchargeStr}, which applies because your taxable income is above ${thresholdLabel}, plus the 4% health and education cess charged on the tax and the surcharge together.`
+      : ""
+  } Your monthly take-home is about ${monthlyInHandStr}.`;
 
   const faqs: { q: string; a: string }[] = [
     {
       q: `Is a ₹${label} salary taxable?`,
       a: zeroTax
         ? `A ₹${label} annual salary falls in the taxable range, but under the new tax regime for FY 2026-27 you actually pay ₹0. After the ₹75,000 standard deduction your taxable income is ${taxableStr}, which is within the ₹12,00,000 Section 87A rebate limit, so the tax is fully rebated.`
-        : `Yes. A ₹${label} salary is taxable under the new regime for FY 2026-27. After the ₹75,000 standard deduction your taxable income is ${taxableStr}, and the tax works out to ${taxStr} including the 4% health and education cess.`,
+        : `Yes. A ₹${label} salary is taxable under the new regime for FY 2026-27. After the ₹75,000 standard deduction your taxable income is ${taxableStr}, and the tax works out to ${taxStr}${hasSurcharge ? `, made up of ${formatCurrency(res.tax)} of slab tax, ${surchargeStr} of surcharge and ${formatCurrency(res.cess)} of health and education cess` : " including the 4% health and education cess"}.`,
     },
     {
       q: `How much income tax do I pay on ${lpaLabel} in the new regime?`,
@@ -171,7 +196,7 @@ export default async function Page({
       a:
         res.rebate > 0
           ? `The rebate is applied after the slab tax is calculated and before the cess. Your taxable income of ${taxableStr} stays within the ₹12,00,000 limit, so the ${formatCurrency(res.taxBeforeRebate)} of slab tax is rebated in full. With nothing left to charge cess on, the total payable is ${taxStr}. Note that the rebate is tested on taxable income, not on your gross salary, which is why the ₹75,000 standard deduction effectively lifts the threshold on a salary.`
-          : `It is not, at this income. The rebate applies only while taxable income stays within ₹12,00,000, and yours is ${taxableStr}, above that line. So the full slab tax of ${formatCurrency(res.tax)} stands and the 4% health and education cess of ${formatCurrency(res.cess)} is added on top, giving ${taxStr}. The rebate is all or nothing at the threshold rather than tapering, so income just above it is worth checking carefully.`,
+          : `It is not, at this income. The rebate applies only while taxable income stays within ₹12,00,000, and yours is ${taxableStr}, above that line. So the full slab tax of ${formatCurrency(res.tax)} stands${hasSurcharge ? `, a ${surchargePct}% surcharge of ${surchargeStr} is added because your taxable income is above ${thresholdLabel},` : ""} and the 4% health and education cess of ${formatCurrency(res.cess)} goes on top, giving ${taxStr}. The rebate is all or nothing at the threshold rather than tapering, so income just above it is worth checking carefully.`,
     },
     {
       q: `What is the effective tax rate on ₹${label}?`,
@@ -184,11 +209,14 @@ export default async function Page({
         : `Employers spread the annual liability across the year as TDS, so roughly ${formatCurrency(res.totalTax / 12)} a month on a ₹${label} salary, against a gross monthly figure of ${monthlyGrossStr}. The monthly amount is usually uneven in practice: it is recalculated whenever you submit investment proofs or your pay changes, and any shortfall is caught up in the final months of the financial year.`,
     },
     {
-      q: `Does this figure include surcharge on a ₹${label} salary?`,
-      a:
-        salary > 5000000
-          ? `No. These figures cover the slab tax and the 4% health and education cess only. Surcharge applies on incomes above ₹50 lakh under the rules currently in force, and your ₹${label} salary is above that level, so your actual liability will be higher than the ${taxStr} shown here. Surcharge rates and the marginal-relief calculation are set each year, so confirm the current position on the Income Tax Department website or with a tax professional.`
-          : `There is nothing to include at this level. Surcharge applies only above ₹50 lakh of income under the rules currently in force, and a ₹${label} salary is below that, so the ${taxStr} here is the slab tax plus the 4% health and education cess and nothing else.`,
+      q: `What is surcharge and does it apply on a ₹${label} salary?`,
+      a: hasSurcharge
+        ? `Surcharge is an extra charge levied on the income tax itself, not on your income, and it starts once taxable income passes ₹50 lakh. Under the new regime the bands are 10% of the tax above ₹50 lakh, 15% above ₹1 crore and 25% above ₹2 crore. Your taxable income of ${taxableStr} falls in the ${surchargePct}% band (${surchargeBand}), which adds ${surchargeStr} to the ${formatCurrency(res.tax)} of slab tax. The 4% health and education cess is then charged on the two together, giving the ${taxStr} shown on this page, so the surcharge is already included in every figure here. Marginal relief is the safety valve at each threshold: it caps the surcharge so the extra tax from crossing a threshold can never exceed the income you earned above it. ${
+            res.marginalRelief > 0
+              ? `At your income that cap binds and cuts the surcharge by ${formatCurrency(res.marginalRelief)}.`
+              : `At your income the cap does not bind, so the full ${surchargePct}% stands.`
+          }`
+        : `Surcharge is an extra charge on the income tax itself rather than on your income, and it does not apply here. It starts only once taxable income passes ₹50 lakh, and yours is ${taxableStr}, below that line, so the ${taxStr} on this page is slab tax plus the 4% health and education cess and nothing else. For reference, above the threshold the new regime charges 10% of the tax up to ₹1 crore of income, 15% up to ₹2 crore and 25% beyond that, and marginal relief caps the charge so that crossing a threshold never costs more in extra tax than the income earned above it.`,
     },
     {
       q: `Do I still need to file a return on a ₹${label} salary?`,
@@ -206,10 +234,17 @@ export default async function Page({
         headline: `Income Tax on ₹${label} Salary (FY 2026-27)`,
         description: quickAnswer,
         image: [`${site.url}/opengraph-image`],
-        author: { "@type": "Organization", name: site.name },
-        publisher: { "@type": "Organization", name: site.name },
+        author: {
+          "@type": "Person",
+          name: site.author.fullName,
+          jobTitle: site.author.credential,
+          url: `${site.url}/about#author`,
+        },
+        publisher: { "@type": "Organization", name: site.name, url: site.url },
         datePublished: "2026-04-01",
-        dateModified: "2026-07-17",
+        // Human-maintained in lib/pseo-tax.ts, deliberately not a build-time
+        // date: a nightly rebuild must not claim a nightly review.
+        dateModified: TAX_RULES_REVIEWED,
         mainEntityOfPage: `${site.url}/income-tax/${slug}`,
       },
       {
@@ -266,13 +301,17 @@ export default async function Page({
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconCalculator className="h-3.5 w-3.5" /> FY 2026-27 · New regime
         </span>
-        <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
+        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
           Income Tax on ₹{label} Salary
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
           Exactly how much income tax you pay on a ₹{label} annual salary in
           India under the new tax regime for FY 2026-27 (AY 2027-28), with a
           full slab-by-slab breakdown and your monthly take-home.
+        </p>
+        <p className="mt-3 text-sm text-ink-faint">
+          Last reviewed {reviewedLabel} against the FY 2026-27 slabs, surcharge
+          bands and standard deduction.
         </p>
       </header>
 
@@ -288,7 +327,7 @@ export default async function Page({
 
       {/* Breakdown */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Tax breakdown on ₹{label}
         </h2>
         <div className="mt-4 rounded-2xl border border-line bg-paper-2 p-6">
@@ -304,8 +343,26 @@ export default async function Page({
             value={res.rebate > 0 ? `− ${formatCurrency(res.rebate)}` : formatCurrency(0)}
             accent={res.rebate > 0 ? "brass" : "ink"}
           />
+          {hasSurcharge && (
+            <Row
+              label={`Surcharge (${surchargePct}% of tax, income above ${thresholdLabel})`}
+              value={formatCurrency(res.surcharge)}
+              accent="brass"
+            />
+          )}
+          {res.marginalRelief > 0 && (
+            <Row
+              label="Marginal relief on surcharge"
+              value={`− ${formatCurrency(res.marginalRelief)}`}
+              accent="brass"
+            />
+          )}
           <Row
-            label="Health & education cess (4%)"
+            label={
+              hasSurcharge
+                ? "Health & education cess (4% of tax + surcharge)"
+                : "Health & education cess (4%)"
+            }
             value={formatCurrency(res.cess)}
           />
           <Row label="Effective tax rate" value={`${rateStr}%`} />
@@ -324,21 +381,25 @@ export default async function Page({
         </div>
         <p className="mt-3 text-xs text-ink-faint">
           Figures use the new-regime slabs for FY 2026-27, a ₹75,000 standard
-          deduction and the 4% cess, the same logic as our{" "}
+          deduction
+          {hasSurcharge
+            ? `, a ${surchargePct}% surcharge (${surchargeBand})`
+            : ""}{" "}
+          and the 4% cess. See the{" "}
           <Link
             href="/calculators/income-tax"
             className="text-forest underline underline-offset-2"
           >
             income tax calculator
-          </Link>
-          . In-hand is before EPF and professional tax.
+          </Link>{" "}
+          to vary the inputs. In-hand is before EPF and professional tax.
         </p>
       </section>
 
       {/* Slab-by-slab */}
       {slabs.length > 0 && (
         <section className="mt-10">
-          <h2 className="font-display text-2xl font-600 text-ink">
+          <h2 className="font-display text-2xl text-ink">
             How the tax is calculated on ₹{label}
           </h2>
           <p className="mt-3 text-ink-soft leading-relaxed">
@@ -390,14 +451,34 @@ export default async function Page({
                 total income tax on a ₹{label} salary comes to{" "}
                 <strong>{taxStr}</strong>.
               </p>
+            ) : hasSurcharge ? (
+              <>
+                <p>
+                  Your taxable income is above the ₹12,00,000 Section 87A rebate
+                  limit, so no rebate applies and the slab tax of{" "}
+                  {formatCurrency(res.tax)} stands in full.
+                </p>
+                <p>
+                  It is also above {thresholdLabel}, so a{" "}
+                  <strong>surcharge</strong> of {surchargePct}% is charged on the
+                  tax itself, adding {surchargeStr}.
+                  {res.marginalRelief > 0
+                    ? ` Marginal relief cuts that by ${formatCurrency(res.marginalRelief)} so the extra tax from crossing the threshold does not exceed the income earned above it.`
+                    : " Marginal relief does not bite at this income, so the full band rate applies."}{" "}
+                  The 4% health and education cess of {formatCurrency(res.cess)}{" "}
+                  is then charged on the tax and the surcharge together, giving a
+                  total of <strong>{taxStr}</strong>, an effective rate of{" "}
+                  {rateStr}% on your full ₹{label} salary.
+                </p>
+              </>
             ) : (
               <p>
                 Your taxable income is above the ₹12,00,000 Section 87A rebate
-                limit, so no rebate applies. Adding the 4% health and education
-                cess of {formatCurrency(res.cess)} to the{" "}
-                {formatCurrency(res.tax)} slab tax gives a total of{" "}
-                <strong>{taxStr}</strong>, an effective rate of {rateStr}% on
-                your full ₹{label} salary.
+                limit, so no rebate applies. It is below the {thresholdLabel}{" "}
+                surcharge threshold, so adding the 4% health and education cess
+                of {formatCurrency(res.cess)} to the {formatCurrency(res.tax)}{" "}
+                slab tax gives a total of <strong>{taxStr}</strong>, an effective
+                rate of {rateStr}% on your full ₹{label} salary.
               </p>
             )}
           </div>
@@ -406,29 +487,119 @@ export default async function Page({
 
       {/* Old vs new comparison */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Old regime vs new regime at ₹{label}
         </h2>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-forest bg-paper-2 p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
-              New regime
-            </p>
-            <p className="mt-1 font-display text-2xl font-600 text-forest">
-              {taxStr}
-            </p>
-            <p className="mt-1 text-sm text-ink-soft">₹75,000 standard deduction</p>
-          </div>
-          <div className="rounded-2xl border border-line bg-card p-5">
-            <p className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
-              Old regime
-            </p>
-            <p className="mt-1 font-display text-2xl font-600 text-ink">
-              {oldStr}
-            </p>
-            <p className="mt-1 text-sm text-ink-soft">No extra deductions</p>
-          </div>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-line bg-card">
+          <table className="w-full text-sm">
+            <caption className="sr-only">
+              Income tax on a ₹{label} salary under the new regime and the old
+              regime for FY 2026-27, with no deductions beyond each regime&rsquo;s
+              standard deduction.
+            </caption>
+            <thead>
+              <tr className="border-b border-line text-left">
+                <th scope="col" className="px-4 py-3 font-semibold text-ink">
+                  Item
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold text-ink text-right">
+                  New regime
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold text-ink text-right">
+                  Old regime
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-line text-ink-soft">
+                <th scope="row" className="px-4 py-3 font-medium text-left">
+                  Standard deduction
+                </th>
+                <td className="px-4 py-3 text-right">{formatCurrency(75000)}</td>
+                <td className="px-4 py-3 text-right">{formatCurrency(50000)}</td>
+              </tr>
+              <tr className="border-b border-line text-ink-soft">
+                <th scope="row" className="px-4 py-3 font-medium text-left">
+                  Taxable income
+                </th>
+                <td className="px-4 py-3 text-right">{taxableStr}</td>
+                <td className="px-4 py-3 text-right">
+                  {formatCurrency(old.taxableIncome)}
+                </td>
+              </tr>
+              <tr className="border-b border-line text-ink-soft">
+                <th scope="row" className="px-4 py-3 font-medium text-left">
+                  Slab tax
+                </th>
+                <td className="px-4 py-3 text-right">
+                  {formatCurrency(res.taxBeforeRebate)}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  {formatCurrency(old.taxBeforeRebate)}
+                </td>
+              </tr>
+              <tr className="border-b border-line text-ink-soft">
+                <th scope="row" className="px-4 py-3 font-medium text-left">
+                  Section 87A rebate
+                </th>
+                <td className="px-4 py-3 text-right">
+                  {res.rebate > 0
+                    ? `− ${formatCurrency(res.rebate)}`
+                    : formatCurrency(0)}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  {old.rebate > 0
+                    ? `− ${formatCurrency(old.rebate)}`
+                    : formatCurrency(0)}
+                </td>
+              </tr>
+              {showSurchargeRow && (
+                <tr className="border-b border-line text-ink-soft">
+                  <th scope="row" className="px-4 py-3 font-medium text-left">
+                    Surcharge
+                  </th>
+                  <td className="px-4 py-3 text-right">
+                    {formatCurrency(res.surcharge)}
+                    {res.surcharge > 0 ? ` (${surchargePct}%)` : ""}
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    {formatCurrency(old.surcharge)}
+                    {old.surcharge > 0
+                      ? ` (${Math.round(old.surchargeRate * 100)}%)`
+                      : ""}
+                  </td>
+                </tr>
+              )}
+              <tr className="border-b border-line text-ink-soft">
+                <th scope="row" className="px-4 py-3 font-medium text-left">
+                  Health &amp; education cess (4%)
+                </th>
+                <td className="px-4 py-3 text-right">
+                  {formatCurrency(res.cess)}
+                </td>
+                <td className="px-4 py-3 text-right">
+                  {formatCurrency(old.cess)}
+                </td>
+              </tr>
+              <tr className="text-ink">
+                <th scope="row" className="px-4 py-3 font-semibold text-left">
+                  Total tax payable
+                </th>
+                <td className="px-4 py-3 text-right font-display font-600 text-forest">
+                  {taxStr}
+                </td>
+                <td className="px-4 py-3 text-right font-display font-600 text-ink">
+                  {oldStr}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <p className="mt-3 text-xs text-ink-faint">
+          Both columns assume no deductions beyond each regime&rsquo;s own
+          standard deduction, which is ₹75,000 under the new regime and ₹50,000
+          under the old one.
+        </p>
         <p className="mt-4 text-ink-soft leading-relaxed">
           {savings > 0 ? (
             <>
@@ -454,7 +625,7 @@ export default async function Page({
 
       {/* Embedded interactive calculator */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Adjust the numbers yourself
         </h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
@@ -469,7 +640,7 @@ export default async function Page({
       {/* Prominent link to the full calculator */}
       <section className="mt-10 rounded-2xl border border-line bg-forest-soft p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="font-display text-xl font-600 text-ink">
+          <h2 className="font-display text-xl text-ink">
             Want the full picture?
           </h2>
           <p className="mt-1 text-sm text-ink-soft">
@@ -486,7 +657,7 @@ export default async function Page({
 
       {/* FAQ */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
@@ -506,7 +677,7 @@ export default async function Page({
 
       {/* Other salaries */}
       <section className="mt-14">
-        <h2 className="font-display text-2xl font-600 text-ink">
+        <h2 className="font-display text-2xl text-ink">
           Tax on other salaries
         </h2>
         <div className="mt-5 flex flex-wrap gap-2.5">
@@ -522,11 +693,27 @@ export default async function Page({
         </div>
       </section>
 
-      <div className="mt-12 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
+      <div className="mt-12">
+        <AuthorReviewBox
+          sources={[
+            {
+              label: "Income Tax Department",
+              href: "https://www.incometax.gov.in",
+            },
+          ]}
+        />
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft leading-relaxed">
         <strong className="text-ink">A note on accuracy:</strong> these figures
-        are estimates for a salaried individual below 60 under the new regime and
-        exclude surcharge on incomes above ₹50 lakh. They are for education, not
-        tax advice. Confirm with a professional before filing.
+        are estimates for a salaried individual below 60 under the new regime for
+        FY 2026-27. They include the slab tax, the Section 87A rebate, surcharge
+        with marginal relief above ₹50 lakh of taxable income, and the 4% health
+        and education cess. They exclude income from other sources, capital
+        gains, any employer perquisites and any relief under a double-taxation
+        treaty, each of which can change the result. Rules last checked{" "}
+        {reviewedLabel}. This is general educational information, not tax advice.
+        Confirm your own position with a professional before filing.
       </div>
     </div>
   );

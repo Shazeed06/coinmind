@@ -16,26 +16,28 @@ export default function AffiliateCta({
   if (!o) return null;
 
   return (
+    // rounded-2xl -> .panel (--radius-card), and the CTA moves from a raw
+    // rounded-full onto the .btn/.btn-accent pair, so it shares its radius,
+    // padding, hover and press states with the consent bar's Accept button
+    // instead of being a separately tuned green pill.
     <aside
-      className={`rounded-2xl border border-line bg-forest-soft/40 p-5 sm:p-6 ${className}`}
+      className={`panel bg-forest-soft/40 p-5 sm:p-6 ${className}`}
     >
-      <p className="text-xs font-semibold uppercase tracking-wider text-brass">
-        Partner offer
-      </p>
-      <h3 className="mt-1 font-display text-lg font-600 text-ink">{o.label}</h3>
-      <p className="mt-1.5 text-sm text-ink-soft leading-relaxed">{o.blurb}</p>
+      <p className="eyebrow text-brass">Partner offer</p>
+      <h3 className="mt-1 text-ink">{o.label}</h3>
+      <p className="mt-2 text-sm text-ink-soft leading-relaxed">{o.blurb}</p>
       <a
         href={o.href}
         target="_blank"
         rel="sponsored nofollow noopener"
-        className="mt-4 inline-flex items-center gap-2 rounded-full bg-forest px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-forest-deep"
+        className="btn btn-accent mt-4"
       >
         {o.cta}
       </a>
-      <p className="mt-3 text-xs text-ink-faint leading-relaxed">
+      <p className="mt-4 text-xs text-ink-faint leading-relaxed">
         Partner link. We may earn a commission if you sign up, at no extra cost
         to you. It never affects our calculators or what we recommend.{" "}
-        <Link href="/affiliate-disclosure" className="underline underline-offset-2">
+        <Link href="/affiliate-disclosure" className="underline underline-offset-2 transition-colors hover:text-ink-soft">
           How this works
         </Link>
         .

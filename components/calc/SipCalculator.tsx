@@ -113,7 +113,7 @@ Real Value: ${formatCurrency(realValue, currency)}`;
     <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6">
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <h2 className="font-display text-xl font-600 text-ink">Your investment</h2>
+          <h2 className="font-display text-xl text-ink">Your investment</h2>
           <CurrencyToggle value={currency} onChange={setCurrency} />
         </div>
 

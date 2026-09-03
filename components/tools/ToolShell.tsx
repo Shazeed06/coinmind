@@ -26,7 +26,7 @@ export function Dropzone({
   multiple = false,
   onFiles,
   label = "Drop images here",
-  hint = "or click to browse: JPG, PNG or WebP",
+  hint = "or click or tap to browse: JPG, PNG or WebP",
 }: {
   accept: string;
   multiple?: boolean;

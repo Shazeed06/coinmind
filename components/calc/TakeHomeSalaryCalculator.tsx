@@ -60,7 +60,7 @@ export default function TakeHomeSalaryCalculator() {
   return (
     <div className="grid lg:grid-cols-[1fr_0.95fr] gap-6">
       <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
-        <h2 className="font-display text-xl font-600 text-ink">Your package</h2>
+        <h2 className="font-display text-xl text-ink">Your package</h2>
         <p className="mt-1 text-sm text-ink-faint">
           India · new tax regime · FY 2026-27
         </p>

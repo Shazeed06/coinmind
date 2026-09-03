@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import Header from "@/components/Header";
@@ -13,6 +13,20 @@ import SiteJsonLd from "@/components/SiteJsonLd";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "Segoe UI", "Roboto", "sans-serif"],
+});
+
+// Headings previously used --font-display, which resolved to Inter, the same
+// face as body copy. Nothing separated a heading from a paragraph except size,
+// so the pages read flat. Plus Jakarta Sans is geometric and a little warmer
+// than Inter, which gives headings their own voice while staying sober enough
+// for a finance site. Only the weights the type scale actually uses are loaded.
+const display = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "Segoe UI", "Roboto", "sans-serif"],
@@ -38,7 +52,11 @@ export const metadata: Metadata = {
     "finance guides",
   ],
   authors: [{ name: site.authorName }],
-  alternates: { canonical: "/" },
+  // No default `alternates` here on purpose. Next.js REPLACES alternates rather
+  // than merging it, so a default canonical of "/" is inherited verbatim by
+  // every route that does not set its own, pointing the whole site at the
+  // homepage. Each route declares its own canonical (the homepage via HOME in
+  // lib/seo.ts); a route with none simply gets no canonical tag, which is safe.
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -78,7 +96,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} ${display.variable} h-full`}>
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icon.svg" />

@@ -5,27 +5,11 @@ import { FAQS } from "@/lib/faqs";
 const liveCalcs = calculators.filter((c) => c.live);
 
 export default function StructuredData() {
+  // Organization and WebSite are NOT declared here. They are emitted sitewide by
+  // components/SiteJsonLd.tsx from the lib/ld.ts helpers, with stable @ids
+  // (/#organization, /#website) and the SearchAction. Re-declaring them here
+  // gave the homepage two of each for the same entity.
   const graph = [
-    {
-      "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      logo: `${site.url}/icon.svg`,
-      description: site.description,
-      email: site.email,
-      founder: { "@type": "Person", name: site.author.fullName },
-    },
-    {
-      "@type": "WebSite",
-      name: site.name,
-      url: site.url,
-      description: site.description,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: { "@type": "EntryPoint", urlTemplate: `${site.url}/search?q={search_term_string}` },
-        "query-input": "required name=search_term_string",
-      },
-    },
     {
       "@type": "Person",
       name: site.author.fullName,

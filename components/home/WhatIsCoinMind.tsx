@@ -1,4 +1,5 @@
-import { Section, SectionHeader, Grid, Card, CardBody } from "@/components/ui";
+import { Section, Grid, Card, CardBody } from "@/components/ui";
+import SectionIntro from "./SectionIntro";
 import { ShieldCheck, UserCheck, FileText, Eye, TrendingUp, Zap, Globe } from "lucide-react";
 
 const FEATURES = [
@@ -13,7 +14,7 @@ const FEATURES = [
 export default function WhatIsCoinMind() {
   return (
     <Section variant="alt">
-      <SectionHeader
+      <SectionIntro
         eyebrow="More Than a Calculator Website"
         title="More Than a Calculator Website"
         subline="Built for India, used worldwide, with accuracy and transparency at our core."
