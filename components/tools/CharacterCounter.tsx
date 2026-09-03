@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Character Counter — 100% client-side, live counts.                */
+/*  Character Counter: 100% client-side, live counts.                 */
 /*  No uploads, no libraries: characters, words, sentences and lines   */
 /*  are computed in the browser as you type, plus live "used /         */
 /*  remaining" meters for common platform limits.                      */

@@ -9,7 +9,7 @@
 
 type Slab = { upto: number; rate: number };
 
-// FY 2026-27 (AY 2027-28) — New Regime slabs (identical to the calculator).
+// FY 2026-27 (AY 2027-28): New Regime slabs (identical to the calculator).
 const NEW_SLABS: Slab[] = [
   { upto: 400000, rate: 0 },
   { upto: 800000, rate: 0.05 },
@@ -20,7 +20,7 @@ const NEW_SLABS: Slab[] = [
   { upto: Infinity, rate: 0.3 },
 ];
 
-// Old Regime slabs (below 60 yrs) — used only for the brief comparison note.
+// Old Regime slabs (below 60 yrs), used only for the brief comparison note.
 const OLD_SLABS: Slab[] = [
   { upto: 250000, rate: 0 },
   { upto: 500000, rate: 0.05 },
@@ -88,9 +88,9 @@ export type NewRegimeTax = {
   rebate: number; // Section 87A rebate applied (equals taxBeforeRebate when eligible)
   tax: number; // tax after rebate, before cess
   cess: number; // 4% health & education cess
-  totalTax: number; // tax + cess — the number the calculator shows
+  totalTax: number; // tax + cess, the number the calculator shows
   inHandMonthly: number; // (gross − totalTax) / 12
-  effectiveRate: number; // totalTax / gross, as a percentage (0–100)
+  effectiveRate: number; // totalTax / gross, as a percentage (0-100)
 };
 
 /**
@@ -122,13 +122,13 @@ export function computeNewRegimeTax(gross: number): NewRegimeTax {
 export type SlabRow = {
   from: number;
   to: number;
-  rate: number; // 0–1
+  rate: number; // 0-1
   amountInSlab: number;
   taxInSlab: number;
 };
 
 /**
- * Slab-by-slab breakdown of the New Regime tax for a given taxable income —
+ * Slab-by-slab breakdown of the New Regime tax for a given taxable income:
  * returns only the slabs that actually apply. Powers the per-salary tax table
  * so every page has genuinely unique, useful content (not a doorway page).
  */
@@ -172,5 +172,5 @@ export function computeOldRegimeTax(gross: number, deductions = 0): OldRegimeTax
   return { taxableIncome, totalTax, effectiveRate };
 }
 
-/** Slugs for every generated salary page — consumed by the sitemap. */
+/** Slugs for every generated salary page, consumed by the sitemap. */
 export const TAX_SLUGS: string[] = TAX_SALARIES.map(salarySlug);

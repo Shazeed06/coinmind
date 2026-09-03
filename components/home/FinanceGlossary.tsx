@@ -26,7 +26,7 @@ export default function FinanceGlossary() {
     <Section variant="white">
       <SectionHeader
         eyebrow="Glossary"
-        title="A–Z Finance Terms"
+        title="A-Z Finance Terms"
         subline="Plain-English definitions of key finance and AI terms."
       />
 

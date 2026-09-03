@@ -3,7 +3,7 @@ import HubPage from "@/components/HubPage";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Income Tax India Guide — New vs Old Regime, Deductions & Filing" },
+  title: { absolute: "Income Tax India Guide - New vs Old Regime, Deductions & Filing" },
   description: "Complete income tax guide for India: compare new and old tax regimes, calculate your tax, claim deductions under 80C to 80U, and file your ITR. Updated for FY 2026-27.",
   alternates: { canonical: `${site.url}/income-tax` },
 };
@@ -32,21 +32,21 @@ export default function Page() {
           columns: 2,
           links: [
             { title: "Old vs New Tax Regime", href: "/tax-regime-break-even", desc: "Find the exact deduction amount where the old regime beats the new one." },
-            { title: "₹5 Lakh Salary Tax", href: "/income-tax/5-lakh-salary", desc: "Tax on ₹5 lakh salary under both regimes" },
-            { title: "₹10 Lakh Salary Tax", href: "/income-tax/10-lakh-salary", desc: "Tax on ₹10 lakh salary under both regimes" },
-            { title: "₹15 Lakh Salary Tax", href: "/income-tax/15-lakh-salary", desc: "Tax on ₹15 lakh salary under both regimes" },
-            { title: "₹20 Lakh Salary Tax", href: "/income-tax/20-lakh-salary", desc: "Tax on ₹20 lakh salary under both regimes" },
-            { title: "₹25 Lakh Salary Tax", href: "/income-tax/25-lakh-salary", desc: "Tax on ₹25 lakh salary under both regimes" },
-            { title: "₹30 Lakh Salary Tax", href: "/income-tax/30-lakh-salary", desc: "Tax on ₹30 lakh salary under both regimes" },
-            { title: "₹50 Lakh Salary Tax", href: "/income-tax/50-lakh-salary", desc: "Tax on ₹50 lakh salary under both regimes" },
-            { title: "₹1 Crore Salary Tax", href: "/income-tax/1-crore-salary", desc: "Tax on ₹1 crore salary under both regimes" },
+            { title: "₹6 Lakh Salary Tax", href: "/income-tax/6-lakh", desc: "Tax on ₹6 lakh salary under both regimes" },
+            { title: "₹10 Lakh Salary Tax", href: "/income-tax/10-lakh", desc: "Tax on ₹10 lakh salary under both regimes" },
+            { title: "₹15 Lakh Salary Tax", href: "/income-tax/15-lakh", desc: "Tax on ₹15 lakh salary under both regimes" },
+            { title: "₹20 Lakh Salary Tax", href: "/income-tax/20-lakh", desc: "Tax on ₹20 lakh salary under both regimes" },
+            { title: "₹25 Lakh Salary Tax", href: "/income-tax/25-lakh", desc: "Tax on ₹25 lakh salary under both regimes" },
+            { title: "₹30 Lakh Salary Tax", href: "/income-tax/30-lakh", desc: "Tax on ₹30 lakh salary under both regimes" },
+            { title: "₹50 Lakh Salary Tax", href: "/income-tax/50-lakh", desc: "Tax on ₹50 lakh salary under both regimes" },
+            { title: "₹1 Crore Salary Tax", href: "/income-tax/1-crore", desc: "Tax on ₹1 crore salary under both regimes" },
           ],
         },
         {
           title: "Tax-Saving Investments",
           columns: 3,
           links: [
-            { title: "Section 80C Investments", href: "/calculators/ppf", desc: "PPF, ELSS, EPF, life insurance, and more 80C options" },
+            { title: "Best Tax-Saving Investments", href: "/blog/best-tax-saving-investments-india", desc: "PPF, ELSS, EPF, life insurance, and more 80C options" },
             { title: "NPS Tax Benefits", href: "/calculators/nps", desc: "Extra ₹50,000 deduction under Section 80CCD(1B)" },
             { title: "ELSS Tax-Saving Funds", href: "/calculators/sip", desc: "Equity-linked savings with 3-year lock-in and tax benefits" },
             { title: "PPF Calculator", href: "/calculators/ppf", desc: "Tax-free returns with 80C deduction" },
@@ -61,16 +61,16 @@ export default function Page() {
             { title: "Section 80C", href: "/glossary/section-80c", desc: "Tax deductions up to ₹1.5 lakh" },
             { title: "HRA", href: "/glossary/hra", desc: "House Rent Allowance exemption" },
             { title: "TDS", href: "/glossary/tds", desc: "Tax Deducted at Source explained" },
-            { title: "ITR", href: "/glossary/itr", desc: "Income Tax Return filing" },
-            { title: "LTCG Tax", href: "/glossary/long-term-capital-gains", desc: "Capital gains tax on investments" },
-            { title: "New Tax Regime", href: "/glossary/new-tax-regime", desc: "Lower rates without deductions" },
-            { title: "Old Tax Regime", href: "/glossary/old-tax-regime", desc: "Higher rates with full deductions" },
-            { title: "87A Rebate", href: "/glossary/section-87a", desc: "Tax rebate for small incomes" },
+            { title: "Which ITR Form to File", href: "/blog/which-itr-form-should-i-file", desc: "Pick the right ITR form for your income" },
+            { title: "LTCG Tax", href: "/glossary/capital-gains", desc: "Capital gains tax on investments" },
+            { title: "New Tax Regime", href: "/blog/new-tax-regime-fy-2026-27", desc: "Lower rates without deductions" },
+            { title: "Old vs New Regime", href: "/blog/income-tax-old-vs-new-regime-2026", desc: "Which regime saves you more" },
+            { title: "How to Save Income Tax", href: "/blog/how-to-save-income-tax", desc: "Practical ways to cut your tax bill" },
           ],
         },
       ]}
       relatedHubs={[
-        { title: "Salary & Take-Home", href: "/salary" },
+        { title: "Salary & Take-Home", href: "/calculators/take-home-salary" },
         { title: "Investing", href: "/investing" },
         { title: "Savings", href: "/savings" },
         { title: "Retirement", href: "/retirement" },

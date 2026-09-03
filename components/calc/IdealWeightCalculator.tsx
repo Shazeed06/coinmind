@@ -134,7 +134,7 @@ export default function IdealWeightCalculator() {
 
         <p className="mt-7 rounded-xl bg-paper-2 border border-line p-4 text-sm text-ink-soft leading-relaxed">
           These formulas estimate a healthy weight from height alone and don&apos;t account for build,
-          muscle, age or body composition. They&apos;re a rough guide, not a target &mdash; consult a
+          muscle, age or body composition. They&apos;re a rough guide, not a target. Consult a
           doctor or dietitian for advice tailored to you.
         </p>
       </div>
@@ -147,7 +147,7 @@ export default function IdealWeightCalculator() {
               Ideal weight range
             </p>
             <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-              {fmtWeight(result.low)} &ndash; {fmtWeight(result.high)}
+              {fmtWeight(result.low)} - {fmtWeight(result.high)}
             </p>
             <p className="mt-1 text-sm text-ink-faint">across four established formulas</p>
 
@@ -156,8 +156,8 @@ export default function IdealWeightCalculator() {
                 <Stat key={r.key} label={r.label} value={fmtWeight(r.kg)} accent="ink" />
               ))}
               <Stat
-                label="Healthy weight (BMI 18.5–24.9)"
-                value={`${fmtWeight(result.healthyLow)} – ${fmtWeight(result.healthyHigh)}`}
+                label="Healthy weight (BMI 18.5-24.9)"
+                value={`${fmtWeight(result.healthyLow)} - ${fmtWeight(result.healthyHigh)}`}
                 accent="brass"
               />
             </div>

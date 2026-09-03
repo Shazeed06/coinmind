@@ -13,7 +13,7 @@ type Section = {
   note: string;
 };
 
-// Current common TDS rates — verify against the latest Finance Act / CBDT rules.
+// Current common TDS rates. Verify against the latest Finance Act / CBDT rules.
 const SECTIONS: Section[] = [
   {
     id: "salary",
@@ -48,7 +48,7 @@ const SECTIONS: Section[] = [
     label: "Contractor (194C)",
     code: "194C",
     rate: 1,
-    note: "1% when the payee is an individual or HUF, 2% for companies and firms. This estimate uses 1% — adjust if the payee is a company.",
+    note: "1% when the payee is an individual or HUF, 2% for companies and firms. This estimate uses 1%. Adjust if the payee is a company.",
   },
   {
     id: "commission",
@@ -172,10 +172,10 @@ export default function TdsCalculator() {
         ) : (
           <>
             <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-              {valid ? formatCurrency(tds) : "—"}
+              {valid ? formatCurrency(tds) : "-"}
             </p>
             <p className="mt-1 text-sm text-ink-faint">
-              at {Number.isFinite(rate) ? `${rate}%` : "—"} under Section{" "}
+              at {Number.isFinite(rate) ? `${rate}%` : "-"} under Section{" "}
               {section.code}
             </p>
 
@@ -194,22 +194,22 @@ export default function TdsCalculator() {
             <div className="mt-6">
               <Stat
                 label="Gross payment"
-                value={valid ? formatCurrency(amount) : "—"}
+                value={valid ? formatCurrency(amount) : "-"}
                 accent="ink"
               />
               <Stat
                 label={`TDS rate (${section.code})`}
-                value={Number.isFinite(rate) ? `${rate}%` : "—"}
+                value={Number.isFinite(rate) ? `${rate}%` : "-"}
                 accent="brass"
               />
               <Stat
                 label="TDS amount"
-                value={valid ? formatCurrency(tds) : "—"}
+                value={valid ? formatCurrency(tds) : "-"}
                 accent="brass"
               />
               <Stat
                 label="Net amount after TDS"
-                value={valid ? formatCurrency(net) : "—"}
+                value={valid ? formatCurrency(net) : "-"}
                 accent="forest"
               />
             </div>
@@ -222,7 +222,7 @@ export default function TdsCalculator() {
 
         <p className="mt-3 text-xs text-ink-faint leading-relaxed">
           Current common rates, shown for guidance only. TDS rates, thresholds
-          and surcharge change with each Budget &mdash; verify with the latest
+          and surcharge change with each Budget. Verify with the latest
           Income Tax Department rules before you deduct.
         </p>
       </div>

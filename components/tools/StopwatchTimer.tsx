@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Stopwatch & Timer — 100% client-side, no libraries.               */
+/*  Stopwatch & Timer: 100% client-side, no libraries.                */
 /*  • Stopwatch: performance.now() driven, requestAnimationFrame loop  */
 /*    for smooth centisecond ticking + lap splits.                     */
 /*  • Countdown timer: end-timestamp based (drift-free), with a Web    */
@@ -285,7 +285,7 @@ function CountdownTimer() {
 
   const configuredMs = (h * 3600 + m * 60 + s) * 1000;
 
-  // A short triple beep using the Web Audio API — created lazily so it only
+  // A short triple beep using the Web Audio API, created lazily so it only
   // spins up after a user gesture (Start), satisfying autoplay policies.
   const playBeep = useCallback(() => {
     try {
@@ -313,11 +313,11 @@ function CountdownTimer() {
         osc.stop(at + 0.3);
       }
     } catch {
-      // Audio unavailable — the visual flash still fires.
+      // Audio unavailable. The visual flash still fires.
     }
   }, []);
 
-  // Countdown loop — runs only while `running` is true.
+  // Countdown loop: runs only while `running` is true.
   useEffect(() => {
     if (!running) return;
     let active = true;

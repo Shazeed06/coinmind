@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Currency, currencyMeta, formatCurrency } from "@/lib/format";
 import { Field, Donut, CurrencyToggle, Stat } from "./shared";
 
-// NSC (National Savings Certificate) — fixed 5-year term, interest compounded
+// NSC (National Savings Certificate): fixed 5-year term, interest compounded
 // annually and paid in full at maturity. Maturity = P × (1 + r/100)^5.
 const TERM_YEARS = 5;
 
@@ -48,7 +48,7 @@ export default function NscCalculator() {
             max={15}
             step={0.1}
             suffix="%"
-            hint="Current rate, set and revised by the government each quarter — edit it to match today's figure."
+            hint="Current rate, set and revised by the government each quarter. Edit it to match today's figure."
           />
           <Stat label="Term" value={`${TERM_YEARS} years (fixed)`} accent="ink" />
         </div>
@@ -59,7 +59,7 @@ export default function NscCalculator() {
           Maturity value
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(maturity, currency) : "—"}
+          {valid ? formatCurrency(maturity, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">after {TERM_YEARS} years</p>
 
@@ -78,17 +78,17 @@ export default function NscCalculator() {
         <div className="mt-6">
           <Stat
             label="Invested amount"
-            value={valid ? formatCurrency(principal, currency) : "—"}
+            value={valid ? formatCurrency(principal, currency) : "-"}
             accent="ink"
           />
           <Stat
             label="Total interest"
-            value={valid ? formatCurrency(interest, currency) : "—"}
+            value={valid ? formatCurrency(interest, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Maturity value"
-            value={valid ? formatCurrency(maturity, currency) : "—"}
+            value={valid ? formatCurrency(maturity, currency) : "-"}
             accent="forest"
           />
         </div>

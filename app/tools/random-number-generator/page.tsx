@@ -4,15 +4,15 @@ import RandomNumber from "@/components/tools/RandomNumber";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Random Number Generator — Fair & Free Online" },
+  title: { absolute: "Random Number Generator - Fair & Free Online" },
   description:
-    "Free random number generator. Pick fair numbers in any range, choose how many, and allow or block duplicates. Uses secure browser crypto — nothing uploaded.",
+    "Free random number generator. Pick fair numbers in any range, choose how many, and allow or block duplicates. Uses secure browser crypto - nothing uploaded.",
   alternates: { canonical: "/tools/random-number-generator" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/random-number-generator",
-    title: "Random Number Generator — Fair & Free Online",
+    title: "Random Number Generator - Fair & Free Online",
     description:
       "Generate fair random numbers in any range with the Web Crypto API. Choose how many and allow or block duplicates. 100% private, in your browser.",
     locale: "en_US",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Can I stop the same number appearing twice?",
-    a: "Yes. Turn off 'Allow duplicates' to draw unique numbers only — perfect for lottery lines, raffle tickets or picking winners. If you ask for more unique numbers than the range can hold, the tool tells you instead of hanging.",
+    a: "Yes. Turn off 'Allow duplicates' to draw unique numbers only, perfect for lottery lines, raffle tickets or picking winners. If you ask for more unique numbers than the range can hold, the tool tells you instead of hanging.",
   },
   {
     q: "What happens if the minimum is bigger than the maximum?",
@@ -109,7 +109,7 @@ export default function Page() {
           Random Number Generator
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Pick fair, unpredictable numbers in any range &mdash; choose how many
+          Pick fair, unpredictable numbers in any range. Choose how many
           and whether duplicates are allowed, generated securely in your browser.
         </p>
       </header>
@@ -130,7 +130,7 @@ export default function Page() {
             <strong className="text-ink">maximum</strong>, choose{" "}
             <strong className="text-ink">how many</strong> numbers you need, then
             press Generate. Leave duplicates on to allow repeats, or turn them off
-            for a set of unique numbers &mdash; ideal for lottery lines or raffle
+            for a set of unique numbers, ideal for lottery lines or raffle
             draws. Both ends of the range are included.
           </p>
         </div>
@@ -145,8 +145,8 @@ export default function Page() {
           <strong>raffle or giveaway winner</strong> from a numbered list, choose
           a random row in a spreadsheet, assign teams, seed a game, or sample
           data for a quick experiment. With duplicates switched off you get a set
-          of distinct values &mdash; exactly what you want for tickets or
-          positions &mdash; while leaving them on models independent draws like
+          of distinct values, exactly what you want for tickets or
+          positions, while leaving them on models independent draws like
           rolling the same die many times.
         </p>
 
@@ -166,7 +166,7 @@ export default function Page() {
           The generator checks your inputs before it runs. If the minimum is
           larger than the maximum, or you ask for more unique numbers than the
           range can possibly provide, it explains the problem in plain language
-          and keeps the Generate button disabled until it is fixed &mdash; so you
+          and keeps the Generate button disabled until it is fixed, so you
           never get a confusing result or a frozen page. You can also sort the
           output in ascending order and copy the whole set to your clipboard in
           one click.
@@ -221,7 +221,7 @@ export default function Page() {
               Coin Flip &amp; Dice
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
-              Flip a coin or roll any dice &mdash; d4 through d20 &mdash; with a
+              Flip a coin or roll any dice, d4 through d20, with a
               running tally.
             </p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">

@@ -10,8 +10,23 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy Policy",
+    description:
+      "How CoinMind handles data, cookies and advertising. Our calculators run in your browser and we never store the figures you enter.",
+    url: `${site.url}/privacy`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <header className="pt-14">
         <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
           Privacy Policy

@@ -22,7 +22,7 @@ export default function RdCalculator() {
   const { maturity, invested, interest } = useMemo(() => {
     if (!valid) return { maturity: NaN, invested: NaN, interest: NaN };
     const inv = monthly * months;
-    // RD maturity with quarterly compounding — every monthly installment
+    // RD maturity with quarterly compounding: every monthly installment
     // compounds each quarter until the deposit matures.
     const i = rate / 400; // quarterly rate as a decimal
     const n = months / 3; // number of quarters
@@ -107,7 +107,7 @@ export default function RdCalculator() {
           Maturity value
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(maturity, currency) : "—"}
+          {valid ? formatCurrency(maturity, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">after {tenureLabel}</p>
 
@@ -126,24 +126,24 @@ export default function RdCalculator() {
         <div className="mt-6">
           <Stat
             label="Total invested"
-            value={valid ? formatCurrency(invested, currency) : "—"}
+            value={valid ? formatCurrency(invested, currency) : "-"}
             accent="ink"
           />
           <Stat
             label="Total interest"
-            value={valid ? formatCurrency(interest, currency) : "—"}
+            value={valid ? formatCurrency(interest, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Maturity value"
-            value={valid ? formatCurrency(maturity, currency) : "—"}
+            value={valid ? formatCurrency(maturity, currency) : "-"}
             accent="forest"
           />
         </div>
 
         <p className="mt-6 text-xs text-ink-faint leading-relaxed">
           Most banks and post offices compound RD interest quarterly. Rates and
-          rules vary by provider &ndash; confirm the current rate before you open
+          rules vary by provider. Confirm the current rate before you open
           an account.
         </p>
       </div>

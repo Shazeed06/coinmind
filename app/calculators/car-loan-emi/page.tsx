@@ -5,7 +5,7 @@ import EmiCalculator from "@/components/calc/EmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "car-loan-emi")!;
-export const metadata = calcMeta("car-loan-emi", CALC.title + " — Monthly Car Loan EMI", CALC.blurb);
+export const metadata = calcMeta("car-loan-emi", CALC.title + " - Monthly Car Loan EMI", CALC.blurb);
 
 export default function Page() {
   return (
@@ -14,7 +14,7 @@ export default function Page() {
       title="Car Loan EMI Calculator"
       subtitle="Work out the monthly EMI on a new or used car loan and see exactly how much interest the car adds to its price."
       calculator={<EmiCalculator />}
-      intro="A car loan EMI is the fixed monthly instalment you repay on an auto loan until the vehicle is fully paid off — each payment covers the interest plus a slice of the principal. In India car loans are secured against the car itself, so rates stay relatively low, typically 8–12% a year, over tenures of 5 to 7 years. This car loan EMI calculator turns the on-road price, your interest rate and tenure into an exact monthly EMI, total interest and total payment, so you can size an affordable car before you set foot in the showroom."
+      intro="A car loan EMI is the fixed monthly instalment you repay on an auto loan until the vehicle is fully paid off. Each payment covers the interest plus a slice of the principal. In India car loans are secured against the car itself, so rates stay relatively low, typically 8-12% a year, over tenures of 5 to 7 years. This car loan EMI calculator turns the on-road price, your interest rate and tenure into an exact monthly EMI, total interest and total payment, so you can size an affordable car before you set foot in the showroom."
       how={{
         heading: "How your car loan EMI is calculated",
         body: (
@@ -46,7 +46,7 @@ export default function Page() {
       faqs={[
         {
           q: "What is a typical car loan interest rate in India?",
-          a: "New car loans in India usually carry interest of about 8% to 12% a year, because the loan is secured against the vehicle. Your exact rate depends on your credit score, income, the lender and whether the car is new or used — used-car loans are riskier for the lender and often price 1–4% higher. Enter the rate your bank quotes into the car loan EMI calculator to see the real monthly EMI.",
+          a: "New car loans in India usually carry interest of about 8% to 12% a year, because the loan is secured against the vehicle. Your exact rate depends on your credit score, income, the lender and whether the car is new or used. Used-car loans are riskier for the lender and often price 1-4% higher. Enter the rate your bank quotes into the car loan EMI calculator to see the real monthly EMI.",
         },
         {
           q: "What car loan tenure should I choose?",
@@ -54,11 +54,27 @@ export default function Page() {
         },
         {
           q: "Does a bigger down payment lower my car loan EMI?",
-          a: "Yes. The EMI is charged on the loan amount, which is the on-road price minus your down payment. Putting down 20–30% upfront reduces the principal, so both your monthly EMI and the total interest fall, and it lowers the risk of owing more than the car is worth. Try different down payments in the calculator to see how much each one trims from your monthly car loan EMI.",
+          a: "Yes. The EMI is charged on the loan amount, which is the on-road price minus your down payment. Putting down 20-30% upfront reduces the principal, so both your monthly EMI and the total interest fall, and it lowers the risk of owing more than the car is worth. Try different down payments in the calculator to see how much each one trims from your monthly car loan EMI.",
         },
         {
           q: "Can I prepay or foreclose a car loan to save interest?",
-          a: "Usually yes. Prepaying reduces your outstanding principal, which cuts the interest charged over the rest of the tenure — most effective in the early years when the interest share of each EMI is highest. Fixed-rate car loans may levy a foreclosure charge of around 3–6% of the outstanding amount, so weigh that fee against the interest you would save before closing the loan early.",
+          a: "Usually yes. Prepaying reduces your outstanding principal, which cuts the interest charged over the rest of the tenure, most effective in the early years when the interest share of each EMI is highest. Fixed-rate car loans may levy a foreclosure charge of around 3-6% of the outstanding amount, so weigh that fee against the interest you would save before closing the loan early.",
+        },
+        {
+          q: "How much car loan can I get on my salary?",
+          a: "Lenders cap your total EMIs at a share of net income, commonly 40% to 55%, and subtract the EMIs you already pay. On a net salary of Rs 60,000 with no other loans and a 50% cap, roughly Rs 30,000 a month is available for EMIs, which at about 9.5% over 7 years supports a car loan in the region of Rs 21 lakh. Many lenders also apply an internal multiple of your annual income, so confirm the figure with your bank.",
+        },
+        {
+          q: "Is the loan on the ex-showroom price or the on-road price?",
+          a: "Banks usually sanction against the ex-showroom price, funding roughly 80% to 90% of it, and expect you to pay registration, road tax and insurance from your own pocket. Some lenders do finance the full on-road price for salaried borrowers with strong profiles, but that raises your principal and EMI. Enter the amount actually being borrowed, not the on-road price, to get a realistic car loan EMI here.",
+        },
+        {
+          q: "Is car loan interest tax deductible in India?",
+          a: "For a salaried person buying a car for personal use, no deduction is available on either the interest or the principal. If the car is genuinely used for your business or profession, the interest and depreciation can be claimed as business expenses. Separately, Section 80EEB allows a deduction on interest paid on a loan for an electric vehicle, subject to the sanction window and ceiling in the Act, so verify eligibility on incometax.gov.in.",
+        },
+        {
+          q: "What credit score and documents do I need for a car loan?",
+          a: "Most lenders look for a credit score of about 750 or above for their best rates, and a score in the 650 to 750 range usually means approval at a higher rate. Expect to submit PAN, Aadhaar or another address proof, three to six months of bank statements, and recent salary slips or Form 16 (income tax returns if you are self-employed), plus the vehicle quotation from the dealer.",
         },
       ]}
       sources={[{ label: "Reserve Bank of India", href: "https://www.rbi.org.in" }]}

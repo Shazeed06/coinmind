@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Scientific Calculator — 100% client-side.                          */
+/*  Scientific Calculator: 100% client-side.                           */
 /*                                                                     */
 /*  SECURITY: user input is NEVER passed to eval() or new Function().  */
 /*  Expressions are tokenised, converted to Reverse Polish Notation    */
@@ -139,7 +139,7 @@ function toRPN(tokens: Token[]): Token[] {
     } else if (t.type === "func") {
       ops.push(t);
     } else if (t.type === "postfix") {
-      // Factorial / percent bind tighter than any binary op — emit now.
+      // Factorial / percent bind tighter than any binary op. Emit now.
       output.push(t);
     } else if (t.type === "op") {
       const unary =
@@ -376,7 +376,7 @@ function toggleSign(expr: string): string {
     const c = before.length >= 2 ? before[before.length - 2] : "";
     const unary = before.length === 1 || "+-*/^(×÷".includes(c);
     if (unary) return before.slice(0, -1) + num;
-    return expr; // binary minus — leave it alone
+    return expr; // binary minus, leave it alone
   }
   return before + "-" + num;
 }

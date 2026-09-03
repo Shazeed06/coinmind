@@ -99,7 +99,7 @@ export default function HomeLoanEligibilityCalculator() {
             max={70}
             step={5}
             suffix="%"
-            hint="Fixed obligations to income ratio — the share of income lenders let go toward EMIs."
+            hint="Fixed obligations to income ratio: the share of income lenders let go toward EMIs."
           />
         </div>
       </div>
@@ -113,7 +113,7 @@ export default function HomeLoanEligibilityCalculator() {
         </p>
         {tooLow ? (
           <p className="mt-1 text-sm text-ink-faint">
-            Your existing EMIs use up the income lenders allow — try a higher
+            Your existing EMIs use up the income lenders allow. Try a higher
             income, lower obligations or a higher FOIR.
           </p>
         ) : (

@@ -4,7 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Crop Image — Free Online Photo Cropper Tool" },
+  title: { absolute: "Crop Image - Free Online Photo Cropper Tool" },
   description:
     "Free image cropper: drag the crop box or type X, Y, width and height, use 1:1, 4:3 or 16:9 presets, then download as JPG, PNG or WebP. All in your browser.",
   alternates: { canonical: "/tools/crop-image" },
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/crop-image",
-    title: "Crop Image — Free Online Photo Cropper Tool",
+    title: "Crop Image - Free Online Photo Cropper Tool",
     description:
-      "Crop photos with a draggable box or exact pixel values and aspect-ratio presets. 100% private — nothing is uploaded.",
+      "Crop photos with a draggable box or exact pixel values and aspect-ratio presets. 100% private - nothing is uploaded.",
     locale: "en_US",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqData = [
   {
     q: "Are my images uploaded to a server?",
-    a: "No. The cropper works entirely in your browser using the HTML Canvas API. The image is decoded, cut to your selection and re-encoded on your own device — it is never uploaded or seen by anyone.",
+    a: "No. The cropper works entirely in your browser using the HTML Canvas API. The image is decoded, cut to your selection and re-encoded on your own device. It is never uploaded or seen by anyone.",
   },
   {
     q: "How do I crop to an exact size?",
@@ -38,11 +38,11 @@ const faqData = [
   },
   {
     q: "How do the aspect-ratio presets work?",
-    a: "Pick 1:1, 4:3 or 16:9 and the crop box locks to that shape — perfect for square profile pictures, standard photos or widescreen thumbnails. Choose Free to crop to any proportions you like.",
+    a: "Pick 1:1, 4:3 or 16:9 and the crop box locks to that shape, perfect for square profile pictures, standard photos or widescreen thumbnails. Choose Free to crop to any proportions you like.",
   },
   {
     q: "Does cropping reduce the image quality?",
-    a: "Cropping itself is lossless — it simply keeps the pixels inside your selection. The only quality change comes from the output format: PNG stays pixel-perfect, while JPG and WebP re-encode at high quality.",
+    a: "Cropping itself is lossless. It simply keeps the pixels inside your selection. The only quality change comes from the output format: PNG stays pixel-perfect, while JPG and WebP re-encode at high quality.",
   },
   {
     q: "Can I crop on my phone?",
@@ -54,7 +54,11 @@ const faqData = [
   },
   {
     q: "Can I undo a crop after downloading?",
-    a: "No — the downloaded file is a new image containing only the cropped region. Always keep your original photo, and use this tool on a copy if you think you might want to revert later.",
+    a: "No. The downloaded file is a new image containing only the cropped region. Always keep your original photo, and use this tool on a copy if you think you might want to revert later.",
+  },
+  {
+    q: "Is there a maximum file size or resolution I can crop?",
+    a: "The tool sets no fixed limit. The real ceiling is your device memory, because the whole image is decoded into a canvas inside the browser. Photos from a phone or a DSLR are comfortable on any modern machine, while a huge panorama or a scan of many tens of megapixels may feel slow on an older phone.",
   },
 ];
 
@@ -96,7 +100,7 @@ export default function Page() {
       />
       <ToolPageLayout
         title="Crop Image"
-        description="Trim a photo to just the part you want — drag the crop box, snap to a 1:1, 4:3 or 16:9 ratio, or type exact pixel values, all in your browser with nothing uploaded."
+        description="Trim a photo to just the part you want: drag the crop box, snap to a 1:1, 4:3 or 16:9 ratio, or type exact pixel values, all in your browser with nothing uploaded."
         howToUse={[
           {
             step: "Upload your image",
@@ -126,14 +130,14 @@ export default function Page() {
           {
             step: "Download your cropped image",
             detail:
-              "Click the download button. The tool extracts only the pixels inside your selection, encodes a fresh image file in your chosen format, and saves it to your device — all processed locally in your browser.",
+              "Click the download button. The tool extracts only the pixels inside your selection, encodes a fresh image file in your chosen format, and saves it to your device, all processed locally in your browser.",
           },
         ]}
         whenToUse={[
           {
             scenario: "Making a profile picture or avatar",
             detail:
-              "Crop a headshot or portrait to a clean 1:1 square for social media profiles, professional resumes, team pages, or ID photos — with the aspect ratio locked perfectly.",
+              "Crop a headshot or portrait to a clean 1:1 square for social media profiles, professional resumes, team pages, or ID photos, with the aspect ratio locked perfectly.",
           },
           {
             scenario: "Removing unwanted background or distractions",
@@ -146,19 +150,19 @@ export default function Page() {
               "Crop a wide photo to an exact 16:9 region for a YouTube thumbnail, blog header, or social media preview card that fits platform requirements precisely.",
           },
         ]}
-        howItWorks="The cropper uses the HTML Canvas API running entirely in your browser. When you load an image, it is drawn onto an invisible canvas at its original resolution. The crop box defines a rectangular region — X and Y mark the top-left corner in pixels, and width and height set the dimensions of the selection. When you download, the tool draws only the pixels inside that region onto a new canvas sized to match the crop, then exports it in your chosen format. Because everything is done client-side with no server involved, your image never leaves your device, and the tool works offline once loaded."
+        howItWorks="The cropper uses the HTML Canvas API running entirely in your browser. When you load an image, it is drawn onto an invisible canvas at its original resolution. The crop box defines a rectangular region. X and Y mark the top-left corner in pixels, and width and height set the dimensions of the selection. When you download, the tool draws only the pixels inside that region onto a new canvas sized to match the crop, then exports it in your chosen format. Because everything is done client-side with no server involved, your image never leaves your device, and the tool works offline once loaded."
         tips={[
-          "Lock an aspect ratio before you start dragging — it saves time when you need a specific shape and the box stays perfectly proportioned as you resize.",
-          "Use the pixel input fields for batch consistency — if you need several images cropped to the exact same dimensions, type the values instead of dragging by hand.",
-          "Export as PNG if you plan to do further edits — PNG is lossless so no quality is lost before you apply additional adjustments in another tool.",
-          "Check the output dimensions shown above the download button — those pixel values are exactly what you will get in the saved file.",
-          "For very large images, crop to the rough area first and then use the resize tool separately — this gives you finer control over the final pixel dimensions and file size.",
+          "Lock an aspect ratio before you start dragging. It saves time when you need a specific shape and the box stays perfectly proportioned as you resize.",
+          "Use the pixel input fields for batch consistency. If you need several images cropped to the exact same dimensions, type the values instead of dragging by hand.",
+          "Export as PNG if you plan to do further edits. PNG is lossless so no quality is lost before you apply additional adjustments in another tool.",
+          "Check the output dimensions shown above the download button. Those pixel values are exactly what you will get in the saved file.",
+          "For very large images, crop to the rough area first and then use the resize tool separately. This gives you finer control over the final pixel dimensions and file size.",
         ]}
         faqs={faqData}
         relatedTools={[
           { label: "Resize Image", href: "/tools/resize-image" },
           { label: "Rotate & Flip Image", href: "/tools/rotate-image" },
-          { label: "Convert Image", href: "/tools/convert-image" },
+          { label: "Image Converter", href: "/tools/image-converter" },
           { label: "Compress Image", href: "/tools/compress-image" },
         ]}
       >

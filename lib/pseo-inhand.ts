@@ -8,13 +8,13 @@
 // deduction and the Section 87A rebate that zeroes tax up to ₹12L taxable.
 // Keep these in sync if the calculator changes.
 //
-// NOTE ON INTENT — these pages answer "what lands in my bank account each
+// NOTE ON INTENT: these pages answer "what lands in my bank account each
 // month", which is deliberately a DIFFERENT question from /income-tax/[slug]
 // ("how much tax do I pay"). The two clusters cross-link rather than overlap.
 
 type Slab = [upto: number, rate: number];
 
-// New regime slabs FY 2026-27 — identical to the calculator.
+// New regime slabs FY 2026-27, identical to the calculator.
 const SLABS: Slab[] = [
   [400000, 0],
   [800000, 0.05],
@@ -45,7 +45,7 @@ function newRegimeTax(taxable: number): number {
  * which surfaces both whole and half steps from 3 LPA up to 40+ LPA.
  */
 export const INHAND_LPA: number[] = [
-  // Half-steps below 10 LPA — autocomplete shows heavy demand for 3.5, 4.5,
+  // Half-steps below 10 LPA. Autocomplete shows heavy demand for 3.5, 4.5,
   // 6.5 etc., which the round-number-only competitors do not cover.
   2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5,
   10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17,
@@ -60,7 +60,7 @@ export function lpaSlug(lpa: number): string {
   return `${Number(lpa.toFixed(1))}-lpa`;
 }
 
-/** Reverse of lpaSlug — returns null for anything not in INHAND_LPA. */
+/** Reverse of lpaSlug: returns null for anything not in INHAND_LPA. */
 export function parseLpaSlug(slug: string): number | null {
   const m = /^(\d+(?:\.\d+)?)-lpa$/.exec(slug);
   if (!m) return null;
@@ -93,7 +93,7 @@ export type InHandBreakdown = {
 /**
  * CTC → in-hand, replicating TakeHomeSalaryCalculator.tsx exactly.
  * `basicPct` is exposed so the page can show how the answer moves when a
- * company structures basic differently — the single biggest reason two
+ * company structures basic differently, the single biggest reason two
  * "in-hand salary" sites quote different numbers for the same CTC.
  */
 export function computeInHand(lpa: number, basicPct = 50): InHandBreakdown {
@@ -140,5 +140,5 @@ export function basicPctScenarios(
   });
 }
 
-/** Slugs for every generated page — consumed by the sitemap and IndexNow. */
+/** Slugs for every generated page, consumed by the sitemap and IndexNow. */
 export const INHAND_SLUGS: string[] = INHAND_LPA.map(lpaSlug);

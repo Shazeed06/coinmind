@@ -4,16 +4,16 @@ import RemoveDuplicateLines from "@/components/tools/RemoveDuplicateLines";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Remove Duplicate Lines — Free Online Tool" },
+  title: { absolute: "Remove Duplicate Lines - Free Online Tool" },
   description:
-    "Free tool to remove duplicate lines from a list. Options for case-insensitive matching, trimming, sorting and dropping blank lines. Private — runs in browser.",
+    "Free tool to remove duplicate lines from a list. Options for case-insensitive matching, trimming, sorting and dropping blank lines. Private - runs in browser.",
   alternates: { canonical: "/tools/remove-duplicate-lines" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/remove-duplicate-lines`,
-    title: "Remove Duplicate Lines — Free Online Tool",
+    title: "Remove Duplicate Lines - Free Online Tool",
     description:
       "Delete repeated lines from any list, with case-insensitive matching, trimming, sorting and blank-line removal. Free, private and instant.",
     locale: "en_US",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What does case-insensitive matching do?",
-    a: "With it on, lines that differ only in capitalisation are treated as duplicates — so Apple, apple and APPLE collapse to a single entry. The first occurrence is kept with its original capitalisation.",
+    a: "With it on, lines that differ only in capitalisation are treated as duplicates, so Apple, apple and APPLE collapse to a single entry. The first occurrence is kept with its original capitalisation.",
   },
   {
     q: "What is the difference between trim and remove empty lines?",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Is my list uploaded anywhere?",
     a: "No. All processing happens in your browser with JavaScript. Nothing you paste is uploaded or stored, so it is safe for private lists such as emails, keywords or customer data.",
+  },
+  {
+    q: "Does it change the order of the lines I keep?",
+    a: "Not unless you ask it to. With Sort output switched off, the unique lines stay in exactly the order you pasted them, with the first occurrence of each kept in place. Switch Sort output on and the remaining lines are reordered alphabetically using your locale's rules, which handles accented characters sensibly.",
+  },
+  {
+    q: "How many lines can it handle?",
+    a: "There is no built-in cap. Deduplication uses a hash set, so the work grows in a straight line with the number of lines rather than ballooning. Lists of tens of thousands of lines process instantly. The only real ceiling is the memory your browser tab has available, and the line counters above each box tell you exactly what went in and what came out.",
+  },
+  {
+    q: "Do I need to sign up or install anything?",
+    a: "No account, no extension and no download. Paste, tick the options you want and copy the result. Everything ships with the page, so the tool keeps working with no internet connection once it has loaded, and it behaves identically on a phone, a tablet and a desktop browser.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Remove Duplicate Lines
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Clean up any list by deleting repeated lines &mdash; with optional
+          Clean up any list by deleting repeated lines, with optional
           case-insensitive matching, trimming, sorting and blank-line removal.
         </p>
       </header>
@@ -131,7 +143,7 @@ export default function Page() {
             first occurrence of each. Paste your lines, and it instantly shows a
             cleaned version plus a count of how many duplicates were removed. Add
             options to <strong>ignore case</strong>, <strong>trim spaces</strong>
-            , <strong>sort A&ndash;Z</strong> or drop blank lines. It all runs in
+            , <strong>sort A-Z</strong> or drop blank lines. It all runs in
             your browser, so your list stays private.
           </p>
         </div>
@@ -164,7 +176,7 @@ export default function Page() {
         <h2>Sorting and cleaning up</h2>
         <p>
           Turn on <strong>Sort output</strong> to arrange the unique lines
-          alphabetically &mdash; handy when you want a tidy, scannable list or
+          alphabetically, handy when you want a tidy, scannable list or
           plan to compare it against another. <strong>Remove empty lines</strong>{" "}
           clears out the blank rows that often separate pasted sections, giving
           you a compact result. Leave every option off and the tool simply

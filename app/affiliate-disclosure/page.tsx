@@ -11,8 +11,23 @@ export const metadata: Metadata = {
 };
 
 export default function AffiliateDisclosurePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Affiliate Disclosure",
+    description:
+      "How CoinMind uses affiliate links: they are clearly marked, we may earn a commission at no cost to you, and they never affect our tools or recommendations.",
+    url: `${site.url}/affiliate-disclosure`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">
         <Link href="/" className="hover:text-forest">Home</Link>
         <span>/</span>
@@ -33,9 +48,9 @@ export default function AffiliateDisclosurePage() {
         <h2>What affiliate links are</h2>
         <p>
           Some links on {site.name} are affiliate (partner) links. If you click
-          one and then sign up for or buy a product — for example, opening a
+          one and then sign up for or buy a product (for example, opening a
           demat account, applying for a credit card, or comparing a loan or
-          insurance plan — we may earn a small commission. This comes from the
+          insurance plan), we may earn a small commission. This comes from the
           company, not from you: <strong>you never pay anything extra</strong>,
           and often you get the same or a better deal.
         </p>
@@ -47,7 +62,7 @@ export default function AffiliateDisclosurePage() {
           <code>rel=&quot;sponsored&quot;</code> tag. We only ever suggest a
           product that is genuinely relevant to the page you are on. Most
           importantly, our calculators, tools and written recommendations are{" "}
-          <strong>never influenced by commissions</strong> — the maths is the
+          <strong>never influenced by commissions</strong>. The maths is the
           maths, and our reviews are based on merit. If a product is worse, we
           will say so, commission or not. You can read more about how we work in
           our{" "}
@@ -62,7 +77,7 @@ export default function AffiliateDisclosurePage() {
           A partner link is a convenience, not a recommendation to buy. Whether a
           demat account, loan, card or insurance policy is right for you depends
           on your own situation. Everything on {site.name} is educational
-          information, not personalised financial advice — please compare options
+          information, not personalised financial advice. Please compare options
           and read the terms before signing up. See our full{" "}
           <Link href="/disclaimer" className="text-forest underline underline-offset-2">disclaimer</Link>.
         </p>
@@ -72,7 +87,7 @@ export default function AffiliateDisclosurePage() {
           {site.name} is free to use with no sign-up. Advertising and affiliate
           commissions are what keep it that way and pay for building new
           calculators and tools. If you find the site useful and choose to use a
-          partner link, it genuinely helps — thank you.
+          partner link, it genuinely helps, thank you.
         </p>
 
         <h2>Questions</h2>

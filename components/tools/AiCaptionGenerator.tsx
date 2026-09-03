@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  AI Caption & Hashtag Generator — writes 5 platform-tuned captions  */
+/*  AI Caption & Hashtag Generator: writes 5 platform-tuned captions   */
 /*  plus a matching hashtag set via the /api/ai-chat endpoint.         */
 /* ------------------------------------------------------------------ */
 
@@ -74,7 +74,7 @@ export default function AiCaptionGenerator() {
       setResult(data.reply || "Sorry, something went wrong. Please try again.");
     } catch {
       setIsError(true);
-      setResult("Network issue — please try again.");
+      setResult("Network issue. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -106,7 +106,7 @@ export default function AiCaptionGenerator() {
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           rows={5}
-          placeholder="e.g. Launching our new oat-milk cold brew — small-batch, low sugar, ready to sip on the go."
+          placeholder="e.g. Launching our new oat-milk cold brew: small-batch, low sugar, ready to sip on the go."
           className="mt-3 w-full resize-y rounded-xl border border-line-strong bg-paper-2 px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-forest"
         />
 

@@ -4,7 +4,7 @@ import NumberToWords from "@/components/tools/NumberToWords";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Number to Words Converter — Rupees, Lakh & Crore" },
+  title: { absolute: "Number to Words Converter - Rupees, Lakh & Crore" },
   description:
     "Free number to words converter for the Indian (Lakh, Crore) and International (Million, Billion) systems. Spell amounts as Rupees or Dollars. 100% private.",
   alternates: { canonical: "/tools/number-to-words" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/number-to-words`,
-    title: "Number to Words Converter — Rupees, Lakh & Crore",
+    title: "Number to Words Converter - Rupees, Lakh & Crore",
     description:
       "Convert any number into words in the Indian or International system, with optional Rupees and Dollars currency wording. Runs entirely in your browser.",
     locale: "en_US",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Is my data private?",
     a: "Completely. Every conversion happens in your browser with JavaScript. No number you type is uploaded, logged or stored anywhere, so it is safe for confidential financial figures.",
+  },
+  {
+    q: "Can I paste a number that already has commas?",
+    a: "Yes. Commas and spaces are stripped before the number is read, so 12,34,567 and 1,234,567 and 1 234 567 all convert correctly. Anything that is not a digit, a decimal point or a leading minus sign is rejected, and the tool shows a short prompt to enter a valid number rather than printing a broken result.",
+  },
+  {
+    q: "How are negative numbers handled?",
+    a: "A leading minus sign is recognised and the result begins with the word Minus, for example Minus One Lakh Twenty Thousand. This works in both the Indian and International systems and in currency mode too. Negative amounts are rarely used on cheques, but they are useful for accounting entries, credit notes and adjustment lines.",
+  },
+  {
+    q: "Do I need to sign up, and does it work offline?",
+    a: "No sign-up, no account and nothing to install. All the conversion logic ships with the page, so once it has loaded the tool keeps working with no internet connection. It runs the same way on a phone, tablet or desktop, and the Copy button puts the finished wording straight onto your clipboard.",
   },
 ];
 
@@ -111,7 +123,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Convert any number into words in the Indian (Lakh, Crore) or
-          International (Million, Billion) system &mdash; with optional Rupees
+          International (Million, Billion) system, with optional Rupees
           and Dollars wording for cheques and invoices.
         </p>
       </header>
@@ -131,7 +143,7 @@ export default function Page() {
             A number-to-words converter spells out a figure in plain English.
             Type a number above, choose the Indian or International system, and
             the words appear instantly. Switch on currency mode to write an
-            amount the way it appears on a cheque &mdash; for example{" "}
+            amount the way it appears on a cheque, for example{" "}
             <strong>Rupees One Lakh Twenty-Three Thousand Only</strong>. It runs
             entirely in your browser, so confidential figures never leave your
             device.
@@ -145,7 +157,7 @@ export default function Page() {
         <p>
           Writing an amount in words removes any doubt about what a figure
           means. On <strong>cheques</strong>, the amount in words is the legally
-          binding value &mdash; if the digits and the words disagree, banks
+          binding value. If the digits and the words disagree, banks
           honour the words. The same is true on <strong>invoices</strong>,{" "}
           <strong>contracts</strong> and <strong>legal documents</strong>, where
           spelling out the total prevents a stray comma or an added zero from
@@ -160,7 +172,7 @@ export default function Page() {
           grouped as thousand, lakh (one hundred thousand) and crore (ten
           million), so 12,34,567 reads as Twelve Lakh Thirty-Four Thousand Five
           Hundred Sixty-Seven. The <strong>International system</strong> groups
-          in threes &mdash; thousand, million, billion &mdash; so the same
+          in threes (thousand, million, billion) so the same
           digits, written 1,234,567, read as One Million Two Hundred
           Thirty-Four Thousand Five Hundred Sixty-Seven. The toggle lets you
           produce either wording from the same number.
@@ -173,7 +185,7 @@ export default function Page() {
           decimals as paise. Switch to Dollars and it spells the whole units
           followed by <strong>Cents</strong>. Because the decimal handling reads
           exactly two places, an amount like 4999.75 becomes Rupees Four Thousand
-          Nine Hundred Ninety-Nine and Seventy-Five Paise Only &mdash; ready to
+          Nine Hundred Ninety-Nine and Seventy-Five Paise Only, ready to
           copy straight onto a cheque or into accounting software.
         </p>
 

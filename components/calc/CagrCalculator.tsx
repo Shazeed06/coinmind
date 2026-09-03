@@ -20,7 +20,7 @@ export default function CagrCalculator() {
   }, [initial, final, years, valid]);
 
   const sym = currencyMeta[currency].symbol;
-  const fmtPct = (v: number) => (Number.isFinite(v) ? `${v.toFixed(2)}%` : "—");
+  const fmtPct = (v: number) => (Number.isFinite(v) ? `${v.toFixed(2)}%` : "-");
 
   return (
     <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6">
@@ -85,7 +85,7 @@ export default function CagrCalculator() {
           <Stat label="Absolute return" value={fmtPct(absReturn)} accent="brass" />
           <Stat
             label="Total gain"
-            value={valid ? formatCurrency(gain, currency) : "—"}
+            value={valid ? formatCurrency(gain, currency) : "-"}
             accent="forest"
           />
           <Stat label="Duration" value={`${years} yr`} accent="ink" />
@@ -105,7 +105,7 @@ export default function CagrCalculator() {
         )}
 
         <p className="mt-3 text-xs text-ink-faint leading-relaxed">
-          As a rough guide, a long-term CAGR of 10&ndash;15% is considered
+          As a rough guide, a long-term CAGR of 10-15% is considered
           healthy for equity investments, though past returns never guarantee
           future ones.
         </p>

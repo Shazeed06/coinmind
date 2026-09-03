@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  URL Encode / Decode — 100% client-side.                           */
+/*  URL Encode / Decode: 100% client-side.                            */
 /*  encodeURIComponent escapes everything a query value needs;        */
 /*  encodeURI leaves reserved URL characters (: / ? # &) intact for   */
 /*  whole-URL escaping. Both decodes are wrapped so malformed input   */
@@ -149,8 +149,8 @@ export default function UrlEncodeTool() {
         </div>
         <p className="mt-2 text-xs text-ink-faint">
           {scope === "component"
-            ? "Component — escapes every reserved character. Use for a single query value or path segment."
-            : "Whole URI — leaves : / ? # & = intact. Use for an entire URL."}
+            ? "Component. Escapes every reserved character. Use for a single query value or path segment."
+            : "Whole URI. Leaves : / ? # & = intact. Use for an entire URL."}
         </p>
 
         <div className="mt-4 flex flex-wrap items-center gap-2">

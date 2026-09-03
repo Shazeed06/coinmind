@@ -4,7 +4,7 @@ import NpsCalculator from "@/components/calc/NpsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "nps")!;
-export const metadata = calcMeta("nps", CALC.title + " — Pension & Corpus Estimate", CALC.blurb);
+export const metadata = calcMeta("nps", CALC.title + " - Pension & Corpus Estimate", CALC.blurb);
 
 export default function Page() {
   return (
@@ -35,8 +35,8 @@ export default function Page() {
               estimated from the annuity corpus and the expected annuity rate.
             </p>
             <p>
-              NPS suits long horizons and pairs well with other retirement tools —
-              compare the outcome against a broader{" "}
+              NPS suits long horizons and pairs well with other retirement tools.
+              Compare the outcome against a broader{" "}
               <a href="/calculators/retirement" className="text-forest font-medium hover:underline">
                 retirement calculator
               </a>{" "}
@@ -73,6 +73,18 @@ export default function Page() {
         {
           q: "What is the extra ₹50,000 deduction under Section 80CCD(1B)?",
           a: "Section 80CCD(1B) lets you claim an additional deduction of up to ₹50,000 for your own NPS Tier 1 contributions, over and above the ₹1.5 lakh combined ceiling of Section 80C. It is exclusive to NPS, so it is a common reason people add an NPS account on top of other tax-saving investments. The benefit applies under the old tax regime; confirm the current rules for your regime with PFRDA.",
+        },
+        {
+          q: "Can I withdraw from NPS before 60?",
+          a: "Only in limited ways. Tier 1 allows partial withdrawals after a few years of membership, capped at a share of your own contributions and permitted only for specified reasons such as higher education, marriage of children, buying a first home or serious illness. A full exit before 60 forces a larger portion of the corpus into an annuity, leaving a much smaller lump sum. Check the current partial-withdrawal limits and conditions with PFRDA before you plan around them.",
+        },
+        {
+          q: "What is the minimum contribution to keep an NPS account active?",
+          a: "A Tier 1 account needs a small minimum contribution each financial year to stay active, and the account is frozen if you miss it. Reactivating a frozen account usually means paying the missed minimums plus a small penalty. The amounts are modest, but the freeze stops fresh contributions and interrupts the compounding this calculator assumes, so set a standing instruction if you invest irregularly. Confirm the current minimums with PFRDA.",
+        },
+        {
+          q: "What is the difference between Active Choice and Auto Choice in NPS?",
+          a: "Active Choice lets you set your own split across equity, corporate bonds, government securities and alternative assets, subject to a cap on the equity share. Auto Choice moves you along a lifecycle path that starts equity-heavy and shifts into debt as you approach 60, in an aggressive, moderate or conservative flavour. Auto Choice suits people who do not want to rebalance; Active Choice gives more control, and your mix drives the return you enter above.",
         },
       ]}
     />

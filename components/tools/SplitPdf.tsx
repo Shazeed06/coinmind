@@ -111,7 +111,7 @@ export default function SplitPdf() {
     } catch (err) {
       console.error(err);
       setError(
-        "Something went wrong while extracting those pages. The PDF may be encrypted or corrupted — try a different file.",
+        "Something went wrong while extracting those pages. The PDF may be encrypted or corrupted. Try a different file.",
       );
     } finally {
       setWorking(false);
@@ -140,7 +140,7 @@ export default function SplitPdf() {
     } catch (err) {
       console.error(err);
       setError(
-        "Something went wrong while splitting the pages. The PDF may be encrypted or corrupted — try a different file.",
+        "Something went wrong while splitting the pages. The PDF may be encrypted or corrupted. Try a different file.",
       );
     } finally {
       setWorking(false);
@@ -191,7 +191,7 @@ export default function SplitPdf() {
           or click to browse. Extract a page range or split every page.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
-          Files never leave your device — everything runs in your browser.
+          Files never leave your device. Everything runs in your browser.
         </p>
       </div>
 
@@ -284,8 +284,8 @@ export default function SplitPdf() {
             <p className="mt-1 text-xs text-ink-faint">
               Save every page as its own one-page PDF. Your browser will download
               {" "}
-              {loaded.pages} file{loaded.pages > 1 ? "s" : ""} one after another —
-              allow multiple downloads if prompted.
+              {loaded.pages} file{loaded.pages > 1 ? "s" : ""} one after another.
+              Allow multiple downloads if prompted.
             </p>
             <button
               type="button"

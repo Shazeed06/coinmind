@@ -98,7 +98,7 @@ export default function PregnancyDueDateCalculator() {
       return {
         state: "error" as const,
         message:
-          "That date is too far in the past for a current pregnancy — please double-check it.",
+          "That date is too far in the past for a current pregnancy. Please double-check it.",
       };
     }
 
@@ -248,7 +248,7 @@ export default function PregnancyDueDateCalculator() {
             <p className="mt-5 text-xs text-ink-faint leading-relaxed">
               This is only an estimate. Every pregnancy is different, and only
               about 1 in 20 babies arrive on their exact due date. Your doctor or
-              midwife may adjust it after an ultrasound — always follow their
+              midwife may adjust it after an ultrasound. Always follow their
               guidance.
             </p>
           </>

@@ -5,7 +5,7 @@ import InflationCalculator from "@/components/calc/InflationCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "inflation")!;
-export const metadata = calcMeta("inflation", CALC.title + " — Future Value of Money", CALC.blurb);
+export const metadata = calcMeta("inflation", CALC.title + " - Future Value of Money", CALC.blurb);
 
 export default function Page() {
   return (
@@ -26,14 +26,14 @@ export default function Page() {
             <p>
               Where <strong>P</strong> is today&rsquo;s amount, <strong>i</strong>{" "}
               is the annual inflation rate, and <strong>t</strong> is the number of
-              years. The same formula run in reverse &mdash; dividing instead of
-              multiplying &mdash; gives the future purchasing power of today&rsquo;s
+              years. The same formula run in reverse, dividing instead of
+              multiplying, gives the future purchasing power of today&rsquo;s
               money, i.e. what your cash will actually be worth once prices have risen.
             </p>
             <p>
               The gap between these two numbers is why simply holding cash loses value
               over time. To stay ahead, your money needs to earn a return higher than
-              inflation &mdash; which is where a{" "}
+              inflation, which is where a{" "}
               <Link href="/calculators/sip" className="text-forest font-semibold hover:underline">
                 SIP calculator
               </Link>{" "}
@@ -66,6 +66,18 @@ export default function Page() {
         {
           q: "Why do both future cost and purchasing power matter?",
           a: "They answer two different questions. Future cost tells you how much more you'll need to buy the same thing later, which is vital for goal planning. Purchasing power tells you what your existing money will actually be worth, which shows the real cost of not investing.",
+        },
+        {
+          q: "What is the RBI's inflation target?",
+          a: "Under India's flexible inflation targeting framework, the Reserve Bank of India is mandated to keep consumer price inflation at 4%, with a tolerance band of two percentage points either side, so between 2% and 6%. The Monetary Policy Committee raises or cuts the repo rate to steer inflation back towards that midpoint, which is why inflation data moves loan and deposit rates. The target is reviewed periodically, so check rbi.org.in for the framework currently in force.",
+        },
+        {
+          q: "What is the difference between CPI and WPI inflation?",
+          a: "The Consumer Price Index tracks what households actually pay at the retail level, including food, fuel, rent, education and healthcare, and it is the measure the RBI targets and the one that matters for your household budget. The Wholesale Price Index tracks prices of goods traded between businesses and excludes services entirely. WPI usually moves first and more sharply, so it can be a leading signal, but CPI is the better guide to your own cost of living.",
+        },
+        {
+          q: "What will Rs 1 crore be worth in 20 years?",
+          a: "At 6% average inflation, Rs 1 crore held as cash today would have the buying power of roughly Rs 31 lakh in 20 years, so nearly 70% of its real value quietly disappears. At 5% inflation it retains about Rs 38 lakh of today's purchasing power. This is why a retirement target set decades in advance has to be inflation-adjusted, and why the money needs to be invested at a return above inflation rather than left idle.",
         },
       ]}
     />

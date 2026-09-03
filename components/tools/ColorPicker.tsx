@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Color Picker — HEX / RGB / HSL, all in sync, 100% client-side.    */
+/*  Color Picker: HEX / RGB / HSL, all in sync, 100% client-side.     */
 /*  Pick from the native swatch or type into any field; the others    */
 /*  update instantly. Nothing is uploaded.                            */
 /* ------------------------------------------------------------------ */
@@ -112,7 +112,7 @@ function hslToStr([h, s, l]: HSL): string {
 
 /** Pick black or white text for readable contrast on a background colour. */
 function readableText([r, g, b]: RGB): string {
-  // Relative luminance (sRGB) — light backgrounds get dark text.
+  // Relative luminance (sRGB): light backgrounds get dark text.
   const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
   return lum > 0.55 ? "#1a1a1a" : "#ffffff";
 }
@@ -285,7 +285,7 @@ export default function ColorPicker() {
             Tints &amp; shades
           </p>
           <p className="mt-1 text-sm text-ink-faint">
-            Lighter and darker variations &mdash; click any swatch to select it.
+            Lighter and darker variations. Click any swatch to select it.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {[...TINT_STEPS, 0, ...SHADE_STEPS].map((amount, i) => {

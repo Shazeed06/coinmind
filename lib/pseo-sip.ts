@@ -15,7 +15,7 @@ export function sipSlug(monthly: number): string {
   return `${monthly}-per-month`;
 }
 
-// Pre-computed slug list — also imported by app/sitemap.ts to list these pages.
+// Pre-computed slug list, also imported by app/sitemap.ts to list these pages.
 export const SIP_SLUGS: string[] = SIP_AMOUNTS.map(sipSlug);
 
 // "5000-per-month" -> 5000, but only for amounts we actually generate. Any other

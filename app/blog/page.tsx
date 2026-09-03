@@ -42,9 +42,12 @@ export default function Page() {
       <section className="section-pad bg-white">
         <div className="container-main">
           <Pill>Guides</Pill>
-          <h1 className="h1 text-text mt-3">Money & AI, Explained Clearly</h1>
+          <h1 className="h1 text-text mt-3">Personal Finance & AI Guides</h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
-            Practical, jargon-free guides on personal finance, investing, mutual funds, income tax, and working smarter with AI.
+            Practical, jargon-free guides on personal finance, investing, mutual funds, income tax, credit
+            scores, and working smarter with AI. Every guide is written for Indian readers, with real
+            numbers, worked examples, and links to the calculator that does the maths for you. Use the
+            search and category filters below to jump straight to the topic you need.
           </p>
         </div>
       </section>

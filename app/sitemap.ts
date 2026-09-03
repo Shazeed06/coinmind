@@ -2,14 +2,18 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { calculators, posts } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
+import { newsArticles } from "@/lib/newsArticles";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 import { FD_SLUGS } from "@/lib/pseo-fd";
 import { GLOSSARY } from "@/lib/glossary";
 
-// Noindex by design: programmatic pages (AdSense Phase 3), thin utility tools
-const NOINDEX_SECTIONS = ["/sip/", "/sip-returns/"];
+// Noindex by design: programmatic pages (AdSense Phase 3), thin utility tools.
+// "/sip/" covers both slug shapes now served by app/sip/[slug]: the amount
+// pages and the amount×duration pages that used to live at /sip-returns/*.
+// The /sip hub itself is unaffected: "/sip" does not start with "/sip/".
+const NOINDEX_SECTIONS = ["/sip/"];
 const NOINDEX_TOOLS = new Set([
   "color-picker", "base64", "url-encode-decode", "json-formatter",
   "case-converter", "character-counter", "word-counter", "text-compare",
@@ -40,10 +44,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "", "/calculators", "/tools", "/glossary", "/resume-builder", "/ai-assistant",
     "/ai-tools", "/news", "/blog", "/sip", "/income-tax", "/investing",
     "/loans", "/savings", "/retirement", "/budgeting", "/credit-score", "/gold",
-    "/about", "/tax-regime-break-even", "/search", "/editorial-standards",
+    "/about", "/tax-regime-break-even", "/editorial-standards",
     "/affiliate-disclosure", "/contact", "/privacy", "/disclaimer", "/terms",
     "/methodology", "/corrections", "/authors/sahil",
   ];
+  // NOTE: /search is deliberately absent because app/search/page.tsx sets
+  // robots.index=false, and listing a noindex URL in the sitemap is a
+  // contradictory signal that shows up in GSC as "Submitted URL marked
+  // noindex". It stays crawlable and linkable, just not submitted.
   entries.push(...staticPaths.map((p) => ({ path: p })));
 
   // Live calculators (Health ones excluded by live:false)
@@ -51,6 +59,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts
   posts.forEach((p) => entries.push({ path: `/blog/${p.slug}`, lastmod: p.date }));
+
+  // News explainers
+  newsArticles.forEach((a) => entries.push({ path: `/news/${a.slug}`, lastmod: a.date }));
 
   // AI tool details
   aiToolDetails.forEach((d) => entries.push({ path: `/ai-tools/${d.slug}` }));
@@ -68,7 +79,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   keeperTools.forEach((s) => entries.push({ path: `/tools/${s}` }));
 
-  // PSEO routes (exclude noindex sip-returns and sip amount pages)
+  // PSEO routes. The /sip/* programmatic pages are excluded by
+  // NOINDEX_SECTIONS above, so they are not listed here.
   TAX_SLUGS.forEach((s) => entries.push({ path: `/income-tax/${s}` }));
   PAIR_SLUGS.forEach((s) => entries.push({ path: `/currency/${s}` }));
   INHAND_SLUGS.forEach((s) => entries.push({ path: `/in-hand-salary/${s}` }));

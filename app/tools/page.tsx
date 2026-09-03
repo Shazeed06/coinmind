@@ -40,12 +40,12 @@ const TOOLS: Tool[] = [
   { slug: "ai-email-writer", href: "/tools/ai-email-writer", title: "AI Email Writer", blurb: "Generate ready-to-send emails and cover letters.", tag: "AI", category: "AI" },
   { slug: "ai-business-name-generator", href: "/tools/ai-business-name-generator", title: "AI Business Name Generator", blurb: "Get creative startup name ideas.", tag: "AI", category: "AI" },
   { slug: "ai-caption-generator", href: "/tools/ai-caption-generator", title: "AI Caption Generator", blurb: "Create platform-tuned captions and hashtags.", tag: "AI", category: "AI" },
-  { slug: "scientific-calculator", href: "/tools/scientific-calculator", title: "Scientific Calculator", blurb: "Trig, logs, powers, roots — a full scientific calculator.", tag: "Calculators", category: "Calculator" },
+  { slug: "scientific-calculator", href: "/tools/scientific-calculator", title: "Scientific Calculator", blurb: "Trig, logs, powers, roots - a full scientific calculator.", tag: "Calculators", category: "Calculator" },
   { slug: "gpa-calculator", href: "/tools/gpa-calculator", title: "GPA Calculator", blurb: "Work out GPA and CGPA from your grades.", tag: "Students", category: "Students" },
   { slug: "color-picker", href: "/tools/color-picker", title: "Color Picker", blurb: "Pick colours and get HEX, RGB and HSL values.", tag: "Dev", category: "Dev" },
   { slug: "character-counter", href: "/tools/character-counter", title: "Character Counter", blurb: "Live character, word and line counts.", tag: "Text", category: "Text" },
   { slug: "word-counter", href: "/tools/word-counter", title: "Word Counter", blurb: "Count words, characters, sentences and reading time.", tag: "Text", category: "Text" },
-  { slug: "case-converter", href: "/tools/case-converter", title: "Case Converter", blurb: "Change text case — upper, lower, title, camelCase.", tag: "Text", category: "Text" },
+  { slug: "case-converter", href: "/tools/case-converter", title: "Case Converter", blurb: "Change text case - upper, lower, title, camelCase.", tag: "Text", category: "Text" },
   { slug: "number-to-words", href: "/tools/number-to-words", title: "Number to Words", blurb: "Turn numbers into words in Lakh/Crore format.", tag: "Text", category: "Text" },
   { slug: "text-compare", href: "/tools/text-compare", title: "Text Compare", blurb: "Compare two texts side-by-side.", tag: "Text", category: "Text" },
   { slug: "remove-duplicate-lines", href: "/tools/remove-duplicate-lines", title: "Remove Duplicate Lines", blurb: "Delete repeated lines from a list.", tag: "Text", category: "Text" },
@@ -107,13 +107,16 @@ export default function Page() {
       <section className="section-pad bg-white">
         <div className="container-main">
           <Pill>Free Tools</Pill>
-          <h1 className="h1 text-text mt-3">Premium Tools, Completely Free</h1>
+          <h1 className="h1 text-text mt-3">Free Online Tools</h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
-            44 free browser tools — resume builder, PDF merger, image editor, AI utilities and more. No sign-up, no upload.
+            A growing set of free online tools for PDFs, images, text, code and AI: merge and split PDFs,
+            compress and convert images, count words, generate passwords and QR codes, build a resume, and
+            more. Everything runs in your browser, so your files are never uploaded to a server. No sign-up,
+            no watermarks, no limits.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-pill border border-border bg-bg-alt px-4 py-2 text-sm text-text-muted">
             <Shield className="h-4 w-4 text-brand" />
-            100% private — your files never leave your device
+            100% private - your files never leave your device
           </div>
         </div>
       </section>

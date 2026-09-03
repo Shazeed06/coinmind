@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Lorem Ipsum Generator — classic placeholder text, made to order.  */
+/*  Lorem Ipsum Generator: classic placeholder text, made to order.   */
 /*  Choose paragraphs, sentences or words; optionally begin with the  */
 /*  traditional "Lorem ipsum dolor sit amet…" opening. 100% in-browser*/
 /* ------------------------------------------------------------------ */

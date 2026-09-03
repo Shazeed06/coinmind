@@ -4,7 +4,7 @@ import ScssCalculator from "@/components/calc/ScssCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "scss")!;
-export const metadata = calcMeta("scss", CALC.title + " — Senior Citizen Savings Scheme", CALC.blurb);
+export const metadata = calcMeta("scss", CALC.title + " - Senior Citizen Savings Scheme", CALC.blurb);
 
 export default function Page() {
   return (
@@ -32,7 +32,7 @@ export default function Page() {
             <p>
               Where <strong>P</strong> is your deposit and <strong>r</strong> is
               the annual interest rate (a current rate, set and revised by the
-              government each quarter &mdash; you can edit it to match
+              government each quarter; you can edit it to match
               today&apos;s figure). Annual income is P &times; r/100, and total
               interest over the term is that annual figure multiplied by five.
               For example, &#8377;5,00,000 at 8.2% pays about &#8377;10,250 every
@@ -58,6 +58,22 @@ export default function Page() {
         {
           q: "Is SCSS eligible for tax benefits, and is the interest taxable?",
           a: "Deposits in SCSS qualify for a deduction under Section 80C, up to the ₹1.5 lakh annual limit. However, the quarterly interest income is fully taxable in your hands and TDS may apply if your total interest crosses the threshold, so treat the payout shown by this senior citizen savings scheme calculator as a pre-tax figure.",
+        },
+        {
+          q: "Can I close an SCSS account before 5 years?",
+          a: "Yes. Unlike some small savings schemes there is no minimum waiting period for closure, but a percentage of your deposit is deducted as a penalty, and the deduction is larger if you close in the first couple of years than if you close later in the term. The quarterly payouts already received are yours to keep. Confirm the current penalty percentages with the National Savings Institute or your post office before breaking the account.",
+        },
+        {
+          q: "Can SCSS be extended after 5 years?",
+          a: "Yes. At maturity you can extend the account for a further block of 3 years, and the extension can be requested within a year of the maturity date. The extended account earns the rate applicable on the date of maturity, not the rate you originally opened at, so your quarterly payout may rise or fall. An extended account can also be closed after a year of extension without any penalty deduction.",
+        },
+        {
+          q: "Is TDS deducted on SCSS interest, and how do I avoid it?",
+          a: "Yes. The post office or bank deducts TDS under Section 194A once your interest for the year crosses the notified threshold, which is set higher for senior citizens than for others. Two things help: Section 80TTB allows senior citizens a deduction of up to ₹50,000 a year on interest income, and if your total income is below the taxable limit you can submit Form 15H to stop the deduction at source. Verify the current thresholds with the Income Tax Department.",
+        },
+        {
+          q: "Can I open a joint SCSS account with my spouse?",
+          a: "Yes, but only with your spouse, and the whole deposit is treated as belonging to the first holder. That matters for the ₹30 lakh ceiling: it applies per individual across all SCSS accounts, so a joint account does not double your limit the way it does in the Post Office Monthly Income Scheme. The spouse can be below 60 in a joint account. On the death of the first holder the account can pass to the spouse if they are eligible.",
         },
       ]}
     />

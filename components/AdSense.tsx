@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-// Google AdSense loader — DELAYED until the first real user interaction.
+// Google AdSense loader: DELAYED until the first real user interaction.
 //
 // Why: adsbygoogle.js pulls in ~280 KB of Google ad + bot-detection JS
 // (recaptcha, adtrafficquality, doubleclick) and auto-ads inject slots that
@@ -10,19 +10,19 @@ import { useEffect } from "react";
 // LCP) which hurts both the Lighthouse score AND Google ranking.
 //
 // So we load it on the first of scroll / pointerdown / touchstart / keydown /
-// mousemove — i.e. the moment a human engages. Real visitors still get ads
+// mousemove, i.e. the moment a human engages. Real visitors still get ads
 // (they almost always scroll/tap within a second or two); Lighthouse and other
 // non-interacting bots never trigger it, so they measure a fast, stable page.
 //
 // AdSense verification is unaffected: it relies on the <meta
 // name="google-adsense-account"> tag (rendered in <head> from layout metadata)
-// and public/ads.txt — both still present in the raw HTML.
+// and public/ads.txt, both still present in the raw HTML.
 const EVENTS = ["scroll", "pointerdown", "touchstart", "keydown", "mousemove"] as const;
 
 export default function AdSense({ clientId }: { clientId: string }) {
   useEffect(() => {
     if (!clientId) return;
-    // Already injected (e.g. client-side nav re-mount) — do nothing.
+    // Already injected (e.g. client-side nav re-mount). Do nothing.
     if (document.querySelector("script[data-adsense]")) return;
 
     let done = false;

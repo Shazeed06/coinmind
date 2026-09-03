@@ -4,17 +4,17 @@ import AiCaptionGenerator from "@/components/tools/AiCaptionGenerator";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Instagram Caption Generator — AI Captions & Hashtags" },
+  title: { absolute: "Instagram Caption Generator - AI Captions & Hashtags" },
   description:
-    "Free AI caption and hashtag generator. Describe your post, pick a platform and tone, and get 5 ready-to-use captions plus 10–15 matching hashtags in seconds.",
+    "Free AI caption and hashtag generator. Describe your post, pick a platform and tone, and get 5 ready-to-use captions plus 10-15 matching hashtags in seconds.",
   alternates: { canonical: "/tools/ai-caption-generator" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/ai-caption-generator",
-    title: "AI Caption & Hashtag Generator — Free",
+    title: "AI Caption & Hashtag Generator - Free",
     description:
-      "Describe your post, pick a platform and tone, and get 5 engaging captions plus 10–15 relevant hashtags, powered by AI.",
+      "Describe your post, pick a platform and tone, and get 5 engaging captions plus 10-15 relevant hashtags, powered by AI.",
     locale: "en_US",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is the caption generator free to use?",
-    a: "Yes. You can generate captions and hashtags for Instagram, TikTok, LinkedIn, X, Facebook and YouTube for free — no sign-up, no credit card and no per-post limit. Just describe your post, choose a platform and tone, and generate as many sets as you like.",
+    a: "Yes. You can generate captions and hashtags for Instagram, TikTok, LinkedIn, X, Facebook and YouTube for free: no sign-up, no credit card and no per-post limit. Just describe your post, choose a platform and tone, and generate as many sets as you like.",
   },
   {
     q: "Which platforms and tones does it support?",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "How many hashtags does it generate?",
-    a: "Every result includes a set of roughly 10–15 relevant hashtags chosen to match your topic and platform. You can copy them all with one click and trim the list to suit each platform's best practice — for example, a handful on LinkedIn or X and more on Instagram.",
+    a: "Every result includes a set of roughly 10-15 relevant hashtags chosen to match your topic and platform. You can copy them all with one click and trim the list to suit each platform's best practice, for example a handful on LinkedIn or X and more on Instagram.",
   },
   {
     q: "Can I add emojis to my captions?",
@@ -47,6 +47,18 @@ const faqs = [
   {
     q: "Should I edit the captions before posting?",
     a: "It's a good idea. The AI gives you five strong starting points, but the best captions reflect your own voice, offer and call to action. Pick your favourite, tweak the wording, add your link or handle, and double-check any facts or claims before you publish.",
+  },
+  {
+    q: "Do I need to sign up or connect my social account?",
+    a: "No. There is no account to create, no password to enter and no permission to link Instagram, TikTok or LinkedIn. You describe your post, generate, then copy the caption and paste it into whichever app you post from. The page works the same in a mobile browser as on a desktop, so you can write captions on your phone.",
+  },
+  {
+    q: "Are the hashtags guaranteed to be trending?",
+    a: "No. The AI picks tags that are topically relevant to your description and chosen platform, not ones checked against live search volume or a trending list. Treat the set as a strong starting point: drop anything that does not fit your niche, and search a few of the broader tags in the app to see whether the audience is right.",
+  },
+  {
+    q: "Is my post description sent to a server?",
+    a: "Yes, it has to be. Your brief travels over an encrypted connection to the AI model that writes the captions, which is why this tool needs an internet connection and cannot work offline. CoinMind does not store the text, link it to an account or show it to anyone else, but avoid pasting unannounced launch details.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Describe your post, pick a platform and tone, and get five scroll-stopping
-          captions plus a set of matching hashtags &mdash; ready to copy and post.
+          captions plus a set of matching hashtags, ready to copy and post.
         </p>
       </header>
 
@@ -135,7 +147,7 @@ export default function Page() {
             ready-to-use social captions. Type what your post is about, choose a
             platform (Instagram, TikTok, LinkedIn, X, Facebook or YouTube) and a
             tone, then generate. In seconds you get five distinct captions plus
-            10&ndash;15 relevant hashtags &mdash; copy the whole set with one tap,
+            10-15 relevant hashtags. Copy the whole set with one tap,
             tweak your favourite, and post.
           </p>
         </div>
@@ -145,7 +157,7 @@ export default function Page() {
       <section className="mt-12 max-w-3xl article">
         <h2>Why captions and hashtags matter</h2>
         <p>
-          A great photo or video only does half the work &mdash; the caption is
+          A great photo or video only does half the work. The caption is
           what stops the scroll, adds context and prompts people to like, save,
           comment or click. Hashtags then decide how far that post travels,
           helping the right audiences discover you beyond your existing
@@ -157,15 +169,15 @@ export default function Page() {
 
         <h2>How to write a caption that performs</h2>
         <p>
-          Strong captions usually open with a <strong>hook</strong> &mdash; a
+          Strong captions usually open with a <strong>hook</strong>: a
           question, bold claim or relatable line that earns the next second of
           attention. Keep the middle tight, write the way you speak, and finish
           with a clear <strong>call to action</strong> such as &ldquo;save this
           for later&rdquo; or &ldquo;tell us in the comments&rdquo;. Match the
           length to the platform: punchy for TikTok and X, a little more room to
           tell a story on Instagram, and a more professional, value-first angle
-          on LinkedIn. Choosing a tone above &mdash; Fun, Professional,
-          Inspirational, Witty or Bold &mdash; nudges the AI toward exactly that
+          on LinkedIn. Choosing a tone above (Fun, Professional,
+          Inspirational, Witty or Bold) nudges the AI toward exactly that
           style.
         </p>
 
@@ -173,7 +185,7 @@ export default function Page() {
         <p>
           Hashtags work best when they mix reach and relevance: a few broad tags,
           several niche ones that describe your exact topic, and where it fits, a
-          branded tag of your own. More is not always better &mdash; a tight,
+          branded tag of your own. More is not always better. A tight,
           well-chosen set often outperforms 30 generic tags. Instagram and TikTok
           reward a fuller list, while <strong>LinkedIn</strong> and{" "}
           <strong>X</strong> tend to do better with just three to five. Treat the
@@ -187,7 +199,7 @@ export default function Page() {
           product or subject, who it&apos;s for, the vibe you want and any offer
           or launch detail. Generate a set, then run it again with a different
           tone to compare styles side by side. Always give the output a quick
-          human edit &mdash; add your handle or link, confirm any claims, and make
+          human edit: add your handle or link, confirm any claims, and make
           sure the voice sounds like you before you hit publish.
         </p>
       </section>

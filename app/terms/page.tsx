@@ -4,14 +4,29 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The terms and conditions for using CoinMind's free calculators, tools and content — what you can expect from us, and the limits of our educational information.",
+    "The terms and conditions for using CoinMind's free calculators, tools and content: what you can expect from us, and the limits of our educational information.",
   alternates: { canonical: "/terms" },
   openGraph: { url: "/terms" },
 };
 
 export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Terms of Service",
+    description:
+      "The terms and conditions for using CoinMind's free calculators, tools and content: what you can expect from us, and the limits of our educational information.",
+    url: `${site.url}/terms`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <header className="pt-14">
         <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
           Terms of Service

@@ -4,7 +4,7 @@ import CagrCalculator from "@/components/calc/CagrCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "cagr")!;
-export const metadata = calcMeta("cagr", CALC.title + " — Compound Annual Growth Rate", CALC.blurb);
+export const metadata = calcMeta("cagr", CALC.title + " - Compound Annual Growth Rate", CALC.blurb);
 
 export default function Page() {
   return (
@@ -25,7 +25,7 @@ export default function Page() {
             <p>
               The result is expressed as a percentage. For example, growing{" "}
               &#8377;100,000 into &#8377;200,000 over 5 years works out to a CAGR
-              of about 14.87% &mdash; the constant yearly rate that doubles the
+              of about 14.87%, the constant yearly rate that doubles the
               money in that time. Alongside CAGR, the calculator also shows the{" "}
               <strong>absolute return</strong>, which is the total percentage
               gain ignoring time, and the <strong>total gain</strong> in your
@@ -54,6 +54,18 @@ export default function Page() {
         {
           q: "What counts as a good CAGR?",
           a: "It depends on the asset and risk. For long-term equity investments, a CAGR of roughly 10 to 15% is generally considered healthy, while fixed deposits and bonds sit lower. Higher CAGR usually comes with higher risk, and past growth never guarantees future returns.",
+        },
+        {
+          q: "What is the difference between CAGR and XIRR?",
+          a: "CAGR works only when there is a single investment at the start and a single value at the end. XIRR handles multiple cash flows on different dates, which is why mutual fund statements report XIRR for SIPs. If you invest Rs 5,000 every month, each instalment is invested for a different length of time, so CAGR cannot describe it correctly. Use CAGR for a one-time lumpsum and XIRR for a SIP or any staggered investment.",
+        },
+        {
+          q: "Can CAGR be negative?",
+          a: "Yes. If your final value is lower than what you started with, the CAGR comes out negative, showing the average yearly rate at which the investment shrank. For example, Rs 1,00,000 falling to Rs 80,000 over 3 years is a CAGR of about minus 7.2% a year. A negative CAGR over a long period is a useful signal that the asset has consistently destroyed value rather than just having one bad year.",
+        },
+        {
+          q: "How do I calculate CAGR in Excel or Google Sheets?",
+          a: "Use the formula =(final_value/initial_value)^(1/years)-1 and format the cell as a percentage. Excel also has =RRI(years, initial_value, final_value), which returns the same figure directly. If your holding period is not a whole number of years, use the exact fraction, so 30 months becomes 2.5 years. This calculator does the same arithmetic without the spreadsheet.",
         },
       ]}
     />

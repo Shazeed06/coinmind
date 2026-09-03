@@ -113,8 +113,8 @@ export default function SalesTaxCalculator() {
 
         <div className="mt-5 rounded-xl bg-card border border-line p-4 text-sm text-ink-soft leading-relaxed">
           Works for <strong className="text-ink">US sales tax</strong> and{" "}
-          <strong className="text-ink">UK &amp; EU VAT</strong> alike &mdash;
-          just set the rate. Calculating Indian GST?{" "}
+          <strong className="text-ink">UK &amp; EU VAT</strong> alike. Just
+          set the rate. Calculating Indian GST?{" "}
           <Link
             href="/calculators/gst"
             className="text-forest font-semibold hover:underline"

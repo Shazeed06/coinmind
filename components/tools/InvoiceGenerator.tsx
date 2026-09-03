@@ -50,7 +50,7 @@ const emptyItem = (): LineItem => ({
   price: "",
 });
 
-// Safe numeric parse — never returns NaN, guards empty/invalid input.
+// Safe numeric parse: never returns NaN, guards empty/invalid input.
 const num = (v: string): number => {
   const n = parseFloat(v);
   return Number.isFinite(n) ? n : 0;
@@ -188,7 +188,7 @@ export default function InvoiceGenerator() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch {
-      /* storage full / disabled — ignore, tool still works */
+      /* storage full / disabled: ignore, tool still works */
     }
   }, [data, hydrated]);
 
@@ -249,7 +249,7 @@ export default function InvoiceGenerator() {
 
   return (
     <div className="invoice-generator">
-      {/* Print rules — only the preview is visible when printing. */}
+      {/* Print rules: only the preview is visible when printing. */}
       <style>{`
         @media print {
           @page { margin: 14mm; }
@@ -288,14 +288,14 @@ export default function InvoiceGenerator() {
           Clear / Start over
         </button>
         <p className="text-xs text-ink-faint">
-          Your details stay in your browser — nothing is uploaded. Use your
+          Your details stay in your browser. Nothing is uploaded. Use your
           browser&apos;s &ldquo;Save as PDF&rdquo; option in the print dialog.
         </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* ---------------------------------------------------------------- */}
-        {/* LEFT — the form                                                  */}
+        {/* LEFT: the form                                                  */}
         {/* ---------------------------------------------------------------- */}
         <div className="no-print space-y-6">
           {/* Your business */}
@@ -534,7 +534,7 @@ export default function InvoiceGenerator() {
         </div>
 
         {/* ---------------------------------------------------------------- */}
-        {/* RIGHT — live preview                                             */}
+        {/* RIGHT: live preview                                             */}
         {/* ---------------------------------------------------------------- */}
         <div className="lg:sticky lg:top-6 self-start">
           <div
@@ -634,7 +634,7 @@ export default function InvoiceGenerator() {
                           className="border-b border-[#eef0f7] align-top"
                         >
                           <td className="py-2.5 pr-3 text-[13px] text-[#0f1424]">
-                            {it.description || "—"}
+                            {it.description || "-"}
                           </td>
                           <td className="py-2.5 text-right text-[13px] tabular-nums text-[#3f4661]">
                             {num(it.qty)}
@@ -704,7 +704,7 @@ export default function InvoiceGenerator() {
           </div>
 
           <p className="no-print mt-3 text-center text-xs text-ink-faint">
-            Live preview — this is exactly what your PDF will look like.
+            Live preview. This is exactly what your PDF will look like.
           </p>
         </div>
       </div>

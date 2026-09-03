@@ -42,7 +42,10 @@ export default function Page() {
           <Pill>{GLOSSARY.length} terms explained</Pill>
           <h1 className="h1 text-text mt-3">Finance & AI Glossary</h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
-            Money and AI are full of jargon. Here every key term is defined in plain English — with examples and links to the right calculator.
+            Money and AI are full of jargon. This glossary defines every key investing, tax, banking and AI
+            term in plain English: SIP, EMI, CAGR, LTCG, NAV, XIRR, LLM and more. Each entry gives a short
+            definition, a worked example, and a link to the calculator or guide that puts it to use. Search
+            by keyword or browse alphabetically below.
           </p>
         </div>
       </section>

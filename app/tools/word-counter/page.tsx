@@ -4,18 +4,18 @@ import WordCounter from "@/components/tools/WordCounter";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Word Counter — Count Words & Characters Free" },
+  title: { absolute: "Word Counter - Count Words & Characters Free" },
   description:
-    "Free online word counter. Get live word, character, sentence and paragraph counts plus reading and speaking time. 100% private — runs in your browser.",
+    "Free online word counter. Get live word, character, sentence and paragraph counts plus reading and speaking time. 100% private - runs in your browser.",
   alternates: { canonical: "/tools/word-counter" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/word-counter",
-    title: "Word Counter — Count Words & Characters Free",
+    title: "Word Counter - Count Words & Characters Free",
     description:
-      "Live word, character, sentence and paragraph counts with reading and speaking time. 100% private — your text never leaves your browser.",
+      "Live word, character, sentence and paragraph counts with reading and speaking time. 100% private - your text never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my text uploaded to a server?",
-    a: "No. The word counter runs entirely in your browser with JavaScript. Nothing you type or paste is uploaded, stored or seen by anyone — it never leaves your device, so it is safe for private or confidential writing.",
+    a: "No. The word counter runs entirely in your browser with JavaScript. Nothing you type or paste is uploaded, stored or seen by anyone. It never leaves your device, so it is safe for private or confidential writing.",
   },
   {
     q: "How are words counted?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "What is the difference between characters with and without spaces?",
-    a: "Characters (with spaces) counts every character you type, including spaces, tabs and line breaks. Characters (no spaces) ignores all whitespace — this is the figure most social platforms and meta-tag limits refer to.",
+    a: "Characters (with spaces) counts every character you type, including spaces, tabs and line breaks. Characters (no spaces) ignores all whitespace. This is the figure most social platforms and meta-tag limits refer to.",
   },
   {
     q: "How is reading and speaking time calculated?",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "How does the counter define sentences and paragraphs?",
     a: "A sentence is a block of text ending in a full stop, question mark or exclamation mark. A paragraph is any block of text separated by one or more line breaks. Empty lines are ignored so the counts stay accurate.",
+  },
+  {
+    q: "How does the top keywords list work?",
+    a: "It counts how often each word appears, ignoring anything shorter than three letters and a built-in list of common English stop words such as the, and, with and that. Only words used more than once qualify, and the eight most frequent are shown with their counts. It is a quick way to spot a term you have leaned on too heavily.",
+  },
+  {
+    q: "Can I upload a document instead of pasting?",
+    a: "Not currently. The counter reads whatever is in the text box, so open your document, select all and paste it in. Pasting from a word processor brings the plain text across, which is exactly what the counter needs. The Copy and Clear buttons above the box let you take the text back out or start fresh.",
+  },
+  {
+    q: "Do I need to sign up, and does it work offline?",
+    a: "No sign-up, no account and nothing to install. All the counting logic ships with the page, so once it has loaded it keeps working with no internet connection. The stat cards reflow into two columns on a phone, so you can check a word count on mobile just as easily as on a desktop browser.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Word Counter
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Count words, characters, sentences and paragraphs as you type &mdash;
+          Count words, characters, sentences and paragraphs as you type,
           with live reading and speaking time, right in your browser.
         </p>
       </header>
@@ -129,7 +141,7 @@ export default function Page() {
           <p className="mt-2 text-ink-soft leading-relaxed">
             A word counter tells you exactly how many words and characters your
             text contains. Paste or type into the box above and every count
-            updates instantly &mdash; words, characters (with and without
+            updates instantly: words, characters (with and without
             spaces), sentences, paragraphs, plus estimated reading and speaking
             time. It runs entirely in your browser, so your writing stays
             private and works even offline.
@@ -145,7 +157,7 @@ export default function Page() {
           essay word limits, journalists write to a brief, and marketers battle
           strict character counts on ads and search snippets. Knowing your
           count in real time means you can shape a piece to fit its purpose
-          instead of guessing &mdash; and edit with confidence rather than
+          instead of guessing, and edit with confidence rather than
           pasting into a document just to check the total. Because this tool
           updates live as you type, you always know where you stand.
         </p>
@@ -153,7 +165,7 @@ export default function Page() {
         <h2>Common word and character limits</h2>
         <p>
           Different platforms measure length in different ways. Academic{" "}
-          <strong>essays</strong> are usually set in words &mdash; a typical
+          <strong>essays</strong> are usually set in words. A typical
           college essay runs 500 to 650 words, while dissertations reach many
           thousands. Social posts are capped in characters:{" "}
           <strong>tweets</strong> allow 280 characters, and a{" "}
@@ -170,7 +182,7 @@ export default function Page() {
           time is based on an average silent reading pace of about 200 words per
           minute, which is handy for gauging whether a blog post or report is a
           quick skim or a long read. Speaking time uses a slower 130 words per
-          minute &mdash; a comfortable pace for a speech, presentation or video
+          minute, a comfortable pace for a speech, presentation or video
           script. If you&apos;re preparing a five-minute talk, aim for roughly
           650 spoken words and let the counter confirm it.
         </p>
@@ -178,7 +190,7 @@ export default function Page() {
         <h2>Tips for writers and SEOs</h2>
         <p>
           Watch the <strong>top keywords</strong> list to spot when a word is
-          overused &mdash; repeating the same term too often reads awkwardly and
+          overused. Repeating the same term too often reads awkwardly and
           can look like keyword stuffing to search engines. Aim for natural
           variety instead. When you&apos;re trimming to a limit, target the
           longest paragraphs first, and remember that tightening sentences

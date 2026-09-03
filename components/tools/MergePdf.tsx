@@ -174,7 +174,7 @@ export default function MergePdf() {
           or click to browse. Add two or more to combine them.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
-          Files never leave your device — everything runs in your browser.
+          Files never leave your device. Everything runs in your browser.
         </p>
       </div>
 

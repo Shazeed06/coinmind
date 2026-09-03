@@ -2,7 +2,7 @@ import { Section, SectionHeader } from "@/components/ui";
 import { Search, Calculator, BarChart3, CheckCircle } from "lucide-react";
 
 const STEPS = [
-  { icon: Search, step: "1", title: "Choose Your Calculator", desc: "Pick from 46 calculators — SIP, EMI, income tax, FD, PPF and more." },
+  { icon: Search, step: "1", title: "Choose Your Calculator", desc: "Pick from 46 calculators: SIP, EMI, income tax, FD, PPF and more." },
   { icon: Calculator, step: "2", title: "Enter Your Numbers", desc: "Type in your amounts, rates and timeframes. Every input is clearly labelled." },
   { icon: BarChart3, step: "3", title: "See Instant Results", desc: "Get your answer immediately with breakdowns, charts and year-wise tables." },
   { icon: CheckCircle, step: "4", title: "Take Action", desc: "Use the insight to open a SIP, apply for a loan, or save on taxes." },
@@ -14,7 +14,7 @@ export default function HowCalculatorsWork() {
       <SectionHeader
         eyebrow="How It Works"
         title="How Our Calculators Work"
-        subline="From entering your numbers to actionable insight — in seconds."
+        subline="From entering your numbers to actionable insight, in seconds."
       />
       <div className="relative">
         <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-border" />

@@ -5,7 +5,7 @@ import HomeLoanEligibilityCalculator from "@/components/calc/HomeLoanEligibility
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "home-loan-eligibility")!;
-export const metadata = calcMeta("home-loan-eligibility", CALC.title + " — How Much Can I Get?", CALC.blurb);
+export const metadata = calcMeta("home-loan-eligibility", CALC.title + " - How Much Can I Get?", CALC.blurb);
 
 export default function Page() {
   return (
@@ -54,11 +54,11 @@ export default function Page() {
         },
         {
           q: "What is FOIR and what percentage of salary can go toward EMIs?",
-          a: "FOIR stands for Fixed Obligations to Income Ratio — the share of your income that can be used for all EMIs combined. Most lenders cap it between 40% and 55%, so if you earn 100,000 a month at a 50% FOIR, up to 50,000 can go toward EMIs. Higher earners are sometimes allowed a higher ratio because more income is left over for living costs.",
+          a: "FOIR stands for Fixed Obligations to Income Ratio: the share of your income that can be used for all EMIs combined. Most lenders cap it between 40% and 55%, so if you earn 100,000 a month at a 50% FOIR, up to 50,000 can go toward EMIs. Higher earners are sometimes allowed a higher ratio because more income is left over for living costs.",
         },
         {
           q: "Does my existing EMI reduce how much I can borrow?",
-          a: "Yes. Any car loan, personal loan or credit-card EMI you already pay is subtracted from the amount your FOIR allows, which lowers the EMI left for a new home loan — and therefore the loan you qualify for. Closing or paying down existing debt before you apply is one of the fastest ways to increase your eligibility.",
+          a: "Yes. Any car loan, personal loan or credit-card EMI you already pay is subtracted from the amount your FOIR allows, which lowers the EMI left for a new home loan, and therefore the loan you qualify for. Closing or paying down existing debt before you apply is one of the fastest ways to increase your eligibility.",
         },
         {
           q: "How can I increase my home loan eligibility?",
@@ -66,7 +66,19 @@ export default function Page() {
         },
         {
           q: "Is this eligibility figure guaranteed by lenders?",
-          a: "No — it is an estimate to help you plan. Actual approval depends on the lender's own FOIR policy, your credit history, the property's valuation and their loan-to-value limits. Treat the result as a realistic starting point and confirm the exact amount with your lender.",
+          a: "No. It is an estimate to help you plan. Actual approval depends on the lender's own FOIR policy, your credit history, the property's valuation and their loan-to-value limits. Treat the result as a realistic starting point and confirm the exact amount with your lender.",
+        },
+        {
+          q: "How much home loan can I get on a Rs 50,000 salary?",
+          a: "On a net salary of Rs 50,000 with no existing EMIs and a 50% FOIR cap, about Rs 25,000 a month is available for repayment. At an interest rate near 8.5% over a 20-year tenure, that EMI supports a loan of roughly Rs 28 lakh to Rs 29 lakh. Stretch the tenure to 25 years and the same EMI supports around Rs 31 lakh. Enter your own income, rate and tenure above for a figure matched to your situation.",
+        },
+        {
+          q: "How much down payment do I need, and what is LTV?",
+          a: "Loan-to-value is the share of the property's value a lender may finance, and the rest is your down payment. Under Reserve Bank of India norms lenders have generally been allowed up to 90% for smaller home loans, tapering to 80% and then 75% as the loan size rises. Registration, stamp duty and brokerage usually sit outside the loan too, so budget 15% to 25% of the property cost in cash. Confirm the current LTV bands with your lender.",
+        },
+        {
+          q: "Do my credit score and age affect eligibility?",
+          a: "Both matter. Most lenders reserve their best rates for a credit score around 750 or above, and a weaker score means a higher rate, a smaller loan, or rejection. Age caps the tenure, because lenders normally want the loan closed by retirement, commonly age 60 for salaried borrowers and up to 65 or 70 for the self-employed. A borrower of 45 may therefore be offered 15 years rather than 30, which cuts the loan the same EMI can support.",
         },
       ]}
     />

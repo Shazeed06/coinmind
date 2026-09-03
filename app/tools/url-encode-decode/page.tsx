@@ -4,7 +4,7 @@ import UrlEncodeTool from "@/components/tools/UrlEncodeTool";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "URL Encode & Decode — Free Online Tool" },
+  title: { absolute: "URL Encode & Decode - Free Online Tool" },
   description:
     "Free online URL encoder and decoder. Percent-encode query values and whole URLs with encodeURIComponent or encodeURI, and decode them back.",
   alternates: { canonical: "/tools/url-encode-decode" },
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/url-encode-decode",
-    title: "URL Encode & Decode — Free Online Tool",
+    title: "URL Encode & Decode - Free Online Tool",
     description:
-      "Percent-encode and decode URLs and query strings with encodeURIComponent or encodeURI. 100% private — your text never leaves your browser.",
+      "Percent-encode and decode URLs and query strings with encodeURIComponent or encodeURI. 100% private - your text never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my input uploaded to a server?",
-    a: "No. Encoding and decoding run entirely in your browser with JavaScript. Nothing you type or paste is uploaded, logged or seen by anyone — it never leaves your device, so it is safe for private URLs and data.",
+    a: "No. Encoding and decoding run entirely in your browser with JavaScript. Nothing you type or paste is uploaded, logged or seen by anyone. It never leaves your device, so it is safe for private URLs and data.",
   },
   {
     q: "What is the difference between encodeURIComponent and encodeURI?",
@@ -39,15 +39,27 @@ const faqs = [
   },
   {
     q: "When should I URL-encode text?",
-    a: "Whenever you put user text or arbitrary data into a URL — a search term, a filter value, a redirect target — encode it so spaces, ampersands, plus signs and non-ASCII characters don't break the link or get misread as separators. Use component encoding for individual values.",
+    a: "Whenever you put user text or arbitrary data into a URL (a search term, a filter value, a redirect target), encode it so spaces, ampersands, plus signs and non-ASCII characters don't break the link or get misread as separators. Use component encoding for individual values.",
   },
   {
     q: "Why does decoding sometimes show an error?",
-    a: "Decoding fails on malformed percent-sequences — a lone % sign, or % not followed by two hexadecimal digits. When that happens the tool reports the problem instead of returning a broken or misleading result.",
+    a: "Decoding fails on malformed percent-sequences: a lone % sign, or % not followed by two hexadecimal digits. When that happens the tool reports the problem instead of returning a broken or misleading result.",
   },
   {
     q: "How are spaces handled?",
-    a: "encodeURIComponent and encodeURI turn a space into %20. Note that the older application/x-www-form-urlencoded style used in form submissions encodes a space as a plus sign instead — this tool follows the modern %20 behaviour used in URLs.",
+    a: "encodeURIComponent and encodeURI turn a space into %20. Note that the older application/x-www-form-urlencoded style used in form submissions encodes a space as a plus sign instead. This tool follows the modern %20 behaviour used in URLs.",
+  },
+  {
+    q: "Why are characters like - _ . ~ left unencoded?",
+    a: "Those are the unreserved characters defined by the URL standard, and alongside letters and digits they are always safe in a link, so escaping them would only make the result longer and harder to read. encodeURIComponent also leaves the legacy marks ! * ' ( ) alone. Everything else, including spaces, ampersands and non-ASCII text, gets percent-encoded.",
+  },
+  {
+    q: "Is URL encoding the same as Base64?",
+    a: "No. Percent-encoding escapes only the characters that would break a URL and leaves the rest readable, so an encoded link is still recognisable. Base64 rewrites the entire input into a different alphabet and makes it unreadable, and its output can itself contain characters like plus and slash that need URL-encoding afterwards. Neither is encryption: both are trivially reversible.",
+  },
+  {
+    q: "Do I need to sign up, and does it work offline?",
+    a: "No sign-up, no account and nothing to install. Encoding uses functions built into the browser itself, so once the page has loaded it keeps working with no internet connection. The Use result as input button lets you flip straight from encoding to decoding to check a round trip, and the Copy button puts the output onto your clipboard.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           URL Encode &amp; Decode
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Percent-encode query values and whole URLs, or decode them back &mdash;
+          Percent-encode query values and whole URLs, or decode them back,
           in one click, right in your browser and nothing uploaded.
         </p>
       </header>
@@ -145,7 +157,7 @@ export default function Page() {
         <h2>Why URLs need encoding</h2>
         <p>
           URLs may only contain a limited set of characters, and several of those
-          &mdash; <strong>? # &amp; = /</strong> &mdash; carry special meaning as
+          (<strong>? # &amp; = /</strong>) carry special meaning as
           separators. If you drop a raw search phrase or a value containing those
           characters straight into a link, the browser or server misreads where
           one part ends and the next begins. Percent-encoding replaces each
@@ -159,7 +171,7 @@ export default function Page() {
           The right method depends on what you are encoding.{" "}
           <strong>encodeURIComponent</strong> escapes nearly everything,
           including the reserved separators, which is exactly what you want for a
-          single piece &mdash; one query value, one path segment, a redirect
+          single piece: one query value, one path segment, a redirect
           target. <strong>encodeURI</strong> is gentler: it leaves the structural
           characters <strong>: / ? # &amp; =</strong> alone so an entire,
           already-formed URL stays usable. As a rule, encode individual values
@@ -170,8 +182,8 @@ export default function Page() {
         <p>
           Decoding reverses percent-encoding back to readable text, which is
           handy for inspecting a query string or a logged URL. It only fails when
-          the input is malformed &mdash; a lone <strong>%</strong> or a{" "}
-          <strong>%</strong> not followed by two hex digits &mdash; and this tool
+          the input is malformed (a lone <strong>%</strong> or a{" "}
+          <strong>%</strong> not followed by two hex digits), and this tool
           reports that clearly instead of returning garbled output. Use the same
           method you encoded with: component for values, whole URI for full
           links.

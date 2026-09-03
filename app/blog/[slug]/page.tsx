@@ -47,7 +47,7 @@ const bodies: Record<string, ReactNode> = {
       <p>
         Most &ldquo;AI finance tool&rdquo; lists are written to sell you
         something. This one isn&apos;t. Here&apos;s what actually earns a place in
-        your workflow — based on features, pricing and real-world use cases — and
+        your workflow (based on features, pricing and real-world use cases) and
         what to skip.
       </p>
       <h2>Start with the boring wins</h2>
@@ -61,7 +61,7 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <h2>Budgeting that adapts to you</h2>
       <p>
-        The best AI budgeting apps don&apos;t just draw pie charts — they notice
+        The best AI budgeting apps don&apos;t just draw pie charts. They notice
         patterns and nudge you. Look for tools that explain <em>why</em> a
         category changed, not ones that only show that it did. If an app
         can&apos;t tell you something you didn&apos;t already know, it&apos;s not
@@ -71,7 +71,7 @@ const bodies: Record<string, ReactNode> = {
       <p>
         Never paste full account numbers, passwords or one-time codes into any
         AI tool. Treat AI output on taxes and investments as a starting point,
-        not advice — verify anything that affects a real financial decision.
+        not advice. Verify anything that affects a real financial decision.
       </p>
       <p>
         Used well, AI turns hours of admin into minutes. Used carelessly, it
@@ -91,7 +91,7 @@ const bodies: Record<string, ReactNode> = {
       <h2>What the maths actually says</h2>
       <p>
         In a rising market, a lumpsum usually wins, because your full amount is
-        working for longer. But markets don&apos;t only rise — and that&apos;s
+        working for longer. But markets don&apos;t only rise, and that&apos;s
         where the SIP&apos;s real advantage shows up: it removes the pressure of
         timing and smooths your entry price through rupee-cost averaging.
       </p>
@@ -99,8 +99,8 @@ const bodies: Record<string, ReactNode> = {
       <p>
         The honest answer depends on one thing:{" "}
         <strong>whether you already have the money</strong>. If a large sum is
-        sitting idle, staggering it over 6–12 months balances growth and risk.
-        If you&apos;re investing from monthly income — which is most people — a
+        sitting idle, staggering it over 6-12 months balances growth and risk.
+        If you&apos;re investing from monthly income, which is most people, a
         SIP isn&apos;t just optimal, it&apos;s the only option, and a very good
         one.
       </p>
@@ -130,7 +130,7 @@ const bodies: Record<string, ReactNode> = {
       <h2>2. Lower your utilisation</h2>
       <p>
         Using a high share of your available credit hurts your score even if you
-        pay in full. Aim to keep balances below 30% of your limit — and under
+        pay in full. Aim to keep balances below 30% of your limit, and under
         10% if you want the best scores. Paying before the statement date, not
         just the due date, helps here.
       </p>
@@ -142,15 +142,15 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <p>
         These changes take one to three billing cycles to show up. There is no
-        legitimate overnight fix — anyone promising one is selling something.
+        legitimate overnight fix. Anyone promising one is selling something.
       </p>
     </>
   ),
   "work-faster-with-ai": (
     <>
       <p>
-        The people getting the most out of AI aren&apos;t using secret tools —
-        they&apos;re using ordinary ones with better habits. Here&apos;s the
+        The people getting the most out of AI aren&apos;t using secret tools.
+        They&apos;re using ordinary ones with better habits. Here&apos;s the
         practical playbook.
       </p>
       <h2>Give it a role and a goal</h2>
@@ -163,14 +163,14 @@ const bodies: Record<string, ReactNode> = {
       <h2>Make it do the first draft, always</h2>
       <p>
         A blank page is the slowest part of any task. Let AI produce a rough
-        first version of the report, the plan, the code — then spend your energy
+        first version of the report, the plan, the code. Then spend your energy
         improving it rather than starting it. Editing is far faster than
         creating.
       </p>
       <h2>Build a prompt library</h2>
       <p>
         Save the prompts that work. The professionals who look fast have simply
-        stopped re-typing the same instructions — they keep a note of proven
+        stopped re-typing the same instructions. They keep a note of proven
         prompts and reuse them.
       </p>
       <p>
@@ -185,27 +185,27 @@ const bodies: Record<string, ReactNode> = {
     <>
       <p>
         &ldquo;Make money with AI&rdquo; is one of the most searched phrases on
-        the internet — and most of the results are selling you a course. Here
+        the internet, and most of the results are selling you a course. Here
         are seven ways people genuinely earn with AI, with an honest note on the
         effort each one takes.
       </p>
       <h2>1. Freelance services, done faster</h2>
       <p>
-        Writing, design, video editing, translation — AI lets one person deliver
+        Writing, design, video editing, translation: AI lets one person deliver
         what used to take a team. The money isn&apos;t in &ldquo;AI&rdquo;
         itself; it&apos;s in offering a real service (on Upwork, Fiverr or
         directly) and using AI to do it faster and take on more clients.
       </p>
       <h2>2. Content and SEO websites</h2>
       <p>
-        Building a niche website — like a calculator or review site — and earning
+        Building a niche website, like a calculator or review site, and earning
         from ads and affiliates is a proven model. AI speeds up research and
         drafting, but the winners still add genuine value and edit carefully;
         thin, purely AI-spun sites get filtered out by Google.
       </p>
       <h2>3. Selling digital products</h2>
       <p>
-        Templates, prompt packs, notion setups, ebooks, design assets — AI helps
+        Templates, prompt packs, notion setups, ebooks, design assets: AI helps
         you create these quickly and sell them repeatedly on marketplaces. It&apos;s
         income that keeps earning after the work is done.
       </p>
@@ -225,7 +225,7 @@ const bodies: Record<string, ReactNode> = {
       <p>
         None of these are passive or instant. AI removes the grunt work, but you
         still need a skill, consistency and patience. Treat it as leverage on
-        real effort — not a substitute for it — and it genuinely pays.
+        real effort, not a substitute for it, and it genuinely pays.
       </p>
     </>
   ),
@@ -234,7 +234,7 @@ const bodies: Record<string, ReactNode> = {
     <>
       <p>
         These three assistants dominate the AI world, and most people only need
-        one. Here&apos;s how they compare on the things that actually matter — so
+        one. Here&apos;s how they compare on the things that actually matter, so
         you can pick without paying for all three.
       </p>
       <h2>Writing and reasoning</h2>
@@ -261,14 +261,14 @@ const bodies: Record<string, ReactNode> = {
       <h2>Value for money</h2>
       <p>
         All three offer a capable free tier and a roughly $20/month paid plan.
-        The free tiers are genuinely good — start there, and only upgrade once you
+        The free tiers are genuinely good. Start there, and only upgrade once you
         hit limits on the specific tasks you care about.
       </p>
       <h2>The verdict</h2>
       <p>
         For writing and analysis, Claude. For an everyday all-rounder with the
         biggest ecosystem, ChatGPT. For deep Google integration and multimodal
-        tasks, Gemini. You can&apos;t go badly wrong — try the free versions on
+        tasks, Gemini. You can&apos;t go badly wrong. Try the free versions on
         your own real tasks and trust what feels best.
       </p>
     </>
@@ -288,7 +288,7 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <h2>For research</h2>
       <p>
-        Perplexity&apos;s free tier gives you answers with cited sources — ideal
+        Perplexity&apos;s free tier gives you answers with cited sources, ideal
         when you need facts you can verify rather than a confident guess.
       </p>
       <h2>For images and design</h2>
@@ -298,7 +298,7 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <h2>For voice and audio</h2>
       <p>
-        Free tiers from voice tools can narrate videos and create audio content —
+        Free tiers from voice tools can narrate videos and create audio content,
         enough to test the waters before paying for more.
       </p>
       <h2>For coding</h2>
@@ -317,7 +317,7 @@ const bodies: Record<string, ReactNode> = {
   "how-to-save-income-tax": (
     <>
       <p>
-        Saving tax legally isn&apos;t about loopholes — it&apos;s about using the
+        Saving tax legally isn&apos;t about loopholes; it&apos;s about using the
         deductions the government deliberately offers. Here are ten that most
         Indian taxpayers can use, whichever regime you choose.
       </p>
@@ -330,7 +330,7 @@ const bodies: Record<string, ReactNode> = {
       <h2>2. Claim 80D for health insurance</h2>
       <p>
         Premiums for yourself and family (and extra for senior-citizen parents)
-        are deductible — a rare case where protecting yourself also cuts your tax.
+        are deductible, a rare case where protecting yourself also cuts your tax.
       </p>
       <h2>3. Use NPS for an extra ₹50,000</h2>
       <p>
@@ -340,21 +340,21 @@ const bodies: Record<string, ReactNode> = {
       <h2>4. Home-loan interest under Section 24</h2>
       <p>
         Interest on a home loan for a self-occupied property is deductible up to
-        ₹2 lakh a year — often the largest deduction for homeowners.
+        ₹2 lakh a year, often the largest deduction for homeowners.
       </p>
       <h2>5. Compare the two regimes first</h2>
       <p>
         The new regime has lower rates but few deductions; the old regime rewards
         those with big deductions. Run your numbers in our{" "}
         <a href="/calculators/income-tax">income tax calculator</a> before you
-        decide — it tells you which one actually saves you more.
+        decide. It tells you which one actually saves you more.
       </p>
       <h2>The rest</h2>
       <p>
         Also worth knowing: HRA exemption if you pay rent, 80E for education-loan
         interest, 80G for eligible donations, 80TTA/80TTB for savings interest,
         and the standard deduction that applies automatically to salary. Plan in
-        April, not March — rushed tax-saving usually means worse choices.
+        April, not March. Rushed tax-saving usually means worse choices.
       </p>
     </>
   ),
@@ -368,8 +368,8 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <h2>What it&apos;s for</h2>
       <p>
-        An emergency fund covers real emergencies — a job loss, a medical bill, an
-        urgent repair — without forcing you to sell investments at a bad time or
+        An emergency fund covers real emergencies (a job loss, a medical bill, an
+        urgent repair) without forcing you to sell investments at a bad time or
         borrow at high interest. It buys you calm and options.
       </p>
       <h2>How big should it be?</h2>
@@ -381,14 +381,14 @@ const bodies: Record<string, ReactNode> = {
       </p>
       <h2>Where to keep it</h2>
       <p>
-        Somewhere safe and reachable within a day or two — a separate savings
+        Somewhere safe and reachable within a day or two: a separate savings
         account, a liquid fund, or a sweep-in fixed deposit. The goal isn&apos;t
         high returns; it&apos;s safety and access. Don&apos;t put your emergency
         fund in the stock market.
       </p>
       <h2>How to build it</h2>
       <p>
-        Start with a small target — say one month of expenses — and automate a
+        Start with a small target, say one month of expenses, and automate a
         fixed transfer each payday. Direct windfalls like bonuses or refunds
         straight into it. Once it&apos;s full, redirect that same monthly amount
         into investments. You&apos;ll barely feel the switch, and you&apos;ll
@@ -520,7 +520,7 @@ export default async function Page({
 
             <div className="mt-6 p-5 rounded-card bg-bg-alt border border-border text-sm text-text-muted">
               <strong className="text-text">A note on trust:</strong> this guide is for education, not personalised financial advice.
-              Figures are illustrative — confirm anything that affects a real decision.
+              Figures are illustrative. Confirm anything that affects a real decision.
             </div>
           </article>
 

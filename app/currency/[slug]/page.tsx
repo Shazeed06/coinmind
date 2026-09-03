@@ -92,7 +92,7 @@ export async function generateMetadata({
   const fromName = NAMES[from] ?? from;
   const toName = NAMES[to] ?? to;
 
-  const title = `${from} to ${to} — Convert ${fromName} to ${toName}`;
+  const title = `${from} to ${to} - Convert ${fromName} to ${toName}`;
   const description = `Convert ${fromName} (${from}) to ${toName} (${to}) at today's live mid-market rate. Includes a ${from} to ${to} conversion table and free converter.`;
   const canonical = `/currency/${pairSlug(pair)}`;
 
@@ -132,8 +132,70 @@ export default async function Page({
   const { rates, updated } = await getRates();
   const rate = computeRate(rates, from, to);
 
-  // FAQs — numeric answers when the rate is live, generic fallback otherwise.
-  const faqs =
+  // FAQs. The nine base entries never depend on the rate feed, so every page
+  // renders at least nine answers even when the upstream API is down; live
+  // figures are layered on top when a rate is available, and two extra
+  // amount-specific questions are appended. Previously the whole list was
+  // conditional, which silently dropped these pages to two FAQs on any failure.
+  const remittanceQ =
+    to === "INR"
+      ? `What is the cheapest way to send money to India?`
+      : from === "INR"
+        ? `What is the cheapest way to send money out of India?`
+        : `What is the cheapest way to send ${fromName} abroad?`;
+
+  const remittanceA =
+    from === "INR"
+      ? `Compare the amount that actually arrives, not the advertised rate. Outward transfers from India run through an authorised dealer bank under the RBI's Liberalised Remittance Scheme, and depending on the purpose and the amount they can attract tax collected at source, so confirm the current rules and your remaining limit with your bank first. After that, the deciding factor is the provider's margin over the mid-market ${from}/${to} rate plus any flat fee, so ask for the exact ${to} figure the recipient will receive and compare it with the number on this page.`
+      : `Compare the total cost rather than the headline rate: what matters is how many ${toName} land in the recipient's account after the provider's margin over the mid-market rate and any transfer fee. Specialist online remittance services and direct bank transfers usually beat airport counters, cash exchanges and card cash advances. Because most fees are flat, one larger transfer is normally cheaper than several small ones. Ask each provider to quote the exact ${to} amount that will be received, then measure that against the mid-market figure shown here.`;
+
+  const baseFaqs: { q: string; a: string }[] = [
+    {
+      q: `How do I convert ${from} to ${to}?`,
+      a: `Multiply the ${fromName} amount by the current ${from}/${to} rate, or type the amount into the converter above and let it do the arithmetic.${
+        rate !== null
+          ? ` Today that multiplier is ${fmtRate(rate)}, so 50 ${from} works out to about ${fmtMoney(50 * rate, to)}.`
+          : ` The converter fetches the latest rate directly in your browser, so it keeps working even when the figure at the top of this page cannot be loaded.`
+      }`,
+    },
+    {
+      q: `Is this the live ${from} to ${to} rate?`,
+      a: `This page and the converter both use the mid-market (interbank) ${from}/${to} rate, refreshed roughly every hour. That is the reference rate before any bank, card or transfer margin is added, which is why it tends to look better than any rate you are actually quoted.${
+        updated ? ` The figure above was last updated ${updated}.` : ""
+      }`,
+    },
+    {
+      q: `Why is the bank rate worse than the mid-market rate?`,
+      a: `Because the mid-market rate is the midpoint between the price at which banks buy and sell ${from} for ${to}, and nobody trades at the midpoint. Banks, card networks and transfer services quote you a rate on one side of it, keeping the difference as their margin, and many add a flat fee as well. The margin is often the larger cost of the two and it is rarely stated as a percentage, so the only reliable check is to compare the amount you actually receive against the mid-market figure on this page.`,
+    },
+    {
+      q: remittanceQ,
+      a: remittanceA,
+    },
+    {
+      q: `Are forex cards better than debit cards abroad?`,
+      a: `Often, but not always. A prepaid forex card locks the ${from}/${to} rate when you load it, which removes the risk of the rate moving against you and usually carries a smaller margin than a debit card used overseas. Debit and credit cards typically apply a foreign transaction markup on each purchase and can charge extra for ATM withdrawals. Against that, forex cards have issue, reload and inactivity charges, and leftover balance is converted back at a worse rate. Compare the total of margin plus fees for the amount you plan to spend rather than assuming either is cheaper.`,
+    },
+    {
+      q: `Why do different websites show different ${from} to ${to} rates?`,
+      a: `The ${from}/${to} rate changes continuously through the trading day, so two sites reading at different moments will differ slightly. Beyond timing, some publish the mid-market rate (as this page does), others publish a bank's buy or sell rate, and card networks publish their own daily reference rate. A small gap between sources is normal; a large one usually means you are looking at a rate that already includes somebody's margin.`,
+    },
+    {
+      q: `What moves the ${from}/${to} exchange rate?`,
+      a: `Mainly interest-rate decisions at the two central banks, inflation and growth data from each economy, trade balances and remittance and investment flows between them, and global risk sentiment, which pushes money toward currencies seen as safe havens. None of these move in a predictable order, which is why exchange rates cannot be forecast reliably even by the institutions that trade them.`,
+    },
+    {
+      q: `When is the best time to convert ${from} to ${to}?`,
+      a: `There is no reliable way to time it, and waiting for a better rate is a bet rather than a strategy. If you need the money on a set date, converting on a schedule or splitting a large amount into a few tranches reduces the impact of any single day's rate. If you are converting a large sum, the provider's margin will usually cost you more than the day-to-day movement in the rate, so shopping around beats waiting.`,
+    },
+    {
+      q: `Is this ${from} to ${to} converter free?`,
+      a: `Yes, completely, with no sign-up and no limit on conversions. The rate shown is the mid-market reference rate with nothing added to it, so it is the figure to measure any provider's quote against rather than a rate you can transact at.`,
+    },
+  ];
+
+  // Amount-specific answers, only meaningful when a live rate is available.
+  const rateFaqs: { q: string; a: string }[] =
     rate !== null
       ? [
           {
@@ -144,32 +206,16 @@ export default async function Page({
             )}, based on 1 ${from} = ${fmtMoney(rate, to)}.`,
           },
           {
-            q: `Is this the live ${from} to ${to} rate?`,
-            a: `Yes. The figure shown is the live mid-market ${from}/${to} rate, refreshed roughly every hour. It's the reference rate before any bank or card markup.`,
-          },
-          {
-            q: `Why is my bank's ${from} to ${to} rate different?`,
-            a: `Banks, cards and money-transfer services add a margin (spread) and sometimes a flat fee on top of the mid-market rate, so you'll usually receive a little less than the figure here.`,
-          },
-          {
-            q: `How do I convert ${from} to ${to}?`,
-            a: `Multiply the ${from} amount by ${fmtRate(
-              rate
-            )} to get ${to}. For example, 50 ${from} × ${fmtRate(
-              rate
-            )} = ${fmtMoney(50 * rate, to)}.`,
+            q: `What is 1000 ${from} in ${to}?`,
+            a: `About ${fmtMoney(1000 * rate, to)} at the mid-market rate of 1 ${from} = ${fmtMoney(
+              rate,
+              to
+            )}. A bank or transfer service will hand you less than this once its margin and fees are applied, so treat it as the ceiling rather than the amount you will receive.`,
           },
         ]
-      : [
-          {
-            q: `Is this the live ${from} to ${to} rate?`,
-            a: `The converter on this page fetches the latest mid-market ${from}/${to} rate. It's the reference rate before any bank or card markup.`,
-          },
-          {
-            q: `Why is my bank's ${from} to ${to} rate different?`,
-            a: `Banks, cards and money-transfer services add a margin (spread) and sometimes a flat fee on top of the mid-market rate, so you'll usually receive a little less.`,
-          },
-        ];
+      : [];
+
+  const faqs = [...baseFaqs, ...rateFaqs];
 
   const factors = [
     "Interest-rate decisions by the two central banks",
@@ -178,9 +224,9 @@ export default async function Page({
     "Global risk sentiment and demand for safe-haven currencies",
   ];
 
-  const aboutPara = `The ${from}/${to} pair tracks how many ${toName} one ${fromName} will buy. The rate isn't fixed — it moves throughout the trading day as currency markets react to fresh economic data and shifting demand for each currency.`;
+  const aboutPara = `The ${from}/${to} pair tracks how many ${toName} one ${fromName} will buy. The rate isn't fixed. It moves throughout the trading day as currency markets react to fresh economic data and shifting demand for each currency.`;
 
-  const midMarketPara = `The number on this page is the mid-market (interbank) reference rate — the midpoint between the buy and sell price that banks trade at. When you actually exchange money, a bank, card or remittance service quotes a slightly worse rate because it adds a margin and, sometimes, a flat fee. Treat this as the "real" rate and expect to receive a little less in practice.`;
+  const midMarketPara = `The number on this page is the mid-market (interbank) reference rate: the midpoint between the buy and sell price that banks trade at. When you actually exchange money, a bank, card or remittance service quotes a slightly worse rate because it adds a margin and, sometimes, a flat fee. Treat this as the "real" rate and expect to receive a little less in practice.`;
 
   const relatedPairs = CURRENCY_PAIRS.filter((p) => pairSlug(p) !== slug);
 
@@ -256,7 +302,7 @@ export default async function Page({
         </p>
       </header>
 
-      {/* Quick answer — AEO / featured-snippet target */}
+      {/* Quick answer: AEO / featured-snippet target */}
       <section className="mt-8 max-w-3xl rounded-2xl border border-line bg-forest-soft p-6 sm:p-7">
         <p className="text-xs font-semibold uppercase tracking-wide text-forest">
           Quick answer
@@ -280,13 +326,13 @@ export default async function Page({
           </>
         ) : (
           <p className="mt-2 text-ink-soft">
-            Live rates are momentarily unavailable. Use the converter below — it
+            Live rates are momentarily unavailable. Use the converter below. It
             fetches the latest {from} to {to} rate directly in your browser.
           </p>
         )}
       </section>
 
-      {/* Interactive converter — pre-set to this pair */}
+      {/* Interactive converter: pre-set to this pair */}
       <div className="mt-8 max-w-3xl">
         <CurrencyConverter initialFrom={from} initialTo={to} />
       </div>
@@ -384,7 +430,7 @@ export default async function Page({
         </Link>
       </section>
 
-      {/* Related pairs — internal linking */}
+      {/* Related pairs: internal linking */}
       <section className="mt-14 mb-8">
         <h2 className="font-display text-2xl font-600 text-ink">
           Popular conversions

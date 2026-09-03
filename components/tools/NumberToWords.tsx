@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Number to Words — converts any number into English words.         */
+/*  Number to Words: converts any number into English words.          */
 /*  Supports the Indian (Lakh / Crore) and International (Million /   */
 /*  Billion) systems, plus optional Rupee / Dollar currency wording.  */
-/*  100% client-side — nothing is uploaded. BigInt keeps large        */
+/*  100% client-side. Nothing is uploaded. BigInt keeps large         */
 /*  integers exact and guards against NaN.                            */
 /* ------------------------------------------------------------------ */
 
@@ -71,9 +71,9 @@ function indianWords(value: bigint): string {
   if (value === 0n) return "Zero";
   const parts: string[] = [];
   const crore = value / 10000000n; // 10^7 and above
-  const lakh = Number((value / 100000n) % 100n); // 10^5 – 10^6
-  const thousand = Number((value / 1000n) % 100n); // 10^3 – 10^4
-  const hundred = Number(value % 1000n); // 10^0 – 10^2
+  const lakh = Number((value / 100000n) % 100n); // 10^5-10^6
+  const thousand = Number((value / 1000n) % 100n); // 10^3-10^4
+  const hundred = Number(value % 1000n); // 10^0-10^2
 
   if (crore > 0n) parts.push(`${indianWords(crore)} Crore`);
   if (lakh > 0) parts.push(`${twoDigitWords(lakh)} Lakh`);

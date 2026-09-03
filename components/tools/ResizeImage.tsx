@@ -80,7 +80,7 @@ export default function ResizeImage() {
   const [output, setOutput] = useState<Output | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Object-URL bookkeeping — one for the decoded source, one for the current
+  // Object-URL bookkeeping: one for the decoded source, one for the current
   // re-encoded output. Both are revoked on reset and unmount.
   const srcUrlRef = useRef<string | null>(null);
   const outUrlRef = useRef<string | null>(null);
@@ -156,7 +156,7 @@ export default function ResizeImage() {
       if (!ctx) return;
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
-      // JPEG has no alpha — flatten transparency onto white first.
+      // JPEG has no alpha. Flatten transparency onto white first.
       if (mime === "image/jpeg") {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, w, h);
@@ -248,7 +248,7 @@ export default function ResizeImage() {
     <div className="space-y-6">
       <PrivacyNote />
 
-      {!src && <Dropzone accept={ACCEPT} onFiles={onFiles} hint="or click to browse — JPG, PNG or WebP" />}
+      {!src && <Dropzone accept={ACCEPT} onFiles={onFiles} hint="or click to browse: JPG, PNG or WebP" />}
 
       {error && (
         <p className="rounded-lg border border-berry/30 bg-berry/5 px-4 py-3 text-sm text-berry">

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Remove Duplicate Lines — dedupe a list while keeping the first     */
+/*  Remove Duplicate Lines: dedupe a list while keeping the first      */
 /*  occurrence. Options for case-insensitivity, trimming, sorting and  */
 /*  dropping blank lines. Entirely client-side; nothing is uploaded.   */
 /* ------------------------------------------------------------------ */
@@ -47,7 +47,7 @@ function dedupe(input: string, opts: Options): Result {
 const OPTION_META: { id: keyof Options; label: string }[] = [
   { id: "caseInsensitive", label: "Case-insensitive" },
   { id: "trim", label: "Trim whitespace" },
-  { id: "sortOutput", label: "Sort output (A–Z)" },
+  { id: "sortOutput", label: "Sort output (A-Z)" },
   { id: "removeEmpty", label: "Remove empty lines" },
 ];
 

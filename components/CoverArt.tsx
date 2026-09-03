@@ -1,7 +1,7 @@
 // Original, on-brand SVG "cover images" for articles and news.
 // No external assets: always loads, no licensing/broken-image risk, fast,
 // and editorial rather than generic stock. Deterministic ids (from `seed`)
-// keep server/client render identical — no hydration mismatch.
+// keep server/client render identical: no hydration mismatch.
 
 export type CoverVariant =
   | "chart"

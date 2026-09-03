@@ -51,7 +51,7 @@ const BUCKET_COLOR: Record<Bucket, string> = {
 const num = (v: number) => (Number.isFinite(v) ? v : 0);
 
 // ---------------------------------------------------------------------------
-// Compact amount input — free typing, no clamp, never emits NaN.
+// Compact amount input: free typing, no clamp, never emits NaN.
 // (Mirrors the shared Field text behaviour but without a slider, so the
 //  expense list stays tidy across many rows.)
 // ---------------------------------------------------------------------------
@@ -206,7 +206,7 @@ export default function BudgetPlanner() {
         }
       }
     } catch {
-      /* corrupt or unavailable storage — keep the sample */
+      /* corrupt or unavailable storage, keep the sample */
     }
     setHydrated(true);
   }, []);
@@ -220,7 +220,7 @@ export default function BudgetPlanner() {
         JSON.stringify({ currency, income, categories })
       );
     } catch {
-      /* storage full / disabled — planner still works */
+      /* storage full / disabled, planner still works */
     }
   }, [currency, income, categories, hydrated]);
 
@@ -270,9 +270,9 @@ export default function BudgetPlanner() {
     if (inc <= 0) {
       verdict = "Enter your monthly income to see how your budget stacks up against 50/30/20.";
     } else if (surplus < 0) {
-      verdict = "You are spending more than you earn — this budget is not sustainable yet.";
+      verdict = "You are spending more than you earn. This budget is not sustainable yet.";
     } else if (savingsRate >= 20 && needsPct <= 55) {
-      verdict = "Great balance — you are saving at least 20% and keeping your needs in check.";
+      verdict = "Great balance. You are saving at least 20% and keeping your needs in check.";
     } else if (savingsRate >= 20) {
       verdict = "Strong savings rate. Your needs run a little high, but you are still putting money away.";
     } else if (savingsRate >= 10) {

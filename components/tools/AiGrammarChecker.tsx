@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import { IconSparkle, IconCheck } from "@/components/icons";
 
 /* ------------------------------------------------------------------ */
-/*  AI Grammar Checker — a free Grammarly alternative.                 */
+/*  AI Grammar Checker: a free Grammarly alternative.                  */
 /*  Sends the user's text to /api/ai-chat with a proofreader system    */
 /*  prompt and shows the corrected version with a one-click copy.      */
 /* ------------------------------------------------------------------ */
@@ -53,7 +53,7 @@ export default function AiGrammarChecker() {
         );
       }
     } catch {
-      setError("Network issue — please try again.");
+      setError("Network issue. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -200,7 +200,7 @@ export default function AiGrammarChecker() {
           {unchanged && (
             <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-brass-soft px-3 py-1 text-xs font-semibold text-brass">
               <IconCheck className="h-3.5 w-3.5" />
-              No errors found — your text already looks clean.
+              No errors found. Your text already looks clean.
             </p>
           )}
 
@@ -208,7 +208,7 @@ export default function AiGrammarChecker() {
             {result}
           </div>
           <p className="mt-3 text-xs text-ink-faint">
-            AI suggestions can occasionally miss context &mdash; give the result
+            AI suggestions can occasionally miss context. Give the result
             a quick read before you use it.
           </p>
         </div>

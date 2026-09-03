@@ -3,12 +3,30 @@ import ContactForm from "@/components/ContactForm";
 import { site } from "@/lib/site";
 import { LegalPage } from "@/components/LegalPage";
 
+const OG_TITLE = "Contact CoinMind - Feedback, Corrections & Tool Ideas";
+const OG_DESC =
+  "Get in touch with the CoinMind team: feedback, corrections, partnership enquiries or a tool you'd like us to build. We read and answer every genuine message.";
+
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with the CoinMind team — feedback, corrections, partnership enquiries or a tool you'd like us to build.",
+    "Get in touch with the CoinMind team: feedback, corrections, partnership enquiries or a tool you'd like us to build.",
   alternates: { canonical: "/contact" },
-  openGraph: { url: "/contact" },
+  openGraph: {
+    title: OG_TITLE,
+    description: OG_DESC,
+    url: "/contact",
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: OG_TITLE,
+    description: OG_DESC,
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function Page() {

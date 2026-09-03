@@ -4,7 +4,7 @@ import AiBusinessNameGenerator from "@/components/tools/AiBusinessNameGenerator"
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Business Name Generator — Startup Name Ideas" },
+  title: { absolute: "AI Business Name Generator - Startup Name Ideas" },
   description:
     "Free AI business name generator. Describe your idea, pick a style, and get 15 creative, brandable startup name ideas in seconds. No sign-up.",
   alternates: { canonical: "/tools/ai-business-name-generator" },
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/ai-business-name-generator`,
-    title: "AI Business Name Generator — Free",
+    title: "AI Business Name Generator - Free",
     description:
-      "Describe your idea, pick a style, and get 15 creative, brandable startup name ideas in seconds — free and instant.",
+      "Describe your idea, pick a style, and get 15 creative, brandable startup name ideas in seconds - free and instant.",
     locale: "en_US",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How does the AI business name generator work?",
-    a: "You describe your business in a few words, optionally add an industry, and choose a style. The AI reads that brief and returns 15 brandable name ideas tailored to it. Generate as many fresh batches as you like — each run gives a different set.",
+    a: "You describe your business in a few words, optionally add an industry, and choose a style. The AI reads that brief and returns 15 brandable name ideas tailored to it. Generate as many fresh batches as you like. Each run gives a different set.",
   },
   {
     q: "Is the business name generator free?",
@@ -46,7 +46,19 @@ const faqs = [
   },
   {
     q: "How do I get better name suggestions?",
-    a: "Add detail. Instead of 'a coffee shop', try 'a specialty coffee shop for remote workers with fast wifi'. Mention your audience, your vibe and any keywords you love. Then experiment with the style options — Playful, Premium, Techy and the rest each pull the results in a different direction.",
+    a: "Add detail. Instead of 'a coffee shop', try 'a specialty coffee shop for remote workers with fast wifi'. Mention your audience, your vibe and any keywords you love. Then experiment with the style options: Playful, Premium, Techy and the rest each pull the results in a different direction.",
+  },
+  {
+    q: "Does the tool check whether the domain name is available?",
+    a: "No. The generator produces name ideas only. It does not query domain registrars, trademark registers or company records, so a name in your list may already be taken. Take your shortlist to a registrar to check the .com and other extensions, search your national trademark database, and confirm the social handles before you commit.",
+  },
+  {
+    q: "Can I use the generated names commercially?",
+    a: "Yes, the ideas themselves come with no strings attached and you are free to build a business on one. The responsibility for clearance sits with you: a name is only safe to trade under once you have confirmed it is not already registered as a trademark or company name in the markets where you plan to operate.",
+  },
+  {
+    q: "Is my business idea kept private?",
+    a: "Your description is sent over an encrypted connection to the AI model that writes the names, and CoinMind does not save it, publish it or attach it to any account. Even so, keep the brief general. You do not need to include confidential financials, unfiled patent detail or customer names to get strong suggestions.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Describe your idea, pick a style, and get 15 creative, brandable name
-          ideas in seconds &mdash; free, instant and made for startups.
+          ideas in seconds, free, instant and made for startups.
         </p>
       </header>
 
@@ -145,7 +157,7 @@ export default function Page() {
           Your business name is the first thing customers hear and the label
           they&apos;ll repeat to friends, so it&apos;s worth getting right. The
           best names are short, easy to pronounce, easy to spell and hint at
-          what you do &mdash; without pinning you to a single product forever. An
+          what you do, without pinning you to a single product forever. An
           AI name generator is the fastest way to break through a blank page: it
           gives you dozens of angles you&apos;d never brainstorm alone, which you
           can then refine into a shortlist.
@@ -153,7 +165,7 @@ export default function Page() {
 
         <h2>Tips for a memorable brand name</h2>
         <p>
-          Keep it <strong>short</strong> &mdash; one or two syllables are easiest
+          Keep it <strong>short</strong>. One or two syllables are easiest
           to remember and fit better on a logo. Make it <strong>easy to say and
           spell</strong> so word-of-mouth actually works and people can find you
           online. Aim for names that are <strong>distinctive</strong> rather than
@@ -170,7 +182,7 @@ export default function Page() {
           modern extensions work too. Second, the <strong>trademark</strong>:
           search your national trademark register to avoid a costly clash later.
           Third, <strong>social handles</strong> and company registration, so
-          your name is consistent everywhere. This tool sparks ideas &mdash; the
+          your name is consistent everywhere. This tool sparks ideas. The
           availability checks are the step that turns an idea into a brand you can
           actually own.
         </p>
@@ -210,8 +222,8 @@ export default function Page() {
               AI Money Assistant
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
-              Ask anything about saving, investing, taxes and AI tools &mdash;
-              free and instant.
+              Ask anything about saving, investing, taxes and AI tools. Free
+              and instant.
             </p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
               Open &rarr;

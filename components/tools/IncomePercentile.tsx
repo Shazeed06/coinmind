@@ -13,7 +13,7 @@ interface Country {
   symbol: string;
   /* [approx. annual income in local currency, percentile of earners].
      These are ROUGH, round estimates loosely based on public income data
-     (individual pre-tax income) — not precise figures. They exist to give a
+     (individual pre-tax income), not precise figures. They exist to give a
      fun ballpark, not a statistically exact ranking. */
   anchors: [number, number][];
 }
@@ -94,12 +94,12 @@ function verdict(pct: number): { title: string; note: string } {
   if (pct >= 99)
     return {
       title: "The 1% club",
-      note: "You out-earn almost everyone in the country by income. Genuinely rare air — though whether you feel rich still depends on savings, assets and where you live.",
+      note: "You out-earn almost everyone in the country by income. Genuinely rare air, though whether you feel rich still depends on savings, assets and where you live.",
     };
   if (pct >= 95)
     return {
       title: "Top-tier earner",
-      note: "You're in roughly the top 5% by income. Comfortably high — just remember income isn't the same thing as wealth.",
+      note: "You're in roughly the top 5% by income. Comfortably high. Just remember income isn't the same thing as wealth.",
     };
   if (pct >= 90)
     return {
@@ -114,7 +114,7 @@ function verdict(pct: number): { title: string; note: string } {
   if (pct >= 50)
     return {
       title: "Above the median",
-      note: "You earn more than most people in the country — a healthy place to be.",
+      note: "You earn more than most people in the country, a healthy place to be.",
     };
   if (pct >= 25)
     return {
@@ -141,7 +141,7 @@ export default function IncomePercentile() {
   );
 
   const handleAmount = (raw: string) => {
-    // Digits + a single decimal point only — no minus, no clamping while typing.
+    // Digits + a single decimal point only: no minus, no clamping while typing.
     let cleaned = raw.replace(/[^\d.]/g, "");
     const firstDot = cleaned.indexOf(".");
     if (firstDot !== -1) {
@@ -177,7 +177,7 @@ export default function IncomePercentile() {
   const hasResult = Number.isFinite(annualIncome) && annualIncome > 0;
   const topPct = Math.max(0.1, 100 - pct);
 
-  // Big "more than X%" number — one decimal at the very top so it never rounds to 100.
+  // Big "more than X%" number: one decimal at the very top so it never rounds to 100.
   const pctLabel = pct >= 99 ? pct.toFixed(1) : String(Math.round(pct));
   const topLabel = topPct < 1 ? topPct.toFixed(1) : String(Math.round(topPct));
   const gaugeFill = Math.max(1, Math.min(100, pct));
@@ -322,7 +322,7 @@ export default function IncomePercentile() {
             <p className="mt-3 text-sm text-ink-soft">
               You earn more than about{" "}
               <strong className="text-ink">{pctLabel}%</strong> of earners in{" "}
-              {country.name} — putting you in the{" "}
+              {country.name}, putting you in the{" "}
               <strong className="text-ink">top {topLabel}%</strong>.
             </p>
 
@@ -368,7 +368,7 @@ export default function IncomePercentile() {
         ) : (
           <>
             <p className="mt-2 font-display text-6xl font-600 text-ink-faint leading-none">
-              —
+              -
             </p>
             <p className="mt-3 text-sm text-ink-faint">
               Enter an income on the left and we&apos;ll estimate your income
@@ -378,7 +378,7 @@ export default function IncomePercentile() {
         )}
 
         <p className="mt-6 text-[11px] text-ink-faint leading-relaxed">
-          Rough estimate from approximate public income data — not financial
+          Rough estimate from approximate public income data, not financial
           advice, and not a precise or official statistic. Income is only one
           part of being &ldquo;rich&rdquo;.
         </p>

@@ -7,11 +7,11 @@ type Sex = "male" | "female";
 type Unit = "metric" | "imperial";
 
 const ACTIVITY = [
-  { label: "Sedentary — little or no exercise", value: 1.2 },
-  { label: "Light — exercise 1–3 days/week", value: 1.375 },
-  { label: "Moderate — exercise 3–5 days/week", value: 1.55 },
-  { label: "Active — exercise 6–7 days/week", value: 1.725 },
-  { label: "Very active — hard exercise or physical job", value: 1.9 },
+  { label: "Sedentary - little or no exercise", value: 1.2 },
+  { label: "Light - exercise 1-3 days/week", value: 1.375 },
+  { label: "Moderate - exercise 3-5 days/week", value: 1.55 },
+  { label: "Active - exercise 6-7 days/week", value: 1.725 },
+  { label: "Very active - hard exercise or physical job", value: 1.9 },
 ];
 
 const LB_PER_KG = 2.20462262;
@@ -63,7 +63,7 @@ export default function CalorieCalculator() {
       return { state: "empty" as const };
     }
 
-    // Protein guidance range: 1.6–2.2 g per kg of bodyweight for active adults.
+    // Protein guidance range: 1.6-2.2 g per kg of bodyweight for active adults.
     const proteinLow = Math.round(weightKg * 1.6);
     const proteinHigh = Math.round(weightKg * 2.2);
 
@@ -254,15 +254,15 @@ export default function CalorieCalculator() {
             <div className="mt-5 rounded-xl bg-card border border-line p-4 text-sm text-ink-soft leading-relaxed">
               A common protein target for active adults is{" "}
               <strong className="text-ink">
-                {nf.format(result.proteinLow)}–{nf.format(result.proteinHigh)} g
+                {nf.format(result.proteinLow)}-{nf.format(result.proteinHigh)} g
               </strong>{" "}
-              per day (1.6–2.2 g per kg of bodyweight).
+              per day (1.6-2.2 g per kg of bodyweight).
             </div>
 
             <p className="mt-4 text-xs text-ink-faint leading-relaxed">
               These are estimates from the Mifflin-St Jeor equation and can vary
               with body composition, health and genetics. They are not medical
-              or nutritional advice — check with a doctor or dietitian before
+              or nutritional advice. Check with a doctor or dietitian before
               changing your diet.
             </p>
           </>

@@ -4,7 +4,7 @@ import HraCalculator from "@/components/calc/HraCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "hra")!;
-export const metadata = calcMeta("hra", CALC.title + " — House Rent Allowance Exemption", CALC.blurb);
+export const metadata = calcMeta("hra", CALC.title + " - House Rent Allowance Exemption", CALC.blurb);
 
 export default function Page() {
   return (
@@ -13,7 +13,7 @@ export default function Page() {
       title="HRA Calculator"
       subtitle="See exactly how much of your House Rent Allowance is exempt from income tax."
       calculator={<HraCalculator />}
-      intro="House Rent Allowance (HRA) is a component of most salary packages in India, and part of it can be exempt from income tax if you actually pay rent. The exemption is governed by Section 10(13A) of the Income Tax Act and is not simply the full HRA on your payslip — it is the least of three separate limits. This HRA calculator applies all three rules for you, shows which one is capping your exemption, and splits your allowance into its tax-free and taxable parts. Note that HRA exemption is available under the old tax regime only; if you have opted for the new regime, none of your HRA is exempt."
+      intro="House Rent Allowance (HRA) is a component of most salary packages in India, and part of it can be exempt from income tax if you actually pay rent. The exemption is governed by Section 10(13A) of the Income Tax Act and is not simply the full HRA on your payslip. It is the least of three separate limits. This HRA calculator applies all three rules for you, shows which one is capping your exemption, and splits your allowance into its tax-free and taxable parts. Note that HRA exemption is available under the old tax regime only; if you have opted for the new regime, none of your HRA is exempt."
       how={{
         heading: "How HRA exemption is calculated",
         body: (
@@ -73,6 +73,10 @@ export default function Page() {
         {
           q: "Can you show an HRA exemption calculation with an example?",
           a: "Say your basic salary + DA is ₹6,00,000 a year, you receive ₹2,40,000 HRA, and you pay ₹2,40,000 rent while living in Mumbai (a metro). The three limits are: actual HRA ₹2,40,000; 50% of basic salary ₹3,00,000; and rent paid minus 10% of basic salary (₹2,40,000 − ₹60,000) = ₹1,80,000. The least of the three is ₹1,80,000, so that much HRA is exempt and the remaining ₹60,000 is added to your taxable income.",
+        },
+        {
+          q: "Can I claim HRA if I pay rent to my parents?",
+          a: "Yes, provided the arrangement is genuine. Your parents must actually own the property, you must not be a co-owner, and you must really pay the rent, ideally by monthly bank transfer rather than cash. A written rent agreement and receipts help. Your parents must then declare that rent as income from house property in their own return. If their total income is below the taxable limit, the family may save tax overall, but a paper-only arrangement can be disallowed on scrutiny.",
         },
         {
           q: "How does HRA exemption affect my income tax and take-home pay?",

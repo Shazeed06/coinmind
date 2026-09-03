@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { aiTools } from "@/lib/data";
 import { aiToolDetails, detailBySlug, detailByName } from "@/lib/aiToolDetails";
 import { site } from "@/lib/site";
-import { IconArrow, IconStar, IconCheck, IconBolt, IconSparkle } from "@/components/icons";
+import ArticleMarkdown from "@/components/ArticleMarkdown";
+import { IconArrow, IconStar, IconCheck, IconX, IconBolt, IconSparkle } from "@/components/icons";
 
 export function generateStaticParams() {
   return aiToolDetails.map((d) => ({ slug: d.slug }));
@@ -20,15 +21,15 @@ export async function generateMetadata({
   const tool = detail && aiTools.find((t) => t.name === detail.name);
   if (!detail || !tool) return {};
   return {
-    title: { absolute: `${tool.name} Review — Pricing, Features & Hacks` },
-    description: `${tool.tagline} Our ${tool.name} review: pricing, use cases and pro tips.`,
+    title: { absolute: `${tool.name} Review - Pricing, Features & Hacks` },
+    description: `Our ${tool.name} review for Indian users: pricing in rupees, features, pros and cons, alternatives, FAQs and pro tips. ${tool.tagline}`,
     alternates: { canonical: `/ai-tools/${slug}` },
     openGraph: {
       type: "article",
       url: `${site.url}/ai-tools/${slug}`,
       siteName: site.name,
       locale: "en_US",
-      title: `${tool.name} — Review, Pricing & Hacks`,
+      title: `${tool.name} - Review, Pricing & Hacks`,
       description: tool.tagline,
       images: [
         { url: "/opengraph-image", width: 1200, height: 630, alt: `${tool.name} review` },
@@ -57,37 +58,43 @@ export default async function Page({
     .filter((t) => t.region === tool.region && t.name !== tool.name)
     .slice(0, 3);
 
-  const json = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        name: tool.name,
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
-        // Editorial score (our own review), expressed as a single Review/Rating —
-        // NOT an AggregateRating, which would require real user-review counts.
-        review: {
-          "@type": "Review",
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: tool.rating,
-            bestRating: 5,
-          },
-          author: { "@type": "Organization", name: site.name },
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "SoftwareApplication",
+      name: tool.name,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      // Editorial score (our own review), expressed as a single Review/Rating,
+      // NOT an AggregateRating, which would require real user-review counts.
+      review: {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: tool.rating,
+          bestRating: 5,
         },
-        publisher: { "@type": "Organization", name: tool.maker },
+        author: { "@type": "Organization", name: site.name },
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-          { "@type": "ListItem", position: 2, name: "AI Tools", item: `${site.url}/ai-tools` },
-          { "@type": "ListItem", position: 3, name: tool.name, item: `${site.url}/ai-tools/${slug}` },
-        ],
-      },
-    ],
-  };
+      publisher: { "@type": "Organization", name: tool.maker },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "AI Tools", item: `${site.url}/ai-tools` },
+        { "@type": "ListItem", position: 3, name: tool.name, item: `${site.url}/ai-tools/${slug}` },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: detail.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+  const json = { "@context": "https://schema.org", "@graph": graph };
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
@@ -154,6 +161,58 @@ export default async function Page({
         </p>
       </section>
 
+      {/* Full review body */}
+      <section className="mt-4 article-body">
+        <ArticleMarkdown markdown={detail.bodyMarkdown} />
+      </section>
+
+      {/* Pros & cons */}
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-600 text-ink">
+          {tool.name} pros and cons
+        </h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-2xl border border-line bg-card p-5">
+            <h3 className="font-display text-base font-600 text-forest">Pros</h3>
+            <ul className="mt-3 space-y-2.5">
+              {detail.pros.map((p) => (
+                <li key={p} className="flex items-start gap-2.5 text-sm text-ink-soft">
+                  <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-forest" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-line bg-card p-5">
+            <h3 className="font-display text-base font-600 text-berry">Cons</h3>
+            <ul className="mt-3 space-y-2.5">
+              {detail.cons.map((c) => (
+                <li key={c} className="flex items-start gap-2.5 text-sm text-ink-soft">
+                  <IconX className="mt-0.5 h-4 w-4 shrink-0 text-berry" />
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Best for / not for */}
+      <section className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border-l-4 border-forest bg-forest-soft/50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-forest">
+            Best for
+          </p>
+          <p className="mt-2 text-ink-soft">{detail.bestFor}</p>
+        </div>
+        <div className="rounded-2xl border-l-4 border-brass bg-brass-soft/50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brass">
+            Not for
+          </p>
+          <p className="mt-2 text-ink-soft">{detail.notFor}</p>
+        </div>
+      </section>
+
       {/* Key benefits */}
       <section className="mt-10">
         <h2 className="font-display text-2xl font-600 text-ink">Why people like {tool.name}</h2>
@@ -202,12 +261,42 @@ export default async function Page({
         <h2 className="font-display text-xl font-600 text-ink">{tool.name} pricing</h2>
         <p className="mt-2 text-ink-soft">{tool.pricing}</p>
         <p className="mt-2 text-xs text-ink-faint">
-          Pricing is indicative and can change — always confirm on the{" "}
+          Pricing is indicative and can change, so always confirm on the{" "}
           <a href={detail.website} target="_blank" rel="noopener noreferrer nofollow" className="text-forest underline underline-offset-2">
             official {tool.name} website
           </a>
           .
         </p>
+      </section>
+
+      {/* Verdict */}
+      <section className="mt-10 rounded-2xl border border-forest/30 bg-forest-soft/60 p-6">
+        <h2 className="font-display text-xl font-600 text-ink flex items-center gap-2">
+          <IconStar className="h-5 w-5 text-brass" /> Our verdict on {tool.name}
+        </h2>
+        <p className="mt-3 text-ink-soft leading-relaxed">{detail.verdict}</p>
+        <p className="mt-4 text-sm font-semibold text-ink">
+          {site.name} score: {tool.rating.toFixed(1)} / 5
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-600 text-ink">
+          {tool.name} FAQs
+        </h2>
+        <p className="mt-2 text-ink-soft">
+          The questions people most often ask about {tool.name}, answered for
+          Indian users.
+        </p>
+        <div className="mt-5 space-y-3">
+          {detail.faq.map((f) => (
+            <div key={f.q} className="rounded-2xl border border-line bg-card p-5">
+              <h3 className="font-display text-base font-600 text-ink">{f.q}</h3>
+              <p className="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <div className="mt-8 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">

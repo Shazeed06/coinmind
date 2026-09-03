@@ -4,16 +4,16 @@ import BmiCalculator from "@/components/calc/BmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "bmi")!;
-export const metadata = calcMeta("bmi", CALC.title + " — Body Mass Index (Free)", CALC.blurb);
+export const metadata = calcMeta("bmi", CALC.title + " - Body Mass Index (Free)", CALC.blurb);
 
 export default function Page() {
   return (
     <CalcPage
       slug="bmi"
       title="BMI Calculator"
-      subtitle="Check whether your weight sits in a healthy range for your height — in metric or imperial units."
+      subtitle="Check whether your weight sits in a healthy range for your height, in metric or imperial units."
       calculator={<BmiCalculator />}
-      intro="Body Mass Index (BMI) is a quick way to see whether your weight is broadly in a healthy range for your height. It divides your weight by the square of your height, giving a single number that falls into one of four bands: underweight, normal, overweight or obese. This BMI calculator works in both metric (cm and kg) and imperial (feet, inches and pounds) units, and also shows the healthy weight range for your height. It is intended for general education only and is not medical advice — for a proper assessment of your health, speak to a qualified healthcare professional."
+      intro="Body Mass Index (BMI) is a quick way to see whether your weight is broadly in a healthy range for your height. It divides your weight by the square of your height, giving a single number that falls into one of four bands: underweight, normal, overweight or obese. This BMI calculator works in both metric (cm and kg) and imperial (feet, inches and pounds) units, and also shows the healthy weight range for your height. It is intended for general education only and is not medical advice. For a proper assessment of your health, speak to a qualified healthcare professional."
       how={{
         heading: "How BMI is calculated",
         body: (
@@ -29,16 +29,16 @@ export default function Page() {
             </p>
             <ul className="list-disc pl-5 space-y-1">
               <li>
-                <strong>Underweight</strong> — below 18.5
+                <strong>Underweight</strong>: below 18.5
               </li>
               <li>
-                <strong>Normal weight</strong> — 18.5 to 24.9
+                <strong>Normal weight</strong>: 18.5 to 24.9
               </li>
               <li>
-                <strong>Overweight</strong> — 25 to 29.9
+                <strong>Overweight</strong>: 25 to 29.9
               </li>
               <li>
-                <strong>Obese</strong> — 30 and above
+                <strong>Obese</strong>: 30 and above
               </li>
             </ul>
             <p>

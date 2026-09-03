@@ -4,17 +4,17 @@ import RandomWheel from "@/components/tools/RandomWheel";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Random Wheel Picker — Spin to Choose, Free" },
+  title: { absolute: "Random Wheel Picker - Spin to Choose, Free" },
   description:
-    "Free spinning wheel picker. Enter your options, spin a colourful wheel and let it choose a random winner. 100% private — everything runs in your browser.",
+    "Free spinning wheel picker. Enter your options, spin a colourful wheel and let it choose a random winner. 100% private - everything runs in your browser.",
   alternates: { canonical: "/tools/random-wheel" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/random-wheel",
-    title: "Random Wheel Picker — Spin to Choose, Free",
+    title: "Random Wheel Picker - Spin to Choose, Free",
     description:
-      "Enter your options, spin a colourful wheel and let it pick a random winner. Free, private and instant — right in your browser.",
+      "Enter your options, spin a colourful wheel and let it pick a random winner. Free, private and instant - right in your browser.",
     locale: "en_US",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How does the wheel pick a winner?",
-    a: "When you press Spin, the tool picks one option at random and rotates the wheel so that segment lands under the pointer. Every option has an equal chance each spin, and the choice is made only after you click — nothing is decided in advance.",
+    a: "When you press Spin, the tool picks one option at random and rotates the wheel so that segment lands under the pointer. Every option has an equal chance each spin, and the choice is made only after you click. Nothing is decided in advance.",
   },
   {
     q: "Is the spin actually random or is it rigged?",
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "How many options can I add?",
-    a: "Add as many as you like — one per line in the options box. The wheel resizes its segments automatically. For very long lists the labels shorten to fit, but the full text still shows as the winner.",
+    a: "Add as many as you like, one per line in the options box. The wheel resizes its segments automatically. For very long lists the labels shorten to fit, but the full text still shows as the winner.",
   },
   {
     q: "Are my options saved or uploaded anywhere?",
@@ -110,7 +110,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Enter your choices, spin a colourful wheel and let chance pick the
-          winner &mdash; perfect for decisions, raffles, games and giveaways.
+          winner, perfect for decisions, raffles, games and giveaways.
         </p>
       </header>
 
@@ -128,7 +128,7 @@ export default function Page() {
           <p className="mt-2 text-ink-soft leading-relaxed">
             To pick something at random, type each option on its own line, then
             press <strong className="text-ink">Spin the wheel</strong>. The wheel
-            spins and stops on one option chosen fairly at random &mdash; every
+            spins and stops on one option chosen fairly at random. Every
             item has an equal chance. Want a fast decision with no animation? Use{" "}
             <strong className="text-ink">Pick a random option</strong> instead.
           </p>
@@ -145,8 +145,8 @@ export default function Page() {
           watch or where to go on the weekend. Teachers use wheels to pick a
           pupil to answer, streamers use them to choose a giveaway winner, and
           managers use them to assign tasks without anyone feeling singled out.
-          Because the choice is visibly random, everyone accepts the outcome
-          &mdash; which is often the real point of spinning at all.
+          Because the choice is visibly random, everyone accepts the outcome,
+          which is often the real point of spinning at all.
         </p>
 
         <h2>Why a wheel feels fairer than choosing yourself</h2>
@@ -156,14 +156,14 @@ export default function Page() {
           is selected the instant you spin, using your browser&apos;s random
           number generator. Nothing is weighted and nothing is decided
           beforehand. Turn on <strong>Remove the winner after each spin</strong>{" "}
-          to draw names one by one without repeats &mdash; ideal for raffles,
+          to draw names one by one without repeats, ideal for raffles,
           shuffling a running order or building teams from a single list.
         </p>
 
         <h2>Tips for a good spin</h2>
         <p>
-          Keep each option short so its label stays readable on the wheel &mdash;
-          full text always appears in the winner banner, so you lose nothing by
+          Keep each option short so its label stays readable on the wheel. Full
+          text always appears in the winner banner, so you lose nothing by
           abbreviating. Two options is the minimum; between about four and twelve
           looks best and lands most satisfyingly. For a giveaway, paste your list
           of entrants one per line, enable winner removal, and keep spinning to
@@ -205,7 +205,7 @@ export default function Page() {
               Coin Flip &amp; Dice
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
-              Flip a coin or roll any dice &mdash; d4 through d20 &mdash; with a
+              Flip a coin or roll any dice, d4 through d20, with a
               running tally.
             </p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">

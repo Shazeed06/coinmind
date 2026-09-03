@@ -1,4 +1,4 @@
-// Programmatic SEO for "₹X SIP for N years" — the second axis on the SIP
+// Programmatic SEO for "₹X SIP for N years", the second axis on the SIP
 // cluster. /sip/[amount]-per-month already covers the amount axis and shows a
 // 5-30 year table; these pages answer the far more specific query people
 // actually type ("5000 sip returns in 10 years") with one duration in focus.
@@ -7,7 +7,7 @@
 // site, and page 1 for these long-tails contains no large incumbents.
 //
 // The future-value maths is imported from lib/pseo-sip.ts, which is itself a
-// replica of components/calc/SipCalculator.tsx — so the amount pages, the
+// replica of components/calc/SipCalculator.tsx, so the amount pages, the
 // duration pages and the interactive calculator can never disagree.
 
 import { SIP_AMOUNTS, sipFutureValue } from "./pseo-sip";
@@ -32,7 +32,7 @@ export function sipYearSlug(monthly: number, years: number): string {
 
 export type SipYearParams = { monthly: number; years: number };
 
-/** Reverse of sipYearSlug — null unless both values are in our curated lists. */
+/** Reverse of sipYearSlug: null unless both values are in our curated lists. */
 export function parseSipYearSlug(slug: string): SipYearParams | null {
   const m = /^(\d+)-per-month-for-(\d+)-years$/.exec(slug);
   if (!m) return null;
@@ -94,7 +94,7 @@ export function delayCost(
   });
 }
 
-/** Every generated slug — consumed by the sitemap and IndexNow. */
+/** Every generated slug, consumed by the sitemap and IndexNow. */
 export const SIP_YEAR_SLUGS: string[] = SIP_AMOUNTS.flatMap((m) =>
   SIP_YEARS.map((y) => sipYearSlug(m, y))
 );

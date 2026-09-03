@@ -63,7 +63,7 @@ const SAMPLE: ResumeData = {
   location: "Bengaluru, India",
   website: "linkedin.com/in/aaravsharma",
   summary:
-    "Product designer with 6+ years shipping user-centred web and mobile products. I turn ambiguous problems into simple, measurable experiences — and have raised activation by 30%+ across two SaaS products.",
+    "Product designer with 6+ years shipping user-centred web and mobile products. I turn ambiguous problems into simple, measurable experiences, and have raised activation by 30%+ across two SaaS products.",
   experience: [
     {
       id: uid(),
@@ -176,7 +176,7 @@ export default function ResumeBuilder() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch {
-      /* storage full / disabled — ignore, builder still works */
+      /* storage full / disabled: ignore, builder still works */
     }
   }, [data, hydrated]);
 
@@ -275,7 +275,7 @@ export default function ResumeBuilder() {
         setAiNote((n) => ({
           ...n,
           [target]:
-            "AI assist isn't switched on yet — you can still edit manually.",
+            "AI assist isn't switched on yet. You can still edit manually.",
         }));
       } else if (json.reply) {
         apply(json.reply.trim());
@@ -283,13 +283,13 @@ export default function ResumeBuilder() {
       } else {
         setAiNote((n) => ({
           ...n,
-          [target]: "AI didn't return anything — try again in a moment.",
+          [target]: "AI didn't return anything. Try again in a moment.",
         }));
       }
     } catch {
       setAiNote((n) => ({
         ...n,
-        [target]: "Network issue — please try again.",
+        [target]: "Network issue. Please try again.",
       }));
     } finally {
       setAiBusy(null);
@@ -307,7 +307,7 @@ export default function ResumeBuilder() {
 
   return (
     <div className="resume-builder">
-      {/* Print rules — only the preview is visible when printing. */}
+      {/* Print rules: only the preview is visible when printing. */}
       <style>{`
         @media print {
           @page { margin: 14mm; }
@@ -346,14 +346,14 @@ export default function ResumeBuilder() {
           Clear / Start over
         </button>
         <p className="text-xs text-ink-faint">
-          Your details stay in your browser — nothing is uploaded. Use your
+          Your details stay in your browser. Nothing is uploaded. Use your
           browser&apos;s &ldquo;Save as PDF&rdquo; option in the print dialog.
         </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* ---------------------------------------------------------------- */}
-        {/* LEFT — the form                                                  */}
+        {/* LEFT: the form                                                  */}
         {/* ---------------------------------------------------------------- */}
         <div className="no-print space-y-6">
           {/* Basics */}
@@ -673,7 +673,7 @@ export default function ResumeBuilder() {
           <section className="rounded-2xl border border-line bg-card p-6">
             <h2 className="font-display text-lg font-600 text-ink">Skills</h2>
             <p className="mt-1 text-sm text-ink-faint">
-              Separate with commas — they show as tidy chips on your resume.
+              Separate with commas. They show as tidy chips on your resume.
             </p>
             <textarea
               rows={2}
@@ -686,7 +686,7 @@ export default function ResumeBuilder() {
         </div>
 
         {/* ---------------------------------------------------------------- */}
-        {/* RIGHT — live preview                                             */}
+        {/* RIGHT: live preview                                             */}
         {/* ---------------------------------------------------------------- */}
         <div className="lg:sticky lg:top-6 self-start">
           <div
@@ -769,7 +769,7 @@ export default function ResumeBuilder() {
                             {(exp.start || exp.end) && (
                               <p className="shrink-0 text-[12px] font-medium text-[#6b7288]">
                                 {exp.start}
-                                {exp.start && exp.end ? " – " : ""}
+                                {exp.start && exp.end ? " - " : ""}
                                 {exp.end}
                               </p>
                             )}
@@ -845,7 +845,7 @@ export default function ResumeBuilder() {
           </div>
 
           <p className="no-print mt-3 text-center text-xs text-ink-faint">
-            Live preview — this is exactly what your PDF will look like.
+            Live preview. This is exactly what your PDF will look like.
           </p>
         </div>
       </div>

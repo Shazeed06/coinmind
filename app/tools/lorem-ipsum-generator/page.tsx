@@ -4,15 +4,15 @@ import LoremIpsum from "@/components/tools/LoremIpsum";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Lorem Ipsum Generator — Free Placeholder Text" },
+  title: { absolute: "Lorem Ipsum Generator - Free Placeholder Text" },
   description:
-    "Free Lorem Ipsum generator. Create placeholder text by paragraphs, sentences or words, with a one-click copy. Runs entirely in your browser — no sign-up.",
+    "Free Lorem Ipsum generator. Create placeholder text by paragraphs, sentences or words, with a one-click copy. Runs entirely in your browser - no sign-up.",
   alternates: { canonical: "/tools/lorem-ipsum-generator" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/lorem-ipsum-generator`,
-    title: "Lorem Ipsum Generator — Free Placeholder Text",
+    title: "Lorem Ipsum Generator - Free Placeholder Text",
     description:
       "Generate classic Lorem Ipsum placeholder text by paragraphs, sentences or words. Free, private and instant, right in your browser.",
     locale: "en_US",
@@ -109,8 +109,8 @@ export default function Page() {
           Lorem Ipsum Generator
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Generate classic placeholder text by paragraphs, sentences or words
-          &mdash; then copy it into your mockup, template or design in one click.
+          Generate classic placeholder text by paragraphs, sentences or words.
+          Then copy it into your mockup, template or design in one click.
         </p>
       </header>
 
@@ -167,7 +167,7 @@ export default function Page() {
           If a product description will run about forty words, generate forty
           words rather than a full paragraph, so the design reflects reality.
           Regenerate a few times to see how your layout copes with varying
-          lengths &mdash; robust designs look good whether a block is short or
+          lengths. Robust designs look good whether a block is short or
           long. When the real copy arrives, swapping it in should feel seamless
           because the spacing was already tuned to a lifelike volume of text.
         </p>

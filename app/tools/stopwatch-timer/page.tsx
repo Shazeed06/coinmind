@@ -4,18 +4,18 @@ import StopwatchTimer from "@/components/tools/StopwatchTimer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Online Stopwatch & Countdown Timer — Free Tool" },
+  title: { absolute: "Online Stopwatch & Countdown Timer - Free Tool" },
   description:
-    "Free online stopwatch and countdown timer. Time laps with a precise stopwatch, or set a countdown timer with an alarm beep — all in your browser.",
+    "Free online stopwatch and countdown timer. Time laps with a precise stopwatch, or set a countdown timer with an alarm beep - all in your browser.",
   alternates: { canonical: "/tools/stopwatch-timer" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/stopwatch-timer`,
-    title: "Online Stopwatch & Countdown Timer — Free Tool",
+    title: "Online Stopwatch & Countdown Timer - Free Tool",
     description:
-      "A precise stopwatch with lap times plus a countdown timer with an alarm — free, private and instant, right in your browser.",
+      "A precise stopwatch with lap times plus a countdown timer with an alarm - free, private and instant, right in your browser.",
     locale: "en_US",
     images: [
       {
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Do I need to install anything or sign up?",
     a: "No. Everything runs in your browser with no sign-up, no download and no data sent anywhere. Open the page and start timing straight away.",
+  },
+  {
+    q: "Will the timer keep running if I close the tab?",
+    a: "No. The stopwatch and the countdown live in the page itself, so closing the tab, reloading, or navigating away clears them and nothing is saved for next time. Switching to another tab or app is fine, because the countdown is anchored to a fixed finish time and catches up the moment you come back.",
+  },
+  {
+    q: "Are there quick preset times on the countdown?",
+    a: "Yes. One-tap buttons set the timer to 1, 3, 5 or 10 minutes, which covers most kitchen, workout and study intervals. For anything else, type the hours, minutes and seconds into the three fields. Presets and manual entry both reset any countdown in progress, so set your time before pressing Start.",
+  },
+  {
+    q: "What is the longest countdown I can set?",
+    a: "Up to 99 hours, 59 minutes and 59 seconds, which is a little over four days. The hours field accepts values from 0 to 99 and the minutes and seconds fields cap at 59. Bear in mind that the countdown only survives as long as the tab stays open, so multi-day timers are better handled by a device alarm.",
   },
 ];
 
@@ -111,7 +123,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           A precise online stopwatch with lap times and a countdown timer with
-          an alarm &mdash; free, private and right in your browser.
+          an alarm, free, private and right in your browser.
         </p>
       </header>
 
@@ -127,11 +139,11 @@ export default function Page() {
         </h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
           Switch to the <strong className="text-ink">Stopwatch</strong> tab and
-          press Start to count up &mdash; use Lap to record splits. Switch to the{" "}
+          press Start to count up. Use Lap to record splits. Switch to the{" "}
           <strong className="text-ink">Countdown Timer</strong> tab, set hours,
           minutes and seconds, then press Start; when it hits zero the tool beeps
-          and flashes &ldquo;Time&rsquo;s up!&rdquo;. Nothing is uploaded &mdash;
-          it all runs on your device.
+          and flashes &ldquo;Time&rsquo;s up!&rdquo;. Nothing is uploaded. It
+          all runs on your device.
         </p>
       </section>
 
@@ -144,7 +156,7 @@ export default function Page() {
           workouts, cooking, experiments, presentations or any activity where you
           want to know exactly how long something took. The{" "}
           <strong>countdown timer</strong> counts down from a time you choose and
-          rings an alarm at zero &mdash; ideal for study sessions, HIIT intervals,
+          rings an alarm at zero, ideal for study sessions, HIIT intervals,
           steeping tea, or keeping meetings on track.
         </p>
 
@@ -155,7 +167,7 @@ export default function Page() {
           system time changes and it resolves down to hundredths of a second. The
           countdown timer stores a fixed finish time and works out the remaining
           time from that on every frame. Because the maths is anchored to a single
-          target, the timer self-corrects &mdash; even if a background tab is
+          target, the timer self-corrects. Even if a background tab is
           throttled, it shows the right time the moment you switch back.
         </p>
 

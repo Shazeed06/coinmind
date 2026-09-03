@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Countdown to Date — 100% client-side, no libraries.               */
+/*  Countdown to Date: 100% client-side, no libraries.                */
 /*  Pick any date + time and watch a live D / H / M / S countdown.    */
-/*  SSR-safe: no Date at module scope or during the first render — the */
+/*  SSR-safe: no Date at module scope or during the first render. The */
 /*  clock is seeded inside an effect, so the server and client markup  */
 /*  match and there is no hydration mismatch. The 1s interval is torn  */
 /*  down on unmount.                                                   */
@@ -23,7 +23,7 @@ function toLocalInput(d: Date): string {
 type Preset = { label: string; build: () => Date };
 
 /* Presets are computed lazily (inside a click handler) so `new Date()`
-   never runs during render — keeping the first paint deterministic. */
+   never runs during render, keeping the first paint deterministic. */
 const PRESETS: Preset[] = [
   {
     label: "New Year",
@@ -176,7 +176,7 @@ export default function CountdownToDate() {
 
         {view.state === "empty" && (
           <p className="text-center text-sm text-ink-soft leading-relaxed">
-            Pick a date and time above &mdash; or tap a preset &mdash; to start
+            Pick a date and time above, or tap a preset, to start
             the live countdown.
           </p>
         )}

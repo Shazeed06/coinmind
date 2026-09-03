@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Currency, currencyMeta, formatCurrency } from "@/lib/format";
 import { Field, Donut, CurrencyToggle, Stat } from "./shared";
 
-// Post Office MIS (Monthly Income Scheme) — 5-year term, interest paid out
+// Post Office MIS (Monthly Income Scheme): 5-year term, interest paid out
 // MONTHLY as a simple payout; the principal is returned at maturity.
 const TERM_YEARS = 5;
 
@@ -53,7 +53,7 @@ export default function PostOfficeMisCalculator() {
             max={15}
             step={0.1}
             suffix="%"
-            hint="Current rate, set and revised by the government each quarter — edit it to match today's figure."
+            hint="Current rate, set and revised by the government each quarter. Edit it to match today's figure."
           />
           <Stat label="Term" value={`${TERM_YEARS} years (fixed)`} accent="ink" />
         </div>
@@ -64,7 +64,7 @@ export default function PostOfficeMisCalculator() {
           Monthly income
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(monthly, currency) : "—"}
+          {valid ? formatCurrency(monthly, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">paid every month</p>
 
@@ -83,22 +83,22 @@ export default function PostOfficeMisCalculator() {
         <div className="mt-6">
           <Stat
             label="Monthly income"
-            value={valid ? formatCurrency(monthly, currency) : "—"}
+            value={valid ? formatCurrency(monthly, currency) : "-"}
             accent="forest"
           />
           <Stat
             label="Annual income"
-            value={valid ? formatCurrency(annual, currency) : "—"}
+            value={valid ? formatCurrency(annual, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Total interest (5 yrs)"
-            value={valid ? formatCurrency(totalInterest, currency) : "—"}
+            value={valid ? formatCurrency(totalInterest, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Maturity (principal back)"
-            value={valid ? formatCurrency(principal, currency) : "—"}
+            value={valid ? formatCurrency(principal, currency) : "-"}
             accent="ink"
           />
         </div>

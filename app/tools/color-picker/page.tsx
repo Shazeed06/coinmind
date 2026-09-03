@@ -4,7 +4,7 @@ import ColorPicker from "@/components/tools/ColorPicker";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Color Picker — HEX, RGB & HSL Converter" },
+  title: { absolute: "Color Picker - HEX, RGB & HSL Converter" },
   description:
     "Free online color picker. Pick a color and get HEX, RGB and HSL values that stay in sync, with one-click copy and instant tints and shades. 100% private.",
   alternates: { canonical: "/tools/color-picker" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/color-picker",
-    title: "Color Picker — HEX, RGB & HSL Converter",
+    title: "Color Picker - HEX, RGB & HSL Converter",
     description:
       "Pick a color and convert between HEX, RGB and HSL with one-click copy and instant tints and shades. Runs entirely in your browser.",
     locale: "en_US",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What is the difference between HEX, RGB and HSL?",
-    a: "They describe the same color in different ways. HEX is a six-digit code used in HTML and CSS (#RRGGBB). RGB lists the red, green and blue channels from 0 to 255. HSL uses hue (0–360°), saturation and lightness, which makes it easy to create lighter or darker versions of a color by adjusting one number.",
+    a: "They describe the same color in different ways. HEX is a six-digit code used in HTML and CSS (#RRGGBB). RGB lists the red, green and blue channels from 0 to 255. HSL uses hue (0-360°), saturation and lightness, which makes it easy to create lighter or darker versions of a color by adjusting one number.",
   },
   {
     q: "What are tints and shades?",
@@ -43,11 +43,23 @@ const faqs = [
   },
   {
     q: "Can I use these colors in CSS?",
-    a: "Yes. Copy the HEX, RGB or HSL value and paste it straight into your stylesheet — for example color: #2563EB, or background: rgb(37, 99, 235). All three formats are valid CSS color values.",
+    a: "Yes. Copy the HEX, RGB or HSL value and paste it straight into your stylesheet, for example color: #2563EB, or background: rgb(37, 99, 235). All three formats are valid CSS color values.",
   },
   {
     q: "Is the color picker private?",
     a: "Completely. It runs entirely in your browser with JavaScript, so the colors you pick are never uploaded, logged or shared. It also keeps working offline once the page has loaded.",
+  },
+  {
+    q: "Can I pick a color from an image or from my screen?",
+    a: "There is no image upload on this page. Clicking the swatch opens your operating system's own color dialog, and on most desktop systems that dialog includes an eyedropper you can use to sample any pixel on screen. If yours does not, copy the HEX code from your design app and paste it into the HEX field instead.",
+  },
+  {
+    q: "Does it support transparency, RGBA or 8 digit HEX codes?",
+    a: "No. The picker works with fully opaque colors in six digit HEX, RGB and HSL. If you need transparency, take the values from here and add the alpha channel yourself in CSS, for example by writing rgba(37, 99, 235, 0.5) or by using the modern slash syntax in an rgb() or hsl() value.",
+  },
+  {
+    q: "Does the color picker work on a phone?",
+    a: "Yes. Tapping the swatch opens the native color picker built into iOS or Android, and the HEX, RGB and HSL fields accept typed values on any device. The copy buttons write straight to your phone clipboard, so you can grab a brand color on mobile and paste it into notes, email or a design app.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Color Picker
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Pick a color and convert between HEX, RGB and HSL in real time &mdash;
+          Pick a color and convert between HEX, RGB and HSL in real time,
           with one-click copy and instant tints and shades, right in your
           browser.
         </p>
@@ -133,7 +145,7 @@ export default function Page() {
             native picker, or type a value into the{" "}
             <strong className="text-ink">HEX</strong>,{" "}
             <strong className="text-ink">RGB</strong> or{" "}
-            <strong className="text-ink">HSL</strong> field &mdash; the others
+            <strong className="text-ink">HSL</strong> field. The others
             update instantly, so it doubles as a HEX to RGB and RGB to HEX
             converter. Copy any format with one click and grab ready-made tints
             and shades. It all runs privately in your browser.
@@ -150,8 +162,8 @@ export default function Page() {
           CSS, like <code>#2563EB</code>, where pairs of digits set the red,
           green and blue channels in base 16. <strong>RGB</strong> writes those
           same channels as numbers from 0 to 255, which is intuitive when you
-          think in terms of mixing light. <strong>HSL</strong> &mdash; hue,
-          saturation and lightness &mdash; describes color the way designers
+          think in terms of mixing light. <strong>HSL</strong> (hue,
+          saturation and lightness) describes color the way designers
           often think, making it simple to keep the same hue while nudging it
           lighter or darker.
         </p>
@@ -173,8 +185,8 @@ export default function Page() {
           base, a <strong>tint</strong> (mixed with white) works well for
           backgrounds and subtle hover states, while a <strong>shade</strong>{" "}
           (mixed with black) suits text, borders and pressed buttons. The swatch
-          row gives you several lighter and darker steps at a glance &mdash;
-          click any one to make it your active color and read its exact code.
+          row gives you several lighter and darker steps at a glance. Click
+          any one to make it your active color and read its exact code.
           It is a fast way to build a small, consistent palette from a single
           starting point.
         </p>

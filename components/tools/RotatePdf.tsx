@@ -115,7 +115,7 @@ export default function RotatePdf() {
     } catch (err) {
       console.error(err);
       setError(
-        "Something went wrong while rotating. The PDF may be encrypted or corrupted — try a different file.",
+        "Something went wrong while rotating. The PDF may be encrypted or corrupted. Try a different file.",
       );
     } finally {
       setWorking(false);
@@ -171,7 +171,7 @@ export default function RotatePdf() {
           or click to browse. Rotate every page or just one.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
-          Files never leave your device — everything runs in your browser.
+          Files never leave your device. Everything runs in your browser.
         </p>
       </div>
 
@@ -264,7 +264,7 @@ export default function RotatePdf() {
                 {scope === "one" && (
                   <label className="mt-3 flex flex-col gap-1.5">
                     <span className="text-xs font-medium text-ink-soft">
-                      Page number (1 – {loaded.pages})
+                      Page number (1-{loaded.pages})
                     </span>
                     <input
                       type="number"

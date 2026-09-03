@@ -27,7 +27,7 @@ export default function Page() {
 
         <h1 className="h1 text-text">About {site.name}</h1>
         <p className="body text-text-muted mt-4">
-          We build tools and write guides that help ordinary people make confident decisions about money — without the jargon, the sales pitch, or the paywall.
+          We build tools and write guides that help ordinary people make confident decisions about money, without the jargon, the sales pitch, or the paywall.
         </p>
 
         <div className="mt-12 space-y-10">
@@ -38,10 +38,10 @@ export default function Page() {
               <Link href={`/authors/${site.author.slug}`} className="text-brand underline underline-offset-2">
                 {site.author.fullName}
               </Link>
-              , who is pursuing the Chartered Accountancy (CA) Final. Every calculator, guide and comparison on this site is researched, written and fact-checked by a human. AI is used as a research and drafting aid only — it never publishes content unedited.
+              , who is pursuing the Chartered Accountancy (CA) Final. Every calculator, guide and comparison on this site is researched, written and fact-checked by a human. AI is used as a research and drafting aid only. It never publishes content unedited.
             </p>
             <p className="body text-text-muted mt-3">
-              We are based in {site.author.location}. This is a self-funded independent project — we do not take investment, sponsorship or paid placement from any financial product or company.
+              We are based in {site.author.location}. This is a self-funded independent project. We do not take investment, sponsorship or paid placement from any financial product or company.
             </p>
           </section>
 
@@ -60,7 +60,7 @@ export default function Page() {
           <section>
             <h2 className="h3 text-text">How we ensure accuracy</h2>
             <p className="body text-text-muted mt-3">
-              Every calculator uses published, standard formulas verified against official sources — RBI, SEBI, the Income Tax Department, AMFI, EPFO and the National Savings Institute. Read our{" "}
+              Every calculator uses published, standard formulas verified against official sources: RBI, SEBI, the Income Tax Department, AMFI, EPFO and the National Savings Institute. Read our{" "}
               <Link href="/methodology" className="text-brand underline underline-offset-2">full methodology</Link>{" "}
               to see the formula, source and exclusions for every calculator. When we find an error, we log it publicly on our{" "}
               <Link href="/corrections" className="text-brand underline underline-offset-2">corrections page</Link>.

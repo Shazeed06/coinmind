@@ -4,18 +4,18 @@ import ImageToBase64 from "@/components/tools/ImageToBase64";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Image to Base64 — Free Data URI Encoder" },
+  title: { absolute: "Image to Base64 - Free Data URI Encoder" },
   description:
-    "Free image to Base64 encoder. Convert any image to a data URI with ready-to-copy HTML <img> and CSS snippets. 100% private — encoded in your browser.",
+    "Free image to Base64 encoder. Convert any image to a data URI with ready-to-copy HTML <img> and CSS snippets. 100% private - encoded in your browser.",
   alternates: { canonical: "/tools/image-to-base64" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/image-to-base64",
-    title: "Image to Base64 — Free Data URI Encoder",
+    title: "Image to Base64 - Free Data URI Encoder",
     description:
-      "Convert any image to a Base64 data URI with ready-to-copy HTML and CSS snippets. 100% private — your image never leaves your browser.",
+      "Convert any image to a Base64 data URI with ready-to-copy HTML and CSS snippets. 100% private - your image never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my image uploaded to a server?",
-    a: "No. This encoder reads your image directly on your device using the browser's FileReader API. The image is never uploaded, stored or seen by anyone — the Base64 string is generated entirely in your browser.",
+    a: "No. This encoder reads your image directly on your device using the browser's FileReader API. The image is never uploaded, stored or seen by anyone. The Base64 string is generated entirely in your browser.",
   },
   {
     q: "What is a Base64 data URI?",
-    a: "It's a way of writing an image as plain text. The data URI starts with data:image/… followed by a long Base64-encoded string of the file's bytes. Because it's just text, you can paste it straight into HTML or CSS and the browser rebuilds the image — no separate file needed.",
+    a: "It's a way of writing an image as plain text. The data URI starts with data:image/… followed by a long Base64-encoded string of the file's bytes. Because it's just text, you can paste it straight into HTML or CSS and the browser rebuilds the image, no separate file needed.",
   },
   {
     q: "When should I embed an image as Base64?",
@@ -43,11 +43,23 @@ const faqs = [
   },
   {
     q: "Why is the Base64 version bigger than my file?",
-    a: "Base64 represents binary data using only text characters, which adds roughly 33% overhead. So a 90 KB image becomes about 120 KB of text. That's normal — the tool shows you the exact encoded size so you can decide whether inlining is worth it.",
+    a: "Base64 represents binary data using only text characters, which adds roughly 33% overhead. So a 90 KB image becomes about 120 KB of text. That's normal. The tool shows you the exact encoded size so you can decide whether inlining is worth it.",
   },
   {
     q: "How do I turn a data URI back into an image?",
     a: "Paste the full data:image URI into your browser's address bar and press Enter to view it, then right-click and choose Save image to write it back to a file. Any Base64 decoder will also convert it back to the original bytes.",
+  },
+  {
+    q: "Which image formats can I encode, and is there a size limit?",
+    a: "PNG, JPG, WebP, GIF, SVG, BMP, ICO and AVIF are all accepted, and the correct MIME type is written into the data URI for you. There is no hard size cap, but the tool warns you above about 1 MB, since anything larger produces an unwieldy string that is rarely worth inlining.",
+  },
+  {
+    q: "Do data URI images work in email?",
+    a: "Support is patchy, so test before you send. Gmail and several other clients refuse to render data URI images, and some strip them entirely, which leaves your recipients looking at a broken graphic. Hosted images with a normal URL, or a properly attached inline image, remain the safer choice for email campaigns.",
+  },
+  {
+    q: "Does the encoder work offline and on a phone?",
+    a: "Yes to both. The file is read straight from your device with the browser's FileReader API, so once the page has loaded you can turn off wifi and still encode. On a phone, tapping the drop zone opens your camera roll or file picker, and the copy buttons put the snippet on your clipboard.",
   },
 ];
 
@@ -111,7 +123,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Encode any image as a Base64 data URI, with ready-to-copy HTML and CSS
-          snippets &mdash; right in your browser, with nothing uploaded.
+          snippets, right in your browser, with nothing uploaded.
         </p>
       </header>
 
@@ -145,9 +157,9 @@ export default function Page() {
       <section className="mt-12 max-w-3xl article">
         <h2>What is Base64 encoding?</h2>
         <p>
-          Base64 is a way of representing binary data &mdash; like the bytes of an
-          image &mdash; using only 64 plain text characters (A&ndash;Z,
-          a&ndash;z, 0&ndash;9, plus a couple of symbols). Because the result is
+          Base64 is a way of representing binary data, like the bytes of an
+          image, using only 64 plain text characters (A-Z,
+          a-z, 0-9, plus a couple of symbols). Because the result is
           ordinary text, it can travel anywhere text can go: inside an HTML file,
           a stylesheet, a JSON payload or an email. A <strong>data URI</strong>{" "}
           wraps that text with a small header (for example{" "}
@@ -171,7 +183,7 @@ export default function Page() {
         <p>
           For <strong>large or frequently reused images</strong>, a normal file
           URL is almost always better. Base64 adds about 33% to the size, and an
-          inlined image can&apos;t be cached on its own &mdash; the browser has to
+          inlined image can&apos;t be cached on its own. The browser has to
           re-download the whole string every time the HTML or CSS changes, and it
           can&apos;t be reused across pages. A giant data URI also makes your
           markup hard to read. As a rough rule, inline images under a few
@@ -183,8 +195,8 @@ export default function Page() {
           Once you&apos;ve encoded an image, copy the <strong>data URI</strong> on
           its own to drop into JavaScript or a framework, or grab the ready-made{" "}
           <strong>HTML &lt;img&gt;</strong> tag to paste straight into a page. The{" "}
-          <strong>CSS background</strong> snippet is ideal for decorative images
-          &mdash; paste it into a rule to set a background without a separate
+          <strong>CSS background</strong> snippet is ideal for decorative images.
+          Paste it into a rule to set a background without a separate
           file. Everything is generated locally, so you can encode sensitive or
           unpublished images with confidence.
         </p>

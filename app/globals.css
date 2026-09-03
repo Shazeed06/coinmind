@@ -82,6 +82,35 @@ body {
 }
 .prose-container { max-width: 720px; margin: 0 auto; }
 
+/* Long-form review bodies rendered by <ArticleMarkdown/> on the AI tool pages,
+   which use the ink/forest palette rather than the blog's <Prose> wrapper. */
+.article-body h2 {
+  font-family: var(--font-display, inherit);
+  font-size: 1.5rem; font-weight: 600; line-height: 1.25;
+  color: var(--color-ink); margin-top: 2.5rem; margin-bottom: 0.75rem;
+}
+.article-body h3 {
+  font-size: 1.125rem; font-weight: 600; line-height: 1.35;
+  color: var(--color-ink); margin-top: 1.75rem; margin-bottom: 0.5rem;
+}
+.article-body p { color: var(--color-ink-soft); line-height: 1.7; margin-bottom: 1rem; }
+.article-body ul, .article-body ol {
+  color: var(--color-ink-soft); line-height: 1.7;
+  margin: 0 0 1rem 0; padding-left: 1.25rem;
+}
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body li { margin-bottom: 0.375rem; }
+.article-body table {
+  width: 100%; margin: 1.25rem 0; border-collapse: collapse; font-size: 0.9rem;
+}
+.article-body th, .article-body td {
+  border: 1px solid var(--color-line); padding: 0.625rem 0.75rem;
+  text-align: left; vertical-align: top;
+}
+.article-body th { background: var(--color-paper-2); color: var(--color-ink); font-weight: 600; }
+.article-body td { color: var(--color-ink-soft); }
+
 .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: transform 150ms ease, border-color 150ms ease; }
 .card:hover { transform: translateY(-2px); border-color: var(--color-brand); }
 .card-h-full { display: flex; flex-direction: column; height: 100%; }

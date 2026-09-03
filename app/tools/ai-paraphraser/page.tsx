@@ -4,17 +4,17 @@ import AiParaphraser from "@/components/tools/AiParaphraser";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Paraphrasing Tool — Free Rewriter" },
+  title: { absolute: "AI Paraphrasing Tool - Free Rewriter" },
   description:
-    "Free AI paraphrasing tool. Instantly rewrite and rephrase any text in seven styles — fluent, formal, casual, simple, shorten or expand. No sign-up.",
+    "Free AI paraphrasing tool. Instantly rewrite and rephrase any text in seven styles - fluent, formal, casual, simple, shorten or expand. No sign-up.",
   alternates: { canonical: "/tools/ai-paraphraser" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/ai-paraphraser",
-    title: "AI Paraphrasing Tool — Free Rewriter",
+    title: "AI Paraphrasing Tool - Free Rewriter",
     description:
-      "Rewrite and rephrase any text in seconds with AI. Choose from fluent, formal, casual, simple, shorten or expand styles — free and no sign-up.",
+      "Rewrite and rephrase any text in seconds with AI. Choose from fluent, formal, casual, simple, shorten or expand styles - free and no sign-up.",
     locale: "en_US",
     images: [
       {
@@ -47,6 +47,18 @@ const faqs = [
   {
     q: "Is my text stored or shared?",
     a: "Your text is sent securely to the AI only to generate the rewrite and is not published or shown to other users. Avoid pasting passwords or sensitive personal data into any online tool as a general precaution.",
+  },
+  {
+    q: "How much text can I paraphrase at once?",
+    a: "The box accepts up to 8,000 characters, about 1,200 words, and a live counter shows how much of that allowance you have used. For a full essay or chapter, rewrite it a few paragraphs at a time. Shorter passages also come back sharper, because the model keeps more of your original structure.",
+  },
+  {
+    q: "Will the rewritten text pass an AI detector?",
+    a: "There is no honest way to promise that. Text produced by a language model can be flagged by detection tools, and those tools also mislabel plenty of human writing. If your school or employer limits AI assistance, follow their policy: treat the rewrite as a suggestion and put the final wording in your own words.",
+  },
+  {
+    q: "Do I need to install anything or create an account?",
+    a: "No. The paraphraser is a normal web page that works in any modern browser on a phone, tablet or computer, with no extension, app, sign-up or payment. You do need to be online, because the rewrite comes from an AI model on a server rather than from code running on your own device.",
   },
 ];
 
@@ -109,8 +121,8 @@ export default function Page() {
           AI Paraphraser
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Reword and rephrase any text in seconds. Pick a style &mdash; fluent,
-          formal, casual, simple, shorten or expand &mdash; and let AI rewrite it
+          Reword and rephrase any text in seconds. Pick a style (fluent,
+          formal, casual, simple, shorten or expand) and let AI rewrite it
           while keeping your meaning.
         </p>
       </header>
@@ -147,7 +159,7 @@ export default function Page() {
           piece of writing and expresses the same ideas in a different way. Instead
           of simply swapping a few words for synonyms, a modern{" "}
           <strong>AI paraphraser</strong> understands the whole sentence and
-          rebuilds it &mdash; changing structure, phrasing and tone while protecting
+          rebuilds it, changing structure, phrasing and tone while protecting
           the underlying meaning. That makes the result read naturally rather than
           like a thesaurus was let loose on your text.
         </p>
@@ -166,7 +178,7 @@ export default function Page() {
         <h2>How to get the best results</h2>
         <p>
           Start with clear input: the tidier your original text, the better the
-          rewrite. Choose the style that matches your goal &mdash; use{" "}
+          rewrite. Choose the style that matches your goal: use{" "}
           <strong>Formal</strong> for reports, <strong>Simple</strong> to explain
           something plainly, <strong>Shorten</strong> to cut length, and{" "}
           <strong>Expand</strong> when you need more depth. Always read the output

@@ -68,7 +68,7 @@ export default function ImageToPdf() {
     }
     if (rejected.length) {
       setError(
-        `Skipped ${rejected.length} file${rejected.length > 1 ? "s" : ""}: only JPG and PNG are supported. WebP isn't supported here — convert it first.`,
+        `Skipped ${rejected.length} file${rejected.length > 1 ? "s" : ""}: only JPG and PNG are supported. WebP isn't supported here. Convert it first.`,
       );
     }
   }, []);
@@ -229,7 +229,7 @@ export default function ImageToPdf() {
           or click to browse. You can add several at once.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
-          Files never leave your device — everything runs in your browser.
+          Files never leave your device. Everything runs in your browser.
         </p>
       </div>
 

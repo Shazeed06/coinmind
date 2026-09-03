@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getOffer } from "@/lib/affiliates";
 
-// Renders a relevant partner (affiliate) CTA — but ONLY when the matching offer
+// Renders a relevant partner (affiliate) CTA, but ONLY when the matching offer
 // in lib/affiliates.ts has a real href set. Until then it renders nothing, so
 // no empty or non-earning links ever appear. Link uses rel="sponsored nofollow"
 // and carries an inline disclosure (Google + FTC compliant).
@@ -33,7 +33,7 @@ export default function AffiliateCta({
         {o.cta}
       </a>
       <p className="mt-3 text-xs text-ink-faint leading-relaxed">
-        Partner link — we may earn a commission if you sign up, at no extra cost
+        Partner link. We may earn a commission if you sign up, at no extra cost
         to you. It never affects our calculators or what we recommend.{" "}
         <Link href="/affiliate-disclosure" className="underline underline-offset-2">
           How this works

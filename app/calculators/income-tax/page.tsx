@@ -5,9 +5,9 @@ import CalcPage from "@/components/calc/CalcPage";
 import { TAX_SALARIES, salarySlug, salaryLabel } from "@/lib/pseo-tax";
 
 export const metadata: Metadata = {
-  title: { absolute: "Income Tax Calculator FY 2026-27 — New vs Old Regime" },
+  title: { absolute: "Income Tax Calculator India FY 2026-27 - New vs Old Regime" },
   description:
-    "Compare new vs old tax regime for FY 2026-27. See which saves more — with breakup, deductions, rebate and cess. Free, instant, private.",
+    "Compare new vs old tax regime for FY 2026-27. See which saves more, with breakup, deductions, rebate and cess. Free, instant, private.",
   alternates: { canonical: "/calculators/income-tax" },
   openGraph: { url: "/calculators/income-tax" },
 };
@@ -41,7 +41,7 @@ function BreakEvenTable() {
       <div>
         <h2 className="font-display text-2xl font-600 text-ink">The regime break-even point</h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
-          The new regime is the default. It wins for most people — but not everyone. The break-even is the deduction amount at which the old regime starts saving you more tax. If your actual deductions exceed this number, pick the old regime.
+          The new regime is the default. It wins for most people, but not everyone. The break-even is the deduction amount at which the old regime starts saving you more tax. If your actual deductions exceed this number, pick the old regime.
         </p>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -105,20 +105,20 @@ function BreakEvenTable() {
       <div>
         <h2 className="font-display text-2xl font-600 text-ink">Who should NOT switch to the new regime</h2>
         <ul className="mt-3 space-y-2 text-ink-soft leading-relaxed">
-          <li>• Anyone with <strong>home loan interest above ₹1.5 lakh</strong> — the Section 24 deduction of up to ₹2 lakh applies only under the old regime.</li>
-          <li>• Anyone claiming <strong>full Section 80C (₹1.5 lakh) plus 80D (₹25,000) plus NPS (₹50,000)</strong> — at higher incomes, these stack to overcome the new regime's lower rates.</li>
-          <li>• Anyone with <strong>HRA exemption above ₹1 lakh</strong> — HRA is not available under the new regime.</li>
-          <li>• Anyone whose employer has already deducted tax under the old regime in their Form 16 — switching may create a cash-flow mismatch if you have already invested under the old regime assumptions.</li>
+          <li>• Anyone with <strong>home loan interest above ₹1.5 lakh</strong>: the Section 24 deduction of up to ₹2 lakh applies only under the old regime.</li>
+          <li>• Anyone claiming <strong>full Section 80C (₹1.5 lakh) plus 80D (₹25,000) plus NPS (₹50,000)</strong>: at higher incomes, these stack to overcome the new regime's lower rates.</li>
+          <li>• Anyone with <strong>HRA exemption above ₹1 lakh</strong>: HRA is not available under the new regime.</li>
+          <li>• Anyone whose employer has already deducted tax under the old regime in their Form 16: switching may create a cash-flow mismatch if you have already invested under the old regime assumptions.</li>
         </ul>
       </div>
 
       <div>
         <h2 className="font-display text-2xl font-600 text-ink">How often can you switch between regimes?</h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
-          For salaried individuals, you can choose your regime every financial year — independently. You can be in the new regime in FY 2025-26 and switch to the old regime in FY 2026-27, or vice versa. There is no lock-in and no restriction on the number of times you switch across years.
+          For salaried individuals, you can choose your regime every financial year, independently. You can be in the new regime in FY 2025-26 and switch to the old regime in FY 2026-27, or vice versa. There is no lock-in and no restriction on the number of times you switch across years.
         </p>
         <p className="mt-2 text-ink-soft leading-relaxed">
-          However, within a single financial year, you must file under the regime you have selected. If your employer has deducted tax under the new regime but you realise the old regime would save you more, you can file under the old regime when submitting your ITR — but you may need to pay the difference as self-assessment tax if your employer did not deduct enough.
+          However, within a single financial year, you must file under the regime you have selected. If your employer has deducted tax under the new regime but you realise the old regime would save you more, you can file under the old regime when submitting your ITR, but you may need to pay the difference as self-assessment tax if your employer did not deduct enough.
         </p>
       </div>
     </div>
@@ -140,17 +140,17 @@ export default function Page() {
       calculator={<IncomeTaxCalculator />}
       intro="Every year, salaried taxpayers in India face the same question: new regime or old regime? The new regime has lower rates but removes most deductions; the old regime keeps deductions like 80C and HRA but taxes at higher rates. This calculator estimates your tax under both for FY 2026-27 (AY 2027-28) and tells you which one leaves more money in your pocket."
       how={{
-        heading: "New vs old regime — how it's calculated",
+        heading: "New vs old regime - how it's calculated",
         body: (
           <>
             <p>
-              Under the <strong>new regime</strong>, you get a ₹75,000 standard deduction and a rebate that makes tax zero up to ₹12 lakh of taxable income — but you cannot claim most other deductions.
+              Under the <strong>new regime</strong>, you get a ₹75,000 standard deduction and a rebate that makes tax zero up to ₹12 lakh of taxable income, but you cannot claim most other deductions.
             </p>
             <p>
-              Under the <strong>old regime</strong>, you get a ₹50,000 standard deduction plus deductions such as 80C (up to ₹1.5 lakh), 80D, and home-loan interest — but the slab rates are higher and the rebate applies only up to ₹5 lakh.
+              Under the <strong>old regime</strong>, you get a ₹50,000 standard deduction plus deductions such as 80C (up to ₹1.5 lakh), 80D, and home-loan interest, but the slab rates are higher and the rebate applies only up to ₹5 lakh.
             </p>
             <p>
-              The calculator applies both slab structures, adds the 4% health & education cess, and highlights the cheaper option. It is an estimate for a salaried individual below 60 — always confirm with a tax professional before filing.
+              The calculator applies both slab structures, adds the 4% health & education cess, and highlights the cheaper option. It is an estimate for a salaried individual below 60. Always confirm with a tax professional before filing.
             </p>
             <p>
               Want to pay less? Our guide on{" "}
@@ -164,7 +164,7 @@ export default function Page() {
       faqs={[
         {
           q: "Is the new regime always better?",
-          a: "Not always. If you claim large deductions — a big home-loan interest, full 80C, 80D and HRA — the old regime can still win. If you have few deductions, the new regime usually comes out ahead. That's exactly what this calculator checks for your numbers.",
+          a: "Not always. If you claim large deductions (a big home-loan interest, full 80C, 80D and HRA), the old regime can still win. If you have few deductions, the new regime usually comes out ahead. That's exactly what this calculator checks for your numbers.",
         },
         {
           q: "What income is tax-free under the new regime?",
@@ -180,15 +180,15 @@ export default function Page() {
         },
         {
           q: "How to save income tax in India under the old regime?",
-          a: "The main levers are Section 80C (up to ₹1.5 lakh across EPF, PPF, ELSS, life insurance and home-loan principal), Section 80D for health-insurance premiums, an extra ₹50,000 for NPS under Section 80CCD(1B), home-loan interest up to ₹2 lakh under Section 24, and HRA exemption if you pay rent. Stacked together these can sharply cut your taxable income — but they only apply if you choose the old regime. See our detailed guide on best tax-saving investments.",
+          a: "The main levers are Section 80C (up to ₹1.5 lakh across EPF, PPF, ELSS, life insurance and home-loan principal), Section 80D for health-insurance premiums, an extra ₹50,000 for NPS under Section 80CCD(1B), home-loan interest up to ₹2 lakh under Section 24, and HRA exemption if you pay rent. Stacked together these can sharply cut your taxable income, but they only apply if you choose the old regime. See our detailed guide on best tax-saving investments.",
         },
         {
-          q: "New vs old regime — which saves the most tax?",
+          q: "New vs old regime - which saves the most tax?",
           a: "It depends on how much you claim. The new regime for FY 2026-27 gives a ₹75,000 standard deduction and makes tax zero up to ₹12,00,000 of taxable income through the Section 87A rebate, but drops most deductions. The old regime keeps 80C, 80D, 80CCD(1B), Section 24 home-loan interest and HRA, at higher slab rates. If your deductions exceed ₹3-4 lakh at higher incomes, the old regime can still win.",
         },
         {
           q: "Can I switch between regimes every year?",
-          a: "Yes. Salaried individuals can choose between the new and old regime independently each financial year. There is no lock-in. You can be in the new regime in one year and the old regime in the next. Within a single year, file under the regime that saves you more — regardless of what your employer selected for TDS.",
+          a: "Yes. Salaried individuals can choose between the new and old regime independently each financial year. There is no lock-in. You can be in the new regime in one year and the old regime in the next. Within a single year, file under the regime that saves you more, regardless of what your employer selected for TDS.",
         },
         {
           q: "Who should stay in the old regime?",

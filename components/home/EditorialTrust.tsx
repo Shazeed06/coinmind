@@ -5,7 +5,7 @@ const ITEMS = [
   { icon: CheckCircle, title: "Fact-Checked", desc: "Every number, claim and formula verified against primary sources before publication." },
   { icon: BookOpen, title: "Plain English", desc: "Complex finance concepts explained without jargon. No padding, no fluff." },
   { icon: RefreshCw, title: "Regularly Updated", desc: "Content reviewed every quarter and updated after every Budget and RBI announcement." },
-  { icon: FileSearch, title: "Sources Cited", desc: "Every guide, comparison and definition links to its original source — RBI, SEBI, or IT Department." },
+  { icon: FileSearch, title: "Sources Cited", desc: "Every guide, comparison and definition links to its original source: RBI, SEBI, or IT Department." },
 ];
 
 export default function EditorialTrust() {

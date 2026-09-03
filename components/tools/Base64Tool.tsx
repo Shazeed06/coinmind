@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Base64 Encode / Decode — 100% client-side.                        */
+/*  Base64 Encode / Decode: 100% client-side.                         */
 /*  UTF-8 safe: text is run through TextEncoder/TextDecoder so emoji   */
 /*  and non-Latin characters survive the btoa / atob round-trip.      */
 /* ------------------------------------------------------------------ */
@@ -125,7 +125,7 @@ export default function Base64Tool() {
           spellCheck={false}
           placeholder={
             mode === "encode"
-              ? "Type or paste text — Unicode and emoji are supported…"
+              ? "Type or paste text. Unicode and emoji are supported…"
               : "Paste Base64 here to decode it back to text…"
           }
           className="mt-3 w-full resize-y rounded-xl border border-line-strong bg-paper-2 px-4 py-3 font-mono text-sm text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-forest"

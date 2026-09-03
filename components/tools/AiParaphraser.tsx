@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import { IconSparkle } from "@/components/icons";
 
 /* ------------------------------------------------------------------ */
-/*  AI Paraphraser — rewrites text in a chosen tone via /api/ai-chat. */
+/*  AI Paraphraser: rewrites text in a chosen tone via /api/ai-chat. */
 /*  The rewriting happens server-side; this component only handles    */
 /*  input, mode selection, loading/error states and copying output.   */
 /* ------------------------------------------------------------------ */
@@ -71,7 +71,7 @@ export default function AiParaphraser() {
       if (data.reply) {
         setOutput(String(data.reply).trim());
         if (data.error) {
-          setError("The rewriter had an issue — this result may be incomplete.");
+          setError("The rewriter had an issue. This result may be incomplete.");
         }
       } else {
         setError(
@@ -80,7 +80,7 @@ export default function AiParaphraser() {
         );
       }
     } catch {
-      setError("Network issue — please check your connection and try again.");
+      setError("Network issue. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }

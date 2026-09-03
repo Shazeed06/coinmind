@@ -23,7 +23,7 @@ export default function MutualFundReturnsCalculator() {
   }, [amount, rate, years, valid]);
 
   const sym = currencyMeta[currency].symbol;
-  const fmtPct = (v: number) => (Number.isFinite(v) ? `${v.toFixed(2)}%` : "—");
+  const fmtPct = (v: number) => (Number.isFinite(v) ? `${v.toFixed(2)}%` : "-");
 
   return (
     <div className="grid lg:grid-cols-[1fr_0.85fr] gap-6">
@@ -50,7 +50,7 @@ export default function MutualFundReturnsCalculator() {
             max={30}
             step={0.5}
             suffix="%"
-            hint="Equity funds have historically returned 10–14% over the long run. Returns are not guaranteed."
+            hint="Equity funds have historically returned 10-14% over the long run. Returns are not guaranteed."
           />
           <Field
             label="Duration"
@@ -69,7 +69,7 @@ export default function MutualFundReturnsCalculator() {
           Future value
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCompact(future, currency) : "—"}
+          {valid ? formatCompact(future, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">
           {valid ? formatCurrency(future, currency) : "enter an amount to project growth"}
@@ -90,12 +90,12 @@ export default function MutualFundReturnsCalculator() {
         <div className="mt-6">
           <Stat
             label="Invested amount"
-            value={valid ? formatCurrency(amount, currency) : "—"}
+            value={valid ? formatCurrency(amount, currency) : "-"}
             accent="ink"
           />
           <Stat
             label="Total return"
-            value={valid ? formatCurrency(gains, currency) : "—"}
+            value={valid ? formatCurrency(gains, currency) : "-"}
             accent="brass"
           />
           <Stat label="Absolute return" value={fmtPct(absReturn)} accent="brass" />

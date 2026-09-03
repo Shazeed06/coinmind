@@ -5,7 +5,7 @@ import EpfCalculator from "@/components/calc/EpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "epf")!;
-export const metadata = calcMeta("epf", CALC.title + " — PF Balance & Maturity Value", CALC.blurb);
+export const metadata = calcMeta("epf", CALC.title + " - PF Balance & Maturity Value", CALC.blurb);
 
 export default function Page() {
   return (
@@ -65,7 +65,7 @@ export default function Page() {
           a: "The EPFO reviews the EPF interest rate every year. It has recently hovered around 8.25% per annum. Interest is credited annually and is tax-free, which is why the default in this calculator sits near that level, though you can change it to test other scenarios.",
         },
         {
-          q: "EPF vs PPF — which is better?",
+          q: "EPF vs PPF - which is better?",
           a: "EPF is tied to salaried employment with employer matching, making it ideal while you work a job. PPF is open to anyone, has a 15-year lock-in and a fixed government rate, and suits the self-employed or those wanting extra tax-free savings. Many people use both to diversify their retirement corpus.",
         },
         {
@@ -74,7 +74,15 @@ export default function Page() {
         },
         {
           q: "How is EPF interest calculated and credited?",
-          a: "Interest accrues on the running monthly balance through the year, but the EPFO credits it as a single entry at the end of the financial year once the rate is declared. Because the credited interest then joins your balance, it compounds year on year — this calculator models that annual crediting on your combined contributions.",
+          a: "Interest accrues on the running monthly balance through the year, but the EPFO credits it as a single entry at the end of the financial year once the rate is declared. Because the credited interest then joins your balance, it compounds year on year. This calculator models that annual crediting on your combined contributions.",
+        },
+        {
+          q: "Is EPF withdrawal taxable?",
+          a: "If you withdraw after five years of continuous service, the EPF corpus is generally tax-free, and service with an earlier employer counts towards those five years provided you transferred the balance rather than withdrawing it. Withdraw earlier and the amount usually becomes taxable, with TDS deducted at source above a threshold. Separately, interest on employee contributions above the annual ceiling introduced in 2021 is taxable. Confirm the current thresholds on incometax.gov.in.",
+        },
+        {
+          q: "What happens to my EPF when I change jobs?",
+          a: "Your Universal Account Number stays the same for life, so the right move is to transfer the old balance to your new employer's EPF account rather than withdrawing it. Transferring keeps your continuous service record intact, which protects the five-year tax exemption and your EPS pension eligibility, and it lets the balance keep compounding. You can raise a transfer request online through the EPFO member portal once your new employer has linked your UAN.",
         },
       ]}
     />

@@ -4,7 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "GPA & CGPA Calculator — Free Online" },
+  title: { absolute: "GPA & CGPA Calculator - Free Online" },
   description:
     "Free GPA and CGPA calculator. Add courses, credits and grades for a live weighted GPA (4.0) or CGPA (10-point), plus CGPA to percentage. 100% private.",
   alternates: { canonical: "/tools/gpa-calculator" },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/gpa-calculator",
-    title: "GPA & CGPA Calculator — Free Online",
+    title: "GPA & CGPA Calculator - Free Online",
     description:
       "Add courses, credits and grades for a live weighted GPA (4.0) or CGPA (10-point), with a CGPA to percentage helper. Runs privately in your browser.",
     locale: "en_US",
@@ -38,7 +38,7 @@ const faqData = [
   },
   {
     q: "How do I convert CGPA to a percentage?",
-    a: "The most widely used approximation in India is percentage = CGPA × 9.5. For example, a CGPA of 8.0 works out to 76%. It is only an estimate — universities such as different state and central boards may publish their own conversion formula, so always check your institution's official method.",
+    a: "The most widely used approximation in India is percentage = CGPA × 9.5. For example, a CGPA of 8.0 works out to 76%. It is only an estimate. Universities such as different state and central boards may publish their own conversion formula, so always check your institution's official method.",
   },
   {
     q: "Which letter grades map to which grade points?",
@@ -54,7 +54,11 @@ const faqData = [
   },
   {
     q: "What if my university uses a different grade-to-point mapping?",
-    a: "On the 10-point CGPA scale, you enter the numerical grade point directly — any value from 0 to 10 — so you can match your university's exact grading scheme. On the 4.0 scale, the tool uses the standard unweighted letter-grade mapping, which works for most institutions.",
+    a: "On the 10-point CGPA scale, you enter the numerical grade point directly, any value from 0 to 10, so you can match your university's exact grading scheme. On the 4.0 scale, the tool uses the standard unweighted letter-grade mapping, which works for most institutions.",
+  },
+  {
+    q: "Are my courses saved if I close the page?",
+    a: "No. Nothing is stored, on your device or anywhere else, so reloading or closing the tab clears every course you entered and you start from a blank list. That is deliberate on a shared or college computer. If you want a record, screenshot the result or note the figures before you leave the page.",
   },
 ];
 
@@ -96,7 +100,7 @@ export default function Page() {
       />
       <ToolPageLayout
         title="GPA & CGPA Calculator"
-        description="Add your courses, credits and grades to get a live weighted GPA (4.0 scale) or CGPA (10-point) — with a built-in CGPA to percentage converter, right in your browser."
+        description="Add your courses, credits and grades to get a live weighted GPA (4.0 scale) or CGPA (10-point), with a built-in CGPA to percentage converter, right in your browser."
         howToUse={[
           {
             step: "Choose your grading scale",
@@ -116,7 +120,7 @@ export default function Page() {
           {
             step: "Review your weighted average",
             detail:
-              "The calculator displays your overall GPA or CGPA prominently. It is a credit-weighted average, not a simple mean — so a five-credit core subject moves your score five times more than a one-credit elective.",
+              "The calculator displays your overall GPA or CGPA prominently. It is a credit-weighted average, not a simple mean, so a five-credit core subject moves your score five times more than a one-credit elective.",
           },
           {
             step: "Use the CGPA to percentage converter",
@@ -143,21 +147,21 @@ export default function Page() {
           {
             scenario: "Setting targets for remaining courses",
             detail:
-              "Enter the grades you already have, then experiment with different grades for your remaining subjects to see exactly what you need to reach a target CGPA — useful before final exams or placement season.",
+              "Enter the grades you already have, then experiment with different grades for your remaining subjects to see exactly what you need to reach a target CGPA, useful before final exams or placement season.",
           },
         ]}
         howItWorks="GPA and CGPA are credit-weighted averages, not simple arithmetic means. For each course, the grade point (for example, A = 4.0, B = 3.0 on the 4.0 scale, or a numerical value on the 10-point scale) is multiplied by the number of credits the course carries. All these products are summed across every course you enter, then the total is divided by the sum of all credits. A 5-credit course therefore has five times the influence on your average compared to a 1-credit elective. This tool performs all calculations locally in your browser using JavaScript, with no data sent to any server."
         tips={[
-          "Double-check every credit value — entering a wrong credit count for even one course can noticeably shift your overall GPA, especially if you are calculating across a small number of courses.",
-          "Use the correct scale for your institution — GPA (4.0) and CGPA (10-point) are fundamentally different systems. Toggling between them mid-calculation will reset your entries.",
-          "Remember that A and A+ both map to 4.0 on the unweighted 4.0 scale — some schools award 4.3 or higher for A+, so confirm your institution's specific mapping if precision matters.",
-          "The CGPA to percentage conversion is an estimate — while CGPA × 9.5 is the most widely recognised formula in India, your specific university or board may publish a different official conversion. Always check for applications.",
-          "This tool works offline — once the page has loaded, all calculations happen locally in your browser without any internet connection, so you can use it in a classroom, library or anywhere.",
+          "Double-check every credit value. Entering a wrong credit count for even one course can noticeably shift your overall GPA, especially if you are calculating across a small number of courses.",
+          "Use the correct scale for your institution. GPA (4.0) and CGPA (10-point) are fundamentally different systems. Toggling between them mid-calculation will reset your entries.",
+          "Remember that A and A+ both map to 4.0 on the unweighted 4.0 scale. Some schools award 4.3 or higher for A+, so confirm your institution's specific mapping if precision matters.",
+          "The CGPA to percentage conversion is an estimate. While CGPA × 9.5 is the most widely recognised formula in India, your specific university or board may publish a different official conversion. Always check for applications.",
+          "This tool works offline. Once the page has loaded, all calculations happen locally in your browser without any internet connection, so you can use it in a classroom, library or anywhere.",
         ]}
         faqs={faqData}
         relatedTools={[
           { label: "Scientific Calculator", href: "/tools/scientific-calculator" },
-          { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
+          { label: "Percentage Calculator", href: "/calculators/percentage-calculator" },
           { label: "Unit Converter", href: "/tools/unit-converter" },
           { label: "All tools", href: "/tools" },
         ]}

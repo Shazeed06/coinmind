@@ -261,7 +261,7 @@ export default function RentVsBuyCalculator() {
 
         <p className="mt-6 text-xs text-ink-faint leading-relaxed">
           Estimate only, not advice. The result swings heavily on your
-          assumptions &mdash; home appreciation, investment return and how long
+          assumptions: home appreciation, investment return and how long
           you stay. Buying assumes roughly 1% of the price a year in maintenance;
           renting assumes you invest the down payment and any monthly saving.
         </p>

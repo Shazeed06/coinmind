@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-// PNG favicon generated at build time — reliably rendered by every browser and
+// PNG favicon generated at build time, reliably rendered by every browser and
 // crawler (SVG favicons + a missing /favicon.ico were showing the generic globe).
 // Simplified CoinMind mark: brand-blue rounded square with green "growth" bars.
 export const size = { width: 48, height: 48 };

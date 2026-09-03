@@ -16,7 +16,7 @@ export default function WhatIsCoinMind() {
       <SectionHeader
         eyebrow="More Than a Calculator Website"
         title="More Than a Calculator Website"
-        subline="Built for India, used worldwide — with accuracy and transparency at our core."
+        subline="Built for India, used worldwide, with accuracy and transparency at our core."
       />
       <div className="grid lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7 text-center lg:text-left">
@@ -48,12 +48,12 @@ export default function WhatIsCoinMind() {
                 <span className="eyebrow">Built for India</span>
               </div>
               <p className="text-sm text-text-muted mb-4 text-center lg:text-left">
-                Designed for Indian investors, taxpayers and savers — with support for INR, Indian tax regimes, and local financial products.
+                Designed for Indian investors, taxpayers and savers, with support for INR, Indian tax regimes, and local financial products.
               </p>
               <div className="space-y-4">
                 {[
-                  { country: "India", desc: "Primary audience — 46 calculators with Indian tax, SIP, PPF, NPS support" },
-                  { country: "United States", desc: "Mortgage, retirement, currency — USD support throughout" },
+                  { country: "India", desc: "Primary audience: 46 calculators with Indian tax, SIP, PPF, NPS support" },
+                  { country: "United States", desc: "Mortgage, retirement, currency: USD support throughout" },
                   { country: "United Kingdom", desc: "GBP support, mortgage and VAT calculators" },
                 ].map(({ country, desc }) => (
                   <div key={country} className="flex flex-col sm:flex-row gap-1 sm:gap-3 text-center sm:text-left">

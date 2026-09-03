@@ -98,7 +98,7 @@ export default function CurrencyConverter({
           <label className="text-sm font-medium text-ink-soft">Converted to</label>
           <div className="mt-1.5 flex gap-2">
             <div className="flex-1 rounded-lg bg-paper-2 px-3 py-2.5 text-sm font-semibold text-forest truncate">
-              {result !== null ? fmt(result, to) : error ? "—" : "…"}
+              {result !== null ? fmt(result, to) : error ? "-" : "…"}
             </div>
             <select aria-label="Convert to currency" value={to} onChange={(e) => setTo(e.target.value)} className={select}>
               {POPULAR.map((c) => (
@@ -112,7 +112,7 @@ export default function CurrencyConverter({
       <div className="mt-6 rounded-xl bg-paper-2 p-5">
         {error ? (
           <p className="text-sm text-ink-soft">
-            Live rates are unavailable right now — please try again shortly.
+            Live rates are unavailable right now. Please try again shortly.
           </p>
         ) : result !== null ? (
           <>

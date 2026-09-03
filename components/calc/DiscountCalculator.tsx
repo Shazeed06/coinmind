@@ -58,7 +58,7 @@ export default function DiscountCalculator() {
           Final price
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(finalPrice, currency) : "—"}
+          {valid ? formatCurrency(finalPrice, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">after {pct}% off</p>
 
@@ -77,12 +77,12 @@ export default function DiscountCalculator() {
         <div className="mt-6">
           <Stat
             label="You save"
-            value={valid ? formatCurrency(saved, currency) : "—"}
+            value={valid ? formatCurrency(saved, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Final price"
-            value={valid ? formatCurrency(finalPrice, currency) : "—"}
+            value={valid ? formatCurrency(finalPrice, currency) : "-"}
             accent="forest"
           />
           <Stat label="Discount applied" value={`${pct}%`} accent="ink" />

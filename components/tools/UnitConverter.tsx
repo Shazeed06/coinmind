@@ -54,7 +54,7 @@ const CATEGORIES: Category[] = [
     label: "Temperature",
     from: "c",
     to: "f",
-    note: "Temperature uses fixed formulas (°C, °F, K), not simple ratios — so 0 in one scale does not map to 0 in another.",
+    note: "Temperature uses fixed formulas (°C, °F, K), not simple ratios, so 0 in one scale does not map to 0 in another.",
     units: [
       { id: "c", name: "Celsius (°C)", short: "°C", factor: 1 },
       { id: "f", name: "Fahrenheit (°F)", short: "°F", factor: 1 },
@@ -166,9 +166,9 @@ function convertTemperature(v: number, from: string, to: string): number {
    - kills floating-point noise (0.1 * 3 → 0.3)
    - groups large numbers, trims trailing zeros
    - falls back to scientific notation at the extremes
-   - never returns "NaN"/"Infinity" — those become an em dash */
+   - never returns "NaN"/"Infinity": those become a dash */
 function formatNumber(n: number): string {
-  if (!Number.isFinite(n)) return "—";
+  if (!Number.isFinite(n)) return "-";
   const clean = parseFloat(n.toPrecision(12));
   if (clean === 0) return "0";
   const abs = Math.abs(clean);
@@ -251,7 +251,7 @@ export default function UnitConverter() {
     return (amountNum * f.factor) / t.factor;
   }, [amountNum, category, from, to, unitMap]);
 
-  // "1 X = Y Z" reference — independent of the typed amount.
+  // "1 X = Y Z" reference: independent of the typed amount.
   const oneConversion = useMemo(() => {
     if (category.id === "temperature") return convertTemperature(1, from, to);
     const f = unitMap[from];
@@ -379,7 +379,7 @@ export default function UnitConverter() {
         ) : (
           <>
             <p className="mt-1 font-display text-4xl font-600 text-ink-faint">
-              —
+              -
             </p>
             <p className="mt-3 text-sm text-ink-faint">
               Enter a number to convert.

@@ -25,7 +25,7 @@ export default function SwpCalculator() {
         balance = grown - withdrawal;
         paid += 1;
       } else {
-        // Corpus can't cover a full withdrawal — pay out whatever is left and stop.
+        // Corpus can't cover a full withdrawal. Pay out whatever is left and stop.
         paid += grown > 0 ? 1 : 0;
         balance = 0;
         exhausted = Math.ceil(m / 12);

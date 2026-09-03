@@ -87,7 +87,7 @@ export default function AiEmailWriter() {
       const data = (await res.json()) as { reply?: string; error?: string };
       if (data.error && !data.reply) {
         setError(
-          "AI writing isn't switched on yet — please try again later."
+          "AI writing isn't switched on yet. Please try again later."
         );
       } else if (data.error && data.reply) {
         // Provider returns a friendly message in `reply` for not_configured/busy.
@@ -95,10 +95,10 @@ export default function AiEmailWriter() {
       } else if (data.reply) {
         setResult(data.reply.trim());
       } else {
-        setError("The AI didn't return anything — please try again.");
+        setError("The AI didn't return anything. Please try again.");
       }
     } catch {
-      setError("Network issue — please try again.");
+      setError("Network issue. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -111,7 +111,7 @@ export default function AiEmailWriter() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      setError("Couldn't copy automatically — select the text and copy manually.");
+      setError("Couldn't copy automatically. Select the text and copy manually.");
     }
   }
 
@@ -120,7 +120,7 @@ export default function AiEmailWriter() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       {/* ---------------------------------------------------------------- */}
-      {/* LEFT — the form                                                  */}
+      {/* LEFT: the form                                                  */}
       {/* ---------------------------------------------------------------- */}
       <section className="rounded-2xl border border-line bg-card p-6">
         {/* Type toggle */}
@@ -237,7 +237,7 @@ export default function AiEmailWriter() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
-      {/* RIGHT — output                                                   */}
+      {/* RIGHT: output                                                   */}
       {/* ---------------------------------------------------------------- */}
       <section className="lg:sticky lg:top-6 self-start">
         <div className="rounded-2xl border border-line bg-card p-6">
@@ -281,7 +281,7 @@ export default function AiEmailWriter() {
                 </span>
                 <p className="mt-3 text-sm text-ink-soft max-w-xs">
                   Fill in the details and hit{" "}
-                  <span className="font-semibold text-ink">Generate</span> — your
+                  <span className="font-semibold text-ink">Generate</span>. Your
                   ready-to-send {docType} appears here.
                 </p>
               </div>
@@ -289,7 +289,7 @@ export default function AiEmailWriter() {
           </div>
 
           <p className="mt-3 text-[11px] text-ink-faint">
-            AI-generated draft — read it through and edit any names, dates or
+            AI-generated draft. Read it through and edit any names, dates or
             details before you send.
           </p>
         </div>

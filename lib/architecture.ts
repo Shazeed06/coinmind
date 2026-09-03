@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// CoinMind — Enterprise Content Architecture Blueprint
+// CoinMind - Enterprise Content Architecture Blueprint
 // ═══════════════════════════════════════════════════════════════════════════
 // This is THE single source of truth for:
 //   • Every topic cluster and its hub
@@ -61,7 +61,7 @@ export type Cluster = {
   childClusters: EntityId[];
   relatedClusters: EntityId[];
   primaryKeyword: string;
-  coverage: number; // 0–1 fraction
+  coverage: number; // 0-1 fraction
   trafficPotential: "high" | "medium" | "low";
   businessValue: "high" | "medium" | "low";
   difficulty: "high" | "medium" | "low";

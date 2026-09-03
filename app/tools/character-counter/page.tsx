@@ -4,7 +4,7 @@ import CharacterCounter from "@/components/tools/CharacterCounter";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Character Counter — Count Characters Online" },
+  title: { absolute: "Character Counter - Count Characters Online" },
   description:
     "Free online character counter. Live character count with and without spaces, plus words, sentences and Twitter, SMS & meta limits. 100% private.",
   alternates: { canonical: "/tools/character-counter" },
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/character-counter",
-    title: "Character Counter — Count Characters Online",
+    title: "Character Counter - Count Characters Online",
     description:
-      "Count characters online in real time — with and without spaces, plus words, sentences and live Twitter, SMS and meta-tag limits. Runs in your browser.",
+      "Count characters online in real time - with and without spaces, plus words, sentences and live Twitter, SMS and meta-tag limits. Runs in your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my text uploaded anywhere?",
-    a: "No. The character counter runs entirely in your browser with JavaScript. Nothing you type or paste is uploaded, stored or seen by anyone — it never leaves your device, so it is safe for private or confidential text.",
+    a: "No. The character counter runs entirely in your browser with JavaScript. Nothing you type or paste is uploaded, stored or seen by anyone. It never leaves your device, so it is safe for private or confidential text.",
   },
   {
     q: "What is the difference between characters with and without spaces?",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Why does a character count matter for SEO and social media?",
     a: "Platforms truncate text that runs past their limit. A page title over about 60 characters or a meta description over 160 gets cut off in Google, and a tweet over 280 characters simply will not post. Watching the live count lets you trim to fit before you publish.",
+  },
+  {
+    q: "How are emojis counted?",
+    a: "The counter measures the same units a browser and most platforms measure, so a single emoji usually registers as two characters, and emojis built from several parts (such as a flag or a family) can register as more. If you are close to a strict limit like 280 or 160, budget a little extra room for every emoji you add.",
+  },
+  {
+    q: "Can I count the characters in a Word document or PDF?",
+    a: "Indirectly. There is no file upload here, so open the document, select the text you want to measure, copy it and paste it into the box. The counts update the instant it lands. Pasting also strips most formatting, which means you see the character count of the words themselves rather than the styling.",
+  },
+  {
+    q: "Does it work offline and on a phone?",
+    a: "Yes to both. Every figure is calculated by JavaScript inside the page, so once it has loaded you can turn off wifi and the counts still update as you type. The layout is responsive, so the stat cards and the limit meters stay readable on a phone screen, with no app or sign-up required.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Character Counter
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Count characters online as you type &mdash; with and without spaces,
+          Count characters online as you type, with and without spaces,
           plus words, sentences and lines, and live meters for Twitter, SMS and
           meta-tag limits.
         </p>
@@ -128,8 +140,8 @@ export default function Page() {
           <p className="mt-2 text-ink-soft leading-relaxed">
             A character counter tells you exactly how many characters your text
             contains. Paste or type into the box above and every figure updates
-            instantly &mdash; characters with and without spaces, words,
-            sentences and lines &mdash; alongside live &ldquo;used /
+            instantly (characters with and without spaces, words,
+            sentences and lines) alongside live &ldquo;used /
             remaining&rdquo; meters for Twitter/X, SMS, Instagram and SEO
             meta-tag limits. It all runs in your browser, so your text stays
             private and works offline.
@@ -142,7 +154,7 @@ export default function Page() {
         <h2>Why character count matters</h2>
         <p>
           Almost every place you publish text enforces a character limit, and
-          going over it means your words get cut off &mdash; or rejected
+          going over it means your words get cut off, or rejected
           outright. A <strong>tweet</strong> stops at 280 characters, a single{" "}
           <strong>SMS</strong> segment holds 160, and an{" "}
           <strong>Instagram</strong> caption caps out at 2,200. Seeing the count

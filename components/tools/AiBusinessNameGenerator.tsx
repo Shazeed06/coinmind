@@ -75,7 +75,7 @@ export default function AiBusinessNameGenerator() {
           window.setTimeout(() => setCopiedIdx(null), 1600);
         }
       } catch {
-        /* Clipboard blocked (insecure context) — names stay selectable. */
+        /* Clipboard blocked (insecure context). Names stay selectable. */
       }
     },
     [],
@@ -111,24 +111,24 @@ export default function AiBusinessNameGenerator() {
       const data = await res.json();
 
       // The API returns a friendly `reply` even for handled errors
-      // (e.g. AI not configured / upstream busy) — surface that message.
+      // (e.g. AI not configured / upstream busy). Surface that message.
       if (data?.error) {
         setError(
           typeof data.reply === "string" && data.reply.trim()
             ? data.reply
-            : "The AI is unavailable right now — please try again in a moment.",
+            : "The AI is unavailable right now. Please try again in a moment.",
         );
         return;
       }
 
       const parsed = parseNames(String(data?.reply || ""));
       if (parsed.length === 0) {
-        setError("No names came back — try adding more detail and generate again.");
+        setError("No names came back. Try adding more detail and generate again.");
         return;
       }
       setNames(parsed);
     } catch {
-      setError("Network issue — please check your connection and try again.");
+      setError("Network issue. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }

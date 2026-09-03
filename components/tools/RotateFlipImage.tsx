@@ -118,7 +118,7 @@ export default function RotateFlipImage() {
     [cleanup],
   );
 
-  // Live preview — re-render on every transform or format change.
+  // Live preview: re-render on every transform or format change.
   useEffect(() => {
     if (!src) return;
     const timer = window.setTimeout(async () => {
@@ -131,7 +131,7 @@ export default function RotateFlipImage() {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
       const mime = resolveMime(format, src.type);
-      // JPEG has no alpha — flatten transparency onto white first.
+      // JPEG has no alpha. Flatten transparency onto white first.
       if (mime === "image/jpeg") {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, cw, ch);
@@ -177,7 +177,7 @@ export default function RotateFlipImage() {
     <div className="space-y-6">
       <PrivacyNote />
 
-      {!src && <Dropzone accept={ACCEPT} onFiles={onFiles} hint="or click to browse — JPG, PNG or WebP" />}
+      {!src && <Dropzone accept={ACCEPT} onFiles={onFiles} hint="or click to browse: JPG, PNG or WebP" />}
 
       {error && (
         <p className="rounded-lg border border-berry/30 bg-berry/5 px-4 py-3 text-sm text-berry">

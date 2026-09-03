@@ -44,7 +44,7 @@ export async function generateMetadata({
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: `${term.term} — meaning and definition`,
+          alt: `${term.term} - meaning and definition`,
         },
       ],
     },
@@ -64,40 +64,50 @@ export default async function Page({
     .map((s) => getGlossaryTerm(s))
     .filter((t): t is GlossaryTerm => Boolean(t));
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "DefinedTerm",
-        name: term.term,
-        description: term.short,
-        inDefinedTermSet: {
-          "@type": "DefinedTermSet",
-          name: "CoinMind Finance & AI Glossary",
-          url: `${site.url}/glossary`,
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "DefinedTerm",
+      name: term.term,
+      description: term.short,
+      inDefinedTermSet: {
+        "@type": "DefinedTermSet",
+        name: "CoinMind Finance & AI Glossary",
+        url: `${site.url}/glossary`,
+      },
+      url: `${site.url}/glossary/${slug}`,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Glossary",
+          item: `${site.url}/glossary`,
         },
-        url: `${site.url}/glossary/${slug}`,
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Glossary",
-            item: `${site.url}/glossary`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: term.term,
-            item: `${site.url}/glossary/${slug}`,
-          },
-        ],
-      },
-    ],
-  };
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: term.term,
+          item: `${site.url}/glossary/${slug}`,
+        },
+      ],
+    },
+  ];
+
+  if (term.faq && term.faq.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: term.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+
+  const jsonLd = { "@context": "https://schema.org", "@graph": graph };
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-10">
@@ -124,18 +134,18 @@ export default async function Page({
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           {term.category} term
         </span>
-        {/* The H1 mirrors the query ("what is X") rather than the bare term —
-            these pages exist to answer a definition search, not to label one. */}
+        {/* The H1 mirrors the query ("what is X") rather than the bare term.
+            These pages exist to answer a definition search, not to label one. */}
         <h1 className="mt-4 font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
           What Is {term.term}? Meaning &amp; Example
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
-          A plain-English definition of {term.term} &mdash; what it means, how it
+          A plain-English definition of {term.term}: what it means, how it
           works, and a simple example.
         </p>
       </header>
 
-      {/* Quick Answer / definition box — the AEO snippet target */}
+      {/* Quick Answer / definition box: the AEO snippet target */}
       <section className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-forest">
           Quick answer
@@ -149,6 +159,29 @@ export default async function Page({
       <article className="article mt-10">
         <ArticleMarkdown markdown={term.bodyMarkdown} />
       </article>
+
+      {/* FAQs: visible Q&A, mirrored into the FAQPage JSON-LD above */}
+      {term.faq && term.faq.length > 0 && (
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-600 text-ink">
+            {term.term} FAQs
+          </h2>
+          <p className="mt-2 text-ink-soft">
+            The questions people most often ask about {term.term}, answered for
+            Indian readers.
+          </p>
+          <div className="mt-5 space-y-3">
+            {term.faq.map((f) => (
+              <div key={f.q} className="rounded-2xl border border-line bg-card p-5">
+                <h3 className="font-display text-base font-600 text-ink">
+                  {f.q}
+                </h3>
+                <p className="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related calculator / tool / guide CTA */}
       {term.relatedHref && (
@@ -212,7 +245,7 @@ export default async function Page({
       <div className="mt-12 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
         <strong className="text-ink">A note on accuracy:</strong> this definition
         is for general education, not personalised financial or tax advice.
-        Figures are illustrative and rules can change &mdash; confirm anything
+        Figures are illustrative and rules can change. Confirm anything
         that affects a real decision.
       </div>
     </div>

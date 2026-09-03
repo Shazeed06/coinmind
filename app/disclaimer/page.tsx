@@ -4,14 +4,29 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Disclaimer",
   description:
-    "CoinMind provides educational information and free tools only — not financial, investment, tax or legal advice. Read our full disclaimer.",
+    "CoinMind provides educational information and free tools only, not financial, investment, tax or legal advice. Read our full disclaimer.",
   alternates: { canonical: "/disclaimer" },
   openGraph: { url: "/disclaimer" },
 };
 
 export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Disclaimer",
+    description:
+      "CoinMind provides educational information and free tools only, not financial, investment, tax or legal advice. Read our full disclaimer.",
+    url: `${site.url}/disclaimer`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <header className="pt-14">
         <h1 className="font-display text-4xl sm:text-5xl font-600 text-ink leading-[1.05]">
           Disclaimer
@@ -62,7 +77,7 @@ export default function Page() {
           Reviews of AI tools and any third-party links, including affiliate
           links, are based on our own opinion and research. We do not control and
           are not responsible for third-party products, pricing or content.
-          Pricing shown is indicative and may change — always confirm on the
+          Pricing shown is indicative and may change. Always confirm on the
           official website.
         </p>
 

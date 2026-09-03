@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Dropzone, PrivacyNote, IconDownload } from "@/components/tools/ToolShell";
 
 /* ------------------------------------------------------------------ */
-/*  Meme Generator — 100% client-side.                                */
+/*  Meme Generator: 100% client-side.                                 */
 /*  Draws the uploaded image plus classic Impact-style top/bottom     */
 /*  text (bold, uppercase, white fill, black outline) onto a canvas,  */
 /*  live, then exports the result as a PNG. Nothing is uploaded.      */
@@ -118,11 +118,11 @@ export default function MemeGenerator() {
       ctx.fillText(line, centerX, y);
     };
 
-    // Top block — grows downward from the top margin.
+    // Top block: grows downward from the top margin.
     const topLines = wrapLines(ctx, topText.toUpperCase(), maxWidth);
     topLines.forEach((line, i) => drawLine(line, margin + i * lineHeight));
 
-    // Bottom block — anchored to the bottom margin, grows upward.
+    // Bottom block: anchored to the bottom margin, grows upward.
     const bottomLines = wrapLines(ctx, bottomText.toUpperCase(), maxWidth);
     const bottomStart =
       canvas.height - margin - bottomLines.length * lineHeight;
@@ -162,7 +162,7 @@ export default function MemeGenerator() {
           accept={ACCEPT}
           onFiles={onFiles}
           label="Drop an image to meme"
-          hint="or click to browse — PNG, JPG, WebP or GIF"
+          hint="or click to browse: PNG, JPG, WebP or GIF"
         />
       )}
 
@@ -308,7 +308,7 @@ export default function MemeGenerator() {
               />
             </div>
             <p className="mt-3 text-center text-xs text-ink-faint">
-              Live preview at full resolution &mdash; exactly what downloads.
+              Live preview at full resolution, exactly what downloads.
             </p>
           </div>
         </div>

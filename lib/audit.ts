@@ -132,7 +132,7 @@ export function runAudit(): { results: AuditResult[]; overall: number } {
 function printAudit() {
   const { results, overall } = runAudit();
   console.log("\n╔══════════════════════════════════════════════════════════╗");
-  console.log("║    CoinMind — Self-Audit Validation Report              ║");
+  console.log("║    CoinMind - Self-Audit Validation Report              ║");
   console.log("╚══════════════════════════════════════════════════════════╝\n");
 
   for (const r of results.sort((a, b) => a.score - b.score)) {
@@ -168,7 +168,7 @@ function printAudit() {
   console.log(`  Average coverage: ${summary.avgScore}%\n`);
   console.log(`  Top priority content gaps:\n`);
   for (const g of gaps.filter((g) => g.priority === 1).slice(0, 5)) {
-    console.log(`    ! ${g.label}: ${g.coverage}% coverage — ${g.trafficPotential} traffic, ${g.difficulty} difficulty`);
+    console.log(`    ! ${g.label}: ${g.coverage}% coverage, ${g.trafficPotential} traffic, ${g.difficulty} difficulty`);
   }
   console.log("");
 }

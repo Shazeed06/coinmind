@@ -4,18 +4,18 @@ import CaseConverter from "@/components/tools/CaseConverter";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Case Converter — Change Text Case Online" },
+  title: { absolute: "Case Converter - Change Text Case Online" },
   description:
-    "Free online case converter. Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more — in your browser.",
+    "Free online case converter. Change text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case and more - in your browser.",
   alternates: { canonical: "/tools/case-converter" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/case-converter",
-    title: "Case Converter — Change Text Case Online",
+    title: "Case Converter - Change Text Case Online",
     description:
-      "Change text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more in one click. 100% private — your text never leaves your browser.",
+      "Change text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more in one click. 100% private - your text never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my text sent to a server?",
-    a: "No. The case converter runs entirely in your browser with JavaScript. Nothing you type is uploaded, logged or seen by anyone — your text never leaves your device.",
+    a: "No. The case converter runs entirely in your browser with JavaScript. Nothing you type is uploaded, logged or seen by anyone. Your text never leaves your device.",
   },
   {
     q: "What is the difference between Title Case and Sentence case?",
@@ -43,11 +43,23 @@ const faqs = [
   },
   {
     q: "Can I convert text back after choosing the wrong case?",
-    a: "Each button transforms whatever is currently in the box, so you can keep clicking to reshape it. If you flatten the text too far — for example to all lowercase — the original capitalisation can't be recovered, so paste a fresh copy if needed.",
+    a: "Each button transforms whatever is currently in the box, so you can keep clicking to reshape it. If you flatten the text too far, for example to all lowercase, the original capitalisation can't be recovered, so paste a fresh copy if needed.",
   },
   {
     q: "Is there a character limit?",
     a: "There's no fixed limit. Because everything is processed on your own device, you can convert short snippets or long documents; very large text just uses a little more memory.",
+  },
+  {
+    q: "Does the case converter work offline?",
+    a: "Yes. Every transformation is plain JavaScript running inside the page, so once it has loaded you can switch off wifi or mobile data and keep converting. Nothing needs a server round trip, which is also why each button reshapes your text instantly with no waiting or loading spinner.",
+  },
+  {
+    q: "Does it handle accented letters and non-English alphabets?",
+    a: "Yes. The uppercase and lowercase conversions use the browser's built-in Unicode-aware casing, so accented Latin letters, Greek, Cyrillic and similar scripts convert correctly. Scripts without upper and lower forms, such as Devanagari, Arabic or Chinese, simply pass through unchanged, which is the correct behaviour.",
+  },
+  {
+    q: "How do I copy the converted text?",
+    a: "Use the Copy button under the box. It writes the current contents to your clipboard in one tap and confirms with a Copied message, which is quicker and more reliable than selecting a long block of text by hand on a phone. Clear empties the box when you want to start again with something new.",
   },
 ];
 
@@ -111,7 +123,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Change your text to UPPERCASE, lowercase, Title Case, camelCase and
-          more in a single click &mdash; right in your browser, with nothing
+          more in a single click, right in your browser, with nothing
           uploaded.
         </p>
       </header>
@@ -177,7 +189,7 @@ export default function Page() {
           <strong>aLtErNaTiNg cAsE</strong> flips between lower and upper on each
           letter, a playful style popular in memes and social posts.{" "}
           <strong>InVeRsE case</strong> swaps the case of every letter, so
-          uppercase becomes lowercase and the other way round &mdash; useful when
+          uppercase becomes lowercase and the other way round, useful when
           your Caps Lock was on by mistake. Whatever you choose, the live
           character and word counts under the box help you keep an eye on length
           for titles, tweets or meta descriptions.

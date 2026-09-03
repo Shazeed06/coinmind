@@ -4,7 +4,7 @@ import NscCalculator from "@/components/calc/NscCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "nsc")!;
-export const metadata = calcMeta("nsc", CALC.title + " — National Savings Certificate", CALC.blurb);
+export const metadata = calcMeta("nsc", CALC.title + " - National Savings Certificate", CALC.blurb);
 
 export default function Page() {
   return (
@@ -32,7 +32,7 @@ export default function Page() {
             <p>
               Where <strong>P</strong> is your investment amount and{" "}
               <strong>r</strong> is the annual interest rate (a current rate, set
-              and revised by the government each quarter &mdash; you can edit it
+              and revised by the government each quarter; you can edit it
               to match today&apos;s figure). For example, &#8377;100,000 at 7.7%
               grows to about &#8377;144,900 after five years. This nsc interest
               calculator also shows the total interest earned over the term.
@@ -56,6 +56,22 @@ export default function Page() {
         {
           q: "Can I withdraw my NSC before 5 years?",
           a: "NSC has a fixed 5-year lock-in, so premature withdrawal is allowed only in limited cases such as the holder's death, forfeiture by a pledgee, or a court order. This nsc maturity calculator assumes you hold the certificate for the full term, when interest is compounded annually and paid out with the principal.",
+        },
+        {
+          q: "Is NSC interest taxable?",
+          a: "Yes. NSC interest is fully taxable at your slab rate, unlike PPF. The saving grace is timing: interest accrues each year but is only paid at maturity, and the accrued interest for years one to four is treated as reinvested, so it can be claimed afresh under Section 80C. Only the final year's interest has no matching deduction. No TDS is deducted at the post office, so declare the accrued interest yourself each year in your return.",
+        },
+        {
+          q: "NSC or PPF: which is better?",
+          a: "They solve different problems. NSC locks money for 5 years and the interest is taxable, but the shorter term suits a medium-term goal. PPF runs 15 years and is EEE, so its interest and maturity value are entirely tax-free, which usually wins for anyone in a higher slab who can wait. Both qualify under the ₹1.5 lakh Section 80C ceiling. Compare the two using this calculator and our PPF calculator with the current notified rates.",
+        },
+        {
+          q: "Can I take a loan against my NSC?",
+          a: "You cannot borrow from the certificate itself, but most banks accept NSC as collateral for a secured loan because it is a government-backed instrument. The certificate is pledged to the lender through the post office, and you keep earning interest on it while the loan runs. Terms, margin and the interest charged vary by bank, so ask your branch. This is the usual route when you need cash but do not want to break the 5-year lock-in.",
+        },
+        {
+          q: "What happens to NSC if I do not withdraw it at maturity?",
+          a: "The certificate stops being a growing NSC. After the 5-year term ends, the maturity proceeds do not keep earning the NSC rate indefinitely; unclaimed amounts earn only a plain savings-account style rate for a limited period under post office rules. There is no automatic renewal into a fresh certificate, so if you want the money to keep compounding at the NSC rate you have to reinvest it in a new certificate at the rate notified on that date.",
         },
       ]}
     />

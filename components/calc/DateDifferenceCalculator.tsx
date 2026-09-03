@@ -71,7 +71,7 @@ function calendarDiff(start: Date, end: Date) {
 
   if (days < 0) {
     months -= 1;
-    // Days in the month before `end`'s month — the month we borrow from.
+    // Days in the month before `end`'s month: the month we borrow from.
     const borrowFrom = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), 0));
     days += borrowFrom.getUTCDate();
   }
@@ -237,7 +237,7 @@ export default function DateDifferenceCalculator() {
             </div>
             {between?.swapped && (
               <p className="rounded-lg bg-forest-soft px-3 py-2 text-xs font-medium text-forest">
-                Your end date is before your start date — we&apos;ve swapped them so
+                Your end date is before your start date. We&apos;ve swapped them so
                 the result stays positive.
               </p>
             )}
@@ -300,7 +300,7 @@ export default function DateDifferenceCalculator() {
               Time between dates
             </p>
             <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-              {between ? pluralize(between.totalDays, "day") : "—"}
+              {between ? pluralize(between.totalDays, "day") : "-"}
             </p>
             {between && (between.cal.years > 0 || between.cal.months > 0) && (
               <p className="mt-1 text-sm text-ink-soft">
@@ -313,7 +313,7 @@ export default function DateDifferenceCalculator() {
             <div className="mt-6">
               <Stat
                 label="Total days"
-                value={between ? between.totalDays.toLocaleString() : "—"}
+                value={between ? between.totalDays.toLocaleString() : "-"}
                 accent="forest"
               />
               <Stat
@@ -325,28 +325,28 @@ export default function DateDifferenceCalculator() {
                           ? ` ${between.weekDaysRemainder} d`
                           : ""
                       }`
-                    : "—"
+                    : "-"
                 }
                 accent="ink"
               />
               <Stat
                 label="Total months"
-                value={between ? between.totalMonths.toLocaleString() : "—"}
+                value={between ? between.totalMonths.toLocaleString() : "-"}
                 accent="ink"
               />
               <Stat
                 label="Total hours"
-                value={between ? between.totalHours.toLocaleString() : "—"}
+                value={between ? between.totalHours.toLocaleString() : "-"}
                 accent="brass"
               />
               <Stat
-                label="Weekdays (Mon–Fri)"
-                value={between ? between.weekdays.toLocaleString() : "—"}
+                label="Weekdays (Mon-Fri)"
+                value={between ? between.weekdays.toLocaleString() : "-"}
                 accent="ink"
               />
               <Stat
                 label="Weekend days"
-                value={between ? between.weekends.toLocaleString() : "—"}
+                value={between ? between.weekends.toLocaleString() : "-"}
                 accent="ink"
               />
             </div>
@@ -364,18 +364,18 @@ export default function DateDifferenceCalculator() {
               Resulting date
             </p>
             <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-              {result ? formatFullDate(result.date) : "—"}
+              {result ? formatFullDate(result.date) : "-"}
             </p>
 
             <div className="mt-6">
               <Stat
                 label="Lands on"
-                value={result ? result.dayOfWeek : "—"}
+                value={result ? result.dayOfWeek : "-"}
                 accent="forest"
               />
               <Stat
                 label="Days from start"
-                value={result ? result.elapsedDays.toLocaleString() : "—"}
+                value={result ? result.elapsedDays.toLocaleString() : "-"}
                 accent="brass"
               />
             </div>

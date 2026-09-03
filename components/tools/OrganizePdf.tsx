@@ -103,7 +103,7 @@ export default function OrganizePdf() {
   async function rebuild() {
     if (!loaded || working) return;
     if (!kept.length) {
-      setError("Keep at least one page — every page is currently removed.");
+      setError("Keep at least one page. Every page is currently removed.");
       return;
     }
     setWorking(true);
@@ -121,7 +121,7 @@ export default function OrganizePdf() {
     } catch (err) {
       console.error(err);
       setError(
-        "Something went wrong while rebuilding the PDF. The file may be encrypted or corrupted — try a different one.",
+        "Something went wrong while rebuilding the PDF. The file may be encrypted or corrupted. Try a different one.",
       );
     } finally {
       setWorking(false);
@@ -173,7 +173,7 @@ export default function OrganizePdf() {
           need.
         </p>
         <p className="mt-3 text-xs text-ink-faint">
-          Files never leave your device — everything runs in your browser.
+          Files never leave your device. Everything runs in your browser.
         </p>
       </div>
 

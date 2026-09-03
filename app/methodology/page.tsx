@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: `Methodology — How Our Calculators Work · ${site.name}` },
+  title: { absolute: `Methodology - How Our Calculators Work · ${site.name}` },
   description: "Which formulas CoinMind calculators use, the official sources they reference, what is excluded, and when each was last verified.",
   alternates: { canonical: "/methodology" },
 };
@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 const METHODS = [
   {
     name: "SIP Calculator",
-    formula: "Future value of annuity: FV = P × [((1+r)^n − 1) / r] × (1+r)",
+    formula: "Future value of annuity: FV = P × [((1+r)^n - 1) / r] × (1+r)",
     source: "Standard financial mathematics; cross-checked against AMFI SIP data",
     excludes: "Exit loads, fund-specific expense ratios, market timing risk",
     lastChecked: "July 2026",
   },
   {
     name: "EMI Calculator",
-    formula: "Reducing-balance EMI formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1)",
+    formula: "Reducing-balance EMI formula: EMI = P × r × (1+r)^n / ((1+r)^n - 1)",
     source: "Standard amortisation formula used by all Indian banks per RBI guidelines",
     excludes: "Processing fees, prepayment penalties, floating rate changes",
     lastChecked: "July 2026",
@@ -25,7 +25,7 @@ const METHODS = [
   {
     name: "Income Tax Calculator",
     formula: "Marginal slab rates per Income Tax Act, Section 87A rebate, standard deduction",
-    source: "Income Tax Department, Government of India — incometaxindia.gov.in",
+    source: "Income Tax Department, Government of India - incometaxindia.gov.in",
     excludes: "Surcharge above ₹50L, marginal relief, professional tax, specific deductions beyond standard",
     lastChecked: "July 2026 (FY 2026-27 slabs)",
   },
@@ -60,16 +60,31 @@ const METHODS = [
   {
     name: "EPF Calculator",
     formula: "Annual compounding on monthly contributions at declared EPF interest rate",
-    source: "EPFO — epfindia.gov.in",
+    source: "EPFO - epfindia.gov.in",
     excludes: "EPS (pension) component, insurance benefits, withdrawal rules",
     lastChecked: "July 2026",
   },
 ];
 
 export default function MethodologyPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Calculator Methodology",
+    description:
+      "Which formulas CoinMind calculators use, the official sources they reference, what is excluded, and when each was last verified.",
+    url: `${site.url}/methodology`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
   return (
     <div className="container-main py-24">
       <div className="max-w-[720px] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <h1 className="h1 text-text">Calculator Methodology</h1>
         <p className="body text-text-muted mt-4">
           Every calculator on {site.name} runs on a published, standard formula. This page documents which formula each tool uses, the official source we verify against, what the calculator deliberately excludes, and when it was last checked.

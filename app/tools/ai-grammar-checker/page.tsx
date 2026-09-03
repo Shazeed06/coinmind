@@ -4,7 +4,7 @@ import AiGrammarChecker from "@/components/tools/AiGrammarChecker";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Grammar Checker — Fix Grammar Free" },
+  title: { absolute: "AI Grammar Checker - Fix Grammar Free" },
   description:
     "Free AI grammar checker. Fix grammar, spelling and punctuation instantly and keep your original meaning and tone. A fast, free Grammarly alternative.",
   alternates: { canonical: "/tools/ai-grammar-checker" },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/ai-grammar-checker",
-    title: "AI Grammar Checker — Fix Grammar Free",
+    title: "AI Grammar Checker - Fix Grammar Free",
     description:
       "Fix grammar, spelling and punctuation instantly with AI. A fast, free Grammarly alternative that keeps your meaning and tone.",
     locale: "en_US",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "What kinds of mistakes can it fix?",
-    a: "It catches spelling slips, subject-verb agreement, verb tenses, missing or misused punctuation, capitalisation, run-on sentences and common typos — the everyday errors that make writing look careless.",
+    a: "It catches spelling slips, subject-verb agreement, verb tenses, missing or misused punctuation, capitalisation, run-on sentences and common typos, the everyday errors that make writing look careless.",
   },
   {
     q: "Is my text private?",
@@ -47,6 +47,18 @@ const faqs = [
   {
     q: "Can I use it for essays, emails and work documents?",
     a: "Absolutely. It works well for emails, essays, resumes, cover letters, social posts, product descriptions and business messages. Always give the corrected text a final read before you send or publish it.",
+  },
+  {
+    q: "How much text can I check at once?",
+    a: "Up to 8,000 characters, roughly 1,200 words, in a single pass. A live counter under the box shows how much of that you have used, and the Check button is blocked with a message if you go over. For a longer essay or report, run it through a section or a few paragraphs at a time.",
+  },
+  {
+    q: "Does the grammar checker work offline?",
+    a: "No. The correction is produced by an AI model running on a server, so the page needs a working internet connection. If the connection drops or the model is busy you will see a clear error instead of a half-finished result, and pressing Check grammar again usually solves it.",
+  },
+  {
+    q: "Does it detect plagiarism or AI written text?",
+    a: "No. This tool only proofreads. It fixes grammar, spelling and punctuation, and does not compare your writing against published sources, score originality, or judge whether a passage was written by a person or a model. Those checks need a dedicated plagiarism or detection service, which this is not.",
   },
 ];
 
@@ -109,7 +121,7 @@ export default function Page() {
           AI Grammar Checker
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Fix grammar, spelling and punctuation in seconds &mdash; a fast, free
+          Fix grammar, spelling and punctuation in seconds. A fast, free
           Grammarly alternative that keeps your meaning and tone intact.
         </p>
       </header>
@@ -134,7 +146,7 @@ export default function Page() {
             Paste your writing into the box above and press{" "}
             <strong className="text-ink">Check grammar</strong>. The AI reads
             your text, corrects every grammar, spelling and punctuation error it
-            finds, and returns a clean version &mdash; without changing your
+            finds, and returns a clean version, without changing your
             meaning or tone. Then hit <strong className="text-ink">Copy</strong>{" "}
             to use it anywhere. It is free, needs no sign-up, and works for
             emails, essays, resumes, posts and more.
@@ -148,11 +160,11 @@ export default function Page() {
         <p>
           A grammar checker scans your writing for mistakes a rushed draft
           usually hides: misspellings, missing commas, the wrong verb tense,
-          subject&ndash;verb disagreements, doubled words and run-on sentences.
+          subject-verb disagreements, doubled words and run-on sentences.
           Traditional checkers rely on fixed rules, so they miss anything that
           does not fit a pattern. An <strong>AI grammar checker</strong> reads
-          your sentence the way a human proofreader would &mdash; understanding
-          context &mdash; so it catches subtler errors and awkward phrasing
+          your sentence the way a human proofreader would, understanding
+          context, so it catches subtler errors and awkward phrasing
           while leaving your intended meaning untouched.
         </p>
 
@@ -162,7 +174,7 @@ export default function Page() {
           <strong>Check grammar</strong>. Within a moment you will see a
           corrected version below, ready to copy. If your text is already clean,
           the tool tells you that no errors were found. Because it corrects
-          rather than rewrites, the result still sounds like you &mdash; only
+          rather than rewrites, the result still sounds like you, only
           more polished. It is ideal for a quick proofread before you send an
           important email, submit an assignment or publish a post.
         </p>
@@ -175,7 +187,7 @@ export default function Page() {
           alternative for students, job seekers, freelancers and small business
           owners. It will not fix facts or judge your ideas, so treat it as a
           proofreader: run your draft through it, then read the corrected text
-          once more before you use it &mdash; especially for anything important
+          once more before you use it, especially for anything important
           or public.
         </p>
       </section>
@@ -228,7 +240,7 @@ export default function Page() {
               All tools
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
-              Browse every free tool on CoinMind &mdash; AI, PDF, image and text.
+              Browse every free tool on CoinMind: AI, PDF, image and text.
             </p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
               Browse &rarr;

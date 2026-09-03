@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Word / Character Counter — 100% client-side, live stats.          */
+/*  Word / Character Counter: 100% client-side, live stats.           */
 /*  No uploads, no libraries: everything is computed in the browser   */
 /*  as you type.                                                      */
 /* ------------------------------------------------------------------ */
@@ -188,7 +188,7 @@ export default function WordCounter() {
             Top keywords
           </h2>
           <p className="mt-1 text-sm text-ink-faint">
-            Most frequent words &mdash; handy for checking keyword density.
+            Most frequent words, handy for checking keyword density.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {stats.keywords.map((k) => (

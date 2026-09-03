@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "What is the break-even deduction between the old and new tax regime?",
-    a: "It is the total of old-regime deductions — 80C, 80D, NPS, home-loan interest, HRA exemption and the rest — at which your old-regime tax falls to exactly what you would pay under the new regime. Claim more than that figure and the old regime saves you money; claim less and the new regime wins.",
+    a: "It is the total of old-regime deductions (80C, 80D, NPS, home-loan interest, HRA exemption and the rest) at which your old-regime tax falls to exactly what you would pay under the new regime. Claim more than that figure and the old regime saves you money; claim less and the new regime wins.",
   },
   {
     q: "At what salary is the old regime hardest to justify?",
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "Does the break-even keep rising with income?",
-    a: "No, and this surprises people. Once your income is high enough that both regimes are taxing you at 30% at the margin — from roughly ₹24 lakh upward — the break-even settles at a flat ₹8,00,000 and stays there. Whether you earn ₹25 lakh or ₹50 lakh, the answer is the same ₹8 lakh of deductions.",
+    a: "No, and this surprises people. Once your income is high enough that both regimes are taxing you at 30% at the margin, from roughly ₹24 lakh upward, the break-even settles at a flat ₹8,00,000 and stays there. Whether you earn ₹25 lakh or ₹50 lakh, the answer is the same ₹8 lakh of deductions.",
   },
   {
     q: "Is ₹8 lakh of deductions actually achievable?",
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "Do these figures include the standard deduction?",
-    a: "Yes, and each regime gets its own. The new-regime column already applies its ₹75,000 standard deduction, and the old-regime side already applies its ₹50,000 one. The break-even number is deductions over and above that ₹50,000 — so do not count the standard deduction twice when comparing against your own figure.",
+    a: "Yes, and each regime gets its own. The new-regime column already applies its ₹75,000 standard deduction, and the old-regime side already applies its ₹50,000 one. The break-even number is deductions over and above that ₹50,000, so do not count the standard deduction twice when comparing against your own figure.",
   },
   {
     q: "Can I switch regimes every year?",
@@ -141,8 +141,8 @@ export default function Page() {
         </p>
         <p className="mt-2 text-forest-deep leading-relaxed text-[1.05rem]">
           Find your salary in the table below and read the break-even column. If
-          your actual old-regime deductions — 80C, 80D, NPS, home-loan interest
-          and HRA exemption added together — come to more than that number, the
+          your actual old-regime deductions (80C, 80D, NPS, home-loan interest
+          and HRA exemption added together) come to more than that number, the
           old regime saves you money. If they come to less, the new regime wins.
           For most salaried people without a large HRA claim, the new regime
           wins at almost every income level.
@@ -230,7 +230,7 @@ export default function Page() {
             deductions large enough to pull taxable income under ₹5,00,000. Once
             your salary crosses the rebate ceiling and the new regime starts
             charging real tax, the old regime only has to match that real
-            number — so the bar drops.
+            number, so the bar drops.
           </p>
 
           <p>
@@ -245,7 +245,7 @@ export default function Page() {
             What is left is a constant gap, and a constant gap needs a constant
             deduction to close. The practical version: if you are a high earner
             wondering whether the old regime is worth the paperwork, the
-            question is not how much you earn — it is simply whether you can
+            question is not how much you earn. It is simply whether you can
             claim {formatCurrency(800000)}.
           </p>
         </div>
@@ -292,7 +292,7 @@ export default function Page() {
             {formatCurrency(REALISTIC_DEDUCTION_CEILING)}, which is Section 80C
             at ₹1,50,000, NPS under 80CCD(1B) at ₹50,000, health insurance under
             80D at up to ₹75,000 for self and senior parents, and home-loan
-            interest at ₹2,00,000 — all at their combined statutory limits, and
+            interest at ₹2,00,000, all at their combined statutory limits, and
             before any HRA exemption. HRA is the one component that can push a
             salaried person well past that ceiling, which is why the column says
             &ldquo;needs large HRA&rdquo; rather than &ldquo;impossible&rdquo;.
@@ -326,7 +326,7 @@ export default function Page() {
           This grid is free to quote, republish or build on, with or without
           attribution. If you are a journalist, blogger or educator who needs a
           different income range or a variant of the assumptions, the
-          methodology above is complete enough to reproduce — or write to us at{" "}
+          methodology above is complete enough to reproduce, or write to us at{" "}
           <strong className="text-ink">{site.email}</strong> and we will run it.
         </p>
       </section>

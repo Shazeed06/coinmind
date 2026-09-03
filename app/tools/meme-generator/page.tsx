@@ -4,17 +4,17 @@ import MemeGenerator from "@/components/tools/MemeGenerator";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Meme Generator — Free Meme Maker with Text" },
+  title: { absolute: "Meme Generator - Free Meme Maker with Text" },
   description:
-    "Free meme generator. Upload any image, add classic Impact top and bottom text, then download the meme. 100% private — everything is made in your browser.",
+    "Free meme generator. Upload any image, add classic Impact top and bottom text, then download the meme. 100% private - everything is made in your browser.",
   alternates: { canonical: "/tools/meme-generator" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/meme-generator",
-    title: "Meme Generator — Free Meme Maker with Text",
+    title: "Meme Generator - Free Meme Maker with Text",
     description:
-      "Upload any image, add classic Impact-style top and bottom text, then download the meme. 100% private — your image never leaves your browser.",
+      "Upload any image, add classic Impact-style top and bottom text, then download the meme. 100% private - your image never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my image uploaded anywhere?",
-    a: "No. This meme generator runs entirely in your browser using the HTML Canvas API. Your image is drawn and captioned on your own device and is never uploaded, stored or seen by anyone — it never leaves your computer.",
+    a: "No. This meme generator runs entirely in your browser using the HTML Canvas API. Your image is drawn and captioned on your own device and is never uploaded, stored or seen by anyone. It never leaves your computer.",
   },
   {
     q: "Why is the text in that classic bold white font?",
-    a: "That's the Impact typeface, the look most people picture when they think of a meme. The tool draws bold, uppercase white text with a black outline so it stays readable over any part of the image — light or dark.",
+    a: "That's the Impact typeface, the look most people picture when they think of a meme. The tool draws bold, uppercase white text with a black outline so it stays readable over any part of the image, light or dark.",
   },
   {
     q: "Can I change the font size and colours?",
@@ -110,7 +110,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Upload any image, add classic Impact top and bottom text, and download
-          your meme &mdash; right in your browser, with nothing uploaded.
+          your meme, right in your browser, with nothing uploaded.
         </p>
       </header>
 
@@ -148,14 +148,14 @@ export default function Page() {
           so it reads clearly over any background. That style became the internet
           shorthand for a meme in the late 2000s, and it still instantly signals
           &ldquo;this is a joke caption.&rdquo; This tool reproduces that look
-          faithfully &mdash; heavy stroke, centred text, top and bottom lines
-          &mdash; while letting you tweak the size and colours if you want
+          faithfully (heavy stroke, centred text, top and bottom lines)
+          while letting you tweak the size and colours if you want
           something different.
         </p>
 
         <h2>How to make a meme</h2>
         <p>
-          Start by uploading any image &mdash; a reaction photo, a screenshot, a
+          Start by uploading any image: a reaction photo, a screenshot, a
           stock picture or your own snapshot. Type a setup line into the{" "}
           <strong>top text</strong> box and a punchline into the{" "}
           <strong>bottom text</strong> box; the preview updates as you type.
@@ -167,7 +167,7 @@ export default function Page() {
 
         <h2>Tips for memes that land</h2>
         <p>
-          Keep captions <strong>short and punchy</strong> &mdash; a few words on
+          Keep captions <strong>short and punchy</strong>. A few words on
           top and a few on the bottom almost always beat a long sentence. Put the
           setup on top and the twist on the bottom so the joke reads in the right
           order. Make sure the text sits over a part of the image where the

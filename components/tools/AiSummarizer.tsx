@@ -3,21 +3,21 @@
 import { useCallback, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  AI Text Summarizer — condenses long text into a short, medium or  */
+/*  AI Text Summarizer: condenses long text into a short, medium or   */
 /*  detailed summary via the /api/ai-chat endpoint. Plain or bullets. */
 /* ------------------------------------------------------------------ */
 
 type Length = "short" | "medium" | "detailed";
 
 const LENGTHS: { value: Length; label: string; hint: string }[] = [
-  { value: "short", label: "Short", hint: "2–3 sentences" },
+  { value: "short", label: "Short", hint: "2-3 sentences" },
   { value: "medium", label: "Medium", hint: "One tight paragraph" },
   { value: "detailed", label: "Detailed", hint: "Multi-paragraph" },
 ];
 
 // How each length maps into the system instruction sent to the model.
 const LENGTH_PHRASE: Record<Length, string> = {
-  short: "short (2–3 sentence)",
+  short: "short (2-3 sentence)",
   medium: "medium-length (single paragraph)",
   detailed: "detailed, multi-paragraph",
 };
@@ -71,7 +71,7 @@ export default function AiSummarizer() {
       setResult(data.reply || "Sorry, something went wrong. Please try again.");
     } catch {
       setIsError(true);
-      setResult("Network issue — please try again.");
+      setResult("Network issue. Please try again.");
     } finally {
       setLoading(false);
     }

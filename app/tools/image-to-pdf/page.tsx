@@ -4,16 +4,16 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
-  title: { absolute: "Image to PDF — Convert JPG & PNG to PDF Free" },
+  title: { absolute: "Image to PDF - Convert JPG & PNG to PDF Free" },
   description:
-    "Free image to PDF converter. Combine JPG and PNG images into one PDF right in your browser — no upload, no sign-up, your files stay private.",
+    "Free image to PDF converter. Combine JPG and PNG images into one PDF right in your browser - no upload, no sign-up, your files stay private.",
   alternates: { canonical: "/tools/image-to-pdf" },
   openGraph: {
     type: "website",
     url: "https://www.coinmind.in/tools/image-to-pdf",
     siteName: site.name,
     locale: "en_US",
-    title: "Image to PDF — Convert JPG & PNG to PDF Free",
+    title: "Image to PDF - Convert JPG & PNG to PDF Free",
     description:
       "Combine JPG and PNG images into a single PDF, entirely in your browser. No upload, no sign-up.",
     images: [
@@ -30,19 +30,19 @@ export const metadata: Metadata = {
 const howToUse = [
   {
     step: "Add your images",
-    detail: "Click the drop zone or browse to select the JPG or PNG images you want to turn into a PDF. You can add as many as you need — photographs, scanned documents, screenshots, or any combination of formats. Add more images at any time by dragging them onto the zone.",
+    detail: "Click the drop zone or browse to select the JPG or PNG images you want to turn into a PDF. You can add as many as you need: photographs, scanned documents, screenshots, or any combination of formats. Add more images at any time by dragging them onto the zone.",
   },
   {
     step: "Arrange the image order",
-    detail: "Each image appears as a card in the list with a small thumbnail preview. Use the up and down arrow buttons on each card to set the exact page order — the image at the top of the list becomes page 1 of your PDF, the next becomes page 2, and so on. Remove any image you don't want with the delete button.",
+    detail: "Each image appears as a card in the list with a small thumbnail preview. Use the up and down arrow buttons on each card to set the exact page order. The image at the top of the list becomes page 1 of your PDF, the next becomes page 2, and so on. Remove any image you don't want with the delete button.",
   },
   {
     step: "Choose the page size and layout",
-    detail: "Pick Fit to image to give each page exactly the dimensions of its image — ideal for photos and scans where you want the page to match the content. Or pick A4 or Letter to place each image centred on a standard page size. You can also toggle between portrait and landscape orientation and set a margin if you want a clean white border around each image.",
+    detail: "Pick Fit to image to give each page exactly the dimensions of its image, ideal for photos and scans where you want the page to match the content. Or pick A4 or Letter to place each image centred on a standard page size. You can also toggle between portrait and landscape orientation and set a margin if you want a clean white border around each image.",
   },
   {
     step: "Set the image scaling (optional)",
-    detail: "By default, images are scaled to fit within the page dimensions while keeping their original aspect ratio. If you want images to fill the entire page edge to edge, choose the fill option — though this may crop parts of images whose aspect ratio doesn't match the selected page size.",
+    detail: "By default, images are scaled to fit within the page dimensions while keeping their original aspect ratio. If you want images to fill the entire page edge to edge, choose the fill option, though this may crop parts of images whose aspect ratio doesn't match the selected page size.",
   },
   {
     step: "Click the create PDF button",
@@ -61,7 +61,7 @@ const whenToUse = [
   },
   {
     scenario: "Creating a scannable ID or document package",
-    detail: "When an employer, landlord, or government agency asks for scans of multiple ID documents — passport, driver's licence, utility bill, bank statement — combine them into a single PDF rather than sending half a dozen separate image files. It's more professional and reduces the chance of a file being missed.",
+    detail: "When an employer, landlord, or government agency asks for scans of multiple ID documents (passport, driver's licence, utility bill, bank statement), combine them into a single PDF rather than sending half a dozen separate image files. It's more professional and reduces the chance of a file being missed.",
   },
   {
     scenario: "Packaging presentation slides exported as images",
@@ -70,20 +70,20 @@ const whenToUse = [
 ];
 
 const howItWorksParagraph =
-  "This tool uses the pdf-lib library to create a valid PDF document directly in your browser. When you add images, each one is read as raw image data. Depending on the page size you selected, the tool either creates a page that precisely matches the image's pixel dimensions (Fit to image mode) or places the image centred on a standard A4 or Letter canvas. It calculates the correct scaling factor so that the image fills the page proportionally without distortion, applies any margin you set, and embeds the image into the PDF using its original resolution. The result is a standards-compliant PDF where each image sits on its own page, exactly as you arranged. Every operation — reading the images, calculating dimensions, assembling the PDF — happens in memory on your device using JavaScript. No files are uploaded or stored on any server, and the tool works offline once the page has loaded.";
+  "This tool uses the pdf-lib library to create a valid PDF document directly in your browser. When you add images, each one is read as raw image data. Depending on the page size you selected, the tool either creates a page that precisely matches the image's pixel dimensions (Fit to image mode) or places the image centred on a standard A4 or Letter canvas. It calculates the correct scaling factor so that the image fills the page proportionally without distortion, applies any margin you set, and embeds the image into the PDF using its original resolution. The result is a standards-compliant PDF where each image sits on its own page, exactly as you arranged. Every operation (reading the images, calculating dimensions, assembling the PDF) happens in memory on your device using JavaScript. No files are uploaded or stored on any server, and the tool works offline once the page has loaded.";
 
 const tips = [
   "If your images are in WebP, HEIC, or another format not directly supported by the tool, convert them to JPG or PNG first using the Image Converter and then add the converted files here.",
   "For the smallest PDF file size, use JPG images rather than PNG images as input. JPG images embedded in PDFs produce much smaller documents because the image data is already compressed, whereas PNG images embed their full uncompressed pixel data into the PDF.",
   "When selecting page size, choose Fit to image for scans and photos where you want each page to exactly match the content with no whitespace. Choose A4 or Letter when creating a document meant for printing or when you want a uniform look across all pages regardless of individual image dimensions.",
-  "Use the margin setting to add breathing room. A margin of 10–20 mm gives your document a polished, print-ready feel and ensures no content gets clipped by printer margins. If your images are edge-to-edge scans, a small margin prevents accidental cropping.",
+  "Use the margin setting to add breathing room. A margin of 10-20 mm gives your document a polished, print-ready feel and ensures no content gets clipped by printer margins. If your images are edge-to-edge scans, a small margin prevents accidental cropping.",
   "Check your image order carefully before creating the PDF. Once generated, the page order is fixed. If you need to reorder afterward, you can use the Organize PDF tool to rearrange pages in the finished document.",
 ];
 
 const faqs = [
   {
     q: "Are my images uploaded to a server?",
-    a: "No. This tool runs entirely in your browser using JavaScript and the pdf-lib library. Your images are read, scaled, and embedded into a new PDF on your own device. Nothing is uploaded, stored, cached on any server, or seen by anyone else — your files stay completely private. The tool also works offline once the page has loaded, so you can create PDFs without an active internet connection.",
+    a: "No. This tool runs entirely in your browser using JavaScript and the pdf-lib library. Your images are read, scaled, and embedded into a new PDF on your own device. Nothing is uploaded, stored, cached on any server, or seen by anyone else. Your files stay completely private. The tool also works offline once the page has loaded, so you can create PDFs without an active internet connection.",
   },
   {
     q: "Which image formats are supported?",
@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     q: "Can I control the order of pages in the PDF?",
-    a: "Yes. After adding your images, each one appears as a card in the list with a thumbnail preview. Use the up and down arrow buttons to arrange the cards into the exact order you want. The PDF is built following the list order from top to bottom — the image at the top becomes page 1. You can also remove any image from the list if you change your mind without needing to restart.",
+    a: "Yes. After adding your images, each one appears as a card in the list with a thumbnail preview. Use the up and down arrow buttons to arrange the cards into the exact order you want. The PDF is built following the list order from top to bottom. The image at the top becomes page 1. You can also remove any image from the list if you change your mind without needing to restart.",
   },
   {
     q: "Can I choose the page size?",
@@ -103,11 +103,19 @@ const faqs = [
   },
   {
     q: "Will the images lose quality when embedded in the PDF?",
-    a: "No. Images are embedded at their full original resolution. The pdf-lib library embeds the raw image bytes directly into the PDF container without re-compressing or re-encoding them. The images in the PDF will display and print at the same quality as the original files — no detail is lost during the conversion process.",
+    a: "No. Images are embedded at their full original resolution. The pdf-lib library embeds the raw image bytes directly into the PDF container without re-compressing or re-encoding them. The images in the PDF will display and print at the same quality as the original files. No detail is lost during the conversion process.",
   },
   {
     q: "Is it really free?",
     a: "Yes, completely free with no sign-up, no account required, and no watermark on the output PDF. Create as many PDFs as you like, as often as you like. There are no hidden limits, no paid tiers, and no premium features locked behind a subscription. The tool is fully functional for everyone, and your data stays on your device the entire time.",
+  },
+  {
+    q: "Does the converter work on a phone or tablet?",
+    a: "Yes. The drop zone, the image list and the page-size controls are all responsive, so the tool works in mobile Chrome, Safari and Firefox. Tapping the drop zone opens your camera roll or file picker, and you can reorder pages with the arrow buttons. The PDF is built on the phone itself and saved to your downloads folder.",
+  },
+  {
+    q: "Can I make a scanned document searchable?",
+    a: "No. This tool embeds each image into the PDF as a picture, so the finished file looks exactly like your scan but the words inside it are not selectable or searchable. Making text searchable requires OCR (optical character recognition), which this tool does not perform. If you need searchable text, run the finished PDF through dedicated OCR software.",
   },
 ];
 
@@ -147,7 +155,7 @@ export default function Page() {
   return (
     <ToolPageLayout
       title="Image to PDF"
-      description="Combine JPG and PNG images into a single PDF document. Reorder your images, choose a page size from Fit to image, A4, or Letter, set orientation and margins, and download — your files never leave your device."
+      description="Combine JPG and PNG images into a single PDF document. Reorder your images, choose a page size from Fit to image, A4, or Letter, set orientation and margins, and download. Your files never leave your device."
       howToUse={howToUse}
       whenToUse={whenToUse}
       howItWorks={howItWorksParagraph}

@@ -10,7 +10,7 @@ export default function AiAssistant() {
           <p className="eyebrow text-white/60">AI Assistant</p>
           <h2 className="h2 text-white mt-3">Get Instant Answers</h2>
           <p className="body text-white/60 mt-4 max-w-[480px] mx-auto lg:mx-0">
-            Ask any finance question and get an instant, clear answer — powered by AI, verified for accuracy.
+            Ask any finance question and get an instant, clear answer, powered by AI, verified for accuracy.
           </p>
           <div className="mt-6">
             <Link

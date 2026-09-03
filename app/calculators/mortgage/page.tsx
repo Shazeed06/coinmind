@@ -4,7 +4,7 @@ import MortgageCalculator from "@/components/calc/MortgageCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "mortgage")!;
-export const metadata = calcMeta("mortgage", CALC.title + " — Monthly Payment & Interest", CALC.blurb);
+export const metadata = calcMeta("mortgage", CALC.title + " - Monthly Payment & Interest", CALC.blurb);
 
 export default function Page() {
   return (
@@ -19,7 +19,7 @@ export default function Page() {
         body: (
           <>
             <p>
-              First the calculator finds the loan amount &mdash; the home price
+              First the calculator finds the loan amount: the home price
               minus your down payment. It then applies the standard amortising
               mortgage formula:
             </p>
@@ -50,7 +50,7 @@ export default function Page() {
         },
         {
           q: "What is included in the monthly mortgage payment?",
-          a: "This home loan calculator shows principal and interest only — the core repayment on the money you borrowed. It does not include property taxes, homeowners or buildings insurance, HOA or service charges, or private mortgage insurance. Those costs vary by location and lender, so add them separately to estimate your true monthly housing cost.",
+          a: "This home loan calculator shows principal and interest only: the core repayment on the money you borrowed. It does not include property taxes, homeowners or buildings insurance, HOA or service charges, or private mortgage insurance. Those costs vary by location and lender, so add them separately to estimate your true monthly housing cost.",
         },
         {
           q: "How does the down payment affect my mortgage?",
@@ -59,6 +59,22 @@ export default function Page() {
         {
           q: "Should I choose a 15, 25 or 30-year mortgage term?",
           a: "A shorter term such as 15 or 25 years means higher monthly payments but far less total interest, while a 30-year term keeps monthly payments lower at the cost of more interest overall. The 30-year loan is the US standard and 25 years is common in the UK. Adjust the term in this monthly mortgage calculator to see the trade-off for your situation.",
+        },
+        {
+          q: "How much house can I afford on my income?",
+          a: "A common guideline is to keep your total monthly housing cost (mortgage payment plus taxes, insurance and any service charges) at or below about 28% of your gross monthly income, and all your debt payments at or below roughly 36%. Lenders apply their own affordability tests and stress-test you at a higher rate, so use those percentages as a starting filter, then work backwards in this calculator until the monthly payment fits comfortably inside your budget.",
+        },
+        {
+          q: "Why is most of my early mortgage payment interest?",
+          a: "Because interest is charged on the balance you still owe, and that balance is largest at the start. On a 30-year loan of 300,000 at 6%, the first payment is roughly 1,500 of interest and only a few hundred of principal. As the balance falls, the interest share falls with it and the principal share rises, even though your monthly payment stays level. This is how amortisation works.",
+        },
+        {
+          q: "Do extra payments really save mortgage interest?",
+          a: "Yes, and the effect is larger than most people expect. Any extra amount goes straight against the principal, so every future month is charged interest on a smaller balance. Paying a modest amount extra each month on a 30-year loan can commonly cut several years off the term and save a large share of the total interest. Check your lender allows overpayments without an early repayment charge first.",
+        },
+        {
+          q: "What is PMI and how do I avoid it?",
+          a: "Private mortgage insurance protects the lender, not you, and US lenders typically require it when your down payment is under 20% of the home price. It is charged as a yearly percentage of the loan and added to your monthly bill. Putting down 20% avoids it outright, and once your equity builds past that level you can usually ask for it to be removed. This calculator shows principal and interest only, so any PMI sits on top.",
         },
       ]}
     />

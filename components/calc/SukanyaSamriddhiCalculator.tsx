@@ -67,7 +67,7 @@ export default function SukanyaSamriddhiCalculator() {
             max={9}
             step={0.1}
             suffix="%"
-            hint="Current rate, set by the government every quarter — not guaranteed for the full term."
+            hint="Current rate, set by the government every quarter, not guaranteed for the full term."
           />
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function SukanyaSamriddhiCalculator() {
           Maturity value
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(maturity, currency) : "—"}
+          {valid ? formatCurrency(maturity, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">
           after 21 years{showAge ? `, when she turns ${ageAtMaturity}` : ""}
@@ -98,24 +98,24 @@ export default function SukanyaSamriddhiCalculator() {
         <div className="mt-6">
           <Stat
             label="Total invested"
-            value={valid ? formatCurrency(invested, currency) : "—"}
+            value={valid ? formatCurrency(invested, currency) : "-"}
             accent="ink"
           />
           <Stat
             label="Total interest"
-            value={valid ? formatCurrency(interest, currency) : "—"}
+            value={valid ? formatCurrency(interest, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Maturity value"
-            value={valid ? formatCurrency(maturity, currency) : "—"}
+            value={valid ? formatCurrency(maturity, currency) : "-"}
             accent="forest"
           />
         </div>
 
         <p className="mt-6 text-xs text-ink-faint leading-relaxed">
           You deposit for 15 years; the account keeps earning interest until it
-          matures 21 years after opening. SSY enjoys EEE tax status &ndash;
+          matures 21 years after opening. SSY enjoys EEE tax status:
           deposits qualify under Section 80C, and both the interest and the
           maturity amount are tax-free.
         </p>

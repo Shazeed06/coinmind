@@ -59,7 +59,7 @@ export default function FinancialRoadmaps() {
       <SectionHeader
         eyebrow="Journeys"
         title="Your Financial Journey, Mapped Out"
-        subline="Start where you are — we will show you the next step."
+        subline="Start where you are. We will show you the next step."
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
         {ROADMAPS.map((r) => (

@@ -4,7 +4,7 @@ import CalorieCalculator from "@/components/calc/CalorieCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "calorie")!;
-export const metadata = calcMeta("calorie", CALC.title + " — Daily Calories (TDEE)", CALC.blurb);
+export const metadata = calcMeta("calorie", CALC.title + " - Daily Calories (TDEE)", CALC.blurb);
 
 export default function Page() {
   return (
@@ -13,7 +13,7 @@ export default function Page() {
       title="Calorie Calculator"
       subtitle="Estimate the calories you burn each day and the targets to lose or gain weight."
       calculator={<CalorieCalculator />}
-      intro="A calorie calculator estimates how many calories your body uses in a day so you can eat with a goal in mind. It first works out your Basal Metabolic Rate (BMR) — the energy you'd burn at complete rest — then scales it by how active you are to give your Total Daily Energy Expenditure (TDEE), also called your maintenance calories. Eat around that number to hold your weight, a little less to lose, or a little more to gain. It's a starting point for planning, not a strict rule."
+      intro="A calorie calculator estimates how many calories your body uses in a day so you can eat with a goal in mind. It first works out your Basal Metabolic Rate (BMR), the energy you'd burn at complete rest, then scales it by how active you are to give your Total Daily Energy Expenditure (TDEE), also called your maintenance calories. Eat around that number to hold your weight, a little less to lose, or a little more to gain. It's a starting point for planning, not a strict rule."
       how={{
         heading: "How your daily calories are calculated",
         body: (
@@ -30,7 +30,7 @@ export default function Page() {
             <p>
               Here <strong>s</strong> is +5 for men and −161 for women. Your{" "}
               <strong>TDEE</strong> is then your BMR multiplied by an activity
-              factor — from 1.2 for a sedentary lifestyle up to 1.9 for very
+              factor, from 1.2 for a sedentary lifestyle up to 1.9 for very
               hard daily exercise. To change weight, we adjust from that
               maintenance number: roughly a 500 kcal daily deficit targets about
               0.5 kg (1 lb) of loss per week, and a 500 kcal surplus targets a
@@ -42,7 +42,7 @@ export default function Page() {
       faqs={[
         {
           q: "What is TDEE and how is it different from BMR?",
-          a: "BMR is the energy your body uses at complete rest just to keep you alive. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by an activity factor, so it includes movement, exercise and digestion. TDEE is your maintenance calories — the number to eat to stay the same weight.",
+          a: "BMR is the energy your body uses at complete rest just to keep you alive. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by an activity factor, so it includes movement, exercise and digestion. TDEE is your maintenance calories: the number to eat to stay the same weight.",
         },
         {
           q: "How many calories should I eat to lose weight?",
@@ -54,7 +54,7 @@ export default function Page() {
         },
         {
           q: "Which activity level should I choose?",
-          a: "Pick the one that matches a typical week, not your best week. 'Sedentary' suits a desk job with little exercise; 'Light' is exercise 1–3 days; 'Moderate' is 3–5 days; 'Active' is 6–7 days; and 'Very active' is hard training or a physically demanding job. When unsure, choose the lower option.",
+          a: "Pick the one that matches a typical week, not your best week. 'Sedentary' suits a desk job with little exercise; 'Light' is exercise 1-3 days; 'Moderate' is 3-5 days; 'Active' is 6-7 days; and 'Very active' is hard training or a physically demanding job. When unsure, choose the lower option.",
         },
         {
           q: "Is this medical or nutritional advice?",

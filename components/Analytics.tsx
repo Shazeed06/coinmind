@@ -5,7 +5,7 @@ import Script from "next/script";
 //
 // strategy="lazyOnload": gtag loads during browser idle time AFTER the page has
 // fully loaded, so it stays off the critical path (better FCP/LCP/TBT) while
-// still firing on EVERY visit — traffic counting stays accurate (unlike the
+// still firing on EVERY visit. Traffic counting stays accurate (unlike the
 // interaction-gated ad loader, GA must not miss bounce pageviews).
 export default function Analytics({ gaId }: { gaId: string }) {
   if (!gaId) return null;

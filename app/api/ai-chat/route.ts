@@ -1,10 +1,10 @@
-// AI backend for CoinMind — powers the Money Assistant AND the AI tools
+// AI backend for CoinMind: powers the Money Assistant AND the AI tools
 // (summariser, paraphraser, grammar, email/cover-letter, name & caption gen).
 //
 // Provider priority (first key that exists wins):
-//   1. DEEPSEEK_API_KEY — DeepSeek (paid, very cheap). platform.deepseek.com/api_keys
-//   2. GROQ_API_KEY     — free, fast, reliable. console.groq.com/keys
-//   3. GEMINI_API_KEY   — Google Gemini (free tier unreliable). aistudio.google.com/apikey
+//   1. DEEPSEEK_API_KEY: DeepSeek (paid, very cheap). platform.deepseek.com/api_keys
+//   2. GROQ_API_KEY     : free, fast, reliable. console.groq.com/keys
+//   3. GEMINI_API_KEY   : Google Gemini (free tier unreliable). aistudio.google.com/apikey
 //
 // DeepSeek & Groq are OpenAI-compatible; Gemini uses its own REST shape.
 // Keys stay server-side; the browser never sees them.
@@ -185,7 +185,7 @@ export async function POST(req: Request) {
   return Response.json(
     {
       error: "upstream",
-      reply: "The AI is very busy right now — please try again in a moment.",
+      reply: "The AI is very busy right now. Please try again in a moment.",
     },
     { status: 200 }
   );

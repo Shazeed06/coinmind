@@ -4,17 +4,17 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "QR Code Generator — Free Custom QR Codes" },
+  title: { absolute: "QR Code Generator - Free Custom QR Codes" },
   description:
-    "Free QR code generator. Create custom QR codes for any URL or text — pick colours, size and error correction, then download as PNG or SVG in your browser.",
+    "Free QR code generator. Create custom QR codes for any URL or text - pick colours, size and error correction, then download as PNG or SVG in your browser.",
   alternates: { canonical: "/tools/qr-code-generator" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/qr-code-generator",
-    title: "QR Code Generator — Free Custom QR Codes",
+    title: "QR Code Generator - Free Custom QR Codes",
     description:
-      "Create custom QR codes for any URL or text — choose colours, size and error correction, then download as PNG or SVG. 100% private, made in your browser.",
+      "Create custom QR codes for any URL or text - choose colours, size and error correction, then download as PNG or SVG. 100% private, made in your browser.",
     locale: "en_US",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Are my QR codes generated privately?",
-    a: "Yes. Everything runs in your browser — the text or URL you enter is turned into a QR code on your own device and is never uploaded, stored, or seen by anyone. You can even use the tool offline once the page has loaded, since the QR generation happens entirely in JavaScript with no server dependency.",
+    a: "Yes. Everything runs in your browser. The text or URL you enter is turned into a QR code on your own device and is never uploaded, stored, or seen by anyone. You can even use the tool offline once the page has loaded, since the QR generation happens entirely in JavaScript with no server dependency.",
   },
   {
     q: "What do the error-correction levels (L, M, Q, H) mean?",
@@ -38,11 +38,11 @@ const faqs = [
   },
   {
     q: "Should I download the PNG or the SVG?",
-    a: "Use the PNG for websites, social media posts, presentation slides, and messaging apps — it is a ready-to-use raster image at the exact pixel dimensions you chose. Use the SVG for print and large-format applications such as posters, banners, or business cards: it is a vector file that stays perfectly crisp at any size, from a sticker to a billboard, with no pixelation.",
+    a: "Use the PNG for websites, social media posts, presentation slides, and messaging apps. It is a ready-to-use raster image at the exact pixel dimensions you chose. Use the SVG for print and large-format applications such as posters, banners, or business cards: it is a vector file that stays perfectly crisp at any size, from a sticker to a billboard, with no pixelation.",
   },
   {
     q: "Do these QR codes expire or stop working?",
-    a: "No. These are static QR codes, meaning the link or text is encoded directly into the pattern of black and white modules. There is no tracking redirect service and no account involved, so the code will keep working indefinitely — but it also cannot be edited later. Double-check the URL before you print it, because changing the destination afterwards requires generating a new code.",
+    a: "No. These are static QR codes, meaning the link or text is encoded directly into the pattern of black and white modules. There is no tracking redirect service and no account involved, so the code will keep working indefinitely, but it also cannot be edited later. Double-check the URL before you print it, because changing the destination afterwards requires generating a new code.",
   },
   {
     q: "What can I put in a QR code?",
@@ -54,7 +54,15 @@ const faqs = [
   },
   {
     q: "What is the quiet zone and why does it matter?",
-    a: "The quiet zone is the blank margin that surrounds a QR code on all four sides. Scanners use this empty border to distinguish the code from surrounding text, graphics, or other visual elements. Without an adequate quiet zone — typically at least four modules wide — a scanner may fail to locate the code at all. The PNG and SVG exports from this tool include the quiet zone automatically.",
+    a: "The quiet zone is the blank margin that surrounds a QR code on all four sides. Scanners use this empty border to distinguish the code from surrounding text, graphics, or other visual elements. Without an adequate quiet zone, typically at least four modules wide, a scanner may fail to locate the code at all. The PNG and SVG exports from this tool include the quiet zone automatically.",
+  },
+  {
+    q: "How do I make a Wi-Fi QR code?",
+    a: "Type your credentials into the input field using the standard Wi-Fi format: WIFI:T:WPA;S:NetworkName;P:YourPassword;; including the two semicolons at the end. Replace WPA with WEP or nopass if that matches your router. Phones recognise the pattern and offer to join the network on scan. Test it on one device before printing it for guests.",
+  },
+  {
+    q: "Can I put a logo in the middle of the code?",
+    a: "This tool does not overlay logos, but you can add one afterwards in any image editor. Generate the code at error-correction level H first, which lets roughly 30 percent of the pattern be obscured, then place a small logo over the centre only. Keep it under about a fifth of the width and always test the finished code on two phones.",
   },
 ];
 
@@ -97,15 +105,15 @@ export default function Page() {
 
       <ToolPageLayout
         title="QR Code Generator"
-        description="Turn any website link or piece of text into a custom QR code in seconds. Choose your preferred size and colours, set the error-correction level, and download a crisp PNG for screens or a vector SVG for print — everything happens in your browser with nothing uploaded."
+        description="Turn any website link or piece of text into a custom QR code in seconds. Choose your preferred size and colours, set the error-correction level, and download a crisp PNG for screens or a vector SVG for print. Everything happens in your browser with nothing uploaded."
         howToUse={[
           {
             step: "Enter your link or text",
-            detail: "Paste a URL into the input field, or type any short piece of text you want the QR code to contain. This could be a website address, a Wi-Fi network password, a phone number, or even a plain-text message. For long URLs, consider using a link shortener first — shorter input produces a less dense QR code that scans faster and more reliably from a distance or in low light.",
+            detail: "Paste a URL into the input field, or type any short piece of text you want the QR code to contain. This could be a website address, a Wi-Fi network password, a phone number, or even a plain-text message. For long URLs, consider using a link shortener first. Shorter input produces a less dense QR code that scans faster and more reliably from a distance or in low light.",
           },
           {
             step: "Adjust the size and colours",
-            detail: "Use the size slider to set the pixel dimensions of your exported code. Larger sizes work better for print; smaller sizes are fine for on-screen use. If you want a branded look, pick custom foreground and background colours instead of the default black and white. Keep the foreground dark and the background light — strong contrast between the two is essential for reliable scanning.",
+            detail: "Use the size slider to set the pixel dimensions of your exported code. Larger sizes work better for print; smaller sizes are fine for on-screen use. If you want a branded look, pick custom foreground and background colours instead of the default black and white. Keep the foreground dark and the background light. Strong contrast between the two is essential for reliable scanning.",
           },
           {
             step: "Choose an error-correction level",
@@ -113,17 +121,17 @@ export default function Page() {
           },
           {
             step: "Check the live preview",
-            detail: "The preview updates in real time as you change any setting — the text, size, colours, or error correction. This lets you experiment freely without needing to download a file to see the result. Make sure the code looks visually clean and that your chosen colours maintain enough contrast for phone cameras to read the pattern easily.",
+            detail: "The preview updates in real time as you change any setting: the text, size, colours, or error correction. This lets you experiment freely without needing to download a file to see the result. Make sure the code looks visually clean and that your chosen colours maintain enough contrast for phone cameras to read the pattern easily.",
           },
           {
             step: "Download as PNG or SVG",
-            detail: "Once you are happy with the result, click Download PNG for a raster image ready to drop into a website, social post, or presentation. Choose Download SVG if the code is destined for print — vector graphics stay perfectly sharp at any size, from a small sticker to a large poster. Both formats include the necessary quiet-zone margin around the code for reliable scanning.",
+            detail: "Once you are happy with the result, click Download PNG for a raster image ready to drop into a website, social post, or presentation. Choose Download SVG if the code is destined for print. Vector graphics stay perfectly sharp at any size, from a small sticker to a large poster. Both formats include the necessary quiet-zone margin around the code for reliable scanning.",
           },
         ]}
         whenToUse={[
           {
             scenario: "You are printing marketing materials",
-            detail: "Flyers, posters, business cards, product packaging, and event banners all benefit from a QR code that takes someone straight to a website, menu, or sign-up page. Adding a scannable code removes the friction of typing a URL — particularly on mobile, where QR scanning is built into the default camera app on both iOS and Android. Customise the colours to match your brand palette so the code looks like an intentional part of the design rather than an afterthought.",
+            detail: "Flyers, posters, business cards, product packaging, and event banners all benefit from a QR code that takes someone straight to a website, menu, or sign-up page. Adding a scannable code removes the friction of typing a URL, particularly on mobile, where QR scanning is built into the default camera app on both iOS and Android. Customise the colours to match your brand palette so the code looks like an intentional part of the design rather than an afterthought.",
           },
           {
             scenario: "You are sharing Wi-Fi access with guests",
@@ -131,7 +139,7 @@ export default function Page() {
           },
           {
             scenario: "You need a quick digital-to-physical bridge",
-            detail: "QR codes shine when you want to connect something physical — a sticker, a label, a slide in a presentation, a printed receipt — to something digital like a survey, a payment page, an app download link, or a calendar event. Instead of asking people to type a URL, you put the destination one scan away. The PNG download is ready to drop into any document or design tool.",
+            detail: "QR codes shine when you want to connect something physical (a sticker, a label, a slide in a presentation, a printed receipt) to something digital like a survey, a payment page, an app download link, or a calendar event. Instead of asking people to type a URL, you put the destination one scan away. The PNG download is ready to drop into any document or design tool.",
           },
         ]}
         howItWorks="This generator builds QR codes entirely in your browser using a JavaScript QR encoding library. When you enter text or a URL, the library converts it into a two-dimensional matrix of black and white squares called modules, adding position markers in three corners, timing patterns, and the error-correction data you select. The tool renders this matrix onto an HTML canvas element in real time, which is why you see the preview update instantly as you adjust settings. When you click download, the canvas is exported to either a PNG file (a raster image at your chosen pixel size) or an SVG file (a vector graphic that stays sharp at any size). No data ever leaves your browser during this entire process."
@@ -139,7 +147,7 @@ export default function Page() {
           "Test every QR code with at least two different phones before you print or publish it. Different camera apps, lighting conditions, and screen types can affect scannability. Testing catches contrast issues and encoding errors that the preview might not reveal.",
           "Keep your input short. A concise URL or text block produces a less dense QR code with larger, more distinct modules. Dense codes packed with data require the scanner to work harder and are more likely to fail at small sizes or in uneven lighting.",
           "Never invert the colours to a light pattern on a dark background. QR scanners are calibrated to look for dark modules on a light field, and inverted codes fail on most devices. If you need a dark-themed QR code, test it thoroughly on multiple phones before committing.",
-          "Leave the quiet zone alone. The blank border around the code is not decorative — it is a functional part of the QR specification that helps scanners isolate the code from surrounding graphics. Trimming the quiet zone is a reliable way to make a code unscannable.",
+          "Leave the quiet zone alone. The blank border around the code is not decorative. It is a functional part of the QR specification that helps scanners isolate the code from surrounding graphics. Trimming the quiet zone is a reliable way to make a code unscannable.",
           "Use SVG for anything that will be printed. Raster formats like PNG have a fixed pixel grid and will look blurry or pixelated when enlarged beyond their native size. SVG files are mathematical descriptions of shapes that scale cleanly to any dimension, making them the right choice for posters, banners, and packaging.",
         ]}
         faqs={faqs}

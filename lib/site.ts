@@ -1,4 +1,4 @@
-// Central site configuration — change brand/domain here once, reflects everywhere.
+// Central site configuration: change brand/domain here once, reflects everywhere.
 
 export const site = {
   name: "CoinMind",
@@ -11,10 +11,10 @@ export const site = {
   // or Zoho Mail) so the address actually receives mail before applying to AdSense.
   email: "coinmindofficial@gmail.com",
   description:
-    "Free personal finance calculators for India — SIP, EMI, income tax, FD, PPF and more. Educational guides, explained clearly. No sign-up.",
+    "Free personal finance calculators for India: SIP, EMI, income tax, FD, PPF and more. Educational guides, explained clearly. No sign-up.",
   locale: "en",
   authorName: "Sahil",
-  // Named author/editor behind the content — E-E-A-T "Who" for a YMYL finance
+  // Named author/editor behind the content: E-E-A-T "Who" for a YMYL finance
   // site. CA (Final) is a genuine, relevant finance credential.
   author: {
     firstName: "Sahil",
@@ -35,10 +35,10 @@ export const site = {
   // Re-enable by pasting the ID back the moment you add a real tag in the GTM UI.
   gtmId: "",
   googleVerification: "-S3tJnGDGCsP1TZH2m4Pf22meQCkexKzN-u0LfpyBDY", // GSC HTML-tag token
-  // IndexNow key (Bing/Yandex/Naver instant indexing — also feeds ChatGPT Search
+  // IndexNow key (Bing/Yandex/Naver instant indexing: also feeds ChatGPT Search
   // via Bing's index). The key file lives at /<key>.txt in public/.
   indexNowKey: "50d24150aec21af2e12f5995d1758905",
-  // Google AdSense publisher ID — the FULL client value "ca-pub-XXXXXXXXXXXXXXXX".
+  // Google AdSense publisher ID: the FULL client value "ca-pub-XXXXXXXXXXXXXXXX".
   // This switches on the AdSense loader script (for site review + serving ads);
   // the matching line is in public/ads.txt.
   adsenseClientId: "ca-pub-5677983073792236",

@@ -41,6 +41,18 @@ export const trafficPosts3: Post[] = [
         q: "What internet speed do I need for remote work in India?",
         a: "A minimum of 50 Mbps is recommended for comfortable remote work involving video calls and file sharing. For roles involving video editing or large file transfers, 100 Mbps or higher is preferable. Jio Fiber, Airtel Xstream, and ACT Fibernet offer reliable plans starting around Rs 500 to Rs 800 per month.",
       },
+      {
+        q: "What are the best work from home jobs for women in India?",
+        a: "Content writing, online tutoring, graphic design, social media management, and virtual assistance are among the best WFH options for women in India. These roles offer flexible hours that can be adjusted around family responsibilities. Many women also build successful freelance careers in HR consulting, counselling, and nutrition coaching from home.",
+      },
+      {
+        q: "Is work from home allowed in government jobs in India?",
+        a: "Most government jobs in India still require physical attendance at offices. However, some IT and data-related roles in organisations like NIC, UIDAI, and certain PSUs have introduced hybrid arrangements post-pandemic. The central government has not yet issued a blanket WFH policy, so availability depends on the specific department and role.",
+      },
+      {
+        q: "How can I avoid work from home job scams in India?",
+        a: "Never pay any registration fee or deposit to a potential employer, as legitimate companies never charge candidates. Verify the company on MCA portal, LinkedIn, and Glassdoor before applying. Be wary of offers promising unrealistic earnings, vague job descriptions, or communication only through WhatsApp or Telegram without a formal interview process.",
+      },
     ],
   },
   {
@@ -82,6 +94,18 @@ export const trafficPosts3: Post[] = [
       {
         q: "Which is better for Indian freelancers, Upwork or Fiverr?",
         a: "Upwork is better for long-term client relationships and higher-value projects, while Fiverr works better for productised services with fixed pricing. Many successful freelancers use both platforms. Upwork charges 10 percent commission versus Fiverr's 20 percent, but Fiverr's model requires less time spent on proposals.",
+      },
+      {
+        q: "How do I receive international payments as a freelancer in India?",
+        a: "The most popular options are Payoneer, Wise, and PayPal, with Payoneer and Wise offering better exchange rates and lower fees than PayPal. Direct wire transfers through your bank work for large amounts but carry higher per-transaction fees. Ensure you receive payments in a foreign currency bank account or through authorised dealers to comply with FEMA regulations.",
+      },
+      {
+        q: "What skills are most in demand on freelancing platforms in 2026?",
+        a: "AI and machine learning development, full-stack web development, UI/UX design, video editing, and performance marketing are the highest-demand skills on freelancing platforms in 2026. Content writing for SaaS and fintech niches also commands premium rates. Skills that combine technical ability with creative problem-solving consistently attract the best-paying clients.",
+      },
+      {
+        q: "Can college students do freelancing in India?",
+        a: "Yes, freelancing is an excellent way for Indian college students to earn money and build professional skills. Content writing, graphic design, social media management, and web development are popular choices that can be managed alongside studies. There are no age or qualification restrictions on platforms like Fiverr and Upwork, though you need a PAN card and bank account for payments.",
       },
     ],
   },
@@ -125,6 +149,18 @@ export const trafficPosts3: Post[] = [
         q: "How long does it take to become a digital marketer in India?",
         a: "With dedicated effort, you can learn the fundamentals in 2 to 3 months and be job-ready in 6 to 9 months. Most professionals take 1 to 2 years of hands-on experience to become proficient in their chosen specialisation. Continuous learning is essential as the field evolves rapidly.",
       },
+      {
+        q: "Is digital marketing a good career for freshers in India?",
+        a: "Yes, digital marketing is one of the most accessible career paths for freshers because employers value practical skills and certifications over formal degrees. Entry-level roles pay Rs 2 to Rs 4 lakh per annum, and growth is rapid for those who deliver measurable results. Free certifications from Google and HubSpot can help you land your first job within months of learning.",
+      },
+      {
+        q: "Which is the best city for digital marketing jobs in India?",
+        a: "Bangalore leads with the highest number of digital marketing job openings and salaries, followed by Mumbai, Delhi NCR, Hyderabad, and Pune. However, the rise of remote work means location matters less than it used to. Many agencies and startups now hire fully remote digital marketers, allowing professionals in tier-2 cities to access metro-level salaries.",
+      },
+      {
+        q: "Should I choose freelancing, agency, or in-house for a digital marketing career?",
+        a: "Agencies offer the fastest learning curve because you work across multiple clients and industries simultaneously. In-house roles provide deeper brand understanding and better work-life balance. Freelancing offers the highest earning potential and flexibility but requires self-discipline and business development skills. Many marketers start at an agency, move in-house, and eventually freelance.",
+      },
     ],
   },
   {
@@ -166,6 +202,18 @@ export const trafficPosts3: Post[] = [
       {
         q: "Do I need to register a business to blog in India?",
         a: "You do not need to register a business initially. Blog income can be reported as income from other sources or business income in your ITR. If your blogging income grows significantly (above Rs 20 lakh turnover), you should consider GST registration. Consulting a chartered accountant when your blog starts earning consistently is recommended.",
+      },
+      {
+        q: "How many blog posts do I need before applying to Google AdSense?",
+        a: "Google does not specify a minimum number of posts, but most bloggers get approved with 20 to 30 high-quality, original articles of at least 1,000 words each. Your blog should also have essential pages like About, Contact, Privacy Policy, and Disclaimer. Ensure your content provides genuine value and is not thin or AI-generated filler.",
+      },
+      {
+        q: "What are the best blog topics for an Indian audience?",
+        a: "Personal finance (mutual funds, tax saving, insurance), technology reviews, government schemes, competitive exam preparation, cricket, Bollywood, cooking recipes, and career guidance consistently attract high traffic from Indian readers. Topics that solve everyday problems for Indian users, such as comparing bank accounts or explaining ITR filing, perform especially well.",
+      },
+      {
+        q: "Can AI-written content rank on Google in 2026?",
+        a: "Google does not penalise AI-generated content outright but prioritises content demonstrating Experience, Expertise, Authoritativeness, and Trustworthiness (EEAT). Purely AI-generated articles without human editing, personal insights, or original data rarely rank well. The best approach is to use AI as a writing assistant while adding your own expertise, examples, and unique perspectives.",
       },
     ],
   },
@@ -209,6 +257,18 @@ export const trafficPosts3: Post[] = [
         q: "What is the best side hustle for IT professionals in India?",
         a: "Freelance web development, mobile app development, and technical consulting are the highest-paying side hustles for IT professionals. Creating online courses or YouTube tutorials about programming also works well. These leverage existing skills and command premium rates of Rs 1,000 to Rs 5,000 per hour.",
       },
+      {
+        q: "Is it legal to do a side hustle while on an employment visa or H1B?",
+        a: "If you are on an H1B or similar work visa, you are generally restricted to working only for your sponsoring employer, making most side hustles legally risky. However, passive income from investments, rental property, or royalties from previously created content is typically permitted. Always consult an immigration attorney before starting any side work while on a visa.",
+      },
+      {
+        q: "What are the best side hustles for housewives in India?",
+        a: "Online tutoring, content writing, home-based baking and catering, social media management, and selling handmade products on platforms like Amazon and Meesho are popular choices for housewives in India. Many women also earn well through reselling on Meesho with zero investment or by offering tailoring, mehendi, and craft services locally.",
+      },
+      {
+        q: "How do I manage time between a full-time job and a side hustle?",
+        a: "Dedicate fixed hours to your side hustle, such as early mornings, evenings, or weekends, and treat those hours as non-negotiable appointments. Use productivity tools like Notion or Google Calendar to plan tasks in advance. Start with 5 to 10 hours per week and scale only when you have a sustainable routine that does not compromise your primary job or health.",
+      },
     ],
   },
   {
@@ -250,6 +310,18 @@ export const trafficPosts3: Post[] = [
       {
         q: "How often should I post on LinkedIn to get noticed?",
         a: "Two to three posts per week is the ideal frequency for maintaining visibility without overwhelming your network. Consistency matters more than frequency. Even one well-written post per week with thoughtful comments on others' content is more effective than daily low-quality posts.",
+      },
+      {
+        q: "Does LinkedIn Premium help in getting jobs in India?",
+        a: "LinkedIn Premium Career (approximately Rs 1,500 per month) provides InMail credits to contact recruiters directly, shows you who viewed your profile, and gives salary insights for job listings. It can be helpful during active job searches, especially for reaching hiring managers at MNCs. However, a well-optimised free profile with strong content engagement often delivers similar results.",
+      },
+      {
+        q: "How do I get LinkedIn recommendations from colleagues?",
+        a: "The most effective approach is to write genuine recommendations for your colleagues first, as many will reciprocate. When requesting, be specific about which project or achievement you would like them to highlight. Send a polite message explaining why their recommendation matters and make it easy by suggesting key points they could mention.",
+      },
+      {
+        q: "What should I do if my LinkedIn account is restricted?",
+        a: "LinkedIn restricts accounts for excessive connection requests, suspected automation, or violating community guidelines. To resolve it, go to the LinkedIn Help Centre and submit an appeal with your identity verification. Avoid using third-party automation tools, limit connection requests to 100 per week, and always include personalised notes to reduce future restrictions.",
       },
     ],
   },
@@ -293,6 +365,18 @@ export const trafficPosts3: Post[] = [
         q: "How many certificates should I have on my LinkedIn profile?",
         a: "Quality matters more than quantity. Having 5 to 10 relevant certificates in your area of expertise is ideal. Listing 50 certificates across unrelated fields suggests unfocused learning. Focus on certificates that directly support the role you want and ensure you can speak confidently about the skills each certificate covers.",
       },
+      {
+        q: "Are Udemy free courses worth it for career growth?",
+        a: "Udemy free courses are useful for learning basics and exploring new topics, but their certificates carry limited weight with employers compared to Google, IBM, or NPTEL credentials. The quality varies widely since anyone can publish a course on Udemy. Use free Udemy courses for self-learning and supplement them with recognised certifications for your resume.",
+      },
+      {
+        q: "Do online course certificates expire?",
+        a: "Most certificates from Google, HubSpot, and Meta do not expire, though some like Google Ads certifications require renewal every 12 months by retaking the exam. NPTEL certificates are permanent. It is good practice to keep your certifications current by retaking updated versions of courses when available, as outdated certifications may signal stale skills to employers.",
+      },
+      {
+        q: "Which free online courses are best for government job preparation in India?",
+        a: "NPTEL courses from IITs cover engineering and science subjects useful for technical government exams. Swayam portal offers free courses aligned with UGC and AICTE curricula. For UPSC preparation, platforms like Unacademy and BYJU's offer limited free content. Khan Academy and DIKSHA (by the Government of India) provide free resources for school-level subjects tested in SSC and banking exams.",
+      },
     ],
   },
   {
@@ -335,6 +419,18 @@ export const trafficPosts3: Post[] = [
         q: "How do I negotiate salary for a remote job with an international company?",
         a: "Research global salary benchmarks using Glassdoor, Levels.fyi, and LinkedIn for the specific role and company. Some international companies pay location-adjusted salaries (lower for India-based employees) while others pay global rates. Negotiate based on the value you deliver rather than your location. Highlight the cost advantage you offer compared to candidates in higher-cost locations.",
       },
+      {
+        q: "Should I negotiate salary for my first job in India?",
+        a: "Yes, even freshers should negotiate politely. While campus placement offers have limited flexibility, off-campus offers often have a 10 to 15 percent buffer. Focus on total compensation including joining bonus, relocation allowance, and learning budget rather than just base salary. A well-researched, respectful ask will never cost you the offer.",
+      },
+      {
+        q: "How do I ask for a salary revision mid-year in India?",
+        a: "Request a meeting with your manager and present a clear case based on expanded responsibilities, measurable achievements since your last review, and current market benchmarks for your role. Mid-year revisions are more common at startups and smaller companies than large corporates. Timing matters: approach after a successful project delivery or when the company is performing well financially.",
+      },
+      {
+        q: "Is it okay to negotiate salary via email in India?",
+        a: "Email negotiation is acceptable and even preferred for initial discussions, as it gives both parties time to consider the details carefully. Keep your tone professional, include data-backed reasoning, and express genuine enthusiasm for the role. However, follow up with a phone or video call for complex negotiations where real-time discussion can resolve concerns faster.",
+      },
     ],
   },
   {
@@ -376,6 +472,18 @@ export const trafficPosts3: Post[] = [
       {
         q: "Do Indian YouTubers need to pay GST?",
         a: "Yes, if your annual YouTube income exceeds Rs 20 lakh (Rs 10 lakh in special category states), GST registration is mandatory. YouTube income from AdSense is considered export of services since Google pays from outside India, and may qualify for zero-rated GST. However, sponsorship income from Indian brands is subject to standard GST rates. Consult a chartered accountant for your specific situation.",
+      },
+      {
+        q: "Can I start a YouTube channel while working a full-time job in India?",
+        a: "Yes, many successful Indian YouTubers started their channels while employed full-time. Check your employment contract for any content creation or moonlighting restrictions. Batch-film videos on weekends and schedule uploads during the week. Most creators treat YouTube as a side project for 12 to 18 months before it generates enough income to consider going full-time.",
+      },
+      {
+        q: "Which language is best for YouTube in India, Hindi or English?",
+        a: "Hindi reaches a larger audience within India with over 500 million speakers, while English appeals to a global viewer base and attracts higher CPM rates from advertisers. Many successful creators use Hinglish, a mix of Hindi and English, to reach the widest Indian audience. Choose the language you are most comfortable and natural in, as authenticity drives viewer retention.",
+      },
+      {
+        q: "How do I deal with copyright claims on YouTube?",
+        a: "If you receive a Content ID claim, you can remove the copyrighted material, replace it with royalty-free alternatives, or dispute the claim if you believe it qualifies as fair use. Use royalty-free music from YouTube Audio Library, Epidemic Sound, or Artlist to avoid claims entirely. Repeated copyright strikes can lead to channel termination, so always verify usage rights before including third-party content.",
       },
     ],
   },

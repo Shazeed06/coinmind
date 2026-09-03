@@ -40,6 +40,18 @@ export const trafficPosts2: Post[] = [
         q: "Which AI image generator is best for social media content?",
         a: "Canva Magic Studio is ideal because it combines AI image generation with design tools, templates, and direct posting. Ideogram 2.0 is excellent for images that need text overlays. For Instagram-style photography, Midjourney produces the most visually appealing results.",
       },
+      {
+        q: "Do AI image generators work well for Indian festival and wedding creatives?",
+        a: "Yes, most AI image generators can produce Indian festival and wedding visuals when given specific prompts. Mention details like Diwali diyas, Holi colours, mehndi patterns, or mandap decorations for best results. Midjourney and Stable Diffusion with community models handle traditional Indian aesthetics particularly well.",
+      },
+      {
+        q: "Can AI-generated images replace a professional graphic designer in India?",
+        a: "AI image generators are excellent for quick social media posts, blog headers, and concept mockups but cannot fully replace a professional designer for branding, complex layouts, and client-specific work. Most Indian freelancers and agencies use AI to speed up their workflow rather than as a complete replacement.",
+      },
+      {
+        q: "How many images can I generate per day with free AI tools?",
+        a: "Playground AI offers up to 500 free images per day, the most generous option. Leonardo AI gives 150 tokens daily (roughly 15-30 images). Bing Image Creator offers unlimited generations with wait times after boosts run out. Stable Diffusion is unlimited if run locally on your own hardware.",
+      },
     ],
   },
   {
@@ -79,6 +91,18 @@ export const trafficPosts2: Post[] = [
       {
         q: "Which ChatGPT alternative works offline or locally?",
         a: "HuggingChat provides open-source models that can be downloaded and run locally. Stable Diffusion's text models and Llama (via Ollama) can also run on your computer without an internet connection. You need a computer with at least 16 GB RAM for basic local AI models.",
+      },
+      {
+        q: "Which ChatGPT alternative supports Hindi and regional Indian languages best?",
+        a: "Google Gemini leads with the best support for Hindi, Tamil, Telugu, Bengali, Kannada, Malayalam, and several other Indian languages. Meta AI also handles Hindi well through WhatsApp. ChatGPT and Claude support Hindi but are stronger in English, while most other alternatives have limited Indian language capabilities.",
+      },
+      {
+        q: "Can I use ChatGPT alternatives for preparing for competitive exams in India?",
+        a: "Yes, several alternatives are helpful for UPSC, CAT, JEE, and other competitive exam preparation. Perplexity AI is excellent for research-based answers with citations. Google Gemini provides accurate general knowledge responses. Claude handles complex reasoning and essay-type questions well. However, always verify facts with official study material.",
+      },
+      {
+        q: "Do ChatGPT alternatives have mobile apps for Android?",
+        a: "Most major alternatives offer Android apps. Google Gemini is pre-installed on many Android phones. ChatGPT, Microsoft Copilot, and Perplexity all have dedicated Android apps on the Google Play Store. Meta AI is accessible directly through WhatsApp and Instagram without a separate app.",
       },
     ],
   },
@@ -122,6 +146,18 @@ export const trafficPosts2: Post[] = [
         q: "Do AI coding assistants work with Indian tech stacks like MERN or Spring Boot?",
         a: "Yes. All major AI coding assistants work well with popular Indian tech stacks including MERN (MongoDB, Express, React, Node.js), Spring Boot, Django, and .NET. They understand framework-specific patterns, configurations, and best practices.",
       },
+      {
+        q: "Can AI coding assistants help with competitive programming and DSA practice?",
+        a: "AI coding assistants can explain algorithms, suggest optimisations, and help debug competitive programming solutions. However, relying on them during contests defeats the purpose of practice. Use them as a learning tool to understand approaches after attempting problems on platforms like LeetCode, Codeforces, and GeeksforGeeks.",
+      },
+      {
+        q: "Do AI coding assistants work without an internet connection?",
+        a: "Most AI coding assistants require an internet connection since they rely on cloud-based models. Tabnine offers an on-device mode for basic code completions. GitHub Copilot and Cursor both need a stable connection. For offline use, you can run local models through tools like Ollama, though quality is lower than cloud-based options.",
+      },
+      {
+        q: "Are AI coding assistants safe for writing production code at Indian IT companies?",
+        a: "Major AI coding assistants like GitHub Copilot Business and Tabnine Enterprise include IP indemnification and code privacy protections. Always review AI-generated code for security vulnerabilities, edge cases, and compliance with your organisation's coding standards. Many Indian IT companies now have specific policies governing AI tool usage in production codebases.",
+      },
     ],
   },
   {
@@ -162,6 +198,18 @@ export const trafficPosts2: Post[] = [
       {
         q: "What are the best free courses for learning ML in India?",
         a: "Andrew Ng's Machine Learning course on Coursera, NPTEL courses from IITs, fast.ai for practical deep learning, and Google's Machine Learning Crash Course are all excellent free or low-cost options. IIT Madras also offers an online BS in Data Science.",
+      },
+      {
+        q: "What is generative AI and how is it different from regular AI?",
+        a: "Generative AI is a type of deep learning that creates new content such as text, images, code, and video. Regular AI systems classify, predict, or analyse existing data, while generative AI produces original outputs. Tools like ChatGPT and Midjourney are generative AI, whereas a spam filter or fraud detection system is traditional AI.",
+      },
+      {
+        q: "How much data is needed to train a machine learning model?",
+        a: "The amount varies by task and model type. Simple supervised learning models can work with a few thousand data points. Deep learning models typically need tens of thousands to millions of labelled examples. Techniques like transfer learning and data augmentation help when data is limited, which is common in Indian industry projects.",
+      },
+      {
+        q: "Can I build an AI or ML career without an engineering degree in India?",
+        a: "Yes, many successful ML practitioners come from non-engineering backgrounds like mathematics, statistics, physics, and economics. What matters most is strong Python skills, understanding of statistics, and hands-on project experience. Online certifications from Coursera, NPTEL, and Google carry significant weight with Indian employers.",
       },
     ],
   },
@@ -205,6 +253,18 @@ export const trafficPosts2: Post[] = [
         q: "Is Jasper worth Rs 4,000+ per month over free ChatGPT?",
         a: "For individual writers, probably not. ChatGPT with good prompting can produce similar quality content. Jasper's value comes from brand voice training, team collaboration features, and campaign management that matter for marketing agencies and large teams. For solo Indian bloggers and freelancers, ChatGPT or Claude offers better value.",
       },
+      {
+        q: "Can AI writing tools detect and avoid plagiarism?",
+        a: "Some AI writing tools like Grammarly include built-in plagiarism checkers. AI-generated content is not technically plagiarised, but it can occasionally produce phrases matching existing published work. For academic and professional writing, always run important pieces through a dedicated plagiarism checker like Turnitin or Grammarly's plagiarism feature.",
+      },
+      {
+        q: "How do I make AI-generated content sound less robotic and more natural?",
+        a: "Provide the AI with examples of your writing style and specify the tone you want. Edit aggressively by removing filler phrases like 'it is important to note' and 'in today's digital age.' Add personal anecdotes, specific data, and opinions that only a human would have. The best AI content is always human-edited.",
+      },
+      {
+        q: "Which AI tool is best for writing product descriptions for Indian e-commerce?",
+        a: "Copy.ai and Writesonic both offer product description templates that work well for Amazon India, Flipkart, and Meesho listings. ChatGPT is also effective when given specific product details, target audience, and keyword requirements. For bulk descriptions, Jasper's batch generation feature saves significant time for larger catalogues.",
+      },
     ],
   },
   {
@@ -247,6 +307,18 @@ export const trafficPosts2: Post[] = [
         q: "Will AI-generated social media content hurt my engagement?",
         a: "Not if you use AI correctly. The key is treating AI output as a first draft, not a final product. Add personal stories, brand-specific details, and emotional elements that AI cannot replicate. Posts that are clearly generic AI content will underperform, but well-edited AI-assisted content performs on par with or better than fully manual content.",
       },
+      {
+        q: "Which AI tool is best for creating Instagram Reels and YouTube Shorts scripts?",
+        a: "ChatGPT and Claude both excel at writing short-form video scripts. Provide the hook, key message, and call-to-action. CapCut offers AI-powered editing features for turning scripts into videos. For Indian creators, specifying Hinglish tone and trending audio references in your prompts produces more relatable scripts.",
+      },
+      {
+        q: "Can AI tools schedule social media posts automatically in India?",
+        a: "Yes, tools like Buffer, Hootsuite, and Later use AI to suggest optimal posting times based on your audience's activity. Buffer's free plan covers three channels and is sufficient for small businesses. These tools analyse when your Indian audience is most active and schedule posts accordingly, typically around 11 AM-1 PM and 7-9 PM IST for Instagram.",
+      },
+      {
+        q: "How do I use AI for WhatsApp Business marketing in India?",
+        a: "ManyChat and Interakt offer AI-powered chatbots for WhatsApp Business that handle customer inquiries, qualify leads, and send automated responses. You can use ChatGPT to draft WhatsApp broadcast messages and catalogue descriptions. Meta AI is also built into WhatsApp for quick content assistance during customer conversations.",
+      },
     ],
   },
   {
@@ -287,6 +359,18 @@ export const trafficPosts2: Post[] = [
       {
         q: "How do I make AI images of Indian scenes and culture?",
         a: "Be specific in your prompts. Instead of 'Indian woman,' describe the specific region, clothing, and setting. For example, 'a woman in a Kanchipuram silk saree at a Tamil Nadu temple during evening prayer, warm golden light.' All three tools handle Indian cultural prompts, but Stable Diffusion has community models specifically trained on Indian aesthetics.",
+      },
+      {
+        q: "Can I train my own custom AI image model with Stable Diffusion?",
+        a: "Yes, Stable Diffusion supports custom model training through LoRAs and DreamBooth. You can train on specific styles, products, or brand aesthetics using as few as 15-20 reference images. This is especially useful for Indian e-commerce businesses that need consistent product imagery across hundreds of listings.",
+      },
+      {
+        q: "Which AI image tool is fastest for generating images?",
+        a: "DALL-E 3 through ChatGPT is the fastest from prompt to result since there is no setup involved. Midjourney generates images in 30-60 seconds on fast mode. Stable Diffusion speed depends on your GPU -- a modern NVIDIA RTX 4070 produces images in 10-20 seconds, while cloud services vary by provider and queue time.",
+      },
+      {
+        q: "Do Midjourney, DALL-E, and Stable Diffusion support text in images?",
+        a: "Text rendering has improved significantly across all three tools. DALL-E 3 handles short text most reliably and accurately. Midjourney v7 has improved text placement but can still misspell longer words. Stable Diffusion's text capabilities depend on the specific model used, with newer SDXL-based models performing better for text-in-image tasks.",
       },
     ],
   },
@@ -330,6 +414,18 @@ export const trafficPosts2: Post[] = [
         q: "Are AI apps safe to use on Android phones?",
         a: "AI apps from major companies like Google, Microsoft, OpenAI, and Adobe are safe to install. Download only from the Google Play Store and check reviews before installing lesser-known AI apps. Be cautious about granting permissions like microphone or camera access to apps from unknown developers. Avoid AI apps that ask for unnecessary permissions like access to your contacts or SMS.",
       },
+      {
+        q: "Which AI apps work well on budget Android phones under Rs 10,000?",
+        a: "Google Gemini, Google Translate, Socratic, Photomath, Adobe Scan, Grammarly Keyboard, and SwiftKey all run smoothly on phones with 3-4 GB RAM. ChatGPT works but may be slower. Avoid image-heavy apps like Canva on very low-end devices as they require at least 4 GB RAM for a good experience.",
+      },
+      {
+        q: "How much mobile data do AI apps use per month in India?",
+        a: "For moderate daily use, expect 500 MB to 1.5 GB per month from AI chatbot apps like ChatGPT and Gemini. Apps using camera features like Photomath or Google Translate use more during active sessions. Google Translate's offline mode and keyboard apps like Grammarly use minimal data. Most Indian 4G plans comfortably support this usage.",
+      },
+      {
+        q: "Can AI apps help with learning spoken English in India?",
+        a: "Yes, Elsa Speak is specifically designed for English pronunciation improvement and tailors feedback for Indian English speakers. Google Gemini and ChatGPT can also help with vocabulary, grammar explanations, and conversation practice. Grammarly Keyboard corrects written English across all apps in real time, which reinforces learning over time.",
+      },
     ],
   },
   {
@@ -371,6 +467,18 @@ export const trafficPosts2: Post[] = [
       {
         q: "How is AI making healthcare more affordable in India?",
         a: "AI reduces costs in several ways: automated screening reduces the need for expensive specialist consultations for initial assessment, telemedicine powered by AI reduces travel costs for rural patients, AI-assisted drug discovery can lower medication costs, and remote monitoring reduces hospital readmissions. Government TB screening programmes using AI have significantly reduced per-patient screening costs.",
+      },
+      {
+        q: "Which AI health apps are available for patients in India?",
+        a: "Practo, 1mg, and PharmEasy offer AI-powered symptom checkers and doctor consultations. BeatO provides AI-driven diabetes management. Google Health tools assist with dermatology and eye screening. These apps are available on Android and iOS, though they should supplement rather than replace in-person doctor visits.",
+      },
+      {
+        q: "Is AI used in Ayushman Bharat and government health schemes?",
+        a: "Yes, the National Digital Health Mission integrates AI into public healthcare through the ABHA digital health records system. Government TB screening programmes use Qure.ai's chest X-ray analysis at primary health centres. ICMR has published guidelines for AI use in biomedical research to support wider adoption across government hospitals.",
+      },
+      {
+        q: "Can AI help with mental health support in India?",
+        a: "AI-powered mental health chatbots are emerging to address India's shortage of mental health professionals. These tools provide initial screening, coping strategies, and guided exercises in Indian languages. However, they are not substitutes for professional therapy and should be used for preliminary support and awareness rather than treatment of serious conditions.",
       },
     ],
   },

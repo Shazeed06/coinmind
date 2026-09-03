@@ -131,7 +131,7 @@ export default function NpsCalculator() {
           Estimated monthly pension
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(pension, currency) : "—"}
+          {valid ? formatCurrency(pension, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">
           {valid

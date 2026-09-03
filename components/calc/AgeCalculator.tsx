@@ -63,7 +63,7 @@ export default function AgeCalculator() {
       return {
         state: "error" as const,
         message:
-          "The date of birth is after the target date. Check the two dates — a birth date can't be in the future.",
+          "The date of birth is after the target date. Check the two dates: a birth date can't be in the future.",
       };
     }
 

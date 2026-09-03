@@ -37,7 +37,7 @@ export async function generateMetadata({
   const monthlyStr = formatCurrency(monthly);
 
   const title = `${label} In-Hand Salary Per Month (2026)`;
-  const description = `A ₹${label} CTC works out to about ${monthlyStr} per month in hand — ${formatCurrency(netAnnual)} a year. Full deduction breakdown, with every assumption shown.`;
+  const description = `A ₹${label} CTC works out to about ${monthlyStr} per month in hand, ${formatCurrency(netAnnual)} a year. Full deduction breakdown, with every assumption shown.`;
 
   return {
     title: { absolute: title },
@@ -114,12 +114,12 @@ export default async function Page({
   const scenarios = basicPctScenarios(lpa);
   const monthlyStr = formatCurrency(r.monthly);
 
-  // The spread between the most and least favourable basic-salary structure —
-  // this is the number rival pages hide by quoting a single figure.
+  // The spread between the most and least favourable basic-salary structure.
+  // This is the number rival pages hide by quoting a single figure.
   const monthlies = scenarios.map((s) => s.monthly);
   const spread = Math.max(...monthlies) - Math.min(...monthlies);
 
-  const quickAnswer = `A ₹${label} CTC in India works out to roughly ${monthlyStr} per month in hand, or ${formatCurrency(r.netAnnual)} a year, assuming basic salary is 50% of CTC and the new tax regime for FY 2026-27. That is ${r.takeHomePct.toFixed(1)}% of your CTC — the rest goes to employer PF and gratuity (which never reach you as cash), your own PF, professional tax${r.tax > 0 ? " and income tax" : ", with no income tax payable at this level"}.`;
+  const quickAnswer = `A ₹${label} CTC in India works out to roughly ${monthlyStr} per month in hand, or ${formatCurrency(r.netAnnual)} a year, assuming basic salary is 50% of CTC and the new tax regime for FY 2026-27. That is ${r.takeHomePct.toFixed(1)}% of your CTC. The rest goes to employer PF and gratuity (which never reach you as cash), your own PF, professional tax${r.tax > 0 ? " and income tax" : ", with no income tax payable at this level"}.`;
 
   const faqs: { q: string; a: string }[] = [
     {
@@ -139,7 +139,7 @@ export default async function Page({
     },
     {
       q: `Is ${label} a good salary in India?`,
-      a: `That depends entirely on your city, experience and expenses rather than on the number itself. What matters practically is the ${monthlyStr} that actually reaches your account, not the ₹${label} headline. Budget from the in-hand figure, not the CTC, and remember that a large portion of the difference is your own PF, which is still your money — it is saved rather than lost.`,
+      a: `That depends entirely on your city, experience and expenses rather than on the number itself. What matters practically is the ${monthlyStr} that actually reaches your account, not the ₹${label} headline. Budget from the in-hand figure, not the CTC, and remember that a large portion of the difference is your own PF, which is still your money. It is saved rather than lost.`,
     },
     {
       q: `Does this include HRA exemption or old regime deductions?`,
@@ -148,6 +148,26 @@ export default async function Page({
     {
       q: `Is my PF deduction actually a loss?`,
       a: `No. Your ${formatCurrency(r.employeePF)} employee PF and the employer's matching ${formatCurrency(r.employerPF)} both go into your EPF account and earn interest. They reduce your monthly cash but increase your retirement savings, so treat them as forced saving rather than as a deduction you never see again.`,
+    },
+    {
+      q: `Why is my in-hand salary lower than my ₹${label} CTC?`,
+      a: `Because ${formatCurrency(r.ctc - r.netAnnual)} of that CTC never arrives as cash, and it leaves in two separate stages. First, ${formatCurrency(r.employerPF + r.gratuity)} is a cost to the company rather than pay to you: ${formatCurrency(r.employerPF)} of employer PF and a ${formatCurrency(r.gratuity)} gratuity provision. Removing those gives your gross salary of ${formatCurrency(r.gross)}. Then your own deductions come out of that gross: ${formatCurrency(r.employeePF)} of employee PF, ${formatCurrency(r.profTax)} of professional tax${r.tax > 0 ? ` and ${formatCurrency(r.tax)} of income tax` : `, with no income tax payable at this level`}. What survives is ${formatCurrency(r.netAnnual)} a year, or ${monthlyStr} a month.`,
+    },
+    {
+      q: `Is employer PF part of CTC?`,
+      a: `Yes, and it is one of the main reasons CTC overstates your pay. On a ₹${label} package the employer's PF contribution of ${formatCurrency(r.employerPF)} a year, 12% of the ${formatCurrency(r.basic)} basic salary, is counted inside the CTC figure your offer letter quotes, but it goes straight into your EPF account rather than your bank account. The gratuity provision of ${formatCurrency(r.gratuity)} works the same way. Both are still your money, but you cannot spend either this month, which is why budgeting from ${monthlyStr} rather than from ₹${label} is the only safe approach.`,
+    },
+    {
+      q: `How is professional tax deducted?`,
+      a: `Your employer deducts it from your gross salary each month and pays it to the state government, so it appears on your payslip rather than being something you file. It is a state levy, not a central one: the amount is capped by law, some states do not charge it at all, and the slab you fall into depends on your monthly salary and your state. These figures use ${formatCurrency(r.profTax)} a year, roughly ${formatCurrency(r.profTax / 12)} a month, which is the common maximum. Check your own payslip or your state's rules for the exact figure.`,
+    },
+    {
+      q: `What is the monthly gross salary on a ₹${label} CTC?`,
+      a: `About ${formatCurrency(r.gross / 12)} a month gross, against ${monthlyStr} in hand. The gap of roughly ${formatCurrency(r.gross / 12 - r.monthly)} a month is your own PF, professional tax${r.tax > 0 ? " and TDS on income tax" : " and nothing else, since no income tax is payable at this level"}. Gross is the figure your payslip starts from and the one lenders usually ask about; in-hand is the figure your budget has to run on.`,
+    },
+    {
+      q: `Does a ₹${label} CTC include bonus and variable pay?`,
+      a: `Often yes, and that is the assumption most likely to make this page overstate your monthly cash. Many offers bundle a performance bonus, a retention component or a joining bonus into the headline CTC even though those are paid annually, conditionally, or not at all if targets are missed. The ${monthlyStr} here assumes the full ₹${label} is fixed pay. If part of your package is variable, subtract it from the CTC first and re-run the figure with the fixed component only, using the calculator above.`,
     },
   ];
 
@@ -236,7 +256,7 @@ export default async function Page({
         </p>
       </header>
 
-      {/* Quick answer — for featured snippets and AI overviews */}
+      {/* Quick answer: for featured snippets and AI overviews */}
       <section className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-forest">
           Quick answer
@@ -317,7 +337,7 @@ export default async function Page({
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
           Search &ldquo;{label} in hand salary&rdquo; and you will get several
-          different answers. None of them are lying — they are simply assuming
+          different answers. None of them are lying. They are simply assuming
           different salary structures and not telling you which. PF is
           calculated on your <strong className="text-ink">basic salary</strong>,
           so the percentage your company sets basic at changes your take-home
@@ -363,7 +383,7 @@ export default async function Page({
         <p className="mt-4 text-sm text-ink-faint leading-relaxed">
           Check your offer letter or payslip for your actual basic figure, then
           read the row that matches. A lower basic means more monthly cash but a
-          smaller PF balance and a smaller gratuity later — it is a trade, not a
+          smaller PF balance and a smaller gratuity later. It is a trade, not a
           free gain.
         </p>
       </section>
@@ -406,7 +426,7 @@ export default async function Page({
               That sits within the ₹12,00,000 covered by the Section 87A rebate,
               so your income tax is <strong className="text-ink">zero</strong>.
               Everything leaving your gross salary at this level is PF and
-              professional tax, not tax on income — which is why your take-home
+              professional tax, not tax on income, which is why your take-home
               percentage is comparatively high.
             </p>
           )}
@@ -472,7 +492,7 @@ export default async function Page({
         </div>
       </section>
 
-      {/* Sibling links — keeps the whole cluster internally linked */}
+      {/* Sibling links: keeps the whole cluster internally linked */}
       <section className="mt-14">
         <h2 className="font-display text-2xl font-600 text-ink">
           In-hand salary for other CTCs

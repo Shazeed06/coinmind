@@ -3,14 +3,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Random Wheel / Picker — 100% client-side.                         */
+/*  Random Wheel / Picker: 100% client-side.                          */
 /*  The spin uses Math.random inside an event handler only, so the    */
 /*  server-rendered markup is always deterministic (no hydration      */
 /*  mismatch). A colourful SVG wheel animates via a CSS transform      */
 /*  transition and lands on a randomly chosen segment.                */
 /* ------------------------------------------------------------------ */
 
-/* Brand palette + variations — kept vivid so adjacent slices contrast. */
+/* Brand palette + variations, kept vivid so adjacent slices contrast. */
 const PALETTE = [
   "#2563eb", // forest (royal blue)
   "#16a34a", // brass (green)
@@ -111,7 +111,7 @@ export default function RandomWheel() {
     if (spinning || n < 2) return;
     setWinner(null);
 
-    // Randomness lives here, in the click handler — never at render time.
+    // Randomness lives here, in the click handler, never at render time.
     const idx = Math.floor(Math.random() * n);
     const centerAngle = idx * seg + seg / 2;
     const jitter = (Math.random() - 0.5) * seg * 0.6;
@@ -133,7 +133,7 @@ export default function RandomWheel() {
     timerRef.current = window.setTimeout(() => finish(options[idx]), SPIN_MS);
   }, [spinning, n, seg, rotation, reduceMotion, options, finish]);
 
-  // Pick instantly with no animation — the simple fallback picker.
+  // Pick instantly with no animation: the simple fallback picker.
   const pickInstant = useCallback(() => {
     if (n < 1) return;
     const idx = Math.floor(Math.random() * n);
@@ -166,7 +166,7 @@ export default function RandomWheel() {
               aria-label={
                 n >= 2
                   ? `Spinning wheel with ${n} options`
-                  : "Spinning wheel — add at least two options"
+                  : "Spinning wheel - add at least two options"
               }
             >
               {/* Rotating group: slices + labels only. */}
@@ -253,7 +253,7 @@ export default function RandomWheel() {
                 />
               </g>
 
-              {/* Fixed hub — click to spin. */}
+              {/* Fixed hub: click to spin. */}
               <g
                 onClick={spin}
                 style={{ cursor: canSpin ? "pointer" : "default" }}
@@ -316,7 +316,7 @@ export default function RandomWheel() {
                   ? "Add at least two options below to spin."
                   : spinning
                     ? "Spinning…"
-                    : "Press Spin — or tap the wheel."}
+                    : "Press Spin, or tap the wheel."}
               </p>
             )}
           </div>

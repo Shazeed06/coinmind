@@ -82,7 +82,7 @@ export default function MortgageCalculator() {
           Monthly payment
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(monthly, currency) : "—"}
+          {valid ? formatCurrency(monthly, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">
           {valid
@@ -105,17 +105,17 @@ export default function MortgageCalculator() {
         <div className="mt-6">
           <Stat
             label="Loan amount"
-            value={valid ? formatCurrency(loanAmount, currency) : "—"}
+            value={valid ? formatCurrency(loanAmount, currency) : "-"}
             accent="ink"
           />
           <Stat
             label="Total interest"
-            value={valid ? formatCurrency(totalInterest, currency) : "—"}
+            value={valid ? formatCurrency(totalInterest, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Total paid"
-            value={valid ? formatCurrency(totalPayment, currency) : "—"}
+            value={valid ? formatCurrency(totalPayment, currency) : "-"}
             accent="forest"
           />
         </div>

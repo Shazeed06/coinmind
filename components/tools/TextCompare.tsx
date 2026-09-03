@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Text Compare / Diff — line-by-line comparison of two blocks of    */
+/*  Text Compare / Diff: line-by-line comparison of two blocks of     */
 /*  text using a classic LCS (longest common subsequence) diff.       */
 /*  Added lines are tinted forest, removed lines berry. Everything    */
-/*  runs in the browser — nothing is uploaded.                        */
+/*  runs in the browser. Nothing is uploaded.                         */
 /* ------------------------------------------------------------------ */
 
 type RowType = "same" | "add" | "del";

@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Case Converter — transforms text between common letter cases.     */
+/*  Case Converter: transforms text between common letter cases.      */
 /*  Runs entirely in the browser; nothing is uploaded or stored.      */
 /* ------------------------------------------------------------------ */
 
@@ -68,7 +68,7 @@ const TRANSFORMS: { label: string; run: (text: string) => string }[] = [
         .join("-"),
   },
   {
-    // aLtErNaTiNg — toggle on each letter, starting lowercase.
+    // aLtErNaTiNg: toggle on each letter, starting lowercase.
     label: "aLtErNaTiNg",
     run: (t) => {
       let i = 0;
@@ -83,7 +83,7 @@ const TRANSFORMS: { label: string; run: (text: string) => string }[] = [
     },
   },
   {
-    // InVeRsE — swap the case of every letter.
+    // InVeRsE: swap the case of every letter.
     label: "InVeRsE case",
     run: (t) =>
       Array.from(t)
@@ -161,7 +161,7 @@ export default function CaseConverter() {
           className="mt-3 w-full resize-y rounded-xl border border-line-strong bg-paper-2 px-4 py-3 text-sm text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-forest"
         />
 
-        {/* Transform buttons — preset-style toggles */}
+        {/* Transform buttons: preset-style toggles */}
         <div className="mt-4 flex flex-wrap gap-2">
           {TRANSFORMS.map((t) => (
             <button

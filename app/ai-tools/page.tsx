@@ -12,7 +12,7 @@ const regions: { key: Region; label: string; flag: string; note: string }[] = [
     key: "USA",
     label: "United States",
     flag: "🇺🇸",
-    note: "The biggest, most capable general-purpose tools — and most of the household names.",
+    note: "The biggest, most capable general-purpose tools, and most of the household names.",
   },
   {
     key: "China",
@@ -46,7 +46,7 @@ export default function Page() {
         </h1>
         <p className="mt-4 text-lg text-ink-soft leading-relaxed">
           The AI world moves fast. This is our running directory of the tools
-          that matter right now — what each one is best at, its key benefits, and
+          that matter right now: what each one is best at, its key benefits, and
           what it costs. Prices are indicative and can change; always confirm on
           the official site.
         </p>
@@ -150,11 +150,11 @@ export default function Page() {
           How we rate AI tools
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
-          Each tool is assessed against a documented editorial rubric —
-          usefulness, output quality, ease of use and value for money — using
+          Each tool is assessed against a documented editorial rubric:
+          usefulness, output quality, ease of use and value for money, using
           hands-on research and publicly available information. We update this
           directory as tools launch and prices change. If we ever add affiliate
-          links, they won&apos;t affect our ratings. Pricing shown is indicative —
+          links, they won&apos;t affect our ratings. Pricing shown is indicative.
           check the official website for the latest plans in your country.
         </p>
       </section>

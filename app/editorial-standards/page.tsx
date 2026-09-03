@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Editorial Standards & How We Ensure Accuracy · CoinMind" },
   description:
-    "How CoinMind researches, writes, reviews and updates its finance calculators and guides — the official sources we use and our corrections policy.",
+    "How CoinMind researches, writes, reviews and updates its finance calculators and guides: the official sources we use and our corrections policy.",
   alternates: { canonical: "/editorial-standards" },
   openGraph: { url: "/editorial-standards" },
 };
@@ -56,7 +56,7 @@ export default function EditorialStandardsPage() {
         <h2>How we build our calculators</h2>
         <p>
           Every calculator on {site.name} runs on the published, standard formula
-          for that calculation — for example, the future-value formula for SIPs,
+          for that calculation: for example, the future-value formula for SIPs,
           the reducing-balance formula for EMIs, and the official income-tax slabs
           for the current financial year. The maths runs privately in your
           browser; we don&apos;t guess or approximate. Where a calculator shows a
@@ -74,8 +74,8 @@ export default function EditorialStandardsPage() {
             <li key={s.href}>
               <a href={s.href} target="_blank" rel="noopener noreferrer nofollow" className="text-forest underline underline-offset-2">
                 {s.label}
-              </a>{" "}
-              — {s.what}.
+              </a>
+              : {s.what}.
             </li>
           ))}
         </ul>
@@ -84,7 +84,7 @@ export default function EditorialStandardsPage() {
         <p>
           Our guides are researched from primary sources, written in plain
           English, and reviewed for factual accuracy before publishing. We use AI
-          to help with research and first drafts — as many modern publishers do —
+          to help with research and first drafts, as many modern publishers do,
           but a person edits, fact-checks and approves every page. We do not
           publish thin, auto-generated pages: if a page doesn&apos;t add something
           genuinely useful, we don&apos;t ship it.
@@ -93,8 +93,8 @@ export default function EditorialStandardsPage() {
         <h2>When we update pages</h2>
         <p>
           Tax slabs, interest rates and scheme rules are reviewed whenever the
-          government or RBI announces a change — for example, around the Union
-          Budget and RBI monetary-policy meetings — and the affected calculators
+          government or RBI announces a change (for example, around the Union
+          Budget and RBI monetary-policy meetings), and the affected calculators
           and guides are updated promptly.
         </p>
 
@@ -111,8 +111,8 @@ export default function EditorialStandardsPage() {
         <h2>Corrections</h2>
         <p>
           If you spot something that looks wrong, please tell us at{" "}
-          <a href={`mailto:${site.email}`} className="text-forest underline underline-offset-2">{site.email}</a>{" "}
-          — we check every report and fix genuine errors quickly. You can read
+          <a href={`mailto:${site.email}`} className="text-forest underline underline-offset-2">{site.email}</a>
+          . We check every report and fix genuine errors quickly. You can read
           more about who we are on our{" "}
           <Link href="/about" className="text-forest underline underline-offset-2">About page</Link>.
         </p>

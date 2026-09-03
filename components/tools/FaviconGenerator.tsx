@@ -9,7 +9,7 @@ import {
 } from "@/components/tools/ToolShell";
 
 /* ------------------------------------------------------------------ */
-/*  Favicon Generator — 100% client-side.                             */
+/*  Favicon Generator: 100% client-side.                              */
 /*  Decodes the uploaded image once, then redraws it (centred, kept   */
 /*  fully in-frame) onto square canvases at every standard favicon    */
 /*  size and exports each as a PNG. Nothing is uploaded.              */
@@ -85,7 +85,7 @@ export default function FaviconGenerator() {
         if (!ctx) continue;
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = "high";
-        // "Contain" — scale the whole image to fit, centred, so nothing is cropped.
+        // "Contain": scale the whole image to fit, centred, so nothing is cropped.
         const scale = Math.min(
           spec.px / img.naturalWidth,
           spec.px / img.naturalHeight,
@@ -155,7 +155,7 @@ export default function FaviconGenerator() {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
-      // Clipboard blocked — the block stays selectable.
+      // Clipboard blocked. The block stays selectable.
     }
   }, []);
 
@@ -169,7 +169,7 @@ export default function FaviconGenerator() {
           accept={ACCEPT}
           onFiles={onFiles}
           label="Drop your logo or image here"
-          hint="or click to browse — a square image works best (PNG, JPG, WebP, SVG)"
+          hint="or click to browse. A square image works best (PNG, JPG, WebP, SVG)"
         />
       )}
 
@@ -291,7 +291,7 @@ export default function FaviconGenerator() {
             accept={ACCEPT}
             onFiles={onFiles}
             label="Generate from another image"
-            hint="Replaces the current set — PNG, JPG, WebP or SVG"
+            hint="Replaces the current set: PNG, JPG, WebP or SVG"
           />
         </div>
       )}

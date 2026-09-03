@@ -3,15 +3,15 @@
 import { useCallback, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Random Number Generator — 100% client-side.                       */
+/*  Random Number Generator: 100% client-side.                        */
 /*  Uses the Web Crypto API (crypto.getRandomValues) with rejection   */
-/*  sampling to avoid modulo bias — fairer than Math.random. All      */
+/*  sampling to avoid modulo bias, fairer than Math.random. All       */
 /*  generation runs inside the click handler, never during render.    */
 /* ------------------------------------------------------------------ */
 
 const MAX_COUNT = 10000;
 
-/** Uniform integer in [0, range) via rejection sampling — no modulo bias. */
+/** Uniform integer in [0, range) via rejection sampling: no modulo bias. */
 function randomIndex(range: number): number {
   if (range <= 0) return 0;
   const maxValid = Math.floor(0x100000000 / range) * range; // 2^32
@@ -53,7 +53,7 @@ export default function RandomNumber() {
   const max = parseIntOrNull(maxStr);
   const count = parseIntOrNull(countStr);
 
-  // Validation — computed on every render, but touches no randomness.
+  // Validation: computed on every render, but touches no randomness.
   const error = useMemo(() => {
     if (min === null || max === null || count === null) {
       return "Enter a minimum, a maximum and how many numbers you want.";
@@ -63,7 +63,7 @@ export default function RandomNumber() {
     }
     if (count < 1) return "Ask for at least one number.";
     if (count > MAX_COUNT) {
-      return `That's a lot — please ask for ${MAX_COUNT.toLocaleString()} numbers or fewer.`;
+      return `That's a lot. Please ask for ${MAX_COUNT.toLocaleString()} numbers or fewer.`;
     }
     const range = max - min + 1;
     if (!allowDuplicates && count > range) {
@@ -81,7 +81,7 @@ export default function RandomNumber() {
     } else {
       const range = max - min + 1;
       if (range <= 200000) {
-        // Partial Fisher–Yates shuffle over the whole range, take `count`.
+        // Partial Fisher-Yates shuffle over the whole range, take `count`.
         const pool = Array.from({ length: range }, (_, i) => min + i);
         for (let i = 0; i < count; i++) {
           const j = i + randomIndex(range - i);
@@ -89,7 +89,7 @@ export default function RandomNumber() {
         }
         numbers = pool.slice(0, count);
       } else {
-        // Huge range, few picks — reject collisions with a Set.
+        // Huge range, few picks: reject collisions with a Set.
         const seen = new Set<number>();
         while (seen.size < count) seen.add(randomInt(min, max));
         numbers = Array.from(seen);
@@ -108,7 +108,7 @@ export default function RandomNumber() {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
-      // Clipboard blocked (e.g. insecure context) — numbers stay selectable.
+      // Clipboard blocked (e.g. insecure context). Numbers stay selectable.
     }
   }, [result]);
 
@@ -132,7 +132,7 @@ export default function RandomNumber() {
         <IconShield className="mt-0.5 h-5 w-5 shrink-0 text-brass" />
         <p className="text-sm text-ink-soft">
           <strong className="text-ink">Generated in your browser.</strong> Numbers
-          are drawn with the Web Crypto API on your device &mdash; nothing is
+          are drawn with the Web Crypto API on your device. Nothing is
           uploaded, logged or sent anywhere.
         </p>
       </div>

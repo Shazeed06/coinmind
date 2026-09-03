@@ -4,7 +4,7 @@ import IdealWeightCalculator from "@/components/calc/IdealWeightCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "ideal-weight")!;
-export const metadata = calcMeta("ideal-weight", CALC.title + " — By Height & Sex", CALC.blurb);
+export const metadata = calcMeta("ideal-weight", CALC.title + " - By Height & Sex", CALC.blurb);
 
 export default function Page() {
   return (
@@ -13,14 +13,14 @@ export default function Page() {
       title="Ideal Weight Calculator"
       subtitle="Estimate a healthy body weight for your height and sex using four established medical formulas."
       calculator={<IdealWeightCalculator />}
-      intro="An ideal weight calculator estimates a healthy body weight based on your height and sex. Because there is no single agreed formula, this tool runs four widely used ones — Robinson, Miller, Devine and Hamwi — and shows the range they produce, alongside the healthy weight range implied by a normal BMI (18.5 to 24.9). It works in both metric and imperial units. Remember that these formulas rely on height alone and can't see your build, muscle or body composition, so the result is a general guide for education only, not a personal target or medical advice."
+      intro="An ideal weight calculator estimates a healthy body weight based on your height and sex. Because there is no single agreed formula, this tool runs four widely used ones (Robinson, Miller, Devine and Hamwi) and shows the range they produce, alongside the healthy weight range implied by a normal BMI (18.5 to 24.9). It works in both metric and imperial units. Remember that these formulas rely on height alone and can't see your build, muscle or body composition, so the result is a general guide for education only, not a personal target or medical advice."
       how={{
         heading: "How ideal weight is calculated",
         body: (
           <>
             <p>
               Each formula starts from a base weight at a height of 5 feet (60 inches) and adds a set
-              amount for every inch above that — with different constants for men and women. For
+              amount for every inch above that, with different constants for men and women. For
               example, the Devine formula uses:
             </p>
             <p className="rounded-xl bg-paper-2 px-4 py-3 font-mono text-sm text-ink">
@@ -44,7 +44,7 @@ export default function Page() {
       faqs={[
         {
           q: "Which ideal weight formula is best?",
-          a: "There is no single best formula — Robinson, Miller, Devine and Hamwi all give slightly different results because they were derived from different data. That's why this calculator shows the full range rather than one number, along with the healthy BMI range for your height.",
+          a: "There is no single best formula. Robinson, Miller, Devine and Hamwi all give slightly different results because they were derived from different data. That's why this calculator shows the full range rather than one number, along with the healthy BMI range for your height.",
         },
         {
           q: "Why does the calculator ask for sex?",
@@ -52,11 +52,11 @@ export default function Page() {
         },
         {
           q: "Is ideal body weight the same as a healthy weight?",
-          a: "Not exactly. Ideal body weight formulas were originally created for clinical uses like medication dosing, not as personal goals. A healthy weight is a range, not a single figure, and depends on your muscle, frame and overall health — which is why we also show the BMI-based range.",
+          a: "Not exactly. Ideal body weight formulas were originally created for clinical uses like medication dosing, not as personal goals. A healthy weight is a range, not a single figure, and depends on your muscle, frame and overall health, which is why we also show the BMI-based range.",
         },
         {
           q: "Should I try to reach my ideal weight exactly?",
-          a: "No. The number is an estimate, and being a little above or below it is completely normal. Focus on overall health — balanced eating, activity and how you feel — rather than hitting a precise figure. Speak to a healthcare professional before making significant changes.",
+          a: "No. The number is an estimate, and being a little above or below it is completely normal. Focus on overall health (balanced eating, activity and how you feel) rather than hitting a precise figure. Speak to a healthcare professional before making significant changes.",
         },
         {
           q: "Does this work for both metric and imperial?",

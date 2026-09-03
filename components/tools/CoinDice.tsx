@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Coin Flip & Dice — 100% client-side.                              */
+/*  Coin Flip & Dice: 100% client-side.                               */
 /*  All randomness (Math.random) runs inside event handlers / timers, */
 /*  never during render, so server and client markup match on load.   */
 /* ------------------------------------------------------------------ */
@@ -24,7 +24,7 @@ export default function CoinDice() {
         <IconShield className="mt-0.5 h-5 w-5 shrink-0 text-brass" />
         <p className="text-sm text-ink-soft">
           <strong className="text-ink">Rolled in your browser.</strong> Every
-          flip and roll happens on your device &mdash; nothing is uploaded,
+          flip and roll happens on your device. Nothing is uploaded,
           logged or sent anywhere, and it works offline.
         </p>
       </div>

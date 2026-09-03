@@ -82,7 +82,7 @@ export default function TakeHomeSalaryCalculator() {
             max={60}
             step={5}
             suffix="%"
-            hint="Most Indian companies set basic at 40–50% of CTC. PF & gratuity are calculated on basic."
+            hint="Most Indian companies set basic at 40-50% of CTC. PF & gratuity are calculated on basic."
           />
         </div>
 

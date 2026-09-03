@@ -40,6 +40,18 @@ export const trafficPosts4: Post[] = [
         q: "Do electric cars require less maintenance?",
         a: "Significantly less. EVs have no engine oil, no clutch, no exhaust system, and fewer moving parts. Annual servicing typically costs Rs 3,000-6,000 compared to Rs 8,000-18,000 for petrol cars.",
       },
+      {
+        q: "Is it worth buying an electric car in India in 2026?",
+        a: "Yes, for most urban and semi-urban buyers. With FAME III subsidies, expanding charging networks, and total cost of ownership 15-25% lower than petrol equivalents over 5 years, 2026 is the most practical time to switch to an EV in India.",
+      },
+      {
+        q: "What is the road tax and registration fee for electric cars in India?",
+        a: "Most Indian states either fully waive or significantly reduce road tax and registration fees for EVs. Delhi, Maharashtra, Gujarat, Karnataka, and Rajasthan offer complete road tax exemption, saving buyers Rs 50,000-2,00,000 depending on the vehicle price.",
+      },
+      {
+        q: "How much does it cost to install an EV home charger in India?",
+        a: "A Level 2 wall-box home charger costs Rs 15,000-40,000 including installation. Most EV manufacturers provide a portable home charger free with the car that works on a standard 15A socket, though a dedicated wall-box charges faster and is safer for daily use.",
+      },
     ],
   },
   {
@@ -81,6 +93,18 @@ export const trafficPosts4: Post[] = [
         q: "What is the minimum amount to start investing?",
         a: "Most apps allow SIPs starting from Rs 100 per month. For stock trading, you can buy a single share, which could be as low as a few rupees.",
       },
+      {
+        q: "Can I have demat accounts with multiple brokers in India?",
+        a: "Yes, you can open demat accounts with multiple SEBI-registered brokers simultaneously. There is no legal limit. However, each account has its own annual maintenance charges, so consolidate your holdings where possible to save on fees.",
+      },
+      {
+        q: "What happens to my shares if a broker shuts down in India?",
+        a: "Your shares are safe because they are held in your demat account with CDSL or NSDL depositories, not with the broker. If a broker shuts down, you can transfer your holdings to another broker by submitting a transfer request to the depository.",
+      },
+      {
+        q: "Is Zerodha safe for long-term investing?",
+        a: "Yes. Zerodha is SEBI-registered, holds memberships with NSE and BSE, and your securities are stored with CDSL. It is India's largest broker by active clients with a strong compliance track record. Always verify by checking your monthly CAS statement from NSDL/CDSL.",
+      },
     ],
   },
   {
@@ -120,6 +144,18 @@ export const trafficPosts4: Post[] = [
       {
         q: "Which business can I start with just Rs 10,000?",
         a: "Freelance writing, online tutoring, social media management, affiliate blogging, and data entry services can all be started with Rs 10,000 or less.",
+      },
+      {
+        q: "What licenses do I need to start a small business in India?",
+        a: "At a minimum, you need a PAN card and GST registration if turnover exceeds Rs 20 lakh (Rs 10 lakh in special category states). Food businesses require an FSSAI license, and a Shop and Establishment Act registration is needed for physical premises. Many online-only businesses can start with just a PAN.",
+      },
+      {
+        q: "How do I write a business plan for a startup in India?",
+        a: "A basic business plan should cover your target market, product or service description, revenue model, startup costs, marketing strategy, and 12-month financial projection. Keep it to 5-10 pages. MUDRA loan applications and investor pitches require a structured plan, so start with government templates available on the Udyam portal.",
+      },
+      {
+        q: "Which business has the fastest return on investment in India?",
+        a: "Service-based businesses like freelance digital marketing, social media management, and online tutoring offer the fastest ROI because they have near-zero inventory costs and can generate revenue within the first month. Product-based businesses typically take 3-6 months to break even.",
       },
     ],
   },
@@ -162,6 +198,18 @@ export const trafficPosts4: Post[] = [
         q: "Is solar panel installation worth it for a rented house?",
         a: "Generally, solar is best for homeowners since the payback period is 2.5-5 years. For tenants, portable solar panels or community solar programs may be alternatives.",
       },
+      {
+        q: "How do I apply for PM Surya Ghar solar subsidy?",
+        a: "Register on pmsuryaghar.gov.in with your electricity consumer number and DISCOM details. After installation by an empanelled vendor, upload commissioning documents on the portal. The subsidy of up to Rs 78,000 is credited directly to your bank account within 30-60 days.",
+      },
+      {
+        q: "Does rooftop solar work during monsoon in India?",
+        a: "Yes, but output drops by 30-50% during heavy monsoon months due to cloud cover and shorter sunny hours. Annual generation averages account for this seasonal variation, and most payback calculations already factor in monsoon months.",
+      },
+      {
+        q: "Can I sell excess solar power back to the grid in India?",
+        a: "Under net metering, excess units are exported to the grid and credited against your future consumption. Most states carry forward the credit for 12 months. A few states like Gujarat and Karnataka offer a feed-in tariff that pays you for surplus generation, but rates are lower than retail tariffs.",
+      },
     ],
   },
   {
@@ -201,6 +249,18 @@ export const trafficPosts4: Post[] = [
       {
         q: "Do solar panels really reduce electricity bills to zero?",
         a: "A properly sized solar system can reduce your bill by 60-90%. Some fixed charges and taxes still apply even with zero grid consumption.",
+      },
+      {
+        q: "Which AC brand consumes the least electricity in India?",
+        a: "Among widely available brands, Daikin, Blue Star, and Voltas consistently top BEE energy ratings. A 5-star inverter AC from any of these brands consumes roughly 800-1,000 units per year for 8 hours daily use, which is 30-50% less than a 3-star non-inverter model.",
+      },
+      {
+        q: "Is it cheaper to run an AC or a cooler in India?",
+        a: "An air cooler uses 60-200 watts versus 1,000-2,000 watts for an AC, making it 5-10 times cheaper to run. However, coolers are effective only in dry climates. In humid cities like Mumbai, Chennai, or Kolkata, an AC is more practical despite the higher electricity cost.",
+      },
+      {
+        q: "How do I read and understand my electricity bill in India?",
+        a: "Your bill shows units consumed (kWh), the slab-wise tariff rate, fixed charges based on sanctioned load, fuel adjustment charges, electricity duty, and applicable taxes. The key number is total units consumed -- reducing it moves you to a lower tariff slab, which multiplies your savings.",
       },
     ],
   },
@@ -242,6 +302,18 @@ export const trafficPosts4: Post[] = [
         q: "What happens if I extend my trip beyond the policy period?",
         a: "Most insurers allow extension while you are abroad, subject to additional premium. Contact the insurer before the policy expires.",
       },
+      {
+        q: "Does travel insurance cover adventure sports like trekking in India?",
+        a: "Standard travel insurance policies usually exclude adventure sports. However, most insurers offer an adventure sports add-on or a separate adventure plan that covers trekking, scuba diving, paragliding, and skiing for an additional premium of Rs 200-800.",
+      },
+      {
+        q: "Can I buy travel insurance after reaching my destination?",
+        a: "Some insurers allow purchasing a policy after departure, but trip cancellation coverage will not apply, and there may be a waiting period of 48-72 hours before medical coverage activates. It is always better to buy before you leave for full coverage from day one.",
+      },
+      {
+        q: "Is travel insurance required for domestic flights in India?",
+        a: "No, travel insurance is not mandatory for domestic flights or travel within India. However, it is useful for covering trip cancellation, baggage loss, and medical emergencies, especially for expensive holiday bookings or travel to remote areas.",
+      },
     ],
   },
   {
@@ -281,6 +353,18 @@ export const trafficPosts4: Post[] = [
       {
         q: "Where should I buy a laptop in India -- online or offline?",
         a: "Online (Amazon, Flipkart) typically offers lower prices and easier returns. Offline stores let you test the keyboard and screen. Check prices on both before deciding.",
+      },
+      {
+        q: "How long does a laptop last in India?",
+        a: "A well-maintained laptop typically lasts 4-6 years for everyday use. Battery performance degrades after 2-3 years, but can be replaced for Rs 2,000-5,000. Laptops with 16 GB RAM and SSD storage tend to remain usable longer than budget models with 8 GB RAM.",
+      },
+      {
+        q: "Is it better to buy a laptop on EMI or full payment in India?",
+        a: "If no-cost EMI is available (common on Amazon and Flipkart during sales), it is a smart option since you pay no extra interest. Avoid EMI plans with interest charges of 12-18% as you end up paying Rs 3,000-8,000 more than the sticker price on a Rs 50,000 laptop.",
+      },
+      {
+        q: "Which laptop brand has the best after-sales service in India?",
+        a: "HP and Dell have the widest service centre networks across India, including tier-2 and tier-3 cities. Lenovo is strong in metros. ASUS and Acer have improved but still have fewer centres in smaller towns. Check for a service centre in your city before buying.",
       },
     ],
   },
@@ -323,6 +407,18 @@ export const trafficPosts4: Post[] = [
         q: "Can NRI open an APY account?",
         a: "No. APY is available only to resident Indian citizens. If you become an NRI after opening the account, the account will be closed and accumulated savings returned.",
       },
+      {
+        q: "What is the maximum pension under Atal Pension Yojana?",
+        a: "The maximum guaranteed pension under APY is Rs 5,000 per month, which you receive after turning 60 for the rest of your life. After your death, your spouse receives the same Rs 5,000 per month, and after both pass away, the nominee receives the corpus of Rs 8.5 lakh.",
+      },
+      {
+        q: "Can I withdraw APY money before age 60?",
+        a: "Premature withdrawal is allowed only in case of terminal illness or death of the subscriber. Voluntary exit before 60 returns only your accumulated contributions plus actual returns, not the guaranteed pension corpus. It is generally not advisable to exit early.",
+      },
+      {
+        q: "Is APY better than PPF for retirement savings?",
+        a: "APY provides a guaranteed lifetime pension starting at 60, while PPF gives a lump sum at maturity. APY is better for assured monthly income in old age. PPF offers higher flexibility and a larger corpus for those who can invest up to Rs 1.5 lakh per year. Ideally, use both for a balanced retirement strategy.",
+      },
     ],
   },
   {
@@ -363,6 +459,18 @@ export const trafficPosts4: Post[] = [
       {
         q: "Can both husband and wife apply for PM Kisan separately?",
         a: "No. PM Kisan is family-based. Only one member of a farmer family can be a beneficiary.",
+      },
+      {
+        q: "How do I correct wrong details in my PM Kisan registration?",
+        a: "Visit pmkisan.gov.in and click 'Updation of Self-Registered Farmer.' Enter your Aadhaar number to access your record and edit details like name, bank account, or IFSC code. Changes are verified and updated within 15-30 days. For Aadhaar or land record corrections, visit your nearest CSC or Agriculture Office.",
+      },
+      {
+        q: "Can PM Kisan beneficiaries also get crop insurance under PMFBY?",
+        a: "Yes. PM Kisan and Pradhan Mantri Fasal Bima Yojana (PMFBY) are separate schemes, and eligible farmers can benefit from both simultaneously. Many states auto-enroll PM Kisan beneficiaries for crop insurance during the Kharif and Rabi seasons at subsidised premium rates.",
+      },
+      {
+        q: "What is the helpline number for PM Kisan complaints?",
+        a: "The PM Kisan national helpline number is 155261 or 011-24300606. You can also email pmkisan-ict@gov.in with your registration number and Aadhaar details. For faster resolution, visit your local Agriculture Office or Common Service Centre with your documents.",
       },
     ],
   },

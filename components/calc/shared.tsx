@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Currency, currencyMeta } from "@/lib/format";
 
-/* Slider + number field combined — the core calculator input.
-   The text box lets people clear it and type ANY number freely — no minimum,
+/* Slider + number field combined, the core calculator input.
+   The text box lets people clear it and type ANY number freely: no minimum,
    no per-keystroke clamping. While focused we keep a free-text "draft"; when it
    loses focus we fall back to the live value so the slider stays in sync. */
 export function Field({
@@ -35,7 +35,7 @@ export function Field({
     // Keep it a clean number entry (digits + one decimal point), but never clamp.
     const cleaned = str.replace(/[^\d.]/g, "");
     setDraft(cleaned);
-    if (cleaned === "" || cleaned === ".") return; // still typing — don't push NaN
+    if (cleaned === "" || cleaned === ".") return; // still typing. Don't push NaN
     const n = Number(cleaned);
     if (Number.isFinite(n)) onChange(n);
   };
@@ -155,7 +155,7 @@ function LegendDot({ color, label }: { color: string; label: string }) {
   );
 }
 
-/* Currency toggle — INR / USD / GBP for global audience. */
+/* Currency toggle: INR / USD / GBP for global audience. */
 export function CurrencyToggle({
   value,
   onChange,

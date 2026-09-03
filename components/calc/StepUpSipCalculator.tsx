@@ -70,7 +70,7 @@ export default function StepUpSipCalculator() {
             max={25}
             step={1}
             suffix="%"
-            hint="How much you increase your monthly SIP each year — ideally in line with your salary hike."
+            hint="How much you increase your monthly SIP each year, ideally in line with your salary hike."
           />
           <Field
             label="Expected return rate (p.a.)"
@@ -80,7 +80,7 @@ export default function StepUpSipCalculator() {
             max={20}
             step={0.5}
             suffix="%"
-            hint="Equity mutual funds have historically returned 10–14% over the long term. Returns are not guaranteed."
+            hint="Equity mutual funds have historically returned 10-14% over the long term. Returns are not guaranteed."
           />
           <Field
             label="Time period"
@@ -120,7 +120,7 @@ export default function StepUpSipCalculator() {
           <Stat label="Total value" value={formatCurrency(future, currency)} accent="forest" />
         </div>
 
-        {/* Step-up vs flat SIP comparison — the headline benefit. */}
+        {/* Step-up vs flat SIP comparison, the headline benefit. */}
         <div className="mt-6 rounded-xl border border-line bg-card p-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-ink-faint">
             Step-up vs flat SIP

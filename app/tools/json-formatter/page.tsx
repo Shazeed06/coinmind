@@ -4,18 +4,18 @@ import JsonFormatter from "@/components/tools/JsonFormatter";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "JSON Formatter & Validator — Free Online" },
+  title: { absolute: "JSON Formatter & Validator - Free Online" },
   description:
-    "Free online JSON formatter, beautifier and validator. Pretty-print, minify, and see the exact parse error with its location — 100% private.",
+    "Free online JSON formatter, beautifier and validator. Pretty-print, minify, and see the exact parse error with its location - 100% private.",
   alternates: { canonical: "/tools/json-formatter" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/json-formatter",
-    title: "JSON Formatter & Validator — Free Online",
+    title: "JSON Formatter & Validator - Free Online",
     description:
-      "Beautify, minify and validate JSON with precise error locations. 100% private — your data never leaves your browser.",
+      "Beautify, minify and validate JSON with precise error locations. 100% private - your data never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my JSON uploaded to a server?",
-    a: "No. The formatter runs entirely in your browser using the native JSON parser. Nothing you paste is uploaded, logged or seen by anyone — it never leaves your device, so it is safe for API keys, tokens and confidential payloads.",
+    a: "No. The formatter runs entirely in your browser using the native JSON parser. Nothing you paste is uploaded, logged or seen by anyone. It never leaves your device, so it is safe for API keys, tokens and confidential payloads.",
   },
   {
     q: "What is the difference between beautify and minify?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "How does it help me find errors?",
-    a: "When the JSON can't be parsed, the tool shows the browser's parse error message plus an approximate line, column and character position. That points you close to the problem — usually a missing comma, an extra trailing comma, unquoted keys, or single quotes where double quotes are required.",
+    a: "When the JSON can't be parsed, the tool shows the browser's parse error message plus an approximate line, column and character position. That points you close to the problem: usually a missing comma, an extra trailing comma, unquoted keys, or single quotes where double quotes are required.",
   },
   {
     q: "Why must JSON keys use double quotes?",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Is there a size limit?",
     a: "There is no fixed limit. Because everything is processed on your own device, you can format short snippets or large API responses; very large documents simply use a little more memory and take a moment longer.",
+  },
+  {
+    q: "Do I need to sign up or install anything?",
+    a: "No. There is no account, no extension and no download. Open the page and paste. Because the parsing runs in the page itself with no network calls, the formatter also keeps working offline once it has loaded, and it works the same on a phone or tablet as it does on a desktop browser.",
+  },
+  {
+    q: "Does formatting change my data or reorder the keys?",
+    a: "No. The tool parses your JSON and re-serialises it, which changes only the whitespace. Key order is preserved exactly as written, values are untouched, and nothing is added or removed. The one visible difference is that duplicate keys collapse to the last one, because the JSON standard says a later key wins.",
+  },
+  {
+    q: "What does the Valid JSON banner tell me?",
+    a: "When parsing succeeds you get a green confirmation plus a short summary of the document: whether the top level is an object or an array, how many keys or items it holds, and the size of the serialised result in bytes, KB or MB. It is a quick way to sanity-check that you pasted the payload you meant to.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           JSON Formatter &amp; Validator
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Beautify, minify and validate JSON in one click &mdash; with precise
+          Beautify, minify and validate JSON in one click, with precise
           error locations, right in your browser and nothing uploaded.
         </p>
       </header>
@@ -128,7 +140,7 @@ export default function Page() {
           </h2>
           <p className="mt-2 text-ink-soft leading-relaxed">
             A JSON formatter turns messy, minified or hand-typed JSON into clean,
-            indented, readable text &mdash; and tells you instantly whether it is
+            indented, readable text, and tells you instantly whether it is
             valid. Paste your JSON above, then choose{" "}
             <strong className="text-ink">Format / Beautify</strong> (2 or 4
             spaces) to pretty-print it, <strong className="text-ink">Minify</strong>{" "}
@@ -149,8 +161,8 @@ export default function Page() {
           but it is unforgiving: a single missing comma or stray quote makes the
           whole document invalid. Formatting reveals the structure so you can
           scan nesting, spot duplicated keys and understand a response at a
-          glance. Validation catches the small syntax mistakes &mdash; trailing
-          commas, unquoted keys, single quotes &mdash; before they break your
+          glance. Validation catches the small syntax mistakes (trailing
+          commas, unquoted keys, single quotes) before they break your
           code or a webhook. Because this tool parses with the browser&apos;s own
           engine, what it accepts is exactly what your JavaScript will accept.
         </p>
@@ -162,7 +174,7 @@ export default function Page() {
           for compact readability or <strong>4 spaces</strong> when you want more
           visual separation. <strong>Minifying</strong> does the opposite,
           stripping every optional space and newline to produce the smallest
-          valid payload &mdash; useful for reducing bandwidth, embedding JSON in
+          valid payload, useful for reducing bandwidth, embedding JSON in
           a string, or fitting it into a query. You can move between the two
           freely without retyping anything.
         </p>
@@ -180,7 +192,7 @@ export default function Page() {
 
         <h2>Private by design</h2>
         <p>
-          API responses and config files often contain secrets &mdash; tokens,
+          API responses and config files often contain secrets: tokens,
           keys, personal data. Everything here is processed entirely on your own
           device with client-side JavaScript, so you can safely paste sensitive
           payloads. Nothing is sent to a server, stored or logged, and the tool

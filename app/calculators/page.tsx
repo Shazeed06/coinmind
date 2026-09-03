@@ -51,9 +51,14 @@ export default function Page() {
       <section className="section-pad bg-white">
         <div className="container-main">
           <Pill>Calculators</Pill>
-          <h1 className="h1 text-text mt-3">46 Free Financial Calculators</h1>
+          <h1 className="h1 text-text mt-3">
+            {calculators.filter((c) => c.live).length} Free Financial Calculators
+          </h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
-            Free, private and instant. Plan investments, size a loan, or estimate your tax — with support for INR, USD and GBP.
+            Free, private and instant financial calculators for India: SIP, EMI, income tax, FD, PPF, NPS,
+            retirement, GST and more. Every calculator runs entirely in your browser, so the numbers you
+            enter are never uploaded or stored. Results support INR, USD and GBP, and each tool shows the
+            formula behind the answer. No sign-up required.
           </p>
         </div>
       </section>
@@ -172,7 +177,7 @@ export default function Page() {
                 {!isHealthOnly && healthCalcs.length > 0 && (
                   <section className="pt-8 border-t border-border">
                     <h2 className="h3 text-text-muted/60 mb-4">Other Free Calculators</h2>
-                    <p className="text-sm text-text-muted mb-6">Health and general-purpose calculators — not strictly finance, but useful to have.</p>
+                    <p className="text-sm text-text-muted mb-6">Health and general-purpose calculators, not strictly finance, but useful to have.</p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                       {healthCalcs.map((c) => (
                         <Link key={c.slug} href={`/calculators/${c.slug}`} className="card card-h-full p-4 opacity-75 hover:opacity-100 transition-opacity">

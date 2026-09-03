@@ -58,6 +58,24 @@ const nextConfig: NextConfig = {
       { source: "/tools/lorem-ipsum-generator", destination: "/tools", permanent: true },
       // Broken link fixes
       { source: "/blog/fd-vs-sip", destination: "/blog/sip-vs-lumpsum", permanent: true },
+
+      // ── URL structure consolidation ──────────────────────────────────────
+      // /sip-returns was a second top-level section for the SIP topic, sitting
+      // beside the /sip hub and generating the same amounts on a second axis.
+      // Merged into /sip/[slug] (the slug shapes do not collide), so the SIP
+      // cluster is one hub with one child namespace. Single-hop 301s: the
+      // destination returns 200 directly, no chains.
+      { source: "/sip-returns", destination: "/sip", permanent: true },
+      { source: "/sip-returns/:slug", destination: "/sip/:slug", permanent: true },
+
+      // Section parents that never had an index page and returned 404. Point
+      // each at the closest equivalent page rather than the homepage, so the
+      // redirect stays topically relevant (and is not read as a soft 404).
+      // Neither source shadows a route: there is no app/currency/page.tsx or
+      // app/in-hand-salary/page.tsx — only the [slug] children, which these
+      // exact-match rules do not touch.
+      { source: "/currency", destination: "/calculators/currency-converter", permanent: true },
+      { source: "/in-hand-salary", destination: "/calculators/take-home-salary", permanent: true },
     ];
   },
   poweredByHeader: false,

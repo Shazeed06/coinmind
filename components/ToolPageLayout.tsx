@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { webApp } from "@/lib/ld";
 import { Breadcrumb, Pill } from "@/components/ui";
 import { AuthorByline } from "@/components/AuthorByline";
 import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
@@ -28,8 +29,19 @@ export function ToolPageLayout({
   relatedTools,
   disclaimerType = "general",
 }: ToolPageLayoutProps) {
+  // Tool pages already emit their own BreadcrumbList and FAQPage, so the only
+  // node missing once GlobalSeo went away is the entity for the tool itself.
+  // The layout does not know its own path (titles do not slugify back to the
+  // route reliably: "Rotate & Flip Image" lives at /tools/rotate-image), so the
+  // node carries no url and simply describes the page it is embedded in.
+  const appJson = webApp(title, null, "Utility", description);
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJson) }}
+      />
       <section className="section-pad pb-0 bg-white">
         <div className="container-main">
           <div className="max-w-[720px]">

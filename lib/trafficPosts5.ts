@@ -40,6 +40,18 @@ export const trafficPosts5: Post[] = [
         q: "Do NRIs need to pay capital gains tax in India?",
         a: "Yes, capital gains on Indian investments are taxable in India. NRIs can claim credit for Indian tax paid in their country of residence under DTAA provisions.",
       },
+      {
+        q: "Can NRIs invest in the Indian stock market directly?",
+        a: "Yes, NRIs can invest in Indian stocks through the Portfolio Investment Scheme (PIS) by opening a demat account linked to an NRE or NRO bank account. Prior approval from a designated bank under RBI's PIS route is required.",
+      },
+      {
+        q: "What is the TDS rate on NRO FD interest for NRIs?",
+        a: "TDS on NRO fixed deposit interest is deducted at 30% plus applicable cess, totalling approximately 31.2%. NRIs can claim a reduced rate under DTAA by submitting a Tax Residency Certificate and Form 10F to the bank.",
+      },
+      {
+        q: "Can NRIs buy agricultural land in India?",
+        a: "No, NRIs are not permitted to purchase agricultural land, farmhouses, or plantation property in India under FEMA regulations. However, they can inherit such property from a resident Indian.",
+      },
     ],
   },
   {
@@ -81,6 +93,18 @@ export const trafficPosts5: Post[] = [
         q: "How long does education loan approval take?",
         a: "Public sector banks typically take 7-15 working days. Private banks and NBFCs like HDFC Credila may process loans in 3-5 working days.",
       },
+      {
+        q: "Can I get an education loan for online or distance learning courses?",
+        a: "Some banks and NBFCs sanction education loans for distance or online courses from recognised universities such as IGNOU or IIMs. However, most public sector banks prefer full-time courses, so check with your lender for specific eligibility.",
+      },
+      {
+        q: "What is the maximum moratorium period for education loans in India?",
+        a: "The moratorium period typically covers the entire course duration plus 6 to 12 months after course completion or 6 months after getting a job, whichever is earlier. During this period, no principal repayment is required.",
+      },
+      {
+        q: "Does an education loan affect my CIBIL score?",
+        a: "Yes, an education loan appears on your credit report and affects your CIBIL score. Timely EMI payments help build a strong credit history, while missed payments or defaults will lower your score and impact future borrowing.",
+      },
     ],
   },
   {
@@ -117,6 +141,22 @@ export const trafficPosts5: Post[] = [
       {
         q: "Can a working woman claim Section 80C for SSY contributions?",
         a: "Yes, the parent who deposits money into the SSY account can claim the deduction under Section 80C up to Rs 1.5 lakh per year.",
+      },
+      {
+        q: "What is the minimum deposit for Sukanya Samriddhi Yojana?",
+        a: "The minimum annual deposit for SSY is just Rs 250. If the minimum deposit is not made in a financial year, the account becomes inactive and can be revived by paying Rs 50 penalty per year of default along with the minimum deposit.",
+      },
+      {
+        q: "Can NRI women invest in Mahila Samman Savings Certificate?",
+        a: "No, the Mahila Samman Savings Certificate is available only to resident Indian women and girls. NRI women are not eligible to open this account, though they can explore NRE FDs or mutual funds for similar short-term goals.",
+      },
+      {
+        q: "What is the age limit to open a Sukanya Samriddhi Yojana account?",
+        a: "An SSY account can be opened only for a girl child below 10 years of age. A special one-year grace period was allowed when the scheme launched in 2015, but the under-10 rule now applies strictly.",
+      },
+      {
+        q: "What is the best investment option for single women in India?",
+        a: "Single women should prioritise building an emergency fund in a high-interest savings account, invest in PPF for tax-free long-term growth, and start equity mutual fund SIPs for wealth creation. A personal health insurance policy is also essential.",
       },
     ],
   },
@@ -159,6 +199,18 @@ export const trafficPosts5: Post[] = [
         q: "Can I get LAP if my CIBIL score is low?",
         a: "A CIBIL score below 650 makes approval difficult with banks. NBFCs may consider at higher rates (14-18%). Improving your score first is advisable.",
       },
+      {
+        q: "How long does LAP approval take?",
+        a: "Loan Against Property approval typically takes 7 to 15 working days, including property valuation and legal verification. Some NBFCs offer faster processing in 5-7 days if all documents are in order.",
+      },
+      {
+        q: "Can I take a second loan against the same property?",
+        a: "Yes, a top-up loan or second charge loan is possible if there is sufficient equity in the property after the first loan. The combined LTV must stay within the lender's limit, typically 65-75% of the property's current market value.",
+      },
+      {
+        q: "What happens if property value drops below the loan amount?",
+        a: "If the property value falls significantly, the lender may ask you to provide additional collateral or make a partial prepayment to restore the LTV ratio. In extreme cases, the lender may recall the loan if covenant terms are breached.",
+      },
     ],
   },
   {
@@ -200,6 +252,18 @@ export const trafficPosts5: Post[] = [
         q: "What happens if I do not register for GST despite being liable?",
         a: "You can face a penalty of Rs 10,000 or 10% of the tax due, whichever is higher, and lose the ability to claim input tax credit.",
       },
+      {
+        q: "Can I cancel GST registration if my turnover falls below the limit?",
+        a: "Yes, you can apply for cancellation by filing Form GST REG-16 on the GST portal if your turnover drops below the threshold. You must file a final return in GSTR-10 within 3 months of the cancellation order.",
+      },
+      {
+        q: "What is the Composition Scheme under GST and who should opt for it?",
+        a: "The Composition Scheme is a simplified GST regime for small businesses with turnover up to Rs 1.5 crore. You pay tax at a flat rate (1% for traders, 1% for manufacturers, 6% for service providers) and file quarterly returns, but you cannot claim input tax credit or make interstate sales.",
+      },
+      {
+        q: "How do I file nil GST returns online?",
+        a: "Log in to the GST portal, navigate to GSTR-3B or GSTR-1, select the return period, and submit with zero values. You can also file nil returns via SMS by sending NIL followed by the return type and period to 14409. Filing nil returns on time avoids late fees of Rs 20 per day.",
+      },
     ],
   },
   {
@@ -236,6 +300,22 @@ export const trafficPosts5: Post[] = [
       {
         q: "Can I have savings accounts in multiple banks?",
         a: "Yes, there is no limit on the number of savings accounts. Multiple accounts help maximise interest and stay within the Rs 5 lakh DICGC insurance limit per bank.",
+      },
+      {
+        q: "How much interest does SBI pay on savings account?",
+        a: "SBI pays 2.70% per annum on savings account balances. Interest is calculated on the daily closing balance and credited quarterly. For higher returns, consider small finance banks that offer up to 7.25%.",
+      },
+      {
+        q: "What is the penalty for not maintaining minimum balance in a savings account?",
+        a: "Penalties vary by bank. SBI charges Rs 5-15 plus GST, while HDFC Bank charges Rs 150-600 plus GST and ICICI Bank charges Rs 100-500 plus GST per month. Opting for a zero-balance or basic savings account avoids these charges entirely.",
+      },
+      {
+        q: "Is savings account interest taxable in India?",
+        a: "Yes, savings account interest is taxable as income from other sources. However, individuals below 60 can claim a deduction of up to Rs 10,000 under Section 80TTA, and senior citizens can claim up to Rs 50,000 under Section 80TTB.",
+      },
+      {
+        q: "Which bank is best for a salary account in India?",
+        a: "The best salary account depends on your employer's tie-up. HDFC Bank and ICICI Bank are popular choices for premium salary accounts with zero-balance benefits, higher transaction limits, and complimentary credit cards. SBI is preferred in government and PSU sectors.",
       },
     ],
   },
@@ -278,6 +358,18 @@ export const trafficPosts5: Post[] = [
         q: "Which bank is best for senior citizens?",
         a: "All three offer extra FD interest for seniors. SBI's lower minimum balance and extensive branch network make it convenient for seniors in non-metro areas.",
       },
+      {
+        q: "Which bank has the best fixed deposit rates for 1 year?",
+        a: "Among the big three, HDFC Bank and ICICI Bank offer around 7.10% for 1-year FDs, slightly higher than SBI's 7.00%. However, small finance banks like AU and Ujjivan offer even better rates of 7.50-8.00% for the same tenure.",
+      },
+      {
+        q: "Can I transfer my home loan from one bank to another?",
+        a: "Yes, home loan balance transfer is allowed and can save you money if the new bank offers a lower interest rate. The process involves applying at the new bank, getting a foreclosure letter from the existing bank, and paying any applicable processing fees. RBI prohibits prepayment penalties on floating-rate home loans.",
+      },
+      {
+        q: "Which bank gives the fastest personal loan approval in India?",
+        a: "ICICI Bank offers pre-approved personal loans disbursed in as little as 3 seconds through iMobile Pay, while HDFC Bank disburses pre-approved loans in about 10 seconds. For non-pre-approved applicants, processing typically takes 1-5 working days at both banks.",
+      },
     ],
   },
   {
@@ -319,6 +411,18 @@ export const trafficPosts5: Post[] = [
         q: "Can an employer refuse to pay gratuity?",
         a: "An employer can only forfeit gratuity if the employee was terminated for violent or criminal misconduct. In all other cases, payment is legally required.",
       },
+      {
+        q: "How do I calculate gratuity for 10 years of service?",
+        a: "Use the formula: Gratuity = (Last Drawn Basic + DA) x 15 x 10 / 26. For example, if your last drawn basic plus DA is Rs 40,000, the gratuity would be Rs 2,30,769. You can also use our gratuity calculator for an instant result.",
+      },
+      {
+        q: "Is gratuity part of CTC in India?",
+        a: "Yes, most private sector employers include gratuity as a component of CTC (Cost to Company). The employer sets aside approximately 4.81% of basic plus DA each month towards the gratuity provision, which is paid out as a lump sum when you leave.",
+      },
+      {
+        q: "What is the new gratuity limit after 2024?",
+        a: "The maximum tax-exempt gratuity limit was raised from Rs 20 lakh to Rs 25 lakh in 2024. This means up to Rs 25 lakh of gratuity received by private sector employees is exempt from income tax. Government employees continue to enjoy full tax exemption with no monetary ceiling.",
+      },
     ],
   },
   {
@@ -359,6 +463,18 @@ export const trafficPosts5: Post[] = [
       {
         q: "Is digital gold safe to invest in?",
         a: "Digital gold is not regulated by SEBI or RBI. For regulated alternatives, prefer SGBs or Gold ETFs.",
+      },
+      {
+        q: "What is the gold-silver ratio and how to use it?",
+        a: "The gold-silver ratio indicates how many grams of silver equal the value of one gram of gold. The historical average is around 60:1. When the ratio exceeds 80:1, silver is considered undervalued relative to gold, making it a better buy. When it drops below 50:1, gold offers better relative value.",
+      },
+      {
+        q: "Is it better to buy gold jewellery or gold ETF for investment?",
+        a: "Gold ETFs are significantly better for investment purposes. Jewellery involves 8-25% making charges and 3% GST, which you lose immediately. Gold ETFs track pure gold prices with minimal expense ratios of 0.3-0.5% and can be sold instantly on stock exchanges.",
+      },
+      {
+        q: "How much gold can I keep at home legally in India?",
+        a: "There is no legal limit on holding gold in India if you can explain its source through income, inheritance, or documented purchases. However, during a tax search, CBDT guidelines allow a married woman to hold up to 500 grams, an unmarried woman up to 250 grams, and a male member up to 100 grams without seizure.",
       },
     ],
   },

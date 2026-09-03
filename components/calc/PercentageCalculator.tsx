@@ -15,7 +15,7 @@ const inputClass =
 
 /* Trim trailing zeros and cap long decimals so results read cleanly. */
 function fmt(n: number): string {
-  if (!Number.isFinite(n)) return "—";
+  if (!Number.isFinite(n)) return "-";
   const rounded = Math.round((n + Number.EPSILON) * 1e6) / 1e6;
   return rounded.toLocaleString("en-US", { maximumFractionDigits: 6 });
 }
@@ -148,8 +148,8 @@ export default function PercentageCalculator() {
         </div>
 
         <p className="mt-6 text-xs text-ink-faint leading-relaxed">
-          {mode === "of" && "Finds a percentage of a value — useful for tips, discounts and shares."}
-          {mode === "isWhat" && "Turns a part-and-whole into a percentage — great for scores and ratios."}
+          {mode === "of" && "Finds a percentage of a value, useful for tips, discounts and shares."}
+          {mode === "isWhat" && "Turns a part-and-whole into a percentage, great for scores and ratios."}
           {mode === "change" && "Measures how much a value rose or fell in percentage terms."}
         </p>
       </div>
@@ -159,13 +159,13 @@ export default function PercentageCalculator() {
           {result ? result.caption : "Result"}
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {result ? result.display : "—"}
+          {result ? result.display : "-"}
         </p>
         <div className="mt-6 rounded-xl bg-card border border-line p-4 text-sm text-ink-soft leading-relaxed">
           {result ? (
             result.sentence
           ) : (
-            <>Enter both values to see the result. Empty fields and division by zero show <strong className="text-ink">—</strong> instead of an error.</>
+            <>Enter both values to see the result. Empty fields and division by zero show <strong className="text-ink">-</strong> instead of an error.</>
           )}
         </div>
       </div>

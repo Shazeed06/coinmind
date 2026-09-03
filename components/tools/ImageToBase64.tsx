@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Dropzone, PrivacyNote, InfoRow, formatBytes } from "@/components/tools/ToolShell";
 
 /* ------------------------------------------------------------------ */
-/*  Image to Base64 — 100% client-side.                               */
+/*  Image to Base64: 100% client-side.                                */
 /*  Reads the uploaded file with FileReader.readAsDataURL (preserving */
 /*  the original bytes and format), then surfaces the data URI plus   */
 /*  ready-to-paste <img> and CSS snippets. Nothing is uploaded.       */
@@ -13,7 +13,7 @@ import { Dropzone, PrivacyNote, InfoRow, formatBytes } from "@/components/tools/
 const ACCEPT =
   "image/png,image/jpeg,image/webp,image/gif,image/svg+xml,image/bmp,image/x-icon,image/avif";
 
-// Files above this size make a very long Base64 string — warn the user.
+// Files above this size make a very long Base64 string. Warn the user.
 const LARGE_FILE = 1024 * 1024; // 1 MB
 
 type Result = {
@@ -109,7 +109,7 @@ export default function ImageToBase64() {
       setCopied(target);
       window.setTimeout(() => setCopied(null), 1600);
     } catch {
-      // Clipboard blocked — the field stays selectable for manual copy.
+      // Clipboard blocked. The field stays selectable for manual copy.
     }
   }, []);
 
@@ -134,7 +134,7 @@ export default function ImageToBase64() {
           accept={ACCEPT}
           onFiles={onFiles}
           label="Drop an image to encode"
-          hint="or click to browse — PNG, JPG, WebP, SVG, GIF"
+          hint="or click to browse: PNG, JPG, WebP, SVG, GIF"
         />
       )}
 
@@ -192,7 +192,7 @@ export default function ImageToBase64() {
               <p className="mt-4 rounded-xl border border-line bg-card p-3 text-sm text-ink-soft">
                 <strong className="text-ink">Heads up:</strong> Base64 encoding
                 makes files about 33% larger. This one is sizeable, so embedding
-                it inline will bloat your HTML or CSS &mdash; for big images a
+                it inline will bloat your HTML or CSS. For big images a
                 normal file URL is usually better.
               </p>
             )}
@@ -255,7 +255,7 @@ export default function ImageToBase64() {
             accept={ACCEPT}
             onFiles={onFiles}
             label="Encode another image"
-            hint="Replaces the current result — PNG, JPG, WebP, SVG, GIF"
+            hint="Replaces the current result: PNG, JPG, WebP, SVG, GIF"
           />
         </div>
       )}

@@ -55,14 +55,14 @@ export async function generateMetadata({
 
   return {
     title: { absolute: `Income Tax on ₹${label} Salary (FY 2026-27)` },
-    description: `New regime income tax on a ₹${label} salary for FY 2026-27 is ${taxStr} — an effective rate of ${rateStr}%. See the full slab breakdown.`,
+    description: `New regime income tax on a ₹${label} salary for FY 2026-27 is ${taxStr}, an effective rate of ${rateStr}%. See the full slab breakdown.`,
     alternates: { canonical: `/income-tax/${slug}` },
     openGraph: {
       type: "article",
       url: `${site.url}/income-tax/${slug}`,
       siteName: site.name,
       locale: "en_IN",
-      title: `Income Tax on ₹${label} Salary — FY 2026-27`,
+      title: `Income Tax on ₹${label} Salary - FY 2026-27`,
       description: `New regime tax on ₹${label}: ${taxStr} (${rateStr}% effective). Full slab-by-slab breakdown, old-vs-new comparison and a free calculator.`,
       images: [
         {
@@ -138,29 +138,63 @@ export default async function Page({
 
   const quickAnswer = `On a ₹${label} salary under the new tax regime for FY 2026-27, you pay ${
     zeroTax ? "no income tax (₹0)" : `approximately ${taxStr} in income tax`
-  } — an effective rate of ${rateStr}%. Your monthly take-home is about ${monthlyInHandStr}.`;
+  }, an effective rate of ${rateStr}%. Your monthly take-home is about ${monthlyInHandStr}.`;
 
   const faqs: { q: string; a: string }[] = [
     {
       q: `Is a ₹${label} salary taxable?`,
       a: zeroTax
-        ? `A ₹${label} annual salary falls in the taxable range, but under the new tax regime for FY 2026-27 you actually pay ₹0. After the ₹75,000 standard deduction your taxable income is ${taxableStr}, which is within the ₹12,00,000 Section 87A rebate limit — so the tax is fully rebated.`
+        ? `A ₹${label} annual salary falls in the taxable range, but under the new tax regime for FY 2026-27 you actually pay ₹0. After the ₹75,000 standard deduction your taxable income is ${taxableStr}, which is within the ₹12,00,000 Section 87A rebate limit, so the tax is fully rebated.`
         : `Yes. A ₹${label} salary is taxable under the new regime for FY 2026-27. After the ₹75,000 standard deduction your taxable income is ${taxableStr}, and the tax works out to ${taxStr} including the 4% health and education cess.`,
     },
     {
       q: `How much income tax do I pay on ${lpaLabel} in the new regime?`,
-      a: `On a ₹${label} salary you pay ${taxStr} in income tax for FY 2026-27 under the new regime — an effective rate of about ${rateStr}% of your gross salary.`,
+      a: `On a ₹${label} salary you pay ${taxStr} in income tax for FY 2026-27 under the new regime, an effective rate of about ${rateStr}% of your gross salary.`,
     },
     {
       q: `What is the monthly in-hand salary on ₹${label} per year?`,
       a: `Your gross monthly salary is roughly ${monthlyGrossStr}. After income tax of ${taxStr} a year, the take-home is about ${monthlyInHandStr} a month. This is before EPF, professional tax and any other payroll deductions your employer applies.`,
     },
     {
-      q: `New regime or old regime — which is better for a ₹${label} salary?`,
+      q: `New regime or old regime - which is better for a ₹${label} salary?`,
       a:
         savings > 0
           ? `With no deductions beyond the standard deduction, the new regime (${taxStr}) beats the old regime (${oldStr}) at this income. The old regime only pulls ahead if you claim large deductions such as 80C, 80D, home-loan interest and HRA. Use the calculator below with your actual deductions to confirm.`
           : `At this income the old regime can match or beat the new one once you add deductions. Without any deductions the old regime costs ${oldStr} versus ${taxStr} under the new regime, so most people are better off on the new regime unless they claim significant 80C, 80D, HRA or home-loan benefits. Compare both with your real numbers below.`,
+    },
+    {
+      q: `What is the standard deduction on a ₹${label} salary?`,
+      a: `₹75,000 under the new regime for FY 2026-27, and it is applied automatically for salaried taxpayers before the slabs are worked out. On your ₹${label} salary it brings the figure the slabs are applied to down to ${taxableStr}. The old regime gives ₹50,000 instead, which is one reason the two regimes are not directly comparable on slab rates alone.`,
+    },
+    {
+      q: `How is the Section 87A rebate applied at ₹${label}?`,
+      a:
+        res.rebate > 0
+          ? `The rebate is applied after the slab tax is calculated and before the cess. Your taxable income of ${taxableStr} stays within the ₹12,00,000 limit, so the ${formatCurrency(res.taxBeforeRebate)} of slab tax is rebated in full. With nothing left to charge cess on, the total payable is ${taxStr}. Note that the rebate is tested on taxable income, not on your gross salary, which is why the ₹75,000 standard deduction effectively lifts the threshold on a salary.`
+          : `It is not, at this income. The rebate applies only while taxable income stays within ₹12,00,000, and yours is ${taxableStr}, above that line. So the full slab tax of ${formatCurrency(res.tax)} stands and the 4% health and education cess of ${formatCurrency(res.cess)} is added on top, giving ${taxStr}. The rebate is all or nothing at the threshold rather than tapering, so income just above it is worth checking carefully.`,
+    },
+    {
+      q: `What is the effective tax rate on ₹${label}?`,
+      a: `${rateStr}%, which is ${taxStr} of tax measured against the full ₹${label} gross salary. It sits below the highest slab rate you reach because the new regime taxes income in bands: only the portion above each threshold is charged at that band's rate, and the first slice after the standard deduction is taxed at nothing at all.`,
+    },
+    {
+      q: `How much tax is deducted from my salary each month at ₹${label}?`,
+      a: zeroTax
+        ? `Nothing, if the new regime figures on this page match your situation. Because the Section 87A rebate takes the liability to zero, there is no monthly TDS to deduct on a ₹${label} salary. Your employer may still deduct if you have declared other income, so check your payslip against the ${monthlyInHandStr} figure above.`
+        : `Employers spread the annual liability across the year as TDS, so roughly ${formatCurrency(res.totalTax / 12)} a month on a ₹${label} salary, against a gross monthly figure of ${monthlyGrossStr}. The monthly amount is usually uneven in practice: it is recalculated whenever you submit investment proofs or your pay changes, and any shortfall is caught up in the final months of the financial year.`,
+    },
+    {
+      q: `Does this figure include surcharge on a ₹${label} salary?`,
+      a:
+        salary > 5000000
+          ? `No. These figures cover the slab tax and the 4% health and education cess only. Surcharge applies on incomes above ₹50 lakh under the rules currently in force, and your ₹${label} salary is above that level, so your actual liability will be higher than the ${taxStr} shown here. Surcharge rates and the marginal-relief calculation are set each year, so confirm the current position on the Income Tax Department website or with a tax professional.`
+          : `There is nothing to include at this level. Surcharge applies only above ₹50 lakh of income under the rules currently in force, and a ₹${label} salary is below that, so the ${taxStr} here is the slab tax plus the 4% health and education cess and nothing else.`,
+    },
+    {
+      q: `Do I still need to file a return on a ₹${label} salary?`,
+      a: zeroTax
+        ? `Very likely yes. Paying zero tax is not the same as being exempt from filing: the filing requirement is generally tested on gross income before deductions and rebate, so a return is usually still due even when the Section 87A rebate wipes out the liability. Filing is also what lets you claim back any TDS your employer or bank has already deducted. Check the current filing thresholds on the Income Tax Department website before deciding.`
+        : `Yes. Tax of ${taxStr} is payable on a ₹${label} salary, so a return is due even though your employer deducts TDS through the year. Filing is where any additional income, deductions or excess TDS gets reconciled, and where you pay or reclaim the difference. Check the current deadline and filing thresholds on the Income Tax Department website.`,
     },
   ];
 
@@ -237,12 +271,12 @@ export default async function Page({
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
           Exactly how much income tax you pay on a ₹{label} annual salary in
-          India under the new tax regime for FY 2026-27 (AY 2027-28) — with a
+          India under the new tax regime for FY 2026-27 (AY 2027-28), with a
           full slab-by-slab breakdown and your monthly take-home.
         </p>
       </header>
 
-      {/* Quick Answer — for AI overviews / featured snippets */}
+      {/* Quick Answer: for AI overviews / featured snippets */}
       <section className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-forest">
           Quick answer
@@ -290,7 +324,7 @@ export default async function Page({
         </div>
         <p className="mt-3 text-xs text-ink-faint">
           Figures use the new-regime slabs for FY 2026-27, a ₹75,000 standard
-          deduction and the 4% cess — the same logic as our{" "}
+          deduction and the 4% cess, the same logic as our{" "}
           <Link
             href="/calculators/income-tax"
             className="text-forest underline underline-offset-2"
@@ -328,7 +362,7 @@ export default async function Page({
                     className="border-b border-line last:border-0 text-ink-soft"
                   >
                     <td className="px-4 py-3">
-                      {formatCurrency(s.from)} – {formatCurrency(s.to)}
+                      {formatCurrency(s.from)} - {formatCurrency(s.to)}
                     </td>
                     <td className="px-4 py-3">{Math.round(s.rate * 100)}%</td>
                     <td className="px-4 py-3 text-right font-medium text-ink">
@@ -362,7 +396,7 @@ export default async function Page({
                 limit, so no rebate applies. Adding the 4% health and education
                 cess of {formatCurrency(res.cess)} to the{" "}
                 {formatCurrency(res.tax)} slab tax gives a total of{" "}
-                <strong>{taxStr}</strong> — an effective rate of {rateStr}% on
+                <strong>{taxStr}</strong>, an effective rate of {rateStr}% on
                 your full ₹{label} salary.
               </p>
             )}
@@ -401,7 +435,7 @@ export default async function Page({
               Assuming no deductions beyond the standard deduction, the new
               regime saves you <strong>{formatCurrency(savings)}</strong> on a ₹
               {label} salary. The old regime can still win if you claim big
-              deductions — full 80C, 80D, HRA and home-loan interest — because it
+              deductions (full 80C, 80D, HRA and home-loan interest) because it
               taxes at higher rates but rewards those deductions. If your
               deductions are modest, the new regime is almost always the cheaper
               choice.
@@ -411,7 +445,7 @@ export default async function Page({
               At a ₹{label} salary the two regimes are close once deductions come
               in. Without any deductions the old regime costs {oldStr} against{" "}
               {taxStr} under the new regime. Claiming 80C, 80D, HRA and home-loan
-              interest can tip the balance toward the old regime — run your real
+              interest can tip the balance toward the old regime. Run your real
               numbers to be sure.
             </>
           )}
@@ -492,7 +526,7 @@ export default async function Page({
         <strong className="text-ink">A note on accuracy:</strong> these figures
         are estimates for a salaried individual below 60 under the new regime and
         exclude surcharge on incomes above ₹50 lakh. They are for education, not
-        tax advice — confirm with a professional before filing.
+        tax advice. Confirm with a professional before filing.
       </div>
     </div>
   );

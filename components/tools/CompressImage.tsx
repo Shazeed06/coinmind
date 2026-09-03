@@ -94,7 +94,7 @@ export default function CompressImage() {
       canvas.height = img.naturalHeight;
       const ctx = canvas.getContext("2d");
       if (!ctx) return null;
-      // JPEG has no alpha channel — flatten transparency onto white.
+      // JPEG has no alpha channel. Flatten transparency onto white.
       if (fmt === "image/jpeg") {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -135,7 +135,7 @@ export default function CompressImage() {
       }
       setError(
         rejected > 0
-          ? `${rejected} file${rejected > 1 ? "s were" : " was"} skipped — only JPG, PNG and WebP are supported.`
+          ? `${rejected} file${rejected > 1 ? "s were" : " was"} skipped. Only JPG, PNG and WebP are supported.`
           : null,
       );
       setBusy(true);
@@ -229,7 +229,7 @@ export default function CompressImage() {
             </div>
             <p className="mt-2 text-xs text-ink-faint">
               {format === "image/png"
-                ? "PNG is lossless — for real savings, convert to JPG or WebP."
+                ? "PNG is lossless. For real savings, convert to JPG or WebP."
                 : "WebP usually gives the smallest files at the same quality."}
             </p>
           </div>
@@ -392,7 +392,7 @@ export default function CompressImage() {
             multiple
             onFiles={onFiles}
             label="Compress more images"
-            hint="Replaces the current batch — JPG, PNG or WebP"
+            hint="Replaces the current batch: JPG, PNG or WebP"
           />
         </div>
       )}

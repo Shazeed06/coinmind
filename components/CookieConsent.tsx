@@ -5,7 +5,7 @@ import Link from "next/link";
 
 // Lightweight cookie/consent notice. Stores the choice in localStorage.
 // For full EEA/UK compliance with personalised ads you'll later plug in a
-// certified CMP (Google offers one in AdSense) — this covers the visible notice
+// certified CMP (Google offers one in AdSense). This covers the visible notice
 // and a stored consent signal in the meantime.
 const KEY = "coinmind-consent";
 
@@ -16,7 +16,7 @@ export default function CookieConsent() {
     try {
       if (!localStorage.getItem(KEY)) setShow(true);
     } catch {
-      // localStorage unavailable — fail silently
+      // localStorage unavailable, fail silently
     }
   }, []);
 

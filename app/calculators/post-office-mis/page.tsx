@@ -4,7 +4,7 @@ import PostOfficeMisCalculator from "@/components/calc/PostOfficeMisCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "post-office-mis")!;
-export const metadata = calcMeta("post-office-mis", CALC.title + " — Monthly Income Scheme", CALC.blurb);
+export const metadata = calcMeta("post-office-mis", CALC.title + " - Monthly Income Scheme", CALC.blurb);
 
 export default function Page() {
   return (
@@ -32,7 +32,7 @@ export default function Page() {
             <p>
               Where <strong>P</strong> is your deposit and <strong>r</strong> is
               the annual interest rate (a current rate, set and revised by the
-              government each quarter &mdash; you can edit it to match
+              government each quarter; you can edit it to match
               today&apos;s figure). Annual income is P &times; r/100, and total
               interest over the term is that annual figure multiplied by five.
               For example, &#8377;5,00,000 at 7.4% pays about &#8377;3,083 every
@@ -58,6 +58,22 @@ export default function Page() {
         {
           q: "Is the monthly income from Post Office MIS taxable?",
           a: "Yes. The monthly interest from the post office monthly income scheme is fully taxable in your hands, and Post Office MIS does not qualify for a Section 80C deduction. Treat the payout shown by this post office mis calculator as a pre-tax figure when planning your income.",
+        },
+        {
+          q: "Can I close a Post Office MIS account before 5 years?",
+          a: "Yes, but not immediately and not without a cost. Premature closure is not allowed in the first year. Close it after that and a percentage of your deposit is deducted as a penalty, with a higher deduction if you close in the earlier years and a smaller one closer to maturity. The monthly payouts you have already received are yours to keep. Confirm the current deduction percentages with India Post before you break the account.",
+        },
+        {
+          q: "How is the MIS monthly income paid out?",
+          a: "The interest is credited every month from the date the account is opened, not lumped together. You can have it paid into a post office savings account or an ECS transfer to your bank account, which is what most people set up. If you never draw a monthly payout it simply sits in the linked savings account earning the savings rate, so the money does not compound at the MIS rate. Your ₹9 lakh principal is returned in full at maturity.",
+        },
+        {
+          q: "Can I extend Post Office MIS after 5 years?",
+          a: "There is no automatic renewal that keeps paying the same rate. At the end of the 5-year term the principal is returned, and if you want to continue the income you open a fresh MIS account at whatever rate the government has notified for that quarter. That reinvestment risk is the main drawback of MIS as a long-term income plan, since the rate you get in five years may be higher or lower than today's.",
+        },
+        {
+          q: "Post Office MIS or SCSS: which gives better monthly income?",
+          a: "SCSS usually carries the higher rate but is restricted to people aged 60 and above (with limited exceptions from 55), pays quarterly rather than monthly, and allows up to ₹30 lakh. MIS is open to any adult, pays every month, and caps at ₹9 lakh single or ₹15 lakh joint. Interest is taxable in both. If you are a senior wanting maximum income, SCSS first; if you want a genuine monthly cheque or are under 60, MIS. Compare both at the current notified rates.",
         },
       ]}
     />

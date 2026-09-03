@@ -4,17 +4,17 @@ import CoinDice from "@/components/tools/CoinDice";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Coin Flip & Dice Roller — Free Online, Heads or Tails" },
+  title: { absolute: "Coin Flip & Dice Roller - Free Online, Heads or Tails" },
   description:
-    "Free coin flip and dice roller. Flip heads or tails with a running count, or roll 1–6 dice from d4 to d20. 100% private — everything runs in your browser.",
+    "Free coin flip and dice roller. Flip heads or tails with a running count, or roll 1-6 dice from d4 to d20. 100% private - everything runs in your browser.",
   alternates: { canonical: "/tools/coin-flip" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/coin-flip",
-    title: "Coin Flip & Dice Roller — Free Online, Heads or Tails",
+    title: "Coin Flip & Dice Roller - Free Online, Heads or Tails",
     description:
-      "Flip a coin with a running heads/tails count, or roll d4–d20 dice with a total. Free, private and instant in your browser.",
+      "Flip a coin with a running heads/tails count, or roll d4-d20 dice with a total. Free, private and instant in your browser.",
     locale: "en_US",
     images: [
       {
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "Do you show the total of the dice?",
-    a: "Yes. After each roll you see each individual die and the sum of all of them, along with the breakdown — for example 4 + 6 + 2 = 12 — which is useful for board games and tabletop RPGs.",
+    a: "Yes. After each roll you see each individual die and the sum of all of them, along with the breakdown, for example 4 + 6 + 2 = 12, which is useful for board games and tabletop RPGs.",
   },
   {
     q: "Are the results random or predictable?",
@@ -109,8 +109,8 @@ export default function Page() {
           Coin Flip &amp; Dice Roller
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Flip a coin for heads or tails, or roll up to six dice from d4 to d20
-          &mdash; with a running tally and instant totals.
+          Flip a coin for heads or tails, or roll up to six dice from d4 to d20,
+          with a running tally and instant totals.
         </p>
       </header>
 
@@ -143,7 +143,7 @@ export default function Page() {
           first, which option wins, or simply yes versus no. This flipper gives
           each side an even 50% chance every time and keeps a{" "}
           <strong>running count</strong> of heads and tails so you can see the
-          split even out over many flips &mdash; a small, satisfying
+          split even out over many flips, a small, satisfying
           demonstration of probability. Because the outcome is generated only
           when you click, there is no way to game it and no result is fixed in
           advance.
@@ -165,7 +165,7 @@ export default function Page() {
         <p>
           Both tools use your browser&apos;s random number generator, so results
           are unpredictable and unbiased. Everything happens on your device
-          &mdash; no flips or rolls are uploaded or stored &mdash; and the page
+          (no flips or rolls are uploaded or stored) and the page
           works offline, which makes it reliable for game night even when the
           Wi-Fi is not. Reduced-motion settings are respected too, so the
           animations calm down if your device asks them to.

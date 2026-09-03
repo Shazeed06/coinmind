@@ -21,7 +21,7 @@ export function AdSlot({ adUnit, width = 728, height = 90, enabled = false }: Ad
       // @ts-expect-error: AdSense global
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
-      /* AdSense not loaded — skip gracefully */
+      /* AdSense not loaded, skip gracefully */
     }
   }, [enabled]);
 

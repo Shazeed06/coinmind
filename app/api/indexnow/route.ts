@@ -6,10 +6,10 @@ import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 import { GLOSSARY } from "@/lib/glossary";
 
-// GET /api/indexnow — submits every public URL to IndexNow (Bing, Yandex, Naver,
+// GET /api/indexnow: submits every public URL to IndexNow (Bing, Yandex, Naver,
 // Seznam). Bing's index feeds ChatGPT Search, so this gets pages discovered in
 // hours instead of weeks. Trigger it after each deploy (visit the URL) or wire it
-// into CI. Google ignores IndexNow — keep using GSC + sitemap there.
+// into CI. Google ignores IndexNow, so keep using GSC + sitemap there.
 export const dynamic = "force-dynamic";
 
 function allUrls(): string[] {

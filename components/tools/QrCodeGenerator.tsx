@@ -5,7 +5,7 @@ import QRCode from "qrcode";
 import { IconDownload, IconShield } from "@/components/tools/ToolShell";
 
 /* ------------------------------------------------------------------ */
-/*  QR Code Generator — 100% client-side.                             */
+/*  QR Code Generator: 100% client-side.                              */
 /*  Renders live to a <canvas> via QRCode.toCanvas and exports        */
 /*  PNG (from the canvas) and SVG (via QRCode.toString).              */
 /* ------------------------------------------------------------------ */
@@ -13,10 +13,10 @@ import { IconDownload, IconShield } from "@/components/tools/ToolShell";
 type Ecc = "L" | "M" | "Q" | "H";
 
 const ECC_LEVELS: { value: Ecc; label: string; blurb: string }[] = [
-  { value: "L", label: "L", blurb: "Low — recovers ~7% damage. Smallest, densest code." },
-  { value: "M", label: "M", blurb: "Medium — recovers ~15% damage. The standard default." },
-  { value: "Q", label: "Q", blurb: "Quartile — recovers ~25% damage. Good for print." },
-  { value: "H", label: "H", blurb: "High — recovers ~30% damage. Best for logos or wear." },
+  { value: "L", label: "L", blurb: "Low: recovers ~7% damage. Smallest, densest code." },
+  { value: "M", label: "M", blurb: "Medium: recovers ~15% damage. The standard default." },
+  { value: "Q", label: "Q", blurb: "Quartile: recovers ~25% damage. Good for print." },
+  { value: "H", label: "H", blurb: "High: recovers ~30% damage. Best for logos or wear." },
 ];
 
 const DEFAULT_TEXT = "https://www.coinmind.in";
@@ -36,7 +36,7 @@ export default function QrCodeGenerator() {
   const trimmed = text.trim();
   const sameColor = fg.toLowerCase() === bg.toLowerCase();
 
-  // Live render — debounced so fast typing / dragging stays smooth.
+  // Live render: debounced so fast typing / dragging stays smooth.
   useEffect(() => {
     let cancelled = false;
     const timer = window.setTimeout(async () => {
@@ -110,7 +110,7 @@ export default function QrCodeGenerator() {
       a.remove();
       URL.revokeObjectURL(url);
     } catch {
-      setError("Could not export SVG — try a shorter input or a lower error-correction level.");
+      setError("Could not export SVG. Try a shorter input or a lower error-correction level.");
     }
   }, [ready, trimmed, level, size, fg, bg]);
 
@@ -122,7 +122,7 @@ export default function QrCodeGenerator() {
         <p className="text-sm text-ink-soft">
           <strong className="text-ink">100% private.</strong> Your QR codes are
           generated entirely in your browser. Nothing you type is uploaded or
-          stored &mdash; the data never leaves your device.
+          stored. The data never leaves your device.
         </p>
       </div>
 
@@ -141,7 +141,7 @@ export default function QrCodeGenerator() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={3}
-            placeholder="https://example.com — or any text, Wi-Fi details, a phone number…"
+            placeholder="https://example.com, or any text, Wi-Fi details, a phone number…"
             className="mt-2 w-full resize-y rounded-lg border border-line-strong bg-card px-3 py-2.5 text-sm text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-forest"
           />
           <p className="mt-1.5 text-xs text-ink-faint">
@@ -249,7 +249,7 @@ export default function QrCodeGenerator() {
           </div>
           {sameColor && (
             <p className="mt-3 text-xs text-berry">
-              Foreground and background are the same colour &mdash; the code
+              Foreground and background are the same colour. The code
               won&apos;t be scannable. Pick a high-contrast pair.
             </p>
           )}

@@ -4,16 +4,16 @@ import TextCompare from "@/components/tools/TextCompare";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Text Compare — Free Online Diff Checker" },
+  title: { absolute: "Text Compare - Free Online Diff Checker" },
   description:
-    "Free text compare and diff checker. Paste two versions and see added, removed and unchanged lines highlighted instantly. 100% private — runs in your browser.",
+    "Free text compare and diff checker. Paste two versions and see added, removed and unchanged lines highlighted instantly. 100% private - runs in your browser.",
   alternates: { canonical: "/tools/text-compare" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/text-compare`,
-    title: "Text Compare — Free Online Diff Checker",
+    title: "Text Compare - Free Online Diff Checker",
     description:
       "Compare two blocks of text line by line and see exactly what changed. Free, private and instant, right in your browser.",
     locale: "en_US",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How does the text comparison work?",
-    a: "The tool splits both blocks of text into lines and runs a longest common subsequence (LCS) diff — the same idea behind version-control tools. It then shows each line as unchanged, added or removed, and counts the additions and deletions for you.",
+    a: "The tool splits both blocks of text into lines and runs a longest common subsequence (LCS) diff, the same idea behind version-control tools. It then shows each line as unchanged, added or removed, and counts the additions and deletions for you.",
   },
   {
     q: "What do the colours mean?",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Is my text kept private?",
     a: "Yes. The comparison happens entirely in your browser with JavaScript. Neither block of text is uploaded or stored, so it is safe for confidential drafts, contracts and source code.",
+  },
+  {
+    q: "Can I upload two files instead of pasting?",
+    a: "Not at the moment. The tool takes text pasted or typed into the two boxes. For a document, open it, select all, and paste each version into its box. For code or configuration files, opening them in a plain text editor first avoids smart quotes and hidden formatting that a word processor might introduce into the copy.",
+  },
+  {
+    q: "Does it ignore case or extra spaces?",
+    a: "No. Lines are matched exactly, so a difference in capitalisation, a trailing space or a tab instead of spaces makes two otherwise identical lines count as one removal plus one addition. If that produces noise, tidy the whitespace in both versions before pasting so the diff shows only the changes you care about.",
+  },
+  {
+    q: "Do I need to sign up, and does it work offline?",
+    a: "No sign-up, no account and nothing to install. The diff algorithm ships with the page, so once it has loaded the comparison keeps working with no internet connection. The two input boxes stack on narrow screens, so it is usable on a phone, though a wider screen makes a long diff much easier to scan.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Text Compare
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Paste two versions of a document and see exactly what changed &mdash;
+          Paste two versions of a document and see exactly what changed:
           added, removed and unchanged lines highlighted side by side.
         </p>
       </header>
@@ -156,7 +168,7 @@ export default function Page() {
           The tool uses a <strong>longest common subsequence</strong> algorithm,
           the same technique that powers version-control systems like Git. It
           finds the largest set of lines that appear, in order, in both
-          documents &mdash; those are your unchanged lines. Everything left over
+          documents. Those are your unchanged lines. Everything left over
           in the original counts as removed, and everything new in the changed
           version counts as added. The result is a clean, ordered view of the
           edit rather than a jumble of mismatched lines.

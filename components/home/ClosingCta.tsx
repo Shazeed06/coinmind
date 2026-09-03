@@ -8,7 +8,7 @@ export default function ClosingCta() {
       <div className="text-center py-8 lg:py-16">
         <h2 className="h2 text-white">Ready to Take Control of Your Finances?</h2>
         <p className="body text-white/60 mt-4 max-w-[640px] mx-auto">
-          Free calculators, expert guides, and AI-powered answers — all in one place. No sign-up needed.
+          Free calculators, expert guides, and AI-powered answers. All in one place. No sign-up needed.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
           <Link

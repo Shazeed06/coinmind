@@ -4,7 +4,7 @@ import CountdownToDate from "@/components/tools/CountdownToDate";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Countdown to Date — Live Days, Hours & Seconds" },
+  title: { absolute: "Countdown to Date - Live Days, Hours & Seconds" },
   description:
     "Free live countdown timer to any date and time. See the days, hours, minutes and seconds remaining until New Year, a birthday or your next big event.",
   alternates: { canonical: "/tools/countdown-to-date" },
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/countdown-to-date`,
-    title: "Countdown to Date — Live Days, Hours & Seconds",
+    title: "Countdown to Date - Live Days, Hours & Seconds",
     description:
-      "Pick any date and time and watch a live countdown of the days, hours, minutes and seconds remaining — free and private in your browser.",
+      "Pick any date and time and watch a live countdown of the days, hours, minutes and seconds remaining - free and private in your browser.",
     locale: "en_US",
     images: [
       {
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "Does the countdown update automatically?",
-    a: "Yes. Once you set a date the numbers refresh every second on their own — you never need to reload the page. Leave the tab open to watch the seconds tick down in real time.",
+    a: "Yes. Once you set a date the numbers refresh every second on their own. You never need to reload the page. Leave the tab open to watch the seconds tick down in real time.",
   },
   {
     q: "What happens if the date I choose is in the past?",
@@ -47,7 +47,19 @@ const faqs = [
   },
   {
     q: "Is my chosen date sent to a server?",
-    a: "No. The countdown is calculated entirely in your browser. Nothing you enter is uploaded, stored or shared — it never leaves your device.",
+    a: "No. The countdown is calculated entirely in your browser. Nothing you enter is uploaded, stored or shared. It never leaves your device.",
+  },
+  {
+    q: "Which quick presets are included?",
+    a: "Five of them: New Year, which jumps to 1 January next year; Christmas, which rolls forward to 25 December; Next weekend; This time tomorrow; and In one week. Each target is worked out from your device clock at the moment you tap it, so a preset always points at the next occurrence rather than a fixed past date.",
+  },
+  {
+    q: "Does the countdown stay accurate if I switch tabs or lock my phone?",
+    a: "Yes. Every tick recalculates the gap between your target and the current system time rather than counting down from a stored number, so a background tab that gets throttled cannot drift out of sync. Come back after an hour or a phone lock and the figures snap straight to the correct remaining time.",
+  },
+  {
+    q: "Can I save or share my countdown?",
+    a: "Not from this page. The target date lives only in the open tab, so reloading or closing it clears the countdown, and there is no link you can send to someone else. Bookmark the tool and pick your date again, which takes a couple of seconds, or use a preset for recurring occasions.",
   },
 ];
 
@@ -111,7 +123,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Pick any date and time and watch a live countdown of the days, hours,
-          minutes and seconds &mdash; updating every second in your browser.
+          minutes and seconds, updating every second in your browser.
         </p>
       </header>
 
@@ -126,9 +138,9 @@ export default function Page() {
           Quick answer
         </h2>
         <p className="mt-2 text-ink-soft leading-relaxed">
-          Choose a target date and time in the picker above &mdash; or tap a
+          Choose a target date and time in the picker above, or tap a
           preset such as <strong className="text-ink">New Year</strong> or{" "}
-          <strong className="text-ink">Christmas</strong> &mdash; and the big
+          <strong className="text-ink">Christmas</strong>, and the big
           number cards immediately show the days, hours, minutes and seconds left,
           refreshing every second. If the date has already gone by, you&rsquo;ll
           see &ldquo;This date has passed&rdquo; instead.
@@ -140,9 +152,9 @@ export default function Page() {
         <h2>Count down to the moments that matter</h2>
         <p>
           A countdown turns an abstract date on the calendar into something you
-          can feel ticking closer. Use it for the big milestones &mdash; New
+          can feel ticking closer. Use it for the big milestones (New
           Year, a birthday, a wedding, an exam, a product launch, a holiday or a
-          release date &mdash; and keep the tab open to watch the seconds fall.
+          release date) and keep the tab open to watch the seconds fall.
           Because the presets and the maths are worked out on your own device, the
           countdown is instant and completely private.
         </p>
@@ -154,7 +166,7 @@ export default function Page() {
           remaining milliseconds are split into whole days, then the leftover
           hours, minutes and seconds, and shown in the four number cards. Everything
           is derived from your device clock, so the countdown always agrees with
-          the time on your phone or computer &mdash; no accounts, no servers and
+          the time on your phone or computer: no accounts, no servers and
           nothing to install.
         </p>
 
@@ -165,7 +177,7 @@ export default function Page() {
           rolls forward to December 25th, and the others set handy relative points
           like this time tomorrow or one week from now. If you ever choose a date
           that has already passed, the tool tells you clearly rather than showing
-          confusing negative numbers &mdash; just pick a future date to start
+          confusing negative numbers. Just pick a future date to start
           again.
         </p>
       </section>

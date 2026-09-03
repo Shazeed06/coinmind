@@ -47,7 +47,7 @@ export default function GoalSipCalculator() {
             max={30}
             step={0.5}
             suffix="%"
-            hint="Equity funds have historically returned 10–14% long term. Returns are not guaranteed."
+            hint="Equity funds have historically returned 10-14% long term. Returns are not guaranteed."
           />
           <Field
             label="Time to reach goal"

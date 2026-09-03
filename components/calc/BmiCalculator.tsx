@@ -44,7 +44,7 @@ export default function BmiCalculator() {
     if (!(meters > 0) || !(weightKg > 0)) return null;
     const bmi = weightKg / (meters * meters);
     if (!Number.isFinite(bmi) || bmi <= 0) return null;
-    // Healthy weight (kg) for this height at the 18.5–24.9 BMI band.
+    // Healthy weight (kg) for this height at the 18.5-24.9 BMI band.
     const lowKg = 18.5 * meters * meters;
     const highKg = 24.9 * meters * meters;
     return { bmi, low: lowKg, high: highKg };
@@ -58,7 +58,7 @@ export default function BmiCalculator() {
   };
 
   const cat = result ? categoryFor(result.bmi) : null;
-  // Marker across a 12–40 BMI scale.
+  // Marker across a 12-40 BMI scale.
   const markerPct = result
     ? Math.min(100, Math.max(0, ((result.bmi - 12) / 28) * 100))
     : 0;
@@ -161,10 +161,10 @@ export default function BmiCalculator() {
             </div>
 
             <div className="mt-6">
-              <Stat label="Healthy BMI range" value="18.5 – 24.9" accent="ink" />
+              <Stat label="Healthy BMI range" value="18.5-24.9" accent="ink" />
               <Stat
                 label="Healthy weight for your height"
-                value={`${fmtWeight(result.low)} – ${fmtWeight(result.high)}`}
+                value={`${fmtWeight(result.low)} - ${fmtWeight(result.high)}`}
                 accent="brass"
               />
             </div>

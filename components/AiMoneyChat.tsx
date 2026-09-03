@@ -7,7 +7,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 const STARTERS = [
   "How much SIP to reach ₹1 crore in 15 years?",
-  "New vs old tax regime — which is better for me?",
+  "New vs old tax regime: which is better for me?",
   "How do I start investing with ₹5,000 a month?",
   "Best free AI tools for students?",
 ];
@@ -43,7 +43,7 @@ export default function AiMoneyChat() {
     } catch {
       setMessages([
         ...next,
-        { role: "assistant", content: "Network issue — please try again." },
+        { role: "assistant", content: "Network issue. Please try again." },
       ]);
     } finally {
       setLoading(false);

@@ -4,7 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Rotate PDF — Turn PDF Pages 90°, 180° Free" },
+  title: { absolute: "Rotate PDF - Turn PDF Pages 90°, 180° Free" },
   description:
     "Free rotate PDF tool. Turn every page or a single page 90, 180 or 270 degrees, entirely in your browser. No upload, no sign-up, fully private.",
   alternates: { canonical: "/tools/rotate-pdf" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://www.coinmind.in/tools/rotate-pdf",
     siteName: site.name,
     locale: "en_US",
-    title: "Rotate PDF — Turn PDF Pages 90°, 180° Free",
+    title: "Rotate PDF - Turn PDF Pages 90°, 180° Free",
     description:
       "Rotate every page or just one by 90, 180 or 270 degrees, entirely in your browser. No upload, no sign-up.",
     images: [
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
 const faqData = [
   {
     q: "Is my PDF uploaded anywhere?",
-    a: "No. Rotation happens entirely in your browser with JavaScript. Your PDF never leaves your device — nothing is uploaded, stored or shared, which keeps sensitive documents private.",
+    a: "No. Rotation happens entirely in your browser with JavaScript. Your PDF never leaves your device. Nothing is uploaded, stored or shared, which keeps sensitive documents private.",
   },
   {
     q: "Can I rotate just one page instead of the whole file?",
-    a: "Yes. Choose One page and enter the page number to turn a single page — handy when one scan came in sideways. Choose All pages to rotate the entire document at once.",
+    a: "Yes. Choose One page and enter the page number to turn a single page, handy when one scan came in sideways. Choose All pages to rotate the entire document at once.",
   },
   {
     q: "Which way do the pages turn?",
@@ -42,7 +42,7 @@ const faqData = [
   },
   {
     q: "Does rotating reduce quality or change the text?",
-    a: "No. The tool only updates each page's rotation setting, so text stays selectable and images stay sharp. Nothing is re-rendered or re-compressed — the content is untouched.",
+    a: "No. The tool only updates each page's rotation setting, so text stays selectable and images stay sharp. Nothing is re-rendered or re-compressed. The content is untouched.",
   },
   {
     q: "Can I rotate a password-protected PDF?",
@@ -50,11 +50,19 @@ const faqData = [
   },
   {
     q: "Can I rotate different pages by different amounts in one go?",
-    a: "The tool applies one rotation setting at a time to the pages you select. To rotate page 2 by 90 degrees and page 5 by 180 degrees, run the tool twice on the same file — the rotations stack correctly.",
+    a: "The tool applies one rotation setting at a time to the pages you select. To rotate page 2 by 90 degrees and page 5 by 180 degrees, run the tool twice on the same file. The rotations stack correctly.",
   },
   {
     q: "Does rotation affect how the PDF prints?",
-    a: "Yes — the saved rotation is applied automatically when you print, so pages come out correctly oriented without you having to adjust any printer settings.",
+    a: "Yes. The saved rotation is applied automatically when you print, so pages come out correctly oriented without you having to adjust any printer settings.",
+  },
+  {
+    q: "Will the rotation stick if I email or upload the file?",
+    a: "Yes. The rotation is written into the downloaded PDF itself, not remembered by this website, so every viewer, printer and upload portal sees the corrected orientation. That is different from the temporary rotate button in some PDF readers, which only turns the page on screen and reverts the next time the file is opened.",
+  },
+  {
+    q: "Is there a limit on file size or page count?",
+    a: "There is no fixed limit. Rotation only touches a small flag on each page rather than the page content, so it is one of the lightest PDF operations and stays fast even on long documents. The practical ceiling is simply the memory needed to hold your file in the browser tab while you work, which is rarely an issue.",
   },
 ];
 
@@ -96,7 +104,7 @@ export default function Page() {
       />
       <ToolPageLayout
         title="Rotate PDF"
-        description="Turn every page or a single page 90, 180 or 270 degrees and download the corrected file — your document never leaves your device."
+        description="Turn every page or a single page 90, 180 or 270 degrees and download the corrected file. Your document never leaves your device."
         howToUse={[
           {
             step: "Drop your PDF",
@@ -116,12 +124,12 @@ export default function Page() {
           {
             step: "Preview the result",
             detail:
-              "The preview updates to show how each page will look after rotation. Verify the orientation is correct — especially the page numbers — before you commit the change.",
+              "The preview updates to show how each page will look after rotation. Verify the orientation is correct, especially the page numbers, before you commit the change.",
           },
           {
             step: "Rotate and download",
             detail:
-              "Click the rotate button to apply the change. The tool updates each selected page's rotation flag and triggers a download of the corrected PDF — your original file stays untouched.",
+              "Click the rotate button to apply the change. The tool updates each selected page's rotation flag and triggers a download of the corrected PDF. Your original file stays untouched.",
           },
         ]}
         whenToUse={[
@@ -141,19 +149,19 @@ export default function Page() {
               "Slides exported in the wrong orientation need a quick 90-degree turn before sharing with colleagues or presenting on a projector.",
           },
         ]}
-        howItWorks="Rotation in a PDF is handled by a simple rotation flag stored on each page — the actual content is never re-rendered or reprocessed. This tool uses the pdf-lib library to read your document entirely in your browser, then updates the rotation property for the pages you selected. When you download, the modified PDF retains all original text, images and vector graphics at full quality because only the metadata-level rotation setting has changed. Nothing is uploaded to any server, and the tool works offline once the page has loaded."
+        howItWorks="Rotation in a PDF is handled by a simple rotation flag stored on each page. The actual content is never re-rendered or reprocessed. This tool uses the pdf-lib library to read your document entirely in your browser, then updates the rotation property for the pages you selected. When you download, the modified PDF retains all original text, images and vector graphics at full quality because only the metadata-level rotation setting has changed. Nothing is uploaded to any server, and the tool works offline once the page has loaded."
         tips={[
-          "Check the preview carefully — a single mis-rotated page buried in a long document is easy to miss and awkward to explain later.",
-          "Use 270 degrees instead of searching for an anti-clockwise option — since rotation is clockwise, 270 degrees gives the exact same result as turning 90 degrees left.",
-          "Rotating a page 180 degrees is the same as flipping it — if a page is upside down, 180 degrees sets it right-side up in one click.",
-          "If a PDF fails to load, check whether it's password-protected — encrypted files may need the password removed first before the tool can read and modify them.",
+          "Check the preview carefully. A single mis-rotated page buried in a long document is easy to miss and awkward to explain later.",
+          "Use 270 degrees instead of searching for an anti-clockwise option. Since rotation is clockwise, 270 degrees gives the exact same result as turning 90 degrees left.",
+          "Rotating a page 180 degrees is the same as flipping it. If a page is upside down, 180 degrees sets it right-side up in one click.",
+          "If a PDF fails to load, check whether it's password-protected. Encrypted files may need the password removed first before the tool can read and modify them.",
         ]}
         faqs={faqData}
         relatedTools={[
           { label: "Organize PDF", href: "/tools/organize-pdf" },
           { label: "Split PDF", href: "/tools/split-pdf" },
           { label: "Merge PDF", href: "/tools/merge-pdf" },
-          { label: "Compress PDF", href: "/tools/compress-pdf" },
+          { label: "Image to PDF", href: "/tools/image-to-pdf" },
         ]}
       >
         <RotatePdf />

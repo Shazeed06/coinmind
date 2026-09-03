@@ -12,7 +12,7 @@ export default function FeaturedCalculators() {
       <SectionHeader
         eyebrow="Calculators"
         title={`${liveCalcs.length} Free Financial Calculators`}
-        subline="Plan investments, size a loan, or estimate your tax — instantly and privately."
+        subline="Plan investments, size a loan, or estimate your tax, instantly and privately."
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {featured.map((c) => (

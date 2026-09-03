@@ -4,7 +4,7 @@ import AiEmailWriter from "@/components/tools/AiEmailWriter";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Email & Cover Letter Writer — Free" },
+  title: { absolute: "AI Email & Cover Letter Writer - Free" },
   description:
     "Free AI email and cover letter writer. Enter a few key points, pick a tone, and get a complete, ready-to-send email or cover letter in seconds.",
   alternates: { canonical: "/tools/ai-email-writer" },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/ai-email-writer`,
-    title: "AI Email & Cover Letter Writer — Free",
+    title: "AI Email & Cover Letter Writer - Free",
     description:
       "Enter a few key points, pick a tone, and get a complete, ready-to-send email or cover letter in seconds.",
     locale: "en_US",
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "How do I write a good prompt for it?",
-    a: "List the key points you want covered — the purpose, any names or dates, and the outcome you want. The more specific your bullet points, the more accurate and personal the draft. You can always tweak the result before sending.",
+    a: "List the key points you want covered: the purpose, any names or dates, and the outcome you want. The more specific your bullet points, the more accurate and personal the draft. You can always tweak the result before sending.",
   },
   {
     q: "Can it match a formal or friendly tone?",
@@ -42,11 +42,23 @@ const faqs = [
   },
   {
     q: "Will an employer know my cover letter was written with AI?",
-    a: "Treat the output as a first draft. Read it through, add specific achievements and details only you know, and adjust the wording so it sounds like you. That personal edit is what makes it land — and it's good practice for any AI-assisted writing.",
+    a: "Treat the output as a first draft. Read it through, add specific achievements and details only you know, and adjust the wording so it sounds like you. That personal edit is what makes it land, and it's good practice for any AI-assisted writing.",
   },
   {
     q: "Does it include a subject line for emails?",
     a: "Yes. When you choose Email, the writer adds a clear subject line at the top. For cover letters it produces the letter body, ready to drop into your application or a document.",
+  },
+  {
+    q: "Can it write a reply to an email I received?",
+    a: "Yes. Paste the message you are answering into the key points box, add a line saying what the reply should do (accept, decline, ask for a date, negotiate a price), and pick a tone. The writer then responds to the specific points in that message rather than producing a generic note you have to rewrite.",
+  },
+  {
+    q: "Is what I type stored or read by anyone?",
+    a: "Your key points travel over an encrypted connection to the AI model that writes the draft, and CoinMind does not save them, log them or tie them to an account. Because the text does leave your device, leave out passwords, bank details, contract terms and anything else you would not put in a plain email.",
+  },
+  {
+    q: "How long an email or cover letter can it produce?",
+    a: "Each draft is capped at roughly 1,500 tokens, around 1,000 words, which is far more than a normal email or a one page cover letter needs. Your input is capped at about 8,000 characters, so there is plenty of room to paste a full job description or the message you are replying to.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Describe what you need in a few words, pick a tone, and get a complete,
-          ready-to-send email or cover letter in seconds &mdash; then copy, edit
+          ready-to-send email or cover letter in seconds. Then copy, edit
           and send.
         </p>
       </header>
@@ -135,8 +147,8 @@ export default function Page() {
             To write an email or cover letter with AI, choose the format, type a
             few key points about what you want to say, pick a tone
             (Professional, Friendly, Formal, Persuasive or Apologetic) and click
-            Generate. You get a full draft &mdash; complete with a subject line
-            for emails &mdash; that you can copy and refine. It&apos;s free,
+            Generate. You get a full draft, complete with a subject line
+            for emails, that you can copy and refine. It&apos;s free,
             needs no account, and works for follow-ups, outreach, resignations,
             job applications and more.
           </p>
@@ -149,8 +161,8 @@ export default function Page() {
         <p>
           Writing from a blank page is the hard part. This tool flips that
           around: instead of drafting sentence by sentence, you give it the raw
-          ingredients &mdash; who it&apos;s for, what you want to happen and the
-          points that matter &mdash; and it assembles a coherent, correctly
+          ingredients (who it&apos;s for, what you want to happen and the
+          points that matter), and it assembles a coherent, correctly
           structured message around them. For emails that means a subject line,
           a natural greeting, a clear body and an appropriate sign-off. For
           cover letters it means an opening that states the role, a middle that
@@ -166,7 +178,7 @@ export default function Page() {
           contacts you know. <strong>Persuasive</strong> helps with pitches,
           proposals and requests, while <strong>Apologetic</strong> strikes the
           right note when something has gone wrong. Try one, read the result,
-          then switch tone and regenerate to compare &mdash; it takes seconds.
+          then switch tone and regenerate to compare. It takes seconds.
         </p>
 
         <h2>Tips for a stronger draft</h2>
@@ -174,7 +186,7 @@ export default function Page() {
           Be specific in your key points: real names, dates, numbers and the
           exact outcome you want give the AI something concrete to work with.
           For cover letters, name the role and one or two achievements that map
-          to it. Always read the draft through before sending &mdash; check the
+          to it. Always read the draft through before sending: check the
           facts, adjust anything that doesn&apos;t sound like you, and remove
           placeholder details. Pair a cover letter with a polished CV from the{" "}
           <Link href="/resume-builder">Resume Builder</Link> to apply with a

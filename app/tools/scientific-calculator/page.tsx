@@ -4,7 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Scientific Calculator — Free Online" },
+  title: { absolute: "Scientific Calculator - Free Online" },
   description:
     "Free online scientific calculator with sin, cos, tan, log, ln, powers, roots, factorial, π and e. Keyboard support, runs 100% in your browser.",
   alternates: { canonical: "/tools/scientific-calculator" },
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/scientific-calculator",
-    title: "Scientific Calculator — Free Online",
+    title: "Scientific Calculator - Free Online",
     description:
-      "Online scientific calculator with trig, logs, powers, roots and factorial. Keyboard support and Deg/Rad toggle — runs entirely in your browser.",
+      "Online scientific calculator with trig, logs, powers, roots and factorial. Keyboard support and Deg/Rad toggle - runs entirely in your browser.",
     locale: "en_US",
     images: [
       {
@@ -46,15 +46,23 @@ const faqData = [
   },
   {
     q: "Is my calculation private?",
-    a: "Yes. Everything is computed on your own device with JavaScript — no expression is uploaded, stored or sent to a server. The calculator even keeps working offline once the page has loaded.",
+    a: "Yes. Everything is computed on your own device with JavaScript. No expression is uploaded, stored or sent to a server. The calculator even keeps working offline once the page has loaded.",
   },
   {
     q: "Can I see my calculation history?",
-    a: "No — the calculator does not store history, previous expressions or results. Each calculation is isolated, which keeps the tool simple, fast and fully private with nothing recorded anywhere.",
+    a: "No. The calculator does not store history, previous expressions or results. Each calculation is isolated, which keeps the tool simple, fast and fully private with nothing recorded anywhere.",
   },
   {
     q: "Why does my expression show Error?",
     a: "An Error usually means the parser could not make sense of your input. Check for mismatched parentheses, missing operators between numbers and function names, or invalid characters that are not part of a mathematical expression.",
+  },
+  {
+    q: "How do I use pi and e in a calculation?",
+    a: "Press the dedicated constant keys and they are inserted at full precision rather than as a rounded value like 3.14. Implicit multiplication next to a constant is supported, so 2 followed by the pi key evaluates as 2 times pi. That makes expressions such as the circumference of a circle quick to enter without extra brackets.",
+  },
+  {
+    q: "Why does 2^3^2 give 512 instead of 64?",
+    a: "Because powers are right-associative, which is the standard mathematical convention. The calculator reads 2^3^2 as 2^(3^2), that is 2^9, which is 512. If you want the other reading, add brackets and enter (2^3)^2 to get 64. When a chain of powers matters, brackets remove all doubt.",
   },
 ];
 
@@ -96,7 +104,7 @@ export default function Page() {
       />
       <ToolPageLayout
         title="Scientific Calculator"
-        description="A full online scientific calculator — trig, logarithms, powers, roots and factorial, with keyboard support and a Deg/Rad toggle, right in your browser."
+        description="A full online scientific calculator: trig, logarithms, powers, roots and factorial, with keyboard support and a Deg/Rad toggle, right in your browser."
         howToUse={[
           {
             step: "Set your angle mode",
@@ -141,20 +149,20 @@ export default function Page() {
               "Since everything runs locally in the browser with no server dependency, the calculator works without an internet connection and on devices where you cannot install any software.",
           },
         ]}
-        howItWorks="The calculator uses a custom expression parser built in JavaScript — not the browser's eval function, which would be a security risk. When you press equals, the parser tokenizes your input into numbers, operators and functions, then evaluates them using a recursive-descent algorithm that respects the correct order of operations. Powers are right-associative (so 2^3^2 = 2^(3^2) = 512), unary minus is handled correctly for negative numbers, and implicit multiplication next to constants like 2π is supported. The entire computation happens in your browser with zero network requests."
+        howItWorks="The calculator uses a custom expression parser built in JavaScript, not the browser's eval function, which would be a security risk. When you press equals, the parser tokenizes your input into numbers, operators and functions, then evaluates them using a recursive-descent algorithm that respects the correct order of operations. Powers are right-associative (so 2^3^2 = 2^(3^2) = 512), unary minus is handled correctly for negative numbers, and implicit multiplication next to constants like 2π is supported. The entire computation happens in your browser with zero network requests."
         tips={[
-          "Use parentheses liberally — when in doubt about operator precedence, wrap parts of your expression in parentheses to make the intended order explicit and avoid surprises.",
-          "Switch between Deg and Rad before typing your expression — the toggle only affects trig functions evaluated after you switch, not any number already on the display.",
-          "Remember that the % key divides by 100 — typing 50% produces 0.5. This is convenient for percentage calculations but can be confusing if you expect a different behaviour.",
-          "Factorial (n!) works only on non-negative integers — entering 5! correctly returns 120, but 3.5! or (-2)! will show an Error on the display.",
-          "On desktop, always use the keyboard — it is significantly faster than clicking on-screen buttons. All standard keys work: digits, arithmetic operators, parentheses, Enter for equals, and Escape to clear.",
+          "Use parentheses liberally. When in doubt about operator precedence, wrap parts of your expression in parentheses to make the intended order explicit and avoid surprises.",
+          "Switch between Deg and Rad before typing your expression. The toggle only affects trig functions evaluated after you switch, not any number already on the display.",
+          "Remember that the % key divides by 100. Typing 50% produces 0.5. This is convenient for percentage calculations but can be confusing if you expect a different behaviour.",
+          "Factorial (n!) works only on non-negative integers. Entering 5! correctly returns 120, but 3.5! or (-2)! will show an Error on the display.",
+          "On desktop, always use the keyboard. It is significantly faster than clicking on-screen buttons. All standard keys work: digits, arithmetic operators, parentheses, Enter for equals, and Escape to clear.",
         ]}
         faqs={faqData}
         relatedTools={[
           { label: "Unit Converter", href: "/tools/unit-converter" },
           { label: "GPA Calculator", href: "/tools/gpa-calculator" },
-          { label: "Percentage Calculator", href: "/tools/percentage-calculator" },
-          { label: "Age Calculator", href: "/tools/age-calculator" },
+          { label: "Percentage Calculator", href: "/calculators/percentage-calculator" },
+          { label: "Age Calculator", href: "/calculators/age-calculator" },
         ]}
       >
         <ScientificCalculator />

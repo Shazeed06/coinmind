@@ -428,7 +428,7 @@ export default function CropImage() {
     <div className="space-y-6">
       <PrivacyNote />
 
-      {!src && <Dropzone accept={ACCEPT} onFiles={onFiles} hint="or click to browse — JPG, PNG or WebP" />}
+      {!src && <Dropzone accept={ACCEPT} onFiles={onFiles} hint="or click to browse: JPG, PNG or WebP" />}
 
       {error && (
         <p className="rounded-lg border border-berry/30 bg-berry/5 px-4 py-3 text-sm text-berry">

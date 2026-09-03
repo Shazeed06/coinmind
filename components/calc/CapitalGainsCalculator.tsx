@@ -11,7 +11,7 @@ type Asset = {
   note: string;
 };
 
-// FY 2026-27 rules (India). Rates and thresholds change — verify before filing.
+// FY 2026-27 rules (India). Rates and thresholds change. Verify before filing.
 const ASSETS: Asset[] = [
   {
     id: "equity",
@@ -49,7 +49,7 @@ export default function CapitalGainsCalculator() {
     const gain = sell - buy;
     const positive = Math.max(0, gain);
 
-    // Debt MF — always taxed at slab, no long/short split.
+    // Debt MF: always taxed at slab, no long/short split.
     if (assetId === "debt") {
       return {
         gain,
@@ -131,7 +131,7 @@ export default function CapitalGainsCalculator() {
         <h2 className="font-display text-xl font-600 text-ink">
           Sale details
         </h2>
-        <p className="mt-1 text-sm text-ink-faint">FY 2026&ndash;27 · India</p>
+        <p className="mt-1 text-sm text-ink-faint">FY 2026-27 · India</p>
         <div className="mt-6 space-y-7">
           <div>
             <label
@@ -239,7 +239,7 @@ export default function CapitalGainsCalculator() {
           <Stat label="Classification" value={result.classification} accent="brass" />
           <Stat
             label="Exemption applied"
-            value={result.exemption > 0 ? formatCurrency(result.exemption) : "—"}
+            value={result.exemption > 0 ? formatCurrency(result.exemption) : "-"}
             accent="brass"
           />
           <Stat
@@ -254,7 +254,7 @@ export default function CapitalGainsCalculator() {
           />
           <Stat
             label="Net proceeds"
-            value={result.slabBased ? "—" : formatCurrency(Number.isFinite(result.net) ? result.net : sell)}
+            value={result.slabBased ? "-" : formatCurrency(Number.isFinite(result.net) ? result.net : sell)}
             accent="forest"
           />
         </div>
@@ -264,8 +264,8 @@ export default function CapitalGainsCalculator() {
         </div>
 
         <p className="mt-3 text-xs text-ink-faint leading-relaxed">
-          Estimates based on FY 2026&ndash;27 rules and simplified for guidance
-          only &mdash; they ignore surcharge, cess, brokerage and carried-forward
+          Estimates based on FY 2026-27 rules and simplified for guidance
+          only. They ignore surcharge, cess, brokerage and carried-forward
           losses. Rules and rates change often, so verify with the Income Tax
           Department and a SEBI-registered adviser before acting.
         </p>

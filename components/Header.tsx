@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useCallback } from "react";
+import { Fragment, useEffect, useState, useCallback } from "react";
 import { primaryNav } from "@/lib/site";
 import { Search, X, Menu } from "lucide-react";
 import Logo from "./Logo";
@@ -60,7 +60,9 @@ export default function Header() {
             const prev = i > 0 ? primaryNav[i - 1] : null;
             const groupChanged = item.group && item.group !== prev?.group;
             return (
-              <>
+              // Keyed Fragment, not `<>`: the shorthand cannot take a key, so
+              // React saw an unkeyed list here even though the inner Link had one.
+              <Fragment key={item.href}>
                 {groupChanged && (
                   <>
                     <span className="w-px h-5 bg-border/60 mx-1.5" aria-hidden="true" />
@@ -70,7 +72,6 @@ export default function Header() {
                   </>
                 )}
                 <Link
-                  key={item.href}
                   href={item.href}
                   className={`rounded-pill px-3.5 py-2 text-sm font-medium transition-colors ${
                     isActive(item.href)
@@ -80,7 +81,7 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
-              </>
+              </Fragment>
             );
           })}
         </nav>

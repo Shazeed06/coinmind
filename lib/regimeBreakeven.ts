@@ -52,7 +52,7 @@ export function breakEvenDeduction(gross: number): number | null {
   // Old regime already cheaper (or equal) without claiming anything.
   if (oldAtZero <= newTax) return 0;
 
-  // Even wiping out the entire salary cannot get there — shouldn't happen, but
+  // Even wiping out the entire salary cannot get there. Shouldn't happen, but
   // guard rather than loop forever.
   if (computeOldRegimeTax(gross, gross).totalTax > newTax) return null;
 

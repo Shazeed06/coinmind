@@ -1,4 +1,4 @@
-// Programmatic-SEO for FD landing pages: "FD on ₹X — maturity at common rates/tenures".
+// Programmatic-SEO for FD landing pages: "FD on ₹X - maturity at common rates/tenures".
 // These pages answer "how much will my FD be worth" for specific amounts.
 
 export type FdBreakdown = {

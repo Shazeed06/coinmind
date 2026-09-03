@@ -4,7 +4,7 @@ import FaviconGenerator from "@/components/tools/FaviconGenerator";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Favicon Generator — Free Favicon Maker Online" },
+  title: { absolute: "Favicon Generator - Free Favicon Maker Online" },
   description:
     "Free favicon generator. Turn any image or logo into favicon PNGs at 16, 32, 180, 192 & 512 px, with ready-to-paste HTML. 100% private, made in your browser.",
   alternates: { canonical: "/tools/favicon-generator" },
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/favicon-generator",
-    title: "Favicon Generator — Free Favicon Maker Online",
+    title: "Favicon Generator - Free Favicon Maker Online",
     description:
-      "Turn any image or logo into favicon PNGs at every standard size, with ready-to-paste HTML. 100% private — your image never leaves your browser.",
+      "Turn any image or logo into favicon PNGs at every standard size, with ready-to-paste HTML. 100% private - your image never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my image uploaded to a server?",
-    a: "No. This favicon generator runs entirely in your browser using the HTML Canvas API. Your image is resized on your own device and never uploaded, stored or seen by anyone — it never leaves your computer.",
+    a: "No. This favicon generator runs entirely in your browser using the HTML Canvas API. Your image is resized on your own device and never uploaded, stored or seen by anyone. It never leaves your computer.",
   },
   {
     q: "What image should I upload?",
@@ -48,6 +48,18 @@ const faqs = [
   {
     q: "Why PNG instead of a .ico file?",
     a: "Every modern browser supports PNG favicons, and PNGs keep transparency and sharp edges at each exact size. Serving a set of PNGs is the current best practice; a single multi-resolution .ico is only needed for very old browsers.",
+  },
+  {
+    q: "Which image formats can I upload?",
+    a: "PNG, JPG, WebP, SVG and GIF are all accepted. A PNG or SVG logo gives the cleanest result, because both keep sharp edges as they scale down. Whatever you start with is drawn onto a canvas and exported as PNG, so every icon you download is a PNG regardless of the format you uploaded.",
+  },
+  {
+    q: "Do I get a ZIP file of all the icons?",
+    a: "No. Each size has its own download button, and Download all saves the seven PNGs one after another as separate files. Some browsers ask permission the first time a page saves multiple files, so allow it and then check your Downloads folder for the complete set before uploading them to your site.",
+  },
+  {
+    q: "Why is my new favicon still not showing?",
+    a: "Browsers cache favicons far more aggressively than pages. After uploading the files, try a hard refresh, open the site in a private window, or add a version string such as ?v=2 to the href in your link tags. Also double-check that the files really sit at the exact paths those tags point to.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Favicon Generator
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Turn any image or logo into a full set of favicon PNGs &mdash; every
+          Turn any image or logo into a full set of favicon PNGs, every
           size a browser, phone or web app needs, plus the HTML to paste. Nothing
           is uploaded.
         </p>
@@ -131,9 +143,9 @@ export default function Page() {
             A <strong className="text-ink">favicon generator</strong> takes one
             image and produces the small square icons that show in browser tabs,
             bookmarks and home-screen shortcuts. Upload a square logo above and
-            this tool renders it at every standard size &mdash;{" "}
-            <strong className="text-ink">16, 32, 48, 64, 180, 192 and 512 px</strong>{" "}
-            &mdash; then gives you each PNG plus the{" "}
+            this tool renders it at every standard size (
+            <strong className="text-ink">16, 32, 48, 64, 180, 192 and 512 px</strong>
+            ), then gives you each PNG plus the{" "}
             <strong className="text-ink">&lt;link&gt;</strong> tags to paste into
             your site. It is free, needs no sign-up, and everything is built in
             your browser, so your image stays private.
@@ -150,7 +162,7 @@ export default function Page() {
           address, in the bookmarks list and in your history. On phones it becomes
           the icon when someone adds your site to their home screen. A clear,
           recognisable favicon makes your site look polished and helps people
-          spot it among a row of open tabs &mdash; a small detail that quietly
+          spot it among a row of open tabs, a small detail that quietly
           signals a professional, trustworthy site.
         </p>
 
@@ -168,7 +180,7 @@ export default function Page() {
         <h2>How to install your favicon</h2>
         <p>
           Download the PNG set and upload the files to the root directory of your
-          website &mdash; the same folder that serves your homepage. Then paste
+          website, the same folder that serves your homepage. Then paste
           the <strong>&lt;link&gt;</strong> tags from the box above into the{" "}
           <strong>&lt;head&gt;</strong> of your HTML template so every page picks
           them up. After you deploy, do a hard refresh; browsers cache favicons
@@ -178,8 +190,8 @@ export default function Page() {
         <h2>Tips for a sharp favicon</h2>
         <p>
           Start from a <strong>square</strong> image at least 512&times;512
-          pixels so the biggest size stays sharp. Keep the design simple &mdash;
-          fine detail and small text vanish at 16 pixels, so a bold symbol,
+          pixels so the biggest size stays sharp. Keep the design simple. Fine
+          detail and small text vanish at 16 pixels, so a bold symbol,
           monogram or single letter reads far better than a shrunken full logo.
           Use a <strong>PNG with transparency</strong> if you want the icon to sit
           cleanly on any tab colour, and make sure there is strong contrast so it

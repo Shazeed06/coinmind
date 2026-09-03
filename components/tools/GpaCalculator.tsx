@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  GPA / CGPA Calculator — 100% client-side.                         */
+/*  GPA / CGPA Calculator: 100% client-side.                          */
 /*  Add courses (name optional, credits, grade), pick a grading       */
 /*  scale, and get a live weighted GPA/CGPA. Nothing is uploaded.     */
 /* ------------------------------------------------------------------ */
@@ -223,7 +223,7 @@ export default function GpaCalculator() {
                   onChange={(e) =>
                     updateRow(r.id, { grade: sanitizeNumeric(e.target.value) })
                   }
-                  placeholder="0–10"
+                  placeholder="0-10"
                   aria-label={`Course ${i + 1} grade point`}
                   className={inputClass}
                 />
@@ -274,7 +274,7 @@ export default function GpaCalculator() {
           </p>
         ) : (
           <p className="mt-1 font-display text-5xl font-600 text-ink-faint leading-none">
-            &mdash;
+            -
           </p>
         )}
         <p className="mt-3 text-sm text-ink-soft">
@@ -328,7 +328,7 @@ export default function GpaCalculator() {
               Percentage
             </p>
             <p className="mt-0.5 font-display text-2xl font-600 text-forest tabular-nums">
-              {Number.isFinite(percentage) ? `${percentage.toFixed(2)}%` : "—"}
+              {Number.isFinite(percentage) ? `${percentage.toFixed(2)}%` : "-"}
             </p>
           </div>
         </div>

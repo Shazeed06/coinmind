@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { calculators } from "@/lib/data";
-import { site } from "@/lib/site";
+import { breadcrumb, faqPage, graph, webApp } from "@/lib/ld";
 import { IconArrow, IconCalculator } from "@/components/icons";
 import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import AffiliateCta from "@/components/AffiliateCta";
@@ -33,49 +33,27 @@ export default function CalcPage({
   const related = calculators.filter((c) => c.live && c.slug !== slug).slice(0, 3);
   const category = calculators.find((c) => c.slug === slug)?.category;
 
-  const faqJson = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-
-  const breadcrumbJson = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
-      { "@type": "ListItem", position: 2, name: "Calculators", item: `${site.url}/calculators` },
-      { "@type": "ListItem", position: 3, name: title, item: `${site.url}/calculators/${slug}` },
-    ],
-  };
-
-  // Describes what the page IS (a free browser tool). Entity signal for Search;
-  // no aggregateRating (there are no genuine user ratings, and faking them is a
-  // spam-policy violation).
-  const webAppJson = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: title,
-    url: `${site.url}/calculators/${slug}`,
-    applicationCategory:
-      category === "Health"
-        ? "HealthApplication"
-        : category === "Utility"
-          ? "UtilitiesApplication"
-          : "FinanceApplication",
-    operatingSystem: "All",
-    browserRequirements: "Requires JavaScript",
-    isAccessibleForFree: true,
-    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
-    publisher: { "@id": `${site.url}/#organization` },
-  };
+  // Every calculator page owns its structured data, so the root layout does not
+  // have to read the request path (which would opt the whole site into dynamic
+  // rendering). The WebApplication node describes what the page IS: a free
+  // browser tool. No aggregateRating, because there are no genuine user ratings
+  // and inventing them is a spam-policy violation.
+  const schemaGraph = graph([
+    ...(faqs.length > 0 ? [faqPage(faqs)] : []),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Calculators", path: "/calculators" },
+      { name: title, path: `/calculators/${slug}` },
+    ]),
+    webApp(title, `calculators/${slug}`, category ?? "", `Free ${title}: instant, private, no sign-up.`),
+  ]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+      />
 
       {/* Breadcrumb */}
       <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">
@@ -116,7 +94,7 @@ export default function CalcPage({
         {/* Keyword-bearing rather than generic: this single line puts the page's
             primary keyword into an H2 on every calculator that uses CalcPage. */}
         <h2 className="font-display text-2xl font-600 text-ink">
-          {title} &mdash; frequently asked questions
+          {title}: frequently asked questions
         </h2>
         <div className="mt-5 divide-y divide-line border-y border-line">
           {faqs.map((f) => (
@@ -133,7 +111,7 @@ export default function CalcPage({
         </div>
       </section>
 
-      {/* Relevant partner offer — renders only when an affiliate href is set
+      {/* Relevant partner offer, renders only when an affiliate href is set
           in lib/affiliates.ts (hidden by default, so nothing misleading shows). */}
       <AffiliateCta offer={offerForCategory(category)} className="mt-12 max-w-3xl" />
 

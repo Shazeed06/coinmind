@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  Password Generator — 100% client-side.                            */
+/*  Password Generator: 100% client-side.                             */
 /*  Randomness comes from the Web Crypto API (crypto.getRandomValues) */
-/*  with rejection sampling to avoid modulo bias — never Math.random. */
+/*  with rejection sampling to avoid modulo bias, never Math.random. */
 /* ------------------------------------------------------------------ */
 
 const UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -31,7 +31,7 @@ type Options = {
   excludeAmbiguous: boolean;
 };
 
-/** Uniform integer in [0, range) via rejection sampling — no modulo bias. */
+/** Uniform integer in [0, range) via rejection sampling: no modulo bias. */
 function randomIndex(range: number): number {
   if (range <= 0) return 0;
   const maxValid = Math.floor(0x100000000 / range) * range; // 2^32
@@ -77,7 +77,7 @@ function makePassword(opts: Options): string {
   while (chars.length < opts.length) {
     chars.push(pool[randomIndex(pool.length)]);
   }
-  // Fisher–Yates shuffle so the guaranteed chars aren't always up front.
+  // Fisher-Yates shuffle so the guaranteed chars aren't always up front.
   for (let i = chars.length - 1; i > 0; i--) {
     const j = randomIndex(i + 1);
     [chars[i], chars[j]] = [chars[j], chars[i]];
@@ -85,7 +85,7 @@ function makePassword(opts: Options): string {
   return chars.join("");
 }
 
-/* Strength buckets — driven by entropy = length x log2(poolSize). */
+/* Strength buckets: driven by entropy = length x log2(poolSize). */
 const STRENGTH = [
   { label: "Weak", color: "#db2777" }, // berry
   { label: "Fair", color: "#d97706" }, // amber (status)
@@ -164,7 +164,7 @@ export default function PasswordGenerator() {
         setCopiedIdx(null);
       }, 1600);
     } catch {
-      // Clipboard blocked (e.g. insecure context) — the field stays selectable.
+      // Clipboard blocked (e.g. insecure context). The field stays selectable.
     }
   }, []);
 
@@ -190,7 +190,7 @@ export default function PasswordGenerator() {
         <p className="text-sm text-ink-soft">
           <strong className="text-ink">Generated in your browser.</strong> Every
           password is created on your device with the Web Crypto API. Nothing is
-          typed over the network, logged or sent anywhere &mdash; it never leaves
+          typed over the network, logged or sent anywhere. It never leaves
           your browser.
         </p>
       </div>
@@ -273,7 +273,7 @@ export default function PasswordGenerator() {
         ) : (
           <div className="space-y-2">
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-faint">
-              {BATCH_SIZE} passwords &mdash; pick your favourite
+              {BATCH_SIZE} passwords - pick your favourite
             </p>
             {list.map((pw, i) => (
               <div

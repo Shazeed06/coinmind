@@ -4,7 +4,7 @@ import PregnancyDueDateCalculator from "@/components/calc/PregnancyDueDateCalcul
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "pregnancy-due-date")!;
-export const metadata = calcMeta("pregnancy-due-date", CALC.title + " — Weeks & Trimester", CALC.blurb);
+export const metadata = calcMeta("pregnancy-due-date", CALC.title + " - Weeks & Trimester", CALC.blurb);
 
 export default function Page() {
   return (
@@ -13,7 +13,7 @@ export default function Page() {
       title="Pregnancy Due Date Calculator"
       subtitle="Estimate your due date and see how many weeks along you are."
       calculator={<PregnancyDueDateCalculator />}
-      intro="A pregnancy due date calculator estimates when your baby is likely to arrive. The most common method uses the first day of your last menstrual period (LMP) and Naegele's rule — adding 280 days, or 40 weeks. If you know your conception or ovulation date instead, you can calculate from that. Alongside your estimated due date, this tool shows how many weeks pregnant you are right now, your current trimester, and roughly how long you have to go."
+      intro="A pregnancy due date calculator estimates when your baby is likely to arrive. The most common method uses the first day of your last menstrual period (LMP) and Naegele's rule: adding 280 days, or 40 weeks. If you know your conception or ovulation date instead, you can calculate from that. Alongside your estimated due date, this tool shows how many weeks pregnant you are right now, your current trimester, and roughly how long you have to go."
       how={{
         heading: "How your due date is calculated",
         body: (
@@ -58,7 +58,7 @@ export default function Page() {
         },
         {
           q: "Should I use my last period or conception date?",
-          a: "Most people use the first day of their last period because it's easier to remember and is the medical standard. If you know your ovulation or conception date — for example from tracking or fertility treatment — switch to the conception method for a more direct estimate.",
+          a: "Most people use the first day of their last period because it's easier to remember and is the medical standard. If you know your ovulation or conception date, for example from tracking or fertility treatment, switch to the conception method for a more direct estimate.",
         },
         {
           q: "Is this a substitute for a doctor's assessment?",

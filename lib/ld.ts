@@ -51,7 +51,24 @@ export function siteGraph(): Thing {
   return { "@context": "https://schema.org", "@graph": [org(), website(), person()] };
 }
 
-export function breadcrumb(items: { name: string; path: string }[]): Thing {
+// Combine several nodes into one script tag. Each helper below carries its own
+// "@context" so it can stand alone; inside a @graph that key is redundant, so
+// strip it and declare the context once at the top level.
+export function graph(nodes: Thing[]): Thing {
+  return {
+    "@context": "https://schema.org",
+    "@graph": nodes.map((node) => {
+      const rest = { ...node };
+      delete rest["@context"];
+      return rest;
+    }),
+  };
+}
+
+// `path` may be omitted on the final item: Google treats a trailing ListItem
+// with no `item` as the current page, which is what callers that know their
+// title but not their own URL should emit.
+export function breadcrumb(items: { name: string; path?: string }[]): Thing {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -59,17 +76,26 @@ export function breadcrumb(items: { name: string; path: string }[]): Thing {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `${site.url}${item.path}`,
+      ...(item.path ? { item: `${site.url}${item.path}` } : {}),
     })),
   };
 }
 
-export function webApp(name: string, slug: string, category: string): Thing {
+// `slug` is the path without a leading slash (e.g. "calculators/ppf"). Pass null
+// when the caller cannot know its own path; the node then simply describes the
+// page it is embedded in, which is valid (url is not a required property).
+export function webApp(
+  name: string,
+  slug: string | null,
+  category: string,
+  description?: string,
+): Thing {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name,
-    url: `${site.url}/${slug}`,
+    ...(slug ? { url: `${site.url}/${slug}` } : {}),
+    ...(description ? { description } : {}),
     applicationCategory: category === "Health" ? "HealthApplication" : category === "Utility" ? "UtilitiesApplication" : "FinanceApplication",
     operatingSystem: "All",
     browserRequirements: "Requires JavaScript",

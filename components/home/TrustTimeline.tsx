@@ -5,7 +5,7 @@ const PRINCIPLES = [
   { icon: ShieldCheck, title: "Source-Verified", desc: "Every formula cross-checked against SEBI, RBI and IT Department publications." },
   { icon: FileText, title: "Expert-Reviewed", desc: "All content reviewed by a CA (Final) candidate for accuracy and relevance." },
   { icon: RefreshCw, title: "Budget-Ready", desc: "Updated within 48 hours of every Union Budget and regulatory change." },
-  { icon: Eye, title: "Radically Transparent", desc: "We show the formula behind every calculation — no black boxes." },
+  { icon: Eye, title: "Radically Transparent", desc: "We show the formula behind every calculation, no black boxes." },
   { icon: Lock, title: "Privacy by Design", desc: "Zero data leaves your device. No accounts, no tracking, no storage." },
   { icon: CheckCircle, title: "Commitment Free", desc: "Every tool is free, forever. No upsells, no hidden tiers, no paywalls." },
 ];

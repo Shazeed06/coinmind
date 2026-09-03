@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 
 /* ------------------------------------------------------------------ */
-/*  JSON Formatter & Validator — 100% client-side.                    */
+/*  JSON Formatter & Validator: 100% client-side.                     */
 /*  Uses the native JSON.parse / JSON.stringify; nothing is uploaded. */
 /* ------------------------------------------------------------------ */
 
@@ -115,7 +115,7 @@ export default function JsonFormatter() {
     process(0);
   }, [process]);
 
-  /** Validate only — checks the input without replacing the output block. */
+  /** Validate only: checks the input without replacing the output block. */
   const validate = useCallback(() => {
     reset();
     if (!input.trim()) {

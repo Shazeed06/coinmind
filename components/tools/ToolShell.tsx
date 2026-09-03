@@ -26,7 +26,7 @@ export function Dropzone({
   multiple = false,
   onFiles,
   label = "Drop images here",
-  hint = "or click to browse — JPG, PNG or WebP",
+  hint = "or click to browse: JPG, PNG or WebP",
 }: {
   accept: string;
   multiple?: boolean;
@@ -154,7 +154,7 @@ export function PrivacyNote() {
       <p className="text-sm text-ink-soft">
         <strong className="text-ink">100% private.</strong> Your images are
         processed entirely in your browser using the Canvas API. Nothing is
-        uploaded to a server &mdash; the files never leave your device.
+        uploaded to a server. The files never leave your device.
       </p>
     </div>
   );

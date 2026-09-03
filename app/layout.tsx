@@ -9,8 +9,6 @@ import Analytics from "@/components/Analytics";
 import AdSense from "@/components/AdSense";
 import { GtmScript, GtmNoScript } from "@/components/Gtm";
 import SiteJsonLd from "@/components/SiteJsonLd";
-import GlobalSeo from "@/components/GlobalSeo";
-import { headers } from "next/headers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} - ${site.tagline}`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
@@ -44,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} - ${site.tagline}`,
     description: site.description,
     locale: "en_IN",
     images: [
@@ -53,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} - ${site.tagline}`,
     description: site.description,
     images: ["/twitter-image"],
   },
@@ -72,11 +70,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+// Deliberately NOT async and deliberately free of headers()/cookies(): reading
+// a request header here opts every route in the app into dynamic rendering.
+// Route-level structured data lives in the shared page layouts instead
+// (CalcPage, ToolPageLayout, HubPage) and in the individual [slug] pages.
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const h = await headers();
-  const pathname = h.get("x-pathname") || "/";
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
       <head>
@@ -86,7 +86,6 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <GtmNoScript id={site.gtmId} />
         <SiteJsonLd />
-        <GlobalSeo pathname={pathname} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

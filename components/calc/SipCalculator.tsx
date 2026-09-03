@@ -133,7 +133,7 @@ Real Value: ${formatCurrency(realValue, currency)}`;
         <div className="mt-5 space-y-6">
           <Field label={`${freq === "monthly" ? "Monthly" : "Quarterly"} investment`} value={monthly} onChange={setMonthly} min={500} max={500000} step={500} prefix={sym} />
           <Field label="Expected return rate (p.a.)" value={rate} onChange={setRate} min={1} max={30} step={0.5} suffix="%"
-            hint="Equity funds historically returned 10–14%. Use 10–12% for large-cap planning." />
+            hint="Equity funds historically returned 10-14%. Use 10-12% for large-cap planning." />
           <Field label="Time period" value={years} onChange={setYears} min={1} max={40} step={1} suffix="yrs" />
           <Field label="Annual step-up (%)" value={stepUp} onChange={setStepUp} min={0} max={30} step={1} suffix="%"
             hint="Increase SIP by this % each year. 10% matches typical salary hikes. Set 0 for flat SIP." />

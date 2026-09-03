@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: `Corrections — Errors Found & Fixed · ${site.name}` },
+  title: { absolute: `Corrections - Errors Found & Fixed · ${site.name}` },
   description: "A dated public log of errors found on CoinMind and the corrections made.",
   alternates: { canonical: "/corrections" },
 };
@@ -26,13 +26,28 @@ const CORRECTIONS = [
 ];
 
 export default function CorrectionsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Corrections",
+    description:
+      "A dated public log of errors found on CoinMind and the corrections made.",
+    url: `${site.url}/corrections`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
+
   return (
     <div className="container-main py-24">
       <div className="max-w-[720px] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <h1 className="h1 text-text">Corrections</h1>
         <p className="body text-text-muted mt-4">
           We maintain a public log of errors found on {site.name} and the corrections made. If you spot something that looks wrong, please write to{" "}
-          <a href={`mailto:${site.email}`} className="text-brand underline">{site.email}</a> — we check every report.
+          <a href={`mailto:${site.email}`} className="text-brand underline">{site.email}</a>. We check every report.
         </p>
 
         <div className="mt-12 space-y-6">

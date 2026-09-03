@@ -24,7 +24,7 @@ export const NAMES: Record<string, string> = {
   INR: "Indian Rupee",
 };
 
-// High-volume "<currency> to INR" searches — the core of the section.
+// High-volume "<currency> to INR" searches, the core of the section.
 const TO_INR_FROM = [
   "USD", "EUR", "GBP", "AED", "CAD", "AUD", "SGD",
   "JPY", "CNY", "CHF", "NZD", "ZAR", "SAR", "MYR",
@@ -42,7 +42,7 @@ export function pairSlug({ from, to }: CurrencyPair): string {
   return `${from}-to-${to}`.toLowerCase();
 }
 
-// Full slug list — iterate this in the sitemap and in generateStaticParams.
+// Full slug list: iterate this in the sitemap and in generateStaticParams.
 export const PAIR_SLUGS: string[] = CURRENCY_PAIRS.map(pairSlug);
 
 // Parse a slug back to a pair, but only if it's a known/allowed pair.

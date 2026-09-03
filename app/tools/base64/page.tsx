@@ -4,18 +4,18 @@ import Base64Tool from "@/components/tools/Base64Tool";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Base64 Encode & Decode — Free Online Tool" },
+  title: { absolute: "Base64 Encode & Decode - Free Online Tool" },
   description:
-    "Free online Base64 encoder and decoder. Convert text to Base64 and back with full Unicode and emoji support. 100% private — everything runs in your browser.",
+    "Free online Base64 encoder and decoder. Convert text to Base64 and back with full Unicode and emoji support. 100% private - everything runs in your browser.",
   alternates: { canonical: "/tools/base64" },
   robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: "https://www.coinmind.in/tools/base64",
-    title: "Base64 Encode & Decode — Free Online Tool",
+    title: "Base64 Encode & Decode - Free Online Tool",
     description:
-      "Encode text to Base64 or decode it back, with correct UTF-8 handling. 100% private — your text never leaves your browser.",
+      "Encode text to Base64 or decode it back, with correct UTF-8 handling. 100% private - your text never leaves your browser.",
     locale: "en_US",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is my text uploaded to a server?",
-    a: "No. Encoding and decoding happen entirely in your browser with JavaScript. Nothing you type or paste is uploaded, logged or seen by anyone — it never leaves your device, so it is safe for private data.",
+    a: "No. Encoding and decoding happen entirely in your browser with JavaScript. Nothing you type or paste is uploaded, logged or seen by anyone. It never leaves your device, so it is safe for private data.",
   },
   {
     q: "What is Base64 and when should I use it?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Is Base64 encryption?",
-    a: "No. Base64 is encoding, not encryption — it scrambles nothing and protects nothing. Anyone can decode it back instantly, exactly like this tool does. Never use Base64 to hide passwords or secrets; use real encryption for that.",
+    a: "No. Base64 is encoding, not encryption. It scrambles nothing and protects nothing. Anyone can decode it back instantly, exactly like this tool does. Never use Base64 to hide passwords or secrets; use real encryption for that.",
   },
   {
     q: "Does it handle emoji and non-English characters?",
@@ -47,7 +47,19 @@ const faqs = [
   },
   {
     q: "Why do I get an error when decoding?",
-    a: "Decoding fails when the input isn't valid Base64 — for example it contains characters outside the Base64 alphabet, or the length and padding are wrong. The tool ignores spaces and line breaks automatically, but genuinely malformed input will show an error rather than a wrong result.",
+    a: "Decoding fails when the input isn't valid Base64: for example it contains characters outside the Base64 alphabet, or the length and padding are wrong. The tool ignores spaces and line breaks automatically, but genuinely malformed input will show an error rather than a wrong result.",
+  },
+  {
+    q: "Can I encode an image or a file here?",
+    a: "No. This page encodes and decodes text only. To turn a picture into a Base64 data URI you can paste straight into HTML or CSS, use the Image to Base64 tool instead. It reads the file on your own device and adds the correct data:image header and MIME type for you automatically.",
+  },
+  {
+    q: "Is there a limit on how much text I can convert?",
+    a: "There is no fixed limit. Since the work is done by your own browser, the practical ceiling is your device memory. Short tokens, JSON payloads and JWTs convert instantly. A block of several megabytes will take a moment and use noticeably more RAM, especially on an older phone or tablet.",
+  },
+  {
+    q: "Does it work offline and on a phone?",
+    a: "Yes to both. Once the page has loaded, encoding and decoding run in local JavaScript, so you can switch off wifi or mobile data and it keeps working. The layout is responsive, so pasting and converting a token on a phone browser is just as quick as on a desktop, with no app to install.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
           Base64 Encode &amp; Decode
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
-          Convert text to Base64 and back in one click &mdash; with correct
+          Convert text to Base64 and back in one click, with correct
           Unicode and emoji handling, right in your browser and nothing
           uploaded.
         </p>
@@ -145,14 +157,14 @@ export default function Page() {
         <h2>What Base64 is for</h2>
         <p>
           Base64 turns arbitrary bytes into a string of 64 printable ASCII
-          characters (A&ndash;Z, a&ndash;z, 0&ndash;9, plus{" "}
+          characters (A-Z, a-z, 0-9, plus{" "}
           <strong>+</strong> and <strong>/</strong>). That matters whenever data
           has to pass through a system that only understands text: embedding a
           small image directly in HTML or CSS as a <strong>data URI</strong>,
           carrying binary inside <strong>JSON</strong> or a{" "}
           <strong>JWT</strong>, encoding <strong>email attachments</strong>, or
           storing credentials in an HTTP Basic <strong>Authorization</strong>{" "}
-          header. It trades size for safety &mdash; encoded output is about a
+          header. It trades size for safety. Encoded output is about a
           third larger than the original.
         </p>
 
@@ -168,10 +180,10 @@ export default function Page() {
         <h2>Getting Unicode right</h2>
         <p>
           The classic bug is encoding text with characters beyond basic ASCII.
-          The raw <strong>btoa</strong> function only handles bytes 0&ndash;255,
+          The raw <strong>btoa</strong> function only handles bytes 0-255,
           so passing it an emoji or an accented letter throws an error or mangles
           the output. This tool first converts your text to <strong>UTF-8</strong>{" "}
-          bytes and encodes those, then reverses the process on decode &mdash; so{" "}
+          bytes and encodes those, then reverses the process on decode, so{" "}
           caf&eacute;, na&iuml;ve and full emoji all survive intact. When
           decoding, stray spaces and line breaks are ignored so pasted blocks
           just work.

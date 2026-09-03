@@ -6,7 +6,6 @@ import { formatCurrency } from "@/lib/format";
 import { SIP_AMOUNTS, sipSlug } from "@/lib/pseo-sip";
 import {
   SIP_YEARS,
-  SIP_YEAR_SLUGS,
   SIP_HEADLINE_RATE,
   sipYearSlug,
   parseSipYearSlug,
@@ -18,18 +17,12 @@ import SipCalculator from "@/components/calc/SipCalculator";
 import AuthorReviewBox from "@/components/AuthorReviewBox";
 import { IconArrow, IconCalculator, IconCheck } from "@/components/icons";
 
-export const dynamicParams = false;
+// Rendered by app/sip/[slug]/page.tsx for the
+// "<amount>-per-month-for-<years>-years" slugs. Formerly its own top-level
+// /sip-returns section; merged under /sip so the SIP cluster is one hub with
+// one child namespace (old URLs 301 in next.config.ts).
 
-export function generateStaticParams() {
-  return SIP_YEAR_SLUGS.map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
+export function yearsMetadata(slug: string): Metadata {
   const parsed = parseSipYearSlug(slug);
   if (!parsed) return {};
 
@@ -37,21 +30,21 @@ export async function generateMetadata({
   const p = projectSip(monthly, years, SIP_HEADLINE_RATE);
   const amt = formatCurrency(monthly);
 
-  const title = `${amt} SIP for ${years} Years — What You Actually Get`;
-  const description = `An ${amt} monthly SIP for ${years} years grows to about ${formatCurrency(p.corpus)} at ${SIP_HEADLINE_RATE}% — you invest ${formatCurrency(p.invested)}. Full returns table at 8-15%.`;
+  const title = `${amt} SIP for ${years} Years - What You Actually Get`;
+  const description = `An ${amt} monthly SIP for ${years} years grows to about ${formatCurrency(p.corpus)} at ${SIP_HEADLINE_RATE}%. You invest ${formatCurrency(p.invested)}. Full returns table at 8-15%.`;
 
   return {
     title: { absolute: title },
     description,
     robots: { index: false, follow: true },
-    alternates: { canonical: `/sip-returns/${slug}` },
+    alternates: { canonical: `/sip/${slug}` },
     openGraph: {
       type: "article",
-      url: `${site.url}/sip-returns/${slug}`,
+      url: `${site.url}/sip/${slug}`,
       siteName: site.name,
       locale: "en_IN",
       title: `${amt} SIP for ${years} Years: ${formatCurrency(p.corpus)}`,
-      description: `What an ${amt} monthly SIP really returns over ${years} years, at 8%, 10%, 12% and 15% — plus what starting late costs you.`,
+      description: `What an ${amt} monthly SIP really returns over ${years} years, at 8%, 10%, 12% and 15%, plus what starting late costs you.`,
       images: [
         {
           url: "/opengraph-image",
@@ -101,12 +94,7 @@ function Row({
   );
 }
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default function SipYearsPage({ slug }: { slug: string }) {
   const parsed = parseSipYearSlug(slug);
   if (!parsed) notFound();
 
@@ -116,7 +104,7 @@ export default async function Page({
   const delays = delayCost(monthly, years);
   const amt = formatCurrency(monthly);
 
-  const quickAnswer = `An ${amt} monthly SIP held for ${years} years grows to roughly ${formatCurrency(p.corpus)} if it earns ${SIP_HEADLINE_RATE}% a year. You would have invested ${formatCurrency(p.invested)} of your own money, so about ${formatCurrency(p.gain)} of that total is growth — ${p.multiple.toFixed(2)} times what you put in. At a more conservative 8% the same SIP reaches about ${formatCurrency(scenarios[0].corpus)}, which is why the rate you assume matters more than any other input.`;
+  const quickAnswer = `An ${amt} monthly SIP held for ${years} years grows to roughly ${formatCurrency(p.corpus)} if it earns ${SIP_HEADLINE_RATE}% a year. You would have invested ${formatCurrency(p.invested)} of your own money, so about ${formatCurrency(p.gain)} of that total is growth, ${p.multiple.toFixed(2)} times what you put in. At a more conservative 8% the same SIP reaches about ${formatCurrency(scenarios[0].corpus)}, which is why the rate you assume matters more than any other input.`;
 
   const faqs: { q: string; a: string }[] = [
     {
@@ -125,7 +113,7 @@ export default async function Page({
     },
     {
       q: `Is ${SIP_HEADLINE_RATE}% a realistic return to assume?`,
-      a: `It is a common planning assumption for Indian equity funds over long periods, not a promise or a guarantee. Actual returns are not smooth — a period that averages ${SIP_HEADLINE_RATE}% will still contain years with double-digit losses. If you are planning something you cannot afford to miss, run the numbers at 8% or 10% instead and treat anything above that as upside.`,
+      a: `It is a common planning assumption for Indian equity funds over long periods, not a promise or a guarantee. Actual returns are not smooth: a period that averages ${SIP_HEADLINE_RATE}% will still contain years with double-digit losses. If you are planning something you cannot afford to miss, run the numbers at 8% or 10% instead and treat anything above that as upside.`,
     },
     {
       q: `How much of the ${formatCurrency(p.corpus)} is my own money?`,
@@ -142,6 +130,42 @@ export default async function Page({
     {
       q: `Should I increase the SIP amount each year instead?`,
       a: `Usually yes, and it changes the outcome substantially. A step-up SIP that rises with your salary reaches a far larger corpus than a flat one for very little extra pain, since each increase comes out of a raise rather than your current budget. Our step-up SIP calculator shows the difference for your own numbers.`,
+    },
+    {
+      q: `Is an ${amt} SIP for ${years} years better than a lump sum?`,
+      a: `A lump sum you already hold is exposed to growth for the whole period, so on paper it wins: the ${formatCurrency(
+        p.invested
+      )} you would pay in over ${years} years would grow to roughly ${formatCurrency(
+        p.invested * Math.pow(1 + SIP_HEADLINE_RATE / 100, years)
+      )} at ${SIP_HEADLINE_RATE}% if every rupee of it were invested today, against ${formatCurrency(
+        p.corpus
+      )} through the SIP. The comparison is unfair though, because almost nobody has ${formatCurrency(
+        p.invested
+      )} sitting idle. A SIP matches how salaries arrive and spreads your purchase price across expensive and cheap months, so the ${formatCurrency(
+        p.corpus
+      )} figure is the one that reflects a real plan.`,
+    },
+    {
+      q: `What monthly amount would double this ${years}-year corpus?`,
+      a: `Exactly twice the instalment: ${formatCurrency(
+        monthly * 2
+      )} a month instead of ${amt} produces about ${formatCurrency(
+        p.corpus * 2
+      )} over the same ${years} years at ${SIP_HEADLINE_RATE}%, because the projection scales in a straight line with the amount you invest. Time does not behave that way. Doubling the horizon rather than the instalment produces far more than double, which is why an extra few years usually beats an extra few thousand rupees a month.`,
+    },
+    {
+      q: `What if the market falls just before the ${years} years are up?`,
+      a: `That is the single biggest risk in this projection and the figures above cannot show it, because they assume a smooth ${SIP_HEADLINE_RATE}% every year. In reality most of the ${formatCurrency(
+        p.corpus
+      )} is concentrated in the final years, so a sharp fall near the end costs far more than the same fall early on, when the balance was small. The usual defence is to stop treating the end date as fixed: if the money is needed on a set date, move it gradually out of equity in the years approaching it rather than redeeming everything on one day.`,
+    },
+    {
+      q: `Is an ${amt} SIP for ${years} years better than a fixed deposit?`,
+      a: `They are not the same kind of promise. A fixed deposit pays a rate agreed in advance and the capital is not exposed to markets, so you know the maturity figure the day you book it. The ${formatCurrency(
+        p.corpus
+      )} here is a projection, not a contract: at 8% the same SIP produces about ${formatCurrency(
+        scenarios[0].corpus
+      )} and it can be lower still. Over ${years} years equity has historically outpaced deposit rates, but not smoothly and not in every ${years}-year window. Money you cannot afford to see fall belongs in the deposit; money you can leave alone through bad years is what SIPs are for.`,
     },
   ];
 
@@ -162,7 +186,7 @@ export default async function Page({
         publisher: { "@type": "Organization", name: site.name, url: site.url },
         datePublished: "2026-07-24",
         dateModified: "2026-07-24",
-        mainEntityOfPage: `${site.url}/sip-returns/${slug}`,
+        mainEntityOfPage: `${site.url}/sip/${slug}`,
       },
       {
         "@type": "FAQPage",
@@ -186,7 +210,7 @@ export default async function Page({
             "@type": "ListItem",
             position: 3,
             name: `${amt} SIP for ${years} years`,
-            item: `${site.url}/sip-returns/${slug}`,
+            item: `${site.url}/sip/${slug}`,
           },
         ],
       },
@@ -223,7 +247,7 @@ export default async function Page({
           {amt} SIP for {years} Years
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
-          What an {amt} monthly SIP actually grows to over {years} years — at
+          What an {amt} monthly SIP actually grows to over {years} years, at
           four different return rates, not one optimistic guess.
         </p>
       </header>
@@ -259,7 +283,7 @@ export default async function Page({
         <p className="mt-3 text-ink-soft leading-relaxed">
           The return rate is the one input nobody can know in advance, so here is
           the whole range rather than a single figure. Your invested amount stays{" "}
-          {formatCurrency(p.invested)} in every row — only the growth changes.
+          {formatCurrency(p.invested)} in every row, only the growth changes.
         </p>
         <div className="mt-5 overflow-x-auto rounded-2xl border border-line bg-card">
           <table className="w-full text-sm min-w-[30rem]">
@@ -307,7 +331,7 @@ export default async function Page({
         <p className="mt-3 text-ink-soft leading-relaxed">
           This is the number that actually changes behaviour, and almost nobody
           publishes it. Same {amt} a month, same {SIP_HEADLINE_RATE}% return,
-          same {years}-year finish line — you just start later.
+          same {years}-year finish line, you just start later.
         </p>
         <div className="mt-5 rounded-2xl border border-line bg-card p-6">
           <Row
@@ -326,7 +350,7 @@ export default async function Page({
         </div>
         <p className="mt-4 text-sm text-ink-faint leading-relaxed">
           Delaying by {delays[0].delay} years costs about{" "}
-          {formatCurrency(delays[0].lost)} — far more than the{" "}
+          {formatCurrency(delays[0].lost)}, far more than the{" "}
           {formatCurrency(monthly * delays[0].delay * 12)} of instalments you
           skipped. The gap is the compounding those early years would have done,
           and it cannot be made up later by investing more.
@@ -366,7 +390,7 @@ export default async function Page({
             </Link>{" "}
             is deducted before the return you see, so a fund charging 1.5% a year
             needs to earn that much more just to match a cheaper one. And gains
-            are taxable when you redeem — see{" "}
+            are taxable when you redeem, see{" "}
             <Link
               href="/glossary/capital-gains"
               className="text-forest underline underline-offset-2"
@@ -431,7 +455,7 @@ export default async function Page({
         </div>
       </section>
 
-      {/* Sibling links on both axes — keeps all 91 pages interlinked */}
+      {/* Sibling links on both axes: keeps all 91 pages interlinked */}
       <section className="mt-14">
         <h2 className="font-display text-2xl font-600 text-ink">
           {amt} SIP over other durations
@@ -440,7 +464,7 @@ export default async function Page({
           {SIP_YEARS.filter((y) => y !== years).map((y) => (
             <Link
               key={y}
-              href={`/sip-returns/${sipYearSlug(monthly, y)}`}
+              href={`/sip/${sipYearSlug(monthly, y)}`}
               className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-4 py-2 text-sm text-ink-soft hover:border-forest hover:text-forest transition-colors"
             >
               <IconCheck className="h-3.5 w-3.5 text-forest" />
@@ -456,7 +480,7 @@ export default async function Page({
           {SIP_AMOUNTS.filter((m) => m !== monthly).map((m) => (
             <Link
               key={m}
-              href={`/sip-returns/${sipYearSlug(m, years)}`}
+              href={`/sip/${sipYearSlug(m, years)}`}
               className="rounded-full border border-line bg-card px-4 py-2 text-sm text-ink-soft hover:border-forest hover:text-forest transition-colors"
             >
               {formatCurrency(m)}/mo
@@ -468,7 +492,7 @@ export default async function Page({
           href={`/sip/${sipSlug(monthly)}`}
           className="mt-6 inline-flex items-center gap-2 text-forest font-medium hover:underline"
         >
-          See the full 3&ndash;30 year table for {amt} a month
+          See the full 3-30 year table for {amt} a month
           <IconArrow className="h-4 w-4" />
         </Link>
       </section>

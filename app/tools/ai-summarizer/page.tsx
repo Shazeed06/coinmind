@@ -4,17 +4,17 @@ import AiSummarizer from "@/components/tools/AiSummarizer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "AI Text Summarizer — Free Summary Generator" },
+  title: { absolute: "AI Text Summarizer - Free Summary Generator" },
   description:
-    "Free AI text summarizer. Paste any article, essay or report and get a clear short, medium or detailed summary in seconds — as text or bullet points.",
+    "Free AI text summarizer. Paste any article, essay or report and get a clear short, medium or detailed summary in seconds - as text or bullet points.",
   alternates: { canonical: "/tools/ai-summarizer" },
   openGraph: {
     type: "website",
     siteName: site.name,
     url: `${site.url}/tools/ai-summarizer`,
-    title: "AI Text Summarizer — Free Summary Generator",
+    title: "AI Text Summarizer - Free Summary Generator",
     description:
-      "Paste any long text and get an instant AI summary — short, medium or detailed, as plain text or bullet points. Free, no sign-up.",
+      "Paste any long text and get an instant AI summary - short, medium or detailed, as plain text or bullet points. Free, no sign-up.",
     locale: "en_US",
     images: [
       {
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "What is the difference between Short, Medium and Detailed?",
-    a: "Short gives you 2–3 sentences with the core idea, Medium condenses everything into one tight paragraph, and Detailed produces a multi-paragraph overview that keeps more of the supporting points.",
+    a: "Short gives you 2-3 sentences with the core idea, Medium condenses everything into one tight paragraph, and Detailed produces a multi-paragraph overview that keeps more of the supporting points.",
   },
   {
     q: "Can I get the summary as bullet points?",
@@ -46,7 +46,19 @@ const faqs = [
   },
   {
     q: "Is the summary accurate and safe to rely on?",
-    a: "The AI preserves the key facts, names and numbers from your text, but it can occasionally miss nuance. Always skim the original for anything important — such as academic, legal or medical detail — before you rely on a summary.",
+    a: "The AI preserves the key facts, names and numbers from your text, but it can occasionally miss nuance. Always skim the original for anything important (such as academic, legal or medical detail) before you rely on a summary.",
+  },
+  {
+    q: "Can I summarize a PDF, a web page or a YouTube video?",
+    a: "Not directly. The tool works on text you paste into the box, so there is no file upload, no URL field and no video transcript fetching. Open the PDF or article, select the part you care about, copy it and paste it here. For a video, copy the transcript from the caption panel first.",
+  },
+  {
+    q: "Is the text I paste stored anywhere?",
+    a: "Your text is sent over an encrypted connection to the AI model that writes the summary. CoinMind does not save it, log it or attach it to an account, and nobody else sees it. Because it does leave your device, avoid pasting confidential contracts, medical records or anything covered by an agreement.",
+  },
+  {
+    q: "Can it summarize text in languages other than English?",
+    a: "Usually yes. The models behind the tool handle the major world languages, and the summary normally comes back in the same language you pasted. Quality is strongest in English, so for anything important in another language, read the summary against the original before you rely on its wording.",
   },
 ];
 
@@ -110,7 +122,7 @@ export default function Page() {
         </h1>
         <p className="mt-3 text-lg text-ink-soft">
           Paste any article, essay or report and get a clear, accurate summary in
-          seconds &mdash; choose short, medium or detailed, as text or bullet
+          seconds. Choose short, medium or detailed, as text or bullet
           points.
         </p>
       </header>
@@ -131,8 +143,8 @@ export default function Page() {
           Quick answer: what is an AI text summarizer?
         </h2>
         <p className="mt-3 text-ink-soft leading-relaxed">
-          An AI text summarizer is a free tool that reads long content &mdash; an
-          article, essay, research paper, email thread or report &mdash; and
+          An AI text summarizer is a free tool that reads long content (an
+          article, essay, research paper, email thread or report) and
           rewrites it as a much shorter version that keeps the key facts and main
           ideas. Paste your text, pick how long you want the summary to be, and
           the AI returns a condensed version in seconds. It&apos;s ideal for
@@ -158,7 +170,7 @@ export default function Page() {
         <h2>Choosing the right length</h2>
         <p>
           Pick <strong>Short</strong> when you just need the headline idea in two
-          or three sentences &mdash; perfect for deciding whether something is
+          or three sentences, perfect for deciding whether something is
           worth a full read. <strong>Medium</strong> gives you a single balanced
           paragraph that works well for notes and quick briefings.{" "}
           <strong>Detailed</strong> keeps more of the structure and supporting
@@ -173,7 +185,7 @@ export default function Page() {
           meeting notes and long email chains before replying. Writers and
           researchers pull the core points out of source material, and readers use
           it to get through newsletters and news stories faster. Because the tool
-          works from any text you paste, it fits almost any subject &mdash; from
+          works from any text you paste, it fits almost any subject, from
           finance and law to science and marketing.
         </p>
 
@@ -181,7 +193,7 @@ export default function Page() {
         <p>
           Paste clean text without navigation menus or unrelated snippets so the
           AI focuses on the real content. For a very long document, summarise it in
-          sections rather than all at once &mdash; you&apos;ll get sharper, more
+          sections rather than all at once. You&apos;ll get sharper, more
           faithful results. Finally, treat the summary as a fast first pass: if a
           fact really matters, check it against the original before you act on it.
         </p>
@@ -221,8 +233,8 @@ export default function Page() {
               AI Money Assistant
             </h3>
             <p className="mt-1.5 text-sm text-ink-soft">
-              Ask anything about saving, investing, taxes and AI tools &mdash;
-              free and instant.
+              Ask anything about saving, investing, taxes and AI tools. Free
+              and instant.
             </p>
             <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
               Open &rarr;

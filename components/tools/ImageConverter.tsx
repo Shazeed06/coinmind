@@ -93,7 +93,7 @@ export default function ImageConverter() {
       canvas.height = img.naturalHeight;
       const ctx = canvas.getContext("2d");
       if (!ctx) return null;
-      // JPEG has no alpha — paint a white background before drawing.
+      // JPEG has no alpha. Paint a white background before drawing.
       if (fmt === "image/jpeg") {
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -134,7 +134,7 @@ export default function ImageConverter() {
       }
       setError(
         rejected > 0
-          ? `${rejected} file${rejected > 1 ? "s were" : " was"} skipped — only JPG, PNG and WebP are supported.`
+          ? `${rejected} file${rejected > 1 ? "s were" : " was"} skipped. Only JPG, PNG and WebP are supported.`
           : null,
       );
       setBusy(true);
@@ -213,7 +213,7 @@ export default function ImageConverter() {
         </div>
         <p className="mt-3 text-xs text-ink-faint">
           {format === "image/jpeg"
-            ? "JPG has no transparency — transparent areas become white."
+            ? "JPG has no transparency. Transparent areas become white."
             : format === "image/png"
               ? "PNG keeps transparency and is lossless (larger files)."
               : "WebP keeps transparency and gives small, high-quality files."}
@@ -316,7 +316,7 @@ export default function ImageConverter() {
             multiple
             onFiles={onFiles}
             label="Convert more images"
-            hint="Replaces the current batch — JPG, PNG or WebP"
+            hint="Replaces the current batch: JPG, PNG or WebP"
           />
         </div>
       )}

@@ -14,30 +14,30 @@ const CALC = calculators.find((c) => c.slug === "sip")!;
 const CAT = CALC.category;
 
 export const metadata: Metadata = {
-  title: { absolute: "SIP Calculator India 2026 — Monthly Returns, Maturity & Tax Impact" },
+  title: { absolute: "SIP Calculator India 2026 - Monthly Returns, Maturity & Tax Impact" },
   description:
     "Free SIP calculator for India. Calculate monthly SIP returns, maturity corpus, LTCG tax impact, and inflation-adjusted real value. Includes step-up SIP, year-wise growth table, and instant projections. No sign-up needed.",
   alternates: { canonical: "/calculators/sip" },
   openGraph: {
     url: "/calculators/sip",
-    title: "SIP Calculator India — Monthly Returns, Maturity & Tax Impact",
+    title: "SIP Calculator India - Monthly Returns, Maturity & Tax Impact",
     description: "Calculate SIP returns with step-up, LTCG tax, and inflation-adjusted real value. Free interactive calculator with year-wise growth table.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
 const SOURCES: Source[] = [
-  { label: "SEBI — Mutual Funds", href: "https://www.sebi.gov.in/sebiweb/investor/home/investorHome" },
-  { label: "AMFI — SIP Statistics", href: "https://www.amfiindia.com/" },
-  { label: "Income Tax Department — Capital Gains", href: "https://incometaxindia.gov.in/Pages/tax-rates.aspx" },
-  { label: "RBI — Inflation Data", href: "https://www.rbi.org.in/scripts/Statistics.aspx" },
+  { label: "SEBI - Mutual Funds", href: "https://www.sebi.gov.in/sebiweb/investor/home/investorHome" },
+  { label: "AMFI - SIP Statistics", href: "https://www.amfiindia.com/" },
+  { label: "Income Tax Department - Capital Gains", href: "https://incometaxindia.gov.in/Pages/tax-rates.aspx" },
+  { label: "RBI - Inflation Data", href: "https://www.rbi.org.in/scripts/Statistics.aspx" },
 ];
 
 const FAQS = [
   { q: "What is a SIP calculator and how does it work?", a: "A SIP calculator estimates the future value of your monthly mutual fund investments using the future value of annuity formula." },
-  { q: "How accurate is the SIP calculator?", a: "The calculator is mathematically accurate. However, mutual fund returns vary with market conditions. We recommend using 10–12% for large-cap equity funds and running multiple scenarios." },
-  { q: "What return rate should I use for SIP calculations?", a: "For long-term planning with diversified equity mutual funds in India, use 10–12% as your base case. For debt funds, use 6–8%." },
-  { q: "What is the difference between a flat SIP and a step-up SIP?", a: "A flat SIP invests the same amount every month. A step-up SIP increases your monthly investment by a fixed percentage each year — typically 10%." },
+  { q: "How accurate is the SIP calculator?", a: "The calculator is mathematically accurate. However, mutual fund returns vary with market conditions. We recommend using 10-12% for large-cap equity funds and running multiple scenarios." },
+  { q: "What return rate should I use for SIP calculations?", a: "For long-term planning with diversified equity mutual funds in India, use 10-12% as your base case. For debt funds, use 6-8%." },
+  { q: "What is the difference between a flat SIP and a step-up SIP?", a: "A flat SIP invests the same amount every month. A step-up SIP increases your monthly investment by a fixed percentage each year, typically 10%." },
   { q: "How does LTCG tax affect my SIP returns?", a: "For equity funds held over 12 months, LTCG above ₹1.25 lakh per year is taxed at 12.5%. Each SIP instalment has its own holding period (FIFO)." },
   { q: "What is the minimum amount to start a SIP in India?", a: "Most mutual funds in India allow you to start a SIP with as little as ₹500 per month." },
   { q: "How much do I need to invest monthly to reach ₹1 crore?", a: "At 12% returns: ₹2,850/month for 30 years, ₹10,000/month for 20 years, or ₹43,000/month for 10 years." },
@@ -75,7 +75,7 @@ export default function Page() {
         <div className="container-main">
           <Breadcrumb items={[{ label: "Calculators", href: "/calculators" }, { label: "SIP Calculator" }]} />
           <Pill>SIP Calculator</Pill>
-          <h1 className="h2 text-text mt-3">SIP Calculator India — Monthly Returns, Maturity & Tax Impact</h1>
+          <h1 className="h2 text-text mt-3">SIP Calculator India - Monthly Returns, Maturity & Tax Impact</h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
             Calculate SIP returns with step-up, LTCG tax, and inflation-adjusted real value. Free, instant and private.
           </p>
@@ -129,7 +129,7 @@ export default function Page() {
           <Prose>
             <section id="what-is-sip" style={{ scrollMarginTop: "6rem" }}>
               <h2 className="h3 text-text mb-4">What Is a SIP Calculator?</h2>
-              <p>A SIP (Systematic Investment Plan) calculator estimates the future value of your monthly mutual fund investments. You enter your monthly amount, expected return rate, and investment tenure — it shows your total invested, estimated returns, and projected corpus. Our calculator also shows LTCG tax impact and inflation-adjusted real value.</p>
+              <p>A SIP (Systematic Investment Plan) calculator estimates the future value of your monthly mutual fund investments. You enter your monthly amount, expected return rate, and investment tenure. It shows your total invested, estimated returns, and projected corpus. Our calculator also shows LTCG tax impact and inflation-adjusted real value.</p>
 
               <div className="grid grid-cols-2 gap-4 p-4 rounded-card bg-bg-alt border border-border not-prose my-6">
                 {[
@@ -251,11 +251,11 @@ export default function Page() {
               <h2>Common Mistakes to Avoid</h2>
               <div className="not-prose space-y-3 my-6">
                 {[
-                  { icon: AlertTriangle, text: "Stopping SIP during market falls — you miss the best buying opportunities", good: false },
+                  { icon: AlertTriangle, text: "Stopping SIP during market falls: you miss the best buying opportunities", good: false },
                   { icon: CheckCircle, text: "Starting early and staying invested through all market cycles", good: true },
                   { icon: AlertTriangle, text: "Using unrealistic return expectations (15%+ for long-term planning)", good: false },
                   { icon: CheckCircle, text: "Using 10-12% for equity and planning with conservative estimates", good: true },
-                  { icon: AlertTriangle, text: "Ignoring inflation — planning with nominal rather than real returns", good: false },
+                  { icon: AlertTriangle, text: "Ignoring inflation: planning with nominal rather than real returns", good: false },
                 ].map(({ icon: Icon, text, good }) => (
                   <div key={text} className={`flex items-start gap-3 p-3 rounded-card ${good ? "bg-accent/5" : "bg-bg-alt"}`}>
                     <Icon className={`h-5 w-5 shrink-0 mt-0.5 ${good ? "text-accent" : "text-amber-500"}`} />
@@ -272,7 +272,7 @@ export default function Page() {
                   "Use 10-12% for equity funds, 6-8% for debt funds in your projections",
                   "Enable step-up SIP at 10% annual increase to 2-3x your final corpus",
                   "Tax-harvest by redeeming up to ₹1.25L in LTCG gains each year",
-                  "Hold SIPs for at least 7 years — ideally 10-20 years — for best results",
+                  "Hold SIPs for at least 7 years, ideally 10-20 years, for best results",
                   "Use direct plans (lower expense ratio) instead of regular plans",
                 ].map((tip, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -313,11 +313,11 @@ export default function Page() {
               <div className="not-prose p-6 rounded-card bg-brand/5 border border-brand/20 my-6">
                 <div className="space-y-3">
                   {[
-                    "Start as early as possible — time is your biggest ally",
+                    "Start as early as possible: time is your biggest ally",
                     "Use step-up SIP to match your growing income",
                     "Plan with 10-12% returns for equity, not higher",
                     "Always account for inflation and LTCG tax in your goals",
-                    "Stay invested through market cycles — do not stop during falls",
+                    "Stay invested through market cycles: do not stop during falls",
                   ].map((t) => (
                     <div key={t} className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-accent shrink-0 mt-0.5" />
@@ -332,10 +332,10 @@ export default function Page() {
               <h2>Glossary of Terms</h2>
               <div className="not-prose grid sm:grid-cols-2 gap-4 my-6">
                 {[
-                  { term: "SIP", def: "Systematic Investment Plan — investing a fixed amount regularly in mutual funds." },
-                  { term: "NAV", def: "Net Asset Value — the per-unit market price of a mutual fund scheme." },
-                  { term: "CAGR", def: "Compound Annual Growth Rate — smoothed annualised return." },
-                  { term: "LTCG", def: "Long-Term Capital Gains — profit on assets held over 12 months." },
+                  { term: "SIP", def: "Systematic Investment Plan: investing a fixed amount regularly in mutual funds." },
+                  { term: "NAV", def: "Net Asset Value: the per-unit market price of a mutual fund scheme." },
+                  { term: "CAGR", def: "Compound Annual Growth Rate: smoothed annualised return." },
+                  { term: "LTCG", def: "Long-Term Capital Gains: profit on assets held over 12 months." },
                 ].map(({ term, def }) => (
                   <div key={term} className="p-3 rounded-card bg-bg-alt border border-border">
                     <p className="text-sm font-semibold text-text">{term}</p>

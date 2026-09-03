@@ -5,7 +5,7 @@ import EmiCalculator from "@/components/calc/EmiCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "education-loan-emi")!;
-export const metadata = calcMeta("education-loan-emi", CALC.title + " — Student Loan EMI", CALC.blurb);
+export const metadata = calcMeta("education-loan-emi", CALC.title + " - Student Loan EMI", CALC.blurb);
 
 export default function Page() {
   return (
@@ -14,7 +14,7 @@ export default function Page() {
       title="Education Loan EMI Calculator"
       subtitle="Estimate the monthly EMI on a student loan and plan repayment around your course and moratorium period."
       calculator={<EmiCalculator />}
-      intro="An education loan EMI is the fixed monthly instalment you repay on a student loan once regular repayment begins, covering both interest and principal. In India education loans are relatively affordable, typically 8–13% a year, and most come with a moratorium — a period during your studies plus a grace period after, when you pay nothing or only the interest. This education loan EMI calculator estimates your monthly EMI, total interest and total payment for the loan amount, rate and tenure you expect, so you can plan repayment before, during and after your course."
+      intro="An education loan EMI is the fixed monthly instalment you repay on a student loan once regular repayment begins, covering both interest and principal. In India education loans are relatively affordable, typically 8-13% a year, and most come with a moratorium: a period during your studies plus a grace period after, when you pay nothing or only the interest. This education loan EMI calculator estimates your monthly EMI, total interest and total payment for the loan amount, rate and tenure you expect, so you can plan repayment before, during and after your course."
       how={{
         heading: "How your education loan EMI is calculated",
         body: (
@@ -32,7 +32,7 @@ export default function Page() {
               (annual rate ÷ 12 ÷ 100) and <strong>n</strong> is the number of
               monthly instalments. During the moratorium you usually pay nothing
               or interest only; any interest left unpaid is added to the
-              principal, so <strong>P</strong> — and your EMI — can be larger
+              principal, so <strong>P</strong>, and your EMI, can be larger
               once repayment begins. Paying the interest during study keeps the
               loan from growing. After graduating, the{" "}
               <Link href="/calculators/emi" className="text-forest font-medium hover:underline">
@@ -59,6 +59,22 @@ export default function Page() {
         {
           q: "How long is the tenure on a student loan?",
           a: "Education loans are usually repaid over 5 to 15 years after the moratorium ends, longer than car or personal loans so that a new graduate's EMI stays manageable. A longer tenure lowers the monthly EMI but raises the total interest paid over the life of the loan. Once you are earning, prepaying or shortening the tenure is an effective way to cut the total interest on your student loan.",
+        },
+        {
+          q: "How much education loan can I get without collateral?",
+          a: "Under the Indian Banks' Association model education loan scheme, banks generally lend up to about Rs 4 lakh with no collateral and no third-party guarantee, take a guarantor for roughly Rs 4 lakh to Rs 7.5 lakh, and ask for tangible security above that. A central credit guarantee covers a slice of unsecured lending, which is why Rs 7.5 lakh is a common collateral-free ceiling. Limits differ by bank and by institute, so confirm with the lender.",
+        },
+        {
+          q: "What is margin money on an education loan?",
+          a: "Margin money is the share of the course cost you fund yourself, with the bank lending the rest. Banks typically waive it on smaller loans and then ask for around 5% for study in India and around 15% for study abroad on larger amounts. Scholarships and assistantships are usually allowed to count towards your margin. Enter only the amount actually borrowed into the education loan EMI calculator, not the full course fee.",
+        },
+        {
+          q: "What expenses does an education loan cover?",
+          a: "Beyond tuition, most Indian education loans cover examination, library and laboratory fees, hostel charges, a caution deposit, books and equipment, a laptop where the course requires one, and for overseas study the airfare and travel costs. Some lenders also fund life insurance on the borrower. Ask the bank for its sanction letter breakdown, because anything outside the approved list must come from your own funds.",
+        },
+        {
+          q: "Is there an interest subsidy on education loans in India?",
+          a: "The government has run interest subsidy schemes for economically weaker students, most notably a central scheme that pays the interest accruing during the moratorium for eligible professional and technical courses below a family income ceiling and a loan ceiling. Eligibility criteria, income limits and the schemes themselves have changed in recent years, so check the current scheme details with your bank and on the Department of Higher Education portal before assuming you qualify.",
         },
       ]}
       sources={[{ label: "Reserve Bank of India", href: "https://www.rbi.org.in" }]}

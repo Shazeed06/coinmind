@@ -70,29 +70,29 @@ export default function HourlyToSalaryCalculator() {
           Annual salary
         </p>
         <p className="mt-1 font-display text-4xl font-600 text-forest break-words">
-          {valid ? formatCurrency(annual, currency) : "—"}
+          {valid ? formatCurrency(annual, currency) : "-"}
         </p>
         <p className="mt-1 text-sm text-ink-faint">gross, before tax</p>
 
         <div className="mt-6">
           <Stat
             label="Monthly"
-            value={valid ? formatCurrency(monthly, currency) : "—"}
+            value={valid ? formatCurrency(monthly, currency) : "-"}
             accent="forest"
           />
           <Stat
             label="Weekly"
-            value={valid ? formatCurrency(weekly, currency) : "—"}
+            value={valid ? formatCurrency(weekly, currency) : "-"}
             accent="brass"
           />
           <Stat
             label="Daily (5-day week)"
-            value={valid ? formatCurrency(daily, currency) : "—"}
+            value={valid ? formatCurrency(daily, currency) : "-"}
             accent="ink"
           />
           <Stat
             label="Hourly"
-            value={valid ? formatCurrency(wage, currency) : "—"}
+            value={valid ? formatCurrency(wage, currency) : "-"}
             accent="ink"
           />
         </div>
@@ -106,7 +106,7 @@ export default function HourlyToSalaryCalculator() {
           <strong className="text-ink">
             {Number.isFinite(weeks) ? weeks : 0} weeks
           </strong>{" "}
-          a year. These are gross figures &mdash; your take-home pay will be
+          a year. These are gross figures. Your take-home pay will be
           lower after tax and deductions.
         </div>
       </div>

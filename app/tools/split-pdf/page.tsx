@@ -4,16 +4,16 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
-  title: { absolute: "Split PDF — Extract Pages from a PDF Free" },
+  title: { absolute: "Split PDF - Extract Pages from a PDF Free" },
   description:
-    "Free split PDF tool. Extract a page range into a new PDF or split every page into separate files — in your browser. No upload, no sign-up, fully private.",
+    "Free split PDF tool. Extract a page range into a new PDF or split every page into separate files - in your browser. No upload, no sign-up, fully private.",
   alternates: { canonical: "/tools/split-pdf" },
   openGraph: {
     type: "website",
     url: "https://www.coinmind.in/tools/split-pdf",
     siteName: site.name,
     locale: "en_US",
-    title: "Split PDF — Extract Pages from a PDF Free",
+    title: "Split PDF - Extract Pages from a PDF Free",
     description:
       "Extract a page range or split every page into separate PDFs, entirely in your browser. No upload, no sign-up.",
     images: [
@@ -46,11 +46,11 @@ const howToUse = [
   },
   {
     step: "Allow multiple downloads if prompted",
-    detail: "When using single-page mode, your browser may ask permission before downloading several files in quick succession — choose Allow to receive all the individual page PDFs. The range mode downloads just one file, so no prompt appears.",
+    detail: "When using single-page mode, your browser may ask permission before downloading several files in quick succession. Choose Allow to receive all the individual page PDFs. The range mode downloads just one file, so no prompt appears.",
   },
   {
     step: "Save your extracted PDFs",
-    detail: "Each file downloads automatically. Your original PDF remains completely untouched — the split creates new files without modifying the source document in any way.",
+    detail: "Each file downloads automatically. Your original PDF remains completely untouched. The split creates new files without modifying the source document in any way.",
   },
 ];
 
@@ -61,7 +61,7 @@ const whenToUse = [
   },
   {
     scenario: "Separating individually signed forms from a merged batch",
-    detail: "If you received a single PDF containing ten signed forms merged together, splitting each page into its own file gives you ten neat one-page PDFs — one per signatory — that you can file, forward, or archive independently.",
+    detail: "If you received a single PDF containing ten signed forms merged together, splitting each page into its own file gives you ten neat one-page PDFs, one per signatory, that you can file, forward, or archive independently.",
   },
   {
     scenario: "Removing confidential appendices before sharing",
@@ -70,24 +70,24 @@ const whenToUse = [
 ];
 
 const howItWorksParagraph =
-  "When you upload a PDF, this tool reads the entire document using the pdf-lib library running locally in your browser. It then copies only the pages you requested — either a continuous range like pages 3 through 7, or every page individually — into brand-new PDF files. Each new file receives the original page content byte for byte, so text, images, vector graphics, and formatting remain pixel-perfect identical to the source. No data is sent over the internet; all page copying and file creation happens on your own machine. In single-page mode, the tool iterates through the document and creates one download per page. Because pdf-lib works with raw byte streams, the tool functions even when you're offline after the initial page load, and it never stores, caches, or transmits your document to any server.";
+  "When you upload a PDF, this tool reads the entire document using the pdf-lib library running locally in your browser. It then copies only the pages you requested (either a continuous range like pages 3 through 7, or every page individually) into brand-new PDF files. Each new file receives the original page content byte for byte, so text, images, vector graphics, and formatting remain pixel-perfect identical to the source. No data is sent over the internet; all page copying and file creation happens on your own machine. In single-page mode, the tool iterates through the document and creates one download per page. Because pdf-lib works with raw byte streams, the tool functions even when you're offline after the initial page load, and it never stores, caches, or transmits your document to any server.";
 
 const tips = [
-  "Always double-check your page range before splitting. Entering the wrong first or last page number is the most common mistake — verify against the total page count shown after you load the file.",
+  "Always double-check your page range before splitting. Entering the wrong first or last page number is the most common mistake. Verify against the total page count shown after you load the file.",
   "When splitting every page, your browser may block multiple automatic downloads. If only the first file saves, look for a pop-up or icon in the address bar asking permission to download more files and click Allow.",
   "For large documents with hundreds of pages, splitting into single pages may briefly slow down your browser as it creates and downloads many files. Consider working in smaller batches if needed.",
-  "Original PDF quality is preserved perfectly — pages are copied at the byte level, never re-compressed or re-rendered. The output PDFs will look and print exactly like the source.",
+  "Original PDF quality is preserved perfectly. Pages are copied at the byte level, never re-compressed or re-rendered. The output PDFs will look and print exactly like the source.",
   "If you need to split and then reorder pages, first split the file and then use the Merge PDF tool to combine the extracted pages back together in any new order you like.",
 ];
 
 const faqs = [
   {
     q: "Is my PDF uploaded anywhere?",
-    a: "No. Splitting happens entirely in your browser with JavaScript using the pdf-lib library. Your PDF never leaves your device — nothing is uploaded, stored, or shared, which keeps sensitive documents completely private. The tool works offline too once the page has loaded, so you can split documents without an active internet connection.",
+    a: "No. Splitting happens entirely in your browser with JavaScript using the pdf-lib library. Your PDF never leaves your device. Nothing is uploaded, stored, or shared, which keeps sensitive documents completely private. The tool works offline too once the page has loaded, so you can split documents without an active internet connection.",
   },
   {
     q: "What is the difference between extracting a range and splitting every page?",
-    a: "Extracting a range pulls a continuous slice of pages — say pages 2 through 5 — into a single new PDF file with all those pages inside. It's best when you want one document containing a specific section. Splitting every page creates one standalone PDF file per page: a 10-page document produces 10 separate downloads, each containing exactly one page. This is ideal when you need to break a merged batch back into its original individual documents.",
+    a: "Extracting a range pulls a continuous slice of pages, say pages 2 through 5, into a single new PDF file with all those pages inside. It's best when you want one document containing a specific section. Splitting every page creates one standalone PDF file per page: a 10-page document produces 10 separate downloads, each containing exactly one page. This is ideal when you need to break a merged batch back into its original individual documents.",
   },
   {
     q: "Why do I get a prompt to allow multiple downloads?",
@@ -99,15 +99,23 @@ const faqs = [
   },
   {
     q: "Will the extracted pages lose any quality?",
-    a: "No. Pages are copied as-is into the new document. The pdf-lib library reads each page's raw content — text, images, fonts, vector graphics, and annotations — and writes it directly into the output PDF without re-compressing, re-rendering, or converting anything. The extracted pages are pixel-identical to the original.",
+    a: "No. Pages are copied as-is into the new document. The pdf-lib library reads each page's raw content (text, images, fonts, vector graphics, and annotations) and writes it directly into the output PDF without re-compressing, re-rendering, or converting anything. The extracted pages are pixel-identical to the original.",
   },
   {
-    q: "What page numbering should I use — the printed page number or the PDF page number?",
+    q: "What page numbering should I use, the printed page number or the PDF page number?",
     a: "Always use the PDF page number, which starts counting from the first physical page of the document as page 1. If your document has a cover, table of contents, or Roman-numeral front matter, those pages count too. The printed page number shown on the page (e.g., page 42 of a book) may differ from the PDF page number, so count from the very first page of the file.",
   },
   {
     q: "Is there a limit on file size or page count?",
     a: "There's no fixed limit. Because everything runs locally on your device using only browser memory, the practical limit is determined by your computer's available RAM. Splitting a typical document with a few hundred pages works reliably. Extremely large files with thousands of high-resolution scanned pages may use significant memory, and in that case splitting in smaller batches can help.",
+  },
+  {
+    q: "Can I extract non-consecutive pages such as 1, 4 and 9?",
+    a: "Not in one step. Range mode takes a single continuous slice, so pages that are not next to each other need two passes. Split the document into single pages, which gives you one file per page, then use the Merge PDF tool to combine just the pages you want, in whatever order suits you.",
+  },
+  {
+    q: "Can I split a PDF on my phone?",
+    a: "Range mode works well on mobile: pick the file, enter the first and last page, and one PDF downloads. Single-page mode is less comfortable because it triggers many downloads at once, and mobile browsers, iOS Safari in particular, often restrict that. If you need every page separately, a desktop browser is the smoother option.",
   },
 ];
 
@@ -115,7 +123,7 @@ const relatedTools = [
   { label: "Merge PDF", href: "/tools/merge-pdf" },
   { label: "Organize PDF", href: "/tools/organize-pdf" },
   { label: "Image to PDF", href: "/tools/image-to-pdf" },
-  { label: "Compress PDF", href: "/tools/compress-pdf" },
+  { label: "Rotate PDF", href: "/tools/rotate-pdf" },
 ];
 
 export default function Page() {
@@ -147,7 +155,7 @@ export default function Page() {
   return (
     <ToolPageLayout
       title="Split PDF"
-      description="Extract a page range into a new PDF, or split every page into its own separate file. Choose exactly which pages to keep — your document never leaves your device."
+      description="Extract a page range into a new PDF, or split every page into its own separate file. Choose exactly which pages to keep. Your document never leaves your device."
       howToUse={howToUse}
       whenToUse={whenToUse}
       howItWorks={howItWorksParagraph}

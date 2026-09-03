@@ -5,7 +5,7 @@ type FinancialDisclaimerProps = { type?: "tax" | "investment" | "general" };
 
 export function FinancialDisclaimer({ type = "general" }: FinancialDisclaimerProps) {
   const messages: Record<string, string> = {
-    tax: "This calculator uses current tax slabs for the financial year. Tax rules change — confirm the latest rates and consider consulting a qualified tax professional before filing.",
+    tax: "This calculator uses current tax slabs for the financial year. Tax rules change. Confirm the latest rates and consider consulting a qualified tax professional before filing.",
     investment: "Projections are illustrative and use assumed rates of return. Actual returns vary with market conditions. Past performance does not guarantee future results. Not investment advice.",
     general: "This is an educational tool, not financial advice. Consult a qualified professional before making decisions that affect your money.",
   };

@@ -3,7 +3,7 @@
 // HOW TO USE: once you join a partner program (a broker's refer-&-earn program
 // like Zerodha/Groww/Upstox, a credit-card affiliate network, a loan aggregator,
 // etc.), paste YOUR referral/affiliate link into the `href` below. While `href`
-// is empty, the CTA is completely HIDDEN — nothing misleading or non-earning is
+// is empty, the CTA is completely HIDDEN. Nothing misleading or non-earning is
 // ever shown to users. All affiliate links render with rel="sponsored nofollow"
 // and an on-page disclosure, per Google + FTC guidance.
 
@@ -19,7 +19,7 @@ export const affiliateOffers: Record<string, AffiliateOffer> = {
     href: "",
     label: "Ready to invest? Open a free demat account",
     blurb:
-      "Start your SIP or lumpsum with a trusted broker — zero-cost account opening, all online.",
+      "Start your SIP or lumpsum with a trusted broker: zero-cost account opening, all online.",
     cta: "Open a free account",
   },
   loan: {
@@ -38,7 +38,7 @@ export const affiliateOffers: Record<string, AffiliateOffer> = {
   },
   insurance: {
     href: "",
-    label: "Protect your family — compare term insurance",
+    label: "Protect your family - compare term insurance",
     blurb: "Compare high-cover, low-premium term plans from leading insurers.",
     cta: "Compare plans",
   },

@@ -4,7 +4,7 @@ import MutualFundReturnsCalculator from "@/components/calc/MutualFundReturnsCalc
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "mutual-fund-returns")!;
-export const metadata = calcMeta("mutual-fund-returns", CALC.title + " — Growth & CAGR", CALC.blurb);
+export const metadata = calcMeta("mutual-fund-returns", CALC.title + " - Growth & CAGR", CALC.blurb);
 
 export default function Page() {
   return (
@@ -37,7 +37,7 @@ export default function Page() {
             </p>
             <p>
               For example, investing &#8377;100,000 at an expected 12% for 10
-              years projects to roughly &#8377;310,585 &mdash; a total return of
+              years projects to roughly &#8377;310,585, a total return of
               about &#8377;210,585. This is the lumpsum view; if you invest a
               fixed amount every month instead, use the SIP calculator, which
               compounds each instalment separately.
@@ -56,11 +56,27 @@ export default function Page() {
         },
         {
           q: "What return should I expect from mutual funds in India?",
-          a: "Returns depend entirely on the fund type. Equity mutual funds in India have historically delivered roughly 10 to 14% CAGR over long periods, debt funds far less, and hybrid funds in between. These are historical averages, not promises — mutual fund investments are subject to market risk, and past performance does not guarantee future returns.",
+          a: "Returns depend entirely on the fund type. Equity mutual funds in India have historically delivered roughly 10 to 14% CAGR over long periods, debt funds far less, and hybrid funds in between. These are historical averages, not promises. Mutual fund investments are subject to market risk, and past performance does not guarantee future returns.",
         },
         {
           q: "Is CAGR or absolute return better for judging a mutual fund?",
           a: "CAGR is usually the better measure because it accounts for time, giving you a per-year growth rate you can compare across funds held for different durations. Absolute return only tells you the total percentage gain and can look impressive simply because the money was invested for many years. For lumpsum investments the CAGR equals your expected annual return.",
+        },
+        {
+          q: "How are mutual fund returns taxed in India?",
+          a: "Tax depends on the fund category and holding period. Equity-oriented funds held beyond the long-term threshold get a concessional long-term capital gains rate with an annual exemption on gains, while units sold sooner are taxed as short-term gains at a higher rate. Debt fund taxation was changed in recent Budgets and now differs by purchase date. These rules move often, so confirm the current rates with the Income Tax Department before you plan a redemption.",
+        },
+        {
+          q: "What is XIRR and how is it different from CAGR?",
+          a: "CAGR assumes one investment on one date, which is why it fits a lumpsum. XIRR handles many cash flows on different dates, so it is the right measure for a SIP, for top-ups, or for partial redemptions. If you invested ₹1,00,000 once, CAGR and XIRR give the same answer. If you invested every month, only XIRR reflects the fact that each instalment was invested for a different length of time.",
+        },
+        {
+          q: "Does this calculator account for expense ratio and exit load?",
+          a: "No. It projects gross growth at the return rate you enter. A fund's expense ratio is already deducted from its published NAV returns, so if you enter a return based on past NAV performance it is effectively net of expenses. Exit load, stamp duty and capital gains tax are not modelled. Redeeming an equity fund inside the load period can cost around 1% of the redemption value, so treat the projected figure as pre-tax and pre-load.",
+        },
+        {
+          q: "Are mutual fund returns guaranteed?",
+          a: "No. Mutual fund investments are subject to market risk and no return is promised. This calculator asks for an expected annual return and then applies it evenly, which real markets never do: a fund that averages 12% over ten years may fall 20% in one of them. Read the scheme information document, match the fund category to your time horizon, and treat any projection here as a planning aid rather than a forecast.",
         },
       ]}
       sources={[
