@@ -84,6 +84,28 @@ const MILESTONE_SIP = 10000;
 const MILESTONE_RATE = 12;
 const LAKH = 100000;
 
+const CRORE = 10000000;
+
+/** Rs 1,23,45,678 becomes "Rs 1.23 Crore"; smaller sums render in lakh. */
+function corpusLabel(value: number): string {
+  return value >= CRORE
+    ? `₹${(value / CRORE).toFixed(2)} Crore`
+    : `₹${(value / LAKH).toFixed(1)} Lakh`;
+}
+
+// Computed from the same formula as the milestone table, not written by hand.
+// The hardcoded version claimed Rs 11.5 Lakh for the beginner case where the
+// correct figure is Rs 11.62 Lakh, and a hand-typed number cannot be kept
+// honest if the assumed rate ever changes.
+const EXAMPLES = [
+  { title: "Beginner", monthly: 5000, years: 10 },
+  { title: "Moderate", monthly: 10000, years: 15 },
+  { title: "Aggressive", monthly: 25000, years: 20 },
+].map((ex) => ({
+  ...ex,
+  corpus: corpusLabel(sipFutureValue(ex.monthly, MILESTONE_RATE, ex.years)),
+}));
+
 const GROWTH_ROWS = [5, 10, 15, 20, 25, 30].map((year) => {
   const invested = MILESTONE_SIP * 12 * year;
   const corpus = sipFutureValue(MILESTONE_SIP, MILESTONE_RATE, year);
@@ -204,16 +226,12 @@ export default function Page() {
             <section id="examples" style={{ scrollMarginTop: "6rem" }}>
               <h2>Real Examples</h2>
               <div className="not-prose grid sm:grid-cols-3 gap-4 my-6">
-                {[
-                  { title: "Beginner", sip: "₹5,000/mo", years: "10 yrs", corpus: "₹11.5 Lakh" },
-                  { title: "Moderate", sip: "₹10,000/mo", years: "15 yrs", corpus: "₹50.4 Lakh" },
-                  { title: "Aggressive", sip: "₹25,000/mo", years: "20 yrs", corpus: "₹2.5 Crore" },
-                ].map((ex) => (
+                {EXAMPLES.map((ex) => (
                   <div key={ex.title} className="card p-4">
                     <p className="eyebrow text-brand">{ex.title}</p>
                     <div className="mt-3 space-y-1">
-                      <p className="text-sm text-text-muted">SIP: <span className="font-semibold text-text">{ex.sip}</span></p>
-                      <p className="text-sm text-text-muted">Tenure: <span className="font-semibold text-text">{ex.years}</span></p>
+                      <p className="text-sm text-text-muted">SIP: <span className="font-semibold text-text">₹{ex.monthly.toLocaleString("en-IN")}/mo</span></p>
+                      <p className="text-sm text-text-muted">Tenure: <span className="font-semibold text-text">{ex.years} yrs</span></p>
                       <p className="text-sm text-text-muted">Corpus: <span className="text-accent font-bold">{ex.corpus}</span></p>
                     </div>
                   </div>
