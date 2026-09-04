@@ -106,7 +106,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 mx-auto aspect-square max-w-[320px] sm:max-w-[400px] bg-brand/10 rounded-full blur-3xl" />
               <div className="relative animate-float bg-white border border-border rounded-2xl shadow-card p-6 sm:p-8">
                 <p className="eyebrow text-brand">SIP Calculator</p>
-                <h3 className="h3 mt-2 text-text">Monthly Investment</h3>
+                <p className="h3 mt-2 text-text">Monthly Investment</p>
                 <div className="mt-6 space-y-5">
                   <div>
                     <p className="small text-text-muted mb-1.5">Monthly SIP Amount</p>

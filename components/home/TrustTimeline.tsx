@@ -19,6 +19,9 @@ export default function TrustTimeline() {
         title="Built on Transparency and Accuracy"
         subline="Six principles that guide everything we build."
       />
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Financial decisions depend on accurate numbers. Every calculator on CoinMind is built using formulas published by India's regulatory bodies and reviewed by a qualified chartered accountancy candidate. When tax slabs change or RBI updates its rates, we update our tools within 48 hours so your calculations always reflect the latest rules.
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {PRINCIPLES.map((p) => (
           <Card key={p.title}>

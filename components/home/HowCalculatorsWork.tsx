@@ -17,6 +17,9 @@ export default function HowCalculatorsWork() {
         title="How Our Calculators Work"
         subline="From entering your numbers to actionable insight, in seconds."
       />
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        No financial background is needed. Pick any calculator, enter basic inputs like your investment amount, interest rate, or tenure, and get a complete breakdown in seconds. Every result includes the underlying formula so you can verify the math yourself.
+      </p>
       <div className="relative">
         {/* The step circles are 48px tall and start at y=0, so their centres sit
             at y=24. The connector was pinned at top-12 (48px), which drew it

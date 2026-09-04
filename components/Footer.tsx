@@ -21,6 +21,10 @@ export default function Footer() {
             {/* Full-strength muted, not /70: at 12px the faded variant measured
                 3.53:1, under the 4.5:1 AA floor for a line of real prose. */}
             <p className="mt-3 text-xs text-text-muted">Educational only, not financial advice.</p>
+            <div className="mt-4 flex justify-center lg:justify-start gap-4">
+              <a href={site.social.twitter} target="_blank" rel="noopener noreferrer" className="small text-text-muted hover:text-brand transition-colors" aria-label="Follow CoinMind on X">X / Twitter</a>
+              <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" className="small text-text-muted hover:text-brand transition-colors" aria-label="Follow CoinMind on LinkedIn">LinkedIn</a>
+            </div>
           </div>
           {footerNav.map((col, i) => (
             <div key={col.title} className="border-t border-border/60 pt-4 lg:border-0 lg:pt-0">

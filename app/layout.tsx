@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     description: site.description,
     locale: "en_IN",
     images: [
-      { url: "/opengraph-image", width: 1200, height: 630, alt: site.tagline },
+      { url: "/opengraph-image", width: 1200, height: 630, alt: site.tagline, type: "image/png" },
     ],
   },
   twitter: {
@@ -100,12 +100,20 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icon.svg" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="help" type="text/plain" href="/llms.txt" />
       </head>
       <body className="min-h-full flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:text-sm focus:font-semibold"
+        >
+          Skip to main content
+        </a>
         <GtmNoScript id={site.gtmId} />
         <SiteJsonLd />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
         <CookieConsent />
         <Analytics gaId={site.gaId} />

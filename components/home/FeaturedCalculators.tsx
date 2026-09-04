@@ -5,7 +5,7 @@ import { calculators } from "@/lib/data";
 import { Calculator, ArrowRight } from "lucide-react";
 
 const liveCalcs = calculators.filter((c) => c.live);
-const featured = liveCalcs.slice(0, 8);
+const featured = liveCalcs.slice(0, 6);
 
 export default function FeaturedCalculators() {
   return (
@@ -15,7 +15,10 @@ export default function FeaturedCalculators() {
         title={`${liveCalcs.length} Free Financial Calculators`}
         subline="Plan investments, size a loan, or estimate your tax, instantly and privately."
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        From SIP and FD calculators to income tax and loan EMI estimators, each tool uses official formulas from SEBI, RBI, and the Income Tax Department. Enter your numbers and get instant results with detailed breakdowns, charts, and year-wise projections, all without creating an account.
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {featured.map((c) => (
           <Card key={c.slug} href={`/calculators/${c.slug}`}>
             <div className="flex items-start justify-between">

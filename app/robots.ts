@@ -14,10 +14,10 @@ import { site } from "@/lib/site";
  * which is most of the site's written content. It also contradicted
  * /llms.txt, which explicitly invites assistants to cite this site.
  *
- * The policy now matches the goal. Assistants may read the editorial content,
- * because a citation there is the point. They stay out of /calculators/ and
- * /tools/, where the value is the running tool rather than the prose, and out
- * of the internals.
+ * The policy now matches the goal. AI crawlers have the same access as regular
+ * crawlers (only /api/ blocked). The calculator and tool pages carry enough
+ * explanatory prose that AI citations are valuable, and blocking those paths
+ * caused audit tools to flag the site for restricting AI bot access.
  *
  * Named individually rather than with a wildcard because robots.txt matches a
  * user-agent by prefix, not by pattern, so an unlisted crawler silently falls
@@ -38,9 +38,6 @@ const AI_CRAWLERS = [
   "meta-externalagent",
   "Bytespider",
 ];
-
-/** The interactive utilities: their worth is the tool, not the copy around it. */
-const TOOL_PATHS = ["/calculators/", "/tools/"];
 
 /**
  * Only the API. `/_next/` must stay crawlable: it holds the CSS and JS chunks
@@ -63,7 +60,7 @@ export default function robots(): MetadataRoute.Robots {
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: [...INTERNAL_PATHS, ...TOOL_PATHS],
+        disallow: INTERNAL_PATHS,
       })),
     ],
     sitemap: `${site.url}/sitemap.xml`,

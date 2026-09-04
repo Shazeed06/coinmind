@@ -20,6 +20,9 @@ export default function FinanceCategories() {
         title="Explore Every Aspect of Personal Finance"
         subline="8 categories covering everything from investments to taxes."
       />
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Personal finance covers a broad range of topics, from mutual fund investments and fixed deposits to income tax planning, loan management, and everyday savings. Browse by category to find the calculator that fits your current financial goal.
+      </p>
       {/* Five categories x two calculators = ten cards. At lg:grid-cols-4 that
           left two orphans stranded on a third row; five columns lands them as
           two clean rows and makes this the one tighter, wider grid on the page

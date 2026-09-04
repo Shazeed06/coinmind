@@ -12,8 +12,6 @@ const ROADMAPS = [
       { label: "Build an Emergency Fund", href: "/blog/emergency-fund-guide" },
       { label: "Start Your First SIP", href: "/calculators/sip" },
       { label: "Understand Your Salary", href: "/calculators/take-home-salary" },
-      { label: "Open a PPF Account", href: "/calculators/ppf" },
-      { label: "File Your First ITR", href: "/calculators/income-tax" },
     ],
   },
   {
@@ -23,9 +21,7 @@ const ROADMAPS = [
     items: [
       { label: "Diversify Beyond FDs", href: "/calculators/fd" },
       { label: "Plan Your Retirement", href: "/calculators/retirement" },
-      { label: "Save Capital Gains Tax", href: "/calculators/capital-gains" },
       { label: "Step-Up Your SIP", href: "/calculators/step-up-sip" },
-      { label: "Calculate Home Loan EMI", href: "/calculators/home-loan-eligibility" },
     ],
   },
   {
@@ -36,8 +32,6 @@ const ROADMAPS = [
       { label: "NPS Calculator", href: "/calculators/nps" },
       { label: "EPF Maturity", href: "/calculators/epf" },
       { label: "SWP Plan", href: "/calculators/swp" },
-      { label: "SCSS for Seniors", href: "/calculators/scss" },
-      { label: "Post Office MIS", href: "/calculators/post-office-mis" },
     ],
   },
   {
@@ -47,8 +41,6 @@ const ROADMAPS = [
     items: [
       { label: "CAGR & XIRR Explained", href: "/calculators/cagr" },
       { label: "Goal SIP Planning", href: "/calculators/goal-sip" },
-      { label: "LTCG Planning", href: "/calculators/capital-gains" },
-      { label: "Currency Converter", href: "/calculators/currency-converter" },
       { label: "Compound Interest", href: "/calculators/compound-interest" },
     ],
   },
@@ -62,6 +54,9 @@ export default function FinancialRoadmaps() {
         title="Your Financial Journey, Mapped Out"
         subline="Start where you are. We will show you the next step."
       />
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Your financial needs change as your income, responsibilities, and goals evolve. These four roadmaps group calculators and guides by life stage, from building your first emergency fund to planning withdrawals in retirement, so you always know the right next step.
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
         {ROADMAPS.map((r) => (
           <div key={r.title} className="card flex flex-col h-full p-6">
@@ -81,12 +76,7 @@ export default function FinancialRoadmaps() {
               ))}
             </div>
             <div className="mt-auto pt-4 border-t border-border">
-              <Link
-                href="/calculators"
-                className="inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline"
-              >
-                View roadmap <ArrowRight className="h-4 w-4" />
-              </Link>
+              <span className="text-xs text-text-muted">Explore more in Calculators</span>
             </div>
           </div>
         ))}

@@ -42,6 +42,11 @@ export const site = {
   // This switches on the AdSense loader script (for site review + serving ads);
   // the matching line is in public/ads.txt.
   adsenseClientId: "ca-pub-5677983073792236",
+  // Social profiles: used in footer links and Organization schema sameAs.
+  social: {
+    twitter: "https://x.com/CoinMindIn",
+    linkedin: "https://www.linkedin.com/company/coinmind-in",
+  },
 } as const;
 
 export type NavItem = {

@@ -16,6 +16,9 @@ export default function LearningHub() {
         title="Guides That Build Financial Confidence"
         subline="Practical, jargon-free guides written for India."
       />
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Numbers alone do not build financial literacy. Our guides explain the concepts behind each calculator, from how SIP compounding works to which tax-saving instruments suit different income brackets, so you understand the why behind every decision you make.
+      </p>
       <div className="grid lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {guides.map((g) => (

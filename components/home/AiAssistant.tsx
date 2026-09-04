@@ -12,6 +12,9 @@ export default function AiAssistant() {
           <p className="body text-white/60 mt-4 max-w-[480px] mx-auto lg:mx-0">
             Ask any finance question and get an instant, clear answer, powered by AI, verified for accuracy.
           </p>
+          <p className="body text-white/60 mt-3 max-w-[480px] mx-auto lg:mx-0">
+            Whether you need help choosing between the old and new tax regimes, want to know how much SIP you need for a financial goal, or simply want a jargon-free explanation of a complex term, the AI assistant provides contextual, India-specific answers in plain language.
+          </p>
           <div className="mt-6">
             <Link
               href="/ai-assistant"

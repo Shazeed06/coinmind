@@ -13,6 +13,9 @@ export default function ClosingCta() {
         <p className="body text-white/60 mt-4 max-w-[640px] mx-auto">
           Free calculators, expert guides, and AI-powered answers. All in one place. No sign-up needed.
         </p>
+        <p className="body text-white/60 mt-3 max-w-[640px] mx-auto">
+          Join thousands of Indians who use CoinMind every month to plan their investments, compare financial products, and make confident money decisions backed by accurate, up-to-date data.
+        </p>
         <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
           <Link
             href="/calculators"

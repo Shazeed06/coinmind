@@ -12,6 +12,11 @@ export function org(): Thing {
     logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
     description: site.description,
     email: site.email,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IN",
+      addressLocality: "India",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -23,6 +28,7 @@ export function org(): Thing {
     areaServed: ["IN", "US", "GB", "Worldwide"],
     publishingPrinciples: `${site.url}/editorial-standards`,
     knowsAbout: ["Personal finance", "Income tax", "Mutual funds and SIP", "Fixed deposits", "PPF, EPF and NPS", "AI tools"],
+    sameAs: [site.social.twitter, site.social.linkedin],
   };
 }
 
@@ -49,7 +55,13 @@ export function person(): Thing {
     "@type": "Person",
     "@id": `${site.url}/#person`,
     name: site.author.fullName,
+    jobTitle: site.author.role,
     description: site.author.bio,
+    qualifications: site.author.credential,
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Institute of Chartered Accountants of India (ICAI)",
+    },
     knowsAbout: ["Personal finance", "Indian income tax", "Mutual funds", "Financial planning"],
   };
 }

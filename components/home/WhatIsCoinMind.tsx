@@ -25,6 +25,9 @@ export default function WhatIsCoinMind() {
             CoinMind is a free, privacy-first personal finance platform with 46 calculators, 44 tools, and expert guides.
             Every formula is verified against official sources and updated after every Union Budget.
           </p>
+          <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0 mt-4">
+            Whether you are planning your first SIP, comparing tax regimes, or estimating your home loan EMI, CoinMind gives you accurate results without requiring a login or sharing any personal data. All calculations run entirely in your browser, so your financial information never leaves your device.
+          </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {FEATURES.map((f) => (
               <Card key={f.title}>

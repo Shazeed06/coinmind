@@ -8,7 +8,7 @@ import { GLOSSARY } from "@/lib/glossary";
 import { ArrowRight } from "lucide-react";
 
 const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const TERMS = GLOSSARY.slice(0, 12);
+const TERMS = GLOSSARY.slice(0, 8);
 
 const letterCounts: Record<string, number> = {};
 ALPHABETS.forEach((l) => {
@@ -30,6 +30,10 @@ export default function FinanceGlossary() {
         title="A-Z Finance Terms"
         subline="Plain-English definitions of key finance and AI terms."
       />
+
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Financial jargon can be a barrier to making good decisions. Our glossary explains terms like CAGR, NAV, TDS, and XIRR in plain English with real-world examples, so you always understand exactly what a number means before you act on it.
+      </p>
 
       <div className="flex flex-wrap gap-1 justify-center mb-10" role="group" aria-label="Filter by letter">
         {ALPHABETS.map((l) => {
