@@ -8,7 +8,7 @@
 // prose rendered by components/ArticleMarkdown.tsx. It supports ## headings,
 // paragraphs, **bold** and inline links to internal routes, plus pipe tables.
 
-export type GlossaryCategory = "Investing" | "Tax" | "Credit" | "Banking" | "AI";
+export type GlossaryCategory = "Investing" | "Tax" | "Credit" | "Banking" | "AI" | "Crypto";
 
 /** One People-Also-Ask style question and its 40-70 word answer. */
 export type GlossaryFaq = {
@@ -41,6 +41,7 @@ export const GLOSSARY_CATEGORIES: GlossaryCategory[] = [
   "Credit",
   "Banking",
   "AI",
+  "Crypto",
 ];
 
 export const GLOSSARY: GlossaryTerm[] = [
@@ -5266,6 +5267,1303 @@ This is general educational information about a widely discussed rule of thumb, 
     related: ["swp", "nps", "asset-allocation", "inflation"],
     relatedHref: "/calculators/retirement",
     relatedLabel: "Retirement Calculator",
+  },
+
+  // -- Crypto ---------------------------------------------------------------
+  {
+    slug: "cryptocurrency",
+    term: "Cryptocurrency",
+    category: "Crypto",
+    short:
+      "A cryptocurrency is a digital currency that uses cryptography and a decentralised blockchain network to verify transactions without a central authority like a bank.",
+    bodyMarkdown: `A cryptocurrency is a form of digital money that exists on a [blockchain](/glossary/blockchain), a distributed ledger maintained by thousands of computers worldwide. Unlike rupees or dollars issued by a central bank, most cryptocurrencies are not controlled by any single institution. Ownership is proved by cryptographic keys rather than by an account at a bank.
+
+## How cryptocurrency works
+
+Every transaction is broadcast to a peer-to-peer network, validated by nodes following agreed-upon rules, called a consensus mechanism, and recorded in a permanent block on the chain. Once confirmed, the transaction cannot be reversed. This removes the need for an intermediary to verify whether the sender actually holds the funds.
+
+The two most common consensus mechanisms are proof of work, used by [Bitcoin](/glossary/bitcoin), where miners solve computational puzzles, and proof of stake, used by [Ethereum](/glossary/ethereum), where validators lock up coins as collateral.
+
+## Common types
+
+| Type | Example | Purpose |
+| --- | --- | --- |
+| Payment coin | [Bitcoin](/glossary/bitcoin) | Store of value, peer-to-peer payments |
+| Platform coin | [Ethereum](/glossary/ethereum) | Powers [smart contracts](/glossary/smart-contract) and dApps |
+| [Stablecoin](/glossary/stablecoin) | USDT, USDC | Pegged to a fiat currency for price stability |
+| [Altcoin](/glossary/altcoin) | Solana, Cardano | Alternative networks with different designs |
+
+## Cryptocurrency and Indian law
+
+India does not ban owning or trading cryptocurrency. The Supreme Court struck down the RBI's 2018 banking ban in March 2020. However, there is no dedicated regulatory framework yet. The government classifies crypto as Virtual Digital Assets (VDA) under the Income Tax Act.
+
+## Taxation in India
+
+From 1 April 2022, all gains on VDAs are taxed at a flat 30% under Section 115BBH, with no deduction except the cost of acquisition. Losses from one VDA cannot be set off against gains from another VDA or any other income. A 1% TDS under Section 194S applies on every transfer above the threshold. Indian exchanges deduct this automatically.
+
+## Risks to consider
+
+- **Volatility**: prices can swing 20-30% in a single week.
+- **Regulatory uncertainty**: future laws could restrict certain activities.
+- **Irreversibility**: sending coins to a wrong address usually means permanent loss.
+- **Scams**: unregulated tokens and fraudulent schemes are common; stick to well-known assets on registered exchanges.`,
+    faq: [
+      {
+        q: "Is cryptocurrency legal in India?",
+        a: "Yes. Owning and trading cryptocurrency is legal in India. The Supreme Court overturned the RBI banking ban in 2020. India taxes crypto as Virtual Digital Assets under the Income Tax Act but has not enacted a comprehensive regulatory framework for the asset class yet.",
+      },
+      {
+        q: "How is cryptocurrency taxed in India?",
+        a: "Gains from selling any Virtual Digital Asset are taxed at a flat 30% under Section 115BBH, plus applicable surcharge and cess. No deductions other than cost of acquisition are allowed. A 1% TDS under Section 194S is deducted on transfers above the prescribed threshold.",
+      },
+      {
+        q: "Which is the best cryptocurrency to buy in India?",
+        a: "There is no universally best cryptocurrency. Bitcoin and Ethereum are the largest by market capitalisation and the most widely held. Any purchase should be based on your own research, risk tolerance and investment horizon. Never invest more than you can afford to lose.",
+      },
+      {
+        q: "Can I buy cryptocurrency with INR?",
+        a: "Yes. Several Indian exchanges such as WazirX, CoinDCX and CoinSwitch allow you to buy cryptocurrency directly with Indian rupees via UPI, bank transfer or net banking. These platforms deduct the 1% TDS required by law on qualifying transactions.",
+      },
+      {
+        q: "What is the difference between cryptocurrency and digital rupee?",
+        a: "Cryptocurrency is decentralised and not backed by any government. The digital rupee, or e-RUPI / CBDC, is issued by the Reserve Bank of India and is a digital form of the official fiat currency. The digital rupee carries sovereign backing; cryptocurrency does not.",
+      },
+    ],
+    related: ["bitcoin", "ethereum", "blockchain", "altcoin", "stablecoin", "crypto-wallet", "crypto-token"],
+  },
+  {
+    slug: "bitcoin",
+    term: "Bitcoin",
+    category: "Crypto",
+    short:
+      "Bitcoin is the first and largest cryptocurrency, created in 2009, that operates on a decentralised blockchain using proof-of-work mining to process transactions.",
+    bodyMarkdown: `Bitcoin is a decentralised digital currency introduced in a 2008 whitepaper by the pseudonymous Satoshi Nakamoto. It went live in January 2009 when the first block, called the genesis block, was mined. Unlike traditional currencies, Bitcoin operates without a central bank, relying instead on a global network of computers that validate every transaction on its [blockchain](/glossary/blockchain).
+
+## How Bitcoin works
+
+Bitcoin transactions are grouped into blocks and added to the chain roughly every ten minutes. Miners, participants running specialised hardware, compete to solve a cryptographic puzzle. The first to solve it earns the right to add the block and receives newly minted bitcoin plus transaction fees as a reward. This is the proof-of-work consensus mechanism.
+
+The total supply of Bitcoin is hard-capped at 21 million coins. As of now, over 19 million have already been mined. The mining reward halves approximately every four years in an event called the halving, which gradually reduces the rate of new supply entering circulation.
+
+## Bitcoin as a store of value
+
+Supporters compare Bitcoin to digital gold because of its fixed supply and decentralised nature. Critics point to its extreme [volatility](/glossary/cryptocurrency) and the fact that it produces no cash flow, unlike a stock or a bond. Both perspectives have evidence behind them, and neither is settled.
+
+## Bitcoin in India
+
+Indian investors can buy fractions of a bitcoin, often as small as Rs 100 worth, on domestic exchanges. There is no legal prohibition on holding or trading Bitcoin in India.
+
+## Tax treatment
+
+Under Section 115BBH of the Income Tax Act, gains from selling Bitcoin are taxed at a flat 30%, with no deductions other than the cost of acquisition. A 1% TDS under Section 194S applies to every transfer above the threshold. Losses on Bitcoin cannot be offset against any other income or even against gains from other Virtual Digital Assets.
+
+## Risks
+
+- **Price volatility** can be severe; drawdowns of over 50% from peak have occurred multiple times in Bitcoin's history.
+- **Irreversible transactions**: there is no customer support line to reverse a wrong transfer.
+- **Environmental concerns**: proof-of-work [mining](/glossary/crypto-mining) consumes significant electricity.
+- **Custody risk**: losing access to your private keys means losing your coins permanently. Use a reliable [crypto wallet](/glossary/crypto-wallet) and keep backups.`,
+    faq: [
+      {
+        q: "Is Bitcoin legal in India?",
+        a: "Yes. There is no law in India that bans owning or trading Bitcoin. The Supreme Court overturned the RBI's earlier circular restricting banking services to crypto exchanges in March 2020. Bitcoin is classified as a Virtual Digital Asset for tax purposes.",
+      },
+      {
+        q: "How is Bitcoin taxed in India?",
+        a: "All gains from selling Bitcoin are taxed at a flat 30% under Section 115BBH of the Income Tax Act. A 1% TDS is deducted under Section 194S on every transfer above the threshold. No deductions other than the original cost of acquisition are permitted.",
+      },
+      {
+        q: "Can I buy a fraction of Bitcoin?",
+        a: "Yes. Bitcoin is divisible to eight decimal places. The smallest unit, called a satoshi, is 0.00000001 BTC. Indian exchanges allow purchases starting from as low as Rs 100, so you do not need to buy one full coin.",
+      },
+      {
+        q: "What is Bitcoin mining?",
+        a: "Bitcoin mining is the process by which new transactions are validated and added to the blockchain. Miners use specialised hardware to solve cryptographic puzzles. The first miner to solve the puzzle adds the block and earns newly minted bitcoin plus transaction fees as a reward.",
+      },
+      {
+        q: "How many Bitcoins are left to mine?",
+        a: "Bitcoin has a fixed maximum supply of 21 million coins. Over 19 million have been mined. The remaining coins will be released through mining rewards that halve roughly every four years, with the last bitcoin expected to be mined around the year 2140.",
+      },
+    ],
+    related: ["cryptocurrency", "blockchain", "crypto-mining", "crypto-wallet", "ethereum", "hodl"],
+  },
+  {
+    slug: "ethereum",
+    term: "Ethereum",
+    category: "Crypto",
+    short:
+      "Ethereum is a decentralised blockchain platform that enables smart contracts and decentralised applications, with Ether (ETH) as its native cryptocurrency.",
+    bodyMarkdown: `Ethereum is a programmable [blockchain](/glossary/blockchain) launched in 2015 by Vitalik Buterin and a team of co-founders. While [Bitcoin](/glossary/bitcoin) was designed primarily as digital money, Ethereum was built to be a general-purpose platform where developers can deploy [smart contracts](/glossary/smart-contract), self-executing programs that run exactly as written without any intermediary.
+
+## How Ethereum works
+
+Ethereum's blockchain stores not just transaction records but also the code and state of thousands of smart contracts. When a user interacts with a contract, for example swapping tokens on a [decentralised exchange](/glossary/decentralized-exchange), that interaction is broadcast to the network, validated by nodes, and recorded on-chain. Executing a contract costs [gas fees](/glossary/gas-fees), paid in Ether (ETH).
+
+In September 2022, Ethereum moved from proof-of-work to proof-of-stake in an upgrade called The Merge. Validators now [stake](/glossary/staking) a minimum of 32 ETH as collateral rather than running power-intensive mining rigs, reducing energy consumption by over 99%.
+
+## What is built on Ethereum
+
+- **[DeFi](/glossary/defi)** protocols: lending, borrowing, trading without banks.
+- **[NFTs](/glossary/nft)**: unique digital assets representing art, collectibles and more.
+- **[Stablecoins](/glossary/stablecoin)**: USDT and USDC each run partly on the Ethereum network.
+- **DAOs**: decentralised autonomous organisations governed by token holders.
+- **[Web3](/glossary/web3)** applications: games, social networks and identity systems.
+
+## Ether vs Ethereum
+
+Ethereum is the network. Ether (ETH) is the [crypto token](/glossary/crypto-token) that fuels it. When someone says they bought Ethereum, they mean they bought ETH. The distinction matters because the network supports thousands of other tokens too.
+
+## Tax treatment in India
+
+Ether is treated as a Virtual Digital Asset. Gains are taxed at a flat 30% under Section 115BBH with no deductions beyond cost of acquisition. A 1% TDS applies under Section 194S on transfers above the threshold.
+
+## Risks and considerations
+
+- **Smart contract bugs**: code errors have led to significant losses in the past.
+- **Gas fee spikes**: network congestion can make transactions expensive.
+- **Regulatory uncertainty**: India has no crypto-specific regulation yet.
+- **Volatility**: ETH's price can swing sharply, much like other cryptocurrencies.`,
+    faq: [
+      {
+        q: "Is Ethereum legal in India?",
+        a: "Yes. Buying, selling and holding Ether is legal in India. It is classified as a Virtual Digital Asset under the Income Tax Act. There is no specific regulation banning Ethereum, and Indian exchanges offer ETH trading pairs against INR.",
+      },
+      {
+        q: "What is the difference between Ethereum and Bitcoin?",
+        a: "Bitcoin is primarily a digital currency and store of value with a fixed 21 million supply. Ethereum is a programmable platform that supports smart contracts, DeFi, NFTs and thousands of tokens. Ethereum uses proof of stake while Bitcoin uses proof of work for consensus.",
+      },
+      {
+        q: "What are gas fees on Ethereum?",
+        a: "Gas fees are the charges paid in ETH to compensate validators for processing transactions and running smart contracts on the Ethereum network. Fees vary with network congestion; during busy periods they can spike significantly. Layer-2 solutions help reduce these costs.",
+      },
+      {
+        q: "How is Ethereum taxed in India?",
+        a: "Gains from selling ETH are taxed at a flat 30% under Section 115BBH of the Income Tax Act. A 1% TDS under Section 194S is deducted at source on transfers above the threshold. No loss set-off against other income or other VDAs is allowed.",
+      },
+      {
+        q: "Can I stake Ethereum in India?",
+        a: "Yes. Several Indian and global platforms offer Ethereum staking services. You earn staking rewards for helping validate transactions, but those rewards are also taxable as income in India. Staked ETH may have lock-up periods depending on the platform.",
+      },
+    ],
+    related: ["cryptocurrency", "blockchain", "smart-contract", "gas-fees", "defi", "staking", "nft"],
+  },
+  {
+    slug: "blockchain",
+    term: "Blockchain",
+    category: "Crypto",
+    short:
+      "A blockchain is a distributed digital ledger that records transactions across many computers in a tamper-resistant chain of cryptographically linked blocks.",
+    bodyMarkdown: `A blockchain is a type of database, but unlike a traditional database stored on one company's server, it is replicated across thousands of computers worldwide. Each new batch of transactions is grouped into a block, timestamped, and cryptographically linked to the previous block. This creates an append-only chain where altering any past record would require re-computing every subsequent block, making tampering practically impossible.
+
+## How a blockchain works
+
+1. A user initiates a transaction, say sending [Bitcoin](/glossary/bitcoin) to another address.
+2. The transaction is broadcast to a peer-to-peer network of nodes.
+3. Nodes validate the transaction against the network's rules, for example checking that the sender actually holds the coins.
+4. Valid transactions are grouped into a block by a miner or validator.
+5. The block is added to the chain using a consensus mechanism, either proof of work or proof of stake.
+6. The updated ledger is synchronised across all nodes.
+
+## Public vs private blockchains
+
+| Feature | Public blockchain | Private blockchain |
+| --- | --- | --- |
+| Access | Anyone can join | Invitation only |
+| Examples | Bitcoin, [Ethereum](/glossary/ethereum) | Hyperledger, R3 Corda |
+| Speed | Slower, higher security | Faster, centralised control |
+| Use case | [Cryptocurrency](/glossary/cryptocurrency), [DeFi](/glossary/defi) | Enterprise supply chain, banking |
+
+## Blockchain beyond crypto
+
+While [cryptocurrency](/glossary/cryptocurrency) is the most well-known application, blockchain technology is used in supply chain tracking, voting systems, digital identity verification and land registry projects. In India, several state governments have piloted blockchain for land records and certificate verification.
+
+## Blockchain and Indian regulation
+
+India does not regulate blockchain technology itself. The government has been supportive of blockchain applications in governance and finance while separately taxing cryptocurrency transactions at 30% under Section 115BBH. The RBI has explored blockchain for its Central Bank Digital Currency (CBDC) pilot.
+
+## Limitations
+
+- **Scalability**: public blockchains process far fewer transactions per second than traditional payment networks.
+- **Energy consumption**: proof-of-work chains like Bitcoin use significant electricity, though proof-of-stake alternatives are far more efficient.
+- **Irreversibility**: there is no undo button; errors are permanent.
+- **Storage growth**: the full ledger keeps growing and every node must store it.`,
+    faq: [
+      {
+        q: "What is the difference between blockchain and cryptocurrency?",
+        a: "Blockchain is the underlying technology, a distributed ledger that records transactions in a tamper-resistant way. Cryptocurrency is one application of blockchain, a digital currency that runs on it. You can use blockchain without cryptocurrency, for example in supply chain tracking or digital identity.",
+      },
+      {
+        q: "Is blockchain technology legal in India?",
+        a: "Yes. India has no law restricting blockchain technology. The government actively promotes blockchain for governance use cases. What is regulated is the financial use of crypto assets on blockchains, which are classified as Virtual Digital Assets and taxed accordingly.",
+      },
+      {
+        q: "Can blockchain be hacked?",
+        a: "Altering a public blockchain like Bitcoin is practically impossible because it would require controlling more than 50% of the network's computing power. However, applications built on blockchains, such as smart contracts and exchanges, can have vulnerabilities that hackers exploit.",
+      },
+      {
+        q: "How is blockchain used in India?",
+        a: "Indian state governments have piloted blockchain for land registry records, certificate verification and supply chain management. The RBI uses blockchain technology in its CBDC digital rupee pilot. Private companies use it for trade finance, insurance claims and document authentication.",
+      },
+      {
+        q: "What is a block in blockchain?",
+        a: "A block is a batch of validated transactions that is timestamped and cryptographically linked to the previous block. Each block contains a unique hash, the hash of the prior block, and the transaction data. This linking creates the chain and makes tampering evident.",
+      },
+    ],
+    related: ["cryptocurrency", "bitcoin", "ethereum", "smart-contract", "crypto-mining", "decentralized-exchange"],
+  },
+  {
+    slug: "altcoin",
+    term: "Altcoin",
+    category: "Crypto",
+    short:
+      "An altcoin is any cryptocurrency other than Bitcoin, including tokens like Ethereum, Solana and Cardano that offer different features or use cases.",
+    bodyMarkdown: `Altcoin is short for alternative coin. It refers to every [cryptocurrency](/glossary/cryptocurrency) other than [Bitcoin](/glossary/bitcoin). The term emerged because Bitcoin was the first cryptocurrency, and everything that came after was seen as an alternative to it.
+
+## Types of altcoins
+
+Altcoins are not one category. They span a wide range of designs and purposes.
+
+| Type | Examples | Purpose |
+| --- | --- | --- |
+| Platform coins | [Ethereum](/glossary/ethereum), Solana, Cardano | Run [smart contracts](/glossary/smart-contract) and dApps |
+| [Stablecoins](/glossary/stablecoin) | USDT, USDC, DAI | Price-pegged to a fiat currency |
+| Meme coins | Dogecoin, Shiba Inu | Community-driven, often speculative |
+| Utility tokens | Chainlink, Filecoin | Access a specific service or network |
+| Privacy coins | Monero, Zcash | Enhanced transaction privacy |
+| Governance tokens | Uniswap (UNI), Aave | Vote on protocol decisions |
+
+## Why altcoins exist
+
+Bitcoin was designed primarily as a decentralised payment system. Many altcoins attempt to improve upon Bitcoin's limitations, such as transaction speed, energy consumption or programmability, or to serve entirely different use cases like [DeFi](/glossary/defi), [NFTs](/glossary/nft) or decentralised storage.
+
+## Altcoins and risk
+
+Most altcoins are significantly more volatile and less liquid than Bitcoin. Thousands of altcoins have launched and failed. Before investing, research the project's team, whitepaper, use case, tokenomics and community. Be especially cautious of projects that promise guaranteed returns.
+
+## Tax treatment in India
+
+All altcoins are treated as Virtual Digital Assets under Section 115BBH of the Income Tax Act. Gains are taxed at a flat 30% with no deductions beyond cost of acquisition. A 1% TDS under Section 194S applies to transfers above the threshold. Losses on one altcoin cannot be offset against gains on another.
+
+## How to evaluate an altcoin
+
+- **Market capitalisation**: higher [market cap](/glossary/market-cap) generally means more liquidity and stability.
+- **Use case**: does the project solve a real problem?
+- **Team and development**: is the code actively maintained?
+- **Tokenomics**: what is the supply schedule and distribution?
+- **Community and adoption**: real users matter more than social media hype.`,
+    faq: [
+      {
+        q: "What is the difference between Bitcoin and altcoins?",
+        a: "Bitcoin is the original cryptocurrency, launched in 2009, focused on being a decentralised store of value and payment system. Altcoins are every other cryptocurrency. They vary widely, from platform coins like Ethereum to stablecoins to meme coins, each with different technology and goals.",
+      },
+      {
+        q: "Are altcoins legal in India?",
+        a: "Yes. All cryptocurrencies, including altcoins, are legal to buy, sell and hold in India. They are classified as Virtual Digital Assets under the Income Tax Act and taxed at 30% on gains with a 1% TDS on transfers above the threshold.",
+      },
+      {
+        q: "Which altcoins are available on Indian exchanges?",
+        a: "Major Indian exchanges like WazirX, CoinDCX and CoinSwitch list dozens of altcoins including Ethereum, Solana, Cardano, Polygon, Polkadot and others. The exact list varies by exchange. Always verify the listing on the exchange before planning a purchase.",
+      },
+      {
+        q: "Are altcoins riskier than Bitcoin?",
+        a: "Generally yes. Most altcoins have smaller market capitalisations, lower liquidity and shorter track records than Bitcoin. Many altcoins have lost 90% or more of their value. However, some large-cap altcoins like Ethereum have established significant ecosystems and use cases.",
+      },
+      {
+        q: "How are altcoin profits taxed in India?",
+        a: "Altcoin profits are taxed identically to all other Virtual Digital Assets in India: a flat 30% tax on gains under Section 115BBH with a 1% TDS on transfers. No loss set-off is permitted against gains from other VDAs or any other income source.",
+      },
+    ],
+    related: ["cryptocurrency", "bitcoin", "ethereum", "stablecoin", "crypto-token", "market-cap"],
+  },
+  {
+    slug: "stablecoin",
+    term: "Stablecoin",
+    category: "Crypto",
+    short:
+      "A stablecoin is a cryptocurrency designed to maintain a stable value by pegging its price to a reserve asset like the US dollar or gold.",
+    bodyMarkdown: `A stablecoin is a type of [cryptocurrency](/glossary/cryptocurrency) engineered to hold a steady price, usually pegged one-to-one to a fiat currency like the US dollar. While [Bitcoin](/glossary/bitcoin) and [Ethereum](/glossary/ethereum) can swing 10% in a day, stablecoins aim to stay within a narrow band around their peg.
+
+## Types of stablecoins
+
+| Type | How it maintains the peg | Examples |
+| --- | --- | --- |
+| Fiat-backed | Holds reserves of fiat currency or equivalents in a bank | USDT, USDC |
+| Crypto-backed | Over-collateralised with other cryptocurrencies | DAI |
+| Algorithmic | Uses smart contract mechanisms to expand or contract supply | FRAX |
+
+Fiat-backed stablecoins are by far the most widely used. For every token in circulation, the issuer claims to hold an equivalent amount in dollars, treasury bills or similar assets. The reliability of the peg depends entirely on the quality and transparency of those reserves.
+
+## Why stablecoins matter
+
+Stablecoins serve as the bridge between traditional finance and the crypto ecosystem.
+
+- **Trading pairs**: most [decentralised exchanges](/glossary/decentralized-exchange) and centralised exchanges use stablecoins as the base trading pair instead of fiat.
+- **[DeFi](/glossary/defi)**: lending, borrowing and [yield farming](/glossary/yield-farming) protocols rely heavily on stablecoins for predictable value.
+- **Remittances**: sending stablecoins across borders can be faster and cheaper than bank wires.
+- **Hedging**: traders convert volatile crypto holdings into stablecoins during market downturns without exiting to fiat.
+
+## Stablecoins in India
+
+Indian exchanges list USDT and USDC as trading pairs. Stablecoins are treated as Virtual Digital Assets under Indian tax law, meaning the same 30% flat tax on gains and 1% TDS on transfers apply. Even though the dollar value of a stablecoin rarely changes, any rupee gain arising from exchange rate fluctuation is taxable.
+
+## Risks
+
+- **De-pegging**: algorithmic stablecoins have collapsed in the past, notably TerraUSD (UST) in 2022.
+- **Reserve transparency**: not all fiat-backed stablecoins provide full audits of their reserves.
+- **Regulatory risk**: governments worldwide are drafting stablecoin-specific regulations that could restrict issuance or usage.
+- **Counterparty risk**: the issuer's financial health and governance matter significantly.`,
+    faq: [
+      {
+        q: "Are stablecoins taxed in India?",
+        a: "Yes. Stablecoins are classified as Virtual Digital Assets under Indian tax law. Any gain on sale, including gains from INR-to-USD exchange rate movement, is taxed at 30% under Section 115BBH. A 1% TDS under Section 194S applies on transfers above the threshold.",
+      },
+      {
+        q: "What is the difference between USDT and USDC?",
+        a: "Both are US dollar-pegged stablecoins. USDT is issued by Tether and is the most traded stablecoin globally. USDC is issued by Circle and is generally considered more transparent about its reserves. Both function similarly for trading and transfers on Indian exchanges.",
+      },
+      {
+        q: "Can a stablecoin lose its peg?",
+        a: "Yes. Algorithmic stablecoins are especially vulnerable, as demonstrated by the TerraUSD collapse in 2022 where billions of dollars were lost. Even fiat-backed stablecoins can briefly de-peg during periods of extreme market stress or if questions arise about their reserves.",
+      },
+      {
+        q: "Are stablecoins legal in India?",
+        a: "Yes. Stablecoins can be legally bought, sold and held in India. They are treated as Virtual Digital Assets for tax purposes. India has not yet introduced stablecoin-specific regulation, but global regulatory developments could influence future Indian policy.",
+      },
+      {
+        q: "Can I earn interest on stablecoins?",
+        a: "Some DeFi platforms and centralised exchanges offer interest or yield on deposited stablecoins through lending protocols or liquidity pools. These returns vary and carry smart contract risk, platform risk and regulatory risk. Any interest earned is taxable income in India.",
+      },
+    ],
+    related: ["cryptocurrency", "defi", "decentralized-exchange", "yield-farming", "liquidity-pool", "crypto-token"],
+  },
+  {
+    slug: "defi",
+    term: "DeFi (Decentralised Finance)",
+    category: "Crypto",
+    short:
+      "DeFi, or Decentralised Finance, refers to financial services like lending, borrowing and trading built on blockchain smart contracts without traditional intermediaries.",
+    bodyMarkdown: `DeFi stands for Decentralised Finance. It is a collective term for financial applications built on [blockchain](/glossary/blockchain) networks, primarily [Ethereum](/glossary/ethereum), that replicate services traditionally provided by banks, brokerages and exchanges, but using [smart contracts](/glossary/smart-contract) instead of centralised intermediaries.
+
+## How DeFi works
+
+Instead of a bank holding your deposit and lending it out, a DeFi lending protocol uses a smart contract. You deposit [cryptocurrency](/glossary/cryptocurrency) into a [liquidity pool](/glossary/liquidity-pool), and borrowers take loans from that pool by providing collateral, typically more than the borrowed amount. Interest rates are set algorithmically based on supply and demand. Everything runs on code, on-chain, visible to anyone.
+
+## Key DeFi applications
+
+- **Lending and borrowing**: Aave and Compound allow users to earn interest on deposits and borrow against crypto collateral.
+- **[Decentralised exchanges](/glossary/decentralized-exchange)**: Uniswap and SushiSwap let you trade tokens without an order book, using automated market makers.
+- **[Yield farming](/glossary/yield-farming)**: providing liquidity to protocols in exchange for rewards, often paid in the protocol's own [token](/glossary/crypto-token).
+- **[Stablecoins](/glossary/stablecoin)**: DAI is created through a DeFi protocol, MakerDAO, using crypto collateral.
+- **Insurance**: DeFi protocols like Nexus Mutual offer cover against smart contract failures.
+
+## DeFi vs traditional finance
+
+| Feature | Traditional finance | DeFi |
+| --- | --- | --- |
+| Intermediary | Bank, broker | Smart contract |
+| Access | KYC, account opening | A [crypto wallet](/glossary/crypto-wallet) |
+| Operating hours | Business hours | 24/7, 365 days |
+| Transparency | Limited | Fully open-source and auditable |
+| Recourse | Legal system, deposit insurance | Code-based, limited recourse |
+
+## DeFi and India
+
+Indian users can access DeFi protocols using a crypto wallet, though most mainstream Indian exchanges focus on centralised trading. There is no DeFi-specific regulation in India. Gains earned through DeFi activities, whether from lending interest, liquidity provision or token appreciation, are taxable at 30% under Section 115BBH as Virtual Digital Assets.
+
+## Risks
+
+- **Smart contract bugs**: a vulnerability in the code can lead to loss of all deposited funds.
+- **Impermanent loss**: liquidity providers can lose value compared to simply holding the tokens.
+- **Rug pulls**: anonymous developers can drain liquidity pools and disappear.
+- **Complexity**: DeFi protocols interact with each other, and a failure in one can cascade through connected protocols.`,
+    faq: [
+      {
+        q: "Is DeFi legal in India?",
+        a: "There is no specific law banning or regulating DeFi in India. Indian users can interact with DeFi protocols using crypto wallets. All income earned through DeFi, whether lending interest, trading profits or farming rewards, is taxable as VDA income at 30%.",
+      },
+      {
+        q: "How is DeFi income taxed in India?",
+        a: "DeFi income from lending, staking, yield farming or trading is classified as Virtual Digital Asset income and taxed at a flat 30% under Section 115BBH. TDS of 1% applies when transacting through Indian exchanges. There is no distinction between DeFi and centralised exchange income in Indian tax law.",
+      },
+      {
+        q: "What is the difference between DeFi and CeFi?",
+        a: "DeFi uses smart contracts on a blockchain for financial services without a central authority. CeFi, or Centralised Finance, uses a company like an exchange or a bank to manage your funds. CeFi offers customer support and simpler interfaces but requires trust in the company.",
+      },
+      {
+        q: "Can I lose money in DeFi?",
+        a: "Yes. Risks include smart contract vulnerabilities, impermanent loss for liquidity providers, rug pulls by dishonest developers, and general cryptocurrency price volatility. DeFi has no deposit insurance or regulatory protection. Only invest amounts you can afford to lose entirely.",
+      },
+      {
+        q: "Do I need KYC for DeFi?",
+        a: "Most DeFi protocols do not require KYC because they operate through smart contracts on public blockchains. You only need a crypto wallet to interact with them. However, converting between INR and crypto on Indian exchanges to fund your DeFi activity does require KYC.",
+      },
+    ],
+    related: ["smart-contract", "liquidity-pool", "yield-farming", "decentralized-exchange", "stablecoin", "ethereum"],
+  },
+  {
+    slug: "nft",
+    term: "NFT (Non-Fungible Token)",
+    category: "Crypto",
+    short:
+      "An NFT is a unique digital token on a blockchain that represents ownership of a specific item like art, music, or a collectible, and cannot be replicated.",
+    bodyMarkdown: `An NFT, or Non-Fungible Token, is a unique [crypto token](/glossary/crypto-token) stored on a [blockchain](/glossary/blockchain) that certifies ownership of a specific digital or physical item. Unlike [Bitcoin](/glossary/bitcoin), where each coin is identical and interchangeable (fungible), every NFT is one-of-a-kind and cannot be swapped on a like-for-like basis.
+
+## How NFTs work
+
+An NFT is created, or minted, using a [smart contract](/glossary/smart-contract) on a blockchain, most commonly [Ethereum](/glossary/ethereum). The contract assigns a unique identifier and records the owner's [wallet](/glossary/crypto-wallet) address. When the NFT is sold, the smart contract transfers ownership on-chain, and some contracts automatically pay a royalty to the original creator on each resale.
+
+The NFT itself is a token that points to the asset. The underlying file, whether an image, a video or a music file, is usually stored off-chain on services like IPFS, not on the blockchain itself.
+
+## Common uses of NFTs
+
+- **Digital art**: artists sell original works directly to collectors.
+- **Collectibles**: trading cards, virtual avatars and limited-edition items.
+- **Gaming**: in-game assets that players own and can trade outside the game.
+- **Music and media**: musicians release albums or exclusive tracks as NFTs.
+- **Real-world assets**: some projects experiment with tokenising property deeds, event tickets and certificates.
+
+## NFTs in India
+
+Several Indian artists and creators have sold NFTs on platforms like WazirX NFT, Rarible and OpenSea. Indian cricket-themed NFTs and Bollywood collectibles have also gained attention.
+
+## Tax treatment
+
+NFTs are classified as Virtual Digital Assets under Indian tax law. Any profit from selling an NFT is taxed at a flat 30% under Section 115BBH. The 1% TDS under Section 194S applies on transfers above the threshold. If you are a creator minting and selling NFTs, the income may be classified as business income depending on the scale and nature of the activity.
+
+## Risks
+
+- **Speculative value**: most NFTs lose significant value over time.
+- **Illiquidity**: finding a buyer at your desired price can be difficult.
+- **Copyright confusion**: owning an NFT does not automatically grant copyright or reproduction rights.
+- **Scams and counterfeits**: fake collections mimicking popular projects are common.
+- **Platform dependency**: if the platform or storage service goes down, the link to the underlying asset can break.`,
+    faq: [
+      {
+        q: "Are NFTs legal in India?",
+        a: "Yes. Creating, buying and selling NFTs is legal in India. They are classified as Virtual Digital Assets under the Income Tax Act. There is no specific regulation for NFTs, but the standard VDA tax rules of 30% on gains and 1% TDS on transfers apply.",
+      },
+      {
+        q: "How are NFTs taxed in India?",
+        a: "NFT profits are taxed at a flat 30% under Section 115BBH. A 1% TDS under Section 194S applies on transfers above the threshold. For creators, depending on the volume and nature of activity, NFT sales income could be treated as business income, which may allow more deductions.",
+      },
+      {
+        q: "What is the difference between NFT and cryptocurrency?",
+        a: "Cryptocurrencies like Bitcoin are fungible, meaning each unit is identical and interchangeable. NFTs are non-fungible, meaning each token is unique and represents a specific item. You can trade one Bitcoin for another Bitcoin equally, but you cannot equally swap two different NFTs.",
+      },
+      {
+        q: "Can I create and sell NFTs in India?",
+        a: "Yes. You can mint NFTs on platforms like OpenSea, Rarible or Foundation using a crypto wallet. Some Indian-focused platforms also exist. You will need ETH or another cryptocurrency to pay minting gas fees. All income from NFT sales is subject to Indian VDA tax rules.",
+      },
+      {
+        q: "Do NFTs have real value?",
+        a: "An NFT's value is determined by what someone is willing to pay for it. Some NFTs have sold for millions while most are worth very little or nothing. Value depends on the creator's reputation, rarity, utility and community demand. Treat NFTs as highly speculative.",
+      },
+    ],
+    related: ["cryptocurrency", "ethereum", "smart-contract", "crypto-wallet", "crypto-token", "blockchain"],
+  },
+  {
+    slug: "crypto-wallet",
+    term: "Crypto Wallet",
+    category: "Crypto",
+    short:
+      "A crypto wallet is a software application or hardware device that stores the private keys needed to send, receive and manage your cryptocurrency holdings.",
+    bodyMarkdown: `A crypto wallet does not actually store your [cryptocurrency](/glossary/cryptocurrency). Your coins always live on the [blockchain](/glossary/blockchain). What the wallet stores is your private key, a cryptographic string that proves ownership and authorises transactions. If someone else obtains your private key, they control your funds. If you lose it without a backup, your funds are gone permanently.
+
+## Types of crypto wallets
+
+| Type | Examples | Security | Convenience |
+| --- | --- | --- | --- |
+| **Hot wallet** (software) | MetaMask, Trust Wallet | Moderate — connected to the internet | High — easy to use for trading |
+| **Cold wallet** (hardware) | Ledger, Trezor | High — offline storage | Lower — extra steps to transact |
+| **Exchange wallet** | WazirX, CoinDCX | Varies — custodial | Highest — built into the exchange |
+| **Paper wallet** | Printed keys | High — fully offline | Impractical for regular use |
+
+## Hot wallets vs cold wallets
+
+A hot wallet is connected to the internet, making it convenient for day-to-day transactions but vulnerable to hacking. A cold wallet keeps your keys entirely offline, on a hardware device that must be physically connected to sign a transaction. For large holdings, a cold wallet is the standard recommendation.
+
+## Custodial vs non-custodial
+
+When you keep crypto on an Indian exchange, the exchange holds the private key on your behalf. This is a custodial wallet. It is convenient but means you are trusting the exchange's security. A non-custodial wallet, like MetaMask, gives you full control of your private key, and full responsibility for not losing it.
+
+## Seed phrase
+
+When you create a non-custodial wallet, you receive a seed phrase, usually 12 or 24 words. This phrase can regenerate your private key. Write it down on paper, store it securely, and never share it digitally. If someone gets your seed phrase, they have your funds.
+
+## Crypto wallets and India
+
+Indian exchanges provide built-in custodial wallets for trading. For [DeFi](/glossary/defi) or [NFT](/glossary/nft) interactions, Indian users commonly use MetaMask or Trust Wallet. The 1% TDS under Section 194S is deducted by the exchange when you transact through their custodial wallet.
+
+## Security best practices
+
+- Use a hardware wallet for long-term holdings.
+- Never share your private key or seed phrase with anyone.
+- Enable two-factor authentication on exchange accounts.
+- Be cautious of phishing sites that mimic popular wallet interfaces.
+- Keep your wallet software updated to patch security vulnerabilities.`,
+    faq: [
+      {
+        q: "Which crypto wallet is best in India?",
+        a: "For exchange trading, WazirX and CoinDCX provide built-in wallets with INR support. For DeFi and NFTs, MetaMask and Trust Wallet are widely used. For long-term secure storage, hardware wallets like Ledger and Trezor are recommended. The best choice depends on your use case.",
+      },
+      {
+        q: "Is a crypto wallet free?",
+        a: "Most software wallets like MetaMask and Trust Wallet are free to download and use. Hardware wallets like Ledger and Trezor cost money upfront but provide stronger security. Exchange wallets are free to use as part of your exchange account. Transaction fees on the blockchain are separate.",
+      },
+      {
+        q: "What happens if I lose my crypto wallet?",
+        a: "If you lose access to a non-custodial wallet but have your seed phrase, you can restore the wallet on any compatible device. If you lose both the wallet and the seed phrase, your funds are permanently inaccessible. For exchange wallets, you can recover access through the platform's support process.",
+      },
+      {
+        q: "Can the government track crypto wallets in India?",
+        a: "Public blockchain transactions are visible to anyone, and blockchain analytics firms can trace transactions between wallets. Indian exchanges share KYC-linked transaction data with tax authorities as required. Fully anonymous use of crypto is difficult when converting to or from INR.",
+      },
+      {
+        q: "Do I need a crypto wallet to buy cryptocurrency in India?",
+        a: "If you buy on an Indian exchange, the exchange provides a built-in custodial wallet automatically. You do not need a separate wallet to start. A personal wallet becomes necessary only when you want to use DeFi protocols, store NFTs, or hold crypto outside an exchange.",
+      },
+    ],
+    related: ["cryptocurrency", "blockchain", "defi", "nft", "staking", "bitcoin"],
+  },
+  {
+    slug: "crypto-mining",
+    term: "Crypto Mining",
+    category: "Crypto",
+    short:
+      "Crypto mining is the process of using computational power to validate blockchain transactions and earn newly minted cryptocurrency as a reward.",
+    bodyMarkdown: `Crypto mining is the mechanism by which certain [blockchain](/glossary/blockchain) networks, most notably [Bitcoin](/glossary/bitcoin), validate transactions and create new coins. Miners use specialised hardware to solve complex cryptographic puzzles. The first miner to find the solution earns the right to add a new block of transactions to the chain and receives a block reward in newly minted cryptocurrency plus transaction fees.
+
+## How mining works
+
+1. Pending transactions are broadcast to the network.
+2. Miners collect these transactions and group them into a candidate block.
+3. Each miner races to find a hash, a number produced by a cryptographic function, that meets the network's difficulty target.
+4. The first miner to find a valid hash broadcasts the block.
+5. Other nodes verify the block and add it to their copy of the blockchain.
+6. The winning miner receives the block reward.
+
+For Bitcoin, this process repeats roughly every ten minutes, and the difficulty adjusts every 2,016 blocks to maintain this pace regardless of how much computing power joins or leaves the network.
+
+## Mining hardware
+
+| Generation | Hardware | Status |
+| --- | --- | --- |
+| Early (2009-2012) | CPUs, laptops | Obsolete for Bitcoin |
+| Mid (2012-2014) | GPUs, graphics cards | Still used for some [altcoins](/glossary/altcoin) |
+| Current | ASICs (Application-Specific Integrated Circuits) | Standard for Bitcoin |
+
+ASIC miners are purpose-built machines that do nothing except mine a specific algorithm. They are expensive, generate significant heat and consume considerable electricity.
+
+## Mining in India
+
+Mining is not illegal in India, but high electricity costs make it less profitable compared to countries with cheaper power. Indian miners must also account for GST on mining hardware and the 30% flat tax on any mined cryptocurrency, which is treated as VDA income. The cost of acquisition for mined coins is considered zero by the Income Tax Department, meaning the entire value is taxable upon sale.
+
+## Proof of work vs proof of stake
+
+Mining is a feature of proof-of-work blockchains. [Ethereum](/glossary/ethereum) moved to proof of stake in 2022, replacing miners with validators who [stake](/glossary/staking) coins as collateral. Proof of stake is vastly more energy-efficient but uses a fundamentally different security model.
+
+## Environmental concerns
+
+Bitcoin mining's energy consumption has drawn criticism. Some mining operations use renewable energy, and the industry is gradually shifting in that direction, but the debate continues.`,
+    faq: [
+      {
+        q: "Is crypto mining legal in India?",
+        a: "Yes. There is no law in India that bans crypto mining. However, mined cryptocurrency is treated as income and taxed under VDA rules. The cost of acquisition for mined coins is considered zero, so the entire value at the time of sale is taxable at 30%.",
+      },
+      {
+        q: "Is crypto mining profitable in India?",
+        a: "Profitability depends on electricity costs, hardware efficiency, cryptocurrency prices and the 30% tax on mined coins. Indian electricity rates are relatively high compared to countries where large-scale mining is common. Most individual miners in India find it difficult to be profitable after accounting for all costs.",
+      },
+      {
+        q: "How is mined cryptocurrency taxed in India?",
+        a: "Mined cryptocurrency is treated as a Virtual Digital Asset. The cost of acquisition is considered zero by the Income Tax Department. When you sell the mined coins, the entire sale proceeds are taxable at 30% under Section 115BBH, plus applicable surcharge and cess.",
+      },
+      {
+        q: "What is the difference between mining and staking?",
+        a: "Mining uses computational power to validate transactions on proof-of-work blockchains and requires specialised hardware. Staking involves locking up cryptocurrency as collateral on proof-of-stake blockchains to validate transactions. Staking is far more energy-efficient and does not require expensive equipment.",
+      },
+      {
+        q: "Can I mine Bitcoin on my laptop?",
+        a: "Technically you can run mining software on a laptop, but it would be completely unprofitable. Bitcoin mining now requires ASIC hardware costing lakhs of rupees. A laptop's processing power is millions of times weaker than an ASIC and would earn virtually nothing while damaging the hardware.",
+      },
+    ],
+    related: ["bitcoin", "blockchain", "cryptocurrency", "staking", "altcoin", "ethereum"],
+  },
+  {
+    slug: "staking",
+    term: "Staking",
+    category: "Crypto",
+    short:
+      "Staking is the process of locking up cryptocurrency in a proof-of-stake blockchain to help validate transactions and earn rewards in return.",
+    bodyMarkdown: `Staking is how proof-of-stake [blockchain](/glossary/blockchain) networks secure themselves. Instead of miners burning electricity to solve puzzles, validators lock up, or stake, a certain amount of [cryptocurrency](/glossary/cryptocurrency) as collateral. The network then selects validators to propose and confirm blocks of transactions. Honest validators earn staking rewards; dishonest ones risk having their staked coins slashed, partially or fully confiscated.
+
+## How staking works
+
+1. You hold a cryptocurrency that uses proof of stake, such as [Ethereum](/glossary/ethereum), Solana or Cardano.
+2. You delegate or lock your tokens through a staking contract, either directly on-chain or through an exchange.
+3. Your staked tokens help the network validate transactions and maintain security.
+4. You earn staking rewards, typically paid in the same token, at rates that vary by network and demand.
+
+## Ways to stake
+
+| Method | Minimum | Complexity | Control |
+| --- | --- | --- | --- |
+| Run your own validator | 32 ETH for Ethereum | High | Full |
+| Delegate to a validator | Varies by network | Medium | Partial |
+| Exchange staking | Often no minimum | Low | Custodial |
+| Liquid staking | Often no minimum | Medium | You get a tradeable receipt token |
+
+Exchange staking, offered by platforms like CoinDCX and Binance, is the simplest option. You click a button and the exchange handles the technical side. The trade-off is that the exchange controls your keys.
+
+## Staking rewards
+
+Annual reward rates typically range from 3% to 15% depending on the network, the total amount staked network-wide and the platform you use. These rates are not fixed. As more people stake, individual rewards often decrease.
+
+## Staking and Indian tax
+
+Staking rewards are taxable income in India. The Income Tax Department classifies cryptocurrency as a Virtual Digital Asset. Rewards received from staking would be taxed at 30% under Section 115BBH at the time of disposal. Additionally, the 1% TDS under Section 194S applies when you sell or transfer the staked or reward tokens.
+
+## Risks
+
+- **Lock-up periods**: some networks or platforms require you to lock tokens for days or weeks, during which you cannot sell.
+- **Slashing**: if the validator you delegate to misbehaves, a portion of your stake can be penalised.
+- **Platform risk**: exchange staking means trusting the exchange with your tokens.
+- **Price volatility**: even while earning 10% in staking rewards, the token's price can fall 50%.`,
+    faq: [
+      {
+        q: "Is crypto staking legal in India?",
+        a: "Yes. There is no Indian law that prohibits staking cryptocurrency. Staking is a feature of proof-of-stake blockchains. Any income earned from staking is classified as VDA income and is subject to the standard 30% tax and 1% TDS rules.",
+      },
+      {
+        q: "How is staking income taxed in India?",
+        a: "Staking rewards are treated as Virtual Digital Asset income. Upon selling or transferring the reward tokens, gains are taxed at 30% under Section 115BBH. The 1% TDS under Section 194S applies on transfers above the threshold. The exact timing of the taxable event is still being clarified.",
+      },
+      {
+        q: "What is the difference between staking and mining?",
+        a: "Mining uses computational power and specialised hardware to validate transactions on proof-of-work blockchains like Bitcoin. Staking uses locked-up cryptocurrency as collateral on proof-of-stake blockchains like Ethereum. Staking is energy-efficient and requires no expensive hardware.",
+      },
+      {
+        q: "Can I lose money from staking?",
+        a: "Yes. If the token's price drops more than the staking reward percentage, your overall value decreases. Additionally, slashing penalties can reduce your staked amount if your validator acts dishonestly. Exchange staking adds the risk of the exchange being hacked or becoming insolvent.",
+      },
+      {
+        q: "What is liquid staking?",
+        a: "Liquid staking lets you stake tokens and receive a receipt token in return, such as stETH for staked Ethereum. You can trade or use this receipt token in DeFi protocols while your original tokens remain staked and earning rewards. It removes the liquidity lock-up problem of traditional staking.",
+      },
+    ],
+    related: ["ethereum", "cryptocurrency", "blockchain", "crypto-mining", "defi", "yield-farming"],
+  },
+  {
+    slug: "smart-contract",
+    term: "Smart Contract",
+    category: "Crypto",
+    short:
+      "A smart contract is a self-executing program stored on a blockchain that automatically enforces the terms of an agreement when predefined conditions are met.",
+    bodyMarkdown: `A smart contract is a piece of code deployed on a [blockchain](/glossary/blockchain) that executes automatically when specific conditions are satisfied. The concept was proposed by Nick Szabo in 1994, but it became practical only after [Ethereum](/glossary/ethereum) launched in 2015 with built-in support for on-chain programs.
+
+## How smart contracts work
+
+Think of a smart contract as a digital vending machine. You send a defined input, the code checks the conditions, and if everything matches, it delivers the output. No human needs to approve the transaction, and no one can alter the outcome once the code is deployed.
+
+For example, a [DeFi](/glossary/defi) lending smart contract might work as follows:
+1. A user deposits [stablecoin](/glossary/stablecoin) collateral.
+2. The contract verifies the collateral exceeds the required ratio.
+3. It automatically lends the requested amount.
+4. If the collateral value drops below the threshold, the contract automatically liquidates the position.
+
+All of this happens on-chain, transparently, without a bank or a loan officer.
+
+## Where smart contracts are used
+
+- **[DeFi](/glossary/defi)**: lending, borrowing, trading and insurance.
+- **[NFTs](/glossary/nft)**: minting, transferring and enforcing royalties on resale.
+- **[Stablecoins](/glossary/stablecoin)**: algorithmic stablecoins rely on smart contracts to maintain their peg.
+- **DAOs**: governance and treasury management.
+- **Supply chain**: tracking goods from manufacturer to consumer.
+- **Token launches**: creating and distributing new [crypto tokens](/glossary/crypto-token).
+
+## Smart contract platforms
+
+Ethereum is the largest, but Solana, Cardano, Polygon, Avalanche and BNB Chain also support smart contracts. Each platform uses its own programming language and execution environment. Ethereum uses Solidity; Solana uses Rust.
+
+## Risks and limitations
+
+- **Bugs are expensive**: once deployed, a smart contract's code typically cannot be changed. A bug can lead to permanent loss of funds. The DAO hack of 2016 exploited a code vulnerability and drained millions of dollars.
+- **Oracle dependency**: smart contracts cannot access external data directly. They rely on oracles, data feeds that bring off-chain information on-chain, which introduces a point of trust.
+- **[Gas fees](/glossary/gas-fees)**: every interaction with a smart contract costs gas, and complex contracts cost more.
+- **Audit necessity**: reputable projects hire independent auditors to review their contracts before deployment.
+
+## Smart contracts and India
+
+There is no specific Indian regulation for smart contracts. The Indian Contract Act, 1872, requires valid contracts to have free consent, lawful consideration and a lawful object. Whether smart contracts satisfy these requirements in a legal dispute remains untested in Indian courts.`,
+    faq: [
+      {
+        q: "Are smart contracts legally enforceable in India?",
+        a: "Indian law has not specifically addressed smart contracts. The Indian Contract Act of 1872 governs contracts, and whether a self-executing code on a blockchain satisfies its requirements for free consent and lawful object is an open question. No Indian court has ruled on this yet.",
+      },
+      {
+        q: "Can a smart contract be changed after deployment?",
+        a: "Standard smart contracts are immutable once deployed. However, upgradeable proxy patterns exist where the logic contract can be swapped by the deployer. This flexibility comes with a trust trade-off because the deployer retains the ability to alter the contract's behaviour.",
+      },
+      {
+        q: "What programming language are smart contracts written in?",
+        a: "On Ethereum, smart contracts are typically written in Solidity. Solana uses Rust, and other blockchains have their own languages. Learning Solidity is the most common starting point for aspiring smart contract developers given Ethereum's dominant ecosystem.",
+      },
+      {
+        q: "How do smart contracts relate to DeFi?",
+        a: "Smart contracts are the foundation of DeFi. Every lending protocol, decentralised exchange and yield farming platform runs on smart contracts that automate financial operations without intermediaries. Without smart contracts, DeFi as a concept would not exist.",
+      },
+      {
+        q: "What is a smart contract audit?",
+        a: "A smart contract audit is a professional review of the code by independent security experts before deployment. The audit checks for vulnerabilities, logic errors and potential exploits. Reputable DeFi projects publish audit reports, though an audit does not guarantee the contract is bug-free.",
+      },
+    ],
+    related: ["ethereum", "blockchain", "defi", "gas-fees", "nft", "crypto-token"],
+  },
+  {
+    slug: "gas-fees",
+    term: "Gas Fees",
+    category: "Crypto",
+    short:
+      "Gas fees are the transaction charges paid in cryptocurrency to compensate validators for processing and recording transactions on a blockchain network.",
+    bodyMarkdown: `Gas fees are the cost of doing anything on a [blockchain](/glossary/blockchain) network. When you send [cryptocurrency](/glossary/cryptocurrency), swap tokens on a [decentralised exchange](/glossary/decentralized-exchange), mint an [NFT](/glossary/nft) or interact with any [smart contract](/glossary/smart-contract), you pay a fee to the validators who process your transaction. On [Ethereum](/glossary/ethereum), this fee is paid in ETH and is called gas.
+
+## How gas fees work on Ethereum
+
+Every operation on Ethereum, from a simple transfer to a complex smart contract execution, requires a certain amount of computational work, measured in units of gas. A basic ETH transfer costs 21,000 gas units. A complex DeFi interaction might cost several hundred thousand.
+
+The total fee is calculated as: **Gas units used x Gas price per unit**
+
+The gas price fluctuates with network demand. When many people are transacting simultaneously, gas prices spike because users bid higher to get their transactions processed faster.
+
+## Why gas fees vary
+
+| Factor | Effect on fees |
+| --- | --- |
+| Network congestion | More users = higher fees |
+| Transaction complexity | Smart contract interactions cost more than simple transfers |
+| Gas price you set | Higher price = faster confirmation |
+| Time of day | Fees tend to be lower during off-peak hours |
+
+## Layer-2 solutions
+
+Because Ethereum gas fees can become prohibitively expensive during busy periods, Layer-2 networks like Polygon, Arbitrum and Optimism process transactions off the main chain and periodically settle them back on Ethereum. This can reduce fees by 10x to 100x while still inheriting Ethereum's security.
+
+## Gas fees on other blockchains
+
+Different blockchains have different fee structures. Solana's fees are typically fractions of a cent. BNB Chain fees are lower than Ethereum's. The trade-off is often between fee levels and the degree of decentralisation and security.
+
+## Gas fees and India
+
+Gas fees are paid in the blockchain's native token, not in INR. For Indian users, the effective cost in rupees depends on both the gas price and the current exchange rate. When calculating the tax basis for a transaction under Section 115BBH, gas fees paid are not deductible as a separate expense. Only the cost of acquisition of the VDA itself is allowed as a deduction.
+
+## Tips to reduce gas fees
+
+- Transact during off-peak hours when network usage is lower.
+- Use Layer-2 networks for routine transactions.
+- Set a reasonable gas limit rather than the maximum.
+- Batch multiple operations into a single transaction where possible.`,
+    faq: [
+      {
+        q: "Can I deduct gas fees from crypto profits for Indian tax?",
+        a: "The Income Tax Act allows only the cost of acquisition as a deduction under Section 115BBH. Whether gas fees qualify as part of the cost of acquisition is debatable. The law does not explicitly allow deduction of gas fees as a separate expense. Consult a tax professional for your specific case.",
+      },
+      {
+        q: "Why are Ethereum gas fees so high?",
+        a: "Ethereum gas fees rise when many users compete to get their transactions processed. The network has limited throughput, so during periods of high demand, such as popular NFT drops or DeFi events, users bid up gas prices. Layer-2 solutions like Polygon and Arbitrum help reduce this problem.",
+      },
+      {
+        q: "What happens if I set gas fees too low?",
+        a: "If your gas fee is too low, your transaction may remain pending for hours or even days. Eventually it will either be processed when congestion drops or it will be dropped from the mempool. You will not lose your cryptocurrency, but the transaction will not go through until fees drop.",
+      },
+      {
+        q: "Do all blockchains have gas fees?",
+        a: "Most blockchains charge some form of transaction fee, though the terminology and amounts vary. Ethereum calls them gas fees. Bitcoin calls them transaction fees. Solana charges lamports. Some newer chains offer very low or subsidised fees, but truly free transactions are rare.",
+      },
+      {
+        q: "How can I check current gas fees?",
+        a: "For Ethereum, tools like Etherscan Gas Tracker show real-time gas prices in Gwei. Many wallet applications display estimated fees before you confirm a transaction. For other blockchains, their respective block explorers show current fee levels.",
+      },
+    ],
+    related: ["ethereum", "smart-contract", "decentralized-exchange", "defi", "nft", "blockchain"],
+  },
+  {
+    slug: "decentralized-exchange",
+    term: "Decentralised Exchange (DEX)",
+    category: "Crypto",
+    short:
+      "A decentralised exchange (DEX) is a peer-to-peer crypto trading platform that uses smart contracts instead of a central authority to match and settle trades.",
+    bodyMarkdown: `A decentralised exchange, or DEX, is a [cryptocurrency](/glossary/cryptocurrency) trading platform that operates without a central company managing order books, holding funds or requiring user accounts. Instead, trades are executed by [smart contracts](/glossary/smart-contract) on a [blockchain](/glossary/blockchain), and users trade directly from their own [crypto wallets](/glossary/crypto-wallet).
+
+## How a DEX works
+
+Most modern DEXs use an automated market maker (AMM) model. Instead of matching buyers with sellers through an order book, an AMM uses [liquidity pools](/glossary/liquidity-pool), collections of tokens locked in smart contracts by liquidity providers.
+
+When you trade on a DEX like Uniswap, you are swapping tokens with a pool rather than with another person. The pool's smart contract uses a mathematical formula to determine the exchange rate based on the ratio of tokens in the pool.
+
+## DEX vs centralised exchange
+
+| Feature | DEX | Centralised exchange |
+| --- | --- | --- |
+| Custody of funds | You hold your keys | Exchange holds your funds |
+| KYC required | Usually no | Yes, in India |
+| Available tokens | Any token on the blockchain | Curated list |
+| Trading speed | Depends on blockchain | Usually faster |
+| Customer support | None | Available |
+| Regulation | Largely unregulated | Regulated in most jurisdictions |
+
+## Popular DEXs
+
+- **Uniswap**: the largest DEX on [Ethereum](/glossary/ethereum).
+- **PancakeSwap**: runs on BNB Chain with lower fees.
+- **SushiSwap**: multi-chain DEX with additional [DeFi](/glossary/defi) features.
+- **Jupiter**: leading DEX aggregator on Solana.
+
+## DEXs and India
+
+Indian users can access DEXs using a non-custodial wallet like MetaMask. No Indian exchange directly integrates with DEXs, so users typically buy crypto on a centralised Indian exchange, transfer to a personal wallet, and then use a DEX. All gains from DEX trading are taxable at 30% under Section 115BBH.
+
+## Risks
+
+- **Smart contract risk**: a bug in the DEX's code can result in loss of funds.
+- **Impermanent loss**: liquidity providers can lose value compared to simply holding the tokens.
+- **Front-running**: bots can detect your pending transaction and trade ahead of you to profit at your expense.
+- **Fake tokens**: anyone can create a token on a DEX, so scam tokens are common. Always verify contract addresses.
+- **No recourse**: there is no customer support or undo button if something goes wrong.`,
+    faq: [
+      {
+        q: "Are decentralised exchanges legal in India?",
+        a: "There is no specific law banning DEX usage in India. Indian users can interact with DEXs through their own crypto wallets. However, gains from DEX trading are treated as VDA income and taxed at 30%. The 1% TDS applies only on Indian exchange transactions, not directly on DEX trades.",
+      },
+      {
+        q: "Do I need KYC to use a DEX?",
+        a: "Most DEXs do not require KYC because they are smart contract-based protocols, not registered companies. You only need a crypto wallet. However, the on-ramp from INR to crypto through an Indian exchange does require KYC, and blockchain transactions are publicly traceable.",
+      },
+      {
+        q: "What is an automated market maker?",
+        a: "An automated market maker is the mechanism most DEXs use to set token prices. Instead of matching buy and sell orders, it uses a liquidity pool and a mathematical formula. The price adjusts automatically based on the ratio of tokens in the pool as trades change the balance.",
+      },
+      {
+        q: "How do I report DEX trades for Indian tax?",
+        a: "You must track and report all DEX trading profits as VDA gains in your income tax return, taxed at 30% under Section 115BBH. Since DEXs do not issue tax certificates, maintaining your own records of every trade, including dates, amounts and wallet addresses, is essential.",
+      },
+      {
+        q: "What is the difference between a DEX and an exchange like WazirX?",
+        a: "WazirX is a centralised exchange that holds your funds, requires KYC and offers customer support. A DEX is a smart contract protocol where you trade from your own wallet without creating an account. DEXs offer more token variety but less convenience and no customer support.",
+      },
+    ],
+    related: ["smart-contract", "liquidity-pool", "defi", "crypto-wallet", "cryptocurrency", "ethereum"],
+  },
+  {
+    slug: "market-cap",
+    term: "Market Cap (Crypto)",
+    category: "Crypto",
+    short:
+      "Market cap, or market capitalisation, is the total value of a cryptocurrency calculated by multiplying its current price by the total number of coins in circulation.",
+    bodyMarkdown: `Market capitalisation, commonly called market cap, is the standard metric for measuring the relative size of a [cryptocurrency](/glossary/cryptocurrency). The formula is simple: **Current price per coin x Total circulating supply = Market cap**.
+
+If a [crypto token](/glossary/crypto-token) is trading at Rs 1,000 and there are 10 million coins in circulation, its market cap is Rs 1,000 crore.
+
+## Why market cap matters
+
+Price alone tells you nothing about a cryptocurrency's size. A coin priced at Rs 50,000 with 1 million supply has a smaller market cap than a coin priced at Rs 10 with 100 billion supply. Market cap gives a comparable measure of total value that price alone cannot.
+
+## Market cap categories
+
+| Category | Market cap range | Examples | Risk profile |
+| --- | --- | --- | --- |
+| Large cap | Above $10 billion | [Bitcoin](/glossary/bitcoin), [Ethereum](/glossary/ethereum) | Relatively lower volatility |
+| Mid cap | $1 billion to $10 billion | Polygon, Avalanche | Moderate risk |
+| Small cap | Below $1 billion | Newer projects | Higher risk, higher potential swings |
+
+Large-cap cryptocurrencies tend to be more liquid, more widely available on exchanges and less prone to extreme manipulation. Small-cap tokens can move dramatically on relatively small trading volumes.
+
+## Circulating supply vs total supply vs max supply
+
+- **Circulating supply**: coins currently available and in public hands.
+- **Total supply**: all coins that exist, including locked or reserved tokens.
+- **Max supply**: the hard cap, if any. Bitcoin's max supply is 21 million. Some tokens have no max supply.
+
+Market cap is calculated using circulating supply, not total supply. The fully diluted valuation (FDV) uses max supply and represents what the market cap would be if all possible tokens were in circulation.
+
+## Limitations of market cap
+
+- **Does not measure liquidity**: a token can have a high market cap but very thin trading volume, making it hard to sell large amounts without moving the price.
+- **Can be inflated**: if a large portion of supply is held by insiders, the circulating supply figure may not reflect true market activity.
+- **Not a valuation method**: unlike stocks where market cap relates to earnings and assets, crypto market cap has no underlying cash flow reference.
+
+## Using market cap for investment decisions
+
+Market cap is useful for ranking and comparing cryptocurrencies but should not be the sole factor in an investment decision. Consider trading volume, use case, team, technology, and how the token compares to alternatives. A low market cap does not automatically mean the coin is undervalued. It might simply reflect limited adoption.`,
+    faq: [
+      {
+        q: "What does market cap mean in cryptocurrency?",
+        a: "Market cap is the total value of a cryptocurrency's circulating supply at the current price, calculated as price multiplied by the number of coins in circulation. It is the primary measure used to compare the relative size of different cryptocurrencies.",
+      },
+      {
+        q: "Is a higher market cap better?",
+        a: "A higher market cap generally indicates a more established, more liquid and potentially less volatile cryptocurrency. However, it does not guarantee future returns or safety. Large-cap cryptocurrencies still carry significant risk, including price volatility and regulatory uncertainty.",
+      },
+      {
+        q: "How is crypto market cap different from stock market cap?",
+        a: "Stock market cap represents a claim on a company's earnings and assets. Crypto market cap reflects the total trading value of a token's circulating supply. Most crypto tokens do not generate revenue or have underlying assets, making market cap a size measure rather than a valuation metric.",
+      },
+      {
+        q: "What is fully diluted valuation in crypto?",
+        a: "Fully diluted valuation, or FDV, is calculated by multiplying the current price by the maximum possible supply of a token rather than just the circulating supply. It shows what the market cap would be if all tokens that could ever exist were already in circulation.",
+      },
+      {
+        q: "Can market cap be manipulated?",
+        a: "Yes, especially for small-cap tokens. If a token's circulating supply is small and most is held by insiders, even modest trading can inflate the price and therefore the market cap. Always check trading volume alongside market cap to assess genuine market activity.",
+      },
+    ],
+    related: ["cryptocurrency", "bitcoin", "ethereum", "altcoin", "crypto-token", "liquidity-pool"],
+  },
+  {
+    slug: "crypto-token",
+    term: "Crypto Token",
+    category: "Crypto",
+    short:
+      "A crypto token is a digital asset created on an existing blockchain, unlike a coin which has its own native blockchain, and can represent anything from utility to ownership.",
+    bodyMarkdown: `A crypto token is a digital asset built and deployed on an existing [blockchain](/glossary/blockchain) rather than running its own. For example, [Ethereum](/glossary/ethereum) has its native coin, Ether (ETH), but thousands of tokens like USDT, UNI and LINK also run on the Ethereum network using its ERC-20 token standard.
+
+## Coin vs token
+
+| Feature | Coin | Token |
+| --- | --- | --- |
+| Has its own blockchain | Yes | No |
+| Examples | BTC, ETH, SOL | USDT, UNI, LINK |
+| Primary use | Payments, transaction fees | Utility, governance, representation |
+| Created by | Launching a new blockchain | Deploying a [smart contract](/glossary/smart-contract) on an existing chain |
+
+The distinction matters technically but both are classified as Virtual Digital Assets under Indian tax law and treated identically for tax purposes.
+
+## Types of tokens
+
+- **Utility tokens**: grant access to a specific product or service within a platform. For example, Filecoin tokens pay for decentralised file storage.
+- **Governance tokens**: allow holders to vote on protocol decisions. UNI holders vote on Uniswap's development.
+- **[Stablecoins](/glossary/stablecoin)**: tokens pegged to a fiat currency like the US dollar.
+- **Security tokens**: represent ownership in a real-world asset like equity or property. These may be subject to securities regulation.
+- **[NFTs](/glossary/nft)**: non-fungible tokens representing unique digital items.
+- **Wrapped tokens**: represent a coin from one blockchain on another, for example Wrapped Bitcoin (WBTC) is a token on Ethereum that represents [Bitcoin](/glossary/bitcoin).
+
+## Token standards
+
+The most common token standards are:
+- **ERC-20**: the standard for fungible tokens on Ethereum.
+- **ERC-721**: the standard for [NFTs](/glossary/nft) on Ethereum.
+- **BEP-20**: fungible tokens on BNB Chain.
+- **SPL**: tokens on Solana.
+
+These standards define a common interface so that wallets, exchanges and [DeFi](/glossary/defi) protocols can interact with any compliant token.
+
+## Tax treatment in India
+
+All crypto tokens, whether utility, governance, stablecoin or NFT, are classified as Virtual Digital Assets under Section 2(47A) of the Income Tax Act. Gains are taxed at 30% under Section 115BBH. The 1% TDS under Section 194S applies on transfers above the threshold.
+
+## Risks
+
+- **Low-quality tokens**: anyone can create a token, and thousands have no real use case.
+- **Rug pulls**: developers can drain liquidity from a token's trading pool.
+- **Regulatory classification**: security tokens may face additional legal requirements.
+- **Smart contract risk**: tokens depend on the underlying blockchain and their own smart contract code.`,
+    faq: [
+      {
+        q: "What is the difference between a crypto coin and a token?",
+        a: "A coin like Bitcoin or Ethereum operates on its own native blockchain. A token is built on an existing blockchain using a smart contract, like USDT running on Ethereum. Both are digital assets, but coins power their own network while tokens ride on another network's infrastructure.",
+      },
+      {
+        q: "How are crypto tokens taxed in India?",
+        a: "All crypto tokens, including utility tokens, governance tokens, stablecoins and NFTs, are treated as Virtual Digital Assets. Gains are taxed at a flat 30% under Section 115BBH. A 1% TDS is deducted under Section 194S on transfers above the prescribed threshold.",
+      },
+      {
+        q: "Can anyone create a crypto token?",
+        a: "Yes. Creating a token requires writing and deploying a smart contract on a blockchain like Ethereum. The process can be done in minutes with basic coding knowledge. This low barrier to entry is why thousands of tokens exist, and why many are scams or have no real value.",
+      },
+      {
+        q: "How do I identify a fake or scam token?",
+        a: "Check the token's contract address against official project sources. Look for verified contracts on blockchain explorers. Research the team, audit reports and community. Be wary of tokens promising guaranteed returns, those with anonymous developers, and tokens you receive unsolicited in your wallet.",
+      },
+      {
+        q: "What is an ERC-20 token?",
+        a: "ERC-20 is a technical standard on the Ethereum blockchain that defines how fungible tokens work. It specifies functions like transfer, balance and approval so that all compliant tokens are compatible with Ethereum wallets, exchanges and DeFi protocols. Most tokens on Ethereum follow this standard.",
+      },
+    ],
+    related: ["cryptocurrency", "ethereum", "smart-contract", "stablecoin", "nft", "blockchain"],
+  },
+  {
+    slug: "web3",
+    term: "Web3",
+    category: "Crypto",
+    short:
+      "Web3 is the vision of a decentralised internet built on blockchain technology, where users own their data, identity and digital assets instead of relying on centralised platforms.",
+    bodyMarkdown: `Web3 is a broad term describing the next evolution of the internet, one where [blockchain](/glossary/blockchain) technology shifts control from centralised companies to individual users. While Web1 was read-only (static websites) and Web2 is read-write (social media, user-generated content controlled by platforms), Web3 aims to be read-write-own, where users truly own their data, digital identity and assets.
+
+## How Web3 is different
+
+| Feature | Web2 | Web3 |
+| --- | --- | --- |
+| Data ownership | Platforms own your data | You own your data |
+| Identity | Login with email/password | Login with [crypto wallet](/glossary/crypto-wallet) |
+| Payments | Banks, payment processors | [Cryptocurrency](/glossary/cryptocurrency), peer-to-peer |
+| Applications | Run on company servers | Run on [smart contracts](/glossary/smart-contract) |
+| Governance | Company decides | Community decides via tokens |
+
+## Key building blocks of Web3
+
+- **[Blockchain](/glossary/blockchain)**: the decentralised database layer.
+- **[Smart contracts](/glossary/smart-contract)**: self-executing code that powers applications.
+- **[Crypto wallets](/glossary/crypto-wallet)**: your identity and access key in Web3.
+- **[Crypto tokens](/glossary/crypto-token)**: enable ownership, governance and value transfer.
+- **[DeFi](/glossary/defi)**: financial services without banks.
+- **[NFTs](/glossary/nft)**: verifiable digital ownership.
+- **DAOs**: community-governed organisations.
+- **Decentralised storage**: IPFS, Arweave and Filecoin replace centralised cloud storage.
+
+## Web3 use cases
+
+- **Decentralised social media**: platforms where users control their content and data.
+- **Play-to-earn gaming**: games where in-game assets are NFTs owned by players.
+- **Creator economy**: artists and musicians monetise directly without platform intermediaries.
+- **Decentralised identity**: a single wallet-based identity across multiple applications.
+- **Supply chain transparency**: verifiable product tracking on public blockchains.
+
+## Web3 in India
+
+India has a growing Web3 developer community. Events, hackathons and accelerators focused on blockchain and Web3 are common in cities like Bangalore, Mumbai and Delhi. Indian startups in the Web3 space work on DeFi protocols, NFT platforms, blockchain gaming and infrastructure tools.
+
+## Limitations and criticism
+
+- **Usability**: Web3 applications are still difficult for non-technical users.
+- **Scalability**: blockchains process far fewer transactions per second than centralised systems.
+- **Scams**: the unregulated space attracts fraudulent projects.
+- **Environmental concerns**: some blockchains consume significant energy, though proof of stake has addressed this for many networks.
+- **Centralisation in practice**: despite the vision, much of Web3 infrastructure still relies on centralised cloud providers and a few dominant protocols.`,
+    faq: [
+      {
+        q: "Is Web3 the same as cryptocurrency?",
+        a: "No. Cryptocurrency is one component of Web3, serving as the native payment and incentive layer. Web3 is the broader vision of a decentralised internet built on blockchain technology. It encompasses DeFi, NFTs, decentralised apps, digital identity and more, with cryptocurrency enabling these systems.",
+      },
+      {
+        q: "How can I get started with Web3 in India?",
+        a: "Start by creating a crypto wallet like MetaMask. Learn about blockchain basics, smart contracts and DeFi through free resources. Explore decentralised applications on Ethereum or Solana. Join Indian Web3 communities and hackathons to build connections and practical knowledge.",
+      },
+      {
+        q: "Are there Web3 jobs in India?",
+        a: "Yes. India has a growing Web3 job market with roles in smart contract development, blockchain engineering, community management, tokenomics design and product management. Companies and DAOs hire remotely, and many Indian developers work for global Web3 projects. Solidity and Rust skills are in high demand.",
+      },
+      {
+        q: "What skills do I need for Web3?",
+        a: "For development, learn Solidity for Ethereum smart contracts or Rust for Solana. Understanding blockchain architecture, cryptography basics and DeFi protocols is essential. Non-technical roles value community building, content creation, token economics knowledge and understanding of decentralised governance models.",
+      },
+      {
+        q: "Is Web3 regulated in India?",
+        a: "India has no specific regulation for Web3 as a concept. The financial components, cryptocurrency and tokens, are taxed as Virtual Digital Assets at 30%. Blockchain technology itself is actively encouraged by the government for governance applications. Comprehensive crypto regulation is still being developed.",
+      },
+    ],
+    related: ["blockchain", "cryptocurrency", "smart-contract", "defi", "nft", "crypto-wallet", "crypto-token"],
+  },
+  {
+    slug: "yield-farming",
+    term: "Yield Farming",
+    category: "Crypto",
+    short:
+      "Yield farming is a DeFi strategy where users provide liquidity or lend cryptocurrency to protocols in exchange for interest, fees and token rewards.",
+    bodyMarkdown: `Yield farming is the practice of deploying [cryptocurrency](/glossary/cryptocurrency) across various [DeFi](/glossary/defi) protocols to maximise returns. At its simplest, it means putting your tokens to work rather than letting them sit idle in a [wallet](/glossary/crypto-wallet). The returns, or yield, come from a combination of trading fees, lending interest and protocol token rewards.
+
+## How yield farming works
+
+1. You deposit tokens into a [liquidity pool](/glossary/liquidity-pool) or lending protocol.
+2. The protocol uses your tokens, for example to facilitate trades on a [decentralised exchange](/glossary/decentralized-exchange) or to fund borrower loans.
+3. You earn rewards in the form of trading fees, interest or newly minted governance [tokens](/glossary/crypto-token).
+4. Some farmers reinvest (compound) their rewards into the same or different protocols to earn additional yield.
+
+## Common yield farming strategies
+
+| Strategy | How it works | Risk level |
+| --- | --- | --- |
+| Liquidity provision | Deposit token pairs into a DEX pool | Medium to high |
+| Lending | Deposit tokens into a lending protocol like Aave | Low to medium |
+| [Staking](/glossary/staking) | Lock tokens to secure a network | Low to medium |
+| Leveraged farming | Borrow additional tokens to farm with more capital | Very high |
+
+## Annual Percentage Yield (APY) vs APR
+
+DeFi protocols display returns as APR (annual percentage rate) or APY (annual percentage yield). APY accounts for compounding; APR does not. A 100% APR compounded daily results in an APY of about 171%. High displayed APYs often include unsustainable token incentives that decrease as more farmers join.
+
+## Risks of yield farming
+
+- **Impermanent loss**: when the price ratio of your deposited token pair changes, you can end up with less value than if you had simply held the tokens.
+- **Smart contract risk**: bugs in protocol code can lead to total loss of deposited funds.
+- **Token depreciation**: farming rewards paid in a protocol's own token can lose value rapidly if selling pressure is high.
+- **Rug pulls**: unaudited or anonymous protocols can steal deposited funds.
+- **Complexity**: strategies involving multiple protocols multiply the risks.
+
+## Yield farming and Indian tax
+
+All income from yield farming, whether from trading fees, lending interest or token rewards, is classified as VDA income in India. Gains are taxed at 30% under Section 115BBH. Each swap, deposit, and claim of rewards may constitute a separate taxable event. Record-keeping is essential because DeFi protocols do not issue tax certificates.
+
+## Is yield farming worth it?
+
+For most retail investors, the risks of yield farming significantly outweigh the potential rewards. The highest advertised APYs are usually the most dangerous, often involving new, unaudited protocols with rapidly depreciating reward tokens. If you explore yield farming, start small, use only well-audited protocols, and never invest more than you can afford to lose entirely.`,
+    faq: [
+      {
+        q: "Is yield farming legal in India?",
+        a: "There is no law in India that specifically bans yield farming. It is a DeFi activity conducted through smart contracts on a blockchain. All income earned from yield farming is taxable as Virtual Digital Asset income at 30% under Section 115BBH. Maintaining detailed records is essential for tax compliance.",
+      },
+      {
+        q: "How is yield farming income taxed in India?",
+        a: "Yield farming income, whether from trading fees, lending interest or token rewards, is treated as VDA income and taxed at 30% under Section 115BBH. Each token swap or reward claim may be a separate taxable event. No deductions other than cost of acquisition are permitted.",
+      },
+      {
+        q: "What is impermanent loss?",
+        a: "Impermanent loss occurs when the price ratio of tokens in your liquidity pool changes after you deposit. The pool rebalances, and if you withdraw, you may have less total value than if you had simply held the tokens. It is called impermanent because the loss is realised only when you withdraw.",
+      },
+      {
+        q: "Is yield farming safe?",
+        a: "Yield farming carries significant risks including smart contract vulnerabilities, impermanent loss, rug pulls and token depreciation. Even well-known protocols have been exploited. Never invest more than you can afford to lose, and prefer audited protocols with established track records.",
+      },
+      {
+        q: "How much can I earn from yield farming?",
+        a: "Returns vary widely from under 5% to several hundred percent APY, but high advertised yields are often temporary and come with proportionally high risk. Sustainable yields on major protocols typically range from 3% to 15% for stablecoin pools, while riskier strategies offer more but with greater loss potential.",
+      },
+    ],
+    related: ["defi", "liquidity-pool", "staking", "decentralized-exchange", "smart-contract", "stablecoin"],
+  },
+  {
+    slug: "liquidity-pool",
+    term: "Liquidity Pool",
+    category: "Crypto",
+    short:
+      "A liquidity pool is a collection of cryptocurrency tokens locked in a smart contract that enables decentralised trading, lending and other DeFi activities.",
+    bodyMarkdown: `A liquidity pool is a reserve of [cryptocurrency](/glossary/cryptocurrency) tokens deposited into a [smart contract](/glossary/smart-contract) on a [blockchain](/glossary/blockchain). These pools are the engine behind [decentralised exchanges](/glossary/decentralized-exchange), lending protocols and other [DeFi](/glossary/defi) applications. Instead of relying on a traditional order book to match buyers and sellers, a DEX uses liquidity pools and a mathematical formula to determine prices and execute trades.
+
+## How a liquidity pool works
+
+Most DEX liquidity pools require two tokens in equal value. For example, an ETH/USDT pool on Uniswap might hold Rs 10 crore worth of [Ethereum](/glossary/ethereum) and Rs 10 crore worth of USDT. When a trader swaps ETH for USDT, they add ETH to the pool and remove USDT. The ratio changes, and the price adjusts accordingly.
+
+The pricing formula commonly used is: **x * y = k**, where x and y are the quantities of each token and k is a constant. As one token is removed, the other must increase to keep k the same, which is what makes the price move.
+
+## Liquidity providers
+
+Anyone can become a liquidity provider (LP) by depositing tokens into a pool. In return, they receive LP tokens representing their share of the pool. LPs earn a portion of the trading fees generated whenever someone trades against the pool. They can withdraw their share at any time by returning their LP tokens.
+
+## Earning from liquidity pools
+
+| Income source | Description |
+| --- | --- |
+| Trading fees | A percentage of each trade, split among all LPs |
+| Farming rewards | Additional [tokens](/glossary/crypto-token) from [yield farming](/glossary/yield-farming) incentives |
+| Protocol incentives | Some protocols distribute governance tokens to LPs |
+
+## Impermanent loss
+
+This is the primary risk for liquidity providers. When the price ratio of the two tokens changes significantly from when you deposited, the pool rebalances, and your holdings shift toward the token that has fallen in value. If you withdraw at this point, you end up with less value than if you had simply held the tokens. The loss is called impermanent because it reverses if prices return to the original ratio.
+
+## Liquidity pools and Indian tax
+
+Depositing into and withdrawing from a liquidity pool may each constitute a taxable event under Indian VDA tax rules. Trading fees and farming rewards earned are treated as VDA income and taxed at 30% under Section 115BBH. The complexity of tracking every interaction makes record-keeping critical.
+
+## Risks
+
+- **Impermanent loss**: the core risk for all LPs.
+- **Smart contract bugs**: a vulnerability can drain the entire pool.
+- **Rug pulls**: a malicious project can withdraw liquidity without warning.
+- **Low liquidity pools**: smaller pools have higher slippage, making large trades expensive.`,
+    faq: [
+      {
+        q: "How do liquidity pools make money?",
+        a: "Liquidity pools generate income through trading fees. Each trade in the pool pays a small fee, typically 0.3%, which is distributed proportionally among all liquidity providers based on their share of the pool. Additional income can come from yield farming rewards and protocol incentives.",
+      },
+      {
+        q: "What is impermanent loss in liquidity pools?",
+        a: "Impermanent loss is the difference between holding tokens in a liquidity pool and simply holding them in your wallet. When token prices diverge, the pool rebalances and you end up with more of the cheaper token and less of the expensive one. The loss is realised when you withdraw.",
+      },
+      {
+        q: "Are liquidity pool earnings taxable in India?",
+        a: "Yes. All income from liquidity pools, including trading fees and token rewards, is treated as Virtual Digital Asset income and taxed at 30% under Section 115BBH. Each deposit, withdrawal and reward claim may be a separate taxable event. Detailed record-keeping is essential.",
+      },
+      {
+        q: "How much money do I need to provide liquidity?",
+        a: "There is no fixed minimum for most liquidity pools. You can provide liquidity with small amounts. However, the trading fees you earn are proportional to your share of the pool, so very small deposits generate negligible returns. Gas fees for depositing and withdrawing also need to be factored in.",
+      },
+      {
+        q: "Can I withdraw from a liquidity pool anytime?",
+        a: "In most cases, yes. Standard DeFi liquidity pools allow withdrawal at any time by returning your LP tokens. However, some protocols have lock-up periods for bonus rewards. You receive the current proportional share of the pool's tokens, which may differ from what you originally deposited.",
+      },
+    ],
+    related: ["decentralized-exchange", "defi", "yield-farming", "smart-contract", "stablecoin", "ethereum"],
+  },
+  {
+    slug: "hodl",
+    term: "HODL",
+    category: "Crypto",
+    short:
+      "HODL is crypto slang for holding cryptocurrency long-term instead of selling during price drops, originating from a misspelling of 'hold' in a 2013 Bitcoin forum post.",
+    bodyMarkdown: `HODL is a term in the [cryptocurrency](/glossary/cryptocurrency) community that means holding your investment through market volatility rather than panic-selling during downturns. It originated from a misspelled forum post on BitcoinTalk in December 2013, where a user wrote "I AM HODLING" instead of "holding" while [Bitcoin](/glossary/bitcoin) prices were crashing. The typo stuck and evolved into a widely used strategy name, sometimes retroactively read as "Hold On for Dear Life."
+
+## The HODL philosophy
+
+The idea behind HODLing is simple: rather than trying to time the market, buying low and selling high, which is notoriously difficult, you buy and hold through the ups and downs. This approach is based on the belief that quality cryptocurrencies will appreciate significantly over the long term, even if they experience severe drops along the way.
+
+## HODL vs active trading
+
+| Approach | HODL | Active trading |
+| --- | --- | --- |
+| Time commitment | Minimal | Significant |
+| Stress level | Lower (in theory) | Higher |
+| Transaction costs | Low | Higher due to frequent trades |
+| Tax events (India) | One taxable event on sale | Each trade is a taxable event |
+| Skill required | Patience | Technical analysis, experience |
+
+## HODLing and Indian tax implications
+
+From a tax perspective in India, HODLing has a practical advantage: fewer transactions mean fewer taxable events. Each time you sell, swap or transfer [cryptocurrency](/glossary/cryptocurrency), it may trigger a 30% tax under Section 115BBH. Additionally, each transaction on an Indian exchange incurs a 1% TDS under Section 194S. Holding long-term minimises these friction costs.
+
+However, unlike [equity mutual funds](/glossary/mutual-fund) or [stocks](/glossary/capital-gains), there is no reduced long-term capital gains rate for cryptocurrency in India. Whether you hold for one day or ten years, the tax rate remains a flat 30%.
+
+## When HODLing makes sense
+
+- When you believe in the fundamental value of a specific cryptocurrency like Bitcoin or [Ethereum](/glossary/ethereum).
+- When you cannot dedicate time to active trading.
+- When you want to avoid the complexity of tracking every trade for tax purposes.
+- When you have a long time horizon and can absorb significant interim losses.
+
+## When HODLing does not make sense
+
+- Holding a token with no genuine use case or development activity is not HODLing; it is wishful thinking.
+- HODLing a cryptocurrency whose fundamental thesis has changed, such as a depegged [stablecoin](/glossary/stablecoin) or a compromised project, is stubbornness, not strategy.
+- If you need the money in the short term, HODLing volatile assets is inappropriate.
+
+## Risks
+
+- **Opportunity cost**: money locked in a losing position cannot be deployed elsewhere.
+- **Project failure**: not every cryptocurrency survives long-term. Many [altcoins](/glossary/altcoin) have gone to zero.
+- **No guaranteed recovery**: past price recoveries do not guarantee future ones.
+- **Psychological difficulty**: watching your portfolio drop 50% or more and doing nothing requires genuine conviction, not just a meme.`,
+    faq: [
+      {
+        q: "What does HODL mean in crypto?",
+        a: "HODL means holding your cryptocurrency for the long term instead of selling during price drops. It originated from a misspelled forum post in 2013 and has become a widely used term and strategy in the crypto community. It is sometimes interpreted as Hold On for Dear Life.",
+      },
+      {
+        q: "Is HODLing a good strategy for crypto in India?",
+        a: "HODLing can reduce transaction costs, trading fees and the number of taxable events. However, India's flat 30% VDA tax applies regardless of holding period, unlike equities which have lower long-term rates. It works best for strong conviction investments in established cryptocurrencies with a multi-year horizon.",
+      },
+      {
+        q: "How long should I HODL cryptocurrency?",
+        a: "There is no fixed optimal period. HODLers typically think in years, not months. The strategy is based on a belief in long-term appreciation. Your holding period should be tied to your personal financial goals, risk tolerance and continued confidence in the specific cryptocurrency's fundamentals.",
+      },
+      {
+        q: "Does HODLing crypto reduce my tax in India?",
+        a: "HODLing reduces the number of taxable events because each sale or swap triggers a 30% tax. However, the tax rate itself does not decrease with holding period. There is no long-term capital gains benefit for cryptocurrency in India, unlike equities. The advantage is fewer transactions, not a lower rate.",
+      },
+      {
+        q: "What is the difference between HODLing and investing?",
+        a: "HODLing is a form of investing, specifically a buy-and-hold strategy. The difference from active investing is that HODLers deliberately avoid reacting to short-term price movements and do not attempt to time the market. It is a passive approach that requires patience but minimal ongoing decision-making.",
+      },
+    ],
+    related: ["cryptocurrency", "bitcoin", "ethereum", "altcoin", "crypto-wallet", "capital-gains"],
   },
 ];
 

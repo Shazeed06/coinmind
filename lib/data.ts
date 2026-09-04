@@ -19,6 +19,7 @@ import { trafficPosts7 } from "./trafficPosts7";
 import { trafficPosts8 } from "./trafficPosts8";
 import { trafficPosts9 } from "./trafficPosts9";
 import { trafficPosts10 } from "./trafficPosts10";
+import { cryptoPosts } from "./cryptoPosts";
 
 export type Calculator = {
   slug: string;
@@ -535,6 +536,17 @@ export const calculators: Calculator[] = [
     region: "Global",
     live: true,
     keywords: ["hourly to salary calculator", "hourly to annual salary", "wage calculator", "salary calculator"],
+  },
+  {
+    slug: "crypto-tax",
+    title: "Crypto Tax Calculator",
+    short: "Calculate crypto gains tax",
+    blurb:
+      "Calculate your cryptocurrency tax liability under India's 30% flat tax on VDA gains. Enter buy and sell prices to see your profit, tax, TDS credit, and net return.",
+    category: "Tax",
+    region: "IN",
+    live: true,
+    keywords: ["crypto tax calculator", "cryptocurrency tax india", "bitcoin tax calculator", "crypto profit calculator", "vda tax calculator"],
   },
 ];
 
@@ -1626,4 +1638,5 @@ export const posts: Post[] = [
   ...trafficPosts8,
   ...trafficPosts9,
   ...trafficPosts10,
+  ...cryptoPosts,
 ];
