@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Breadcrumb, Pill, Prose, StickyTOC } from "@/components/ui";
+import { Breadcrumb, Pill, Prose } from "@/components/ui";
 
 type LegalPageProps = {
   pill: string;

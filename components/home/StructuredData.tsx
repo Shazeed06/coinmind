@@ -1,4 +1,4 @@
-import { calculators, posts } from "@/lib/data";
+import { calculators } from "@/lib/data";
 import { site } from "@/lib/site";
 import { FAQS } from "@/lib/faqs";
 

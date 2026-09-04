@@ -20,8 +20,11 @@ export default function Header() {
   // Any navigation closes everything, otherwise a panel would survive the
   // route change and hang over the new page.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
+     
     setOpenMenu(null);
+     
     setMobileSection(null);
   }, [pathname]);
 
@@ -297,6 +300,7 @@ function MenuPanel({ menu, isActive }: { menu: NavMenu; isActive: (h: string) =>
 function ShortcutHint() {
   const [isMac, setIsMac] = useState<boolean | null>(null);
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent));
   }, []);
   if (isMac === null) return null;

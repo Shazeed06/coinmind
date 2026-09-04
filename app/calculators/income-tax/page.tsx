@@ -106,7 +106,7 @@ function BreakEvenTable() {
         <h2 className="font-display text-2xl text-ink">Who should NOT switch to the new regime</h2>
         <ul className="mt-3 space-y-2 text-ink-soft leading-relaxed">
           <li>• Anyone with <strong>home loan interest above ₹1.5 lakh</strong>: the Section 24 deduction of up to ₹2 lakh applies only under the old regime.</li>
-          <li>• Anyone claiming <strong>full Section 80C (₹1.5 lakh) plus 80D (₹25,000) plus NPS (₹50,000)</strong>: at higher incomes, these stack to overcome the new regime's lower rates.</li>
+          <li>• Anyone claiming <strong>full Section 80C (₹1.5 lakh) plus 80D (₹25,000) plus NPS (₹50,000)</strong>: at higher incomes, these stack to overcome the new regime&apos;s lower rates.</li>
           <li>• Anyone with <strong>HRA exemption above ₹1 lakh</strong>: HRA is not available under the new regime.</li>
           <li>• Anyone whose employer has already deducted tax under the old regime in their Form 16: switching may create a cash-flow mismatch if you have already invested under the old regime assumptions.</li>
         </ul>
@@ -154,9 +154,9 @@ export default function Page() {
             </p>
             <p>
               Want to pay less? Our guide on{" "}
-              <a href="/blog/best-tax-saving-investments-india" className="text-forest">best tax-saving investments</a>{" "}
+              <Link href="/blog/best-tax-saving-investments-india" className="text-forest">best tax-saving investments</Link>{" "}
               walks through 80C, 80D, NPS and home-loan deductions in detail, and once you have picked a regime you can see the effect on your monthly pay with the{" "}
-              <a href="/calculators/take-home-salary" className="text-forest">Take-Home Salary Calculator</a>.
+              <Link href="/calculators/take-home-salary" className="text-forest">Take-Home Salary Calculator</Link>.
             </p>
           </>
         ),

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/ui";
 import SectionIntro from "./SectionIntro";
-import { Pill } from "@/components/ui";
 import { posts } from "@/lib/data";
 import { BookOpen, ArrowRight } from "lucide-react";
 

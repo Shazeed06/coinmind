@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Section, Card, CardBody, CardFooter } from "@/components/ui";
 import SectionIntro from "./SectionIntro";
 import { ArrowRight } from "lucide-react";

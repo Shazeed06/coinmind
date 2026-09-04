@@ -14,7 +14,6 @@ export default function NpsCalculator() {
   const [annuityRate, setAnnuityRate] = useState(6);
 
   const {
-    months,
     invested,
     corpus,
     returns,

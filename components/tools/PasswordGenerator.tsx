@@ -129,6 +129,7 @@ export default function PasswordGenerator() {
 
   // Regenerate on mount and whenever any option (or batch mode) changes.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     regenerate();
   }, [regenerate]);
 

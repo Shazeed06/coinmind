@@ -1,12 +1,7 @@
 "use client";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
     <div className="mx-auto max-w-xl px-4 py-20 text-center">
       <div className="text-6xl mb-4">!</div>

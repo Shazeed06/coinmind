@@ -1,4 +1,4 @@
-import { Section, Grid, Card, CardBody } from "@/components/ui";
+import { Section, Card, CardBody } from "@/components/ui";
 import SectionIntro from "./SectionIntro";
 import { ShieldCheck, UserCheck, FileText, Eye, TrendingUp, Zap, Globe } from "lucide-react";
 

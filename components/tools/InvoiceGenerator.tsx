@@ -199,13 +199,17 @@ export default function InvoiceGenerator() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<InvoiceData>;
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setData(fromStorage(parsed));
       } else {
+         
         setData(SAMPLE);
       }
     } catch {
+       
       setData(SAMPLE);
     }
+     
     setHydrated(true);
   }, []);
 

@@ -83,7 +83,9 @@ export default function CountdownToDate() {
 
   // Seed the clock and tick once per second.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNow(Date.now());
+     
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
   }, []);

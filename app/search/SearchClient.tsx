@@ -71,6 +71,7 @@ export default function SearchClient() {
   // this whole client tree behind a Suspense boundary for one optional value.
   useEffect(() => {
     const q = new URLSearchParams(window.location.search).get("q");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (q) setQuery(q);
   }, []);
 

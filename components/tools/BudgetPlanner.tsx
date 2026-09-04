@@ -188,10 +188,13 @@ export default function BudgetPlanner() {
           categories?: Category[];
         };
         if (parsed.currency === "INR" || parsed.currency === "USD" || parsed.currency === "GBP") {
+          // eslint-disable-next-line react-hooks/set-state-in-effect
           setCurrency(parsed.currency);
         }
+         
         if (Number.isFinite(parsed.income)) setIncome(Number(parsed.income));
         if (Array.isArray(parsed.categories)) {
+           
           setCategories(
             parsed.categories.map((c) => ({
               id: typeof c.id === "string" ? c.id : uid(),

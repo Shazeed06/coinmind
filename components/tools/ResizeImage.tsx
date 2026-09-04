@@ -137,14 +137,18 @@ export default function ResizeImage() {
     const w = Math.round(Number(widthStr));
     const h = Math.round(Number(heightStr));
     if (!Number.isFinite(w) || !Number.isFinite(h) || w < 1 || h < 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setOutput(null);
       return;
     }
     if (w > MAX_DIMENSION || h > MAX_DIMENSION) {
+       
       setOutput(null);
+       
       setError(`Keep each dimension under ${MAX_DIMENSION.toLocaleString()} px.`);
       return;
     }
+     
     setError(null);
 
     const timer = window.setTimeout(async () => {

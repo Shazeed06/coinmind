@@ -149,6 +149,7 @@ export default function ResumeBuilder() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as Partial<ResumeData>;
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- mount-only hydration from localStorage
         setData({
           ...BLANK,
           ...parsed,

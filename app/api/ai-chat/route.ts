@@ -27,6 +27,43 @@ const SYSTEM = `You are CoinMind's friendly Money & AI assistant on coinmind.in.
 
 type Msg = { role: "user" | "assistant"; content: string };
 
+// ---- In-memory IP-based rate limiter (sliding window) --------------------
+const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
+const RATE_LIMIT_MAX = 10; // max requests per window per IP
+const ipRequests = new Map<string, number[]>();
+
+// Purge stale entries every 5 minutes to prevent unbounded growth
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, timestamps] of ipRequests) {
+    const valid = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+    if (valid.length === 0) ipRequests.delete(ip);
+    else ipRequests.set(ip, valid);
+  }
+}, 5 * 60_000);
+
+function getClientIP(req: Request): string {
+  const forwarded = req.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0].trim();
+  const real = req.headers.get("x-real-ip");
+  if (real) return real.trim();
+  return "unknown";
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = ipRequests.get(ip) ?? [];
+  // Keep only timestamps within the current window
+  const valid = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  if (valid.length >= RATE_LIMIT_MAX) {
+    ipRequests.set(ip, valid);
+    return true;
+  }
+  valid.push(now);
+  ipRequests.set(ip, valid);
+  return false;
+}
+
 const env = (...names: string[]) => {
   for (const n of names) {
     const v = process.env[n];
@@ -121,6 +158,19 @@ async function callGemini(
 }
 
 export async function POST(req: Request) {
+  // Rate-limit check (before any other logic)
+  const clientIP = getClientIP(req);
+  if (isRateLimited(clientIP)) {
+    return Response.json(
+      {
+        error: "rate_limited",
+        reply:
+          "Too many requests. Please wait a minute before trying again.",
+      },
+      { status: 429 }
+    );
+  }
+
   const deepseekKey = env("DEEPSEEK_API_KEY", "deepseek_api_key");
   const groqKey = env("GROQ_API_KEY", "groq_api_key");
   const geminiKey = env("GEMINI_API_KEY", "gemini_api_key");

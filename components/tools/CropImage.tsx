@@ -106,22 +106,24 @@ export default function CropImage() {
   const [error, setError] = useState<string | null>(null);
   const [dispW, setDispW] = useState(0);
   const [dragging, setDragging] = useState(false);
+  const [srcUrl, setSrcUrl] = useState<string | null>(null);
 
   const srcUrlRef = useRef<string | null>(null);
   const outUrlRef = useRef<string | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const dragRef = useRef<Drag | null>(null);
   const cropRef = useRef<Rect>(crop);
-  cropRef.current = crop;
+  useEffect(() => { cropRef.current = crop; });
 
   const dispScale = src && dispW ? dispW / src.width : 1;
   const dispScaleRef = useRef(1);
-  dispScaleRef.current = dispScale;
+  useEffect(() => { dispScaleRef.current = dispScale; });
 
   const cleanup = useCallback(() => {
     if (srcUrlRef.current) URL.revokeObjectURL(srcUrlRef.current);
     if (outUrlRef.current) URL.revokeObjectURL(outUrlRef.current);
     srcUrlRef.current = null;
+    setSrcUrl(null);
     outUrlRef.current = null;
   }, []);
 
@@ -139,6 +141,7 @@ export default function CropImage() {
       cleanup();
       const url = URL.createObjectURL(file);
       srcUrlRef.current = url;
+      setSrcUrl(url);
       const img = new Image();
       img.onload = () => {
         const w = img.naturalWidth;
@@ -188,6 +191,7 @@ export default function CropImage() {
   // Re-encode the cropped region (debounced) for the result preview + download.
   useEffect(() => {
     if (!src || crop.w < 1 || crop.h < 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setOutput(null);
       return;
     }
@@ -448,7 +452,7 @@ export default function CropImage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={srcUrlRef.current ?? ""}
+                  src={srcUrl ?? ""}
                   alt="Crop source"
                   draggable={false}
                   className="block h-auto max-w-full rounded-lg"

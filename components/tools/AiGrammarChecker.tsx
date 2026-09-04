@@ -28,6 +28,7 @@ export default function AiGrammarChecker() {
   const [modifierKey, setModifierKey] = useState("Ctrl");
   useEffect(() => {
     if (/Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setModifierKey("Cmd");
     }
   }, []);

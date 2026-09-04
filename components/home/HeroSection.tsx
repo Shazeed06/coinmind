@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calculator, ArrowRight, Search, TrendingUp } from "lucide-react";
+import { ArrowRight, Search, TrendingUp } from "lucide-react";
 import { calculators, posts } from "@/lib/data";
 
 // Derived, not hand-written. The previous literals claimed 46 calculators and

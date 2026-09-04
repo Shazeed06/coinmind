@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { site } from "@/lib/site";
 import { GLOSSARY, GLOSSARY_CATEGORIES } from "@/lib/glossary";
 import { Search, ArrowRight } from "lucide-react";
 import { Pill, Breadcrumb, EmptyState } from "@/components/ui";

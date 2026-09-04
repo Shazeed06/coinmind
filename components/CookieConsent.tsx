@@ -14,6 +14,7 @@ export default function CookieConsent() {
 
   useEffect(() => {
     try {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- mount-only read from localStorage is a standard React pattern
       if (!localStorage.getItem(KEY)) setShow(true);
     } catch {
       // localStorage unavailable, fail silently

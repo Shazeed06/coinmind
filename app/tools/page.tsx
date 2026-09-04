@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { Search, FileText, FileImage, FileCode, Shuffle, WandSparkles, Cpu, Calculator, Clock, Sparkles, Gamepad2, Wrench, Shield, Briefcase, GraduationCap, ArrowRight, Image, FileType, FileDown, FileUp, Scissors, RotateCw, Combine, Crop, PaintBucket, RefreshCw, Hash, TextSelect, Braces, CaseSensitive, Terminal, Key, QrCode, Ruler, Receipt, PiggyBank, DollarSign, Dices, Target, List, Repeat, Percent, BicepsFlexed, Baby, FileOutput } from "lucide-react";
+import { Search, FileText, FileCode, Shuffle, WandSparkles, Calculator, Clock, Sparkles, Gamepad2, Wrench, Shield, Briefcase, GraduationCap, ArrowRight, Image, FileType, FileDown, Scissors, Combine, Crop, PaintBucket, RefreshCw, Hash, TextSelect, Braces, Terminal, Key, QrCode, Ruler, DollarSign, Dices } from "lucide-react";
 import { Pill, EmptyState } from "@/components/ui";
 
 const ICON_MAP: Record<string, typeof FileText> = {

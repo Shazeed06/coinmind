@@ -18,7 +18,7 @@ export default function Page() {
         heading: "How the calculation works",
         body: (
           <>
-            <p>First we inflate your current monthly expenses to what they'll be at retirement. Then we estimate the corpus needed to fund those expenses for your remaining years, using a return that stays ahead of inflation.</p>
+            <p>First we inflate your current monthly expenses to what they&apos;ll be at retirement. Then we estimate the corpus needed to fund those expenses for your remaining years, using a return that stays ahead of inflation.</p>
             <p>Finally we compute the monthly SIP required to build that corpus by your retirement age, using standard future-value maths. Adjust any input and every number updates instantly.</p>
           </>
         ),

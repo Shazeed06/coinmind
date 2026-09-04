@@ -5,11 +5,7 @@ import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
 import { calculators, posts } from "@/lib/data";
 import { breadcrumb, faqPage, graph, webApp } from "@/lib/ld";
-import { site } from "@/lib/site";
-import { SIP_AMOUNTS, sipSlug } from "@/lib/pseo-sip";
-import { SIP_YEARS, sipYearSlug } from "@/lib/pseo-sip-years";
-import { formatCurrency } from "@/lib/format";
-import { Calculator, ArrowRight, TrendingUp, Landmark, PiggyBank, BarChart3, CheckCircle, AlertTriangle, Lightbulb, BookOpen, ShieldCheck, User, ChevronRight } from "lucide-react";
+import { Calculator, ArrowRight, CheckCircle, AlertTriangle, User, ChevronRight } from "lucide-react";
 import { Breadcrumb, Pill, Prose, DataTable, CardBody, CardFooter, Grid } from "@/components/ui";
 
 const CALC = calculators.find((c) => c.slug === "sip")!;

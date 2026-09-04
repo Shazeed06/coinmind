@@ -107,7 +107,7 @@ LTCG Tax: ${formatCurrency(ltcgTax, currency)}
 After Tax: ${formatCurrency(afterTax, currency)}
 Real Value: ${formatCurrency(realValue, currency)}`;
     navigator.clipboard.writeText(text);
-  }, [monthly, rate, years, stepUp, freq, invested, future, gains, ltcgTax, afterTax, realValue, currency, sym]);
+  }, [monthly, rate, years, stepUp, invested, future, gains, ltcgTax, afterTax, realValue, currency, sym]);
 
   return (
     <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6">
