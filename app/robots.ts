@@ -53,15 +53,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // /search is noindex via its own metadata; keeping it crawlable lets
-        // search engines follow the links it surfaces.
         disallow: INTERNAL_PATHS,
       },
-      ...AI_CRAWLERS.map((userAgent) => ({
-        userAgent,
-        allow: "/",
-        disallow: INTERNAL_PATHS,
-      })),
     ],
     sitemap: `${site.url}/sitemap.xml`,
     host: site.url,

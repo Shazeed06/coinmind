@@ -76,11 +76,11 @@ export default function EditorialTrust() {
       <div className="mt-8 border-t border-line pt-6 text-center">
         <p className="text-sm text-text-muted">
           Written by{" "}
-          <Link href={`/authors/${site.author.slug}`} className="font-medium text-text underline hover:text-brand">
+          <Link href={`/authors/${site.author.slug}`} rel="author" className="font-medium text-text underline hover:text-brand">
             {site.author.fullName}
           </Link>
           , {site.author.credential}, {site.author.role} of {site.name}.
-          {" "}Based in India.
+          {" "}{site.author.bio} Based in India.
         </p>
         <p className="text-xs text-text-muted mt-1">
           Last updated: September 2026

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "free financial calculators",
     "finance guides",
   ],
-  authors: [{ name: site.authorName }],
+  authors: [{ name: site.authorName, url: `${site.url}/authors/sahil` }],
   // No default `alternates` here on purpose. Next.js REPLACES alternates rather
   // than merging it, so a default canonical of "/" is inherited verbatim by
   // every route that does not set its own, pointing the whole site at the

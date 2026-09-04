@@ -21,6 +21,9 @@ export default function FaqSection() {
   return (
     <Section variant="alt">
       <SectionIntro eyebrow="FAQ" title="Frequently Asked Questions" />
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Below are the questions we hear most often from users about CoinMind calculators, data accuracy, privacy, and how our tools work. If your question is not listed here, you can ask our free AI assistant for an instant answer.
+      </p>
       <div className="max-w-[760px] mx-auto" role="region" aria-label="Frequently asked questions">
         {FAQS.map((faq, i) => {
           const isOpen = open === i;

@@ -23,6 +23,9 @@ export default function FinanceCategories() {
       <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
         Personal finance covers a broad range of topics, from mutual fund investments and fixed deposits to income tax planning, loan management, and everyday savings. Browse by category to find the calculator that fits your current financial goal.
       </p>
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        The Investing section covers SIP, lumpsum, and compound interest calculators for mutual fund and equity planning. Loans includes EMI calculators for home loans, car loans, and personal loans with amortisation schedules. Tax calculators let you compare the old and new income tax regimes side by side. Savings tools cover FD, RD, PPF, NPS, and EPF with actual government interest rates. Utility calculators handle gratuity, GST, and currency conversion for everyday needs.
+      </p>
       {/* Five categories x two calculators = ten cards. At lg:grid-cols-4 that
           left two orphans stranded on a third row; five columns lands them as
           two clean rows and makes this the one tighter, wider grid on the page

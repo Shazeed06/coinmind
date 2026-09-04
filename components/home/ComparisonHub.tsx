@@ -22,6 +22,9 @@ export default function ComparisonHub() {
       <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
         Choosing between two financial products is easier when you see them side by side. Each comparison highlights the key differences in returns, risk, tax treatment, and suitability so you can make an informed decision based on your own financial situation.
       </p>
+      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
+        Should you invest a lump sum today or spread it across twelve monthly SIPs? Is the new tax regime better than the old one for your salary bracket? Does a fixed deposit still make sense when debt mutual funds offer indexation benefits? These are real questions that every Indian investor faces, and the answer depends on your income, goals, and risk tolerance. Our comparison guides walk you through each scenario with real numbers, tables, and calculator links so you can see the difference for yourself.
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {COMPARISONS.map((c) => (
           <Card key={c.a + c.b} href={c.href}>

@@ -30,7 +30,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-base sm:text-lg text-text-muted max-w-[480px] leading-relaxed mx-auto lg:mx-0">
-              Free financial calculators, tools and guides to plan investments, manage loans and save taxes. All in one place.
+              Free financial calculators, tools and guides to plan investments, manage loans and save taxes. All in one place, with no sign-up required. Plan your SIP returns, estimate your income tax under both regimes, calculate EMI for a home loan, or project your retirement corpus. Every calculation runs in your browser, is verified against official RBI and SEBI formulas, and is updated after every Union Budget.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
