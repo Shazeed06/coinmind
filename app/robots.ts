@@ -45,7 +45,14 @@ const AI_CRAWLERS = [
  * judging. Blocking it degrades rendering and Core Web Vitals assessment on
  * every route.
  */
-const INTERNAL_PATHS = ["/api/"];
+const INTERNAL_PATHS = [
+  "/api/",
+  "/opengraph-image",
+  "/twitter-image",
+  "/icon",
+  "/favicon.ico",
+  "/manifest.webmanifest",
+];
 
 export default function robots(): MetadataRoute.Robots {
   return {

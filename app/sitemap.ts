@@ -90,10 +90,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Filter: only include indexable URLs
   const filtered = entries.filter((e) => shouldIndex(e.path));
 
-  return filtered.map((entry) => ({
-    url: `${site.url}${entry.path}`,
-    lastModified: entry.lastmod ? new Date(entry.lastmod) : new Date(),
-    changeFrequency: "weekly" as const,
-    priority: entry.path === "" ? 1 : entry.path.startsWith("/calculators") || entry.path.startsWith("/blog") ? 0.9 : 0.7,
-  }));
+  const STATIC_PAGES = new Set([
+    "/about", "/privacy", "/disclaimer", "/terms", "/methodology",
+    "/corrections", "/editorial-standards", "/affiliate-disclosure",
+    "/contact", "/authors/sahil",
+  ]);
+
+  return filtered.map((entry) => {
+    const p = entry.path;
+    const isStatic = STATIC_PAGES.has(p);
+    const isHome = p === "";
+    const isCalc = p.startsWith("/calculators");
+    const isBlog = p.startsWith("/blog");
+    const isGlossary = p.startsWith("/glossary");
+    const isAiTool = p.startsWith("/ai-tools");
+    const isNews = p.startsWith("/news");
+
+    const changeFrequency: "daily" | "weekly" | "monthly" | "yearly" =
+      isHome ? "daily" :
+      isBlog || isNews ? "monthly" :
+      isCalc || isGlossary || isAiTool ? "weekly" :
+      isStatic ? "yearly" :
+      "weekly";
+
+    const priority =
+      isHome ? 1.0 :
+      isCalc || isBlog ? 0.9 :
+      isGlossary || isAiTool || isNews ? 0.8 :
+      isStatic ? 0.3 :
+      0.7;
+
+    return {
+      url: `${site.url}${p}`,
+      lastModified: entry.lastmod ? new Date(entry.lastmod) : new Date("2026-09-05"),
+      changeFrequency,
+      priority,
+    };
+  });
 }

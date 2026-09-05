@@ -6565,6 +6565,1512 @@ However, unlike [equity mutual funds](/glossary/mutual-fund) or [stocks](/glossa
     ],
     related: ["cryptocurrency", "bitcoin", "ethereum", "altcoin", "crypto-wallet", "capital-gains"],
   },
+
+  // -- Indian Finance (batch 2) ------------------------------------------
+  {
+    slug: "form-16",
+    term: "Form 16",
+    category: "Tax",
+    short:
+      "Form 16 is a TDS certificate issued by an employer to a salaried employee in India, summarising the salary paid and income tax deducted during a financial year.",
+    bodyMarkdown: `Form 16 is a certificate your employer hands you after the financial year ends, typically by 15 June. It proves how much salary was paid, how much [TDS](/glossary/tds) was deducted, and on what basis the employer computed your tax. You need it to file your [income tax return](/glossary/itr).
+
+## Structure of Form 16
+
+Form 16 has two parts.
+
+**Part A** is generated on the TRACES portal and carries:
+- Employer and employee PAN and TAN.
+- Quarter-wise summary of TDS deducted and deposited.
+- Challan details and acknowledgement numbers.
+
+**Part B** is prepared by the employer and carries:
+- Gross salary breakdown: basic, [HRA](/glossary/hra), special allowance, LTA and perquisites.
+- Deductions claimed under [Section 80C](/glossary/section-80c), [Section 80D](/glossary/section-80d), [HRA exemption](/glossary/hra) and [standard deduction](/glossary/standard-deduction).
+- Net taxable income and total tax liability.
+
+If you switched jobs during the year, each employer issues its own Form 16. You combine the figures when filing your [ITR](/glossary/itr).
+
+## Why Form 16 matters
+
+It is not merely a piece of paper. The Income Tax Department can cross-verify every rupee on it because the employer has already uploaded TDS returns. If the figures in your ITR do not match what the employer reported, you will receive a notice.
+
+Equally, if your employer deducted too much tax, perhaps because you submitted investment proofs late, the Form 16 is the document that supports your refund claim when you file.
+
+## Common situations
+
+- **Employer did not issue Form 16.** The employer is legally required to provide it. If it has not arrived, request it in writing. Meanwhile you can use [Form 26AS](/glossary/form-26as) and your payslips to file.
+- **Discrepancy between Form 16 and Form 26AS.** This usually means the employer deposited TDS late or filed a correction return. Reconcile the two before filing; mismatches cause processing delays.
+- **Lost or missing Form 16.** Ask the employer for a duplicate. The underlying data is on TRACES and in your [Form 26AS](/glossary/form-26as), so a duplicate is straightforward to reissue.
+
+## How to use it when filing
+
+Most online filing portals and the Income Tax Department's own utility let you import Form 16 data directly. You fill in any additional income such as interest, [capital gains](/glossary/capital-gains), freelance earnings and rental income, add deductions the employer may not have factored in, and arrive at the final tax payable or refund due.
+
+If your total income is below the basic exemption limit and no TDS was deducted, you may not need Form 16 at all, but you should still file a nil return to create a clean record.
+
+Use our [Income Tax calculator](/calculators/income-tax) to cross-check the numbers before submitting.`,
+    faq: [
+      {
+        q: "When is the employer required to issue Form 16?",
+        a: "The employer must issue Form 16 by 15 June of the assessment year, that is, within about seventy-five days after the financial year ends. For the year ending 31 March 2025, it is due by 15 June 2025. Failure to issue on time can attract a penalty under the Income Tax Act.",
+      },
+      {
+        q: "Can I file my ITR without Form 16?",
+        a: "Yes. Form 16 is helpful but not mandatory for filing. You can use your payslips, Form 26AS and the Annual Information Statement to reconstruct salary income and TDS. However, without Form 16 you must be careful to match every figure with what the employer has reported to TRACES.",
+      },
+      {
+        q: "What is the difference between Form 16 and Form 16A?",
+        a: "Form 16 is for TDS on salary under Section 192. Form 16A is for TDS on non-salary payments such as professional fees, rent, interest or commission, deducted under other sections. Both serve as proof that tax was deducted and deposited with the government.",
+      },
+      {
+        q: "What should I do if my Form 16 has wrong figures?",
+        a: "Raise it with your employer immediately and ask for a revised Form 16. The employer will need to file a correction TDS return on TRACES. Do not file your ITR with incorrect figures, as it can lead to a demand notice or delayed refund from the Income Tax Department.",
+      },
+      {
+        q: "Do I get Form 16 if I am a contractor or freelancer?",
+        a: "No. Form 16 is only for salaried employees. If you are a contractor, the payer should issue Form 16A as a TDS certificate for non-salary income. You can also check your Form 26AS for all TDS credits against your PAN, regardless of the source.",
+      },
+    ],
+    related: ["tds", "itr", "form-26as", "section-80c", "hra", "standard-deduction"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "section-80d",
+    term: "Section 80D",
+    category: "Tax",
+    short:
+      "Section 80D of the Income Tax Act allows a deduction for health insurance premiums paid for self, spouse, children and parents, up to defined limits.",
+    bodyMarkdown: `Section 80D is the provision in the Income Tax Act that lets you reduce taxable income by the amount you spend on health insurance premiums and preventive health check-ups. It applies under the **old tax regime** and is one of the most straightforward deductions available to individual taxpayers.
+
+## Deduction limits
+
+| Who is covered | Maximum deduction | If the insured is a senior citizen (60+) |
+| --- | --- | --- |
+| Self, spouse and dependent children | Rs 25,000 | Rs 50,000 |
+| Parents | Rs 25,000 | Rs 50,000 |
+
+If both you and your parents are below 60, the combined ceiling is Rs 50,000. If your parents are senior citizens and you are not, you can claim up to Rs 75,000. If all of you are senior citizens, the ceiling stretches to Rs 1,00,000.
+
+An additional Rs 5,000 for preventive health check-ups is included within, not on top of, the above limits.
+
+## What qualifies
+
+- Premiums on a health insurance policy for self, spouse, dependent children and parents.
+- Contribution to the Central Government Health Scheme or similar notified scheme.
+- Preventive health check-up expenses up to Rs 5,000.
+- Expenditure on medical treatment of a senior citizen who does not have health insurance, up to Rs 50,000.
+
+## What does not qualify
+
+- Premiums paid in cash do not qualify. Payment must be by cheque, online transfer, UPI or card. The one exception is preventive health check-up, which can be paid in cash.
+- Employer-paid group health insurance does not earn you a personal deduction. Only the amount you pay from your own pocket counts.
+
+## Section 80D and the new tax regime
+
+If you have opted for the [new tax regime](/glossary/new-tax-regime), Section 80D deduction is **not available**. This is one of the key trade-offs: the new regime offers lower slab rates but removes most deductions including 80C and 80D. Run both scenarios in our [Income Tax calculator](/calculators/income-tax) to see which regime gives you a lower liability.
+
+## Practical advice
+
+Health insurance is not just a tax-saving instrument. A single hospitalisation can consume years of savings. The Section 80D benefit simply makes it cheaper to buy cover you need anyway.
+
+If you have dependent parents who are senior citizens, insuring them under a separate policy and claiming the additional deduction is both a financial safety net and a meaningful tax saving.
+
+Compare Section 80D with [Section 80C](/glossary/section-80c) when planning deductions. Both operate independently, so you can claim the full limit of each. Together, they can reduce taxable income by Rs 2 lakh or more under the old regime.`,
+    faq: [
+      {
+        q: "What is the maximum deduction under Section 80D?",
+        a: "The maximum depends on age. For a non-senior taxpayer insuring self and senior-citizen parents, the combined deduction can reach Rs 75,000. If everyone involved is a senior citizen, the ceiling is Rs 1,00,000. These include a Rs 5,000 sub-limit for preventive health check-ups within each tier.",
+      },
+      {
+        q: "Can I claim Section 80D if I pay my parents' health insurance?",
+        a: "Yes. You can claim a separate deduction of up to Rs 25,000, or Rs 50,000 if your parents are senior citizens, for premiums paid on their health insurance. This is in addition to the deduction you claim on your own policy for self, spouse and children.",
+      },
+      {
+        q: "Is Section 80D available under the new tax regime?",
+        a: "No. The new tax regime introduced in Budget 2020 and made the default from FY 2023-24 does not allow Section 80D deductions. If health insurance premiums form a significant part of your tax planning, compare both regimes before opting for the new one.",
+      },
+      {
+        q: "Does employer-provided health insurance count for Section 80D?",
+        a: "No. If your employer pays the group health insurance premium, you cannot claim it under 80D because it is not paid from your taxable income. Only the premium you pay yourself from your own funds qualifies. A top-up policy you buy independently would qualify.",
+      },
+      {
+        q: "Can I claim Section 80D for health check-ups?",
+        a: "Yes. Preventive health check-up expenses up to Rs 5,000 qualify under Section 80D. This amount is included within the overall ceiling of Rs 25,000 or Rs 50,000, not added on top of it. It is the only 80D expense that can be paid in cash.",
+      },
+    ],
+    related: ["section-80c", "standard-deduction", "new-tax-regime", "itr", "hra"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "standard-deduction",
+    term: "Standard Deduction",
+    category: "Tax",
+    short:
+      "Standard deduction is a flat Rs 75,000 deduction from salary income in India, available under both old and new tax regimes, requiring no proof of expenses.",
+    bodyMarkdown: `The standard deduction is a flat amount that salaried employees and pensioners can subtract from their gross income before computing tax. Unlike itemised deductions such as [Section 80C](/glossary/section-80c) or [Section 80D](/glossary/section-80d), it requires no investment, no bills and no proof. It is automatically available just because you earn a salary.
+
+## Current limits
+
+| Regime | Standard deduction |
+| --- | --- |
+| Old tax regime | Rs 50,000 |
+| New tax regime (from FY 2024-25) | Rs 75,000 |
+
+The new regime amount was raised from Rs 50,000 to Rs 75,000 in the July 2024 Budget. This makes the new regime marginally more attractive for salaried taxpayers who do not have large [Section 80C](/glossary/section-80c) or [80D](/glossary/section-80d) deductions.
+
+## How it works in practice
+
+Your employer includes the standard deduction when calculating monthly [TDS](/glossary/tds). If your gross salary is Rs 12,00,000 and you opt for the new regime, the employer subtracts Rs 75,000 before applying slab rates, so tax is calculated on Rs 11,25,000 minus any other eligible deductions.
+
+When you file your [ITR](/glossary/itr), the standard deduction is claimed in the income computation itself. There is no separate form or declaration needed.
+
+## History and context
+
+Before 2018, salaried employees could claim a transport allowance exemption and a medical reimbursement exemption, both of which required bills and paperwork. The standard deduction replaced those two benefits in Budget 2018 with a single, no-proof amount of Rs 40,000, raised to Rs 50,000 in 2019 and Rs 75,000 under the new regime in 2024.
+
+## Who can claim it
+
+- **Salaried employees** receiving salary income under Section 17(1).
+- **Pensioners** receiving pension, because pension is taxed under the head Salaries.
+
+Self-employed individuals and freelancers cannot claim the standard deduction. They deduct actual business expenses from professional income instead.
+
+## Standard deduction and your [Form 16](/glossary/form-16)
+
+Your [Form 16](/glossary/form-16) Part B will show the standard deduction as a line item under Deductions. If you switched employers during the year, each Form 16 may show the deduction separately, but you can claim it only once in your ITR.
+
+## Practical tip
+
+If your total deductions under the old regime, including 80C, 80D, [HRA](/glossary/hra), home loan interest and others, exceed the benefit from higher new-regime exemptions, the old regime remains better. If they do not, the new regime's Rs 75,000 standard deduction combined with lower slab rates usually wins. Check both in our [Income Tax calculator](/calculators/income-tax).`,
+    faq: [
+      {
+        q: "What is the standard deduction for FY 2024-25 in India?",
+        a: "The standard deduction is Rs 75,000 under the new tax regime and Rs 50,000 under the old tax regime for FY 2024-25. This was announced in the July 2024 Union Budget. It applies to salaried employees and pensioners. No receipts or proof of expenditure are required to claim it.",
+      },
+      {
+        q: "Can self-employed individuals claim standard deduction?",
+        a: "No. The standard deduction is available only to individuals earning salary or pension income under the head Salaries. Self-employed professionals and business owners deduct actual business expenses instead. If you have both salary and professional income, you can claim it on the salary portion.",
+      },
+      {
+        q: "Is standard deduction available under the new tax regime?",
+        a: "Yes. From FY 2023-24, the new tax regime allows a standard deduction of Rs 50,000, raised to Rs 75,000 from FY 2024-25. This is one of the few deductions retained in the new regime, which otherwise strips out most exemptions in exchange for lower slab rates.",
+      },
+      {
+        q: "Do I need to submit any proof for standard deduction?",
+        a: "No. The standard deduction is a flat deduction that requires no proof, bills or receipts. Your employer automatically factors it in when computing monthly TDS. You simply claim it while filing your income tax return and no supporting documents are needed.",
+      },
+      {
+        q: "Can I claim standard deduction along with HRA and 80C?",
+        a: "Yes, under the old tax regime, the standard deduction of Rs 50,000 is available alongside HRA exemption, Section 80C, Section 80D and all other deductions. They operate independently. Under the new regime, standard deduction is available but HRA and most other deductions are not.",
+      },
+    ],
+    related: ["section-80c", "section-80d", "hra", "form-16", "new-tax-regime", "itr"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "advance-tax",
+    term: "Advance Tax",
+    category: "Tax",
+    short:
+      "Advance tax is income tax paid in instalments during the financial year itself, required when your total tax liability exceeds Rs 10,000 in a year.",
+    bodyMarkdown: `Advance tax is the system by which the Income Tax Department collects tax from taxpayers as income is earned, rather than waiting until after the year ends. If your estimated tax liability for a financial year exceeds Rs 10,000, you are required to pay advance tax in quarterly instalments.
+
+## Who must pay advance tax
+
+- **Salaried employees** whose employer deducts [TDS](/glossary/tds) on salary usually meet their liability through TDS. But if you have significant income from other sources, such as freelancing, [capital gains](/glossary/capital-gains), rental income or interest, and the net tax due after TDS exceeds Rs 10,000, you are liable.
+- **Self-employed professionals and business owners** are almost always liable because no employer deducts TDS for them.
+- **Senior citizens (60+)** with no business or professional income are exempt from advance tax.
+
+## Due dates and payment schedule
+
+| Instalment | Due date | Cumulative % of estimated annual tax |
+| --- | --- | --- |
+| First | 15 June | 15% |
+| Second | 15 September | 45% |
+| Third | 15 December | 75% |
+| Fourth | 15 March | 100% |
+
+If your income is mainly from [capital gains](/glossary/capital-gains) or unexpected windfalls, you can pay the entire tax in the instalment immediately following the event, rather than spreading it across all four.
+
+## How to calculate and pay
+
+1. Estimate your total income for the year: salary, business, capital gains, interest, rental.
+2. Compute tax using the applicable slab rates under the regime you have chosen.
+3. Subtract TDS already deducted by employers, banks and others.
+4. If the balance exceeds Rs 10,000, pay advance tax via Challan 280 on the Income Tax Department's e-filing portal.
+
+Our [Income Tax calculator](/calculators/income-tax) helps you estimate the liability.
+
+## Interest penalties for non-payment
+
+- **Section 234B**: if you pay less than 90% of the assessed tax as advance tax by 31 March, simple interest at 1% per month is charged on the shortfall from April until the date of assessment.
+- **Section 234C**: if you miss or short-pay any of the four quarterly instalments, interest at 1% per month is charged on the deficit for three months per instalment.
+
+These interest charges are not penalties that can be waived on appeal. They are computed mechanically and added to your tax demand.
+
+## Common mistakes
+
+- **Ignoring capital gains mid-year.** A large stock sale in October can trigger an advance tax obligation by 15 December that many people miss.
+- **Relying entirely on TDS.** If your interest income, freelance receipts or rental income are substantial, TDS alone may not cover your total liability.
+- **Paying the wrong assessment year.** Advance tax for FY 2024-25 should be tagged AY 2025-26 on the challan. A mismatch creates reconciliation problems.
+
+Track your advance tax payments against [Form 26AS](/glossary/form-26as) to ensure every challan has been credited before you file your [ITR](/glossary/itr).`,
+    faq: [
+      {
+        q: "Who needs to pay advance tax in India?",
+        a: "Anyone whose estimated tax liability for the year, after subtracting TDS, exceeds Rs 10,000 must pay advance tax. This commonly applies to self-employed professionals, business owners, and salaried employees with significant other income like capital gains or rental income. Senior citizens without business income are exempt.",
+      },
+      {
+        q: "What happens if I do not pay advance tax?",
+        a: "You attract interest under Section 234B at 1% per month on the shortfall from April until assessment, and under Section 234C at 1% per month for three months on each missed instalment. These are non-waivable statutory charges, not discretionary penalties, and they add up quickly.",
+      },
+      {
+        q: "Can salaried employees be required to pay advance tax?",
+        a: "Yes. If a salaried employee has income beyond salary, such as freelancing, capital gains, rental income or interest, and the total tax liability after TDS exceeds Rs 10,000, advance tax instalments are required on the excess. Salary TDS alone does not discharge the obligation.",
+      },
+      {
+        q: "How do I pay advance tax online?",
+        a: "Log in to the Income Tax Department's e-filing portal and generate Challan 280 under the advance tax category. Pay via net banking, UPI or debit card. Keep the challan receipt and verify that the payment reflects in your Form 26AS within a few working days.",
+      },
+      {
+        q: "Is advance tax required under the new tax regime?",
+        a: "Yes. The obligation to pay advance tax when liability exceeds Rs 10,000 applies regardless of whether you choose the old or new tax regime. The computation of tax differs between the two regimes, but the requirement to pay quarterly instalments is the same.",
+      },
+    ],
+    related: ["tds", "capital-gains", "itr", "form-26as", "section-80c"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "liquid-fund",
+    term: "Liquid Fund",
+    category: "Investing",
+    short:
+      "A liquid fund is a debt mutual fund that invests in money-market instruments maturing within 91 days, offering near-instant redemption and low risk.",
+    bodyMarkdown: `A liquid fund is a type of [debt fund](/glossary/debt-fund) that invests only in money-market and debt securities with a residual maturity of up to 91 days. Treasury bills, commercial paper, certificates of deposit and short-term government securities are the typical holdings. The short maturity keeps interest-rate sensitivity very low, and the credit quality is usually high.
+
+## Why liquid funds exist
+
+Banks offer savings accounts at roughly 3-4% and [fixed deposits](/glossary/fixed-deposit) at around 6-7%, but FDs lock your money. A liquid fund typically delivers returns slightly above a savings account and lets you withdraw within one working day, sometimes the same day for small amounts.
+
+This makes it useful for three things:
+- Parking money you will need within a few weeks or months.
+- Building or holding an [emergency fund](/glossary/emergency-fund).
+- A staging area before deploying into equity via an [STP](/glossary/stp).
+
+## How redemption works
+
+SEBI mandates that liquid fund redemption requests submitted before the cut-off time are processed the next working day (T+1). Several fund houses offer instant redemption of up to Rs 50,000 per day per fund through IMPS, credited within minutes, even on holidays.
+
+There is no exit load on most liquid funds after seven days. Some funds levy a graded exit load for the first seven days to discourage overnight parking.
+
+## Risks, despite the low profile
+
+Liquid funds are low-risk, not no-risk.
+
+- **Credit risk.** If a commercial paper issuer defaults, the [NAV](/glossary/nav) can drop. This happened in 2019 with a few liquid funds holding papers from troubled NBFCs.
+- **Interest-rate risk.** It is minimal because of the 91-day cap, but not zero.
+- **Not capital-guaranteed.** Unlike a bank deposit, there is no deposit insurance. SEBI regulation and portfolio quality are the safeguards, not a guarantee.
+
+## Taxation
+
+Gains from liquid funds are added to your income and taxed at your income tax slab rate, regardless of the holding period. There is no indexation benefit for debt funds purchased from 1 April 2023 onwards. This narrows the post-tax advantage over a savings account, so compare net returns before parking large sums.
+
+## Liquid fund vs savings account
+
+| Feature | Liquid fund | Savings account |
+| --- | --- | --- |
+| Typical return | 6-7% (pre-tax) | 3-4% |
+| Liquidity | T+1 or instant up to Rs 50,000 | Instant |
+| Risk | Very low, but NAV can dip | Deposit insurance up to Rs 5 lakh |
+| Tax | Slab rate on gains | Slab rate on interest above Rs 10,000 |
+
+For an emergency fund, many advisers suggest keeping one to two months of expenses in a savings account and the rest in a liquid fund for the marginal return pickup. Use our [FD calculator](/calculators/fd) to compare fixed-deposit alternatives.`,
+    faq: [
+      {
+        q: "Are liquid funds safe in India?",
+        a: "Liquid funds are among the safest mutual fund categories because they invest in very short-term instruments. However, they are not guaranteed like bank deposits. In rare cases, credit events can cause a small dip in NAV. Stick to funds that hold only the highest-rated papers to minimise this risk.",
+      },
+      {
+        q: "How quickly can I withdraw money from a liquid fund?",
+        a: "Standard redemption settles on the next working day. Many fund houses also offer instant redemption via IMPS for up to Rs 50,000 per fund per day, credited within minutes. For larger amounts or for funds without instant redemption, expect the money the next business day.",
+      },
+      {
+        q: "Are liquid funds better than fixed deposits?",
+        a: "For money you might need at short notice, liquid funds are more flexible because there is no premature withdrawal penalty after the initial seven days. However, an FD offers a guaranteed return and deposit insurance up to Rs 5 lakh. The choice depends on your need for flexibility versus certainty.",
+      },
+      {
+        q: "How are liquid fund returns taxed in India?",
+        a: "From FY 2023-24, gains on debt mutual funds including liquid funds are taxed at your income tax slab rate regardless of holding period. The earlier benefit of long-term capital gains with indexation has been removed for debt funds. There is no separate favourable tax rate.",
+      },
+      {
+        q: "Can I use a liquid fund as an emergency fund?",
+        a: "Yes. Many financial planners recommend liquid funds for the bulk of an emergency corpus because they offer better returns than a savings account with near-instant access. Keep one to two months of expenses in a savings account for true emergencies and the rest in a liquid fund.",
+      },
+    ],
+    related: ["debt-fund", "emergency-fund", "fixed-deposit", "mutual-fund", "stp", "nav"],
+    relatedHref: "/calculators/fd",
+    relatedLabel: "FD Calculator",
+  },
+  {
+    slug: "debt-fund",
+    term: "Debt Fund",
+    category: "Investing",
+    short:
+      "A debt mutual fund invests in fixed-income securities such as government bonds, corporate bonds and money-market instruments, offering steadier returns than equity.",
+    bodyMarkdown: `A debt fund is a [mutual fund](/glossary/mutual-fund) that invests primarily in fixed-income instruments: government securities, corporate bonds, treasury bills, commercial paper and debentures. Returns come from two sources: the interest (coupon) earned on the holdings and changes in the market price of the bonds themselves.
+
+## Why people invest in debt funds
+
+- **Lower volatility than equity.** A debt fund does not swing 10-15% in a month the way equity can.
+- **Better liquidity than a fixed deposit.** You can redeem most debt funds within one to two working days, without the premature withdrawal penalty of an [FD](/glossary/fixed-deposit).
+- **Variety of risk-return profiles.** From overnight funds that hold one-day papers to long-duration funds that bet on falling interest rates, debt funds cover a wide range.
+
+## Types of debt funds
+
+| Category | Typical holding maturity | Risk level |
+| --- | --- | --- |
+| Overnight fund | 1 day | Very low |
+| [Liquid fund](/glossary/liquid-fund) | Up to 91 days | Low |
+| Ultra-short / low-duration | 3-12 months | Low to moderate |
+| Short-duration | 1-3 years | Moderate |
+| Medium / long-duration | 3-7+ years | Higher |
+| [Gilt fund](/glossary/gilt-fund) | Government securities, various | Interest-rate sensitive |
+| Credit-risk fund | Lower-rated corporate bonds | Higher credit risk |
+
+## How interest rates affect debt funds
+
+Bond prices move inversely to interest rates. When the RBI cuts rates, existing bonds with higher coupons become more valuable, and the fund's [NAV](/glossary/nav) rises. When rates rise, bond prices fall and the NAV dips. Longer-duration funds are more sensitive to this effect than short-duration ones.
+
+This is the single most important concept in debt investing. If you park money in a long-duration fund just before a rate-hiking cycle, you can suffer meaningful losses, even though the fund holds "safe" bonds.
+
+## Credit risk: the other dimension
+
+A corporate bond fund yielding more than a government bond fund is not offering a gift. The extra yield compensates for the risk that the issuer might default. When an NBFC or a corporate issuer is downgraded, the bonds it issued lose market value instantly, and every fund holding those bonds sees its NAV drop.
+
+The safest debt funds hold only government securities or the highest-rated corporate papers. Higher-yield credit-risk funds can fall sharply and should not be treated as FD substitutes.
+
+## Taxation from FY 2023-24
+
+Gains on debt funds held for any duration are now taxed at your income tax slab rate. The earlier distinction between short-term and long-term capital gains, with indexation benefit for holdings beyond three years, was removed for most debt funds purchased from 1 April 2023 onwards. This makes the post-tax comparison with FDs much closer than it used to be.
+
+## When to use debt funds
+
+- As part of [asset allocation](/glossary/asset-allocation), to provide stability alongside equity holdings.
+- For goals one to three years away where equity is too volatile.
+- To hold surplus cash through a [liquid fund](/glossary/liquid-fund) or [STP](/glossary/stp).
+- For [emergency fund](/glossary/emergency-fund) parking.
+
+Compare potential returns against guaranteed FD rates using our [FD calculator](/calculators/fd).`,
+    faq: [
+      {
+        q: "Are debt mutual funds safe?",
+        a: "Debt funds are not risk-free. They carry interest-rate risk, where NAV falls when rates rise, and credit risk, where an issuer defaults. Government bond and liquid funds are the safest categories. Credit-risk funds that hold lower-rated papers can lose value sharply during a credit event.",
+      },
+      {
+        q: "How are debt fund returns taxed in India?",
+        a: "From FY 2023-24, gains on debt mutual funds are taxed at your income tax slab rate regardless of holding period. The earlier long-term capital gains benefit with indexation for holdings above three years has been removed for new purchases. This applies to most categories including liquid, short-duration and gilt funds.",
+      },
+      {
+        q: "What is the difference between a debt fund and a fixed deposit?",
+        a: "An FD guarantees a fixed return and comes with deposit insurance up to Rs 5 lakh. A debt fund offers market-linked returns that can be higher or lower than an FD, with better liquidity and no premature withdrawal penalty. Debt funds carry both interest-rate and credit risk that FDs do not.",
+      },
+      {
+        q: "Can I lose money in a debt fund?",
+        a: "Yes. If interest rates rise sharply, the NAV of a debt fund can decline. If a bond issuer defaults, the fund can suffer a permanent loss on that holding. Short-duration and liquid funds are less prone to these risks, but even they have experienced occasional NAV dips during credit events.",
+      },
+      {
+        q: "Which debt fund is best for short-term parking?",
+        a: "For money needed within three months, a liquid fund is the standard choice. For a slightly longer horizon of three to twelve months, ultra-short or low-duration funds offer a modest return pickup. Stick to funds with high credit quality and low expense ratios for short-term parking.",
+      },
+    ],
+    related: ["liquid-fund", "gilt-fund", "fixed-deposit", "mutual-fund", "asset-allocation", "nav"],
+    relatedHref: "/calculators/fd",
+    relatedLabel: "FD Calculator",
+  },
+  {
+    slug: "sukanya-samriddhi",
+    term: "Sukanya Samriddhi Yojana",
+    category: "Investing",
+    short:
+      "Sukanya Samriddhi Yojana (SSY) is a government-backed savings scheme for the girl child offering tax-free returns, a 21-year tenure and Section 80C benefits.",
+    bodyMarkdown: `Sukanya Samriddhi Yojana is a small-savings scheme launched in January 2015 under the Beti Bachao Beti Padhao campaign. It lets a parent or legal guardian open a dedicated savings account for a girl child, offering one of the highest interest rates among government-backed instruments and full tax exemption on maturity.
+
+## Eligibility and rules
+
+- The account can be opened for a girl child below 10 years of age.
+- Only one account per girl child; maximum two accounts per family (exception for twins/triplets).
+- Minimum annual deposit: Rs 250. Maximum: Rs 1.5 lakh per financial year.
+- Deposit period: first 15 years from the date of opening. The account continues to earn interest for the remaining 6 years even without deposits.
+- Maturity: 21 years from the date of opening, or on the marriage of the girl after she turns 18, whichever is earlier.
+
+## Interest rate
+
+The rate is notified quarterly by the Ministry of Finance, like [PPF](/glossary/ppf). It has historically been among the highest of all small-savings schemes, hovering around 8.0-8.2% in recent years. Because it is reset quarterly, treat published figures as current rather than permanent.
+
+## Tax treatment: EEE
+
+Like PPF, Sukanya Samriddhi enjoys Exempt-Exempt-Exempt status:
+- **Deposit**: qualifies for [Section 80C](/glossary/section-80c) deduction up to Rs 1.5 lakh per year under the old regime.
+- **Interest**: not taxable during the holding period.
+- **Maturity**: the entire withdrawal is tax-free.
+
+This triple exemption, combined with a higher rate than PPF, makes SSY one of the most tax-efficient long-term instruments in India.
+
+## Partial withdrawal
+
+From the year the girl turns 18, or after she passes the 10th standard, a partial withdrawal of up to 50% of the balance at the end of the preceding financial year is allowed for higher education expenses. Only one withdrawal is permitted for this purpose.
+
+## Premature closure
+
+Premature closure is allowed in limited circumstances:
+- Death of the account holder (the girl child).
+- Extreme compassionate grounds such as life-threatening illness.
+- Change in the residency status of the girl child.
+
+The account **cannot** be closed early simply because the parent needs the money. This illiquidity is by design, the same logic that makes [PPF](/glossary/ppf) effective for long-term saving.
+
+## Where it fits in a financial plan
+
+If you have a daughter under 10, opening an SSY account and depositing Rs 1.5 lakh a year for 15 years builds a corpus of roughly Rs 65-70 lakh at maturity at the current rate, entirely tax-free. This works well for education or marriage expenses in the distant future.
+
+Pair it with [ELSS](/glossary/elss) or equity [SIPs](/glossary/sip) for goals where you need higher potential returns, since SSY is fixed-income by nature and will not beat inflation by a wide margin.
+
+Use our [PPF calculator](/calculators/ppf) to compare long-term small-savings growth under similar assumptions.`,
+    faq: [
+      {
+        q: "What is the current interest rate on Sukanya Samriddhi Yojana?",
+        a: "The SSY rate is notified quarterly by the Ministry of Finance and has been around 8.0-8.2% in recent quarters. Check the latest notification on the India Post or your bank's website. The rate can change each quarter, so do not plan around a fixed number indefinitely.",
+      },
+      {
+        q: "Can I open a Sukanya Samriddhi account for two daughters?",
+        a: "Yes. You can open one account per girl child, up to a maximum of two accounts per family. An exception is made for twins or triplets born in a single delivery, in which case a third account can be opened with documentary proof from the hospital.",
+      },
+      {
+        q: "What happens if I do not deposit the minimum amount in a year?",
+        a: "If the Rs 250 minimum is not deposited in any financial year, the account is treated as a default account. It can be revived by paying the minimum deposit for each defaulted year along with a penalty of Rs 50 per year. The account continues to earn interest even during the default period.",
+      },
+      {
+        q: "Can the girl child operate the Sukanya Samriddhi account herself?",
+        a: "Yes. Once the girl turns 18, she can operate the account herself. Until then, the account is managed by the parent or legal guardian who opened it. Partial withdrawal for higher education is also available from the year she turns 18.",
+      },
+      {
+        q: "Is Sukanya Samriddhi better than PPF?",
+        a: "SSY currently offers a higher interest rate than PPF and has the same EEE tax status. However, it can only be opened for a girl child under 10 and has a 21-year lock-in versus 15 years for PPF. If you have an eligible daughter, SSY is the better deal on rate alone. Otherwise, PPF is the comparable choice.",
+      },
+    ],
+    related: ["ppf", "section-80c", "elss", "sip", "fixed-deposit"],
+    relatedHref: "/calculators/ppf",
+    relatedLabel: "PPF Calculator",
+  },
+  {
+    slug: "atal-pension",
+    term: "Atal Pension Yojana",
+    category: "Investing",
+    short:
+      "Atal Pension Yojana (APY) is a government pension scheme for unorganised sector workers guaranteeing a fixed monthly pension of Rs 1,000 to Rs 5,000 after age 60.",
+    bodyMarkdown: `Atal Pension Yojana is a government-backed pension scheme launched in June 2015, aimed at providing a guaranteed minimum pension to workers in the unorganised sector who do not have access to employer-run pension plans like [EPF](/glossary/epf) or [NPS](/glossary/nps).
+
+## How it works
+
+You choose a guaranteed monthly pension of Rs 1,000, Rs 2,000, Rs 3,000, Rs 4,000 or Rs 5,000, payable from age 60 until death. The monthly contribution depends on your age at entry and the pension amount you choose.
+
+| Entry age | Monthly contribution for Rs 5,000 pension |
+| --- | --- |
+| 18 years | Rs 210 |
+| 25 years | Rs 376 |
+| 30 years | Rs 577 |
+| 35 years | Rs 902 |
+| 40 years | Rs 1,454 |
+
+The younger you start, the less you pay each month. Contributions are auto-debited from your bank account monthly, quarterly or half-yearly.
+
+## Eligibility
+
+- Indian citizen between 18 and 40 years of age.
+- Must have a savings bank account and a linked mobile number.
+- Not an income tax payer (from October 2022, existing income tax payers at the time of application are ineligible to join).
+- Not already a member of any statutory social security scheme.
+
+## The pension guarantee
+
+The pension amount is guaranteed by the Government of India. If the accumulated corpus generates returns higher than the guaranteed pension, the subscriber gets a higher pension. If returns fall short, the government makes up the difference. This guarantee is what distinguishes APY from market-linked products like NPS.
+
+## What happens after 60
+
+- The subscriber receives the chosen pension amount every month.
+- On the subscriber's death, the spouse receives the same pension for life.
+- On the death of both, the nominee receives the accumulated corpus.
+
+## Premature exit
+
+Voluntary exit before 60 is generally not permitted except in cases of terminal illness, death or specific government-notified conditions. The corpus at exit will be the accumulated contribution plus returns, not the guaranteed pension amount.
+
+## Tax benefit
+
+Contributions to APY qualify for deduction under [Section 80CCD(1B)](/glossary/section-80c), which provides an additional Rs 50,000 deduction over and above the Rs 1.5 lakh limit of Section 80C. This benefit is available under the old tax regime.
+
+## Where APY fits
+
+APY is designed for those without formal pension coverage: daily-wage workers, small shopkeepers, domestic help and others in the unorganised sector. The contribution amounts are deliberately kept low and the pension is guaranteed.
+
+For salaried employees already covered by [EPF](/glossary/epf) and [NPS](/glossary/nps), APY's maximum pension of Rs 5,000 per month is too small to be a primary retirement plan. It can serve as a supplementary safety net, but [NPS](/glossary/nps) with its higher contribution limits and market-linked returns is the more impactful tool for building retirement wealth.
+
+Compare pension options using our [NPS calculator](/calculators/nps).`,
+    faq: [
+      {
+        q: "What is the maximum pension under Atal Pension Yojana?",
+        a: "The maximum guaranteed pension is Rs 5,000 per month, payable from age 60 for life. After the subscriber's death, the spouse continues to receive the same pension. On both deaths, the nominee receives the accumulated corpus. The guarantee is backed by the Government of India.",
+      },
+      {
+        q: "Can salaried employees join Atal Pension Yojana?",
+        a: "From October 2022, any person who is or has been an income tax payer is ineligible to open a new APY account. Salaried employees who file income tax returns are therefore excluded. Existing subscribers who enrolled before this rule are not affected and can continue their accounts.",
+      },
+      {
+        q: "Can I withdraw from APY before age 60?",
+        a: "Voluntary premature exit is generally not allowed. Exceptions include the subscriber's death, terminal illness or other government-notified conditions. If exit is permitted, you receive the accumulated corpus with returns, not the guaranteed pension amount. The scheme is designed for long-term commitment.",
+      },
+      {
+        q: "What happens if I miss APY contributions?",
+        a: "A penalty of Rs 1 per month per Rs 100 of contribution is charged for delayed payments. If contributions remain overdue beyond six months, the account is frozen. After twelve months of default, the account is deactivated. After twenty-four months, it is closed and the corpus is refunded.",
+      },
+      {
+        q: "Is APY better than NPS?",
+        a: "They serve different purposes. APY guarantees a fixed small pension and suits workers without formal pension coverage. NPS is market-linked, allows much larger contributions, and can build a significantly larger retirement corpus. For most salaried employees, NPS is the more scalable option. APY works as a safety net for those with lower incomes.",
+      },
+    ],
+    related: ["nps", "epf", "section-80c", "gratuity", "annuity"],
+    relatedHref: "/calculators/nps",
+    relatedLabel: "NPS Calculator",
+  },
+  {
+    slug: "senior-citizen-savings",
+    term: "Senior Citizens Savings Scheme",
+    category: "Investing",
+    short:
+      "The Senior Citizens Savings Scheme (SCSS) is a government-backed deposit for Indians aged 60 and above, offering quarterly interest payouts and Section 80C benefits.",
+    bodyMarkdown: `The Senior Citizens Savings Scheme is a post-office and bank deposit designed specifically for retirees. It offers a government-declared interest rate, quarterly payouts and tax benefits under [Section 80C](/glossary/section-80c). For most senior citizens, it is the first instrument to fill when building a post-retirement income portfolio.
+
+## Eligibility
+
+- Indian residents aged 60 years or above.
+- Retired defence personnel aged 50 or above, and retired civilians aged 55 or above who open the account within one month of receiving retirement benefits, can also subscribe.
+- Individuals who have taken VRS at 55 or above are eligible subject to conditions.
+- NRIs and HUFs are not eligible.
+
+## Key features
+
+| Feature | Detail |
+| --- | --- |
+| Minimum deposit | Rs 1,000 |
+| Maximum deposit | Rs 30 lakh (raised from Rs 15 lakh in Budget 2023) |
+| Tenure | 5 years, extendable by 3 years |
+| Interest rate | Government-notified quarterly; recently around 8.2% |
+| Interest payout | Quarterly, credited to bank account |
+| Tax deduction | Up to Rs 1.5 lakh under Section 80C (old regime) |
+
+## Interest and taxation
+
+The interest is paid quarterly and is fully taxable. If total interest in a financial year exceeds Rs 50,000, [TDS](/glossary/tds) at 10% is deducted. This threshold is higher than the Rs 40,000 limit for non-seniors, recognising that interest is often a primary income source for retirees.
+
+Despite TDS, many senior citizens' total income falls below the taxable threshold after accounting for the higher basic exemption limit (Rs 3,00,000 under the old regime, Rs 3,50,000 for super-senior citizens aged 80+). In such cases, filing Form 15H at the bank prevents TDS deduction altogether.
+
+The deposit itself qualifies for [Section 80C](/glossary/section-80c) deduction, but only under the old tax regime.
+
+## Premature withdrawal
+
+Withdrawal is permitted after one year, with the following penalties:
+- Before 2 years: 1.5% of the deposit is deducted.
+- After 2 years but before 5 years: 1% of the deposit is deducted.
+
+These are relatively mild penalties compared to the benefit of the higher rate, but the scheme is most effective when held to maturity.
+
+## Extension
+
+After the initial 5-year term, you can extend for 3 more years within one year of maturity. The extended deposit earns the rate prevailing at the time of extension. If you do not extend, the maturity amount earns the post-office savings account rate, which is much lower.
+
+## Where SCSS fits in a retirement plan
+
+SCSS should be the first port of call for safe, regular income after retirement. The combination of a government-guaranteed rate, quarterly payouts and a Rs 30 lakh ceiling makes it the highest-yielding guaranteed instrument available to senior citizens.
+
+After exhausting the SCSS limit, consider [PPF](/glossary/ppf) extension, the [PM Vaya Vandana Yojana](/glossary/annuity) (if available), [fixed deposits](/glossary/fixed-deposit) with a senior-citizen premium, and a conservative [debt fund](/glossary/debt-fund) allocation.
+
+Use our [FD calculator](/calculators/fd) to compare returns against bank fixed deposits for the same tenure.`,
+    faq: [
+      {
+        q: "What is the maximum investment in SCSS?",
+        a: "The maximum deposit in the Senior Citizens Savings Scheme is Rs 30 lakh, raised from Rs 15 lakh in Budget 2023. This limit applies per individual, not per account. A couple where both are senior citizens can each invest Rs 30 lakh in separate individual accounts.",
+      },
+      {
+        q: "Is SCSS interest taxable?",
+        a: "Yes. SCSS interest is fully taxable and added to your income. TDS at 10% is deducted if total interest exceeds Rs 50,000 in a financial year. Senior citizens whose total income is below the taxable threshold can submit Form 15H at the bank to avoid TDS deduction.",
+      },
+      {
+        q: "Can I open SCSS before age 60?",
+        a: "Generally no, but retired defence personnel aged 50+ and retired civilians aged 55+ who open the account within one month of receiving retirement benefits are eligible. VRS retirees at 55+ also qualify with conditions. Otherwise, the minimum age is 60 years.",
+      },
+      {
+        q: "What happens when SCSS matures after 5 years?",
+        a: "At maturity, you can either withdraw the full amount or extend the account for 3 more years at the rate prevailing at the time of extension. The extension request must be made within one year of maturity. If you do not extend, the amount earns the savings account rate.",
+      },
+      {
+        q: "Is SCSS better than a bank fixed deposit for senior citizens?",
+        a: "SCSS typically offers a higher interest rate than most bank FDs, even those with senior-citizen premiums. It also provides a Section 80C deduction under the old regime. However, the Rs 30 lakh ceiling means you may need FDs for amounts beyond that. SCSS has a 5-year lock-in versus flexible FD tenures.",
+      },
+    ],
+    related: ["fixed-deposit", "ppf", "section-80c", "annuity", "debt-fund", "tds"],
+    relatedHref: "/calculators/fd",
+    relatedLabel: "FD Calculator",
+  },
+  {
+    slug: "itr",
+    term: "Income Tax Return (ITR)",
+    category: "Tax",
+    short:
+      "An Income Tax Return (ITR) is the annual form filed with the Income Tax Department declaring total income, deductions claimed and tax paid during a financial year.",
+    bodyMarkdown: `An Income Tax Return is the formal declaration you file with the Income Tax Department after each financial year, reporting your total income from all sources, the deductions and exemptions you are claiming, and the tax you have already paid through [TDS](/glossary/tds), [advance tax](/glossary/advance-tax) or self-assessment tax. The Department uses it to assess whether you owe more tax or are due a refund.
+
+## Who must file an ITR
+
+Filing is mandatory if any of these apply:
+- Your gross total income before deductions exceeds the basic exemption limit (Rs 3,00,000 under the new regime for most individuals).
+- You want to claim a tax refund.
+- You have assets or financial interests outside India.
+- You have deposited more than Rs 1 crore in a current account, spent more than Rs 2 lakh on foreign travel, or paid more than Rs 1 lakh in electricity bills during the year.
+- Your TDS/TCS credit exceeds Rs 25,000 in a year.
+
+Even if not mandatory, filing a nil return creates a clean record and is often needed for visa applications, loan approvals and address proof.
+
+## ITR forms
+
+| Form | Who files it |
+| --- | --- |
+| ITR-1 (Sahaj) | Salaried individuals with income up to Rs 50 lakh from salary, one house property and other sources |
+| ITR-2 | Individuals with capital gains, multiple house properties, foreign income or assets |
+| ITR-3 | Individuals with business or professional income |
+| ITR-4 (Sugam) | Individuals opting for presumptive taxation under Sections 44AD/44ADA |
+
+Most salaried employees with straightforward finances file ITR-1 or ITR-2.
+
+## Key documents you need
+
+- [Form 16](/glossary/form-16) from your employer.
+- [Form 26AS](/glossary/form-26as) and Annual Information Statement (AIS) from the Income Tax portal.
+- Bank interest certificates and [TDS](/glossary/tds) certificates (Form 16A).
+- Proof of investments for [Section 80C](/glossary/section-80c), [80D](/glossary/section-80d) and other deductions.
+- [Capital gains](/glossary/capital-gains) statements from brokers and mutual fund houses.
+
+## Due date
+
+For individuals not subject to audit, the due date is usually 31 July of the assessment year. For FY 2024-25, the return is due by 31 July 2025 unless extended by notification. Filing after the due date attracts a late fee under Section 234F of up to Rs 5,000 and interest under Section 234A.
+
+## The filing process
+
+1. Log in to the Income Tax e-filing portal.
+2. Select the correct ITR form and assessment year.
+3. Pre-filled data from Form 26AS, AIS and TIS will auto-populate many fields. Verify each item.
+4. Add income, deductions and tax payments not captured in the pre-fill.
+5. Compute and pay any remaining tax via self-assessment challan.
+6. Submit and e-verify using Aadhaar OTP, net banking or a signed ITR-V.
+
+## Common mistakes
+
+- **Not reconciling Form 26AS.** If your return shows different TDS figures than what is on the portal, you will get a demand notice.
+- **Forgetting to report all bank interest.** The AIS lists every interest credit across all your accounts, and the Department sees it.
+- **Not disclosing capital gains from equity or mutual fund redemptions.** Brokers report these separately and the Department cross-matches.
+
+Use our [Income Tax calculator](/calculators/income-tax) to estimate your liability before filing.`,
+    faq: [
+      {
+        q: "What is the last date to file ITR in India?",
+        a: "For individuals not subject to tax audit, the due date is typically 31 July of the assessment year. For FY 2024-25, the return is due by 31 July 2025 unless the government extends the deadline. Filing after the due date attracts a late fee of up to Rs 5,000 and interest on unpaid tax.",
+      },
+      {
+        q: "Do I need to file ITR if my income is below the taxable limit?",
+        a: "Filing is not mandatory if your gross income is below the basic exemption limit and no other conditions like high-value transactions apply. However, filing a nil return is useful for loan applications, visa processing and creating a documented financial history with the Income Tax Department.",
+      },
+      {
+        q: "Which ITR form should a salaried person use?",
+        a: "Most salaried individuals with income up to Rs 50 lakh from salary, one house property and other sources like interest use ITR-1 Sahaj. If you have capital gains, foreign income or multiple house properties, you need ITR-2. ITR-3 is for those with business or professional income.",
+      },
+      {
+        q: "What happens if I file ITR late?",
+        a: "A belated return can be filed up to 31 December of the assessment year. A late fee under Section 234F of Rs 1,000 or Rs 5,000 applies depending on your income. Interest under Section 234A at 1% per month is charged on unpaid tax from the due date. You also lose the right to carry forward certain losses.",
+      },
+      {
+        q: "How do I e-verify my income tax return?",
+        a: "The easiest method is Aadhaar OTP: the portal sends an OTP to your Aadhaar-linked mobile number. You can also verify via net banking, bank account EVC, demat account EVC or by sending a signed physical ITR-V to CPC Bengaluru within 30 days. E-verification completes the filing process.",
+      },
+    ],
+    related: ["tds", "form-16", "form-26as", "advance-tax", "section-80c", "capital-gains"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "pan-card",
+    term: "PAN Card",
+    category: "Tax",
+    short:
+      "A PAN card is a laminated card bearing a unique ten-character Permanent Account Number issued by the Income Tax Department to identify taxpayers in India.",
+    bodyMarkdown: `The Permanent Account Number is a unique ten-character alphanumeric code issued by the Income Tax Department of India. Every individual, company, partnership, trust or entity that pays or receives taxable income needs one. The physical laminated card, commonly called the PAN card, carries your name, date of birth, photograph and PAN, and doubles as a widely accepted identity document.
+
+## Structure of a PAN
+
+A PAN follows the format ABCDE1234F:
+- Characters 1-3: alphabetic series.
+- Character 4: holder type (P for individual, C for company, H for HUF, F for firm, etc.).
+- Character 5: first letter of the holder's surname.
+- Characters 6-9: sequential four-digit number.
+- Character 10: check letter.
+
+## Why PAN is essential
+
+PAN is mandatory for:
+- Filing an [income tax return](/glossary/itr).
+- Opening a bank account or demat account.
+- Transactions above specified thresholds: property purchases, vehicle registration, cash deposits above Rs 50,000.
+- [TDS](/glossary/tds) deduction and [Form 26AS](/glossary/form-26as) credit matching.
+- Starting a [SIP](/glossary/sip) or investing in [mutual funds](/glossary/mutual-fund).
+- Applying for a credit card or loan.
+
+Without quoting your PAN, TDS is deducted at the higher rate of 20% instead of the applicable rate. PAN is also the key that links all your financial transactions across banks, brokerages and the tax department.
+
+## PAN and Aadhaar linkage
+
+The government has mandated linking PAN with Aadhaar for most individual taxpayers. An unlinked PAN becomes inoperative: TDS is deducted at the higher rate, refunds are not processed, and the card cannot be used for financial transactions. Check and complete the linkage on the Income Tax e-filing portal.
+
+## How to apply
+
+- **New PAN**: apply online through NSDL or UTIITSL portals using Form 49A (for Indian citizens) or Form 49AA (for foreign citizens). E-PAN can be generated instantly using Aadhaar-based e-KYC.
+- **Correction or reprint**: apply for changes in name, address or other details using the same portals. An e-PAN with updated details can be downloaded in minutes.
+- **Instant e-PAN**: available free on the Income Tax e-filing portal for individuals with a valid Aadhaar. The digital PAN is legally equivalent to the physical card.
+
+## PAN for NRIs
+
+NRIs can obtain PAN through Form 49A if they have Indian citizenship, or Form 49AA otherwise. PAN is required for NRIs who earn taxable income in India, such as rental income, [capital gains](/glossary/capital-gains) from Indian investments or interest from [NRO/NRE accounts](/glossary/fixed-deposit).
+
+## Common issues
+
+- **Duplicate PAN**: holding more than one PAN is illegal and attracts a penalty of Rs 10,000 under Section 272B. If you have duplicates, surrender the extra one via the NSDL or UTIITSL portal.
+- **PAN not linked with Aadhaar**: results in the PAN becoming inoperative. Complete the linkage online and pay the applicable fee if the deadline has passed.
+- **Incorrect details on PAN card**: apply for a correction before filing your ITR, because mismatched names between PAN and Aadhaar cause processing delays.`,
+    faq: [
+      {
+        q: "Is PAN card mandatory in India?",
+        a: "PAN is mandatory for filing income tax returns, financial transactions above prescribed limits, opening bank and demat accounts, and investing in mutual funds or securities. Even if your income is below the taxable limit, you need PAN for most significant financial activities in India.",
+      },
+      {
+        q: "How do I apply for a PAN card online?",
+        a: "Apply through the NSDL or UTIITSL websites using Form 49A for Indian citizens. An Aadhaar-based instant e-PAN can be generated free on the Income Tax e-filing portal within minutes. The physical card arrives by post within a few weeks if requested.",
+      },
+      {
+        q: "What is the penalty for having two PAN cards?",
+        a: "Holding more than one PAN is a violation under the Income Tax Act and attracts a penalty of Rs 10,000 under Section 272B. If you have duplicate PANs, surrender the extra one online through the NSDL or UTIITSL portals and retain only one active PAN.",
+      },
+      {
+        q: "Is it mandatory to link PAN with Aadhaar?",
+        a: "Yes, for most individual taxpayers. An unlinked PAN becomes inoperative, meaning TDS is deducted at 20% instead of the normal rate, tax refunds are not processed, and the PAN cannot be used for financial transactions. Link them on the Income Tax e-filing portal.",
+      },
+      {
+        q: "Can NRIs get a PAN card?",
+        a: "Yes. NRIs can apply for PAN using Form 49A if they hold Indian citizenship, or Form 49AA otherwise. PAN is required for NRIs who earn taxable income in India, such as rental income, capital gains from Indian assets or interest from NRO bank accounts.",
+      },
+    ],
+    related: ["itr", "tds", "form-26as", "form-16", "cibil-score"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  // -- Replacements for already-existing requested terms --------------------
+  {
+    slug: "ulip",
+    term: "ULIP",
+    category: "Investing",
+    short:
+      "A Unit Linked Insurance Plan (ULIP) combines life insurance with market-linked investment, allocating part of the premium to insurance cover and the rest to equity or debt funds.",
+    bodyMarkdown: `A Unit Linked Insurance Plan bundles two financial products into one: a life insurance policy and a market-linked investment fund. Part of your premium pays for life cover, part covers charges, and the rest is invested in equity, debt or balanced fund options of your choosing. The policy value fluctuates with market performance, unlike a traditional endowment plan that guarantees a sum.
+
+## How a ULIP works
+
+When you pay a premium, the insurer deducts charges, including mortality charge for the life cover, fund management charge, policy administration charge and premium allocation charge, and invests the remainder in the fund option you selected. You can usually switch between fund options a few times a year without charge.
+
+The policy has a minimum lock-in of **5 years**, during which you cannot surrender or withdraw fully. After the lock-in you can make partial withdrawals or surrender the policy and receive the fund value.
+
+## Charges to understand
+
+| Charge | What it is |
+| --- | --- |
+| Premium allocation | Deducted upfront from each premium, often 2-5% in year one, lower later |
+| Fund management | Annual charge on the fund value, capped at 1.35% by IRDAI |
+| Mortality | Cost of the life cover, deducted monthly by cancelling units |
+| Policy administration | Flat monthly fee |
+| Switching | Free for a few switches per year; fee thereafter |
+
+The cumulative impact of these charges, especially in the early years, is the primary reason ULIPs have drawn criticism. A significant portion of premiums in the first few years goes to charges rather than investment.
+
+## ULIP vs mutual fund plus term insurance
+
+The standard advice is that buying a pure [term insurance](/glossary/term-insurance) policy for life cover and investing separately in a [mutual fund](/glossary/mutual-fund) via [SIP](/glossary/sip) is cheaper and more flexible than a ULIP. The reasons:
+- Term insurance premiums are a fraction of ULIP premiums for the same cover.
+- Mutual fund [expense ratios](/glossary/expense-ratio) are typically lower than ULIP fund management charges, especially for [index funds](/glossary/index-fund).
+- Mutual funds offer unrestricted liquidity after any exit-load period, versus a 5-year lock-in.
+
+However, post-2021 ULIPs where annual premium exceeds Rs 2.5 lakh are taxable on maturity, while pre-2021 or lower-premium ULIPs retain exempt-exempt-exempt tax status, which is an advantage [mutual funds](/glossary/mutual-fund) do not have.
+
+## Tax treatment
+
+- **Premiums** qualify for [Section 80C](/glossary/section-80c) deduction up to Rs 1.5 lakh under the old regime.
+- **Maturity proceeds** are tax-free under Section 10(10D) if the annual premium does not exceed Rs 2.5 lakh (for policies issued after 1 February 2021).
+- **Death benefit** is always tax-free.
+- For high-premium ULIPs (above Rs 2.5 lakh), maturity gains are taxed as [capital gains](/glossary/capital-gains).
+
+## When a ULIP might make sense
+
+If you are a disciplined investor with a 10+ year horizon, want the tax-free maturity benefit, and do not plan to exceed the Rs 2.5 lakh annual premium, a low-charge ULIP from a reputable insurer can be competitive. Compare fund performance and charges carefully before committing.
+
+For most people, the simpler approach of [term insurance](/glossary/term-insurance) plus a [SIP](/glossary/sip) in an equity mutual fund remains more transparent and cost-effective. Use our [SIP calculator](/calculators/sip) to model the investment component separately.`,
+    faq: [
+      {
+        q: "What is the lock-in period for a ULIP?",
+        a: "The minimum lock-in period for a ULIP is 5 years, as mandated by IRDAI. During this period you cannot fully surrender the policy or make complete withdrawals. Partial withdrawals may be allowed after the lock-in in some plans. The lock-in applies from the date of policy commencement.",
+      },
+      {
+        q: "Is ULIP better than a mutual fund?",
+        a: "For most investors, a combination of term insurance and mutual fund SIPs is more cost-effective and transparent than a ULIP. ULIPs carry multiple charges that reduce effective returns, especially in early years. However, ULIPs with premiums under Rs 2.5 lakh per year offer tax-free maturity, which mutual funds do not.",
+      },
+      {
+        q: "Are ULIP returns guaranteed?",
+        a: "No. ULIP returns are market-linked and depend on the performance of the fund option you choose. The investment value can go up or down. Only the death benefit has a guaranteed minimum sum assured. Do not confuse a ULIP with a traditional endowment plan that offers guaranteed maturity value.",
+      },
+      {
+        q: "How is ULIP maturity taxed in India?",
+        a: "For policies issued after 1 February 2021, maturity proceeds are tax-free under Section 10(10D) only if the annual premium does not exceed Rs 2.5 lakh. If premiums exceed this threshold, maturity gains are taxed as capital gains. Death benefit remains tax-free regardless of premium size.",
+      },
+      {
+        q: "Can I switch funds within a ULIP?",
+        a: "Yes. Most ULIPs allow a certain number of free fund switches per year, typically four to six, between equity, debt and balanced options. Additional switches may attract a fee. This flexibility to shift between asset classes within the policy is one advantage ULIPs have over fixed traditional plans.",
+      },
+    ],
+    related: ["term-insurance", "mutual-fund", "sip", "section-80c", "elss", "expense-ratio"],
+    relatedHref: "/calculators/sip",
+    relatedLabel: "SIP Calculator",
+  },
+  {
+    slug: "nsc",
+    term: "National Savings Certificate",
+    category: "Investing",
+    short:
+      "A National Savings Certificate (NSC) is a fixed-income government savings instrument with a 5-year lock-in, guaranteed returns and Section 80C tax benefits.",
+    bodyMarkdown: `The National Savings Certificate is a savings bond issued by the Government of India, available at any post office. It carries a fixed interest rate declared by the government, a 5-year maturity, and qualifies for a [Section 80C](/glossary/section-80c) deduction. It is one of the simplest safe-investment options for Indian taxpayers.
+
+## Key features
+
+| Feature | Detail |
+| --- | --- |
+| Minimum investment | Rs 1,000 (multiples of Rs 100) |
+| Maximum investment | No upper limit |
+| Tenure | 5 years |
+| Interest rate | Government-notified quarterly; recently around 7.7% |
+| Compounding | Annual, but paid at maturity |
+| Tax deduction | Section 80C up to Rs 1.5 lakh (old regime) |
+
+## How interest works
+
+Interest is compounded annually but is not paid out each year. Instead, it accumulates and is paid along with the principal at the end of 5 years. This means you do not receive any cash flow during the holding period.
+
+For example, Rs 1,00,000 invested at 7.7% for 5 years grows to approximately Rs 1,44,900 at maturity, all paid as a lump sum.
+
+## The interesting tax angle
+
+Here is the detail most people miss: the interest that accrues each year is taxable as income in that year, but the accrued interest for years 1 through 4 is also eligible for re-investment as a fresh Section 80C deduction. Only the interest accruing in the final year is purely taxable without any 80C offset.
+
+This creates a partial loop: you claim 80C on the original investment, then claim 80C again on the interest deemed reinvested in subsequent years, up to the Rs 1.5 lakh ceiling each year.
+
+## NSC vs PPF vs FD
+
+| Feature | NSC | [PPF](/glossary/ppf) | [FD](/glossary/fixed-deposit) |
+| --- | --- | --- | --- |
+| Lock-in | 5 years | 15 years | Flexible |
+| Interest rate | ~7.7% | ~7.1% | 6-7% (varies) |
+| Tax on interest | Slab rate (with 80C offset) | Exempt | Slab rate |
+| Maturity taxation | Taxable | Exempt | N/A |
+| Section 80C | Yes | Yes | Yes (5-yr tax-saver FD) |
+
+NSC offers a higher rate than PPF with a much shorter lock-in, but PPF's tax-free interest makes its after-tax return competitive for those in higher tax brackets. An [FD](/glossary/fixed-deposit) offers liquidity but no special tax advantage.
+
+## Who should consider NSC
+
+- Taxpayers in lower tax brackets who benefit more from the higher pre-tax rate than the tax-free status of PPF.
+- Investors who want a defined 5-year savings commitment with a government guarantee.
+- Those who have exhausted their PPF contribution limit and want additional Section 80C instruments.
+
+NSC can be bought at any India Post branch or through internet banking with select banks. No demat account is required.
+
+Compare growth projections with our [FD calculator](/calculators/fd) and [PPF calculator](/calculators/ppf).`,
+    faq: [
+      {
+        q: "What is the current NSC interest rate?",
+        a: "The NSC interest rate is notified by the Ministry of Finance each quarter. It has been around 7.7% in recent quarters. Check the latest notification on the India Post website or the Ministry of Finance circular, as the rate can change every three months.",
+      },
+      {
+        q: "Is NSC interest taxable in India?",
+        a: "Yes. NSC interest is taxable at your income tax slab rate. However, the accrued interest for years 1 through 4 can be claimed as a reinvestment under Section 80C, partially offsetting the tax. Only the final year's interest is fully taxable without any 80C benefit.",
+      },
+      {
+        q: "Can I withdraw NSC before 5 years?",
+        a: "Premature encashment is allowed only in exceptional circumstances such as death of the holder, forfeiture by a court order, or a pledge by a gazetted officer. You cannot withdraw simply because you need the money. Plan for the full 5-year lock-in before investing.",
+      },
+      {
+        q: "Is there a maximum limit for NSC investment?",
+        a: "No. There is no upper limit on how much you can invest in NSC. However, the Section 80C deduction is capped at Rs 1.5 lakh per year across all eligible instruments. Amounts invested beyond that do not earn any additional tax benefit.",
+      },
+      {
+        q: "Is NSC better than a tax-saver fixed deposit?",
+        a: "NSC typically offers a slightly higher interest rate than most 5-year tax-saver FDs and carries a government guarantee. However, a tax-saver FD at a bank offers deposit insurance up to Rs 5 lakh. NSC also has the reinvestment 80C angle on accrued interest. Both have the same 5-year lock-in.",
+      },
+    ],
+    related: ["ppf", "fixed-deposit", "section-80c", "recurring-deposit", "senior-citizen-savings"],
+    relatedHref: "/calculators/fd",
+    relatedLabel: "FD Calculator",
+  },
+  {
+    slug: "new-tax-regime",
+    term: "New Tax Regime",
+    category: "Tax",
+    short:
+      "India's new tax regime offers lower income tax slab rates but removes most deductions and exemptions, and is the default regime from FY 2023-24 onwards.",
+    bodyMarkdown: `The new tax regime is an alternative income tax structure introduced in Budget 2020 and made the **default** regime from FY 2023-24. It offers lower slab rates than the old regime but removes most deductions and exemptions, including [Section 80C](/glossary/section-80c), [Section 80D](/glossary/section-80d), [HRA](/glossary/hra), LTA, home loan interest and many others.
+
+## Slab rates (FY 2024-25)
+
+| Taxable income | Tax rate |
+| --- | --- |
+| Up to Rs 3,00,000 | Nil |
+| Rs 3,00,001 to Rs 7,00,000 | 5% |
+| Rs 7,00,001 to Rs 10,00,000 | 10% |
+| Rs 10,00,001 to Rs 12,00,000 | 15% |
+| Rs 12,00,001 to Rs 15,00,000 | 20% |
+| Above Rs 15,00,000 | 30% |
+
+A rebate under Section 87A makes income up to Rs 7,00,000 effectively tax-free under the new regime.
+
+## What you keep in the new regime
+
+- [Standard deduction](/glossary/standard-deduction) of Rs 75,000 (raised from Rs 50,000 in Budget 2024).
+- Employer's contribution to [NPS](/glossary/nps) under Section 80CCD(2).
+- Deduction for family pension up to Rs 15,000.
+- Interest on home loan for a let-out property (not self-occupied).
+- Exemption for voluntary retirement under Section 10(10C).
+- Leave encashment on retirement under Section 10(10AA).
+
+## What you lose
+
+The entire ecosystem of deductions that many taxpayers depend on:
+- [Section 80C](/glossary/section-80c): [PPF](/glossary/ppf), [ELSS](/glossary/elss), [EPF](/glossary/epf), [NSC](/glossary/nsc), life insurance, tuition fees.
+- [Section 80D](/glossary/section-80d): health insurance premiums.
+- [HRA](/glossary/hra) exemption.
+- LTA exemption.
+- Home loan interest on self-occupied property (Section 24).
+- Professional tax deduction.
+- Deductions under 80E (education loan interest), 80G (donations), 80TTA (savings interest).
+
+## When the new regime wins
+
+If your total deductions under the old regime are modest, the new regime's lower slabs produce a lower tax. A rough rule of thumb: if your old-regime deductions are below Rs 3-4 lakh at a salary of Rs 15 lakh, the new regime is usually cheaper. As deductions climb above that, the old regime catches up or overtakes.
+
+Run both scenarios in our [Income Tax calculator](/calculators/income-tax) to see which gives you a lower liability for your specific numbers.
+
+## How to choose
+
+- **Salaried employees** must declare their choice to the employer at the start of the financial year for TDS purposes. You can switch between regimes each year.
+- **Business/professional income** taxpayers who opt for the new regime can switch back to the old regime only once in a lifetime.
+
+The new regime favours those who rent instead of own, do not have large 80C investments, and do not pay significant health insurance premiums. The old regime favours those with a combination of [HRA](/glossary/hra), [80C](/glossary/section-80c), [80D](/glossary/section-80d), home loan interest and other deductions that together outweigh the slab difference.
+
+## Important: the new regime is the default
+
+From FY 2023-24, if you do not explicitly opt for the old regime, you are automatically placed under the new regime. This is a reversal from earlier years when the old regime was the default. If you prefer the old regime, you must actively select it when filing your [ITR](/glossary/itr) or inform your employer.`,
+    faq: [
+      {
+        q: "Is the new tax regime compulsory in India?",
+        a: "No, but it is the default from FY 2023-24. If you do not actively choose the old regime, the new regime applies automatically. Salaried employees can inform their employer of their preference for TDS computation, and the final choice is confirmed when filing the ITR.",
+      },
+      {
+        q: "Can I switch between old and new tax regime every year?",
+        a: "Salaried employees with no business income can switch between regimes each financial year. Those with business or professional income who choose the new regime can switch back to the old regime only once in their lifetime. Check your situation before switching.",
+      },
+      {
+        q: "Is Section 80C available under the new tax regime?",
+        a: "No. Section 80C deductions for PPF, ELSS, EPF, NSC, life insurance and others are not available under the new tax regime. The new regime compensates with lower slab rates instead. If your 80C investments are substantial, the old regime may still produce a lower tax liability.",
+      },
+      {
+        q: "What is the tax rebate under the new regime?",
+        a: "Under Section 87A, individuals with taxable income up to Rs 7,00,000 under the new regime pay zero tax. The rebate effectively neutralises the tax computed on income within this limit. Income above Rs 7,00,000 is taxed at the applicable slab rates without any rebate.",
+      },
+      {
+        q: "Which regime is better for someone earning Rs 15 lakh?",
+        a: "It depends on your deductions. If your total old-regime deductions like 80C, 80D, HRA and home loan interest exceed roughly Rs 3.75 to 4 lakh, the old regime is often cheaper. If they are lower, the new regime wins. Use an income tax calculator to compare both for your exact profile.",
+      },
+    ],
+    related: ["section-80c", "section-80d", "standard-deduction", "hra", "itr", "form-16"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "form-26as",
+    term: "Form 26AS",
+    category: "Tax",
+    short:
+      "Form 26AS is a consolidated annual tax statement showing all TDS, TCS, advance tax and self-assessment tax credited against your PAN during a financial year.",
+    bodyMarkdown: `Form 26AS is your tax passbook. It is a consolidated statement maintained by the Income Tax Department that records every tax credit against your [PAN](/glossary/pan-card): [TDS](/glossary/tds) deducted by employers, banks, tenants and clients, tax collected at source (TCS), [advance tax](/glossary/advance-tax) and self-assessment tax you paid, and certain high-value financial transactions reported by third parties.
+
+## What Form 26AS contains
+
+| Part | Contents |
+| --- | --- |
+| Part A | TDS deducted by deductors (employers, banks, etc.) |
+| Part A1 | TDS on sale of immovable property (Form 26QB) |
+| Part A2 | TDS on rent (Form 26QC) |
+| Part B | TCS collected by collectors |
+| Part C | Tax paid: advance tax, self-assessment tax |
+| Part D | Refunds paid during the financial year |
+| Part F | Details of specified financial transactions (SFT) and AIR |
+
+## Why it matters
+
+When you file your [ITR](/glossary/itr), the Income Tax Department cross-verifies your claimed TDS and tax payments against Form 26AS. If the figures do not match, your return is flagged and you receive a demand notice. Reconciling your Form 26AS before filing is one of the most important pre-filing steps.
+
+## Form 26AS vs AIS vs TIS
+
+The government has progressively expanded tax information disclosure:
+- **Form 26AS**: the original tax credit statement, focused on TDS, TCS and tax payments.
+- **AIS (Annual Information Statement)**: introduced in 2021, it adds details of mutual fund transactions, share trading, interest received, dividends, property purchases, foreign remittances and more.
+- **TIS (Taxpayer Information Summary)**: a simplified, aggregated version of AIS showing derived figures like total interest income, total dividend income, etc.
+
+For ITR filing, check all three. Form 26AS ensures your tax credits are correct. AIS ensures you have not missed reporting any income the Department already knows about.
+
+## How to access Form 26AS
+
+1. Log in to the Income Tax e-filing portal at incometax.gov.in.
+2. Navigate to e-File > Income Tax Returns > View Form 26AS.
+3. You are redirected to the TRACES portal where you can view or download the statement.
+
+Alternatively, many banks offer Form 26AS access through their net banking portals.
+
+## Common issues
+
+- **TDS not reflecting**: if your employer or bank deducted TDS but it does not appear in 26AS, the deductor has not filed the TDS return. Follow up with them.
+- **Mismatch in amounts**: could be due to a correction return by the deductor, or a timing difference. Wait for the deductor to file the revised return.
+- **Old entries**: Form 26AS is available for multiple past years, useful when filing belated or revised returns.
+
+Always download Form 26AS for the relevant financial year before you file. If there is a discrepancy between your [Form 16](/glossary/form-16) and Form 26AS, resolve it with your employer before submitting the return.`,
+    faq: [
+      {
+        q: "How do I check my Form 26AS online?",
+        a: "Log in to the Income Tax e-filing portal at incometax.gov.in, go to e-File then Income Tax Returns then View Form 26AS, and you are redirected to TRACES. Many banks also offer direct access through their net banking portals under the tax services section.",
+      },
+      {
+        q: "What is the difference between Form 26AS and AIS?",
+        a: "Form 26AS shows TDS, TCS and tax payments credited to your PAN. AIS is broader and includes mutual fund transactions, share trades, dividends, interest from all sources, property purchases and foreign remittances. Both should be checked before filing, as the Department uses AIS data for verification too.",
+      },
+      {
+        q: "What should I do if TDS is not showing in Form 26AS?",
+        a: "If TDS was deducted but is not reflected in Form 26AS, the deductor has not yet filed the quarterly TDS return. Contact the deductor and ask them to file. The credit appears only after the return is filed and processed by TRACES. Do not claim TDS credit that is not in Form 26AS.",
+      },
+      {
+        q: "Is Form 26AS available for previous years?",
+        a: "Yes. Form 26AS is available on TRACES for multiple past financial years. This is useful when filing revised returns, responding to notices for earlier years, or verifying historical TDS credits. Access it through the Income Tax portal or your bank's net banking facility.",
+      },
+      {
+        q: "Can Form 26AS be used as proof of TDS?",
+        a: "Yes. Form 26AS is the official record of TDS credits against your PAN and is accepted as proof by the Income Tax Department. If there is a discrepancy between your Form 16 or Form 16A and Form 26AS, the Department relies on Form 26AS for processing your return.",
+      },
+    ],
+    related: ["tds", "itr", "pan-card", "form-16", "advance-tax", "capital-gains"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "stp",
+    term: "STP (Systematic Transfer Plan)",
+    category: "Investing",
+    short:
+      "A Systematic Transfer Plan (STP) transfers a fixed amount at regular intervals from one mutual fund scheme to another within the same fund house.",
+    bodyMarkdown: `A Systematic Transfer Plan is a facility offered by [mutual fund](/glossary/mutual-fund) houses that lets you move a fixed amount at regular intervals, typically monthly, from one scheme to another within the same fund house. The most common use case is parking a lump sum in a [liquid fund](/glossary/liquid-fund) and systematically transferring it into an equity fund.
+
+## Why an STP exists
+
+If you receive a large lump sum, say Rs 10 lakh from a bonus, maturity or inheritance, investing it all into equity on one day exposes you to the risk of entering at a market high. An STP lets you:
+
+1. Park the Rs 10 lakh in a liquid or ultra-short fund.
+2. Set up a monthly transfer of, say, Rs 1 lakh into an equity fund.
+3. Over 10 months, the money moves from safe to growth-oriented.
+
+The portion waiting in the liquid fund earns roughly 6-7% while it waits, rather than sitting idle in a savings account at 3-4%.
+
+## STP vs SIP
+
+Both invest fixed amounts into equity at regular intervals. The difference is the source of money:
+- A [SIP](/glossary/sip) debits your bank account.
+- An STP debits another mutual fund scheme.
+
+An STP is essentially a SIP funded by a mutual fund instead of a bank account.
+
+| Feature | SIP | STP |
+| --- | --- | --- |
+| Source of money | Bank account | Mutual fund (usually liquid/debt) |
+| Interim return on waiting money | Savings account rate | Liquid/debt fund return |
+| Use case | Regular income investing | Deploying a lump sum gradually |
+
+## Tax implications
+
+Each STP transfer is a redemption from the source scheme and a fresh purchase in the target scheme. If the source is a [debt fund](/glossary/debt-fund) or liquid fund, the redemption is a taxable event:
+- Gains on debt funds are taxed at your slab rate (post April 2023 rules).
+- If the source is an equity fund, short-term or long-term [capital gains](/glossary/capital-gains) tax applies depending on the holding period.
+
+This is the one downside of STPs versus SIPs. Each transfer triggers a tax calculation on the source fund's gains, which adds complexity to your tax filing.
+
+## How to set up an STP
+
+1. Invest the lump sum in a liquid or debt fund at the fund house.
+2. Set up an STP specifying the target equity fund, transfer amount, frequency (weekly, monthly, etc.) and duration.
+3. The fund house executes the transfers automatically until the source fund is exhausted or the STP is cancelled.
+
+## When an STP makes sense
+
+- You have a windfall and want equity exposure but not all at once.
+- You want the waiting money to earn more than a savings account.
+- You are comfortable with the tax complexity on interim redemptions.
+
+For regular monthly investing from salary, a plain [SIP](/glossary/sip) from your bank account is simpler and has no interim tax events. Use our [SIP calculator](/calculators/sip) to model the equity portion of your STP.`,
+    faq: [
+      {
+        q: "What is the difference between STP and SIP?",
+        a: "A SIP debits a fixed amount from your bank account into a mutual fund. An STP transfers a fixed amount from one mutual fund scheme to another, typically from a liquid fund to an equity fund. Both achieve regular investing, but an STP earns a return on the waiting money in the source fund.",
+      },
+      {
+        q: "Is STP taxable in India?",
+        a: "Yes. Each STP transfer is a redemption from the source scheme, which is a taxable event. For debt or liquid funds, gains are taxed at your income tax slab rate under post-2023 rules. For equity source funds, short-term or long-term capital gains tax applies based on the holding period of each unit redeemed.",
+      },
+      {
+        q: "Can I set up an STP between different fund houses?",
+        a: "No. An STP can only be set up between two schemes within the same mutual fund house. If you want to move money from a liquid fund at AMC X to an equity fund at AMC Y, you need to redeem from X and invest in Y separately, either manually or through a platform that automates it.",
+      },
+      {
+        q: "What is the best source fund for an STP?",
+        a: "A liquid fund is the most common source for an STP because it offers low risk, near-instant liquidity and steady returns. Ultra-short or money-market funds are alternatives. Avoid using a long-duration debt fund as a source, as its NAV fluctuations can introduce unintended volatility.",
+      },
+      {
+        q: "How long should I run an STP?",
+        a: "A common approach is 6 to 12 months to deploy a lump sum into equity. Longer STPs reduce timing risk further but leave more money earning the lower liquid-fund return. There is no perfect duration; match it to your comfort with market volatility and the size of the lump sum.",
+      },
+    ],
+    related: ["sip", "liquid-fund", "mutual-fund", "lumpsum", "capital-gains", "debt-fund"],
+    relatedHref: "/calculators/sip",
+    relatedLabel: "SIP Calculator",
+  },
+  {
+    slug: "tax-loss-harvesting",
+    term: "Tax Loss Harvesting",
+    category: "Investing",
+    short:
+      "Tax loss harvesting is the strategy of selling investments at a loss to offset capital gains and reduce your tax liability in India.",
+    bodyMarkdown: `Tax loss harvesting is the practice of deliberately selling an investment that is currently at a loss so that the realised loss can be set off against [capital gains](/glossary/capital-gains) from other investments, reducing your overall tax liability. It is not about accepting permanent losses; you typically reinvest the proceeds in a similar but not identical asset to maintain your market exposure.
+
+## How it works in India
+
+Under the Income Tax Act, capital losses can be set off against capital gains in the same financial year, subject to these rules:
+
+- **Short-term capital loss** can be set off against both short-term and long-term capital gains from any asset class.
+- **Long-term capital loss** can be set off only against long-term capital gains.
+- Unabsorbed capital losses can be **carried forward for up to 8 assessment years** and set off in future years, provided you file your [ITR](/glossary/itr) by the due date.
+
+## A practical example
+
+You hold two equity [mutual funds](/glossary/mutual-fund). Fund A has an unrealised gain of Rs 2,00,000 and Fund B has an unrealised loss of Rs 80,000. If you redeem both:
+- Total long-term capital gains: Rs 2,00,000.
+- Set off with loss: Rs 80,000.
+- Net taxable LTCG: Rs 1,20,000.
+- After the Rs 1,25,000 annual exemption for equity LTCG, taxable gain: nil.
+
+Without harvesting the loss, you would have paid tax on Rs 75,000 (Rs 2,00,000 minus the Rs 1,25,000 exemption). The loss in Fund B was going to be realised eventually anyway; you simply chose to time it alongside a gain.
+
+## The equity LTCG exemption angle
+
+Equity mutual fund and stock gains up to Rs 1,25,000 per year are exempt from long-term capital gains tax. A common year-end strategy is:
+
+1. If you have equity holdings with gains above Rs 1,25,000 that you plan to book, look for holdings with unrealised losses.
+2. Sell the loss-making holdings before 31 March.
+3. Set off the losses against the gains.
+4. Reinvest the proceeds in a similar fund after a reasonable gap to avoid the transaction being treated as a sham.
+
+## Watch out for wash sales
+
+India does not have an explicit wash-sale rule like the US, but the [Income Tax Department](/glossary/itr) can disallow a loss if the same asset is sold and repurchased in a manner that suggests the transaction had no commercial substance other than generating a tax loss. To be safe:
+- Wait a few days before reinvesting.
+- Consider switching to a similar but different fund, such as moving from one [index fund](/glossary/index-fund) to another that tracks a different index.
+
+## When harvesting makes sense
+
+- At financial year-end when you can see your full capital gains picture.
+- When you hold a poorly performing fund you were planning to exit anyway.
+- When the tax saved exceeds the transaction costs (exit loads, [expense ratios](/glossary/expense-ratio), brokerage).
+
+Tax loss harvesting is a tax management technique, not an investment strategy. It should never lead you to sell a good investment purely for the loss. Use our [Income Tax calculator](/calculators/income-tax) to estimate how much tax a harvested loss would actually save.`,
+    faq: [
+      {
+        q: "Is tax loss harvesting legal in India?",
+        a: "Yes. Selling an investment at a loss to offset capital gains is entirely legal under the Income Tax Act. The Act explicitly provides for set-off and carry-forward of capital losses. However, artificial transactions with no commercial substance other than generating losses can be questioned by the tax authorities.",
+      },
+      {
+        q: "Can I carry forward capital losses in India?",
+        a: "Yes. Unabsorbed capital losses can be carried forward for up to 8 assessment years, provided you file your income tax return by the due date. Short-term losses carried forward can offset future short-term or long-term gains. Long-term losses can only offset future long-term gains.",
+      },
+      {
+        q: "Can I set off losses from one asset class against another?",
+        a: "Short-term capital losses can be set off against both short-term and long-term capital gains from any capital asset, including equity, debt, property or gold. Long-term capital losses can only be set off against long-term capital gains. Losses cannot be set off against salary or business income.",
+      },
+      {
+        q: "Does India have a wash-sale rule?",
+        a: "India does not have a statutory wash-sale rule like the US. However, the Income Tax Department can invoke the general anti-avoidance rule or disallow losses from transactions that appear to have no genuine commercial purpose. A brief gap before reinvesting and choosing a different but similar fund is prudent.",
+      },
+      {
+        q: "When is the best time for tax loss harvesting?",
+        a: "Financial year-end, particularly February and March, is the most common period because you can see your full-year capital gains picture. However, you can harvest losses at any time during the year if a holding is in loss and you have realised or expect to realise gains in the same year.",
+      },
+    ],
+    related: ["capital-gains", "mutual-fund", "index-fund", "itr", "elss"],
+    relatedHref: "/calculators/income-tax",
+    relatedLabel: "Income Tax Calculator",
+  },
+  {
+    slug: "balanced-advantage-fund",
+    term: "Balanced Advantage Fund",
+    category: "Investing",
+    short:
+      "A Balanced Advantage Fund (BAF) is a hybrid mutual fund that dynamically shifts its allocation between equity and debt based on market valuations.",
+    bodyMarkdown: `A Balanced Advantage Fund, also called a Dynamic Asset Allocation Fund, is a [mutual fund](/glossary/mutual-fund) that adjusts its mix of equity and debt holdings based on a predefined model, usually tied to market valuations. When equity markets look expensive by the fund's metric, it shifts more money into debt. When valuations look cheap, it increases equity exposure.
+
+## How the dynamic allocation works
+
+Each fund house uses its own model. Common approaches include:
+- **Price-to-earnings (PE) ratio**: when the broad market PE exceeds a threshold, equity is reduced.
+- **Price-to-book (PB) ratio**: similar logic using book values.
+- **Composite models**: combinations of PE, PB, dividend yield and earnings growth.
+
+The rebalancing happens at the fund manager's discretion, sometimes monthly, sometimes more frequently. You as the investor make no allocation decisions. The fund automates the buy-low-sell-high discipline that most investors struggle with.
+
+## Typical allocation range
+
+Most BAFs operate in a band of roughly 30% to 80% equity, with the remainder in debt and arbitrage positions. The arbitrage component, which is equity for tax purposes but carries almost no market risk, lets the fund maintain equity taxation even when its net equity exposure is reduced.
+
+This is important: because of the arbitrage overlay, many BAFs are classified as equity-oriented for tax purposes, even when their actual market risk is moderate. This means:
+- Gains held over one year qualify as long-term [capital gains](/glossary/capital-gains), taxed at 12.5% above the Rs 1,25,000 exemption.
+- Gains within one year are taxed at 20%.
+
+## BAF vs pure equity vs debt
+
+| Feature | BAF | Equity fund | [Debt fund](/glossary/debt-fund) |
+| --- | --- | --- | --- |
+| Equity exposure | 30-80% (dynamic) | 65-100% | 0-10% |
+| Volatility | Moderate | High | Low |
+| Tax treatment | Usually equity-oriented | Equity | Slab rate |
+| Ideal horizon | 3-5+ years | 5-10+ years | 1-3 years |
+
+## Who should consider a BAF
+
+- **First-time equity investors** who are nervous about putting everything into a pure equity fund.
+- **Retirees or near-retirees** who want some equity upside with built-in downside management.
+- **Investors who tend to panic-sell** during market falls: the fund does the rebalancing for them.
+- **People with a 3-5 year horizon** where pure equity is too risky and pure debt is too low-return.
+
+## What a BAF does not do
+
+It does not guarantee capital protection. In a broad-based crash, the equity component will fall, and the debt component can also lose value if interest rates spike. The allocation model reduces drawdowns compared to a pure equity fund, but it does not eliminate them.
+
+It also does not generate spectacular returns in a roaring bull market, because the model trims equity when valuations rise. You trade peak-to-peak returns for a smoother ride.
+
+## Expense ratio and selection
+
+BAFs tend to have slightly higher [expense ratios](/glossary/expense-ratio) than pure [index funds](/glossary/index-fund) because active allocation management is involved. Choose a fund with a proven model, a long track record through at least one full market cycle, and reasonable charges. The direct plan is usually 0.5-1% cheaper than the regular plan.
+
+Use our [SIP calculator](/calculators/sip) to model systematic investments into a BAF with conservative return assumptions.`,
+    faq: [
+      {
+        q: "What is the difference between a balanced fund and a balanced advantage fund?",
+        a: "A balanced fund, also called an aggressive hybrid fund, maintains a relatively fixed equity allocation of 65-80%. A balanced advantage fund dynamically changes its equity allocation between roughly 30% and 80% based on market valuations. The BAF actively reduces equity in expensive markets and increases it in cheaper ones.",
+      },
+      {
+        q: "Is a balanced advantage fund good for beginners?",
+        a: "Yes. A BAF is one of the better starting points for first-time equity investors because the fund automatically manages the equity-debt mix. It provides equity upside with lower volatility than a pure equity fund. Start with a SIP and a minimum three-year horizon for best results.",
+      },
+      {
+        q: "How is a balanced advantage fund taxed in India?",
+        a: "Most BAFs maintain aggregate equity exposure above 65% through arbitrage positions, qualifying as equity-oriented for tax purposes. Long-term capital gains above Rs 1,25,000 per year are taxed at 12.5% for units held over one year. Short-term gains within one year are taxed at 20%.",
+      },
+      {
+        q: "Can I lose money in a balanced advantage fund?",
+        a: "Yes. While the dynamic allocation model reduces the extent of drawdowns compared to a pure equity fund, it does not eliminate losses. In a broad market crash, the equity portion will decline and even the debt portion carries some risk. A BAF can and does show negative returns over short periods.",
+      },
+      {
+        q: "What is the ideal investment horizon for a balanced advantage fund?",
+        a: "A minimum of three years is advisable to let the dynamic allocation model work through a market cycle. Five years or more is more comfortable. For shorter horizons, a liquid or short-duration debt fund is a better fit. For longer horizons, a pure equity fund may deliver higher returns.",
+      },
+    ],
+    related: ["mutual-fund", "asset-allocation", "debt-fund", "index-fund", "sip", "capital-gains"],
+    relatedHref: "/calculators/sip",
+    relatedLabel: "SIP Calculator",
+  },
+  {
+    slug: "direct-plan",
+    term: "Direct Plan",
+    category: "Investing",
+    short:
+      "A direct plan is a mutual fund scheme variant bought directly from the fund house without a distributor, carrying a lower expense ratio than the regular plan.",
+    bodyMarkdown: `Every [mutual fund](/glossary/mutual-fund) scheme in India is offered in two versions: a regular plan and a direct plan. Both invest in exactly the same portfolio, hold the same stocks or bonds, and are managed by the same fund manager. The only difference is the distribution channel, and therefore the cost.
+
+## The cost difference
+
+A regular plan pays a trailing commission to the distributor or agent who sold it to you. This commission is built into the fund's [expense ratio](/glossary/expense-ratio), so the regular plan has a higher annual charge than the direct plan by roughly 0.5% to 1%.
+
+| | Direct plan | Regular plan |
+| --- | --- | --- |
+| Bought from | Fund house website, direct platform | Distributor, bank, agent |
+| Commission to intermediary | None | 0.5-1% per year |
+| Expense ratio | Lower | Higher |
+| [NAV](/glossary/nav) | Slightly higher | Slightly lower |
+| Portfolio | Identical | Identical |
+
+## Why the gap matters
+
+On a Rs 10 lakh investment growing at 12% a year, a 0.75% expense-ratio difference compounds to roughly Rs 1.5 lakh over 10 years and Rs 5 lakh over 20 years. You receive less not because the fund performed worse, but because a larger slice of the return went to the distributor each year.
+
+For a [SIP](/glossary/sip) of Rs 10,000 a month over 20 years, the direct plan can deliver Rs 8-12 lakh more than the regular plan at typical expense-ratio gaps. The identical portfolio makes this one of the few free improvements available in investing.
+
+## How to buy direct plans
+
+1. **Fund house website**: create an account on the AMC's own portal, complete KYC, and invest. Each fund house has its own site.
+2. **Direct mutual fund platforms**: aggregators like MF Central, Kuvera, Groww and others let you buy direct plans from multiple AMCs in one place. Ensure the platform is SEBI-registered and actually sells direct plans, not regular plans disguised with low commissions.
+3. **MF Central**: a joint initiative by CAMS and KFintech registrars, offering a single portal for direct transactions.
+
+You need a [PAN card](/glossary/pan-card), a bank account and completed KYC to start.
+
+## When a regular plan might still make sense
+
+If you are genuinely unsure about which fund to choose, an asset-allocation decision, or how to handle taxation, a good distributor or advisor can add value that exceeds the 0.5-1% cost. The problem is not the regular plan itself but buying one without receiving any advice in return.
+
+If you are already researching funds and making decisions yourself, paying the regular-plan commission serves no purpose. You are the advisor; you should not also be paying one.
+
+## Switching from regular to direct
+
+You cannot convert existing regular plan units to direct. You need to:
+1. Redeem units from the regular plan (this may trigger [capital gains](/glossary/capital-gains) tax and exit load).
+2. Invest the proceeds in the direct plan of the same scheme.
+
+If exit load applies or the tax impact is significant, a gradual switch via [STP](/glossary/stp) or by directing all new investments to the direct plan while leaving existing regular units untouched is often more practical.
+
+Use our [SIP calculator](/calculators/sip) to see how even a small expense-ratio difference compounds over decades.`,
+    faq: [
+      {
+        q: "What is the difference between direct and regular mutual fund plans?",
+        a: "Both hold the identical portfolio. The regular plan includes a distributor commission in its expense ratio, making it 0.5-1% more expensive per year. The direct plan is bought from the fund house with no intermediary commission. Over a decade or more, this cost gap compounds into a significant difference in corpus.",
+      },
+      {
+        q: "How do I know if my mutual fund is direct or regular?",
+        a: "Check your statement or the fund name. Direct plans carry the suffix Direct in their scheme name, for example Axis Bluechip Fund Direct Growth. If the name does not include Direct, it is a regular plan. You can verify on the AMC website or through your CAS statement from CAMS or KFintech.",
+      },
+      {
+        q: "Can I switch from regular to direct plan without selling?",
+        a: "No. There is no facility to convert existing regular plan units to direct. You must redeem the regular plan units, which may trigger capital gains tax and exit load, and then invest in the direct plan separately. Many investors redirect new investments to direct while leaving older regular units to avoid the tax hit.",
+      },
+      {
+        q: "Is the NAV different for direct and regular plans?",
+        a: "Yes. The direct plan NAV is slightly higher than the regular plan NAV because its lower expense ratio means less is deducted from the fund's assets each day. Over time, the direct plan NAV pulls further ahead. Both reflect the same underlying portfolio performance.",
+      },
+      {
+        q: "Are direct plans safe?",
+        a: "Direct plans carry exactly the same investment risk as regular plans because the portfolio is identical. The only difference is the cost. Buying direct does not increase or decrease your market risk. It simply ensures more of the fund's return reaches you instead of going to a distributor.",
+      },
+    ],
+    related: ["mutual-fund", "expense-ratio", "nav", "sip", "stp", "index-fund"],
+    relatedHref: "/calculators/sip",
+    relatedLabel: "SIP Calculator",
+  },
+  {
+    slug: "gilt-fund",
+    term: "Gilt Fund",
+    category: "Investing",
+    short:
+      "A gilt fund is a debt mutual fund that invests exclusively in government securities issued by the central or state governments, carrying zero credit risk.",
+    bodyMarkdown: `A gilt fund is a type of [debt fund](/glossary/debt-fund) that invests only in government securities, commonly called G-Secs, issued by the Reserve Bank of India on behalf of the central and state governments. Because the issuer is the sovereign, there is **zero credit risk**: the government can always print money to repay its own bonds. What gilt funds do carry, and in spades, is interest-rate risk.
+
+## How gilt funds work
+
+The fund manager buys government bonds of varying maturities, from short-term treasury bills to 30-year dated securities. The fund's [NAV](/glossary/nav) moves based on bond prices, which are driven by interest-rate expectations, RBI policy actions and market demand for government paper.
+
+When interest rates fall, bond prices rise, and gilt fund NAVs shoot up. When rates rise, bond prices fall, and gilt funds can deliver negative returns. The longer the average maturity of the fund's holdings, the more dramatic this effect.
+
+## Types of gilt funds
+
+SEBI defines two sub-categories:
+- **Gilt fund**: invests across maturities, giving the manager flexibility to shift between short and long bonds.
+- **Gilt fund with 10-year constant duration**: maintains a portfolio with a Macaulay duration of around 10 years, making it a more predictable play on long-term rates.
+
+## Returns and volatility
+
+Gilt funds have historically delivered 7-9% annualised returns over long periods, but the year-to-year variation is significant:
+
+- In a rate-cutting cycle, a gilt fund can return 12-15% in a single year.
+- In a rate-hiking cycle, it can return -2% to +2%, or even worse.
+
+This makes gilt funds unsuitable as a replacement for [fixed deposits](/glossary/fixed-deposit) if you need predictable returns. They are a tool for investors who understand the rate cycle and have a view on where interest rates are headed.
+
+## Taxation
+
+Like other [debt funds](/glossary/debt-fund), gilt fund gains are taxed at your income tax slab rate regardless of holding period for units purchased from 1 April 2023 onwards. The earlier indexation benefit for debt funds held over three years has been removed.
+
+## When gilt funds make sense
+
+- **In an anticipated rate-cutting cycle.** If the RBI is expected to reduce the repo rate over the coming quarters, long-duration gilt funds can deliver strong capital gains.
+- **As the safe core of a fixed-income allocation.** Because there is zero credit risk, a gilt fund is the purest way to hold government bonds within a [mutual fund](/glossary/mutual-fund) structure.
+- **For tactical allocation.** Some investors use gilt funds to bet on rate movements, moving in before expected rate cuts and moving out before expected hikes.
+
+## When gilt funds do not make sense
+
+- **If you want capital protection.** A rising-rate environment will erode your NAV, and a gilt fund can and will show negative returns.
+- **For short-term parking.** Use a [liquid fund](/glossary/liquid-fund) instead.
+- **If you do not understand duration risk.** Buying a long-duration gilt fund because it is "government-guaranteed" and then seeing it fall 5% because rates rose is a common and painful mistake.
+
+Compare gilt fund suitability with other fixed-income options using our [FD calculator](/calculators/fd).`,
+    faq: [
+      {
+        q: "Are gilt funds risk-free?",
+        a: "Gilt funds have zero credit risk because the borrower is the Government of India. However, they carry significant interest-rate risk: when market interest rates rise, bond prices fall and the fund NAV declines. A gilt fund is safe from default but not from price volatility.",
+      },
+      {
+        q: "How are gilt funds taxed in India?",
+        a: "From FY 2023-24, gains on gilt funds are taxed at your income tax slab rate regardless of holding period. The earlier long-term capital gains benefit with indexation for holdings beyond three years has been removed for debt fund purchases made from 1 April 2023. This applies to gilt funds as well.",
+      },
+      {
+        q: "When should I invest in a gilt fund?",
+        a: "Gilt funds tend to perform best when interest rates are falling or expected to fall. If the RBI is in a rate-cutting cycle, long-duration gilt funds can deliver strong capital appreciation. Entering at the start of a rate-hiking cycle, by contrast, typically leads to negative short-term returns.",
+      },
+      {
+        q: "What is the difference between a gilt fund and a liquid fund?",
+        a: "A liquid fund invests in very short-term instruments maturing within 91 days and has minimal NAV fluctuation. A gilt fund invests in government securities of various maturities, often long-term, and its NAV can swing significantly with interest-rate changes. They serve very different purposes in a portfolio.",
+      },
+      {
+        q: "Can I lose money in a gilt fund?",
+        a: "Yes. While the government will not default on its bonds, the market price of those bonds falls when interest rates rise. A gilt fund can show negative returns in such periods, especially a long-duration fund. The loss is on market value, not on the government's ability to repay.",
+      },
+    ],
+    related: ["debt-fund", "liquid-fund", "fixed-deposit", "mutual-fund", "nav", "asset-allocation"],
+    relatedHref: "/calculators/fd",
+    relatedLabel: "FD Calculator",
+  },
 ];
 
 /** Slugs for every generated glossary page, consumed by the sitemap and route. */

@@ -12,9 +12,9 @@ const CALC = calculators.find((c) => c.slug === "sip")!;
 const CAT = CALC.category;
 
 export const metadata: Metadata = {
-  title: { absolute: "SIP Calculator India 2026 - Monthly Returns, Maturity & Tax Impact" },
+  title: { absolute: "SIP Calculator India 2026 - Returns & Maturity" },
   description:
-    "Free SIP calculator for India. Calculate monthly SIP returns, maturity corpus, LTCG tax impact, and inflation-adjusted real value. Includes step-up SIP, year-wise growth table, and instant projections. No sign-up needed.",
+    "Free SIP calculator for India. Calculate monthly SIP returns, maturity corpus, LTCG tax impact, and inflation-adjusted value. Step-up SIP, year-wise table, and instant projections.",
   alternates: { canonical: "/calculators/sip" },
   openGraph: {
     url: "/calculators/sip",
