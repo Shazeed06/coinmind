@@ -16,10 +16,7 @@ export default function FeaturedCalculators() {
         subline="Plan investments, size a loan, or estimate your tax, instantly and privately."
       />
       <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
-        From SIP and FD calculators to income tax and loan EMI estimators, each tool uses official formulas from SEBI, RBI, and the Income Tax Department. Enter your numbers and get instant results with detailed breakdowns, charts, and year-wise projections, all without creating an account.
-      </p>
-      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
-        Every calculator includes a year-by-year growth table, a donut chart showing invested amount versus returns, and real-time inflation adjustment so you can see the true purchasing power of your future corpus. Step-up SIP mode lets you model annual increments, and the LTCG tax estimator shows your post-tax returns under the latest capital gains rules. Switch between INR, USD, and GBP to plan across currencies.
+        Each tool uses official formulas from SEBI, RBI, and the Income Tax Department. Enter your numbers and get instant results with charts, year-wise tables, and inflation-adjusted projections — no sign-up required.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {featured.map((c) => (

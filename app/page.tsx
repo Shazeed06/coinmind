@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { HOME } from "@/lib/seo";
 import StructuredData from "@/components/home/StructuredData";
 import HeroSection from "@/components/home/HeroSection";
-import WhatIsCoinMind from "@/components/home/WhatIsCoinMind";
+import QuickCalcCTA from "@/components/home/QuickCalcCTA";
 import FeaturedCalculators from "@/components/home/FeaturedCalculators";
+import WhatIsCoinMind from "@/components/home/WhatIsCoinMind";
 import FinanceCategories from "@/components/home/FinanceCategories";
 import TrustTimeline from "@/components/home/TrustTimeline";
 import HowCalculatorsWork from "@/components/home/HowCalculatorsWork";
@@ -23,8 +24,9 @@ export default function Home() {
     <>
       <StructuredData />
       <HeroSection />
-      <WhatIsCoinMind />
+      <QuickCalcCTA />
       <FeaturedCalculators />
+      <WhatIsCoinMind />
       <FinanceCategories />
       <TrustTimeline />
       <HowCalculatorsWork />

@@ -22,14 +22,11 @@ export default function WhatIsCoinMind() {
       <div className="grid lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7 text-center lg:text-left">
           <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0">
-            CoinMind is a free, privacy-first personal finance platform with 46 calculators, 44 tools, and expert guides.
-            Every formula is verified against official sources and updated after every Union Budget.
+            CoinMind is a free, privacy-first personal finance platform with 46 calculators, 24 tools, and expert guides.
+            Every formula is verified against official RBI and SEBI sources and updated after every Union Budget.
           </p>
           <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0 mt-4">
-            Whether you are planning your first SIP, comparing tax regimes, or estimating your home loan EMI, CoinMind gives you accurate results without requiring a login or sharing any personal data. All calculations run entirely in your browser, so your financial information never leaves your device.
-          </p>
-          <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0 mt-4">
-            Most finance websites require you to register, share your email, or even your PAN number before showing you a result. CoinMind takes the opposite approach. Every calculator loads instantly, works offline after the first visit, and never stores or transmits any data you enter. The numbers you see are computed using the same formulas that banks, mutual fund houses, and the Income Tax Department use internally. We document every formula on the calculator page itself so you can verify the math independently.
+            All calculations run entirely in your browser — no login, no email, no PAN number required. Your financial data never leaves your device. We document every formula so you can verify the math independently.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {FEATURES.map((f) => (
