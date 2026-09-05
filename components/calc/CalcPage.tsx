@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { calculators } from "@/lib/data";
-import { breadcrumb, faqPage, graph, webApp } from "@/lib/ld";
+import { breadcrumb, faqPage, graph, howTo, webApp } from "@/lib/ld";
 import { IconArrow, IconCalculator } from "@/components/icons";
 import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import AffiliateCta from "@/components/AffiliateCta";
@@ -65,6 +65,11 @@ export default function CalcPage({
       { name: title, path: `/calculators/${slug}` },
     ]),
     webApp(title, `calculators/${slug}`, category ?? "", `Free ${title}: instant, private, no sign-up.`),
+    howTo(`How to Use the ${title}`, `Step-by-step guide to using the free ${title} on CoinMind.`, [
+      { name: "Enter your values", text: `Open the ${title} and enter the required numbers such as amount, rate, or duration.` },
+      { name: "Adjust parameters", text: "Use the sliders or input fields to fine-tune assumptions like interest rate, tenure, or inflation." },
+      { name: "Review the results", text: "The calculator instantly shows your projected outcome with charts and a detailed breakdown table." },
+    ]),
   ]);
 
   return (

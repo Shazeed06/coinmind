@@ -8,8 +8,15 @@ export const metadata: Metadata = {
   title: { absolute: "Income Tax Calculator India FY 2026-27 - New vs Old Regime" },
   description:
     "Compare new vs old tax regime for FY 2026-27. See which saves more, with breakup, deductions, rebate and cess. Free, instant, private.",
+  keywords: ["income tax calculator", "income tax calculator India", "new vs old tax regime calculator", "tax calculator FY 2026-27", "income tax on salary", "how to save tax on 15 lakh salary", "tax regime comparison calculator", "income tax slab calculator"],
   alternates: { canonical: "/calculators/income-tax" },
   openGraph: { url: "/calculators/income-tax" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Income Tax Calculator India FY 2026-27 - New vs Old Regime",
+    description: "Compare new vs old tax regime for FY 2026-27. See which saves more, with breakup, deductions, rebate and cess.",
+    images: ["/opengraph-image"],
+  },
 };
 
 function TaxBySalary() {

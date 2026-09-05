@@ -4,7 +4,7 @@ import SipCalculator from "@/components/calc/SipCalculator";
 import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
 import { calculators, posts } from "@/lib/data";
-import { breadcrumb, faqPage, graph, webApp } from "@/lib/ld";
+import { breadcrumb, faqPage, graph, howTo, webApp } from "@/lib/ld";
 import { Calculator, ArrowRight, CheckCircle, AlertTriangle, User, ChevronRight } from "lucide-react";
 import { Breadcrumb, Pill, Prose, DataTable, CardBody, CardFooter, Grid } from "@/components/ui";
 
@@ -15,12 +15,19 @@ export const metadata: Metadata = {
   title: { absolute: "SIP Calculator India 2026 - Returns & Maturity" },
   description:
     "Free SIP calculator for India. Calculate monthly SIP returns, maturity corpus, LTCG tax impact, and inflation-adjusted value. Step-up SIP, year-wise table, and instant projections.",
+  keywords: ["SIP calculator", "SIP calculator India", "mutual fund SIP calculator", "SIP return calculator", "step-up SIP calculator", "SIP calculator for 1 crore", "SIP vs lumpsum calculator", "systematic investment plan calculator", "SIP calculator with inflation"],
   alternates: { canonical: "/calculators/sip" },
   openGraph: {
     url: "/calculators/sip",
     title: "SIP Calculator India - Monthly Returns, Maturity & Tax Impact",
     description: "Calculate SIP returns with step-up, LTCG tax, and inflation-adjusted real value. Free interactive calculator with year-wise growth table.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SIP Calculator India 2026 - Returns & Maturity",
+    description: "Free SIP calculator for India. Calculate monthly SIP returns, maturity corpus, LTCG tax impact, and inflation-adjusted value.",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -124,6 +131,13 @@ const SCHEMA_GRAPH = graph([
     { name: CALC.title, path: "/calculators/sip" },
   ]),
   webApp(CALC.title, "calculators/sip", CAT, `Free ${CALC.title}: instant, private, no sign-up.`),
+  howTo("How to Use the SIP Calculator", "Step-by-step guide to calculating your mutual fund SIP returns on CoinMind.", [
+    { name: "Enter monthly SIP amount", text: "Type your planned monthly investment (e.g. ₹5,000 or ₹10,000). Most mutual funds in India accept SIPs starting at ₹500." },
+    { name: "Set expected return rate", text: "Choose an annual return rate. Use 10-12% for diversified equity funds or 6-8% for debt funds as a realistic estimate." },
+    { name: "Choose investment duration", text: "Select how many years you plan to invest. Longer durations benefit from compounding — even 5 extra years can double your corpus." },
+    { name: "Enable step-up SIP (optional)", text: "Toggle step-up to increase your SIP by a fixed percentage each year (e.g. 10%), which significantly boosts long-term wealth." },
+    { name: "Review results and tax impact", text: "The calculator shows your maturity corpus, total returns, LTCG tax estimate, and inflation-adjusted real value with a year-wise breakdown." },
+  ]),
 ]);
 
 export default function Page() {
