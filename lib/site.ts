@@ -30,10 +30,7 @@ export const site = {
   },
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):
   gaId: "G-1ZQB0YPJCS", // GA4 Measurement ID
-  // GTM container GTM-5MMG4KLC exists but is EMPTY (no tags yet). Loading an
-  // empty container adds nothing and makes crawlers (Ahrefs) flag "broken JS".
-  // Re-enable by pasting the ID back the moment you add a real tag in the GTM UI.
-  gtmId: "",
+  gtmId: "GTM-5MMG4KLC",
   googleVerification: "-S3tJnGDGCsP1TZH2m4Pf22meQCkexKzN-u0LfpyBDY", // GSC HTML-tag token
   // IndexNow key (Bing/Yandex/Naver instant indexing: also feeds ChatGPT Search
   // via Bing's index). The key file lives at /<key>.txt in public/.
