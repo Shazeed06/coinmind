@@ -19,6 +19,7 @@ import { trafficPosts7 } from "./trafficPosts7";
 import { trafficPosts8 } from "./trafficPosts8";
 import { trafficPosts9 } from "./trafficPosts9";
 import { trafficPosts10 } from "./trafficPosts10";
+import { trafficPosts11 } from "./trafficPosts11";
 import { cryptoPosts } from "./cryptoPosts";
 import { howToPosts } from "./howToPosts";
 import { comparisonPosts } from "./comparisonPosts";
@@ -1640,6 +1641,7 @@ export const posts: Post[] = [
   ...trafficPosts8,
   ...trafficPosts9,
   ...trafficPosts10,
+  ...trafficPosts11,
   ...cryptoPosts,
   ...comparisonPosts,
   ...howToPosts,
