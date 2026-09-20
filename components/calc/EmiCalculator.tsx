@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Currency, currencyMeta, formatCurrency } from "@/lib/format";
 import { Field, Donut, CurrencyToggle, Stat } from "./shared";
 
@@ -9,6 +9,21 @@ export default function EmiCalculator() {
   const [principal, setPrincipal] = useState(2500000);
   const [rate, setRate] = useState(8.5);
   const [years, setYears] = useState(20);
+
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const p = sp.get("p"); if (p && !isNaN(+p)) setPrincipal(+p);
+    const r = sp.get("r"); if (r && !isNaN(+r)) setRate(+r);
+    const y = sp.get("y"); if (y && !isNaN(+y)) setYears(+y);
+  }, []);
+
+  useEffect(() => {
+    const sp = new URLSearchParams();
+    sp.set("p", String(principal));
+    sp.set("r", String(rate));
+    sp.set("y", String(years));
+    window.history.replaceState(null, "", `${window.location.pathname}?${sp}`);
+  }, [principal, rate, years]);
 
   const { emi, totalInterest, totalPayment } = useMemo(() => {
     const n = years * 12;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { formatCurrency } from "@/lib/format";
 import { computeNewRegimeTax, computeOldRegimeTax } from "@/lib/pseo-tax";
 import { Field } from "./shared";
@@ -8,6 +8,19 @@ import { Field } from "./shared";
 export default function IncomeTaxCalculator() {
   const [income, setIncome] = useState(1500000);
   const [deductions, setDeductions] = useState(200000);
+
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const i = sp.get("i"); if (i && !isNaN(+i)) setIncome(+i);
+    const d = sp.get("d"); if (d && !isNaN(+d)) setDeductions(+d);
+  }, []);
+
+  useEffect(() => {
+    const sp = new URLSearchParams();
+    sp.set("i", String(income));
+    sp.set("d", String(deductions));
+    window.history.replaceState(null, "", `${window.location.pathname}?${sp}`);
+  }, [income, deductions]);
 
   const result = useMemo(() => {
     // Both figures come from lib/pseo-tax.ts, the same functions that render the

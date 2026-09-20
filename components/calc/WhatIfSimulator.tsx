@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { formatCurrency, formatCompact } from "@/lib/format";
 
 function Field({
@@ -60,6 +60,33 @@ export default function WhatIfSimulator() {
   const [extraSavings, setExtraSavings] = useState(0);
   const [expenseReduction, setExpenseReduction] = useState(0);
   const [returnBoost, setReturnBoost] = useState(0);
+
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const inc = sp.get("inc"); if (inc && !isNaN(+inc)) setMonthlyIncome(+inc);
+    const exp = sp.get("exp"); if (exp && !isNaN(+exp)) setMonthlyExpenses(+exp);
+    const ret = sp.get("ret"); if (ret && !isNaN(+ret)) setExpectedReturn(+ret);
+    const yrs = sp.get("yrs"); if (yrs && !isNaN(+yrs)) setYears(+yrs);
+    const pf = sp.get("pf"); if (pf && !isNaN(+pf)) setCurrentPortfolio(+pf);
+    const wr = sp.get("wr"); if (wr && !isNaN(+wr)) setWithdrawalRate(+wr);
+    const es = sp.get("es"); if (es && !isNaN(+es)) setExtraSavings(+es);
+    const er = sp.get("er"); if (er && !isNaN(+er)) setExpenseReduction(+er);
+    const rb = sp.get("rb"); if (rb && !isNaN(+rb)) setReturnBoost(+rb);
+  }, []);
+
+  useEffect(() => {
+    const sp = new URLSearchParams();
+    sp.set("inc", String(monthlyIncome));
+    sp.set("exp", String(monthlyExpenses));
+    sp.set("ret", String(expectedReturn));
+    sp.set("yrs", String(years));
+    sp.set("pf", String(currentPortfolio));
+    sp.set("wr", String(withdrawalRate));
+    if (extraSavings > 0) sp.set("es", String(extraSavings));
+    if (expenseReduction > 0) sp.set("er", String(expenseReduction));
+    if (returnBoost > 0) sp.set("rb", String(returnBoost));
+    window.history.replaceState(null, "", `${window.location.pathname}?${sp}`);
+  }, [monthlyIncome, monthlyExpenses, expectedReturn, years, currentPortfolio, withdrawalRate, extraSavings, expenseReduction, returnBoost]);
 
   const base = useMemo(() => {
     const monthly = monthlyIncome - monthlyExpenses;

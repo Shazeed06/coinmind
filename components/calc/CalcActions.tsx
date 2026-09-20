@@ -6,11 +6,13 @@ export default function CalcActions({ title, url }: { title: string; url: string
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
+    // Use the live window URL so URL params (calculator state) are included
+    const shareUrl = typeof window !== "undefined" ? window.location.href : url;
     try {
       if (typeof navigator !== "undefined" && navigator.share) {
-        await navigator.share({ title, url });
+        await navigator.share({ title, url: shareUrl });
       } else {
-        await navigator.clipboard.writeText(url);
+        await navigator.clipboard.writeText(shareUrl);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }

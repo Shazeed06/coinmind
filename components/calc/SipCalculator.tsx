@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, useEffect } from "react";
 import { Currency, currencyMeta, formatCurrency, formatCompact } from "@/lib/format";
 import { Field, Donut, CurrencyToggle, Stat } from "./shared";
 
@@ -68,6 +68,27 @@ export default function SipCalculator() {
   const [stepUp, setStepUp] = useState(0);
   const [freq, setFreq] = useState<Frequency>("monthly");
   const [showTable, setShowTable] = useState(false);
+
+  // Read URL params on mount (client-only)
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const m = sp.get("m"); if (m && !isNaN(+m)) setMonthly(+m);
+    const r = sp.get("r"); if (r && !isNaN(+r)) setRate(+r);
+    const y = sp.get("y"); if (y && !isNaN(+y)) setYears(+y);
+    const s = sp.get("s"); if (s && !isNaN(+s)) setStepUp(+s);
+    const f = sp.get("f"); if (f === "quarterly") setFreq("quarterly");
+  }, []);
+
+  // Sync state → URL on every change
+  useEffect(() => {
+    const sp = new URLSearchParams();
+    sp.set("m", String(monthly));
+    sp.set("r", String(rate));
+    sp.set("y", String(years));
+    if (stepUp > 0) sp.set("s", String(stepUp));
+    if (freq !== "monthly") sp.set("f", freq);
+    window.history.replaceState(null, "", `${window.location.pathname}?${sp}`);
+  }, [monthly, rate, years, stepUp, freq]);
 
   const sym = currencyMeta[currency].symbol;
 

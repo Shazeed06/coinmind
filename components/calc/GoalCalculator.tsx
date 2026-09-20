@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { formatCurrency, formatCompact } from "@/lib/format";
 import { Field, Stat } from "./shared";
 
@@ -39,6 +39,27 @@ export default function GoalCalculator({
   const [inflation, setInflation] = useState(initialInflation);
   const [currentSavings, setCurrentSavings] = useState(0);
   const [inflationAdjust, setInflationAdjust] = useState(initialInflationAdjust);
+
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const g = sp.get("g"); if (g && !isNaN(+g)) setGoalAmount(+g);
+    const y = sp.get("y"); if (y && !isNaN(+y)) setYears(+y);
+    const r = sp.get("r"); if (r && !isNaN(+r)) setExpectedReturn(+r);
+    const inf = sp.get("inf"); if (inf && !isNaN(+inf)) setInflation(+inf);
+    const cs = sp.get("cs"); if (cs && !isNaN(+cs)) setCurrentSavings(+cs);
+    const ia = sp.get("ia"); if (ia !== null) setInflationAdjust(ia !== "0");
+  }, []);
+
+  useEffect(() => {
+    const sp = new URLSearchParams();
+    sp.set("g", String(goalAmount));
+    sp.set("y", String(years));
+    sp.set("r", String(expectedReturn));
+    sp.set("inf", String(inflation));
+    if (currentSavings > 0) sp.set("cs", String(currentSavings));
+    sp.set("ia", inflationAdjust ? "1" : "0");
+    window.history.replaceState(null, "", `${window.location.pathname}?${sp}`);
+  }, [goalAmount, years, expectedReturn, inflation, currentSavings, inflationAdjust]);
 
   const result = useMemo(() => {
     const monthlyRate = expectedReturn / 100 / 12;
