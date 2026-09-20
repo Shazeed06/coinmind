@@ -63,30 +63,48 @@ export default function Page() {
   return (
     <div>
       {/* Dark premium hero */}
-      <section className="bg-[#0c1628] text-white">
+      <section className="relative bg-[#0c1628] overflow-hidden">
+        {/* Top accent bar */}
         <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
-        <div className="container-main py-14 sm:py-18">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/20 rounded-full px-3 py-1 mb-4">
+
+        {/* Background decorative blobs */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-[#2f5bea]/8 blur-3xl" />
+          <div className="absolute top-10 left-1/3 h-[300px] w-[300px] rounded-full bg-[#16a34a]/6 blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-[200px] w-[400px] rounded-full bg-[#2f5bea]/5 blur-3xl" />
+        </div>
+
+        <div className="relative container-main py-16 sm:py-20">
+          {/* Eyebrow chip */}
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-full px-3 py-1 mb-5">
+            <Zap className="h-3 w-3" />
             Free Calculators
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-[720px] leading-tight">
-            {LIVE.length}+ Free Financial Calculators for India
+
+          {/* Heading — must use inline color: h1 global CSS overrides text-white utility */}
+          <h1
+            style={{ color: "#ffffff" }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-[760px] leading-[1.1]"
+          >
+            {LIVE.length}+ Free Financial<br className="hidden sm:block" />
+            <span style={{ color: "#4ade80" }}> Calculators</span> for India
           </h1>
-          <p className="mt-4 text-slate-400 max-w-[600px] leading-relaxed">
+
+          <p className="mt-5 text-slate-400 max-w-[560px] leading-relaxed text-base sm:text-lg">
             SIP, EMI, income tax, FD, PPF, NPS, retirement, GST and more. Every calculator runs entirely in your browser — no sign-up, no data stored.
           </p>
 
-          {/* Trust stats */}
-          <div className="flex flex-wrap gap-6 mt-8">
+          {/* Trust stat pills */}
+          <div className="flex flex-wrap gap-3 mt-8">
             {[
-              { icon: <Zap className="h-4 w-4 text-[#4ade80]" />, value: `${LIVE.length}+`, label: "Calculators" },
-              { icon: <Shield className="h-4 w-4 text-[#4ade80]" />, value: "100%", label: "Free forever" },
-              { icon: <Shield className="h-4 w-4 text-[#4ade80]" />, value: "0", label: "Sign-ups needed" },
-              { icon: <Shield className="h-4 w-4 text-[#4ade80]" />, value: "0", label: "Data uploaded" },
+              { icon: <Zap className="h-3.5 w-3.5 text-[#4ade80]" />, value: `${LIVE.length}+`, label: "Calculators" },
+              { icon: <Shield className="h-3.5 w-3.5 text-[#4ade80]" />, value: "100%", label: "Free forever" },
+              { icon: <Shield className="h-3.5 w-3.5 text-[#4ade80]" />, value: "0", label: "Sign-ups needed" },
+              { icon: <Shield className="h-3.5 w-3.5 text-[#4ade80]" />, value: "0", label: "Data uploaded" },
             ].map((s) => (
-              <div key={s.label} className="flex items-center gap-2">
+              <div key={s.label} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
                 {s.icon}
-                <span className="text-xl font-bold text-white">{s.value}</span>
+                <span className="text-base font-bold" style={{ color: "#ffffff" }}>{s.value}</span>
                 <span className="text-slate-400 text-sm">{s.label}</span>
               </div>
             ))}
@@ -94,53 +112,59 @@ export default function Page() {
         </div>
       </section>
 
-      <div className="sticky top-16 sm:top-[68px] z-40 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
-        <div className="container-main py-3 space-y-2">
+      <div className="sticky top-16 sm:top-[68px] z-40 bg-white/96 backdrop-blur-md border-b border-border shadow-sm">
+        <div className="container-main py-3 space-y-2.5">
+          {/* Search */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search calculators..."
-              className="w-full h-10 pl-10 pr-4 rounded-input border border-border text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
+              placeholder="Search 53+ calculators..."
+              className="w-full h-10 pl-10 pr-4 rounded-lg border border-border text-sm bg-bg focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand transition-colors"
             />
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-1">
+          {/* Category chips */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 aria-pressed={activeCat === cat}
                 onClick={() => { setActiveCat(cat); setActiveRegion("All"); }}
-                className={`whitespace-nowrap rounded-pill px-3 py-1.5 text-sm font-medium transition-colors ${
+                className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   activeCat === cat
-                    ? "bg-brand text-white"
-                    : "bg-bg-alt text-text-muted hover:text-text border border-border"
+                    ? "bg-[#0c1628] text-white shadow-sm"
+                    : "bg-bg-alt text-text-muted hover:text-text hover:bg-slate-100 border border-border"
                 }`}
               >
-                {cat === "All" ? "All" : cat}
+                {cat === "All" ? "All categories" : cat}
                 {cat !== "All" && (
-                  <span className="ml-1.5 text-xs opacity-60">({LIVE.filter((c) => c.category === cat).length})</span>
+                  <span className={`ml-1 text-[10px] ${activeCat === cat ? "opacity-70" : "opacity-50"}`}>
+                    {LIVE.filter((c) => c.category === cat).length}
+                  </span>
                 )}
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-2">
+          {/* Region + count */}
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-text-muted mr-1">Region:</span>
             {REGIONS.map((r) => (
               <button
                 key={r.value}
                 type="button"
                 aria-pressed={activeRegion === r.value}
                 onClick={() => setActiveRegion(r.value)}
-                className={`text-xs rounded-pill px-2.5 py-1 font-medium transition-colors ${
-                  activeRegion === r.value ? "bg-brand/10 text-brand" : "text-text-muted hover:text-text"
+                className={`text-xs rounded-full px-2.5 py-0.5 font-medium transition-colors ${
+                  activeRegion === r.value ? "bg-brand/10 text-brand font-semibold" : "text-text-muted hover:text-text"
                 }`}
               >
                 {r.label}
               </button>
             ))}
-            <span className="text-xs text-text-muted ml-auto">{filtered.length} calculators</span>
+            <span className="text-xs text-text-muted ml-auto font-medium">{filtered.length} calculators</span>
           </div>
         </div>
       </div>
