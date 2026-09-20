@@ -7,6 +7,8 @@ import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import AffiliateCta from "@/components/AffiliateCta";
 import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
 import { offerForCategory } from "@/lib/affiliates";
+import CalcActions from "@/components/calc/CalcActions";
+import { site } from "@/lib/site";
 
 export type Faq = { q: string; a: string };
 
@@ -99,6 +101,9 @@ export default function CalcPage({
         {/* 16px, not 12px: the h1 runs up to 48px here, and a subtitle sitting
             12px under it read as a stray line rather than part of the title. */}
         <p className="mt-4 text-lg text-ink-soft">{subtitle}</p>
+        <div className="mt-4">
+          <CalcActions title={title} url={`${site.url}/calculators/${slug}`} />
+        </div>
       </header>
 
       {/* The calculator */}

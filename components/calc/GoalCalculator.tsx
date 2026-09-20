@@ -20,13 +20,25 @@ const PURPOSE_PRESETS = [
   { label: "Retirement", years: 25 },
 ];
 
-export default function GoalCalculator() {
-  const [goalAmount, setGoalAmount] = useState(10000000);
-  const [years, setYears] = useState(15);
-  const [expectedReturn, setExpectedReturn] = useState(12);
-  const [inflation, setInflation] = useState(6);
+export default function GoalCalculator({
+  initialGoal = 10000000,
+  initialYears = 15,
+  initialReturn = 12,
+  initialInflation = 6,
+  initialInflationAdjust = true,
+}: {
+  initialGoal?: number;
+  initialYears?: number;
+  initialReturn?: number;
+  initialInflation?: number;
+  initialInflationAdjust?: boolean;
+} = {}) {
+  const [goalAmount, setGoalAmount] = useState(initialGoal);
+  const [years, setYears] = useState(initialYears);
+  const [expectedReturn, setExpectedReturn] = useState(initialReturn);
+  const [inflation, setInflation] = useState(initialInflation);
   const [currentSavings, setCurrentSavings] = useState(0);
-  const [inflationAdjust, setInflationAdjust] = useState(true);
+  const [inflationAdjust, setInflationAdjust] = useState(initialInflationAdjust);
 
   const result = useMemo(() => {
     const monthlyRate = expectedReturn / 100 / 12;

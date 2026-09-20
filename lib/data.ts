@@ -595,6 +595,72 @@ export const calculators: Calculator[] = [
     live: true,
     keywords: ["financial health score", "financial health calculator", "personal finance checkup", "financial health check india"],
   },
+  {
+    slug: "goal-child-education",
+    title: "Child Education Planning Calculator",
+    short: "Save for college fees",
+    blurb:
+      "Calculate the monthly SIP needed to fund your child's higher education — accounting for 8–10% education inflation over 10–18 years.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["child education planning calculator", "education fund calculator", "college fees sip calculator", "child education savings india"],
+  },
+  {
+    slug: "goal-marriage",
+    title: "Marriage Planning Calculator",
+    short: "Save for a wedding",
+    blurb:
+      "Find the monthly SIP needed to save for a wedding in India — whether it's ₹10 lakh or ₹50 lakh, adjusted for inflation.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["marriage planning calculator", "wedding fund calculator", "wedding savings sip", "marriage savings calculator india"],
+  },
+  {
+    slug: "goal-car",
+    title: "Car Savings Calculator",
+    short: "Buy a car without a loan",
+    blurb:
+      "Calculate the monthly investment needed to buy a car without a loan in India and save on interest costs.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["car savings calculator", "car fund calculator", "save for car india", "buy car without loan calculator"],
+  },
+  {
+    slug: "goal-house-down-payment",
+    title: "House Down Payment Calculator",
+    short: "Save the 20% down payment",
+    blurb:
+      "Plan the monthly SIP to save for a house down payment in India — typically 20–25% of property value plus stamp duty.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["house down payment calculator", "home down payment calculator", "down payment savings india", "home buying savings calculator"],
+  },
+  {
+    slug: "goal-emergency-fund",
+    title: "Emergency Fund Calculator",
+    short: "3–6 months expenses buffer",
+    blurb:
+      "Calculate your ideal emergency fund size and the monthly savings needed to build it in 6–12 months.",
+    category: "Savings",
+    region: "IN",
+    live: true,
+    keywords: ["emergency fund calculator", "emergency fund india", "how much emergency fund", "emergency savings calculator"],
+  },
+  {
+    slug: "what-if-simulator",
+    title: "What-If Financial Simulator",
+    short: "See how small changes compound",
+    blurb:
+      "See how saving more, spending less, or improving returns affects your FIRE timeline and retirement corpus — in real time.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["what if financial simulator", "financial scenario planner", "fire calculator india", "retirement corpus calculator", "savings impact calculator"],
+  },
 ];
 
 export type Region = "USA" | "China" | "India";
