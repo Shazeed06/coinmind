@@ -10,6 +10,59 @@ import { offerForCategory } from "@/lib/affiliates";
 import CalcActions from "@/components/calc/CalcActions";
 import { site } from "@/lib/site";
 
+// Maps calculator slug → relevant comparison pages
+const COMPARISON_LINKS: Record<string, { label: string; href: string }[]> = {
+  sip: [
+    { label: "SIP vs FD", href: "/comparisons/sip-vs-fd" },
+    { label: "SIP vs Lumpsum", href: "/comparisons/sip-vs-lumpsum" },
+  ],
+  fd: [
+    { label: "FD vs Debt Mutual Fund", href: "/comparisons/fd-vs-debt-mutual-fund" },
+    { label: "SIP vs FD", href: "/comparisons/sip-vs-fd" },
+    { label: "PPF vs FD", href: "/comparisons/ppf-vs-fd" },
+  ],
+  ppf: [
+    { label: "PPF vs FD", href: "/comparisons/ppf-vs-fd" },
+    { label: "PPF vs NPS", href: "/comparisons/ppf-vs-nps" },
+    { label: "ELSS vs PPF", href: "/comparisons/elss-vs-ppf" },
+  ],
+  epf: [
+    { label: "NPS vs EPF", href: "/comparisons/nps-vs-epf" },
+  ],
+  nps: [
+    { label: "NPS vs EPF", href: "/comparisons/nps-vs-epf" },
+    { label: "PPF vs NPS", href: "/comparisons/ppf-vs-nps" },
+    { label: "NPS Tier 1 vs Tier 2", href: "/comparisons/nps-tier-1-vs-tier-2" },
+  ],
+  "income-tax": [
+    { label: "Old vs New Tax Regime", href: "/comparisons/old-vs-new-tax-regime" },
+  ],
+  emi: [
+    { label: "Loan Prepayment vs Investing", href: "/comparisons/loan-prepayment-vs-investing" },
+  ],
+  "mutual-fund-returns": [
+    { label: "Mutual Fund vs Stocks", href: "/comparisons/mutual-fund-vs-stocks" },
+    { label: "SIP vs FD", href: "/comparisons/sip-vs-fd" },
+  ],
+  fire: [
+    { label: "What-If Simulator", href: "/calculators/what-if-simulator" },
+    { label: "NPS vs EPF", href: "/comparisons/nps-vs-epf" },
+  ],
+  "goal-child-education": [
+    { label: "PPF vs FD", href: "/comparisons/ppf-vs-fd" },
+    { label: "ELSS vs PPF", href: "/comparisons/elss-vs-ppf" },
+  ],
+  "goal-house-down-payment": [
+    { label: "Loan Prepayment vs Investing", href: "/comparisons/loan-prepayment-vs-investing" },
+  ],
+  "term-insurance": [
+    { label: "Term vs ULIP vs Endowment", href: "/comparisons/term-vs-ulip-vs-endowment" },
+  ],
+  "health-insurance": [
+    { label: "Floater vs Individual Health Insurance", href: "/comparisons/floater-vs-individual-health-insurance" },
+  ],
+};
+
 export type Faq = { q: string; a: string };
 
 export default function CalcPage({
@@ -176,6 +229,25 @@ export default function CalcPage({
 
       {/* Optional extra content (e.g. programmatic-SEO internal links) */}
       {extra ? <section className="mt-16">{extra}</section> : null}
+
+      {/* Comparison links — contextual internal links to /comparisons/ pages */}
+      {COMPARISON_LINKS[slug] && COMPARISON_LINKS[slug].length > 0 && (
+        <section className="mt-16 max-w-3xl">
+          <h2 className="font-display text-xl text-ink mb-4">Compare your options</h2>
+          <div className="flex flex-wrap gap-2">
+            {COMPARISON_LINKS[slug].map((c) => (
+              <Link
+                key={c.href}
+                href={c.href}
+                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft hover:border-forest hover:text-forest transition-colors"
+              >
+                {c.label}
+                <IconArrow className="h-3.5 w-3.5" />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related. Guarded on length: a calculator that is the only live one in
           the set produced a heading above an empty grid. The rule closes the

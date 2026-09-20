@@ -359,3 +359,86 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
   outline-offset: 2px;
 }
 :focus:not(:focus-visible) { outline: none; }
+
+/* ---------------------------------------------------------------------------
+   Print / Save as PDF
+   Hides chrome (nav, footer, ads, share buttons, cookie banner) and
+   reformats the calculator result into a clean branded PDF.
+--------------------------------------------------------------------------- */
+@media print {
+  /* Hide everything that isn't content */
+  header, footer, nav,
+  [data-noprint], .print\:hidden,
+  #cookie-banner, #adsense-slot,
+  [class*="AdSense"], [class*="affiliate"],
+  .gtm-noscript {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 20mm 15mm;
+    size: A4 portrait;
+  }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Print header — CoinMind branding */
+  body::before {
+    content: "CoinMind  ·  coinmind.in  ·  " attr(data-print-url);
+    display: block;
+    font-size: 9pt;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 6pt;
+    margin-bottom: 16pt;
+  }
+
+  /* Print footer — disclaimer */
+  body::after {
+    content: "This report is for informational purposes only and does not constitute financial advice. Verify all figures with a certified financial planner. © CoinMind";
+    display: block;
+    font-size: 8pt;
+    color: #888;
+    border-top: 1px solid #ddd;
+    padding-top: 6pt;
+    margin-top: 16pt;
+  }
+
+  /* Keep cards visible but without shadows/borders */
+  .rounded-2xl, .rounded-xl, [class*="rounded"] {
+    border-radius: 4pt !important;
+    box-shadow: none !important;
+  }
+
+  /* Force content to not break across pages mid-section */
+  section, .space-y-6 > *, details {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Ensure links show their href */
+  a[href]::after {
+    content: none; /* suppress — too noisy for a calc report */
+  }
+
+  /* Full width — no sidebar layout */
+  .grid, [class*="lg\:grid-cols"] {
+    display: block !important;
+  }
+
+  /* Inputs and sliders hidden — show only results */
+  input[type="range"] {
+    display: none !important;
+  }
+}
