@@ -551,6 +551,39 @@ export const calculators: Calculator[] = [
     live: true,
     keywords: ["crypto tax calculator", "cryptocurrency tax india", "bitcoin tax calculator", "crypto profit calculator", "vda tax calculator"],
   },
+  {
+    slug: "net-worth",
+    title: "Net Worth Calculator",
+    short: "Know your financial position",
+    blurb:
+      "Calculate your net worth instantly — add your assets and liabilities to see your true financial picture today.",
+    category: "Utility",
+    region: "IN",
+    live: true,
+    keywords: ["net worth calculator", "net worth calculator india", "how to calculate net worth", "assets liabilities calculator"],
+  },
+  {
+    slug: "fire",
+    title: "FIRE Calculator",
+    short: "When can you retire early?",
+    blurb:
+      "Find your FIRE number (25× annual expenses) and the monthly investment needed to achieve financial independence and retire early.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["fire calculator", "financial independence calculator", "retire early calculator", "fire number calculator india"],
+  },
+  {
+    slug: "goal",
+    title: "Financial Goal Calculator",
+    short: "SIP for any goal",
+    blurb:
+      "Calculate the monthly SIP needed to reach any financial goal — ₹1 crore, child education, home down payment — adjusted for inflation.",
+    category: "Investing",
+    region: "IN",
+    live: true,
+    keywords: ["goal calculator", "financial goal calculator", "sip for goal", "1 crore sip calculator", "goal based investing calculator"],
+  },
 ];
 
 export type Region = "USA" | "China" | "India";

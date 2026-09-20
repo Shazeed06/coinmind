@@ -1,123 +1,153 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
-const OG_TITLE = "Privacy Policy - How CoinMind Handles Your Data";
-const OG_DESC =
-  "How CoinMind handles data, cookies and advertising. Our calculators run in your browser and we never store the figures you enter.";
-
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: OG_DESC,
-  alternates: { canonical: "/privacy" },
-  // openGraph is REPLACED, not merged, so a partial object here would delete the
-  // root layout's og:title, og:description, og:image, og:type and og:site_name.
-  openGraph: {
-    title: OG_TITLE,
-    description: OG_DESC,
-    url: "/privacy",
-    type: "website",
-    siteName: site.name,
-    locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: OG_TITLE,
-    description: OG_DESC,
-    images: ["/opengraph-image"],
-  },
+  title: { absolute: `Privacy Policy · ${site.name}` },
+  description: `${site.name}'s privacy policy: what data we collect, how we use it, and your rights. CoinMind calculators run in your browser and never upload your financial data.`,
+  alternates: { canonical: `${site.url}/privacy` },
 };
 
-export default function Page() {
+export default function PrivacyPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Privacy Policy",
-    description:
-      "How CoinMind handles data, cookies and advertising. Our calculators run in your browser and we never store the figures you enter.",
     url: `${site.url}/privacy`,
     publisher: { "@type": "Organization", name: site.name, url: site.url },
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div className="container-main py-24">
+      <div className="max-w-[720px] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
-      <header className="pt-14">
-        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
-          Privacy Policy
-        </h1>
-        <p className="mt-3 text-sm text-ink-faint">Last updated: 14 July 2026</p>
-      </header>
-
-      <div className="article mt-10">
-        <p>
-          This policy explains what information {site.name} collects, how it is
-          used, and the choices you have. By using this website you agree to the
-          practices described here.
+        <h1 className="h1 text-text">Privacy Policy</h1>
+        <p className="body text-text-muted mt-4">
+          Effective date: 1 September 2026. Last updated: September 2026.
         </p>
 
-        <h2>Calculator data stays in your browser</h2>
-        <p>
-          Every calculator on {site.name} runs entirely on your device. The
-          amounts, rates and figures you type are processed in your browser and
-          are never transmitted to or stored on our servers.
-        </p>
+        <div className="mt-12 space-y-10">
+          <section>
+            <h2 className="h3 text-text">The short version</h2>
+            <ul className="mt-3 space-y-2 text-text-muted body">
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> <strong>Your calculator inputs stay in your browser.</strong> We never collect the numbers you enter into any calculator.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We use Google Analytics 4 to understand aggregate traffic. It is anonymised.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We use Google AdSense to serve ads. Google sets cookies for this.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We do not sell your data to anyone.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> You can opt out of analytics cookies at any time.</li>
+            </ul>
+          </section>
 
-        <h2>Information we collect</h2>
-        <p>
-          We collect standard, non-identifying analytics such as pages visited,
-          approximate region, device type and referring site. This helps us
-          understand what&apos;s useful and improve the site. We do not ask you
-          to create an account and we do not sell personal data.
-        </p>
+          <section>
+            <h2 className="h3 text-text">1. What we collect</h2>
 
-        <h2>Cookies and advertising</h2>
-        <p>
-          We use cookies to run the site and to measure traffic. We also display
-          advertising, and our advertising partners (including Google and its
-          AdSense product) may use cookies to serve ads based on your prior
-          visits to this and other websites. You can opt out of personalised
-          advertising through Google&apos;s Ads Settings, and you can control
-          cookies through your browser settings.
-        </p>
+            <h3 className="font-semibold text-text mt-6">Calculator inputs</h3>
+            <p className="body text-text-muted mt-2">
+              All calculations run in your browser using JavaScript. The numbers you enter into calculators are <strong>never sent to our servers</strong>. We have no visibility into what you calculate.
+            </p>
 
-        <h2>Third-party links</h2>
-        <p>
-          Our reviews and guides may link to third-party websites and tools,
-          some through affiliate programmes. We are not responsible for the
-          privacy practices of those sites; please review their policies
-          separately.
-        </p>
+            <h3 className="font-semibold text-text mt-6">Analytics data</h3>
+            <p className="body text-text-muted mt-2">
+              We use Google Analytics 4 (GA4) to collect aggregate, anonymised data about how the site is used: pages visited, approximate location (country/city), device type, referral source and session duration. IP addresses are anonymised. We do not enable user-level tracking.
+            </p>
 
-        <h2>Children&apos;s privacy</h2>
-        <p>
-          {site.name} is intended for adults and is not directed at children
-          under 13. We do not knowingly collect data from children.
-        </p>
+            <h3 className="font-semibold text-text mt-6">Contact form</h3>
+            <p className="body text-text-muted mt-2">
+              If you contact us via the contact form or email, we collect only the information you provide (name, email address, message). We use this solely to respond to your enquiry.
+            </p>
 
-        <h2>Your rights</h2>
-        <p>
-          Depending on where you live, you may have rights to access, correct or
-          delete personal data we hold about you. To make a request, contact us
-          using the details below.
-        </p>
+            <h3 className="font-semibold text-text mt-6">Advertising</h3>
+            <p className="body text-text-muted mt-2">
+              We use Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to this and other websites. You can opt out via Google's ad settings at <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-2">adssettings.google.com</a>.
+            </p>
+          </section>
 
-        <h2>Changes to this policy</h2>
-        <p>
-          We may update this policy from time to time. Material changes will be
-          reflected by the &ldquo;last updated&rdquo; date at the top of this
-          page.
-        </p>
+          <section>
+            <h2 className="h3 text-text">2. How we use data</h2>
+            <ul className="mt-3 space-y-2 text-text-muted body">
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> To understand which pages and tools are used most, so we can improve them.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> To diagnose technical errors (via server logs).</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> To respond to your messages if you contact us.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">✗</span> We do not use data for targeted advertising beyond what Google AdSense does automatically.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">✗</span> We do not sell or share your data with third parties for marketing.</li>
+            </ul>
+          </section>
 
-        <h2>Contact</h2>
-        <p>
-          Questions about privacy? Email <strong>{site.email}</strong> or use
-          our <a href="/contact">contact page</a>.
-        </p>
+          <section>
+            <h2 className="h3 text-text">3. Cookies</h2>
+            <p className="body text-text-muted mt-3">
+              We use the following cookies:
+            </p>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-2 pr-4 text-text font-semibold">Cookie</th>
+                    <th className="text-left py-2 pr-4 text-text font-semibold">Provider</th>
+                    <th className="text-left py-2 text-text font-semibold">Purpose</th>
+                  </tr>
+                </thead>
+                <tbody className="text-text-muted divide-y divide-border">
+                  <tr>
+                    <td className="py-2 pr-4">_ga, _ga_*</td>
+                    <td className="py-2 pr-4">Google Analytics</td>
+                    <td className="py-2">Aggregate, anonymised usage analytics</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 pr-4">IDE, DSID</td>
+                    <td className="py-2 pr-4">Google Ads</td>
+                    <td className="py-2">Ad targeting and measurement (AdSense)</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2 pr-4">cm_cookie_consent</td>
+                    <td className="py-2 pr-4">{site.name}</td>
+                    <td className="py-2">Remembers your cookie preference</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">4. Third-party services</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} uses the following third-party services, each governed by their own privacy policies:
+            </p>
+            <ul className="mt-3 space-y-2 text-text-muted body">
+              <li><strong>Google Analytics 4</strong> — <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><strong>Google AdSense</strong> — <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><strong>Vercel</strong> (hosting) — <a href="https://vercel.com/legal/privacy-policy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">5. Your rights</h2>
+            <p className="body text-text-muted mt-3">
+              You can opt out of analytics cookies using our cookie consent banner. You can also opt out of personalised ads at <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-2">adssettings.google.com</a>.
+            </p>
+            <p className="body text-text-muted mt-3">
+              For any privacy-related enquiry, email us at{" "}
+              <a href={`mailto:${site.email}`} className="text-brand underline underline-offset-2">{site.email}</a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">6. Data retention</h2>
+            <p className="body text-text-muted mt-3">
+              Google Analytics data is retained for 14 months by default. Contact form messages are retained for up to 1 year unless you request deletion.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">7. Changes to this policy</h2>
+            <p className="body text-text-muted mt-3">
+              Material changes will be noted at the top of this page with a new effective date. We will not reduce your rights without notice.
+            </p>
+          </section>
+        </div>
       </div>
     </div>
   );

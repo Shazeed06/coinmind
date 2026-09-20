@@ -98,11 +98,12 @@ export const navMenus: NavMenu[] = [
         ],
       },
       {
-        heading: "Savings and retirement",
+        heading: "Financial planning",
         items: [
-          { label: "FD Calculator", href: "/calculators/fd", desc: "Maturity and interest" },
-          { label: "PPF Calculator", href: "/calculators/ppf", desc: "Tax-free corpus" },
           { label: "Retirement Calculator", href: "/calculators/retirement", desc: "How much you need" },
+          { label: "FIRE Calculator", href: "/calculators/fire", desc: "Retire early planning" },
+          { label: "Net Worth Calculator", href: "/calculators/net-worth", desc: "Know your financial position" },
+          { label: "Goal Calculator", href: "/calculators/goal", desc: "SIP for any target amount" },
         ],
       },
     ],
@@ -210,10 +211,19 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     ],
   },
   {
+    title: "Trust & Transparency",
+    items: [
+      { label: "About the Author", href: "/about/author" },
+      { label: "Editorial Policy", href: "/editorial-policy" },
+      { label: "Financial Review Process", href: "/financial-review-process" },
+      { label: "Official Sources", href: "/sources" },
+      { label: "Affiliate Disclosure", href: "/affiliate-disclosure" },
+    ],
+  },
+  {
     title: "Company",
     items: [
       { label: "About", href: "/about" },
-      { label: "Editorial Standards", href: "/editorial-standards" },
       { label: "Methodology", href: "/methodology" },
       { label: "Corrections", href: "/corrections" },
       { label: "Contact", href: "/contact" },

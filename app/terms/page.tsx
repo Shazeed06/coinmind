@@ -1,122 +1,110 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
-const OG_TITLE = "Terms of Service - Using CoinMind's Calculators & Content";
-const OG_DESC =
-  "The terms and conditions for using CoinMind's free calculators, tools and content: what you can expect from us, and the limits of our educational information.";
-
 export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: OG_DESC,
-  alternates: { canonical: "/terms" },
-  // openGraph is REPLACED, not merged, so a partial object here would delete the
-  // root layout's og:title, og:description, og:image, og:type and og:site_name.
-  openGraph: {
-    title: OG_TITLE,
-    description: OG_DESC,
-    url: "/terms",
-    type: "website",
-    siteName: site.name,
-    locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: OG_TITLE,
-    description: OG_DESC,
-    images: ["/opengraph-image"],
-  },
+  title: { absolute: `Terms of Service · ${site.name}` },
+  description: `${site.name} terms of service. Free to use for educational purposes. Calculators are estimates, not financial advice.`,
+  alternates: { canonical: `${site.url}/terms` },
 };
 
-export default function Page() {
+export default function TermsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Terms of Service",
-    description:
-      "The terms and conditions for using CoinMind's free calculators, tools and content: what you can expect from us, and the limits of our educational information.",
     url: `${site.url}/terms`,
     publisher: { "@type": "Organization", name: site.name, url: site.url },
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div className="container-main py-24">
+      <div className="max-w-[720px] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
-      <header className="pt-14">
-        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
-          Terms of Service
-        </h1>
-        <p className="mt-3 text-sm text-ink-faint">Last updated: 14 July 2026</p>
-      </header>
-
-      <div className="article mt-10">
-        <p>
-          Welcome to {site.name}. By accessing or using this website, you agree
-          to these Terms of Service. If you do not agree, please do not use the
-          site.
+        <h1 className="h1 text-text">Terms of Service</h1>
+        <p className="body text-text-muted mt-4">
+          Effective date: 1 September 2026. By using {site.name}, you agree to these terms.
         </p>
 
-        <h2>Use of the website</h2>
-        <p>
-          {site.name} provides free financial calculators, tool reviews and
-          informational content. You may use the site for your personal,
-          lawful purposes. You agree not to misuse the site, attempt to disrupt
-          it, scrape it at scale, or use it in any way that violates applicable
-          laws.
-        </p>
+        <div className="mt-12 space-y-10">
+          <section>
+            <h2 className="h3 text-text">1. What CoinMind is</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} (coinmind.in) provides free financial calculators, educational guides and tools to help Indian users understand personal finance concepts. We are not a financial adviser, investment firm, bank, broker, insurance company or regulated financial services provider.
+            </p>
+          </section>
 
-        <h2>No professional advice</h2>
-        <p>
-          All content and tools are for information and education only and do not
-          constitute financial, investment, tax or legal advice. Please see our{" "}
-          <a href="/disclaimer">Disclaimer</a> for full details.
-        </p>
+          <section>
+            <h2 className="h3 text-text">2. Educational use only</h2>
+            <p className="body text-text-muted mt-3">
+              All content, calculators and tools on {site.name} are for <strong>educational and informational purposes only</strong>. They do not constitute financial, investment, tax, legal or professional advice of any kind. Calculator outputs are estimates based on stated formulas and assumptions. They may not reflect your actual financial situation.
+            </p>
+            <p className="body text-text-muted mt-3">
+              For decisions that materially affect your finances, consult a qualified professional. See our full <Link href="/disclaimer" className="text-brand underline underline-offset-2">disclaimer</Link>.
+            </p>
+          </section>
 
-        <h2>Intellectual property</h2>
-        <p>
-          The content, design, calculators and branding on this site are owned by
-          {" "}
-          {site.name} unless otherwise stated, and are protected by applicable
-          laws. You may share links to our pages, but you may not copy, reproduce
-          or republish substantial content without permission.
-        </p>
+          <section>
+            <h2 className="h3 text-text">3. No warranties</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} is provided "as is" without warranties of any kind, express or implied. We do not warrant that the site will be uninterrupted, error-free or that calculator outputs will match your actual financial results. Financial rules change; while we update calculators promptly, there may be brief periods where a rate or rule is outdated.
+            </p>
+          </section>
 
-        <h2>Third-party links and ads</h2>
-        <p>
-          This site may display advertising and contain links to third-party
-          websites, including affiliate links. We are not responsible for the
-          content, products or practices of third parties. Advertising is served
-          by partners such as Google, subject to their own terms and policies.
-        </p>
+          <section>
+            <h2 className="h3 text-text">4. Limitation of liability</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} and its operators shall not be liable for any financial loss, investment decision, tax filing, or any other consequence arising from the use of our calculators, guides or any other content. Use this site at your own risk.
+            </p>
+          </section>
 
-        <h2>Availability</h2>
-        <p>
-          We aim to keep the site available and accurate but provide it &ldquo;as
-          is&rdquo; without warranties of any kind. We may update, change or
-          remove features at any time without notice.
-        </p>
+          <section>
+            <h2 className="h3 text-text">5. Intellectual property</h2>
+            <p className="body text-text-muted mt-3">
+              All original content on {site.name} (articles, guides, tool interfaces) is owned by CoinMind. You may share links to our pages freely. You may not reproduce our content wholesale without permission.
+            </p>
+          </section>
 
-        <h2>Limitation of liability</h2>
-        <p>
-          To the fullest extent permitted by law, {site.name} shall not be liable
-          for any direct, indirect or consequential loss arising from your use of
-          the site or reliance on its content or tools.
-        </p>
+          <section>
+            <h2 className="h3 text-text">6. Advertising and affiliates</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} shows Google AdSense advertisements and contains occasional affiliate links. Our editorial content is not influenced by advertising. See our <Link href="/affiliate-disclosure" className="text-brand underline underline-offset-2">affiliate disclosure</Link>.
+            </p>
+          </section>
 
-        <h2>Changes to these terms</h2>
-        <p>
-          We may revise these terms from time to time. Continued use of the site
-          after changes means you accept the updated terms.
-        </p>
+          <section>
+            <h2 className="h3 text-text">7. Embeddable widgets</h2>
+            <p className="body text-text-muted mt-3">
+              Calculators made available as embeddable widgets may be embedded on third-party websites for free, with attribution to {site.name} as stated on our <Link href="/widgets" className="text-brand underline underline-offset-2">widgets page</Link>. Attribution must not be removed or obscured.
+            </p>
+          </section>
 
-        <h2>Contact</h2>
-        <p>
-          Questions about these terms? Email <strong>{site.email}</strong>.
-        </p>
+          <section>
+            <h2 className="h3 text-text">8. Governing law</h2>
+            <p className="body text-text-muted mt-3">
+              These terms are governed by the laws of India. Any disputes shall be subject to the jurisdiction of the courts of India.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">9. Changes</h2>
+            <p className="body text-text-muted mt-3">
+              We may update these terms. Material changes will be noted with a new effective date. Continued use of the site after changes constitutes acceptance.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">Contact</h2>
+            <p className="body text-text-muted mt-3">
+              For questions:{" "}
+              <a href={`mailto:${site.email}`} className="text-brand underline underline-offset-2">{site.email}</a>
+            </p>
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -1,119 +1,100 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
-const OG_TITLE = "Disclaimer - Educational Information, Not Financial Advice";
-const OG_DESC =
-  "CoinMind provides educational information and free tools only, not financial, investment, tax or legal advice. Read our full disclaimer.";
-
 export const metadata: Metadata = {
-  title: "Disclaimer",
-  description: OG_DESC,
-  alternates: { canonical: "/disclaimer" },
-  // openGraph is REPLACED, not merged, so a partial object here would delete the
-  // root layout's og:title, og:description, og:image, og:type and og:site_name.
-  openGraph: {
-    title: OG_TITLE,
-    description: OG_DESC,
-    url: "/disclaimer",
-    type: "website",
-    siteName: site.name,
-    locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: OG_TITLE,
-    description: OG_DESC,
-    images: ["/opengraph-image"],
-  },
+  title: { absolute: `Disclaimer · ${site.name}` },
+  description: `${site.name} is an educational finance tool site. Calculators provide estimates, not financial advice. Not SEBI registered.`,
+  alternates: { canonical: `${site.url}/disclaimer` },
 };
 
-export default function Page() {
+export default function DisclaimerPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Disclaimer",
-    description:
-      "CoinMind provides educational information and free tools only, not financial, investment, tax or legal advice. Read our full disclaimer.",
     url: `${site.url}/disclaimer`,
     publisher: { "@type": "Organization", name: site.name, url: site.url },
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div className="container-main py-24">
+      <div className="max-w-[720px] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
-      <header className="pt-14">
-        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
-          Disclaimer
-        </h1>
-        <p className="mt-3 text-sm text-ink-faint">Last updated: 14 July 2026</p>
-      </header>
-
-      <div className="article mt-10">
-        <h2>Educational information only</h2>
-        <p>
-          The content, calculators and tools on {site.name} are provided for
-          general information and educational purposes only. Nothing on this
-          website constitutes financial, investment, tax, legal or professional
-          advice, and it should not be relied upon as such.
+        <h1 className="h1 text-text">Disclaimer</h1>
+        <p className="body text-text-muted mt-4">
+          Please read this disclaimer carefully before using {site.name}.
         </p>
 
-        <h2>Not a financial adviser</h2>
-        <p>
-          {site.name} is not a registered investment adviser, broker, tax
-          consultant or financial institution, and we are not registered with or
-          regulated by SEBI, RBI, IRDAI, the SEC, the FCA or any other financial
-          authority. We do not recommend specific investments, securities, loans
-          or products. Before making any financial decision, please consult a
-          qualified, licensed professional who can consider your personal
-          circumstances.
-        </p>
+        <div className="mt-8 p-5 rounded-card bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900">
+          <p className="font-semibold text-amber-900 dark:text-amber-200">
+            {site.name} is not a SEBI-registered investment adviser, broker, bank or regulated financial services provider.
+          </p>
+          <p className="mt-2 text-sm text-amber-800 dark:text-amber-300">
+            Nothing on this website constitutes financial, investment, tax, legal or professional advice.
+          </p>
+        </div>
 
-        <h2>Calculators are estimates</h2>
-        <p>
-          Our calculators use standard formulas and the assumptions you enter.
-          Results are illustrative estimates, not guarantees or promises of any
-          outcome. Real returns, interest, taxes and charges depend on factors
-          outside our control and may differ significantly. Tax rules and
-          government rates change; always verify current figures with official
-          sources before acting.
-        </p>
+        <div className="mt-12 space-y-10">
+          <section>
+            <h2 className="h3 text-text">Educational purpose</h2>
+            <p className="body text-text-muted mt-3">
+              All calculators, guides, articles and tools on {site.name} are provided for <strong>educational and informational purposes only</strong>. They are designed to help you understand financial concepts, not to replace professional advice.
+            </p>
+          </section>
 
-        <h2>Investments carry risk</h2>
-        <p>
-          Investments in mutual funds, stocks, crypto and other market
-          instruments are subject to market risk. Past performance is not
-          indicative of future results, and you may get back less than you
-          invested. You are solely responsible for your own financial decisions.
-        </p>
+          <section>
+            <h2 className="h3 text-text">Calculator outputs are estimates</h2>
+            <p className="body text-text-muted mt-3">
+              Calculator results are mathematical estimates based on the formula, assumptions and inputs shown. They are not forecasts, guarantees or predictions of actual financial outcomes. Real-world results will differ due to market volatility, changing interest rates, regulatory changes, fees, taxes and individual circumstances.
+            </p>
+            <ul className="mt-3 space-y-2 text-text-muted body">
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> SIP projections assume constant returns. Actual mutual fund returns vary and are not guaranteed.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> Tax calculations are illustrative. Your actual tax depends on your full income, all deductions, and may require professional computation.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> Interest rate-based calculators use publicly available rates that may change.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> Retirement and inflation projections depend on long-term assumptions that will not hold exactly.</li>
+            </ul>
+          </section>
 
-        <h2>Third-party tools and links</h2>
-        <p>
-          Reviews of AI tools and any third-party links, including affiliate
-          links, are based on our own opinion and research. We do not control and
-          are not responsible for third-party products, pricing or content.
-          Pricing shown is indicative and may change. Always confirm on the
-          official website.
-        </p>
+          <section>
+            <h2 className="h3 text-text">No investment advice</h2>
+            <p className="body text-text-muted mt-3">
+              Nothing on {site.name} should be interpreted as a recommendation to buy, sell or hold any specific financial product, security, mutual fund, insurance policy or investment. We do not recommend specific funds, stocks or financial products.
+            </p>
+          </section>
 
-        <h2>Accuracy and liability</h2>
-        <p>
-          While we work hard to keep information accurate and up to date, we make
-          no warranties about its completeness, reliability or accuracy. To the
-          fullest extent permitted by law, {site.name} accepts no liability for
-          any loss or damage arising from your use of, or reliance on, this
-          website or its tools.
-        </p>
+          <section>
+            <h2 className="h3 text-text">Past performance is not indicative of future results</h2>
+            <p className="body text-text-muted mt-3">
+              Any historical returns, rates or figures used in illustrations are informational only. Past performance of any investment is not a reliable indicator of future results.
+            </p>
+          </section>
 
-        <h2>Questions</h2>
-        <p>
-          If anything here is unclear, contact us at{" "}
-          <strong>{site.email}</strong>.
-        </p>
+          <section>
+            <h2 className="h3 text-text">Consult a professional</h2>
+            <p className="body text-text-muted mt-3">
+              For decisions that materially affect your finances — tax filing, investment allocation, insurance selection, retirement planning or loan structuring — consult a qualified professional: a SEBI-registered investment adviser, a Chartered Accountant, or another licensed financial professional.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">No liability</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} and its operators are not liable for any financial loss, missed opportunity or other consequences arising from reliance on the information or tools on this site. Use the site at your own risk.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">Accuracy</h2>
+            <p className="body text-text-muted mt-3">
+              We work hard to keep our calculators and guides accurate. However, financial rules change frequently. While we update after every relevant regulatory change, there may be brief periods where a rate or rule is not yet updated. Always verify current rates and rules with the official source before making financial decisions. See our <Link href="/sources" className="text-brand underline underline-offset-2">official sources</Link> page.
+            </p>
+          </section>
+        </div>
       </div>
     </div>
   );

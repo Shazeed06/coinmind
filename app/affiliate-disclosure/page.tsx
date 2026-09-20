@@ -2,31 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-const OG_TITLE = "Affiliate Disclosure - How CoinMind Makes Money";
-const OG_DESC =
-  "How CoinMind uses affiliate links: they are clearly marked, we may earn a commission at no cost to you, and they never affect our tools or recommendations.";
-
 export const metadata: Metadata = {
-  title: { absolute: "Affiliate Disclosure · CoinMind" },
-  description: OG_DESC,
-  alternates: { canonical: "/affiliate-disclosure" },
-  // openGraph is REPLACED, not merged, so a partial object here would delete the
-  // root layout's og:title, og:description, og:image, og:type and og:site_name.
-  openGraph: {
-    title: OG_TITLE,
-    description: OG_DESC,
-    url: "/affiliate-disclosure",
-    type: "website",
-    siteName: site.name,
-    locale: "en_IN",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: OG_TITLE }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: OG_TITLE,
-    description: OG_DESC,
-    images: ["/opengraph-image"],
-  },
+  title: { absolute: `Affiliate Disclosure · ${site.name}` },
+  description: `How ${site.name} handles affiliate relationships. We earn commissions on some links at no extra cost to you. Affiliates never influence our editorial content.`,
+  alternates: { canonical: `${site.url}/affiliate-disclosure` },
 };
 
 export default function AffiliateDisclosurePage() {
@@ -34,88 +13,78 @@ export default function AffiliateDisclosurePage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Affiliate Disclosure",
-    description:
-      "How CoinMind uses affiliate links: they are clearly marked, we may earn a commission at no cost to you, and they never affect our tools or recommendations.",
     url: `${site.url}/affiliate-disclosure`,
     publisher: { "@type": "Organization", name: site.name, url: site.url },
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div className="container-main py-24">
+      <div className="max-w-[720px] mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
-      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">
-        <Link href="/" className="hover:text-forest">Home</Link>
-        <span>/</span>
-        <span className="text-ink">Affiliate disclosure</span>
-      </nav>
-
-      <header className="mt-6">
-        <h1 className="font-display text-4xl sm:text-5xl text-ink leading-[1.05]">
-          Affiliate disclosure
-        </h1>
-        <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-          Being upfront about how {site.name} makes money is part of earning your
-          trust. Here is exactly how affiliate links work on this site.
-        </p>
-      </header>
-
-      <article className="article mt-10">
-        <h2>What affiliate links are</h2>
-        <p>
-          Some links on {site.name} are affiliate (partner) links. If you click
-          one and then sign up for or buy a product (for example, opening a
-          demat account, applying for a credit card, or comparing a loan or
-          insurance plan), we may earn a small commission. This comes from the
-          company, not from you: <strong>you never pay anything extra</strong>,
-          and often you get the same or a better deal.
+        <h1 className="h1 text-text">Affiliate Disclosure</h1>
+        <p className="body text-text-muted mt-4">
+          {site.name} is free to use and will always remain free. This page explains how we fund the site and how our commercial relationships work.
         </p>
 
-        <h2>How we keep it honest</h2>
-        <p>
-          Affiliate links are always clearly labelled as a &ldquo;partner
-          offer&rdquo; or &ldquo;partner link,&rdquo; and they carry the proper{" "}
-          <code>rel=&quot;sponsored&quot;</code> tag. We only ever suggest a
-          product that is genuinely relevant to the page you are on. Most
-          importantly, our calculators, tools and written recommendations are{" "}
-          <strong>never influenced by commissions</strong>. The maths is the
-          maths, and our reviews are based on merit. If a product is worse, we
-          will say so, commission or not. You can read more about how we work in
-          our{" "}
-          <Link href="/editorial-standards" className="text-forest underline underline-offset-2">
-            editorial standards
-          </Link>
-          .
-        </p>
+        <div className="mt-12 space-y-10">
+          <section>
+            <h2 className="h3 text-text">How we make money</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} earns revenue through two mechanisms:
+            </p>
+            <ul className="mt-3 space-y-2 text-text-muted body">
+              <li className="flex items-start gap-2">
+                <span className="text-brand shrink-0">1.</span>
+                <div>
+                  <strong className="text-text">Google AdSense:</strong> Advertisements displayed by Google on our pages. We earn a small fee based on impressions and clicks.
+                </div>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-brand shrink-0">2.</span>
+                <div>
+                  <strong className="text-text">Affiliate links:</strong> On some pages we include links to third-party financial products or services. If you click a link and make a purchase or sign up, we may earn a commission. This comes at no extra cost to you.
+                </div>
+              </li>
+            </ul>
+          </section>
 
-        <h2>Not financial advice</h2>
-        <p>
-          A partner link is a convenience, not a recommendation to buy. Whether a
-          demat account, loan, card or insurance policy is right for you depends
-          on your own situation. Everything on {site.name} is educational
-          information, not personalised financial advice. Please compare options
-          and read the terms before signing up. See our full{" "}
-          <Link href="/disclaimer" className="text-forest underline underline-offset-2">disclaimer</Link>.
-        </p>
+          <section>
+            <h2 className="h3 text-text">How affiliates do NOT influence our content</h2>
+            <ul className="mt-3 space-y-2 text-text-muted body">
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">✗</span> We do not accept payment for editorial coverage, reviews or placement in our calculators or guides.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">✗</span> We do not rank or recommend products based on commission rate.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">✗</span> We do not allow advertisers or affiliate partners to review or approve content before publication.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">✗</span> We do not change our calculator results or recommendations because of an affiliate relationship.</li>
+            </ul>
+          </section>
 
-        <h2>Why we use them</h2>
-        <p>
-          {site.name} is free to use with no sign-up. Advertising and affiliate
-          commissions are what keep it that way and pay for building new
-          calculators and tools. If you find the site useful and choose to use a
-          partner link, it genuinely helps, thank you.
-        </p>
+          <section>
+            <h2 className="h3 text-text">How we mark affiliate links</h2>
+            <p className="body text-text-muted mt-3">
+              Affiliate links on {site.name} are marked with an asterisk (*) or a disclosure note near the link. We comply with applicable advertising disclosure requirements.
+            </p>
+          </section>
 
-        <h2>Questions</h2>
-        <p>
-          If anything here is unclear, email us at{" "}
-          <a href={`mailto:${site.email}`} className="text-forest underline underline-offset-2">{site.email}</a>.
-        </p>
-      </article>
-      <div className="mb-12" />
+          <section>
+            <h2 className="h3 text-text">What we are not</h2>
+            <p className="body text-text-muted mt-3">
+              {site.name} is not a financial adviser, broker or regulated financial service. Our affiliate links are to third-party products or services — we do not recommend any specific financial product as suitable for your personal situation. See our full <Link href="/disclaimer" className="text-brand underline underline-offset-2">disclaimer</Link>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="h3 text-text">Questions</h2>
+            <p className="body text-text-muted mt-3">
+              If you have questions about our commercial relationships or suspect a conflict of interest in any content, email us at{" "}
+              <a href={`mailto:${site.email}`} className="text-brand underline underline-offset-2">{site.email}</a>.
+            </p>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }
