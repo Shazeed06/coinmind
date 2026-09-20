@@ -3,56 +3,128 @@
 import Link from "next/link";
 import { useState } from "react";
 import { site, footerNav } from "@/lib/site";
-import { ChevronDown } from "lucide-react";
-import Logo from "./Logo";
+import { ChevronDown, Shield, ExternalLink } from "lucide-react";
+import Logo, { LogoMark } from "./Logo";
 
 export default function Footer() {
   const [openCol, setOpenCol] = useState<number | null>(null);
 
   return (
-    <footer className="border-t border-border bg-bg-alt">
-      <div className="container-main py-16 lg:py-24">
-        <div className="grid gap-8 lg:grid-cols-5">
-          <div className="lg:col-span-1 text-center lg:text-left">
-            <span className="inline-flex justify-center lg:justify-start"><Logo /></span>
-            <p className="mt-4 small text-text-muted leading-relaxed">
-              {site.tagline}. Free calculators, tools and guides. No sign-up.
-            </p>
-            {/* Full-strength muted, not /70: at 12px the faded variant measured
-                3.53:1, under the 4.5:1 AA floor for a line of real prose. */}
-            <p className="mt-3 text-xs text-text-muted">Educational only, not financial advice.</p>
-            <div className="mt-4 flex justify-center lg:justify-start gap-4">
-              <a href={site.social.twitter} target="_blank" rel="noopener noreferrer" className="small text-text-muted hover:text-brand transition-colors" aria-label="Follow CoinMind on X">X / Twitter</a>
-              <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" className="small text-text-muted hover:text-brand transition-colors" aria-label="Follow CoinMind on LinkedIn">LinkedIn</a>
+    <footer className="bg-[#0c1628] text-white">
+      {/* Top gradient border */}
+      <div className="h-[3px] bg-gradient-to-r from-brand via-accent to-brand" />
+
+      {/* Main content */}
+      <div className="container-main py-14 lg:py-20">
+
+        {/* Brand + links grid */}
+        <div className="grid gap-10 lg:grid-cols-6">
+
+          {/* Brand column */}
+          <div className="lg:col-span-2 flex flex-col gap-5">
+            <div>
+              {/* White-friendly logo version */}
+              <span className="inline-flex items-center gap-2.5">
+                <LogoMark className="h-9 w-9 shrink-0" />
+                <span className="text-[1.4rem] font-700 tracking-tight lowercase leading-none">
+                  <span className="text-[#6b9cff]">coin</span>
+                  <span className="text-[#4ade80]">mind</span>
+                </span>
+              </span>
+              <p className="mt-3 text-sm text-slate-400 leading-relaxed max-w-[280px]">
+                {site.tagline}. Free calculators, guides and tools for every Indian financial decision.
+              </p>
             </div>
-          </div>
-          {footerNav.map((col, i) => (
-            <div key={col.title} className="border-t border-border/60 pt-4 lg:border-0 lg:pt-0">
-              <button
-                onClick={() => setOpenCol(openCol === i ? null : i)}
-                aria-expanded={openCol === i}
-                // py-3.5 on mobile gives a ~44px tap target for the accordion
-                // header. On lg it is a static label, so the tighter py-1 is fine.
-                className="lg:cursor-default w-full text-left lg:text-left flex items-center justify-between py-3.5 lg:py-1 text-xs font-semibold uppercase tracking-wider text-text-muted lg:pointer-events-none"
+
+            {/* Trust badge */}
+            <div className="inline-flex items-center gap-2 self-start rounded-full border border-[#1e3a5f] bg-[#0f2040] px-3 py-1.5">
+              <Shield className="h-3.5 w-3.5 text-[#4ade80] shrink-0" />
+              <span className="text-xs text-slate-400">No sign-up &nbsp;·&nbsp; No data stored &nbsp;·&nbsp; Always free</span>
+            </div>
+
+            {/* Social links */}
+            <div className="flex gap-2">
+              <a
+                href={site.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow CoinMind on X"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-3 py-2 text-xs font-medium text-slate-400 hover:text-white hover:border-slate-500 transition-all duration-150"
               >
-                {col.title}
-                <ChevronDown className={`h-3.5 w-3.5 lg:hidden transition-transform ${openCol === i ? "rotate-180" : ""}`} />
-              </button>
-              <ul className={`mt-4 space-y-3 text-center lg:text-left ${openCol === i ? "block" : "hidden lg:block"}`}>
-                {col.items.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="small text-text-muted hover:text-brand transition-colors">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                𝕏 &nbsp;Twitter
+              </a>
+              <a
+                href={site.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow CoinMind on LinkedIn"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-3 py-2 text-xs font-medium text-slate-400 hover:text-white hover:border-slate-500 transition-all duration-150"
+              >
+                <ExternalLink className="h-3 w-3" />
+                LinkedIn
+              </a>
             </div>
-          ))}
+
+            <p className="text-xs text-slate-600">Educational only — not financial advice.</p>
+          </div>
+
+          {/* Nav link columns */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+            {footerNav.map((col, i) => (
+              <div key={col.title}>
+                {/* Mobile accordion toggle */}
+                <button
+                  onClick={() => setOpenCol(openCol === i ? null : i)}
+                  aria-expanded={openCol === i}
+                  className="lg:cursor-default w-full text-left flex items-center justify-between mb-3 lg:pointer-events-none"
+                >
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">
+                    {col.title}
+                  </span>
+                  <ChevronDown
+                    className={`h-3.5 w-3.5 text-slate-600 lg:hidden transition-transform duration-200 ${openCol === i ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <ul className={`space-y-2.5 ${openCol === i ? "block" : "hidden lg:block"}`}>
+                  {col.items.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="text-sm text-slate-400 hover:text-white transition-colors duration-150"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-12 lg:mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted text-center sm:text-left">
-          <p>&copy; 2026 {site.name}. All rights reserved.</p>
-          <Link href="/sitemap.xml" className="inline-block py-2 hover:text-brand transition-colors">Sitemap</Link>
+
+        {/* Bottom bar */}
+        <div className="mt-14 pt-6 border-t border-[#1a2e4a] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-xs text-slate-600">
+            <span>&copy; 2026 {site.name}. All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-700">·</span>
+            <span className="hidden sm:inline">Built for India 🇮🇳</span>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            {[
+              { label: "Privacy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
+              { label: "Disclaimer", href: "/disclaimer" },
+              { label: "Sitemap", href: "/sitemap.xml" },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-xs text-slate-600 hover:text-slate-400 transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
