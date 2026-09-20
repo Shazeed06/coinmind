@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { calculators, type Calculator as CalcType } from "@/lib/data";
-import { Calculator, ArrowRight, Search } from "lucide-react";
-import { Pill } from "@/components/ui";
+import { Calculator, ArrowRight, Search, Shield, Zap } from "lucide-react";
 import { EmptyState } from "@/components/ui";
 
 // Only calculators that actually have a page. The retired medical ones are
@@ -63,22 +62,39 @@ export default function Page() {
 
   return (
     <div>
-      <section className="section-pad bg-white">
-        <div className="container-main">
-          <Pill>Calculators</Pill>
-          <h1 className="h1 text-text mt-3">
-            {LIVE.length} Free Financial Calculators
+      {/* Dark premium hero */}
+      <section className="bg-[#0c1628] text-white">
+        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
+        <div className="container-main py-14 sm:py-18">
+          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/20 rounded-full px-3 py-1 mb-4">
+            Free Calculators
+          </span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-[720px] leading-tight">
+            {LIVE.length}+ Free Financial Calculators for India
           </h1>
-          <p className="body text-text-muted mt-3 max-w-[640px]">
-            Free, private and instant financial calculators for India: SIP, EMI, income tax, FD, PPF, NPS,
-            retirement, GST and more. Every calculator runs entirely in your browser, so the numbers you
-            enter are never uploaded or stored. Results support INR, USD and GBP, and each tool shows the
-            formula behind the answer. No sign-up required.
+          <p className="mt-4 text-slate-400 max-w-[600px] leading-relaxed">
+            SIP, EMI, income tax, FD, PPF, NPS, retirement, GST and more. Every calculator runs entirely in your browser — no sign-up, no data stored.
           </p>
+
+          {/* Trust stats */}
+          <div className="flex flex-wrap gap-6 mt-8">
+            {[
+              { icon: <Zap className="h-4 w-4 text-[#4ade80]" />, value: `${LIVE.length}+`, label: "Calculators" },
+              { icon: <Shield className="h-4 w-4 text-[#4ade80]" />, value: "100%", label: "Free forever" },
+              { icon: <Shield className="h-4 w-4 text-[#4ade80]" />, value: "0", label: "Sign-ups needed" },
+              { icon: <Shield className="h-4 w-4 text-[#4ade80]" />, value: "0", label: "Data uploaded" },
+            ].map((s) => (
+              <div key={s.label} className="flex items-center gap-2">
+                {s.icon}
+                <span className="text-xl font-bold text-white">{s.value}</span>
+                <span className="text-slate-400 text-sm">{s.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <div className="sticky top-16 sm:top-20 z-40 bg-white/80 backdrop-blur-md border-b border-border">
+      <div className="sticky top-16 sm:top-[68px] z-40 bg-white/95 backdrop-blur-md border-b border-border shadow-sm">
         <div className="container-main py-3 space-y-2">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted" />
@@ -167,11 +183,29 @@ export default function Page() {
                       <div className={`grid sm:grid-cols-2 gap-6 ${cols === 3 ? "lg:grid-cols-3" : ""}`}>
                         {(items.length > cols ? padRow(items, cols) : items).map((c, i) => {
                           if (!c) return <div key={`spacer-${i}`} className="hidden sm:block" />;
+                          const catAccent: Record<string, string> = {
+                            Investing: "from-[#2f5bea]/15 to-[#2f5bea]/5 border-[#2f5bea]/20",
+                            Tax: "from-[#16a34a]/15 to-[#16a34a]/5 border-[#16a34a]/20",
+                            Loans: "from-amber-500/15 to-amber-500/5 border-amber-500/20",
+                            Savings: "from-violet-500/15 to-violet-500/5 border-violet-500/20",
+                            Utility: "from-slate-400/15 to-slate-400/5 border-slate-400/20",
+                          };
+                          const iconColor: Record<string, string> = {
+                            Investing: "text-[#2f5bea]",
+                            Tax: "text-[#16a34a]",
+                            Loans: "text-amber-500",
+                            Savings: "text-violet-500",
+                            Utility: "text-slate-500",
+                          };
                           const inner = (
                             <>
                               <div className="flex items-start justify-between">
-                                <Calculator className="h-10 w-10 text-brand" />
-                                <Pill>{c.region === "IN" ? "India" : "Global"}</Pill>
+                                <div className={`h-11 w-11 rounded-xl bg-gradient-to-br ${catAccent[c.category] ?? "from-brand/15 to-brand/5 border-brand/20"} border flex items-center justify-center`}>
+                                  <Calculator className={`h-5 w-5 ${iconColor[c.category] ?? "text-brand"}`} />
+                                </div>
+                                <span className="text-[10px] font-semibold text-text-muted border border-border rounded-full px-2 py-0.5">
+                                  {c.region === "IN" ? "India" : "Global"}
+                                </span>
                               </div>
                               <div className="card-body mt-3">
                                 <h3 className="text-base font-semibold text-text">{c.title}</h3>
@@ -179,7 +213,7 @@ export default function Page() {
                               </div>
                               <div className="card-footer">
                                 {c.live ? (
-                                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand">
+                                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand group-hover:gap-2 transition-all">
                                     Open <ArrowRight className="h-4 w-4" />
                                   </span>
                                 ) : (

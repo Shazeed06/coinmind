@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { LegalPage } from "@/components/LegalPage";
+import { Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: { absolute: `Privacy Policy · ${site.name}` },
@@ -17,19 +19,16 @@ export default function PrivacyPage() {
   };
 
   return (
-    <div className="container-main py-24">
-      <div className="max-w-[720px] mx-auto">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <h1 className="h1 text-text">Privacy Policy</h1>
-        <p className="body text-text-muted mt-4">
-          Effective date: 1 September 2026. Last updated: September 2026.
-        </p>
-
-        <div className="mt-12 space-y-10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LegalPage
+        pill="Privacy Policy"
+        title="Privacy Policy"
+        subtitle="Your calculator inputs stay in your browser — we never upload the numbers you enter. Here's exactly what we do and don't collect."
+        lastUpdated="September 2026"
+        icon={<Shield className="h-6 w-6 text-[#4ade80]" />}
+      >
+        <div className="space-y-10">
           <section>
             <h2 className="h3 text-text">The short version</h2>
             <ul className="mt-3 space-y-2 text-text-muted body">
@@ -148,7 +147,7 @@ export default function PrivacyPage() {
             </p>
           </section>
         </div>
-      </div>
-    </div>
+      </LegalPage>
+    </>
   );
 }

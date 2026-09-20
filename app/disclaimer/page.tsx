@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { LegalPage } from "@/components/LegalPage";
+import { AlertCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: { absolute: `Disclaimer · ${site.name}` },
@@ -18,28 +20,24 @@ export default function DisclaimerPage() {
   };
 
   return (
-    <div className="container-main py-24">
-      <div className="max-w-[720px] mx-auto">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <h1 className="h1 text-text">Disclaimer</h1>
-        <p className="body text-text-muted mt-4">
-          Please read this disclaimer carefully before using {site.name}.
-        </p>
-
-        <div className="mt-8 p-5 rounded-card bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900">
-          <p className="font-semibold text-amber-900 dark:text-amber-200">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LegalPage
+        pill="Disclaimer"
+        title="Disclaimer"
+        subtitle={`${site.name} is not a SEBI-registered investment adviser. Calculators are educational estimates — not financial, tax or investment advice.`}
+        icon={<AlertCircle className="h-6 w-6 text-amber-400" />}
+      >
+        <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200">
+          <p className="font-semibold text-amber-900">
             {site.name} is not a SEBI-registered investment adviser, broker, bank or regulated financial services provider.
           </p>
-          <p className="mt-2 text-sm text-amber-800 dark:text-amber-300">
+          <p className="mt-1 text-sm text-amber-800">
             Nothing on this website constitutes financial, investment, tax, legal or professional advice.
           </p>
         </div>
 
-        <div className="mt-12 space-y-10">
+        <div className="space-y-10">
           <section>
             <h2 className="h3 text-text">Educational purpose</h2>
             <p className="body text-text-muted mt-3">
@@ -95,7 +93,7 @@ export default function DisclaimerPage() {
             </p>
           </section>
         </div>
-      </div>
-    </div>
+      </LegalPage>
+    </>
   );
 }

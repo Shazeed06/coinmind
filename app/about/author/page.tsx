@@ -68,10 +68,12 @@ export default function AuthorPage() {
             </div>
 
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                {site.author.fullName}
+              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                <span className="bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
+                  {site.author.fullName}
+                </span>
               </h1>
-              <p className="text-[#6b9cff] font-medium mt-1">{site.author.role}, CoinMind</p>
+              <p className="text-[#6b9cff] font-semibold mt-2 text-lg">{site.author.role}, CoinMind</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1e3a5f] bg-[#0f2040] px-3 py-1 text-xs text-slate-400">
                   <Shield className="h-3 w-3 text-[#4ade80]" />

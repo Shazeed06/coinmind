@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { LegalPage } from "@/components/LegalPage";
+import { ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
   title: { absolute: `Affiliate Disclosure · ${site.name}` },
@@ -18,19 +20,15 @@ export default function AffiliateDisclosurePage() {
   };
 
   return (
-    <div className="container-main py-24">
-      <div className="max-w-[720px] mx-auto">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <h1 className="h1 text-text">Affiliate Disclosure</h1>
-        <p className="body text-text-muted mt-4">
-          {site.name} is free to use and will always remain free. This page explains how we fund the site and how our commercial relationships work.
-        </p>
-
-        <div className="mt-12 space-y-10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LegalPage
+        pill="Affiliate Disclosure"
+        title="Affiliate Disclosure"
+        subtitle={`${site.name} is free to use and will always remain free. This page explains how we fund the site — and how our commercial relationships never influence our content.`}
+        icon={<ExternalLink className="h-6 w-6 text-[#6b9cff]" />}
+      >
+        <div className="space-y-10">
           <section>
             <h2 className="h3 text-text">How we make money</h2>
             <p className="body text-text-muted mt-3">
@@ -84,7 +82,7 @@ export default function AffiliateDisclosurePage() {
             </p>
           </section>
         </div>
-      </div>
-    </div>
+      </LegalPage>
+    </>
   );
 }

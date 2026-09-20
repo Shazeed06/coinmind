@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { LegalPage } from "@/components/LegalPage";
+import { BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: { absolute: `Editorial Policy · ${site.name}` },
@@ -18,19 +20,16 @@ export default function EditorialPolicyPage() {
   };
 
   return (
-    <div className="container-main py-24">
-      <div className="max-w-[720px] mx-auto">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <h1 className="h1 text-text">Editorial Policy</h1>
-        <p className="body text-text-muted mt-4">
-          Last updated: September 2026. This policy explains how {site.name} creates, reviews and maintains its calculators, guides and data.
-        </p>
-
-        <div className="mt-12 space-y-10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LegalPage
+        pill="Editorial Policy"
+        title="Editorial Policy"
+        subtitle={`How ${site.name} researches, writes, reviews and updates every calculator and guide. Every formula is documented; every source is cited.`}
+        lastUpdated="September 2026"
+        icon={<BookOpen className="h-6 w-6 text-[#4ade80]" />}
+      >
+        <div className="space-y-10">
           <section>
             <h2 className="h3 text-text">Our editorial mission</h2>
             <p className="body text-text-muted mt-3">
@@ -115,7 +114,7 @@ export default function EditorialPolicyPage() {
             </ul>
           </section>
         </div>
-      </div>
-    </div>
+      </LegalPage>
+    </>
   );
 }

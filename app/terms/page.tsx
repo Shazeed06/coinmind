@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { LegalPage } from "@/components/LegalPage";
+import { FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: { absolute: `Terms of Service · ${site.name}` },
@@ -18,19 +20,16 @@ export default function TermsPage() {
   };
 
   return (
-    <div className="container-main py-24">
-      <div className="max-w-[720px] mx-auto">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <h1 className="h1 text-text">Terms of Service</h1>
-        <p className="body text-text-muted mt-4">
-          Effective date: 1 September 2026. By using {site.name}, you agree to these terms.
-        </p>
-
-        <div className="mt-12 space-y-10">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <LegalPage
+        pill="Terms of Service"
+        title="Terms of Service"
+        subtitle={`Effective date: 1 September 2026. ${site.name} is free for educational use — calculators are estimates, not financial advice.`}
+        lastUpdated="September 2026"
+        icon={<FileText className="h-6 w-6 text-[#6b9cff]" />}
+      >
+        <div className="space-y-10">
           <section>
             <h2 className="h3 text-text">1. What CoinMind is</h2>
             <p className="body text-text-muted mt-3">
@@ -105,7 +104,7 @@ export default function TermsPage() {
             </p>
           </section>
         </div>
-      </div>
-    </div>
+      </LegalPage>
+    </>
   );
 }
