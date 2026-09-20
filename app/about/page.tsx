@@ -25,13 +25,22 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Dark hero */}
-      <section className="bg-[#0c1628] text-white">
+      <section className="relative bg-[#0c1628] overflow-hidden">
         <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
-        <div className="container-main py-14 sm:py-18">
-          <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/20 rounded-full px-3 py-1 mb-4">
+        {/* Background glows */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 right-0 h-[400px] w-[400px] rounded-full bg-[#2f5bea]/8 blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 h-[250px] w-[350px] rounded-full bg-[#16a34a]/6 blur-3xl" />
+        </div>
+        <div className="relative container-main py-14 sm:py-18">
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-full px-3 py-1 mb-5">
             About CoinMind
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight max-w-[640px]">
+          {/* inline color: global h1 { color: var(--color-text) } overrides text-white utility */}
+          <h1
+            style={{ color: "#ffffff" }}
+            className="text-3xl sm:text-4xl font-bold tracking-tight max-w-[640px] leading-[1.15]"
+          >
             We build tools that help you understand your money — without the jargon, sales pitch, or paywall.
           </h1>
           <p className="mt-4 text-slate-400 max-w-[560px] leading-relaxed">
@@ -41,7 +50,7 @@ export default function Page() {
             <Link href="/about/author" className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-4 py-2 text-sm text-slate-300 hover:text-white hover:border-slate-500 transition-all">
               <Users className="h-3.5 w-3.5" /> Meet the author
             </Link>
-            <Link href="/calculators" className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-2 text-sm font-semibold text-white">
+            <Link href="/calculators" className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(47,91,234,0.4)]">
               <Calculator className="h-3.5 w-3.5" /> Free Calculators
             </Link>
           </div>

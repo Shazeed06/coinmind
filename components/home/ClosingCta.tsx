@@ -9,7 +9,7 @@ export default function ClosingCta() {
           The extra lg:py-16 stacked on top of that put ~141px of dead space
           above two lines of text. */}
       <div className="text-center">
-        <h2 className="h2 text-white">Ready to Take Control of Your Finances?</h2>
+        <h2 style={{ color: "#ffffff" }} className="h2">Ready to Take Control of Your Finances?</h2>
         <p className="body text-white/60 mt-4 max-w-[640px] mx-auto">
           Free calculators, expert guides, and AI-powered answers. All in one place. No sign-up needed.
         </p>

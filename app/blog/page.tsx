@@ -221,8 +221,9 @@ export default function Page() {
 
       <section className="section-pad bg-gradient-invert text-white text-center">
         <div className="container-main max-w-[640px]">
-          <h2 className="text-2xl font-bold">Stay Updated</h2>
-          <p className="text-white/60 mt-3 text-sm">Get the latest guides and money tips delivered to your inbox.</p>
+          {/* inline color: global h2 { color: var(--color-text) } overrides text-white utility */}
+          <h2 style={{ color: "#ffffff" }} className="text-2xl font-bold">Stay Updated</h2>
+          <p className="text-white/70 mt-3 text-sm">Get the latest guides and money tips delivered to your inbox.</p>
           {subscribed ? (
             <p className="mt-6 text-sm text-white" role="status">
               Your email app should have opened with the request. If it did not, write to{" "}

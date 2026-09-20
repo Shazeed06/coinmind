@@ -15,9 +15,11 @@ export function LegalPage({ pill, title, subtitle, lastUpdated, icon, children }
   return (
     <div>
       {/* Dark hero — matches header/footer */}
-      <section className="bg-[#0c1628] text-white">
+      <section className="relative bg-[#0c1628] overflow-hidden">
         <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
-        <div className="container-main py-12 sm:py-16">
+        {/* Subtle background glow */}
+        <div className="pointer-events-none absolute top-0 right-0 h-[300px] w-[400px] rounded-full bg-[#2f5bea]/6 blur-3xl" />
+        <div className="relative container-main py-12 sm:py-16">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-1.5 text-sm text-slate-500 mb-8">
             <Link href="/" className="hover:text-slate-300 transition-colors">Home</Link>
@@ -32,17 +34,18 @@ export function LegalPage({ pill, title, subtitle, lastUpdated, icon, children }
               </div>
             )}
             <div>
-              <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/20 rounded-full px-3 py-1 mb-3">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-full px-3 py-1 mb-3">
                 {pill}
               </span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+              {/* inline color: global h1 { color: var(--color-text) } overrides text-white utility */}
+              <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
                 {title}
               </h1>
               {subtitle && (
                 <p className="mt-3 text-slate-400 leading-relaxed max-w-[600px]">{subtitle}</p>
               )}
               {lastUpdated && (
-                <p className="mt-3 text-sm text-slate-600">Last updated: {lastUpdated}</p>
+                <p className="mt-3 text-sm text-slate-500">Last updated: {lastUpdated}</p>
               )}
             </div>
           </div>

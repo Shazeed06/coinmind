@@ -8,7 +8,7 @@ export default function AiAssistant() {
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <div className="lg:col-span-5 text-center lg:text-left text-white">
           <p className="eyebrow text-white/60">AI Assistant</p>
-          <h2 className="h2 text-white mt-3">Get Instant Answers</h2>
+          <h2 style={{ color: "#ffffff" }} className="h2 mt-3">Get Instant Answers</h2>
           <p className="body text-white/60 mt-4 max-w-[480px] mx-auto lg:mx-0">
             Ask any finance question and get an instant, clear answer, powered by AI, verified for accuracy.
           </p>
