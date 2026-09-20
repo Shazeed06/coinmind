@@ -19,10 +19,10 @@ const RESEARCH_SECTIONS = [
     icon: "📊",
     desc: "How India's tax slabs have changed since 2014 — both old and new regimes.",
     items: [
-      { label: "New Regime Tax Slabs: FY 2020–21 to FY 2026–27", href: "/research/income-tax-slabs-history" },
-      { label: "Old Regime Tax Slabs History", href: "/research/old-regime-slabs-history" },
-      { label: "Section 80C Limit History", href: "/research/80c-limit-history" },
-      { label: "Standard Deduction History", href: "/research/standard-deduction-history" },
+      { label: "New Regime Tax Slabs: FY 2020–21 to FY 2026–27", href: "/research/income-tax-slabs-history", live: true },
+      { label: "Old Regime Tax Slabs History", href: "/research/old-regime-slabs-history", live: false },
+      { label: "Section 80C Limit History", href: "/research/80c-limit-history", live: false },
+      { label: "Standard Deduction History", href: "/research/standard-deduction-history", live: false },
     ],
   },
   {
@@ -30,12 +30,12 @@ const RESEARCH_SECTIONS = [
     icon: "💰",
     desc: "Government-declared interest rates for PPF, EPF, NSC, SCSS, and Post Office schemes over the years.",
     items: [
-      { label: "PPF Interest Rate History (2000–2026)", href: "/research/ppf-rate-history" },
-      { label: "EPF Interest Rate History", href: "/research/epf-rate-history" },
-      { label: "NSC Interest Rate History", href: "/research/nsc-rate-history" },
-      { label: "SCSS Interest Rate History", href: "/research/scss-rate-history" },
-      { label: "Post Office MIS Rate History", href: "/research/post-office-mis-rate-history" },
-      { label: "Sukanya Samriddhi Rate History", href: "/research/sukanya-samriddhi-rate-history" },
+      { label: "PPF Interest Rate History (2000–2026)", href: "/research/ppf-rate-history", live: true },
+      { label: "EPF Interest Rate History", href: "/research/epf-rate-history", live: true },
+      { label: "NSC Interest Rate History", href: "/research/nsc-rate-history", live: false },
+      { label: "SCSS Interest Rate History", href: "/research/scss-rate-history", live: false },
+      { label: "Post Office MIS Rate History", href: "/research/post-office-mis-rate-history", live: false },
+      { label: "Sukanya Samriddhi Rate History", href: "/research/sukanya-samriddhi-rate-history", live: false },
     ],
   },
   {
@@ -43,9 +43,9 @@ const RESEARCH_SECTIONS = [
     icon: "🏦",
     desc: "Reserve Bank of India repo rate decisions, CRR/SLR history, and policy timelines.",
     items: [
-      { label: "RBI Repo Rate History (2000–2026)", href: "/research/rbi-repo-rate-history" },
-      { label: "RBI Reverse Repo Rate History", href: "/research/reverse-repo-rate-history" },
-      { label: "CRR & SLR History", href: "/research/crr-slr-history" },
+      { label: "RBI Repo Rate History (2000–2026)", href: "/research/rbi-repo-rate-history", live: true },
+      { label: "RBI Reverse Repo Rate History", href: "/research/reverse-repo-rate-history", live: false },
+      { label: "CRR & SLR History", href: "/research/crr-slr-history", live: false },
     ],
   },
   {
@@ -53,9 +53,9 @@ const RESEARCH_SECTIONS = [
     icon: "📈",
     desc: "India CPI and WPI inflation series, year-by-year.",
     items: [
-      { label: "India CPI Inflation History (2013–2026)", href: "/research/cpi-inflation-history" },
-      { label: "India WPI Inflation History", href: "/research/wpi-inflation-history" },
-      { label: "Food Inflation vs. Headline CPI", href: "/research/food-vs-headline-inflation" },
+      { label: "India CPI Inflation History (2013–2026)", href: "/research/cpi-inflation-history", live: false },
+      { label: "India WPI Inflation History", href: "/research/wpi-inflation-history", live: false },
+      { label: "Food Inflation vs. Headline CPI", href: "/research/food-vs-headline-inflation", live: false },
     ],
   },
   {
@@ -63,8 +63,8 @@ const RESEARCH_SECTIONS = [
     icon: "🎯",
     desc: "NPS scheme returns, annuity rates, and historical performance data.",
     items: [
-      { label: "NPS Tier-I Returns by Fund Manager (5-year)", href: "/research/nps-returns-history" },
-      { label: "Annuity Rates in India", href: "/research/annuity-rates" },
+      { label: "NPS Tier-I Returns by Fund Manager (5-year)", href: "/research/nps-returns-history", live: false },
+      { label: "Annuity Rates in India", href: "/research/annuity-rates", live: false },
     ],
   },
 ];
@@ -94,14 +94,24 @@ export default function ResearchPage() {
             </div>
             <div className="grid sm:grid-cols-2 gap-3">
               {section.items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-xl border border-line bg-card px-4 py-3 text-sm font-medium text-ink hover:border-forest hover:text-forest transition-colors"
-                >
-                  {item.label}
-                  <span className="ml-2 text-ink-faint">→</span>
-                </Link>
+                item.live ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-xl border border-line bg-card px-4 py-3 text-sm font-medium text-ink hover:border-forest hover:text-forest transition-colors"
+                  >
+                    {item.label}
+                    <span className="ml-2 text-ink-faint">→</span>
+                  </Link>
+                ) : (
+                  <span
+                    key={item.href}
+                    className="rounded-xl border border-line bg-card px-4 py-3 text-sm font-medium text-ink-faint cursor-default flex items-center justify-between"
+                  >
+                    <span>{item.label}</span>
+                    <span className="ml-2 text-xs bg-line text-ink-faint px-2 py-0.5 rounded-full">Coming soon</span>
+                  </span>
+                )
               ))}
             </div>
           </section>

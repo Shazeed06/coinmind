@@ -75,8 +75,26 @@ const nextConfig: NextConfig = {
       { source: "/tools/random-wheel", destination: "/tools", permanent: true },
       { source: "/tools/meme-generator", destination: "/tools", permanent: true },
       { source: "/tools/lorem-ipsum-generator", destination: "/tools", permanent: true },
-      // Broken link fixes
+      // Broken link fixes — blog posts linked internally but not yet published
       { source: "/blog/fd-vs-sip", destination: "/blog/sip-vs-lumpsum", permanent: true },
+      { source: "/blog/how-to-save-income-tax-india-2025-guide", destination: "/income-tax", permanent: true },
+      { source: "/blog/emergency-fund-how-much-need-india", destination: "/calculators/goal-emergency-fund", permanent: true },
+      { source: "/blog/mutual-funds-sahi-hai-best-mutual-funds-india-2025", destination: "/investing", permanent: true },
+      // Research sub-pages linked from /research hub but not yet built
+      { source: "/research/old-regime-slabs-history", destination: "/research", permanent: true },
+      { source: "/research/80c-limit-history", destination: "/research", permanent: true },
+      { source: "/research/standard-deduction-history", destination: "/research", permanent: true },
+      { source: "/research/nsc-rate-history", destination: "/research", permanent: true },
+      { source: "/research/scss-rate-history", destination: "/research", permanent: true },
+      { source: "/research/post-office-mis-rate-history", destination: "/research", permanent: true },
+      { source: "/research/sukanya-samriddhi-rate-history", destination: "/research", permanent: true },
+      { source: "/research/reverse-repo-rate-history", destination: "/research", permanent: true },
+      { source: "/research/crr-slr-history", destination: "/research", permanent: true },
+      { source: "/research/cpi-inflation-history", destination: "/research", permanent: true },
+      { source: "/research/wpi-inflation-history", destination: "/research", permanent: true },
+      { source: "/research/food-vs-headline-inflation", destination: "/research", permanent: true },
+      { source: "/research/nps-returns-history", destination: "/research", permanent: true },
+      { source: "/research/annuity-rates", destination: "/research", permanent: true },
 
       // ── URL structure consolidation ──────────────────────────────────────
       // /sip-returns was a second top-level section for the SIP topic, sitting

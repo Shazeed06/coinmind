@@ -411,6 +411,12 @@ export default function Page() {
                   </div>
                 ))}
               </div>
+              <p className="text-sm text-text-muted mt-3">
+                Want the full definition?{" "}
+                <Link href="/glossary/sip-full-form" className="text-brand hover:underline underline-offset-2">
+                  SIP full form and meaning →
+                </Link>
+              </p>
             </section>
 
             <AuthorReviewBox sources={SOURCES} />
