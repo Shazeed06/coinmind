@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: { absolute: "Retirement Planning India - NPS, PPF, EPF & SWP Guide 2026" },
   description: "Plan a comfortable retirement in India. Calculate your retirement corpus, compare NPS vs PPF vs EPF, plan SWP income, and build a pension that lasts 30+ years.",
   alternates: { canonical: `${site.url}/retirement` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/retirement`,
+    siteName: "CoinMind",
+    title: "Retirement Planning India - NPS, PPF, EPF & SWP Guide 2026",
+    description: "Plan a comfortable retirement in India. Calculate your retirement corpus, compare NPS vs PPF vs EPF, plan SWP income, and build a pension that lasts 30+ years.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Retirement Planning India - NPS, PPF, EPF & SWP Guide 2026",
+    description: "Plan a comfortable retirement in India. Calculate your retirement corpus, compare NPS vs PPF vs EPF, plan SWP income, and build a pension that lasts 30+ years.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const RETIREMENT_BODY = `

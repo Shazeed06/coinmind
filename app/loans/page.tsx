@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: { absolute: "Loans & EMI Guide - Home, Car, Personal & Education Loans India" },
   description: "Compare loan options, calculate EMIs, check eligibility, and understand interest costs. Free calculators for home, car, personal, and education loans. Updated 2026.",
   alternates: { canonical: `${site.url}/loans` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/loans`,
+    siteName: "CoinMind",
+    title: "Loans & EMI Guide - Home, Car, Personal & Education Loans India",
+    description: "Compare loan options, calculate EMIs, check eligibility, and understand interest costs. Free calculators for home, car, personal, and education loans. Updated 2026.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Loans & EMI Guide - Home, Car, Personal & Education Loans India",
+    description: "Compare loan options, calculate EMIs, check eligibility, and understand interest costs. Free calculators for home, car, personal, and education loans. Updated 2026.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const LOANS_BODY = `

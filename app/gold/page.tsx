@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: { absolute: "Gold Investment India - SGB, Gold ETFs, Digital Gold Guide 2026" },
   description: "Complete guide to investing in gold in India. Compare Sovereign Gold Bonds, Gold ETFs, digital gold, and physical gold. Returns, tax, safety, and liquidity compared.",
   alternates: { canonical: `${site.url}/gold` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/gold`,
+    siteName: "CoinMind",
+    title: "Gold Investment India - SGB, Gold ETFs, Digital Gold Guide 2026",
+    description: "Complete guide to investing in gold in India. Compare Sovereign Gold Bonds, Gold ETFs, digital gold, and physical gold. Returns, tax, safety, and liquidity compared.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gold Investment India - SGB, Gold ETFs, Digital Gold Guide 2026",
+    description: "Complete guide to investing in gold in India. Compare Sovereign Gold Bonds, Gold ETFs, digital gold, and physical gold. Returns, tax, safety, and liquidity compared.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const GOLD_BODY = `

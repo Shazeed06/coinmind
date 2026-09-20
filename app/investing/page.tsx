@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: { absolute: "Investing in India - Mutual Funds, Stocks, Gold & ETFs Guide" },
   description: "Learn how to invest in India. Compare mutual funds, stocks, gold, ETFs, and fixed-income options. Free calculators for SIP, lumpsum, SWP, CAGR, and more.",
   alternates: { canonical: `${site.url}/investing` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/investing`,
+    siteName: "CoinMind",
+    title: "Investing in India - Mutual Funds, Stocks, Gold & ETFs Guide",
+    description: "Learn how to invest in India. Compare mutual funds, stocks, gold, ETFs, and fixed-income options. Free calculators for SIP, lumpsum, SWP, CAGR, and more.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Investing in India - Mutual Funds, Stocks, Gold & ETFs Guide",
+    description: "Learn how to invest in India. Compare mutual funds, stocks, gold, ETFs, and fixed-income options. Free calculators for SIP, lumpsum, SWP, CAGR, and more.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const INVESTING_BODY = `

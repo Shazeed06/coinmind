@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: { absolute: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health" },
   description: "Learn how credit scores work in India. Check your CIBIL score, understand what affects it, and improve your credit health for better loan approvals and lower interest rates.",
   alternates: { canonical: `${site.url}/credit-score` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/credit-score`,
+    siteName: "CoinMind",
+    title: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health",
+    description: "Learn how credit scores work in India. Check your CIBIL score, understand what affects it, and improve your credit health for better loan approvals and lower interest rates.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health",
+    description: "Learn how credit scores work in India. Check your CIBIL score, understand what affects it, and improve your credit health for better loan approvals and lower interest rates.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const CREDIT_BODY = `

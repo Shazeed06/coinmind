@@ -6,6 +6,20 @@ export const metadata: Metadata = {
   title: { absolute: "Budgeting & Money Management India - Free Budget Planner & Guides" },
   description: "Take control of your money. Free budget planner, 50/30/20 rule guide, expense tracking, emergency fund calculator, and money management tips for India.",
   alternates: { canonical: `${site.url}/budgeting` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/budgeting`,
+    siteName: "CoinMind",
+    title: "Budgeting & Money Management India - Free Budget Planner & Guides",
+    description: "Take control of your money. Free budget planner, 50/30/20 rule guide, expense tracking, emergency fund calculator, and money management tips for India.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Budgeting & Money Management India - Free Budget Planner & Guides",
+    description: "Take control of your money. Free budget planner, 50/30/20 rule guide, expense tracking, emergency fund calculator, and money management tips for India.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const BUDGETING_BODY = `

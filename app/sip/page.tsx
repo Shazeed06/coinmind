@@ -6,7 +6,29 @@ export const metadata: Metadata = {
   title: { absolute: "SIP Investment Guide - Systematic Investment Plans Explained" },
   description: "Complete SIP guide: calculator, step-up SIP, goal SIP, SWP, and tax on mutual fund SIPs. Learn how SIP works, how much to invest, and which strategy fits your goal.",
   alternates: { canonical: `${site.url}/sip` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/sip`,
+    siteName: "CoinMind",
+    title: "SIP Investment Guide - Systematic Investment Plans Explained",
+    description: "Complete SIP guide: calculator, step-up SIP, goal SIP, SWP, and tax on mutual fund SIPs. Learn how SIP works, how much to invest, and which strategy fits your goal.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SIP Investment Guide - Systematic Investment Plans Explained",
+    description: "Complete SIP guide: calculator, step-up SIP, goal SIP, SWP, and tax on mutual fund SIPs. Learn how SIP works, how much to invest, and which strategy fits your goal.",
+    images: ["/opengraph-image"],
+  },
 };
+
+const SIP_FAQS = [
+  { q: "What is SIP full form?", a: "SIP stands for Systematic Investment Plan. It is a method of investing a fixed amount in mutual funds at regular intervals — usually monthly — instead of investing a lump sum all at once." },
+  { q: "How much SIP per month to get ₹1 crore?", a: "At 12% annual returns: ₹2,850/month for 30 years, ₹10,000/month for 20 years, or ₹43,000/month for 10 years. Use our SIP calculator to find the exact amount for your timeline." },
+  { q: "Is SIP safe?", a: "SIP is an investment method, not a guaranteed return product. Equity SIPs carry market risk but have historically delivered positive returns over 7+ years. The risk reduces significantly with a longer investment horizon." },
+  { q: "Can I stop a SIP midway?", a: "Yes. A SIP is not a locked contract. You can pause it for a few months, reduce the amount, or cancel it entirely — usually with a few working days of notice. Your existing units stay invested and keep compounding even after you stop." },
+  { q: "What is a step-up SIP?", a: "A step-up SIP automatically increases your monthly investment by a set percentage (usually 10%) every year. Starting at ₹5,000/month and stepping up 10% annually, you build a corpus 40-60% larger than a flat SIP over 20 years." },
+];
 
 export default function Page() {
   return (
@@ -102,6 +124,7 @@ export default function Page() {
         { title: "Retirement", href: "/retirement" },
         { title: "Tax", href: "/income-tax" },
       ]}
+      faqs={SIP_FAQS}
     />
   );
 }
