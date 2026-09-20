@@ -256,31 +256,37 @@ export default async function Page({
               </div>
 
               <div>
-                <p className="eyebrow text-text-muted mb-3">More news</p>
-                <div className="space-y-3">
+                <p className="text-[11px] font-bold uppercase tracking-widest text-text-muted mb-3">More News</p>
+                <div className="space-y-2">
                   {more.map((a) => (
-                    <Link key={a.slug} href={`/news/${a.slug}`} className="block group">
-                      <span
-                        className={`eyebrow ${
-                          a.category === "Finance" ? "text-brand" : "text-accent"
-                        }`}
-                      >
-                        {a.category}
-                      </span>
-                      <p className="text-sm text-text group-hover:text-brand transition-colors line-clamp-2">
-                        {a.title}
-                      </p>
-                      <p className="text-xs text-text-muted mt-0.5">
-                        {a.readMinutes} min read
-                      </p>
+                    <Link
+                      key={a.slug}
+                      href={`/news/${a.slug}`}
+                      className="group flex items-start gap-3 rounded-xl border border-border bg-bg-alt p-3 hover:border-brand/30 hover:bg-brand/5 transition-all duration-150"
+                    >
+                      <div className="min-w-0">
+                        <span
+                          className={`text-[10px] font-bold uppercase tracking-wider ${
+                            a.category === "Finance" ? "text-brand" : "text-accent"
+                          }`}
+                        >
+                          {a.category}
+                        </span>
+                        <p className="text-sm font-medium text-text group-hover:text-brand transition-colors line-clamp-2 leading-snug mt-0.5">
+                          {a.title}
+                        </p>
+                        <p className="text-[11px] text-text-muted mt-1">
+                          {a.readMinutes} min read
+                        </p>
+                      </div>
                     </Link>
                   ))}
                 </div>
                 <Link
                   href="/news"
-                  className={`mt-4 inline-flex items-center gap-1 text-sm font-medium hover:underline ${categoryColor}`}
+                  className={`mt-3 inline-flex items-center gap-1 text-sm font-semibold hover:underline ${categoryColor}`}
                 >
-                  All news <ArrowRight className="h-4 w-4" />
+                  All news <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>
