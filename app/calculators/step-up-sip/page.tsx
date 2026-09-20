@@ -5,7 +5,7 @@ import StepUpSipCalculator from "@/components/calc/StepUpSipCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "step-up-sip")!;
-export const metadata = calcMeta("step-up-sip", CALC.title + " - Top-up SIP Returns", CALC.blurb);
+export const metadata = calcMeta("step-up-sip", "Step Up SIP Calculator India – Free Top-Up SIP Returns", CALC.blurb);
 
 export default function Page() {
   return (

@@ -8071,6 +8071,38 @@ Compare gilt fund suitability with other fixed-income options using our [FD calc
     relatedHref: "/calculators/fd",
     relatedLabel: "FD Calculator",
   },
+  {
+    slug: "sip-full-form",
+    term: "SIP Full Form",
+    category: "Investing",
+    short: "SIP full form is Systematic Investment Plan — a method of investing a fixed amount in mutual funds at regular intervals, usually monthly.",
+    bodyMarkdown: "## What is the full form of SIP?\n\nSIP stands for **Systematic Investment Plan**. It is a disciplined method of investing a fixed amount of money in mutual funds at regular intervals — weekly, monthly, or quarterly — instead of investing a lump sum all at once.\n\n## How a SIP works\n\nWhen you start a SIP, you authorise your bank to automatically debit a fixed amount from your account and invest it in a chosen mutual fund scheme on a set date each month. You receive mutual fund units at the prevailing Net Asset Value (NAV) on that date. Because you invest regularly regardless of market conditions, you buy more units when prices are low and fewer units when prices are high — a strategy called rupee-cost averaging.\n\n## Key terms related to SIP\n\n| Term | Full form / meaning |\n|---|---|\n| SIP | Systematic Investment Plan |\n| NAV | Net Asset Value — price per unit of a mutual fund |\n| ELSS | Equity Linked Savings Scheme — a tax-saving mutual fund |\n| Step-up SIP | A SIP where you increase your monthly amount each year |\n| AMC | Asset Management Company — the fund house that manages your money |\n\n## Benefits of investing via SIP\n\n- **Rupee-cost averaging** — you automatically buy more units when markets fall\n- **Compounding** — returns earned on previous returns snowball over time\n- **Discipline** — the auto-debit removes the temptation to time the market\n- **Flexibility** — you can pause, modify, or stop a SIP without penalty\n- **Low minimum** — most Indian AMCs allow SIPs from as little as ₹500 per month\n\nUse the [SIP calculator](/calculators/sip) to estimate how much your monthly SIP will grow to at different return rates and tenures.",
+    faq: [
+      {
+        q: "What is the full form of SIP in mutual funds?",
+        a: "SIP full form in mutual funds is Systematic Investment Plan. It means investing a fixed amount in a mutual fund scheme at regular intervals, typically every month, via auto-debit from your bank account.",
+      },
+      {
+        q: "What is the difference between SIP and lump sum investment?",
+        a: "A SIP invests a small fixed amount every month, spreading the investment over time and averaging the purchase cost. A lump sum invests the entire amount at once. SIPs are better for salaried investors without a large corpus; lump sum suits those with a windfall who believe the market is at a low.",
+      },
+      {
+        q: "What is SIP full form in banking?",
+        a: "In banking, SIP full form is also Systematic Investment Plan. When a bank offers a SIP, it auto-debits the specified amount from your savings account on a set date and routes it to the chosen mutual fund. The bank acts as a payment gateway, not the fund manager.",
+      },
+      {
+        q: "What is step-up SIP?",
+        a: "A step-up SIP (also called top-up SIP) is a SIP where you commit to increasing your monthly investment by a fixed percentage or amount every year, usually to match your annual salary hike. It builds a significantly larger corpus than a flat SIP with the same starting amount.",
+      },
+      {
+        q: "Is SIP safe?",
+        a: "SIP is a method of investing, not an investment itself. The safety depends on the underlying mutual fund. SIPs in equity funds carry market risk but have historically delivered positive returns over periods of 7 years or more. SIPs in debt funds have lower risk but also lower return potential.",
+      },
+    ],
+    related: ["mutual-fund", "nav", "elss", "index-fund"],
+    relatedHref: "/calculators/sip",
+    relatedLabel: "SIP Calculator",
+  },
 ];
 
 /** Slugs for every generated glossary page, consumed by the sitemap and route. */

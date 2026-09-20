@@ -49,6 +49,7 @@ const FAQS = [
   { q: "Is SIP better than a fixed deposit?", a: "Over 10+ years, SIP in equity funds typically outperforms FDs. However, FD returns are guaranteed. SIP suits long-term goals (10+ years)." },
   { q: "Can I lose money in a SIP?", a: "Yes, if the market declines and you redeem before recovery. However, staying invested through cycles historically delivers positive returns over 7+ years." },
   { q: "How does inflation affect my SIP corpus?", a: "India's long-term average inflation is ~6%. A ₹1 crore corpus in 20 years is worth ~₹28 lakhs in today's purchasing power." },
+  { q: "Can I use this as an SBI SIP calculator?", a: "Yes. This is a universal SIP calculator — enter any fund house's expected return rate and it works the same way. For SBI Mutual Fund SIPs, use 10-12% for equity funds or 7-8% for debt funds. The results are identical to SBI's own tool, plus you also get LTCG tax impact and inflation-adjusted corpus." },
 ];
 
 const TOC_ITEMS = [
