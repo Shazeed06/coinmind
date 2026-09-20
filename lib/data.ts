@@ -584,6 +584,17 @@ export const calculators: Calculator[] = [
     live: true,
     keywords: ["goal calculator", "financial goal calculator", "sip for goal", "1 crore sip calculator", "goal based investing calculator"],
   },
+  {
+    slug: "financial-health",
+    title: "Financial Health Score Calculator",
+    short: "Free financial checkup",
+    blurb:
+      "Get an instant A–D financial health score across 5 dimensions: savings rate, emergency fund, debt, investments, and insurance — with actionable recommendations.",
+    category: "Utility",
+    region: "IN",
+    live: true,
+    keywords: ["financial health score", "financial health calculator", "personal finance checkup", "financial health check india"],
+  },
 ];
 
 export type Region = "USA" | "China" | "India";
