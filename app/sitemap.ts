@@ -47,6 +47,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about", "/tax-regime-break-even", "/editorial-standards",
     "/affiliate-disclosure", "/contact", "/privacy", "/disclaimer", "/terms",
     "/methodology", "/corrections", "/authors/sahil",
+    // Finance Today & hubs
+    "/finance-today", "/research", "/comparisons",
+    // Trust & Transparency pages
+    "/about/author", "/editorial-policy", "/financial-review-process", "/sources",
+    // Research data pages
+    "/research/ppf-rate-history", "/research/epf-rate-history",
+    "/research/income-tax-slabs-history", "/research/rbi-repo-rate-history",
+    // Comparison pages (existing)
+    "/comparisons/sip-vs-fd", "/comparisons/sip-vs-lumpsum",
+    "/comparisons/ppf-vs-fd", "/comparisons/ppf-vs-nps",
+    "/comparisons/old-vs-new-tax-regime", "/comparisons/nps-vs-epf",
+    // Comparison pages (new)
+    "/comparisons/mutual-fund-vs-stocks", "/comparisons/elss-vs-ppf",
+    "/comparisons/nps-tier-1-vs-tier-2", "/comparisons/loan-prepayment-vs-investing",
+    "/comparisons/fd-vs-debt-mutual-fund", "/comparisons/term-vs-ulip-vs-endowment",
+    "/comparisons/floater-vs-individual-health-insurance",
   ];
   // NOTE: /search is deliberately absent because app/search/page.tsx sets
   // robots.index=false, and listing a noindex URL in the sitemap is a

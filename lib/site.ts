@@ -104,6 +104,7 @@ export const navMenus: NavMenu[] = [
           { label: "FIRE Calculator", href: "/calculators/fire", desc: "Retire early planning" },
           { label: "Net Worth Calculator", href: "/calculators/net-worth", desc: "Know your financial position" },
           { label: "Goal Calculator", href: "/calculators/goal", desc: "SIP for any target amount" },
+          { label: "Financial Health Score", href: "/calculators/financial-health", desc: "A–D score across 5 dimensions" },
         ],
       },
     ],
@@ -127,6 +128,14 @@ export const navMenus: NavMenu[] = [
           { label: "Investing", href: "/investing", desc: "Where to put your money" },
           { label: "Income Tax", href: "/income-tax", desc: "Regimes, deductions, filing" },
           { label: "Credit Score", href: "/credit-score", desc: "Check and improve your CIBIL" },
+        ],
+      },
+      {
+        heading: "Data & Compare",
+        items: [
+          { label: "Comparison Engine", href: "/comparisons", desc: "Side-by-side finance decisions" },
+          { label: "Research Hub", href: "/research", desc: "Rate histories & data" },
+          { label: "Finance Today", href: "/finance-today", desc: "Live rates: RBI, FD, EPF, tax" },
         ],
       },
     ],
