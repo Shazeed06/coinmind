@@ -142,6 +142,32 @@ export const navMenus: NavMenu[] = [
     footer: { label: "Read the latest guides", href: "/blog" },
   },
   {
+    label: "IPO",
+    href: "/ipos",
+    blurb: "Track upcoming IPOs, check GMP, allotment status and expert reviews.",
+    columns: [
+      {
+        heading: "Open & Listing Soon",
+        items: [
+          { label: "NSE IPO 2026", href: "/ipos/nse-ipo", desc: "₹22,561 Cr · Listing Sep 24" },
+          { label: "SS Retail IPO", href: "/ipos/ss-retail-ipo", desc: "GMP +33% · Listing Sep 23" },
+          { label: "A-One Steels IPO", href: "/ipos", desc: "Opens Sep 24 · GMP +15%" },
+        ],
+      },
+      {
+        heading: "Upcoming Big IPOs",
+        items: [
+          { label: "Reliance Jio IPO", href: "/ipos/reliance-jio-ipo", desc: "₹40,000 Cr · SEBI approved" },
+          { label: "Zepto IPO", href: "/ipos/zepto-ipo", desc: "₹8,010 Cr · Dates awaited" },
+          { label: "OYO IPO", href: "/ipos/oyo-ipo", desc: "₹6,650 Cr · Q4 2026" },
+          { label: "Hero FinCorp IPO", href: "/ipos/hero-fincorp-ipo", desc: "₹3,358 Cr · NBFC" },
+          { label: "PhonePe IPO", href: "/ipos/phonepe-ipo", desc: "₹12,000 Cr · Postponed" },
+        ],
+      },
+    ],
+    footer: { label: "View IPO calendar", href: "/ipos" },
+  },
+  {
     label: "Tools",
     href: "/tools",
     blurb: "Everyday utilities that work offline in your browser. Nothing is uploaded.",
