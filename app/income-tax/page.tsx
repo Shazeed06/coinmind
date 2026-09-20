@@ -87,7 +87,7 @@ export default function Page() {
         },
       ]}
       relatedHubs={[
-        { title: "Salary & Take-Home", href: "/calculators/take-home-salary" },
+        { title: "SIP & Mutual Funds", href: "/sip" },
         { title: "Investing", href: "/investing" },
         { title: "Savings", href: "/savings" },
         { title: "Retirement", href: "/retirement" },

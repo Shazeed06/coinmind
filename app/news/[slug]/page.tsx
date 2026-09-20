@@ -10,6 +10,8 @@ import ArticleMarkdown from "@/components/ArticleMarkdown";
 import AuthorReviewBox from "@/components/AuthorReviewBox";
 import { Pill, Prose } from "@/components/ui";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return newsArticles.map((a) => ({ slug: a.slug }));
 }

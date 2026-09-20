@@ -138,7 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return {
       url: `${site.url}${p}`,
-      lastModified: entry.lastmod ? new Date(entry.lastmod) : new Date("2026-09-05"),
+      lastModified: entry.lastmod ? new Date(entry.lastmod) : new Date("2026-09-20"),
       changeFrequency,
       priority,
     };

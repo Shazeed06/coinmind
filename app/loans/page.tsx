@@ -188,9 +188,9 @@ export default function Page() {
       faqs={LOANS_FAQS}
       relatedHubs={[
         { title: "Credit Score", href: "/credit-score" },
-        { title: "Real Estate", href: "/blog/real-estate-vs-mutual-funds" },
         { title: "Budgeting", href: "/budgeting" },
-        { title: "Tax", href: "/income-tax" },
+        { title: "Investing", href: "/investing" },
+        { title: "Savings", href: "/savings" },
       ]}
     />
   );

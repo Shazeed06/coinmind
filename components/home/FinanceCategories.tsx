@@ -4,6 +4,18 @@ import SectionIntro from "./SectionIntro";
 import { calculators } from "@/lib/data";
 import { Calculator, TrendingUp, Landmark, Receipt, PiggyBank, Wrench } from "lucide-react";
 
+const HUBS = [
+  { label: "Investing", href: "/investing" },
+  { label: "SIP & Mutual Funds", href: "/sip" },
+  { label: "Loans", href: "/loans" },
+  { label: "Savings", href: "/savings" },
+  { label: "Retirement", href: "/retirement" },
+  { label: "Income Tax", href: "/income-tax" },
+  { label: "Budgeting", href: "/budgeting" },
+  { label: "Credit Score", href: "/credit-score" },
+  { label: "Gold", href: "/gold" },
+];
+
 const CAT_ICONS: Record<string, typeof Calculator> = {
   Investing: TrendingUp, Loans: Landmark, Tax: Receipt, Savings: PiggyBank, Utility: Wrench, Health: Calculator,
 };
@@ -38,6 +50,18 @@ export default function FinanceCategories() {
             </Link>
           ));
         })}
+      </div>
+      <div className="mt-8 flex flex-wrap gap-2 justify-center">
+        <span className="text-xs text-text-muted self-center">Explore topics:</span>
+        {HUBS.map((h) => (
+          <Link
+            key={h.href}
+            href={h.href}
+            className="inline-flex items-center rounded-full border border-border bg-bg px-3 py-1 text-xs font-medium text-text-muted hover:border-brand hover:text-brand transition-colors"
+          >
+            {h.label}
+          </Link>
+        ))}
       </div>
     </Section>
   );

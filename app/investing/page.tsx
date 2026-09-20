@@ -217,9 +217,9 @@ export default function Page() {
       faqs={INVESTING_FAQS}
       relatedHubs={[
         { title: "SIP", href: "/sip" },
-        { title: "Mutual Funds", href: "/blog/best-mutual-funds-2026-india" },
         { title: "Retirement", href: "/retirement" },
-        { title: "Savings", href: "/savings" },
+        { title: "Tax", href: "/income-tax" },
+        { title: "Loans", href: "/loans" },
       ]}
     />
   );

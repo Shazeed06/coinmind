@@ -978,7 +978,7 @@ Over 20 years, you pay:
 - **Total interest**: Rs 54,13,840
 - **Interest as % of principal**: 108%
 
-That is right -- you pay more in interest than the actual loan amount on a 20-year home loan. Use our [EMI calculator](/calculators/emi) to compute your exact EMI and see how even a small reduction in interest rate can save you lakhs.
+That is right -- you pay more in interest than the actual loan amount on a 20-year home loan. Use our [EMI calculator](/calculators/emi) to compute your exact EMI and see how even a small reduction in interest rate can save you lakhs. Explore more home loan, car loan, and personal loan guides at the [Loans Hub](/loans).
 
 ## Home Loan Interest Rates Comparison (September 2026)
 

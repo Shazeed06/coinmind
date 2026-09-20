@@ -82,7 +82,7 @@ Select ITR-1 if you meet the criteria discussed above. The portal also provides 
 
 This is a critical decision. You need to select either the new tax regime or the old tax regime. The new regime has lower tax rates but does not allow most deductions. The old regime has higher rates but allows deductions under Sections 80C, 80D, 24 and others.
 
-If your total deductions under the old regime exceed Rs 3.75 lakh to Rs 4 lakh (the exact break-even depends on your salary level), the old regime may save you more tax. Otherwise, the new regime is usually better. Use our [income tax calculator](/calculators/income-tax) to compare both regimes with your actual numbers. You can also read our detailed comparison in [New Tax Regime FY 2026-27](/blog/new-tax-regime-fy-2026-27).
+If your total deductions under the old regime exceed Rs 3.75 lakh to Rs 4 lakh (the exact break-even depends on your salary level), the old regime may save you more tax. Otherwise, the new regime is usually better. Use our [income tax calculator](/calculators/income-tax) to compare both regimes with your actual numbers. You can also read our detailed comparison in [New Tax Regime FY 2026-27](/blog/new-tax-regime-fy-2026-27). For complete guides on tax regimes, deductions, and ITR filing, visit the [Income Tax Hub](/income-tax).
 
 ### Step 5: Pre-fill your data
 
@@ -354,7 +354,7 @@ Here are projections at 12 percent average annual return:
 | Rs 10,000 | Rs 23.2 lakh | Rs 50.5 lakh | Rs 1 crore |
 | Rs 25,000 | Rs 58 lakh | Rs 1.26 crore | Rs 2.5 crore |
 
-These are approximate projections. Actual returns depend on market conditions and the fund you choose. Model your own scenario on our [SIP calculator](/calculators/sip).
+These are approximate projections. Actual returns depend on market conditions and the fund you choose. Model your own scenario on our [SIP calculator](/calculators/sip). For more SIP guides, ELSS strategies, and step-up SIP tips, explore the [SIP & Mutual Funds Hub](/sip).
 
 Starting a SIP is genuinely one of the best financial decisions you can make. The process takes less than an hour, and the long-term impact on your wealth is enormous. Do not wait for the perfect time or the perfect fund. Start today, stay consistent, and increase your contribution as your income grows.`,
     faq: [

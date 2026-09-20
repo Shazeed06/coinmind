@@ -437,6 +437,11 @@ export default function Page() {
                 ))}
               </div>
             </div>
+            <div className="pt-2 border-t border-border">
+              <Link href="/sip" className="text-sm font-medium text-brand hover:underline flex items-center gap-1">
+                SIP Hub — guides &amp; strategies <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
           </div>
         </aside>
       </div>
