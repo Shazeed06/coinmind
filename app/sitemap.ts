@@ -49,6 +49,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/methodology", "/corrections", "/authors/sahil",
     // Finance Today & hubs
     "/finance-today", "/research", "/comparisons",
+    // IPO tracker
+    "/ipos", "/ipos/nse-ipo",
     // Trust & Transparency pages
     "/about/author", "/editorial-policy", "/financial-review-process", "/sources",
     // Research data pages
