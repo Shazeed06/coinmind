@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   title: { absolute: `Affiliate Disclosure · ${site.name}` },
   description: `How ${site.name} handles affiliate relationships. We earn commissions on some links at no extra cost to you. Affiliates never influence our editorial content.`,
   alternates: { canonical: `${site.url}/affiliate-disclosure` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/affiliate-disclosure`,
+    siteName: site.name,
+    locale: "en_IN",
+    title: `Affiliate Disclosure · ${site.name}`,
+    description: `How ${site.name} handles affiliate links. We earn commissions on some links at no cost to you. Affiliates never influence our editorial content.`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 export default function AffiliateDisclosurePage() {

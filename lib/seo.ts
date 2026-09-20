@@ -51,7 +51,7 @@ function mk(path: string, d: SeoDef): Metadata {
 
 export const HOME = mk("/", {
   title: "CoinMind - Free Personal Finance Calculators for India",
-  desc: "Free personal finance calculators for India: SIP, EMI, income tax, FD, PPF, crypto tax and more. Plan investments, compare tax regimes, and save smarter. No sign-up.",
+  desc: "Free personal finance calculators for India: SIP, EMI, income tax, FD, PPF, crypto tax and more. Compare tax regimes, plan investments, no sign-up.",
   keywords: ["SIP calculator", "EMI calculator", "income tax calculator", "FD calculator", "PPF calculator", "personal finance India", "free financial calculators", "finance guides"],
 });
 
@@ -80,7 +80,7 @@ export const ABOUT = mk("/about", {
 });
 
 export const CALCULATORS = mk("/calculators", {
-  title: "Free Financial Calculators India - SIP, EMI, Tax, FD & More",
+  title: "Free Financial Calculators India - SIP, EMI, Tax & More",
   desc: "Free financial calculators for India: SIP, EMI, income tax, FD, PPF, NPS, retirement, GST and more. Instant, private, works in INR, USD and GBP. No sign-up.",
   keywords: ["financial calculators", "free calculators India", "SIP calculator", "EMI calculator", "income tax calculator", "investment calculator", "retirement calculator"],
 });
@@ -111,7 +111,7 @@ export const AI_TOOLS = mk("/ai-tools", {
 
 export const TOOLS = mk("/tools", {
   title: "Free Online Tools - PDF, Image, Text, AI & Calculators",
-  desc: "Free online tools that run in your browser: merge and split PDFs, compress and convert images, count words, generate passwords and QR codes, plus AI writing tools.",
+  desc: "Free browser tools: merge and split PDFs, compress and convert images, count words, generate passwords and QR codes, plus AI writing tools. No sign-up.",
   keywords: ["free online tools", "resume builder", "PDF tools", "image compressor", "free utilities", "browser tools"],
 });
 

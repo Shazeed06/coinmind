@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   title: { absolute: `Editorial Policy · ${site.name}` },
   description: `How ${site.name} researches, writes, reviews and updates financial calculators and guides. Our editorial standards, independence and correction process.`,
   alternates: { canonical: `${site.url}/editorial-policy` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/editorial-policy`,
+    siteName: site.name,
+    locale: "en_IN",
+    title: `Editorial Policy · ${site.name}`,
+    description: `How ${site.name} researches, writes, reviews and updates financial calculators and guides. Our editorial standards, independence and correction process.`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 export default function EditorialPolicyPage() {

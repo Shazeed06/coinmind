@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   title: { absolute: `Terms of Service · ${site.name}` },
   description: `${site.name} terms of service. Free to use for educational purposes. Calculators are estimates, not financial advice.`,
   alternates: { canonical: `${site.url}/terms` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/terms`,
+    siteName: site.name,
+    locale: "en_IN",
+    title: `Terms of Service · ${site.name}`,
+    description: `${site.name} terms of service. Free to use for educational purposes. Calculators are estimates, not financial advice.`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 export default function TermsPage() {

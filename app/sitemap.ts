@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "", "/calculators", "/tools", "/glossary", "/resume-builder", "/ai-assistant",
     "/ai-tools", "/news", "/blog", "/sip", "/income-tax", "/investing",
     "/loans", "/savings", "/retirement", "/budgeting", "/credit-score", "/gold",
-    "/about", "/tax-regime-break-even", "/editorial-standards",
+    "/about", "/widgets", "/tax-regime-break-even", "/editorial-standards",
     "/affiliate-disclosure", "/contact", "/privacy", "/disclaimer", "/terms",
     "/methodology", "/corrections", "/authors/sahil",
     // Finance Today & hubs

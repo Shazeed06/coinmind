@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   title: { absolute: `Privacy Policy · ${site.name}` },
   description: `${site.name}'s privacy policy: what data we collect, how we use it, and your rights. CoinMind calculators run in your browser and never upload your financial data.`,
   alternates: { canonical: `${site.url}/privacy` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/privacy`,
+    siteName: site.name,
+    locale: "en_IN",
+    title: `Privacy Policy · ${site.name}`,
+    description: `${site.name}'s privacy policy: what data we collect, how we use it, and your rights. Calculators run in your browser and never upload your financial data.`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 export default function PrivacyPage() {

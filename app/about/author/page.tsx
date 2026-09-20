@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   title: { absolute: `${site.author.fullName} - Founder & Editor · ${site.name}` },
   description: `${site.author.fullName} is the founder and editor of ${site.name}, pursuing Chartered Accountancy (CA) Final. Learn about the person behind CoinMind's calculators and guides.`,
   alternates: { canonical: `${site.url}/about/author` },
+  openGraph: {
+    type: "profile",
+    url: `${site.url}/about/author`,
+    siteName: site.name,
+    locale: "en_IN",
+    title: `${site.author.fullName} - Founder & Editor · ${site.name}`,
+    description: `${site.author.fullName} is the founder and editor of ${site.name}, pursuing CA Final. The person behind CoinMind's calculators, guides and tools.`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 export default function AuthorPage() {

@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   title: { absolute: `Disclaimer · ${site.name}` },
   description: `${site.name} is an educational finance tool site. Calculators provide estimates, not financial advice. Not SEBI registered.`,
   alternates: { canonical: `${site.url}/disclaimer` },
+  openGraph: {
+    type: "website",
+    url: `${site.url}/disclaimer`,
+    siteName: site.name,
+    locale: "en_IN",
+    title: `Disclaimer · ${site.name}`,
+    description: `${site.name} is an educational finance tool site. Calculators provide estimates, not financial advice. Not SEBI registered.`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+  },
 };
 
 export default function DisclaimerPage() {
