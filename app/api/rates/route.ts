@@ -1,6 +1,19 @@
 // Live exchange rates via a free, no-key API (open.er-api.com, operated by
 // Exchange Rate API), cached 1 hour. Proxied server-side so the browser has no
-// CORS issues and we control caching.
+// CORS issues and we control caching. Rate-limited to 60 req/min per IP.
+
+const rateMap = new Map<string, number[]>();
+const WINDOW_MS = 60_000;
+const MAX_REQUESTS = 60;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (rateMap.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  if (timestamps.length >= MAX_REQUESTS) return true;
+  timestamps.push(now);
+  rateMap.set(ip, timestamps);
+  return false;
+}
 //
 // This is the same upstream that app/currency/[slug]/page.tsx reads, so an
 // outage hits both at once. The browser converter therefore cannot "keep
@@ -24,7 +37,12 @@ type Payload = {
 // the plain "unavailable" error, never an invented number.
 let lastGood: Payload | null = null;
 
-export async function GET() {
+export async function GET(request: Request) {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (isRateLimited(ip)) {
+    return Response.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   try {
     const res = await fetch(UPSTREAM, { next: { revalidate: 3600 } });
     if (!res.ok) throw new Error("upstream");

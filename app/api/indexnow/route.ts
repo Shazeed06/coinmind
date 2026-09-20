@@ -8,8 +8,8 @@ import { GLOSSARY } from "@/lib/glossary";
 
 // GET /api/indexnow: submits every public URL to IndexNow (Bing, Yandex, Naver,
 // Seznam). Bing's index feeds ChatGPT Search, so this gets pages discovered in
-// hours instead of weeks. Trigger it after each deploy (visit the URL) or wire it
-// into CI. Google ignores IndexNow, so keep using GSC + sitemap there.
+// hours instead of weeks. Trigger after each deploy with the secret header.
+// Requires header: x-indexnow-secret: <INDEXNOW_SECRET env var>
 export const dynamic = "force-dynamic";
 
 function allUrls(): string[] {
@@ -67,11 +67,26 @@ function allUrls(): string[] {
     ...PAIR_SLUGS.map((s) => `/currency/${s}`),
     ...INHAND_SLUGS.map((s) => `/in-hand-salary/${s}`),
     ...GLOSSARY.map((g) => `/glossary/${g.slug}`),
+    "/ipos",
+    "/ipos/nse-ipo",
+    "/ipos/reliance-jio-ipo",
+    "/ipos/zepto-ipo",
+    "/ipos/ss-retail-ipo",
+    "/ipos/oyo-ipo",
+    "/ipos/hero-fincorp-ipo",
+    "/ipos/phonepe-ipo",
   ];
   return paths.map((p) => `${site.url}${p}`);
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const secret = process.env.INDEXNOW_SECRET;
+  if (secret) {
+    const provided = request.headers.get("x-indexnow-secret");
+    if (provided !== secret) {
+      return Response.json({ error: "Unauthorized" }, { status: 403 });
+    }
+  }
   const host = new URL(site.url).host;
   const urlList = allUrls();
   const body = {
