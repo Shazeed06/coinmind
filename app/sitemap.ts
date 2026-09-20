@@ -51,6 +51,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/finance-today", "/research", "/comparisons",
     // IPO tracker
     "/ipos", "/ipos/nse-ipo",
+    "/ipos/reliance-jio-ipo", "/ipos/zepto-ipo", "/ipos/ss-retail-ipo",
+    "/ipos/oyo-ipo", "/ipos/hero-fincorp-ipo", "/ipos/phonepe-ipo",
     // Trust & Transparency pages
     "/about/author", "/editorial-policy", "/financial-review-process", "/sources",
     // Research data pages

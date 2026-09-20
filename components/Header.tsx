@@ -88,7 +88,7 @@ export default function Header() {
         {/* Top gradient accent strip */}
         <div className="h-[2px] w-full bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea] shrink-0" />
 
-        <div className="container-main flex items-center gap-4 w-full h-16 sm:h-[68px]">
+        <div className="container-main flex items-center gap-4 w-full h-[68px] sm:h-[76px]">
 
           {/* Logo */}
           <Link href="/" aria-label="CoinMind home" className="shrink-0 group">
@@ -102,7 +102,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav ref={navRef} className="hidden md:flex items-center gap-0.5 ml-4" aria-label="Main navigation">
+          <nav ref={navRef} className="hidden md:flex items-center gap-1 ml-6" aria-label="Main navigation">
             {navMenus.map((m) => {
               const open = openMenu === m.label;
               const active = menuIsActive(m);
@@ -118,7 +118,7 @@ export default function Header() {
                     aria-expanded={open}
                     aria-haspopup="true"
                     onFocus={() => openNow(m.label)}
-                    className={`relative inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-150 ${
+                    className={`relative inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-150 ${
                       active || open
                         ? "text-white bg-white/10"
                         : "text-slate-400 hover:text-white hover:bg-white/8"
@@ -142,7 +142,7 @@ export default function Header() {
           </nav>
 
           {/* Desktop right */}
-          <div className="hidden md:flex items-center gap-2 ml-auto">
+          <div className="hidden md:flex items-center gap-3 ml-auto">
             <button
               onClick={() => setSearchOpen(true)}
               className="inline-flex items-center gap-2 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-3 py-[7px] text-sm text-slate-400 hover:text-white hover:border-slate-500 transition-all duration-150"
