@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     "IPO list India",
     "upcoming IPO list",
     "best IPO to apply 2026",
+    "IPO allotment status",
+    "IPO subscription status today",
+    "IPO GMP today India",
+    "IPO listing today India",
+    "best IPO this week",
   ],
   alternates: { canonical: `${site.url}/ipos` },
   openGraph: {
@@ -397,9 +402,22 @@ export default function IpoPage() {
     numberOfItems: OPEN.length + UPCOMING.length,
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "What is IPO GMP (Grey Market Premium)?", acceptedAnswer: { "@type": "Answer", text: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily — treat it as informal sentiment, not a guarantee." } },
+      { "@type": "Question", name: "What is the minimum investment for an IPO?", acceptedAnswer: { "@type": "Answer", text: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000–₹15,000." } },
+      { "@type": "Question", name: "What is ASBA in IPO?", acceptedAnswer: { "@type": "Answer", text: "ASBA (Application Supported by Blocked Amount) is a process where your bank blocks the application money in your account instead of debiting it. The amount is only debited if you get allotment." } },
+      { "@type": "Question", name: "What is the difference between Mainboard and SME IPO?", acceptedAnswer: { "@type": "Answer", text: "Mainboard IPOs are for larger companies listed on NSE/BSE main board. SME IPOs are for smaller companies listed on NSE Emerge or BSE SME platforms — they have larger lot sizes and are considered higher risk." } },
+      { "@type": "Question", name: "How is IPO allotment decided?", acceptedAnswer: { "@type": "Answer", text: "For oversubscribed IPOs, allotment in the retail category is done by lottery — each applicant has the same probability of getting 1 lot. Applying from multiple accounts (different PANs) increases your chances." } },
+    ],
+  };
+
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* Hero */}
       <section className="section-pad bg-white border-b border-border">

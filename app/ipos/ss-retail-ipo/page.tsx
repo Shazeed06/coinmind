@@ -231,6 +231,22 @@ export default function SsRetailIpoPage() {
           </p>
         </section>
 
+        {/* About SS Retail */}
+        <section>
+          <h2 className="text-xl font-bold text-text mb-4">About SS Retail</h2>
+          <div className="prose prose-sm max-w-none text-text-muted space-y-3">
+            <p>
+              SS Retail India Limited is a <strong className="text-text">multi-brand retail chain</strong> operating across fashion apparel, footwear, and lifestyle accessories in India. The company runs a network of retail stores targeting tier-2 and tier-3 cities where branded retail penetration is still growing.
+            </p>
+            <p>
+              The IPO proceeds (₹355 crore fresh issue) will be used primarily for <strong className="text-text">expanding its store network</strong> and repaying borrowings. The listing on <strong className="text-text">NSE Emerge</strong> (NSE's SME platform) reflects its mid-sized scale — making it accessible to retail investors at a lower minimum investment than mainboard IPOs.
+            </p>
+            <p>
+              The 108.69x subscription across all categories signals extremely high investor demand, driven by attractive GMP and strong sector sentiment in organised retail.
+            </p>
+          </div>
+        </section>
+
         {/* Pros & Cons */}
         <section>
           <h2 className="text-xl font-bold text-text mb-4">Pros & Cons</h2>
