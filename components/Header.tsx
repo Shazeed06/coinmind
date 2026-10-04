@@ -184,7 +184,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile drawer — outside header so it overlays content properly */}
+      {/* Mobile drawer - outside header so it overlays content properly */}
       {menuOpen && (
         <div className="fixed inset-0 top-[66px] sm:top-[70px] z-40 md:hidden bg-[#080f1e] overflow-y-auto">
           <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
@@ -250,7 +250,7 @@ export default function Header() {
               className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-4 font-semibold text-white shadow-[0_0_24px_rgba(47,91,234,0.4)]"
             >
               <Zap className="h-4 w-4" />
-              Free Calculators — No sign-up
+              Free Calculators - No sign-up
             </Link>
           </nav>
         </div>

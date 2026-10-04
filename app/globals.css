@@ -388,7 +388,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     line-height: 1.5;
   }
 
-  /* Print header — CoinMind branding */
+  /* Print header - CoinMind branding */
   body::before {
     content: "CoinMind  ·  coinmind.in  ·  " attr(data-print-url);
     display: block;
@@ -399,7 +399,7 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     margin-bottom: 16pt;
   }
 
-  /* Print footer — disclaimer */
+  /* Print footer - disclaimer */
   body::after {
     content: "This report is for informational purposes only and does not constitute financial advice. Verify all figures with a certified financial planner. © CoinMind";
     display: block;
@@ -429,15 +429,15 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
 
   /* Ensure links show their href */
   a[href]::after {
-    content: none; /* suppress — too noisy for a calc report */
+    content: none; /* suppress - too noisy for a calc report */
   }
 
-  /* Full width — no sidebar layout */
+  /* Full width - no sidebar layout */
   .grid, [class*="lg\:grid-cols"] {
     display: block !important;
   }
 
-  /* Inputs and sliders hidden — show only results */
+  /* Inputs and sliders hidden - show only results */
   input[type="range"] {
     display: none !important;
   }

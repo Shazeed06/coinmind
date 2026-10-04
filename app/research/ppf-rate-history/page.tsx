@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PPF Interest Rate History 2000–2026 – All Rates Since Launch | CoinMind",
+  title: "PPF Interest Rate History 2000-2026 - All Rates Since Launch | CoinMind",
   description: "Complete PPF interest rate history from 2000 to 2026. All government-declared Public Provident Fund rates, year by year, sourced from official notifications.",
   alternates: { canonical: `${site.url}/research/ppf-rate-history` },
 };
@@ -50,7 +50,7 @@ export default function PpfRateHistoryPage() {
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
 
-      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">PPF Interest Rate History (2000–2026)</h1>
+      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">PPF Interest Rate History (2000-2026)</h1>
       <p className="mt-3 text-ink-soft">Complete year-by-year record of Public Provident Fund interest rates declared by the Government of India.</p>
       <p className="mt-1 text-xs text-ink-faint">Source: National Savings Institute (NSI), Ministry of Finance notifications · Last updated: September 2026</p>
 
@@ -106,7 +106,7 @@ export default function PpfRateHistoryPage() {
       <section className="mt-10">
         <h2 className="font-display text-xl text-ink">How the PPF rate is set</h2>
         <p className="mt-2 text-sm text-ink-soft">
-          The PPF interest rate is set by the Ministry of Finance, Government of India. Since FY 2016-17, rates are reviewed and declared quarterly (though in practice, the PPF rate has been unchanged since April 2020). The rate is linked to government security (G-Sec) yields — specifically, PPF is meant to offer a spread of 0.25% above the average yield of comparable government bonds.
+          The PPF interest rate is set by the Ministry of Finance, Government of India. Since FY 2016-17, rates are reviewed and declared quarterly (though in practice, the PPF rate has been unchanged since April 2020). The rate is linked to government security (G-Sec) yields - specifically, PPF is meant to offer a spread of 0.25% above the average yield of comparable government bonds.
         </p>
       </section>
 

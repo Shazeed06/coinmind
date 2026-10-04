@@ -1,0 +1,116 @@
+{
+  "generated": "2026-09-20",
+  "note": "Static snapshot of all public routes in the CoinMind Next.js app. Re-run `npm run seo:audit` for a live report.",
+  "summary": {
+    "total_route_groups": 28,
+    "static_routes": 67,
+    "dynamic_route_groups": 9,
+    "estimated_total_urls": 650
+  },
+  "routes": [
+    { "path": "/", "type": "static", "file": "app/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P0" },
+    { "path": "/calculators", "type": "static", "file": "app/calculators/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P0" },
+    { "path": "/calculators/[slug]", "type": "dynamic-static", "file": "app/calculators/[slug]/page.tsx", "note": "Handled per-calculator by individual page.tsx files", "indexable": true, "priority": "P0" },
+    { "path": "/calculators/fd/[slug]", "type": "dynamic-static", "file": "app/calculators/fd/[slug]/page.tsx", "count": 15, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/blog", "type": "static", "file": "app/blog/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/blog/[slug]", "type": "dynamic-ssg", "file": "app/blog/[slug]/page.tsx", "note": "SSG from lib/data.ts posts array", "in_sitemap": true, "indexable": true, "priority": "P1-P3" },
+    { "path": "/news", "type": "static", "file": "app/news/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/news/[slug]", "type": "dynamic-ssg", "file": "app/news/[slug]/page.tsx", "count": 13, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/currency/[slug]", "type": "dynamic-static", "file": "app/currency/[slug]/page.tsx", "count": 17, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/glossary", "type": "static", "file": "app/glossary/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/glossary/[slug]", "type": "dynamic-static", "file": "app/glossary/[slug]/page.tsx", "count": 100, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/in-hand-salary/[slug]", "type": "dynamic-static", "file": "app/in-hand-salary/[slug]/page.tsx", "count": 68, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/income-tax", "type": "static", "file": "app/income-tax/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P0" },
+    { "path": "/income-tax/[slug]", "type": "dynamic-static", "file": "app/income-tax/[slug]/page.tsx", "count": 15, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/sip", "type": "static", "file": "app/sip/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P0" },
+    { "path": "/sip/[slug]", "type": "dynamic-static", "file": "app/sip/[slug]/page.tsx", "note": "NOINDEX by design (AdSense Phase 3) - not in sitemap", "in_sitemap": false, "indexable": false, "priority": "excluded" },
+    { "path": "/budgeting", "type": "static", "file": "app/budgeting/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/credit-score", "type": "static", "file": "app/credit-score/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/gold", "type": "static", "file": "app/gold/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/investing", "type": "static", "file": "app/investing/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/loans", "type": "static", "file": "app/loans/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/retirement", "type": "static", "file": "app/retirement/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/savings", "type": "static", "file": "app/savings/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/tools", "type": "static", "file": "app/tools/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/tools/[slug] (keeper)", "type": "static-each", "count": 24, "in_sitemap": true, "indexable": true, "priority": "P1-P2" },
+    { "path": "/tools/[slug] (noindex)", "type": "static-each", "count": 14, "in_sitemap": false, "indexable": false, "note": "Intentional noindex - utility tools", "priority": "excluded" },
+    { "path": "/tools/[slug] (deleted)", "type": "none", "count": 5, "note": "Route files removed; should have 410/redirect in next.config", "priority": "P0" },
+    { "path": "/comparisons", "type": "static", "file": "app/comparisons/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/comparisons/[slug]", "type": "static-each", "count": 13, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/research", "type": "static", "file": "app/research/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/research/[slug]", "type": "static-each", "count": 4, "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/finance-today", "type": "static", "file": "app/finance-today/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/ai-assistant", "type": "static", "file": "app/ai-assistant/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/ai-tools", "type": "static", "file": "app/ai-tools/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/ai-tools/[slug]", "type": "dynamic-static", "file": "app/ai-tools/[slug]/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/resume-builder", "type": "static", "file": "app/resume-builder/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P3" },
+    { "path": "/search", "type": "static", "file": "app/search/page.tsx", "in_sitemap": false, "indexable": false, "note": "robots.index=false - intentional: search results not suitable for indexing", "priority": "excluded" },
+    { "path": "/about", "type": "static", "file": "app/about/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/tax-regime-break-even", "type": "static", "file": "app/tax-regime-break-even/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P1" },
+    { "path": "/authors/sahil", "type": "static", "file": "app/authors/sahil/page.tsx", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/editorial-standards", "type": "static", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/editorial-policy", "type": "static", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/financial-review-process", "type": "static", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/sources", "type": "static", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/methodology", "type": "static", "in_sitemap": true, "indexable": true, "priority": "P2" },
+    { "path": "/corrections", "type": "static", "in_sitemap": true, "indexable": true, "priority": "P3" }
+  ],
+  "technical_issues": [
+    {
+      "id": "T1",
+      "severity": "P0",
+      "issue": "Deleted tool routes missing 410/redirect",
+      "affected": ["/tools/coin-flip", "/tools/random-number-generator", "/tools/random-wheel", "/tools/meme-generator", "/tools/lorem-ipsum-generator"],
+      "description": "These route files no longer exist but sitemap.ts comment references 'AdSense Phase 2.1' redirects. Confirm next.config.ts has redirects for these; if not, they 404 silently.",
+      "action": "Verify redirects in next.config.ts or add them"
+    },
+    {
+      "id": "T2",
+      "severity": "P1",
+      "issue": "Blog and news routes lack dynamicParams=false",
+      "affected": ["/blog/[slug]", "/news/[slug]"],
+      "description": "Unlike PSEO routes (currency, FD, glossary, in-hand-salary) which set dynamicParams=false, the blog and news routes do not. Unknown slugs will fall through to Next.js default behavior.",
+      "action": "Low risk if all slugs come from static data, but worth adding dynamicParams=false for consistency and to prevent accidental rendering of unknown paths"
+    },
+    {
+      "id": "T3",
+      "severity": "P1",
+      "issue": "Hub pages discovered but not indexed (likely weak internal linking)",
+      "affected": ["/budgeting", "/credit-score", "/gold", "/investing", "/loans", "/retirement", "/savings"],
+      "description": "These hub pages exist, are in the sitemap, have no noindex, but Google has not crawled them. Root cause: insufficient incoming internal links from high-authority pages (homepage, calculators).",
+      "action": "Add links to hub pages from homepage, relevant calculators, and blog posts"
+    },
+    {
+      "id": "T4",
+      "severity": "P2",
+      "issue": "AI-only blog content dilutes topical authority",
+      "affected_count": 28,
+      "description": "~28 blog posts cover pure AI/tech topics (AI agents, AI coding assistants, AI image generators, social media marketing, etc.) with no clear personal finance connection. These may be diluting CoinMind's topical authority as a personal finance site.",
+      "action": "Classify each post: add finance angle or add noindex; do not mass-delete without impact check"
+    },
+    {
+      "id": "T5",
+      "severity": "P2",
+      "issue": "Potential duplicate blog content",
+      "affected": [
+        "/blog/solar-panel-cost-india-home vs /blog/solar-panel-home-cost-subsidy-india-2026",
+        "/blog/sukanya-samriddhi-yojana-2026 vs /blog/sukanya-samriddhi-yojana-guide",
+        "/blog/cibil-score-check-improve-guide vs /blog/how-to-check-improve-cibil-score",
+        "/blog/old-vs-new-tax-regime-comparison vs /blog/income-tax-old-vs-new-regime-2026",
+        "/blog/ppf-vs-elss-tax-saving vs /blog/elss-vs-ppf-vs-nps-tax-saving-2026"
+      ],
+      "description": "Title-based analysis suggests overlap. Per plan: compare search intent before merging. Do not merge merely because titles look similar.",
+      "action": "Manually verify content overlap; only merge if genuinely duplicate search intent"
+    },
+    {
+      "id": "T6",
+      "severity": "P2",
+      "issue": "Non-finance tools in sitemap (/tools/image-converter, /tools/crop-image etc.)",
+      "description": "Image manipulation tools don't reinforce CoinMind's personal finance topical identity. They may be fine as utility pages but should not link-dilute the finance hub.",
+      "action": "Ensure no-crawl or low priority; these are already in sitemap with low priority - acceptable"
+    }
+  ],
+  "robots_txt_status": "PASS - all crawlers allowed; correct noindex for /api/, OG images, manifests",
+  "canonical_status": "PASS - no incorrect canonical tags found; site uses site.url from lib/site.ts",
+  "sitemap_status": "PASS - sitemap.ts auto-generates all live calculators, blog posts, news, PSEO pages; noindex pages correctly excluded"
+}

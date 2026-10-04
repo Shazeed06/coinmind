@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hero FinCorp IPO 2026: Price, GMP, Date & Full Review",
     description:
-      "Hero FinCorp IPO — ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
+      "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
     url: `${site.url}/ipos/hero-fincorp-ipo`,
   },
 };
@@ -36,7 +36,7 @@ const IPO_DETAILS = [
   { label: "Lot Size", value: "34 shares" },
   { label: "Min. Investment (Retail)", value: "~₹14,552 (34 × ₹428)" },
   { label: "DRHP Filed", value: "November 2025" },
-  { label: "Expected SEBI Approval", value: "Q1–Q2 2026" },
+  { label: "Expected SEBI Approval", value: "Q1 - Q2 2026" },
   { label: "Expected Open Date", value: "TBA (revised from Aug 2026; Q4 2026 likely)" },
   { label: "Exchange", value: "BSE + NSE" },
   { label: "Category", value: "Mainboard IPO" },
@@ -45,21 +45,21 @@ const IPO_DETAILS = [
 ];
 
 const PROS = [
-  "Backed by the Hero Group — one of India's most trusted conglomerates (Hero MotoCorp, Munjal family)",
+  "Backed by the Hero Group - one of India's most trusted conglomerates (Hero MotoCorp, Munjal family)",
   "NBFC with diversified loan book: two-wheeler loans, personal loans, home equity, SME lending",
   "Strong pan-India distribution through Hero MotoCorp's 7,000+ dealer network",
-  "Growing AUM — assets under management expanding with increasing two-wheeler penetration",
+  "Growing AUM - assets under management expanding with increasing two-wheeler penetration",
   "Fresh issue component uses funds for business growth, not just promoter exit",
   "Listing in a segment (NBFC IPOs) that historically attracts strong institutional interest",
 ];
 
 const CONS = [
-  "NBFC sector faces higher NPA risk in two-wheeler segment — borrowers skew lower income",
+  "NBFC sector faces higher NPA risk in two-wheeler segment - borrowers skew lower income",
   "RBI regulatory tightening on NBFCs could impact cost of funds",
-  "Significant OFS component (₹1,568 cr) — partial promoter exit dampens sentiment",
+  "Significant OFS component (₹1,568 cr) - partial promoter exit dampens sentiment",
   "Competition from Bajaj Finance, Mahindra Finance, and digital-first lenders",
   "Rising interest rates can compress NIM (net interest margin)",
-  "Dates keep getting pushed — originally targeted Aug 2026 but likely delayed to Q4",
+  "Dates keep getting pushed - originally targeted Aug 2026 but likely delayed to Q4",
 ];
 
 const FAQS = [
@@ -85,7 +85,7 @@ const FAQS = [
   },
   {
     q: "What is Hero FinCorp's AUM?",
-    a: "Hero FinCorp manages a diversified loan book — exact AUM figures will be disclosed in the RHP. As per DRHP, the company has grown consistently with improving asset quality metrics after post-COVID stress resolution.",
+    a: "Hero FinCorp manages a diversified loan book - exact AUM figures will be disclosed in the RHP. As per DRHP, the company has grown consistently with improving asset quality metrics after post-COVID stress resolution.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function HeroFincorpIpoPage() {
     "@type": "Article",
     headline: "Hero FinCorp IPO 2026: Price Band, GMP, Date & Complete Review",
     description:
-      "Full analysis of Hero FinCorp IPO — ₹3,358 crore issue, expected price ₹428, lot 34 shares, NBFC arm of Hero Group.",
+      "Full analysis of Hero FinCorp IPO - ₹3,358 crore issue, expected price ₹428, lot 34 shares, NBFC arm of Hero Group.",
     url: `${site.url}/ipos/hero-fincorp-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -180,7 +180,7 @@ export default function HeroFincorpIpoPage() {
           <h2 className="text-xl font-bold text-text mb-4">About Hero FinCorp</h2>
           <div className="prose prose-sm max-w-none text-text-muted space-y-3">
             <p>
-              Hero FinCorp Limited is the financial services arm of the <strong className="text-text">Hero Group</strong>, one of India's most respected industrial conglomerates. It primarily provides <strong className="text-text">two-wheeler financing</strong> through the dealership network of Hero MotoCorp — the world's largest two-wheeler manufacturer.
+              Hero FinCorp Limited is the financial services arm of the <strong className="text-text">Hero Group</strong>, one of India's most respected industrial conglomerates. It primarily provides <strong className="text-text">two-wheeler financing</strong> through the dealership network of Hero MotoCorp - the world's largest two-wheeler manufacturer.
             </p>
             <p>
               Beyond two-wheelers, Hero FinCorp has diversified into personal loans, home equity, and SME loans. It leverages Hero MotoCorp's <strong className="text-text">7,000+ dealer touchpoints</strong> across India for customer origination, giving it a massive distribution edge over pure-play NBFCs.
@@ -192,7 +192,7 @@ export default function HeroFincorpIpoPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons — Should You Apply?</h2>
+          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
               <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>

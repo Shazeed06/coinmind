@@ -3,25 +3,25 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SIP vs FD – Which is Better in 2026? Returns, Tax & Risk Compared | CoinMind",
+  title: "SIP vs FD - Which is Better in 2026? Returns, Tax & Risk Compared | CoinMind",
   description: "SIP vs Fixed Deposit: detailed comparison of returns, tax treatment, liquidity and risk for Indian investors in 2026. With real numbers and a verdict.",
   alternates: { canonical: `${site.url}/comparisons/sip-vs-fd` },
   openGraph: {
     title: "SIP vs FD: Which is Better? (2026) | CoinMind",
-    description: "SIP vs FD: real return comparison, post-tax analysis, liquidity and risk — everything an Indian investor needs to decide.",
+    description: "SIP vs FD: real return comparison, post-tax analysis, liquidity and risk - everything an Indian investor needs to decide.",
     url: `${site.url}/comparisons/sip-vs-fd`,
   },
 };
 
 const COMPARISON_TABLE = [
-  { param: "Returns (historical)", sip: "10–12% CAGR (equity MF, 10 yr avg)", fd: "6.5–7.5% p.a. (major banks, 2026)" },
-  { param: "Returns (inflation-adjusted)", sip: "~4–6% real return", fd: "0–1% real return (after 6% inflation)" },
-  { param: "Risk", sip: "Market risk — value can fall short-term", fd: "Zero risk — principal guaranteed (up to ₹5L/bank by DICGC)" },
+  { param: "Returns (historical)", sip: "10-12% CAGR (equity MF, 10 yr avg)", fd: "6.5-7.5% p.a. (major banks, 2026)" },
+  { param: "Returns (inflation-adjusted)", sip: "~4-6% real return", fd: "0-1% real return (after 6% inflation)" },
+  { param: "Risk", sip: "Market risk - value can fall short-term", fd: "Zero risk - principal guaranteed (up to ₹5L/bank by DICGC)" },
   { param: "Tax on returns", sip: "LTCG 12.5% above ₹1.25L/yr (held >1 yr); STCG 20% if sold within 1 yr", fd: "Interest taxed as income at slab rate (up to 30% + cess)" },
   { param: "Effective post-tax return (30% slab)", sip: "~10.5% (after 12.5% LTCG on gains)", fd: "~4.9% (after 30% tax on 7% FD)" },
   { param: "Liquidity", sip: "Redeemable any time; 1% exit load within 1 yr (most equity funds)", fd: "Premature withdrawal allowed; 1% penalty on rate" },
   { param: "Minimum investment", sip: "₹100/month", fd: "₹1,000 (most banks)" },
-  { param: "Inflation protection", sip: "Yes — equity historically beats inflation", fd: "No — FD returns often lag inflation net of tax" },
+  { param: "Inflation protection", sip: "Yes - equity historically beats inflation", fd: "No - FD returns often lag inflation net of tax" },
   { param: "Suitable horizon", sip: "5+ years (equity needs time to smooth volatility)", fd: "1 month to 10 years" },
   { param: "80C benefit", sip: "ELSS only (3-yr lock-in)", fd: "5-year tax-saving FD (5-yr lock-in)" },
 ];
@@ -35,7 +35,7 @@ export default function SipVsFdPage() {
 
       <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">SIP vs FD: Which is Better in 2026?</h1>
       <p className="mt-3 text-ink-soft max-w-2xl">
-        A data-driven comparison of Systematic Investment Plans (mutual fund SIPs) and Fixed Deposits — the two most popular savings instruments in India.
+        A data-driven comparison of Systematic Investment Plans (mutual fund SIPs) and Fixed Deposits - the two most popular savings instruments in India.
       </p>
       <p className="mt-1 text-xs text-ink-faint">Last updated: September 2026 · Sources: AMFI, RBI, Income Tax Dept</p>
 
@@ -43,7 +43,7 @@ export default function SipVsFdPage() {
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
         <p className="text-sm font-semibold text-forest-deep">Quick verdict</p>
         <p className="mt-1 text-sm text-forest-deep">
-          For goals <strong>5+ years away</strong>, SIP in a diversified equity mutual fund typically delivers 2–3× more wealth than an FD, especially after tax. For goals <strong>under 3 years</strong> or when capital safety is non-negotiable, FD wins — guaranteed returns and zero volatility.
+          For goals <strong>5+ years away</strong>, SIP in a diversified equity mutual fund typically delivers 2-3× more wealth than an FD, especially after tax. For goals <strong>under 3 years</strong> or when capital safety is non-negotiable, FD wins - guaranteed returns and zero volatility.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export default function SipVsFdPage() {
       <section className="mt-10">
         <h2 className="font-display text-2xl text-ink">The tax difference is massive</h2>
         <p className="mt-2 text-ink-soft">
-          This is where SIP wins decisively for anyone in the 20–30% tax bracket. FD interest is added to your income and taxed at your slab rate. Equity SIP gains are taxed as Long-Term Capital Gains at a flat 12.5% (with a ₹1.25 lakh annual exemption).
+          This is where SIP wins decisively for anyone in the 20-30% tax bracket. FD interest is added to your income and taxed at your slab rate. Equity SIP gains are taxed as Long-Term Capital Gains at a flat 12.5% (with a ₹1.25 lakh annual exemption).
         </p>
         <div className="mt-4 rounded-xl bg-paper-2 border border-line p-5 text-sm">
           <p className="font-semibold text-ink mb-3">Post-tax returns at 30% slab (FY 2026-27)</p>
@@ -129,7 +129,7 @@ export default function SipVsFdPage() {
             <ul className="space-y-2 text-sm text-forest-deep">
               <li>✓ Goal is 5+ years away (retirement, children's education)</li>
               <li>✓ You can tolerate short-term fluctuations</li>
-              <li>✓ You are in the 20–30% tax bracket</li>
+              <li>✓ You are in the 20-30% tax bracket</li>
               <li>✓ You want to beat inflation over time</li>
               <li>✓ You want to build long-term wealth systematically</li>
             </ul>
@@ -137,7 +137,7 @@ export default function SipVsFdPage() {
           <div className="rounded-xl border border-brass/30 bg-amber-50 dark:bg-amber-950/20 p-5">
             <p className="font-semibold text-brass mb-3">Choose FD when…</p>
             <ul className="space-y-2 text-sm text-amber-900 dark:text-amber-200">
-              <li>✓ Goal is within 1–3 years</li>
+              <li>✓ Goal is within 1-3 years</li>
               <li>✓ Capital preservation is critical (emergency fund, down payment)</li>
               <li>✓ You are retired and need predictable income</li>
               <li>✓ You are in the nil or 5% tax bracket</li>

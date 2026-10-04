@@ -159,7 +159,7 @@ export default function Page() {
                 {paginated.map((p) => (
                   <Link key={p.slug} href={`/blog/${p.slug}`} className="card card-h-full overflow-hidden">
                     <div className="aspect-[16/10] overflow-hidden">
-                      <CoverArt seed={p.slug} variant={p.art.variant} palette={p.art.palette} className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]" />
+                      <CoverArt seed={p.slug} variant={p.art.variant} palette={p.art.palette} label={p.category} className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]" />
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <p className="eyebrow text-brand">{p.category} · {p.readMinutes} min</p>

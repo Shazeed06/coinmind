@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "NSE IPO 2026: Price Band ₹1,785, GMP, Allotment, Review | CoinMind",
   description:
-    "NSE IPO complete review: price band ₹1,700–₹1,785, lot size 8 shares, GMP ₹60, allotment 22 Sep, listing 24 Sep. Issue size ₹22,561 crore. Should you apply?",
+    "NSE IPO complete review: price band ₹1,700-₹1,785, lot size 8 shares, GMP ₹60, allotment 22 Sep, listing 24 Sep. Issue size ₹22,561 crore. Should you apply?",
   keywords: [
     "NSE IPO",
     "NSE IPO GMP today",
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NSE IPO 2026: Price Band, GMP, Allotment Date & Review",
     description:
-      "Full review of the National Stock Exchange of India IPO — ₹22,561 cr issue, price band ₹1,700–₹1,785, GMP ₹60, listing 24 Sep 2026.",
+      "Full review of the National Stock Exchange of India IPO - ₹22,561 cr issue, price band ₹1,700-₹1,785, GMP ₹60, listing 24 Sep 2026.",
     url: `${site.url}/ipos/nse-ipo`,
   },
 };
 
 const IPO_DETAILS = [
   { label: "Issue Size", value: "₹22,561.57 crore" },
-  { label: "Price Band", value: "₹1,700 – ₹1,785 per share" },
+  { label: "Price Band", value: "₹1,700-₹1,785 per share" },
   { label: "Lot Size", value: "8 shares" },
   { label: "Min. Investment (Retail)", value: "₹14,280 (1 lot at ₹1,785)" },
   { label: "Open Date", value: "17 September 2026" },
@@ -39,7 +39,7 @@ const IPO_DETAILS = [
   { label: "Allotment Date", value: "22 September 2026" },
   { label: "Refund Initiation", value: "23 September 2026" },
   { label: "Listing Date", value: "24 September 2026 (BSE & NSE)" },
-  { label: "Issue Type", value: "Book Built (OFS — Offer for Sale)" },
+  { label: "Issue Type", value: "Book Built (OFS - Offer for Sale)" },
   { label: "Exchange", value: "BSE + NSE" },
   { label: "Category", value: "Mainboard IPO" },
   { label: "GMP (20 Sep 2026)", value: "₹60 → indicative listing ₹1,845 (+3%)" },
@@ -52,20 +52,20 @@ const CATEGORY_ALLOC = [
 ];
 
 const PROS = [
-  "India's largest stock exchange — processes ~90% of equity derivatives volume",
+  "India's largest stock exchange - processes ~90% of equity derivatives volume",
   "Near-monopoly in F&O segment; 95%+ market share in equity derivatives",
   "Strong financials: consistent revenue and profit growth over 5 years",
-  "Technology leadership — NEAT (National Exchange for Automated Trading) platform",
+  "Technology leadership - NEAT (National Exchange for Automated Trading) platform",
   "Diversification: data products, co-location services, listing fees",
-  "Long-awaited listing — strong institutional demand expected",
+  "Long-awaited listing - strong institutional demand expected",
 ];
 
 const CONS = [
-  "OFS-only issue — no fresh capital raised; promoters are selling shares",
+  "OFS-only issue - no fresh capital raised; promoters are selling shares",
   "Regulatory risks: SEBI has imposed penalties on NSE in the past (co-location scam)",
-  "Valuation is rich — ₹1,785 implies ~₹9 lakh crore market cap",
+  "Valuation is rich - ₹1,785 implies ~₹9 lakh crore market cap",
   "Limited upside vs. BSX (BSE) which already listed and trades at premium",
-  "GMP at only +3% — grey market doesn't show strong listing enthusiasm for mainboard",
+  "GMP at only +3% - grey market doesn't show strong listing enthusiasm for mainboard",
   "Largely OFS means management may be looking to cash out",
 ];
 
@@ -82,7 +82,7 @@ export default function NseIpoPage() {
     "@type": "Article",
     headline: "NSE IPO 2026: Complete Review, GMP, Price Band & Allotment Details",
     description:
-      "Full analysis of National Stock Exchange of India IPO — price band ₹1,700–₹1,785, issue size ₹22,561 crore, GMP, allotment date 22 Sep 2026, listing 24 Sep 2026.",
+      "Full analysis of National Stock Exchange of India IPO - price band ₹1,700-₹1,785, issue size ₹22,561 crore, GMP, allotment date 22 Sep 2026, listing 24 Sep 2026.",
     url: `${site.url}/ipos/nse-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -107,7 +107,7 @@ export default function NseIpoPage() {
         name: "What is the NSE IPO GMP today?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "As of 20 September 2026, the NSE IPO GMP (Grey Market Premium) is approximately ₹60, indicating an expected listing price of ₹1,845 — a 3% premium over the issue price. GMP is unofficial and indicative only.",
+          text: "As of 20 September 2026, the NSE IPO GMP (Grey Market Premium) is approximately ₹60, indicating an expected listing price of ₹1,845 - a 3% premium over the issue price. GMP is unofficial and indicative only.",
         },
       },
       {
@@ -131,7 +131,7 @@ export default function NseIpoPage() {
         name: "Should I apply for NSE IPO?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "NSE has strong fundamentals and near-monopoly in India's F&O segment. However, this is a pure OFS (no fresh capital raised) and valuation is rich at ₹9 lakh crore market cap. GMP is modest at +3%. Suitable for long-term investors; listing gains may be limited. This is not investment advice — read the DRHP before deciding.",
+          text: "NSE has strong fundamentals and near-monopoly in India's F&O segment. However, this is a pure OFS (no fresh capital raised) and valuation is rich at ₹9 lakh crore market cap. GMP is modest at +3%. Suitable for long-term investors; listing gains may be limited. This is not investment advice - read the DRHP before deciding.",
         },
       },
     ],
@@ -160,10 +160,10 @@ export default function NseIpoPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">
-            NSE IPO 2026 — National Stock Exchange of India
+            NSE IPO 2026 - National Stock Exchange of India
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            India&apos;s largest stock exchange is finally listing. NSE IPO opens 17–21 September 2026 with a price band of ₹1,700–₹1,785 per share. Issue size: ₹22,561 crore. Here&apos;s everything you need to know.
+            India&apos;s largest stock exchange is finally listing. NSE IPO opens 17-21 September 2026 with a price band of ₹1,700-₹1,785 per share. Issue size: ₹22,561 crore. Here&apos;s everything you need to know.
           </p>
           <p className="mt-2 text-xs text-text-muted">Last updated: 20 Sep 2026 · <span className="text-amber-600">GMP is unofficial and indicative only</span></p>
         </div>
@@ -237,7 +237,7 @@ export default function NseIpoPage() {
                 The National Stock Exchange of India (NSE) is India&apos;s largest stock exchange by trading volume and the world&apos;s largest derivatives exchange. Founded in 1992 and headquartered in Mumbai, NSE was the first Indian exchange to introduce electronic screen-based trading.
               </p>
               <p>
-                NSE commands approximately <strong className="text-text">90–95% market share</strong> in India&apos;s equity derivatives segment (Nifty futures and options). The Nifty 50 index, India&apos;s benchmark equity index, is owned and managed by NSE Indices.
+                NSE commands approximately <strong className="text-text">90-95% market share</strong> in India&apos;s equity derivatives segment (Nifty futures and options). The Nifty 50 index, India&apos;s benchmark equity index, is owned and managed by NSE Indices.
               </p>
               <p>
                 Revenue streams include transaction fees (largest), data products, co-location services, listing fees, and technology licensing. NSE&apos;s NEAT trading platform processes millions of orders per second with minimal downtime.
@@ -299,16 +299,16 @@ export default function NseIpoPage() {
 
           {/* FAQ */}
           <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-4">NSE IPO — Frequently Asked Questions</h2>
+            <h2 className="font-bold text-text mb-4">NSE IPO - Frequently Asked Questions</h2>
             <div className="space-y-4">
               {[
                 {
                   q: "What is the NSE IPO price band?",
-                  a: "₹1,700 – ₹1,785 per share. Retail investors should bid at the cut-off price (₹1,785). Minimum 1 lot = 8 shares = ₹14,280.",
+                  a: "₹1,700-₹1,785 per share. Retail investors should bid at the cut-off price (₹1,785). Minimum 1 lot = 8 shares = ₹14,280.",
                 },
                 {
                   q: "What is the NSE IPO GMP today?",
-                  a: "As of 20 Sep 2026, NSE IPO GMP is ~₹60, implying an indicative listing of ₹1,845 (+3%). GMP is unofficial and changes daily — it is NOT a guarantee of listing price.",
+                  a: "As of 20 Sep 2026, NSE IPO GMP is ~₹60, implying an indicative listing of ₹1,845 (+3%). GMP is unofficial and changes daily - it is NOT a guarantee of listing price.",
                 },
                 {
                   q: "What is the NSE IPO allotment date?",
@@ -316,19 +316,19 @@ export default function NseIpoPage() {
                 },
                 {
                   q: "What is the NSE IPO listing date?",
-                  a: "24 September 2026 — listed simultaneously on both BSE and NSE.",
+                  a: "24 September 2026 - listed simultaneously on both BSE and NSE.",
                 },
                 {
                   q: "Is NSE IPO an OFS or Fresh Issue?",
-                  a: "NSE IPO is a pure OFS (Offer for Sale). No fresh capital is raised by NSE — existing shareholders (promoters and investors) are selling their shares. The company does not receive IPO proceeds.",
+                  a: "NSE IPO is a pure OFS (Offer for Sale). No fresh capital is raised by NSE - existing shareholders (promoters and investors) are selling their shares. The company does not receive IPO proceeds.",
                 },
                 {
                   q: "Should I apply for NSE IPO?",
-                  a: "NSE has excellent fundamentals and a near-monopoly in India's derivatives market. However, at ~₹9 lakh crore valuation, it is rich. GMP of +3% suggests modest listing gains. Long-term investors may benefit; those looking for listing day flipping may be disappointed. This is educational information, not investment advice — consult a SEBI-registered advisor and read the DRHP before investing.",
+                  a: "NSE has excellent fundamentals and a near-monopoly in India's derivatives market. However, at ~₹9 lakh crore valuation, it is rich. GMP of +3% suggests modest listing gains. Long-term investors may benefit; those looking for listing day flipping may be disappointed. This is educational information, not investment advice - consult a SEBI-registered advisor and read the DRHP before investing.",
                 },
                 {
                   q: "How many lots can I apply for in NSE IPO?",
-                  a: "Retail investors can apply for a maximum of 14 lots (₹2 lakh limit). Allotment in oversubscribed IPOs is by lottery — each retail applicant has equal probability of getting 1 lot.",
+                  a: "Retail investors can apply for a maximum of 14 lots (₹2 lakh limit). Allotment in oversubscribed IPOs is by lottery - each retail applicant has equal probability of getting 1 lot.",
                 },
               ].map((faq, i) => (
                 <div key={i} className="border-b border-border last:border-0 pb-4 last:pb-0">

@@ -515,6 +515,64 @@ function relatedPosts(post: Post, limit = 3) {
     .map(({ candidate }) => candidate);
 }
 
+function getRelatedResources(category: string, slug: string) {
+  const s = slug.toLowerCase();
+  const c = category.toLowerCase();
+
+  if (s.includes("tax") || s.includes("itr") || s.includes("regime") || s.includes("deduction") || c.includes("tax")) {
+    return {
+      calc: { label: "Income Tax Calculator", href: "/calculators/income-tax", desc: "Compare new vs old regime tax liability" },
+      hub: { label: "Income Tax Hub", href: "/income-tax" },
+    };
+  }
+  if (s.includes("salary") || s.includes("in-hand") || s.includes("take-home") || s.includes("ctc")) {
+    return {
+      calc: { label: "In-Hand Salary Calculator", href: "/calculators/take-home-salary", desc: "Calculate exact monthly take-home pay" },
+      hub: { label: "Salary Guide Hub", href: "/in-hand-salary" },
+    };
+  }
+  if (s.includes("loan") || s.includes("emi") || s.includes("mortgage") || s.includes("prepayment") || c.includes("loan")) {
+    return {
+      calc: { label: "Loan EMI Calculator", href: "/calculators/emi", desc: "Calculate monthly EMI, interest and tenure" },
+      hub: { label: "Loans Hub", href: "/loans" },
+    };
+  }
+  if (s.includes("fd") || s.includes("fixed-deposit") || s.includes("rd") || s.includes("saving") || c.includes("saving")) {
+    return {
+      calc: { label: "FD Calculator", href: "/calculators/fd", desc: "Calculate fixed deposit maturity returns" },
+      hub: { label: "Savings Hub", href: "/savings" },
+    };
+  }
+  if (s.includes("retirement") || s.includes("epf") || s.includes("nps") || s.includes("pension") || s.includes("fire") || c.includes("retirement")) {
+    return {
+      calc: { label: "Retirement Calculator", href: "/calculators/retirement", desc: "Plan retirement corpus & FIRE target" },
+      hub: { label: "Retirement Hub", href: "/retirement" },
+    };
+  }
+  if (s.includes("gold") || s.includes("sgb")) {
+    return {
+      calc: { label: "Compound Interest Calculator", href: "/calculators/compound-interest", desc: "Calculate compounding growth" },
+      hub: { label: "Gold Guide Hub", href: "/gold" },
+    };
+  }
+  if (s.includes("credit-score") || s.includes("cibil") || s.includes("credit-card")) {
+    return {
+      calc: { label: "Loan Eligibility Calculator", href: "/calculators/home-loan-eligibility", desc: "Check borrowing eligibility by credit" },
+      hub: { label: "Credit Score Hub", href: "/credit-score" },
+    };
+  }
+  if (s.includes("budget") || s.includes("50-30-20")) {
+    return {
+      calc: { label: "Budget Planner", href: "/tools/budget-planner", desc: "Track expenses with 50-30-20 rule" },
+      hub: { label: "Budgeting Hub", href: "/budgeting" },
+    };
+  }
+  return {
+    calc: { label: "SIP Calculator", href: "/calculators/sip", desc: "See monthly mutual fund wealth growth" },
+    hub: { label: "Investing Hub", href: "/investing" },
+  };
+}
+
 export default async function Page({
   params,
 }: {
@@ -531,6 +589,7 @@ export default async function Page({
   );
   const more = relatedPosts(post);
   const { items: faqItems, bodyHasFaqSection } = faqToRender(post);
+  const related = getRelatedResources(post.category, post.slug);
 
   const graph: Record<string, unknown>[] = [
     {
@@ -676,10 +735,17 @@ export default async function Page({
             <div className="sticky top-24 space-y-6">
               <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent">
                 <Calculator className="h-8 w-8 text-brand" />
-                <p className="text-sm font-semibold text-text mt-3">Try Related Calculator</p>
-                <p className="text-xs text-text-muted mt-1">See the numbers for yourself</p>
-                <Link href="/calculators/sip" className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline">
-                  Open <ArrowRight className="h-4 w-4" />
+                <p className="text-sm font-semibold text-text mt-3">Try {related.calc.label}</p>
+                <p className="text-xs text-text-muted mt-1">{related.calc.desc}</p>
+                <Link href={related.calc.href} className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline">
+                  Open Calculator <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <div className="p-4 rounded-card border border-border bg-bg-alt">
+                <p className="eyebrow text-text-muted">Explore Section</p>
+                <Link href={related.hub.href} className="mt-1 block text-sm font-semibold text-text hover:text-brand transition-colors">
+                  {related.hub.label} &rarr;
                 </Link>
               </div>
               <div>

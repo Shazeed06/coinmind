@@ -1,0 +1,28 @@
+url,page_type,estimated_incoming_links,suggested_parent,suggested_related_pages,priority,fix_action
+https://www.coinmind.in/budgeting,Hub,1-2,/,/calculators,/tools/budget-planner,P0,Add link from homepage hero or nav; add to calculator hub; blog posts about budgeting should link here
+https://www.coinmind.in/credit-score,Hub,1-2,/,/loans,/blog/cibil-score-check-improve-guide,P0,Add link from loans hub; blog posts about credit score should link here
+https://www.coinmind.in/gold,Hub,1-2,/,/calculators,/blog/sgb-vs-physical-gold-vs-gold-etf,P1,Add link from investing hub and blog posts about gold
+https://www.coinmind.in/investing,Hub,2-3,/,/calculators/sip,/calculators/mutual-fund-returns,P0,Homepage should link here; all investing blog posts should link here
+https://www.coinmind.in/loans,Hub,2-3,/,/calculators/emi,/calculators/home-loan,P0,Homepage should link here; all loan blog posts should link here
+https://www.coinmind.in/retirement,Hub,2-3,/,/calculators/nps,/calculators/fire,P1,NPS and FIRE calculators should link here; retirement blog posts should link here
+https://www.coinmind.in/savings,Hub,1-2,/,/calculators/fd,/calculators/ppf,P1,FD and PPF calculators should link here; savings blog posts should link here
+https://www.coinmind.in/sip,Hub,2-3,/,/calculators/sip,/blog/how-to-start-sip-mutual-funds,P0,SIP calculator and all SIP blog posts should link here
+https://www.coinmind.in/income-tax,Hub,3-4,/,/calculators/income-tax,/blog/how-to-file-itr-online-salaried,P0,Income tax calculator should link here; all tax blog posts should link here
+https://www.coinmind.in/calculators/crypto-tax,Calculator,1-2,/calculators,/blog/cryptocurrency-tax-india-2026,P1,Crypto tax blog posts should link here; not linked from any comparison page
+https://www.coinmind.in/calculators/hra,Calculator,1-2,/calculators,/blog/how-to-claim-hra-exemption,P1,HRA blog post should link here; income tax calculator should cross-link
+https://www.coinmind.in/calculators/post-office-mis,Calculator,0-1,/calculators,/savings,P2,Savings hub should link here; no blog posts currently cover Post Office MIS
+https://www.coinmind.in/news/ai-agents-move-into-real-workplaces,News,0-1,/news,/blog/ai-agents-explained,P2,AI news articles are isolated; need links from blog posts or hub
+https://www.coinmind.in/news/gold-price-surge-drivers-explained,News,0-1,/news,/gold,P1,Gold hub should link to this news article
+https://www.coinmind.in/news/india-ai-regulation-dpdp-act-explained,News,0-1,/news,/blog/is-cryptocurrency-legal-india,P2,
+https://www.coinmind.in/news/new-ai-model-reasoning-benchmarks,News,0-1,/news,,P3,Low finance relevance; orphaned
+https://www.coinmind.in/news/new-income-tax-act-2025-rollout,News,0-1,/news,/income-tax,/blog/income-tax-act-2025-vs-1961,P0,Income tax hub and blog posts should link to this news
+https://www.coinmind.in/news/nifty-sensex-moves-what-it-means-for-sips,News,0-1,/news,/sip,/calculators/sip,P0,SIP hub and calculator should link to this news article
+https://www.coinmind.in/news/open-source-ai-tools-narrow-the-gap,News,0-1,/news,,P3,Low finance relevance; orphaned
+https://www.coinmind.in/news/rbi-repo-rate-2026-transmission-explained,News,0-1,/news,/savings,/calculators/fd,P0,FD and savings pages should link to RBI repo rate news
+https://www.coinmind.in/news/rbi-repo-rate-pause-emi-fd-impact,News,0-1,/news,/calculators/emi,/calculators/fd,P0,EMI and FD calculators should link to this news
+https://www.coinmind.in/news/sebi-mutual-fund-rule-changes-explained,News,0-1,/news,/calculators/sip,/investing,P0,SIP calculator and investing hub should link to this
+https://www.coinmind.in/news/should-gold-be-part-of-your-portfolio,News,0-1,/news,/gold,P1,Gold hub should link to this
+https://www.coinmind.in/news/upi-new-rules-2026-what-changes,News,0-1,/news,/blog/best-upi-apps-india-2026,P2,UPI blog post should link here
+https://www.coinmind.in/finance-today,Hub,2-3,/,,P1,Homepage should prominently link here; this is a key AEO/GEO page
+https://www.coinmind.in/research,Hub,2-3,/,/research/ppf-rate-history,/research/rbi-repo-rate-history,P1,Homepage and calculators should link to research pages
+https://www.coinmind.in/comparisons,Hub,2-3,/,/calculators,P1,Calculator pages link to individual comparisons but hub itself may be underlinked from homepage

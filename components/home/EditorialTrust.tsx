@@ -42,7 +42,7 @@ export default function EditorialTrust() {
         ))}
       </div>
 
-      {/* Trust signal badges — E-E-A-T: visible compliance and transparency markers */}
+      {/* Trust signal badges - E-E-A-T: visible compliance and transparency markers */}
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         {TRUST_BADGES.map((badge) => (
           <span
@@ -55,7 +55,7 @@ export default function EditorialTrust() {
         ))}
       </div>
 
-      {/* External citations — E-E-A-T: contextual links to authoritative regulators */}
+      {/* External citations - E-E-A-T: contextual links to authoritative regulators */}
       <p className="mt-6 text-center text-xs text-text-muted max-w-2xl mx-auto leading-relaxed">
         Our calculators and guides reference official data from the{" "}
         <a href="https://rbi.org.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-text">
@@ -72,7 +72,7 @@ export default function EditorialTrust() {
         .
       </p>
 
-      {/* Author byline + content date — E-E-A-T: who wrote it, credentials, when updated */}
+      {/* Author byline + content date - E-E-A-T: who wrote it, credentials, when updated */}
       <div className="mt-8 border-t border-line pt-6 text-center">
         <p className="text-sm text-text-muted">
           Written by{" "}

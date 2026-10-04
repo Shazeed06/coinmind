@@ -4,8 +4,8 @@ import GoalCalculator from "@/components/calc/GoalCalculator";
 
 export const metadata = calcMeta(
   "goal",
-  "Goal SIP Calculator India – How Much to Save for Any Goal",
-  "Calculate the monthly SIP needed to reach any financial goal — ₹25L, ₹50L, ₹1 Crore, child education, home, car — adjusted for inflation."
+  "Goal SIP Calculator India - How Much to Save for Any Goal",
+  "Calculate the monthly SIP needed to reach any financial goal - ₹25L, ₹50L, ₹1 Crore, child education, home, car - adjusted for inflation."
 );
 
 export default function Page() {
@@ -13,14 +13,14 @@ export default function Page() {
     <CalcPage
       slug="goal"
       title="Financial Goal Calculator"
-      subtitle="Find the monthly investment needed to reach any goal — house, education, car, or any target amount."
+      subtitle="Find the monthly investment needed to reach any goal - house, education, car, or any target amount."
       calculator={<GoalCalculator />}
       sources={[
-        { label: "SEBI – Investor Education and Protection Fund", href: "https://investor.sebi.gov.in" },
-        { label: "Reserve Bank of India – Inflation Series", href: "https://www.rbi.org.in" },
-        { label: "AMFI – Mutual Fund SIP Data", href: "https://www.amfiindia.com" },
+        { label: "SEBI - Investor Education and Protection Fund", href: "https://investor.sebi.gov.in" },
+        { label: "Reserve Bank of India - Inflation Series", href: "https://www.rbi.org.in" },
+        { label: "AMFI - Mutual Fund SIP Data", href: "https://www.amfiindia.com" },
       ]}
-      intro="Every financial goal — whether it is a house down payment, a child's college education, a wedding, a dream car, or simply building ₹1 crore — can be broken down into a specific monthly investment. This goal-based SIP calculator does exactly that: you tell it the target amount and time horizon, and it tells you the monthly SIP needed, adjusted for inflation if you want. It also accounts for what you have already saved towards the goal, so you only need to invest the remaining amount."
+      intro="Every financial goal - whether it is a house down payment, a child's college education, a wedding, a dream car, or simply building ₹1 crore - can be broken down into a specific monthly investment. This goal-based SIP calculator does exactly that: you tell it the target amount and time horizon, and it tells you the monthly SIP needed, adjusted for inflation if you want. It also accounts for what you have already saved towards the goal, so you only need to invest the remaining amount."
       how={{
         heading: "How the goal SIP is calculated",
         body: (
@@ -60,15 +60,15 @@ export default function Page() {
         },
         {
           q: "Can this calculator be used for child education planning?",
-          a: "Yes — enter the estimated education cost today, set the time horizon to when your child will start college, and turn on inflation adjustment with 8-10% (education inflation is higher than CPI). This gives you the monthly SIP to start today.",
+          a: "Yes - enter the estimated education cost today, set the time horizon to when your child will start college, and turn on inflation adjustment with 8-10% (education inflation is higher than CPI). This gives you the monthly SIP to start today.",
         },
         {
           q: "What if my goal amount itself keeps changing?",
-          a: "That is normal — particularly for real estate. The inflation adjustment feature handles this: it grows your nominal goal at the inflation rate you specify, which approximates how the goal's cost grows over time.",
+          a: "That is normal - particularly for real estate. The inflation adjustment feature handles this: it grows your nominal goal at the inflation rate you specify, which approximates how the goal's cost grows over time.",
         },
         {
           q: "Can I use a step-up SIP instead of a fixed SIP?",
-          a: "This calculator uses a fixed monthly SIP. For a step-up SIP (where you increase the amount each year), use our Step-Up SIP Calculator — the required starting SIP amount will be lower.",
+          a: "This calculator uses a fixed monthly SIP. For a step-up SIP (where you increase the amount each year), use our Step-Up SIP Calculator - the required starting SIP amount will be lower.",
         },
       ]}
     />

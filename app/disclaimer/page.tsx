@@ -34,7 +34,7 @@ export default function DisclaimerPage() {
       <LegalPage
         pill="Disclaimer"
         title="Disclaimer"
-        subtitle={`${site.name} is not a SEBI-registered investment adviser. Calculators are educational estimates — not financial, tax or investment advice.`}
+        subtitle={`${site.name} is not a SEBI-registered investment adviser. Calculators are educational estimates - not financial, tax or investment advice.`}
         icon={<AlertCircle className="h-6 w-6 text-amber-400" />}
       >
         <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200">
@@ -84,7 +84,7 @@ export default function DisclaimerPage() {
           <section>
             <h2 className="h3 text-text">Consult a professional</h2>
             <p className="body text-text-muted mt-3">
-              For decisions that materially affect your finances — tax filing, investment allocation, insurance selection, retirement planning or loan structuring — consult a qualified professional: a SEBI-registered investment adviser, a Chartered Accountant, or another licensed financial professional.
+              For decisions that materially affect your finances - tax filing, investment allocation, insurance selection, retirement planning or loan structuring - consult a qualified professional: a SEBI-registered investment adviser, a Chartered Accountant, or another licensed financial professional.
             </p>
           </section>
 

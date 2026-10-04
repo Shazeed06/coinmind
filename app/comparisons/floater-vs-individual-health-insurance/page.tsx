@@ -3,17 +3,17 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Family Floater vs Individual Health Insurance – Which is Better? | CoinMind",
+  title: "Family Floater vs Individual Health Insurance - Which is Better? | CoinMind",
   description: "Family floater vs individual health insurance: premium comparison, coverage gaps and which to buy for yourself, parents and kids in India.",
   alternates: { canonical: `${site.url}/comparisons/floater-vs-individual-health-insurance` },
 };
 
 const TABLE = [
   { param: "Cover type", floater: "One shared pool for the whole family", individual: "Separate cover per person" },
-  { param: "Typical sum insured", floater: "₹5–25 lakh shared across family", individual: "₹5–25 lakh per person" },
-  { param: "Premium (example: ₹10L cover)", floater: "~₹12,000–18,000/year (family of 4)", individual: "~₹6,000–10,000/year per adult" },
-  { param: "Risk of exhaustion", floater: "High if multiple family members claim in same year", individual: "Zero — each person's cover is independent" },
-  { param: "Adding members", floater: "Easy — spouse, children added at renewal", individual: "Separate policy per member" },
+  { param: "Typical sum insured", floater: "₹5-25 lakh shared across family", individual: "₹5-25 lakh per person" },
+  { param: "Premium (example: ₹10L cover)", floater: "~₹12,000-18,000/year (family of 4)", individual: "~₹6,000-10,000/year per adult" },
+  { param: "Risk of exhaustion", floater: "High if multiple family members claim in same year", individual: "Zero - each person's cover is independent" },
+  { param: "Adding members", floater: "Easy - spouse, children added at renewal", individual: "Separate policy per member" },
   { param: "Parents inclusion", floater: "Many insurers exclude parents (or heavily load premium)", individual: "Separate senior citizen policy recommended" },
   { param: "Pre-existing disease waiting", floater: "Applies to each member individually", individual: "Same" },
   { param: "No-claim bonus (NCB)", floater: "Bonus applies to shared pool; one claim can reset it", individual: "Each person's NCB is independent" },
@@ -65,11 +65,11 @@ export default function FloaterVsIndividualHealthPage() {
             </tr></thead>
             <tbody>
               {[
-                { s: "Floater (35+33 yr couple + 2 kids)", p: "~₹14,000–18,000", c: "₹10L shared" },
-                { s: "Individual (35 yr adult)", p: "~₹6,000–8,000", c: "₹10L each" },
-                { s: "Individual (55 yr parent)", p: "~₹18,000–30,000", c: "₹10L — separate" },
-                { s: "Family floater incl. 55yr parent", p: "~₹35,000–55,000", c: "₹10L shared — not recommended" },
-                { s: "Super top-up (₹45L above ₹5L deductible)", p: "~₹5,000–7,000/year", c: "₹45L top-up (excellent value)" },
+                { s: "Floater (35+33 yr couple + 2 kids)", p: "~₹14,000-18,000", c: "₹10L shared" },
+                { s: "Individual (35 yr adult)", p: "~₹6,000-8,000", c: "₹10L each" },
+                { s: "Individual (55 yr parent)", p: "~₹18,000-30,000", c: "₹10L - separate" },
+                { s: "Family floater incl. 55yr parent", p: "~₹35,000-55,000", c: "₹10L shared - not recommended" },
+                { s: "Super top-up (₹45L above ₹5L deductible)", p: "~₹5,000-7,000/year", c: "₹45L top-up (excellent value)" },
               ].map((r, i) => (
                 <tr key={r.s} className={i % 2 === 0 ? "bg-card" : "bg-paper-2"}>
                   <td className="px-4 py-2.5 text-ink-soft">{r.s}</td>
@@ -109,7 +109,7 @@ export default function FloaterVsIndividualHealthPage() {
       <section className="mt-8 rounded-xl bg-paper-2 border border-line p-5">
         <p className="font-semibold text-ink mb-2">The optimal structure for most Indian families</p>
         <p className="text-sm text-ink-soft">
-          <strong>Core:</strong> Family floater (₹10–15L) for self + spouse + children. <strong>Add:</strong> Super top-up (₹45–50L over ₹5L deductible) at very low premium. <strong>Separately:</strong> Individual senior citizen policies for parents — never include them in a family floater.
+          <strong>Core:</strong> Family floater (₹10-15L) for self + spouse + children. <strong>Add:</strong> Super top-up (₹45-50L over ₹5L deductible) at very low premium. <strong>Separately:</strong> Individual senior citizen policies for parents - never include them in a family floater.
         </p>
       </section>
 

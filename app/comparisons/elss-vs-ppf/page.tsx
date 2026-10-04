@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ELSS vs PPF – Which is Better for 80C Tax Saving? | CoinMind",
+  title: "ELSS vs PPF - Which is Better for 80C Tax Saving? | CoinMind",
   description: "ELSS vs PPF: returns, lock-in, tax treatment and who should choose what for Section 80C tax saving in India. Data-backed comparison for 2026.",
   alternates: { canonical: `${site.url}/comparisons/elss-vs-ppf` },
 };
@@ -13,14 +13,14 @@ const TABLE = [
   { param: "Type", elss: "Equity mutual fund (market-linked)", ppf: "Government-backed (risk-free)" },
   { param: "Lock-in period", elss: "3 years (shortest among 80C options)", ppf: "15 years (extendable in 5-yr blocks)" },
   { param: "Max 80C deduction", elss: "₹1.5 lakh/year", ppf: "₹1.5 lakh/year" },
-  { param: "Returns (historical)", elss: "12–15% CAGR (Nifty 50 index: ~12–14%)", ppf: "7.1% p.a. (current, compounded annually)" },
-  { param: "Risk", elss: "High — can fall 30–50% in bear markets", ppf: "Zero — sovereign guarantee" },
+  { param: "Returns (historical)", elss: "12-15% CAGR (Nifty 50 index: ~12-14%)", ppf: "7.1% p.a. (current, compounded annually)" },
+  { param: "Risk", elss: "High - can fall 30-50% in bear markets", ppf: "Zero - sovereign guarantee" },
   { param: "Tax on returns", elss: "LTCG 12.5% above ₹1.25L/year", ppf: "Completely tax-free (EEE status)" },
   { param: "Liquidity", elss: "After 3-year lock-in; fully liquid then", ppf: "Partial withdrawal after year 7; premature closure only after 5 years" },
   { param: "Loan against", elss: "Not available against ELSS", ppf: "Available from year 3 to 6 (up to 25% of balance)" },
-  { param: "SIP option", elss: "Yes — monthly SIP of ₹500+", ppf: "Manual deposits; no auto-SIP" },
+  { param: "SIP option", elss: "Yes - monthly SIP of ₹500+", ppf: "Manual deposits; no auto-SIP" },
   { param: "Demat needed", elss: "No (direct plan via MFU/CAMS/AMC)", ppf: "No (post office or bank)" },
-  { param: "Applicable regime", elss: "80C deduction — only old tax regime", ppf: "80C deduction — only old tax regime" },
+  { param: "Applicable regime", elss: "80C deduction - only old tax regime", ppf: "80C deduction - only old tax regime" },
 ];
 
 export default function ElssVsPpfPage() {
@@ -35,7 +35,7 @@ export default function ElssVsPpfPage() {
       {/* Key note on new regime */}
       <div className="mt-6 rounded-xl border border-brass/40 bg-brass/10 p-4 text-sm">
         <p className="font-semibold text-brass mb-1">Important: New vs Old Tax Regime</p>
-        <p className="text-ink-soft">Both ELSS and PPF give 80C deductions only under the <strong>old tax regime</strong>. If you are under the new tax regime (default from FY 2023-24), neither gives you a tax deduction — though PPF interest remains tax-free either way.</p>
+        <p className="text-ink-soft">Both ELSS and PPF give 80C deductions only under the <strong>old tax regime</strong>. If you are under the new tax regime (default from FY 2023-24), neither gives you a tax deduction - though PPF interest remains tax-free either way.</p>
       </div>
 
       {/* Verdict */}
@@ -45,7 +45,7 @@ export default function ElssVsPpfPage() {
           <ul className="text-sm text-forest-deep space-y-1.5">
             <li>✓ You have a 5+ year horizon</li>
             <li>✓ You can stomach market volatility</li>
-            <li>✓ You want higher potential returns (12–15%)</li>
+            <li>✓ You want higher potential returns (12-15%)</li>
             <li>✓ You want the shortest 80C lock-in (3 years)</li>
             <li>✓ You are under 45 with stable income</li>
           </ul>
@@ -64,7 +64,7 @@ export default function ElssVsPpfPage() {
 
       {/* ₹1.5L for 15 years example */}
       <section className="mt-10">
-        <h2 className="font-display text-xl text-ink mb-3">₹1.5 lakh/year for 15 years — what you get</h2>
+        <h2 className="font-display text-xl text-ink mb-3">₹1.5 lakh/year for 15 years - what you get</h2>
         <div className="rounded-xl border border-line overflow-hidden">
           <table className="w-full text-sm">
             <thead><tr className="bg-paper-2">
@@ -87,7 +87,7 @@ export default function ElssVsPpfPage() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-ink-faint mt-2">ELSS corpus is pre-tax. After 12.5% LTCG on gains above ₹1.25L/year, net ELSS at 12% CAGR ≈ ₹70–72L — still well ahead of PPF, but with market risk.</p>
+        <p className="text-xs text-ink-faint mt-2">ELSS corpus is pre-tax. After 12.5% LTCG on gains above ₹1.25L/year, net ELSS at 12% CAGR ≈ ₹70-72L - still well ahead of PPF, but with market risk.</p>
       </section>
 
       {/* Full comparison */}

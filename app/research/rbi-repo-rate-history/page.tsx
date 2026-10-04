@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "RBI Repo Rate History 2010–2026 – All MPC Decisions | CoinMind",
+  title: "RBI Repo Rate History 2010-2026 - All MPC Decisions | CoinMind",
   description: "Complete RBI repo rate history from 2010 to 2026. All Monetary Policy Committee (MPC) rate decisions, dates and reasons. Official data from RBI.",
   alternates: { canonical: `${site.url}/research/rbi-repo-rate-history` },
 };
@@ -12,13 +12,13 @@ const REPO_RATES = [
   { date: "Jun 2025", rate: "5.75%", change: "−0.25%", action: "Cut" },
   { date: "Apr 2025", rate: "6.00%", change: "−0.25%", action: "Cut" },
   { date: "Feb 2025", rate: "6.25%", change: "−0.25%", action: "Cut" },
-  { date: "Feb 2023 – Jan 2025", rate: "6.50%", change: "Held", action: "Hold" },
+  { date: "Feb 2023 - Jan 2025", rate: "6.50%", change: "Held", action: "Hold" },
   { date: "Dec 2022", rate: "6.25%", change: "+0.35%", action: "Hike" },
   { date: "Sep 2022", rate: "5.90%", change: "+0.50%", action: "Hike" },
   { date: "Aug 2022", rate: "5.40%", change: "+0.50%", action: "Hike" },
   { date: "Jun 2022", rate: "4.90%", change: "+0.50%", action: "Hike" },
   { date: "May 2022", rate: "4.40%", change: "+0.40%", action: "Hike" },
-  { date: "May 2020 – Apr 2022", rate: "4.00%", change: "Held", action: "Hold" },
+  { date: "May 2020 - Apr 2022", rate: "4.00%", change: "Held", action: "Hold" },
   { date: "Mar 2020 (emergency)", rate: "4.40%", change: "−0.75%", action: "Cut" },
   { date: "Feb 2020", rate: "5.15%", change: "Held", action: "Hold" },
   { date: "Oct 2019", rate: "5.15%", change: "−0.25%", action: "Cut" },
@@ -26,23 +26,23 @@ const REPO_RATES = [
   { date: "Jun 2019", rate: "5.75%", change: "−0.25%", action: "Cut" },
   { date: "Apr 2019", rate: "6.00%", change: "−0.25%", action: "Cut" },
   { date: "Feb 2019", rate: "6.25%", change: "−0.25%", action: "Cut" },
-  { date: "Jun 2018 – Jan 2019", rate: "6.50%", change: "Held/Hiked", action: "Hike" },
+  { date: "Jun 2018 - Jan 2019", rate: "6.50%", change: "Held/Hiked", action: "Hike" },
   { date: "Jun 2018", rate: "6.25%", change: "+0.25%", action: "Hike" },
-  { date: "Aug 2017 – May 2018", rate: "6.00%", change: "Held", action: "Hold" },
+  { date: "Aug 2017 - May 2018", rate: "6.00%", change: "Held", action: "Hold" },
   { date: "Aug 2017", rate: "6.00%", change: "−0.25%", action: "Cut" },
-  { date: "Oct 2016 – Jun 2017", rate: "6.25%", change: "Held", action: "Hold" },
+  { date: "Oct 2016 - Jun 2017", rate: "6.25%", change: "Held", action: "Hold" },
   { date: "Oct 2016", rate: "6.25%", change: "−0.25%", action: "Cut" },
-  { date: "Apr 2016 – Sep 2016", rate: "6.50%", change: "Held", action: "Hold" },
+  { date: "Apr 2016 - Sep 2016", rate: "6.50%", change: "Held", action: "Hold" },
   { date: "Apr 2016", rate: "6.50%", change: "−0.25%", action: "Cut" },
-  { date: "Sep 2015 – Mar 2016", rate: "6.75%", change: "Held", action: "Hold" },
+  { date: "Sep 2015 - Mar 2016", rate: "6.75%", change: "Held", action: "Hold" },
   { date: "Sep 2015", rate: "6.75%", change: "−0.50%", action: "Cut" },
   { date: "Jun 2015", rate: "7.25%", change: "−0.25%", action: "Cut" },
   { date: "Mar 2015", rate: "7.50%", change: "−0.25%", action: "Cut" },
   { date: "Jan 2015", rate: "7.75%", change: "−0.25%", action: "Cut" },
-  { date: "Jan 2014 – Dec 2014", rate: "8.00%", change: "Held/Hiked", action: "Hold" },
+  { date: "Jan 2014 - Dec 2014", rate: "8.00%", change: "Held/Hiked", action: "Hold" },
   { date: "Jan 2014", rate: "8.00%", change: "+0.25%", action: "Hike" },
   { date: "Oct 2013", rate: "7.75%", change: "+0.25%", action: "Hike" },
-  { date: "Mar 2012 – Sep 2013", rate: "7.25–8.00%", change: "Various", action: "Various" },
+  { date: "Mar 2012 - Sep 2013", rate: "7.25-8.00%", change: "Various", action: "Various" },
 ];
 
 export default function RbiRepoRateHistoryPage() {
@@ -52,8 +52,8 @@ export default function RbiRepoRateHistoryPage() {
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
 
-      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">RBI Repo Rate History (2010–2026)</h1>
-      <p className="mt-3 text-ink-soft">All Reserve Bank of India Monetary Policy Committee (MPC) rate decisions. The repo rate is the rate at which RBI lends to commercial banks — it drives home loan, car loan and FD rates across India.</p>
+      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">RBI Repo Rate History (2010-2026)</h1>
+      <p className="mt-3 text-ink-soft">All Reserve Bank of India Monetary Policy Committee (MPC) rate decisions. The repo rate is the rate at which RBI lends to commercial banks - it drives home loan, car loan and FD rates across India.</p>
       <p className="mt-1 text-xs text-ink-faint">Source: Reserve Bank of India (rbi.org.in) · Last updated: September 2026</p>
 
       {/* Current rate */}
@@ -68,7 +68,7 @@ export default function RbiRepoRateHistoryPage() {
         {[
           { label: "Current rate", value: "5.75%", sub: "As of June 2025" },
           { label: "Recent peak (2023-25)", value: "6.50%", sub: "Held for ~2 years" },
-          { label: "COVID-era low", value: "4.00%", sub: "May 2020 – Apr 2022" },
+          { label: "COVID-era low", value: "4.00%", sub: "May 2020 - Apr 2022" },
         ].map((s) => (
           <div key={s.label} className="rounded-xl border border-line bg-card p-4 text-center">
             <p className="font-display text-2xl text-ink">{s.value}</p>
@@ -84,8 +84,8 @@ export default function RbiRepoRateHistoryPage() {
         <ul className="space-y-1.5 text-ink-soft">
           <li>📉 <strong>Rate cut</strong> → banks lower home loan, car loan EMIs within weeks</li>
           <li>📈 <strong>Rate hike</strong> → floating rate EMIs increase; FD rates typically rise</li>
-          <li>💰 <strong>FD rates</strong> are loosely linked — banks raise/lower FD rates in the same direction</li>
-          <li>🏠 <strong>Home loans</strong>: most modern home loans are EBLR (external benchmark linked) — repo rate changes flow through directly, usually within one billing cycle</li>
+          <li>💰 <strong>FD rates</strong> are loosely linked - banks raise/lower FD rates in the same direction</li>
+          <li>🏠 <strong>Home loans</strong>: most modern home loans are EBLR (external benchmark linked) - repo rate changes flow through directly, usually within one billing cycle</li>
         </ul>
       </div>
 

@@ -3,22 +3,22 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "FD vs Debt Mutual Fund – Which is Better After Tax? | CoinMind",
+  title: "FD vs Debt Mutual Fund - Which is Better After Tax? | CoinMind",
   description: "FD vs debt mutual fund: returns, tax treatment, liquidity and who should choose what. Post-tax comparison for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/fd-vs-debt-mutual-fund` },
 };
 
 const TABLE = [
-  { param: "Returns (typical)", fd: "6.5–7.5% p.a. (fixed)", dmf: "6–8% p.a. (variable, market-linked)" },
+  { param: "Returns (typical)", fd: "6.5-7.5% p.a. (fixed)", dmf: "6-8% p.a. (variable, market-linked)" },
   { param: "Safety", fd: "DICGC insured up to ₹5 lakh per bank", dmf: "Not insured; credit and interest rate risk" },
   { param: "Tax treatment", fd: "Interest taxed as per income slab every year", dmf: "Gains taxed as per slab (post-April 2023 rule change)" },
-  { param: "Liquidity", fd: "Premature withdrawal allowed with ~0.5–1% penalty", dmf: "Exit loads (0–1%); T+1 to T+3 settlement" },
+  { param: "Liquidity", fd: "Premature withdrawal allowed with ~0.5-1% penalty", dmf: "Exit loads (0-1%); T+1 to T+3 settlement" },
   { param: "Minimum investment", fd: "₹1,000 (most banks)", dmf: "₹500 (direct plan)" },
   { param: "TDS", fd: "10% TDS if interest > ₹40,000/year (₹50,000 for seniors)", dmf: "No TDS (self-reporting at ITR time)" },
-  { param: "Pre-mature penalty", fd: "0.5–1% reduction in interest rate", dmf: "Exit load (usually 0–1% within 30–180 days)" },
+  { param: "Pre-mature penalty", fd: "0.5-1% reduction in interest rate", dmf: "Exit load (usually 0-1% within 30-180 days)" },
   { param: "Types", fd: "Cumulative / non-cumulative, tax-saving (5-yr)", dmf: "Liquid, overnight, ultra-short, short, medium, gilt" },
   { param: "Best use case", fd: "Emergency fund, senior citizens, capital protection", dmf: "Active investors, sweep accounts, parking surplus" },
-  { param: "Nomination / joint", fd: "Easy — standard banking process", dmf: "Possible but slightly more paperwork" },
+  { param: "Nomination / joint", fd: "Easy - standard banking process", dmf: "Possible but slightly more paperwork" },
 ];
 
 export default function FdVsDebtMutualFundPage() {
@@ -33,7 +33,7 @@ export default function FdVsDebtMutualFundPage() {
       {/* 2023 rule change callout */}
       <div className="mt-6 rounded-xl border border-brass/40 bg-brass/10 p-4 text-sm">
         <p className="font-semibold text-brass mb-1">Tax change: April 2023 onwards</p>
-        <p className="text-ink-soft">Before April 2023, debt mutual fund gains held 3+ years were taxed at 20% with indexation — making them far more tax-efficient than FDs for people in the 30% bracket. <strong>Since April 2023, all debt MF gains are taxed as per income slab</strong> — the indexation advantage is gone. The tax gap between FD and debt MF is now narrow.</p>
+        <p className="text-ink-soft">Before April 2023, debt mutual fund gains held 3+ years were taxed at 20% with indexation - making them far more tax-efficient than FDs for people in the 30% bracket. <strong>Since April 2023, all debt MF gains are taxed as per income slab</strong> - the indexation advantage is gone. The tax gap between FD and debt MF is now narrow.</p>
       </div>
 
       {/* Tax comparison */}

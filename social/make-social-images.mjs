@@ -40,7 +40,7 @@ const banner = `
   <rect x="0" y="0" width="1500" height="6" fill="#2563eb"/>
   <text x="470" y="215" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="700" fill="#0f1424">CoinMind</text>
   <text x="474" y="272" font-family="Helvetica, Arial, sans-serif" font-size="31" fill="#3f4661">46 free calculators. 44 free tools. No sign-up.</text>
-  <text x="474" y="322" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#16a34a">Everything runs in your browser — your numbers never leave your device.</text>
+  <text x="474" y="322" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#16a34a">Everything runs in your browser - your numbers never leave your device.</text>
   <text x="474" y="378" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#2563eb">coinmind.in</text>
 </svg>`;
 

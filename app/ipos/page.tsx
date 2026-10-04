@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "IPO 2026 India: Upcoming & Open IPOs List with GMP | CoinMind",
   description:
-    "Complete IPO calendar for September–October 2026. Track all open, upcoming, and recently listed mainboard & SME IPOs in India with price band, GMP, lot size, and allotment dates.",
+    "Complete IPO calendar for September - October 2026. Track all open, upcoming, and recently listed mainboard & SME IPOs in India with price band, GMP, lot size, and allotment dates.",
   keywords: [
     "upcoming IPO 2026 India",
     "IPO open today India",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IPO 2026 India: All Upcoming & Open IPOs with GMP",
     description:
-      "Complete tracker for all open and upcoming IPOs in India — price band, GMP, lot size, allotment and listing dates. Updated daily.",
+      "Complete tracker for all open and upcoming IPOs in India - price band, GMP, lot size, allotment and listing dates. Updated daily.",
     url: `${site.url}/ipos`,
   },
 };
@@ -54,7 +54,7 @@ const OPEN: IPO[] = [
     type: "Mainboard",
     open: "17 Sep 2026",
     close: "21 Sep 2026",
-    priceBand: "₹1,700 – ₹1,785",
+    priceBand: "₹1,700-₹1,785",
     lotSize: "8 shares",
     gmp: "₹60",
     gmpPct: "+3%",
@@ -67,7 +67,7 @@ const OPEN: IPO[] = [
     type: "SME",
     open: "17 Sep 2026",
     close: "21 Sep 2026",
-    priceBand: "₹112 – ₹118",
+    priceBand: "₹112-₹118",
     gmp: "₹25",
     gmpPct: "+21%",
     status: "Open",
@@ -77,7 +77,7 @@ const OPEN: IPO[] = [
     type: "Mainboard",
     open: "17 Sep 2026",
     close: "21 Sep 2026",
-    priceBand: "₹94 – ₹99",
+    priceBand: "₹94-₹99",
     lotSize: "150 shares",
     gmp: "₹2",
     gmpPct: "+2%",
@@ -88,7 +88,7 @@ const OPEN: IPO[] = [
     type: "SME",
     open: "18 Sep 2026",
     close: "22 Sep 2026",
-    priceBand: "₹51 – ₹54",
+    priceBand: "₹51-₹54",
     lotSize: "2,000 shares",
     gmp: "₹0",
     gmpPct: "0%",
@@ -99,8 +99,8 @@ const OPEN: IPO[] = [
     type: "SME",
     open: "17 Sep 2026",
     close: "21 Sep 2026",
-    priceBand: "₹96 – ₹101",
-    gmp: "—",
+    priceBand: "₹96-₹101",
+    gmp: " - ",
     status: "Open",
   },
 ];
@@ -111,7 +111,7 @@ const LISTING_SOON: IPO[] = [
     type: "Mainboard",
     open: "16 Sep 2026",
     close: "18 Sep 2026",
-    priceBand: "₹403 – ₹424",
+    priceBand: "₹403-₹424",
     gmp: "₹138",
     gmpPct: "+33%",
     status: "Listing Soon",
@@ -122,7 +122,7 @@ const LISTING_SOON: IPO[] = [
     type: "Mainboard",
     open: "16 Sep 2026",
     close: "18 Sep 2026",
-    priceBand: "₹88 – ₹93",
+    priceBand: "₹88-₹93",
     gmp: "₹26",
     gmpPct: "+28%",
     status: "Listing Soon",
@@ -133,7 +133,7 @@ const LISTING_SOON: IPO[] = [
     type: "Mainboard",
     open: "16 Sep 2026",
     close: "18 Sep 2026",
-    priceBand: "₹79 – ₹84",
+    priceBand: "₹79-₹84",
     gmp: "₹0",
     gmpPct: "0%",
     status: "Listing Soon",
@@ -147,7 +147,7 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "21 Sep 2026",
     close: "23 Sep 2026",
-    priceBand: "₹100 – ₹106",
+    priceBand: "₹100-₹106",
     gmp: "₹51",
     gmpPct: "+48%",
     status: "Upcoming",
@@ -157,7 +157,7 @@ const UPCOMING: IPO[] = [
     type: "Mainboard",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹126 – ₹134",
+    priceBand: "₹126-₹134",
     gmp: "₹35",
     gmpPct: "+26%",
     status: "Upcoming",
@@ -167,7 +167,7 @@ const UPCOMING: IPO[] = [
     type: "Mainboard",
     open: "24 Sep 2026",
     close: "28 Sep 2026",
-    priceBand: "₹385 – ₹405",
+    priceBand: "₹385-₹405",
     gmp: "₹64",
     gmpPct: "+16%",
     status: "Upcoming",
@@ -177,7 +177,7 @@ const UPCOMING: IPO[] = [
     type: "Mainboard",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹343 – ₹362",
+    priceBand: "₹343-₹362",
     gmp: "₹16",
     gmpPct: "+4%",
     status: "Upcoming",
@@ -187,7 +187,7 @@ const UPCOMING: IPO[] = [
     type: "Mainboard",
     open: "22 Sep 2026",
     close: "24 Sep 2026",
-    priceBand: "₹140 – ₹148",
+    priceBand: "₹140-₹148",
     gmp: "₹12",
     gmpPct: "+8%",
     status: "Upcoming",
@@ -197,7 +197,7 @@ const UPCOMING: IPO[] = [
     type: "Mainboard",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹175 – ₹185",
+    priceBand: "₹175-₹185",
     gmp: "₹3",
     gmpPct: "+2%",
     status: "Upcoming",
@@ -207,7 +207,7 @@ const UPCOMING: IPO[] = [
     type: "Mainboard",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹350 – ₹375",
+    priceBand: "₹350-₹375",
     gmp: "₹1",
     gmpPct: "0%",
     status: "Upcoming",
@@ -217,7 +217,7 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "21 Sep 2026",
     close: "23 Sep 2026",
-    priceBand: "₹110 – ₹116",
+    priceBand: "₹110-₹116",
     gmp: "₹0",
     status: "Upcoming",
   },
@@ -226,7 +226,7 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "21 Sep 2026",
     close: "23 Sep 2026",
-    priceBand: "₹32 – ₹37",
+    priceBand: "₹32-₹37",
     gmp: "₹0",
     status: "Upcoming",
   },
@@ -244,7 +244,7 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "22 Sep 2026",
     close: "24 Sep 2026",
-    priceBand: "₹100 – ₹106",
+    priceBand: "₹100-₹106",
     gmp: "₹0",
     status: "Upcoming",
   },
@@ -253,8 +253,8 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹51 – ₹54",
-    gmp: "—",
+    priceBand: "₹51-₹54",
+    gmp: " - ",
     status: "Upcoming",
   },
   {
@@ -262,8 +262,8 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹109 – ₹115",
-    gmp: "—",
+    priceBand: "₹109-₹115",
+    gmp: " - ",
     status: "Upcoming",
   },
   {
@@ -271,8 +271,8 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹74 – ₹78",
-    gmp: "—",
+    priceBand: "₹74-₹78",
+    gmp: " - ",
     status: "Upcoming",
   },
   {
@@ -280,8 +280,8 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹107 – ₹113",
-    gmp: "—",
+    priceBand: "₹107-₹113",
+    gmp: " - ",
     status: "Upcoming",
   },
   {
@@ -289,8 +289,8 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹83 – ₹88",
-    gmp: "—",
+    priceBand: "₹83-₹88",
+    gmp: " - ",
     status: "Upcoming",
   },
   {
@@ -298,8 +298,8 @@ const UPCOMING: IPO[] = [
     type: "SME",
     open: "23 Sep 2026",
     close: "25 Sep 2026",
-    priceBand: "₹119 – ₹125",
-    gmp: "—",
+    priceBand: "₹119-₹125",
+    gmp: " - ",
     status: "Upcoming",
   },
 ];
@@ -324,7 +324,7 @@ const STATUS_STYLE: Record<string, string> = {
 };
 
 function GmpBadge({ gmp, gmpPct }: { gmp?: string; gmpPct?: string }) {
-  if (!gmp || gmp === "—") return <span className="text-text-muted text-xs">—</span>;
+  if (!gmp || gmp === " - ") return <span className="text-text-muted text-xs"> - </span>;
   const positive = gmpPct && gmpPct.startsWith("+") && gmpPct !== "+0%";
   const zero = gmpPct === "0%" || gmp === "₹0";
   return (
@@ -345,7 +345,7 @@ function IpoTable({ ipos, title, note }: { ipos: IPO[]; title: string; note?: st
             <tr className="bg-bg-alt text-text-muted border-b border-border">
               <th className="text-left px-4 py-3 font-semibold">Company</th>
               <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Type</th>
-              <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Open – Close</th>
+              <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Open - Close</th>
               <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Price Band</th>
               <th className="text-left px-4 py-3 font-semibold">GMP</th>
               <th className="text-left px-4 py-3 font-semibold">Status</th>
@@ -397,7 +397,7 @@ export default function IpoPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Upcoming IPOs in India 2026",
-    description: "Complete list of open and upcoming IPOs in India for September–October 2026",
+    description: "Complete list of open and upcoming IPOs in India for September - October 2026",
     url: `${site.url}/ipos`,
     numberOfItems: OPEN.length + UPCOMING.length,
   };
@@ -406,11 +406,11 @@ export default function IpoPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: "What is IPO GMP (Grey Market Premium)?", acceptedAnswer: { "@type": "Answer", text: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily — treat it as informal sentiment, not a guarantee." } },
-      { "@type": "Question", name: "What is the minimum investment for an IPO?", acceptedAnswer: { "@type": "Answer", text: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000–₹15,000." } },
+      { "@type": "Question", name: "What is IPO GMP (Grey Market Premium)?", acceptedAnswer: { "@type": "Answer", text: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily - treat it as informal sentiment, not a guarantee." } },
+      { "@type": "Question", name: "What is the minimum investment for an IPO?", acceptedAnswer: { "@type": "Answer", text: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000-₹15,000." } },
       { "@type": "Question", name: "What is ASBA in IPO?", acceptedAnswer: { "@type": "Answer", text: "ASBA (Application Supported by Blocked Amount) is a process where your bank blocks the application money in your account instead of debiting it. The amount is only debited if you get allotment." } },
-      { "@type": "Question", name: "What is the difference between Mainboard and SME IPO?", acceptedAnswer: { "@type": "Answer", text: "Mainboard IPOs are for larger companies listed on NSE/BSE main board. SME IPOs are for smaller companies listed on NSE Emerge or BSE SME platforms — they have larger lot sizes and are considered higher risk." } },
-      { "@type": "Question", name: "How is IPO allotment decided?", acceptedAnswer: { "@type": "Answer", text: "For oversubscribed IPOs, allotment in the retail category is done by lottery — each applicant has the same probability of getting 1 lot. Applying from multiple accounts (different PANs) increases your chances." } },
+      { "@type": "Question", name: "What is the difference between Mainboard and SME IPO?", acceptedAnswer: { "@type": "Answer", text: "Mainboard IPOs are for larger companies listed on NSE/BSE main board. SME IPOs are for smaller companies listed on NSE Emerge or BSE SME platforms - they have larger lot sizes and are considered higher risk." } },
+      { "@type": "Question", name: "How is IPO allotment decided?", acceptedAnswer: { "@type": "Answer", text: "For oversubscribed IPOs, allotment in the retail category is done by lottery - each applicant has the same probability of getting 1 lot. Applying from multiple accounts (different PANs) increases your chances." } },
     ],
   };
 
@@ -431,10 +431,10 @@ export default function IpoPage() {
             IPO Calendar 2026
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">
-            Upcoming IPO 2026 India — Open, Allotment & Listing Dates
+            Upcoming IPO 2026 India - Open, Allotment & Listing Dates
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            Track all mainboard and SME IPOs open for subscription right now, upcoming IPOs for September–October 2026, grey market premium (GMP), price band, lot size, and allotment dates — all in one place.
+            Track all mainboard and SME IPOs open for subscription right now, upcoming IPOs for September - October 2026, grey market premium (GMP), price band, lot size, and allotment dates - all in one place.
           </p>
           <div className="mt-4 flex flex-wrap gap-2 text-xs text-text-muted">
             <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Last updated: 20 Sep 2026</span>
@@ -458,14 +458,14 @@ export default function IpoPage() {
           {/* Listing Soon */}
           <IpoTable
             ipos={LISTING_SOON}
-            title="🔔 Subscription Closed — Listing Soon"
+            title="🔔 Subscription Closed - Listing Soon"
             note="Subscription closed; allotment done or pending; listing dates confirmed"
           />
 
           {/* Upcoming */}
           <IpoTable
             ipos={UPCOMING}
-            title="📅 Upcoming IPOs — September 2026"
+            title="📅 Upcoming IPOs - September 2026"
             note="Subscription opens in the coming days. Apply on open date via your broker app."
           />
 
@@ -520,11 +520,11 @@ export default function IpoPage() {
               {[
                 {
                   q: "What is IPO GMP (Grey Market Premium)?",
-                  a: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily — treat it as informal sentiment, not a guarantee.",
+                  a: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily - treat it as informal sentiment, not a guarantee.",
                 },
                 {
                   q: "What is the minimum investment for an IPO?",
-                  a: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000–₹15,000. For NSE IPO, 1 lot = 8 shares = ₹14,280 (at upper band ₹1,785).",
+                  a: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000-₹15,000. For NSE IPO, 1 lot = 8 shares = ₹14,280 (at upper band ₹1,785).",
                 },
                 {
                   q: "What is ASBA in IPO?",
@@ -536,7 +536,7 @@ export default function IpoPage() {
                 },
                 {
                   q: "How is IPO allotment decided?",
-                  a: "For oversubscribed IPOs (most mainboard ones), allotment in the retail category is done by lottery — each applicant has the same probability of getting 1 lot regardless of how many lots they applied for. Applying from multiple accounts (different PANs) increases your chances.",
+                  a: "For oversubscribed IPOs (most mainboard ones), allotment in the retail category is done by lottery - each applicant has the same probability of getting 1 lot regardless of how many lots they applied for. Applying from multiple accounts (different PANs) increases your chances.",
                 },
               ].map((faq, i) => (
                 <div key={i} className="border-b border-border last:border-0 pb-4 last:pb-0">

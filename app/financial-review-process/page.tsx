@@ -27,7 +27,7 @@ const STEPS = [
   {
     step: "4",
     title: "State assumptions and exclusions explicitly",
-    body: "Every calculator page states what the tool assumes and what it deliberately excludes. A SIP calculator assumes constant returns and excludes exit loads. A tax calculator excludes surcharge and cess unless stated. This is not boilerplate — it helps users understand where the estimate may differ from their actual situation.",
+    body: "Every calculator page states what the tool assumes and what it deliberately excludes. A SIP calculator assumes constant returns and excludes exit loads. A tax calculator excludes surcharge and cess unless stated. This is not boilerplate - it helps users understand where the estimate may differ from their actual situation.",
   },
   {
     step: "5",
@@ -42,12 +42,12 @@ const STEPS = [
   {
     step: "7",
     title: "Publish the 'Last verified' date",
-    body: "Every calculator page shows the date it was last checked against its primary source. This is not the last 'updated' date (which could reflect trivial cosmetic changes) — it is the date a human confirmed the financial data and formula were current and correct.",
+    body: "Every calculator page shows the date it was last checked against its primary source. This is not the last 'updated' date (which could reflect trivial cosmetic changes) - it is the date a human confirmed the financial data and formula were current and correct.",
   },
   {
     step: "8",
     title: "Log corrections publicly",
-    body: "When we find an error — whether discovered internally or reported by a user — we correct it and log it publicly on our corrections page with the date, what was wrong and what was changed. We never silently edit errors away.",
+    body: "When we find an error - whether discovered internally or reported by a user - we correct it and log it publicly on our corrections page with the date, what was wrong and what was changed. We never silently edit errors away.",
   },
 ];
 

@@ -81,7 +81,7 @@ export default function Page() {
             Free Calculators
           </span>
 
-          {/* Heading — must use inline color: h1 global CSS overrides text-white utility */}
+          {/* Heading - must use inline color: h1 global CSS overrides text-white utility */}
           <h1
             style={{ color: "#ffffff" }}
             className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-[760px] leading-[1.1]"
@@ -91,7 +91,7 @@ export default function Page() {
           </h1>
 
           <p className="mt-5 text-slate-400 max-w-[560px] leading-relaxed text-base sm:text-lg">
-            SIP, EMI, income tax, FD, PPF, NPS, retirement, GST and more. Every calculator runs entirely in your browser — no sign-up, no data stored.
+            SIP, EMI, income tax, FD, PPF, NPS, retirement, GST and more. Every calculator runs entirely in your browser - no sign-up, no data stored.
           </p>
 
           {/* Trust stat pills */}

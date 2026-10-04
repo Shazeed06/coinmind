@@ -6,7 +6,7 @@ import CalcPage from "@/components/calc/CalcPage";
 const CALC = calculators.find((c) => c.slug === "income-tax")!;
 export const metadata = calcMeta(
   "income-tax",
-  "Income Tax Calculator India FY 2026-27 – New vs Old Regime",
+  "Income Tax Calculator India FY 2026-27 - New vs Old Regime",
   CALC.blurb
 );
 
@@ -53,7 +53,7 @@ export default function Page() {
         },
         {
           q: "Is this calculator accurate for all income types?",
-          a: "This calculator is designed for salaried income with common deductions. For complex situations — business income, capital gains, multiple house properties, foreign income — consult a Chartered Accountant.",
+          a: "This calculator is designed for salaried income with common deductions. For complex situations - business income, capital gains, multiple house properties, foreign income - consult a Chartered Accountant.",
         },
         {
           q: "Can I switch regimes every year?",

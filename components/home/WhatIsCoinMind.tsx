@@ -26,7 +26,7 @@ export default function WhatIsCoinMind() {
             Every formula is verified against official RBI and SEBI sources and updated after every Union Budget.
           </p>
           <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0 mt-4">
-            All calculations run entirely in your browser — no login, no email, no PAN number required. Your financial data never leaves your device. We document every formula so you can verify the math independently.
+            All calculations run entirely in your browser - no login, no email, no PAN number required. Your financial data never leaves your device. We document every formula so you can verify the math independently.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {FEATURES.map((f) => (

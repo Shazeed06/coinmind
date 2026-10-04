@@ -104,7 +104,7 @@ export const navMenus: NavMenu[] = [
           { label: "FIRE Calculator", href: "/calculators/fire", desc: "Retire early planning" },
           { label: "Net Worth Calculator", href: "/calculators/net-worth", desc: "Know your financial position" },
           { label: "Goal Calculator", href: "/calculators/goal", desc: "SIP for any target amount" },
-          { label: "Financial Health Score", href: "/calculators/financial-health", desc: "A–D score across 5 dimensions" },
+          { label: "Financial Health Score", href: "/calculators/financial-health", desc: "A - D score across 5 dimensions" },
         ],
       },
     ],

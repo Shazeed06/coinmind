@@ -4,8 +4,8 @@ import GoalCalculator from "@/components/calc/GoalCalculator";
 
 export const metadata = calcMeta(
   "goal-child-education",
-  "Child Education Planning Calculator – How Much to Save Monthly",
-  "Calculate the monthly SIP needed to fund your child's college education in India. Accounts for education inflation (8–10%) and your existing savings."
+  "Child Education Planning Calculator - How Much to Save Monthly",
+  "Calculate the monthly SIP needed to fund your child's college education in India. Accounts for education inflation (8-10%) and your existing savings."
 );
 
 export default function Page() {
@@ -13,7 +13,7 @@ export default function Page() {
     <CalcPage
       slug="goal-child-education"
       title="Child Education Planning Calculator"
-      subtitle="Find the monthly SIP needed to fund your child's higher education — accounting for education inflation of 8–10%."
+      subtitle="Find the monthly SIP needed to fund your child's higher education - accounting for education inflation of 8-10%."
       calculator={
         <GoalCalculator
           initialGoal={2000000}
@@ -24,11 +24,11 @@ export default function Page() {
         />
       }
       sources={[
-        { label: "AMFI – Mutual Fund SIP Data", href: "https://www.amfiindia.com" },
-        { label: "RBI – Consumer Price Index", href: "https://www.rbi.org.in" },
-        { label: "MoE – Education Statistics India", href: "https://www.education.gov.in" },
+        { label: "AMFI - Mutual Fund SIP Data", href: "https://www.amfiindia.com" },
+        { label: "RBI - Consumer Price Index", href: "https://www.rbi.org.in" },
+        { label: "MoE - Education Statistics India", href: "https://www.education.gov.in" },
       ]}
-      intro="Education is one of the biggest financial goals for Indian parents. The cost of quality higher education in India has been rising at 8–10% per year — much faster than general inflation. A private engineering or medical college that costs ₹20 lakh today could cost ₹50–60 lakh in 15 years. This calculator helps you figure out exactly how much you need to invest every month, starting today, to fully fund your child's education — with no compromises."
+      intro="Education is one of the biggest financial goals for Indian parents. The cost of quality higher education in India has been rising at 8-10% per year - much faster than general inflation. A private engineering or medical college that costs ₹20 lakh today could cost ₹50-60 lakh in 15 years. This calculator helps you figure out exactly how much you need to invest every month, starting today, to fully fund your child's education - with no compromises."
       how={{
         heading: "How the child education SIP is calculated",
         body: (
@@ -45,11 +45,11 @@ export default function Page() {
       faqs={[
         {
           q: "Why does the calculator use 8% inflation for education?",
-          a: "Education costs in India have risen at 8–10% per year over the last decade — significantly faster than the 5–6% general CPI inflation. Private college fees, hostel costs, and coaching institute fees all compound quickly. Using general inflation (6%) underestimates the actual future cost by 20–30% over 15 years.",
+          a: "Education costs in India have risen at 8-10% per year over the last decade - significantly faster than the 5-6% general CPI inflation. Private college fees, hostel costs, and coaching institute fees all compound quickly. Using general inflation (6%) underestimates the actual future cost by 20-30% over 15 years.",
         },
         {
           q: "What return should I assume for a 15-year child education goal?",
-          a: "For a 15-year horizon, equity mutual funds (Nifty 50 index fund or diversified large-cap) have historically delivered 12–14% CAGR. Since you have a long runway, you can start with 100% equity and gradually shift to debt/FD in the last 3 years as the goal approaches.",
+          a: "For a 15-year horizon, equity mutual funds (Nifty 50 index fund or diversified large-cap) have historically delivered 12-14% CAGR. Since you have a long runway, you can start with 100% equity and gradually shift to debt/FD in the last 3 years as the goal approaches.",
         },
         {
           q: "Should I use a separate plan for my child's education?",
@@ -57,11 +57,11 @@ export default function Page() {
         },
         {
           q: "What if my child doesn't pursue college right at 18?",
-          a: "Extend the goal by 2–3 years (e.g., 17–18 years instead of 15). The extra time significantly reduces the monthly SIP needed and gives your corpus more time to compound. The calculator is flexible — adjust the time horizon as your child's plans become clearer.",
+          a: "Extend the goal by 2-3 years (e.g., 17-18 years instead of 15). The extra time significantly reduces the monthly SIP needed and gives your corpus more time to compound. The calculator is flexible - adjust the time horizon as your child's plans become clearer.",
         },
         {
           q: "Is the Sukanya Samriddhi Yojana useful for education?",
-          a: "SSY is specifically designed for a girl child and allows partial withdrawal (up to 50%) after the child turns 18, which can be used for education. It currently offers 8.2% tax-free returns — comparable to debt funds but fully government-guaranteed. For a daughter's education goal, SSY + equity SIP together is a strong combination.",
+          a: "SSY is specifically designed for a girl child and allows partial withdrawal (up to 50%) after the child turns 18, which can be used for education. It currently offers 8.2% tax-free returns - comparable to debt funds but fully government-guaranteed. For a daughter's education goal, SSY + equity SIP together is a strong combination.",
         },
       ]}
     />

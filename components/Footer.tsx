@@ -65,7 +65,7 @@ export default function Footer() {
               </a>
             </div>
 
-            <p className="text-xs text-slate-600">Educational only — not financial advice.</p>
+            <p className="text-xs text-slate-600">Educational only - not financial advice.</p>
           </div>
 
           {/* Nav link columns */}

@@ -127,10 +127,10 @@ export default function FireCalculator() {
         <div className="rounded-xl bg-bg-alt border border-border p-4 text-xs text-ink-faint">
           <p><strong className="text-ink">FIRE types:</strong></p>
           <ul className="mt-2 space-y-1">
-            <li><strong>Lean FIRE</strong> — frugal lifestyle, 20-25× expenses</li>
-            <li><strong>Regular FIRE</strong> — comfortable lifestyle, 25× expenses</li>
-            <li><strong>Fat FIRE</strong> — generous lifestyle, 33× expenses</li>
-            <li><strong>Coast FIRE</strong> — invest until corpus grows by itself</li>
+            <li><strong>Lean FIRE</strong> - frugal lifestyle, 20-25× expenses</li>
+            <li><strong>Regular FIRE</strong> - comfortable lifestyle, 25× expenses</li>
+            <li><strong>Fat FIRE</strong> - generous lifestyle, 33× expenses</li>
+            <li><strong>Coast FIRE</strong> - invest until corpus grows by itself</li>
           </ul>
         </div>
 

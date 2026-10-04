@@ -48,7 +48,7 @@ export default function FinancialHealthCalculator() {
       grade: `${savingsRate.toFixed(1)}% of income`,
       color: gradeColor(savingsRate >= 30 ? 100 : savingsRate >= 20 ? 75 : savingsRate >= 10 ? 50 : 20).text,
       insight: savingsRate >= 30
-        ? "Excellent. You're saving more than 30% — a strong financial foundation."
+        ? "Excellent. You're saving more than 30% - a strong financial foundation."
         : savingsRate >= 20
         ? "Good. Aim for 30% to accelerate wealth building."
         : savingsRate >= 10
@@ -82,8 +82,8 @@ export default function FinancialHealthCalculator() {
         : debtToIncomeRatio < 35
         ? "Manageable. Try to reduce high-interest debt aggressively."
         : debtToIncomeRatio < 50
-        ? "High. Over 35% DTI strains your cash flow — prioritise repayment."
-        : "Danger zone. Over 50% DTI — seek debt restructuring if needed.",
+        ? "High. Over 35% DTI strains your cash flow - prioritise repayment."
+        : "Danger zone. Over 50% DTI - seek debt restructuring if needed.",
     },
     {
       id: "investing",
@@ -97,7 +97,7 @@ export default function FinancialHealthCalculator() {
         : investmentToIncome >= 10
         ? "Good. Try to automate SIP to reach 20% over time."
         : investmentToIncome >= 5
-        ? "Low. Start or increase SIP — even ₹500/month compounds meaningfully."
+        ? "Low. Start or increase SIP - even ₹500/month compounds meaningfully."
         : "Missing. Invest at least 10% of income for long-term goals.",
     },
     {
@@ -210,7 +210,7 @@ export default function FinancialHealthCalculator() {
                 style={{ width: `${pct}%` }}
               />
             </div>
-            <p className="mt-1 text-xs text-ink-faint">{pct.toFixed(0)}% — {g.desc}</p>
+            <p className="mt-1 text-xs text-ink-faint">{pct.toFixed(0)}% - {g.desc}</p>
           </div>
         </div>
       </div>

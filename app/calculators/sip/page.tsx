@@ -49,7 +49,7 @@ const FAQS = [
   { q: "Is SIP better than a fixed deposit?", a: "Over 10+ years, SIP in equity funds typically outperforms FDs. However, FD returns are guaranteed. SIP suits long-term goals (10+ years)." },
   { q: "Can I lose money in a SIP?", a: "Yes, if the market declines and you redeem before recovery. However, staying invested through cycles historically delivers positive returns over 7+ years." },
   { q: "How does inflation affect my SIP corpus?", a: "India's long-term average inflation is ~6%. A ₹1 crore corpus in 20 years is worth ~₹28 lakhs in today's purchasing power." },
-  { q: "Can I use this as an SBI SIP calculator?", a: "Yes. This is a universal SIP calculator — enter any fund house's expected return rate and it works the same way. For SBI Mutual Fund SIPs, use 10-12% for equity funds or 7-8% for debt funds. The results are identical to SBI's own tool, plus you also get LTCG tax impact and inflation-adjusted corpus." },
+  { q: "Can I use this as an SBI SIP calculator?", a: "Yes. This is a universal SIP calculator - enter any fund house's expected return rate and it works the same way. For SBI Mutual Fund SIPs, use 10-12% for equity funds or 7-8% for debt funds. The results are identical to SBI's own tool, plus you also get LTCG tax impact and inflation-adjusted corpus." },
 ];
 
 const TOC_ITEMS = [
@@ -135,7 +135,7 @@ const SCHEMA_GRAPH = graph([
   howTo("How to Use the SIP Calculator", "Step-by-step guide to calculating your mutual fund SIP returns on CoinMind.", [
     { name: "Enter monthly SIP amount", text: "Type your planned monthly investment (e.g. ₹5,000 or ₹10,000). Most mutual funds in India accept SIPs starting at ₹500." },
     { name: "Set expected return rate", text: "Choose an annual return rate. Use 10-12% for diversified equity funds or 6-8% for debt funds as a realistic estimate." },
-    { name: "Choose investment duration", text: "Select how many years you plan to invest. Longer durations benefit from compounding — even 5 extra years can double your corpus." },
+    { name: "Choose investment duration", text: "Select how many years you plan to invest. Longer durations benefit from compounding - even 5 extra years can double your corpus." },
     { name: "Enable step-up SIP (optional)", text: "Toggle step-up to increase your SIP by a fixed percentage each year (e.g. 10%), which significantly boosts long-term wealth." },
     { name: "Review results and tax impact", text: "The calculator shows your maturity corpus, total returns, LTCG tax estimate, and inflation-adjusted real value with a year-wise breakdown." },
   ]),
@@ -446,7 +446,7 @@ export default function Page() {
             </div>
             <div className="pt-2 border-t border-border">
               <Link href="/sip" className="text-sm font-medium text-brand hover:underline flex items-center gap-1">
-                SIP Hub — guides &amp; strategies <ArrowRight className="h-3.5 w-3.5" />
+                SIP Hub - guides &amp; strategies <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </div>

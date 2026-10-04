@@ -12,27 +12,27 @@ import { site } from "@/lib/site";
 
 // Maps calculator slug → relevant hub page(s)
 const HUB_LINKS: Record<string, { label: string; href: string }> = {
-  "sip": { label: "SIP Hub — guides, ELSS, step-up SIP, and more", href: "/sip" },
-  "step-up-sip": { label: "SIP Hub — guides, ELSS, step-up SIP, and more", href: "/sip" },
-  "lumpsum": { label: "Investing Hub — mutual funds, stocks, gold, and more", href: "/investing" },
-  "mutual-fund-returns": { label: "Investing Hub — mutual funds, stocks, gold, and more", href: "/investing" },
-  "cagr": { label: "Investing Hub — mutual funds, stocks, gold, and more", href: "/investing" },
-  "income-tax": { label: "Income Tax Hub — regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "tds": { label: "Income Tax Hub — regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "capital-gains": { label: "Income Tax Hub — regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "hra": { label: "Income Tax Hub — regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "emi": { label: "Loans Hub — home loans, car loans, personal loans, and more", href: "/loans" },
-  "home-loan": { label: "Loans Hub — home loans, car loans, personal loans, and more", href: "/loans" },
-  "home-loan-eligibility": { label: "Loans Hub — home loans, car loans, personal loans, and more", href: "/loans" },
-  "personal-loan": { label: "Loans Hub — home loans, car loans, personal loans, and more", href: "/loans" },
-  "car-loan-emi": { label: "Loans Hub — home loans, car loans, personal loans, and more", href: "/loans" },
-  "education-loan-emi": { label: "Loans Hub — home loans, car loans, personal loans, and more", href: "/loans" },
-  "fd": { label: "Savings Hub — FD, PPF, RD, savings strategies, and more", href: "/savings" },
-  "rd": { label: "Savings Hub — FD, PPF, RD, savings strategies, and more", href: "/savings" },
-  "ppf": { label: "Savings Hub — FD, PPF, RD, savings strategies, and more", href: "/savings" },
-  "nps": { label: "Retirement Hub — NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
-  "fire": { label: "Retirement Hub — NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
-  "epf": { label: "Retirement Hub — NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
+  "sip": { label: "SIP Hub - guides, ELSS, step-up SIP, and more", href: "/sip" },
+  "step-up-sip": { label: "SIP Hub - guides, ELSS, step-up SIP, and more", href: "/sip" },
+  "lumpsum": { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" },
+  "mutual-fund-returns": { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" },
+  "cagr": { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" },
+  "income-tax": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
+  "tds": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
+  "capital-gains": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
+  "hra": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
+  "emi": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
+  "home-loan": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
+  "home-loan-eligibility": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
+  "personal-loan": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
+  "car-loan-emi": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
+  "education-loan-emi": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
+  "fd": { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" },
+  "rd": { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" },
+  "ppf": { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" },
+  "nps": { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
+  "fire": { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
+  "epf": { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
 };
 
 // Maps calculator slug → relevant comparison pages
@@ -255,7 +255,7 @@ export default function CalcPage({
       {/* Optional extra content (e.g. programmatic-SEO internal links) */}
       {extra ? <section className="mt-16">{extra}</section> : null}
 
-      {/* Comparison links — contextual internal links to /comparisons/ pages */}
+      {/* Comparison links - contextual internal links to /comparisons/ pages */}
       {COMPARISON_LINKS[slug] && COMPARISON_LINKS[slug].length > 0 && (
         <section className="mt-16 max-w-3xl">
           <h2 className="font-display text-xl text-ink mb-4">Compare your options</h2>
@@ -274,7 +274,7 @@ export default function CalcPage({
         </section>
       )}
 
-      {/* Hub page cross-link — points to the topic hub for deeper reading */}
+      {/* Hub page cross-link - points to the topic hub for deeper reading */}
       {HUB_LINKS[slug] && (
         <section className="mt-8 max-w-3xl">
           <p className="text-sm text-ink-faint">

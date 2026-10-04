@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Free Embeddable Financial Widgets for India – SIP, EMI, FD Calculators | CoinMind",
-  description: "Embed free financial calculators on your website. SIP calculator widget, EMI calculator widget, FD calculator widget — free for bloggers, advisors and publishers.",
+  title: "Free Embeddable Financial Widgets for India - SIP, EMI, FD Calculators | CoinMind",
+  description: "Embed free financial calculators on your website. SIP calculator widget, EMI calculator widget, FD calculator widget - free for bloggers, advisors and publishers.",
   alternates: { canonical: `${site.url}/widgets` },
   openGraph: {
     title: "Free Financial Calculator Widgets | CoinMind",
@@ -22,7 +22,7 @@ const WIDGETS = [
   {
     slug: "emi",
     title: "EMI Calculator Widget",
-    desc: "Home loan, car loan and personal loan EMI — all in one embeddable widget.",
+    desc: "Home loan, car loan and personal loan EMI - all in one embeddable widget.",
     embed: `<iframe src="${site.url}/widgets/emi" width="100%" height="500" frameborder="0" style="border-radius:12px;"></iframe>`,
   },
   {
@@ -34,7 +34,7 @@ const WIDGETS = [
   {
     slug: "income-tax",
     title: "Income Tax Calculator Widget",
-    desc: "New vs old regime comparison — the most-searched finance tool in India.",
+    desc: "New vs old regime comparison - the most-searched finance tool in India.",
     embed: `<iframe src="${site.url}/widgets/income-tax" width="100%" height="560" frameborder="0" style="border-radius:12px;"></iframe>`,
   },
 ];
@@ -47,7 +47,7 @@ export default function WidgetsPage() {
         <p className="text-xs font-semibold uppercase tracking-wider text-brass mb-2">Free Widgets</p>
         <h1 className="font-display text-3xl sm:text-4xl text-ink">Embed Financial Calculators Free</h1>
         <p className="mt-3 text-ink-soft max-w-2xl">
-          Add accurate, mobile-friendly financial calculators to your blog, website or landing page. Free forever — just copy and paste the iframe code below.
+          Add accurate, mobile-friendly financial calculators to your blog, website or landing page. Free forever - just copy and paste the iframe code below.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export default function WidgetsPage() {
       <div className="mt-10 rounded-2xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/20 p-6 text-sm text-amber-900 dark:text-amber-200">
         <h2 className="font-semibold mb-2">Widget terms of use</h2>
         <ul className="space-y-1 list-disc list-inside">
-          <li>Free to use on any website — personal, commercial, or nonprofit.</li>
+          <li>Free to use on any website - personal, commercial, or nonprofit.</li>
           <li>Do not modify the widget source or remove the CoinMind attribution.</li>
           <li>Do not embed on pages that mislead users about the widget&apos;s origin.</li>
           <li>Widgets are provided as-is; CoinMind is not liable for downstream use.</li>

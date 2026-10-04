@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "EPF Interest Rate History 2000–2026 – All EPFO Declared Rates | CoinMind",
+  title: "EPF Interest Rate History 2000-2026 - All EPFO Declared Rates | CoinMind",
   description: "Complete EPF interest rate history from 2000 to 2026. All EPFO-declared Employee Provident Fund rates, year by year, with official sources.",
   alternates: { canonical: `${site.url}/research/epf-rate-history` },
 };
@@ -12,7 +12,7 @@ const EPF_RATES = [
   { year: "2024-25", rate: "8.25%", notes: "Same as previous year" },
   { year: "2023-24", rate: "8.25%", notes: "Raised from 8.15%" },
   { year: "2022-23", rate: "8.15%", notes: "Recovery from 5-decade low" },
-  { year: "2021-22", rate: "8.10%", notes: "Lowest rate in over 40 years — significant cut" },
+  { year: "2021-22", rate: "8.10%", notes: "Lowest rate in over 40 years - significant cut" },
   { year: "2020-21", rate: "8.50%", notes: "" },
   { year: "2019-20", rate: "8.50%", notes: "" },
   { year: "2018-19", rate: "8.65%", notes: "" },
@@ -44,7 +44,7 @@ export default function EpfRateHistoryPage() {
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
 
-      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">EPF Interest Rate History (2000–2026)</h1>
+      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">EPF Interest Rate History (2000-2026)</h1>
       <p className="mt-3 text-ink-soft">Year-by-year EPF interest rates declared by EPFO (Employee Provident Fund Organisation), sourced from official notifications.</p>
       <p className="mt-1 text-xs text-ink-faint">Source: EPFO, Ministry of Labour and Employment · Last updated: September 2026</p>
 
@@ -98,7 +98,7 @@ export default function EpfRateHistoryPage() {
           EPF interest is calculated on the monthly running balance. The rate is declared at the end of each financial year by the EPFO Central Board of Trustees (CBT) and ratified by the Ministry of Finance. Interest is credited to the member&apos;s account at the end of the financial year.
         </p>
         <p className="mt-2 text-sm text-ink-soft">
-          Note: Contributions made after March 2021 above ₹2.5 lakh/year (employee contribution) attract tax on the interest earned — this changed with Finance Act 2021.
+          Note: Contributions made after March 2021 above ₹2.5 lakh/year (employee contribution) attract tax on the interest earned - this changed with Finance Act 2021.
         </p>
       </section>
 

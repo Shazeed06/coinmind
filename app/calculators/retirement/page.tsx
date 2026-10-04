@@ -6,7 +6,7 @@ import CalcPage from "@/components/calc/CalcPage";
 const CALC = calculators.find((c) => c.slug === "retirement")!;
 export const metadata = calcMeta(
   "retirement",
-  "Retirement Calculator India – How Much You Need to Retire",
+  "Retirement Calculator India - How Much You Need to Retire",
   CALC.blurb
 );
 
@@ -18,7 +18,7 @@ export default function Page() {
       subtitle="Find the corpus you need to retire comfortably and the monthly SIP to get there in time."
       calculator={<RetirementCalculator />}
       sources={[
-        { label: "Reserve Bank of India – Inflation Data", href: "https://www.rbi.org.in" },
+        { label: "Reserve Bank of India - Inflation Data", href: "https://www.rbi.org.in" },
         { label: "PFRDA / NPS Trust", href: "https://www.npstrust.org.in" },
         { label: "EPFO", href: "https://www.epfindia.gov.in" },
       ]}

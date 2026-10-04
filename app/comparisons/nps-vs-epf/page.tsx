@@ -3,23 +3,23 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "NPS vs EPF – Which is Better for Salaried Indians? | CoinMind",
+  title: "NPS vs EPF - Which is Better for Salaried Indians? | CoinMind",
   description: "NPS vs EPF comparison for salaried Indians: returns, contributions, tax treatment and withdrawal rules for FY 2026-27.",
   alternates: { canonical: `${site.url}/comparisons/nps-vs-epf` },
 };
 
 const TABLE = [
-  { param: "Who can join", nps: "Any Indian resident 18–70 (voluntary)", epf: "Mandatory for employees in covered establishments (20+ employees)" },
-  { param: "Current returns (2025-26)", nps: "Market-linked; equity option ~12–14% (10-yr avg)", epf: "8.25% p.a. (declared for 2024-25)" },
-  { param: "Risk", nps: "Market risk — equity allocation fluctuates", epf: "Guaranteed — declared annually by EPFO" },
+  { param: "Who can join", nps: "Any Indian resident 18-70 (voluntary)", epf: "Mandatory for employees in covered establishments (20+ employees)" },
+  { param: "Current returns (2025-26)", nps: "Market-linked; equity option ~12-14% (10-yr avg)", epf: "8.25% p.a. (declared for 2024-25)" },
+  { param: "Risk", nps: "Market risk - equity allocation fluctuates", epf: "Guaranteed - declared annually by EPFO" },
   { param: "Employee contribution", nps: "Any amount (voluntary)", epf: "12% of basic + DA (mandatory)" },
   { param: "Employer contribution", nps: "Up to 14% of basic (central govt), 10% (others)", epf: "12% of basic + DA (3.67% to EPF, 8.33% to EPS)" },
   { param: "Tax on contributions (employee)", nps: "80CCD(1): up to 10% of salary; 80CCD(1B): extra ₹50,000", epf: "80C: up to ₹1.5L/year" },
-  { param: "Tax on employer contribution", nps: "80CCD(2): up to 14% of salary — tax-free in both regimes", epf: "Exempt up to ₹7,500/month (excess taxable)" },
+  { param: "Tax on employer contribution", nps: "80CCD(2): up to 14% of salary - tax-free in both regimes", epf: "Exempt up to ₹7,500/month (excess taxable)" },
   { param: "Tax on maturity", nps: "60% tax-free; 40% must buy annuity (taxable income)", epf: "100% tax-free after 5 continuous years of service" },
   { param: "Withdrawal at retirement", nps: "60% lumpsum + 40% mandatory annuity", epf: "Full balance withdrawn or monthly pension via EPS" },
   { param: "Premature withdrawal", nps: "After 10 years: 20% lumpsum + 80% annuity", epf: "After 5 years: full withdrawal; before 5 years: taxable" },
-  { param: "Portability", nps: "PRAN number — fully portable, job change no issue", epf: "UAN — portable, but transfer required on job change" },
+  { param: "Portability", nps: "PRAN number - fully portable, job change no issue", epf: "UAN - portable, but transfer required on job change" },
 ];
 
 export default function NpsVsEpfPage() {
@@ -30,7 +30,7 @@ export default function NpsVsEpfPage() {
       </div>
 
       <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">NPS vs EPF: Which Builds More Retirement Wealth?</h1>
-      <p className="mt-3 text-ink-soft max-w-2xl">For salaried Indians, both EPF and NPS contribute to retirement — but they work very differently. Here's a clear breakdown.</p>
+      <p className="mt-3 text-ink-soft max-w-2xl">For salaried Indians, both EPF and NPS contribute to retirement - but they work very differently. Here's a clear breakdown.</p>
       <p className="mt-1 text-xs text-ink-faint">Last updated: September 2026 · Sources: EPFO, PFRDA</p>
 
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
@@ -67,10 +67,10 @@ export default function NpsVsEpfPage() {
       <section className="mt-10">
         <h2 className="font-display text-2xl text-ink">The NPS employer contribution advantage</h2>
         <p className="mt-2 text-sm text-ink-soft">
-          The biggest under-utilised NPS benefit: <strong>80CCD(2)</strong> — employer's NPS contribution is deductible from income <em>even in the new tax regime</em>. This means if your employer contributes 10–14% of your basic salary to NPS, that entire amount is tax-free income. This is one of the only deductions available in the new regime besides the standard deduction.
+          The biggest under-utilised NPS benefit: <strong>80CCD(2)</strong> - employer's NPS contribution is deductible from income <em>even in the new tax regime</em>. This means if your employer contributes 10-14% of your basic salary to NPS, that entire amount is tax-free income. This is one of the only deductions available in the new regime besides the standard deduction.
         </p>
         <div className="mt-3 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 p-4 text-sm text-amber-900 dark:text-amber-200">
-          <strong>Example:</strong> Basic salary ₹60,000/month. Employer NPS contribution at 10% = ₹6,000/month = ₹72,000/year. At 30% tax bracket, this saves ₹22,464/year — purely from the employer contributing to NPS. Ask your HR if your employer offers this.
+          <strong>Example:</strong> Basic salary ₹60,000/month. Employer NPS contribution at 10% = ₹6,000/month = ₹72,000/year. At 30% tax bracket, this saves ₹22,464/year - purely from the employer contributing to NPS. Ask your HR if your employer offers this.
         </div>
       </section>
 

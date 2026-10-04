@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Income Tax Slab History India – New & Old Regime Since 2014 | CoinMind",
+  title: "Income Tax Slab History India - New & Old Regime Since 2014 | CoinMind",
   description: "Complete income tax slab history for India: new regime slabs for every year since FY 2020-21, and old regime history since FY 2014-15. Official data.",
   alternates: { canonical: `${site.url}/research/income-tax-slabs-history` },
 };
@@ -15,13 +15,13 @@ export default function IncomeTaxSlabsHistoryPage() {
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
 
-      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">Income Tax Slab History (2014–2026)</h1>
+      <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">Income Tax Slab History (2014-2026)</h1>
       <p className="mt-3 text-ink-soft">New and old regime tax slabs for every financial year, sourced from Finance Acts and Income Tax Department notifications.</p>
-      <p className="mt-1 text-xs text-ink-faint">Source: Income Tax Department, Finance Acts 2014–2025 · Last updated: September 2026</p>
+      <p className="mt-1 text-xs text-ink-faint">Source: Income Tax Department, Finance Acts 2014-2025 · Last updated: September 2026</p>
 
       {/* New regime history */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl text-ink">New Regime — Slab History</h2>
+        <h2 className="font-display text-2xl text-ink">New Regime - Slab History</h2>
         <p className="mt-2 text-sm text-ink-soft">The new tax regime was introduced in Budget 2020 (FY 2020-21). It became the default regime from FY 2023-24, and was significantly revised in Budget 2025 (FY 2025-26).</p>
 
         {/* FY 2025-26 and 2026-27 */}
@@ -35,11 +35,11 @@ export default function IncomeTaxSlabsHistoryPage() {
               <tbody>
                 {[
                   { range: "Up to ₹4 lakh", rate: "Nil" },
-                  { range: "₹4 lakh – ₹8 lakh", rate: "5%" },
-                  { range: "₹8 lakh – ₹12 lakh", rate: "10%" },
-                  { range: "₹12 lakh – ₹16 lakh", rate: "15%" },
-                  { range: "₹16 lakh – ₹20 lakh", rate: "20%" },
-                  { range: "₹20 lakh – ₹24 lakh", rate: "25%" },
+                  { range: "₹4 lakh - ₹8 lakh", rate: "5%" },
+                  { range: "₹8 lakh - ₹12 lakh", rate: "10%" },
+                  { range: "₹12 lakh - ₹16 lakh", rate: "15%" },
+                  { range: "₹16 lakh - ₹20 lakh", rate: "20%" },
+                  { range: "₹20 lakh - ₹24 lakh", rate: "25%" },
                   { range: "Above ₹24 lakh", rate: "30%" },
                 ].map((s, i) => (
                   <tr key={s.range} className={i % 2 === 0 ? "bg-card" : "bg-paper-2"}>
@@ -64,10 +64,10 @@ export default function IncomeTaxSlabsHistoryPage() {
               <tbody>
                 {[
                   { range: "Up to ₹3 lakh", rate: "Nil" },
-                  { range: "₹3 lakh – ₹6 lakh", rate: "5%" },
-                  { range: "₹6 lakh – ₹9 lakh", rate: "10%" },
-                  { range: "₹9 lakh – ₹12 lakh", rate: "15%" },
-                  { range: "₹12 lakh – ₹15 lakh", rate: "20%" },
+                  { range: "₹3 lakh - ₹6 lakh", rate: "5%" },
+                  { range: "₹6 lakh - ₹9 lakh", rate: "10%" },
+                  { range: "₹9 lakh - ₹12 lakh", rate: "15%" },
+                  { range: "₹12 lakh - ₹15 lakh", rate: "20%" },
                   { range: "Above ₹15 lakh", rate: "30%" },
                 ].map((s, i) => (
                   <tr key={s.range} className={i % 2 === 0 ? "bg-card" : "bg-paper-2"}>
@@ -92,11 +92,11 @@ export default function IncomeTaxSlabsHistoryPage() {
               <tbody>
                 {[
                   { range: "Up to ₹2.5 lakh", rate: "Nil" },
-                  { range: "₹2.5 lakh – ₹5 lakh", rate: "5%" },
-                  { range: "₹5 lakh – ₹7.5 lakh", rate: "10%" },
-                  { range: "₹7.5 lakh – ₹10 lakh", rate: "15%" },
-                  { range: "₹10 lakh – ₹12.5 lakh", rate: "20%" },
-                  { range: "₹12.5 lakh – ₹15 lakh", rate: "25%" },
+                  { range: "₹2.5 lakh - ₹5 lakh", rate: "5%" },
+                  { range: "₹5 lakh - ₹7.5 lakh", rate: "10%" },
+                  { range: "₹7.5 lakh - ₹10 lakh", rate: "15%" },
+                  { range: "₹10 lakh - ₹12.5 lakh", rate: "20%" },
+                  { range: "₹12.5 lakh - ₹15 lakh", rate: "25%" },
                   { range: "Above ₹15 lakh", rate: "30%" },
                 ].map((s, i) => (
                   <tr key={s.range} className={i % 2 === 0 ? "bg-card" : "bg-paper-2"}>
@@ -107,13 +107,13 @@ export default function IncomeTaxSlabsHistoryPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-2 text-xs text-ink-faint">Original new regime — no standard deduction, no exemptions, no most deductions. Optional (old regime was default).</p>
+          <p className="mt-2 text-xs text-ink-faint">Original new regime - no standard deduction, no exemptions, no most deductions. Optional (old regime was default).</p>
         </div>
       </section>
 
       {/* Old regime */}
       <section className="mt-12">
-        <h2 className="font-display text-2xl text-ink">Old Regime — Current Slabs</h2>
+        <h2 className="font-display text-2xl text-ink">Old Regime - Current Slabs</h2>
         <p className="mt-2 text-sm text-ink-soft">The old regime slabs have not changed since FY 2014-15. Only the basic exemption limit has stayed at ₹2.5 lakh (₹3L for 60+, ₹5L for 80+).</p>
         <div className="mt-4 rounded-xl border border-line overflow-hidden">
           <table className="w-full text-sm">
@@ -121,8 +121,8 @@ export default function IncomeTaxSlabsHistoryPage() {
           <tbody>
             {[
               { range: "Up to ₹2.5 lakh (₹3L for 60+, ₹5L for 80+)", rate: "Nil" },
-              { range: "₹2.5 lakh – ₹5 lakh", rate: "5%" },
-              { range: "₹5 lakh – ₹10 lakh", rate: "20%" },
+              { range: "₹2.5 lakh - ₹5 lakh", rate: "5%" },
+              { range: "₹5 lakh - ₹10 lakh", rate: "20%" },
               { range: "Above ₹10 lakh", rate: "30%" },
             ].map((s, i) => (
               <tr key={s.range} className={i % 2 === 0 ? "bg-card" : "bg-paper-2"}>

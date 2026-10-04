@@ -34,7 +34,7 @@ export default function AffiliateDisclosurePage() {
       <LegalPage
         pill="Affiliate Disclosure"
         title="Affiliate Disclosure"
-        subtitle={`${site.name} is free to use and will always remain free. This page explains how we fund the site — and how our commercial relationships never influence our content.`}
+        subtitle={`${site.name} is free to use and will always remain free. This page explains how we fund the site - and how our commercial relationships never influence our content.`}
         icon={<ExternalLink className="h-6 w-6 text-[#6b9cff]" />}
       >
         <div className="space-y-10">
@@ -79,7 +79,7 @@ export default function AffiliateDisclosurePage() {
           <section>
             <h2 className="h3 text-text">What we are not</h2>
             <p className="body text-text-muted mt-3">
-              {site.name} is not a financial adviser, broker or regulated financial service. Our affiliate links are to third-party products or services — we do not recommend any specific financial product as suitable for your personal situation. See our full <Link href="/disclaimer" className="text-brand underline underline-offset-2">disclaimer</Link>.
+              {site.name} is not a financial adviser, broker or regulated financial service. Our affiliate links are to third-party products or services - we do not recommend any specific financial product as suitable for your personal situation. See our full <Link href="/disclaimer" className="text-brand underline underline-offset-2">disclaimer</Link>.
             </p>
           </section>
 

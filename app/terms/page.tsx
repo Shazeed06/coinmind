@@ -34,7 +34,7 @@ export default function TermsPage() {
       <LegalPage
         pill="Terms of Service"
         title="Terms of Service"
-        subtitle={`Effective date: 1 September 2026. ${site.name} is free for educational use — calculators are estimates, not financial advice.`}
+        subtitle={`Effective date: 1 September 2026. ${site.name} is free for educational use - calculators are estimates, not financial advice.`}
         lastUpdated="September 2026"
         icon={<FileText className="h-6 w-6 text-[#6b9cff]" />}
       >

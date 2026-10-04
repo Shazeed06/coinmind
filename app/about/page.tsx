@@ -41,7 +41,7 @@ export default function Page() {
             style={{ color: "#ffffff" }}
             className="text-3xl sm:text-4xl font-bold tracking-tight max-w-[640px] leading-[1.15]"
           >
-            We build tools that help you understand your money — without the jargon, sales pitch, or paywall.
+            We build tools that help you understand your money - without the jargon, sales pitch, or paywall.
           </h1>
           <p className="mt-4 text-slate-400 max-w-[560px] leading-relaxed">
             Free calculators, guides and tools for every Indian financial decision. Every formula is documented, every source is cited, no login required.
@@ -75,7 +75,7 @@ export default function Page() {
                 <Link href={`/about/author`} className="text-brand font-medium hover:underline underline-offset-2">
                   {site.author.fullName}
                 </Link>
-                , who is pursuing the Chartered Accountancy (CA) Final. Every calculator, guide and comparison is researched, written and fact-checked by a human — AI is a research and drafting aid only and never publishes content unedited.
+                , who is pursuing the Chartered Accountancy (CA) Final. Every calculator, guide and comparison is researched, written and fact-checked by a human - AI is a research and drafting aid only and never publishes content unedited.
               </p>
               <p className="text-text-muted leading-relaxed mt-3">
                 Based in {site.author.location}. Self-funded, independent. We take no investment, sponsorship or paid placement from any financial product or company.

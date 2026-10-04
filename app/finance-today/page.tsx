@@ -3,12 +3,12 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Finance Today India – Current Interest Rates, Tax & Scheme Rates 2026 | CoinMind",
-  description: "Today's financial rates in India: current RBI repo rate, PPF rate, EPF rate, FD rates, NSC rate, home loan rates and income tax slabs — all in one place.",
+  title: "Finance Today India - Current Interest Rates, Tax & Scheme Rates 2026 | CoinMind",
+  description: "Today's financial rates in India: current RBI repo rate, PPF rate, EPF rate, FD rates, NSC rate, home loan rates and income tax slabs - all in one place.",
   alternates: { canonical: `${site.url}/finance-today` },
   openGraph: {
-    title: "Finance Today – Current India Finance Rates 2026 | CoinMind",
-    description: "All current Indian finance rates in one place: RBI repo, PPF, EPF, FD, income tax slabs — updated from official sources.",
+    title: "Finance Today - Current India Finance Rates 2026 | CoinMind",
+    description: "All current Indian finance rates in one place: RBI repo, PPF, EPF, FD, income tax slabs - updated from official sources.",
     url: `${site.url}/finance-today`,
   },
 };
@@ -34,11 +34,11 @@ const CURRENT_RATES = {
   epf: { rate: "8.25%", year: "2024-25" },
   taxNew: [
     { range: "Up to ₹4L", rate: "Nil" },
-    { range: "₹4L–₹8L", rate: "5%" },
-    { range: "₹8L–₹12L", rate: "10%" },
-    { range: "₹12L–₹16L", rate: "15%" },
-    { range: "₹16L–₹20L", rate: "20%" },
-    { range: "₹20L–₹24L", rate: "25%" },
+    { range: "₹4L - ₹8L", rate: "5%" },
+    { range: "₹8L - ₹12L", rate: "10%" },
+    { range: "₹12L - ₹16L", rate: "15%" },
+    { range: "₹16L - ₹20L", rate: "20%" },
+    { range: "₹20L - ₹24L", rate: "25%" },
     { range: "Above ₹24L", rate: "30%" },
   ],
   bankFD: [
@@ -58,7 +58,7 @@ export default function FinanceTodayPage() {
         <span className="text-xs font-semibold uppercase tracking-wider text-brass">Live Rates</span>
       </div>
       <h1 className="font-display text-3xl sm:text-4xl text-ink">Finance Today</h1>
-      <p className="mt-2 text-ink-soft">All current Indian finance rates in one place — updated from official sources.</p>
+      <p className="mt-2 text-ink-soft">All current Indian finance rates in one place - updated from official sources.</p>
       <p className="mt-1 text-xs text-ink-faint">Last updated: {CURRENT_RATES.lastUpdated} · Sources: RBI, EPFO, Ministry of Finance, NSI</p>
 
       {/* RBI Policy Rates */}
@@ -104,7 +104,7 @@ export default function FinanceTodayPage() {
                     {s.calc ? (
                       <Link href={s.calc} className="text-xs text-forest hover:underline">Calculate →</Link>
                     ) : (
-                      <span className="text-xs text-ink-faint">—</span>
+                      <span className="text-xs text-ink-faint"> - </span>
                     )}
                   </td>
                 </tr>
@@ -156,7 +156,7 @@ export default function FinanceTodayPage() {
             <p className="font-semibold text-ink">Key tax facts FY 2026-27</p>
             <ul className="space-y-1.5 text-ink-soft text-xs">
               <li>✓ Standard deduction: <strong>₹75,000</strong> (salaried/pensioners)</li>
-              <li>✓ 87A rebate: <strong>₹60,000</strong> — zero tax up to ₹12L income</li>
+              <li>✓ 87A rebate: <strong>₹60,000</strong> - zero tax up to ₹12L income</li>
               <li>✓ Surcharge: 10% above ₹50L, 15% above ₹1Cr</li>
               <li>✓ Cess: 4% on all tax + surcharge</li>
               <li>✓ NPS employer contribution (80CCD-2): deductible in new regime</li>
@@ -196,7 +196,7 @@ export default function FinanceTodayPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-2 text-xs text-ink-faint">FD rates change frequently. Verify with your bank before investing. Senior citizens typically get +0.25–0.5% extra.</p>
+        <p className="mt-2 text-xs text-ink-faint">FD rates change frequently. Verify with your bank before investing. Senior citizens typically get +0.25-0.5% extra.</p>
         <Link href="/calculators/fd" className="mt-1 inline-block text-xs text-forest hover:underline">FD Calculator →</Link>
       </section>
 

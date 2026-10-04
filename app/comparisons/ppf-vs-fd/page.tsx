@@ -3,22 +3,22 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PPF vs FD – Which is Better in 2026? Returns, Tax & Lock-in Compared | CoinMind",
+  title: "PPF vs FD - Which is Better in 2026? Returns, Tax & Lock-in Compared | CoinMind",
   description: "PPF vs Fixed Deposit for Indian investors: current rates, post-tax returns, lock-in and flexibility compared. With a clear verdict for 2026.",
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-fd` },
 };
 
 const TABLE = [
-  { param: "Current rate (2026)", ppf: "7.1% p.a. (compounded annually)", fd: "6.5–7.5% p.a. (varies by bank/tenure)" },
-  { param: "Risk", ppf: "Zero — sovereign guarantee (Govt of India)", fd: "Zero — DICGC insured up to ₹5 lakh per bank" },
+  { param: "Current rate (2026)", ppf: "7.1% p.a. (compounded annually)", fd: "6.5-7.5% p.a. (varies by bank/tenure)" },
+  { param: "Risk", ppf: "Zero - sovereign guarantee (Govt of India)", fd: "Zero - DICGC insured up to ₹5 lakh per bank" },
   { param: "Tax on interest/returns", ppf: "Completely tax-free (EEE)", fd: "Fully taxable as income at slab rate + TDS 10%" },
-  { param: "Post-tax return @ 30% slab", ppf: "7.1% (unchanged — tax-free)", fd: "~4.5–5.3% (after 30% tax on 6.5–7.5%)" },
-  { param: "80C deduction", ppf: "Yes — up to ₹1.5L/year (old regime)", fd: "Only 5-year tax-saving FD — up to ₹1.5L/year" },
+  { param: "Post-tax return @ 30% slab", ppf: "7.1% (unchanged - tax-free)", fd: "~4.5-5.3% (after 30% tax on 6.5-7.5%)" },
+  { param: "80C deduction", ppf: "Yes - up to ₹1.5L/year (old regime)", fd: "Only 5-year tax-saving FD - up to ₹1.5L/year" },
   { param: "Lock-in period", ppf: "15 years (extendable)", fd: "7 days to 10 years (flexible)" },
   { param: "Premature withdrawal", ppf: "Partial from year 7; full after 15 years", fd: "Any time; 1% penalty on rate" },
   { param: "Loan facility", ppf: "Loan against PPF (year 3 to 6)", fd: "Loan up to 90% of FD value" },
-  { param: "Monthly income option", ppf: "No — interest compounds annually", fd: "Yes — monthly interest payout FDs available" },
-  { param: "Senior citizen benefit", ppf: "No extra rate for seniors", fd: "+0.25–0.5% extra for senior citizens" },
+  { param: "Monthly income option", ppf: "No - interest compounds annually", fd: "Yes - monthly interest payout FDs available" },
+  { param: "Senior citizen benefit", ppf: "No extra rate for seniors", fd: "+0.25-0.5% extra for senior citizens" },
 ];
 
 export default function PpfVsFdPage() {
@@ -29,7 +29,7 @@ export default function PpfVsFdPage() {
       </div>
 
       <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">PPF vs FD: Which is Better in 2026?</h1>
-      <p className="mt-3 text-ink-soft max-w-2xl">Both are safe, government-backed instruments — but PPF wins significantly on post-tax returns for anyone in the 20–30% bracket. Here's why.</p>
+      <p className="mt-3 text-ink-soft max-w-2xl">Both are safe, government-backed instruments - but PPF wins significantly on post-tax returns for anyone in the 20-30% bracket. Here's why.</p>
       <p className="mt-1 text-xs text-ink-faint">Last updated: September 2026 · Sources: NSI, RBI, Income Tax Dept</p>
 
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">

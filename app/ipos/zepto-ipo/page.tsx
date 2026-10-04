@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Zepto IPO 2026: Expected Date, Price Band ₹300-350, GMP & Review | CoinMind",
   description:
-    "Zepto IPO 2026 full review: ₹8,010 crore fresh issue, SEBI approved May 2026. Expected price ₹300–₹350, valuation $5.6B. Latest GMP, dates & should you apply?",
+    "Zepto IPO 2026 full review: ₹8,010 crore fresh issue, SEBI approved May 2026. Expected price ₹300-₹350, valuation $5.6B. Latest GMP, dates & should you apply?",
   keywords: [
     "Zepto IPO",
     "Zepto IPO 2026",
@@ -24,40 +24,40 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Zepto IPO 2026: Price Band, GMP, Date & Full Review",
     description:
-      "Zepto quick-commerce IPO — ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300–350, valuation $5.6B. Full review.",
+      "Zepto quick-commerce IPO - ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300-350, valuation $5.6B. Full review.",
     url: `${site.url}/ipos/zepto-ipo`,
   },
 };
 
 const IPO_DETAILS = [
-  { label: "Total Issue Size", value: "~₹11,000–₹12,000 crore" },
+  { label: "Total Issue Size", value: "~₹11,000-₹12,000 crore" },
   { label: "Fresh Issue", value: "₹8,010 crore" },
-  { label: "Offer for Sale (OFS)", value: "~₹3,000–₹4,000 crore (promoter/investor exit)" },
-  { label: "Expected Price Band", value: "₹300–₹350 per share (unconfirmed)" },
-  { label: "Expected Valuation", value: "$5.5–$6 billion" },
+  { label: "Offer for Sale (OFS)", value: "~₹3,000-₹4,000 crore (promoter/investor exit)" },
+  { label: "Expected Price Band", value: "₹300-₹350 per share (unconfirmed)" },
+  { label: "Expected Valuation", value: "$5.5-$6 billion" },
   { label: "DRHP Filed", value: "25 December 2025 (updated June 9, 2026)" },
   { label: "SEBI Approval", value: "8 May 2026" },
-  { label: "Expected Open Date", value: "TBA (Oct–Dec 2026 window)" },
+  { label: "Expected Open Date", value: "TBA (Oct - Dec 2026 window)" },
   { label: "Exchange", value: "BSE + NSE" },
   { label: "Category", value: "Mainboard IPO" },
   { label: "Promoters", value: "Aadit Palicha & Kaivalya Vohra (co-founders)" },
-  { label: "GMP (Indicative)", value: "Active grey market expected 2–3 weeks before open" },
+  { label: "GMP (Indicative)", value: "Active grey market expected 2-3 weeks before open" },
 ];
 
 const PROS = [
-  "Quick commerce leader — operates in 40+ Indian cities with 10-minute delivery promise",
+  "Quick commerce leader - operates in 40+ Indian cities with 10-minute delivery promise",
   "Fastest-growing food & grocery delivery platform; competition directly with Blinkit, Swiggy Instamart",
-  "₹8,010 Cr entirely fresh issue — all funds go into business expansion, no promoter cashout from fresh proceeds",
+  "₹8,010 Cr entirely fresh issue - all funds go into business expansion, no promoter cashout from fresh proceeds",
   "Revenue grew sharply YoY; moving towards profitability with improving unit economics",
   "Strong backer base: Y Combinator, Glade Brook, Nexus, Motilal Oswal, Avenir Growth",
-  "Valuation cut from $7B to $5.6B — more realistic multiple vs Blinkit (part of Zomato) comparables",
+  "Valuation cut from $7B to $5.6B - more realistic multiple vs Blinkit (part of Zomato) comparables",
 ];
 
 const CONS = [
-  "Not yet profitable — still burning cash to scale; EBITDA positive timeline uncertain",
+  "Not yet profitable - still burning cash to scale; EBITDA positive timeline uncertain",
   "Intense competition: Blinkit (Zomato), Swiggy Instamart, BigBasket Now, JioMart Express",
   "Customer acquisition and retention costs remain high in quick commerce",
-  "Unit economics depend on high order frequency and basket size — vulnerable to consumer slowdowns",
+  "Unit economics depend on high order frequency and basket size - vulnerable to consumer slowdowns",
   "OFS component means some early investors and employees are exiting",
   "Quick commerce regulatory risks: local body restrictions on dark stores in some cities",
 ];
@@ -65,7 +65,7 @@ const CONS = [
 const FAQS = [
   {
     q: "What is Zepto IPO price band?",
-    a: "The official price band has not been announced. Based on analyst estimates and the company's last valuation of ~$5.6 billion, the price is expected in the ₹300–₹350 range per share. Final price band will be disclosed in the RHP.",
+    a: "The official price band has not been announced. Based on analyst estimates and the company's last valuation of ~$5.6 billion, the price is expected in the ₹300-₹350 range per share. Final price band will be disclosed in the RHP.",
   },
   {
     q: "When will Zepto IPO open?",
@@ -77,7 +77,7 @@ const FAQS = [
   },
   {
     q: "How much is Zepto's issue size?",
-    a: "Zepto plans a total raise of ₹11,000–₹12,000 crore: ₹8,010 crore as a fresh issue and the rest as an Offer for Sale (OFS) by existing shareholders.",
+    a: "Zepto plans a total raise of ₹11,000-₹12,000 crore: ₹8,010 crore as a fresh issue and the rest as an Offer for Sale (OFS) by existing shareholders.",
   },
   {
     q: "Is Zepto IPO a good investment?",
@@ -95,7 +95,7 @@ export default function ZeptoIpoPage() {
     "@type": "Article",
     headline: "Zepto IPO 2026: Expected Date, Price Band, GMP & Complete Review",
     description:
-      "Full analysis of Zepto IPO — ₹8,010 crore fresh issue + OFS, SEBI approved May 2026, expected price ₹300–350, valuation $5.6B.",
+      "Full analysis of Zepto IPO - ₹8,010 crore fresh issue + OFS, SEBI approved May 2026, expected price ₹300-350, valuation $5.6B.",
     url: `${site.url}/ipos/zepto-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -133,7 +133,7 @@ export default function ZeptoIpoPage() {
             Zepto IPO 2026
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            India's leading 10-minute delivery platform plans to raise ~₹11,000–₹12,000 crore.
+            India's leading 10-minute delivery platform plans to raise ~₹11,000-₹12,000 crore.
             SEBI approved May 8, 2026. Open date to be announced.
           </p>
 
@@ -144,7 +144,7 @@ export default function ZeptoIpoPage() {
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Expected Price</p>
-              <p className="text-xl font-bold text-white">₹300–₹350</p>
+              <p className="text-xl font-bold text-white">₹300-₹350</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Valuation</p>
@@ -185,7 +185,7 @@ export default function ZeptoIpoPage() {
           <h2 className="text-xl font-bold text-text mb-4">About Zepto</h2>
           <div className="prose prose-sm max-w-none text-text-muted space-y-3">
             <p>
-              Zepto (Kiranakart Technologies Pvt. Ltd.) was founded in 2021 by Aadit Palicha and Kaivalya Vohra, both Stanford dropouts. The company pioneered <strong className="text-text">10-minute grocery delivery</strong> in India through a network of micro-warehouses (dark stores) located within 2–3 km of residential clusters.
+              Zepto (Kiranakart Technologies Pvt. Ltd.) was founded in 2021 by Aadit Palicha and Kaivalya Vohra, both Stanford dropouts. The company pioneered <strong className="text-text">10-minute grocery delivery</strong> in India through a network of micro-warehouses (dark stores) located within 2-3 km of residential clusters.
             </p>
             <p>
               As of mid-2026, Zepto operates in <strong className="text-text">40+ Indian cities</strong> including Mumbai, Delhi, Bengaluru, Hyderabad, Chennai, and Pune. The platform lists 8,000+ SKUs across grocery, fresh produce, personal care, and household essentials.
@@ -198,7 +198,7 @@ export default function ZeptoIpoPage() {
 
         {/* Pros & Cons */}
         <section>
-          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons — Should You Apply?</h2>
+          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
               <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>

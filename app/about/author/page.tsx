@@ -55,7 +55,7 @@ export default function AuthorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero — dark gradient */}
+      {/* Hero - dark gradient */}
       <section className="bg-[#0c1628] text-white">
         <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
         <div className="container-main py-16 sm:py-20">
@@ -86,7 +86,7 @@ export default function AuthorPage() {
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1e3a5f] bg-[#0f2040] px-3 py-1 text-xs text-slate-400">
                   <Shield className="h-3 w-3 text-[#4ade80]" />
-                  CA Final — ICAI
+                  CA Final - ICAI
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1e3a5f] bg-[#0f2040] px-3 py-1 text-xs text-slate-400">
                   <Calculator className="h-3 w-3 text-[#6b9cff]" />
@@ -127,7 +127,7 @@ export default function AuthorPage() {
                 <p className="font-semibold text-text">Chartered Accountancy (CA) Final</p>
                 <p className="text-xs text-text-muted font-medium mt-0.5">The Institute of Chartered Accountants of India (ICAI)</p>
                 <p className="text-sm text-text-muted mt-2 leading-relaxed">
-                  One of India's most rigorous professional qualifications — covering financial reporting, taxation, auditing, and financial management. Currently in progress (Final stage).
+                  One of India's most rigorous professional qualifications - covering financial reporting, taxation, auditing, and financial management. Currently in progress (Final stage).
                 </p>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function AuthorPage() {
             </div>
 
             <p className="text-text-muted leading-relaxed">
-              {site.author.fullName} is solely responsible for all content on {site.name} — every calculator formula, every guide, every comparison. AI tools are used as research and drafting aids only. No content is published without human review.
+              {site.author.fullName} is solely responsible for all content on {site.name} - every calculator formula, every guide, every comparison. AI tools are used as research and drafting aids only. No content is published without human review.
             </p>
 
             <div className="mt-4 grid sm:grid-cols-3 gap-3">
@@ -180,7 +180,7 @@ export default function AuthorPage() {
           <div className="rounded-2xl border border-[#2f5bea]/20 bg-gradient-to-br from-brand/5 to-transparent p-6">
             <h2 className="text-lg font-bold text-text mb-3">Why CoinMind was built</h2>
             <p className="text-text-muted leading-relaxed">
-              Most Indian personal finance websites either charge for tools, drown calculators in ads, or use vague "AI-powered" formulas with no transparency. {site.name} was built to fix that: every formula is documented, every source is cited, and every tool runs in the browser — no login required, no data stored.
+              Most Indian personal finance websites either charge for tools, drown calculators in ads, or use vague "AI-powered" formulas with no transparency. {site.name} was built to fix that: every formula is documented, every source is cited, and every tool runs in the browser - no login required, no data stored.
             </p>
             <Link href="/about" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline underline-offset-2">
               Read the full story <ExternalLink className="h-3.5 w-3.5" />

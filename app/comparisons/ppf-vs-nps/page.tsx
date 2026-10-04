@@ -3,23 +3,23 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PPF vs NPS – Which is Better for Retirement in 2026? | CoinMind",
+  title: "PPF vs NPS - Which is Better for Retirement in 2026? | CoinMind",
   description: "PPF vs NPS comparison for retirement: returns, tax treatment, lock-in, flexibility and verdict for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-nps` },
 };
 
 const TABLE = [
-  { param: "Current rate / returns", ppf: "7.1% p.a. (govt-set, tax-free)", nps: "Market-linked; Tier-I equity: ~12–14% (10-yr avg)" },
-  { param: "Risk", ppf: "Zero — backed by Government of India", nps: "Market risk on equity allocation (up to 75%)" },
+  { param: "Current rate / returns", ppf: "7.1% p.a. (govt-set, tax-free)", nps: "Market-linked; Tier-I equity: ~12-14% (10-yr avg)" },
+  { param: "Risk", ppf: "Zero - backed by Government of India", nps: "Market risk on equity allocation (up to 75%)" },
   { param: "Tax on contributions", ppf: "80C deduction up to ₹1.5L (old regime)", nps: "80C up to ₹1.5L + 80CCD(1B) extra ₹50,000" },
-  { param: "Tax on maturity", ppf: "EEE — completely tax-free (principal + interest)", nps: "EET — 60% tax-free lump sum; 40% must buy annuity (taxable)" },
+  { param: "Tax on maturity", ppf: "EEE - completely tax-free (principal + interest)", nps: "EET - 60% tax-free lump sum; 40% must buy annuity (taxable)" },
   { param: "Lock-in period", ppf: "15 years (extendable in 5-yr blocks)", nps: "Until age 60 (exit possible at 60+ or on death)" },
-  { param: "Partial withdrawal", ppf: "Allowed from year 7 (up to 50% of balance)", nps: "Allowed after 3 years — up to 25% for specific reasons" },
-  { param: "Premature exit", ppf: "Allowed after 15 years freely; before: only for serious illness/education", nps: "Allowed after 10 years — but 80% must go into annuity" },
+  { param: "Partial withdrawal", ppf: "Allowed from year 7 (up to 50% of balance)", nps: "Allowed after 3 years - up to 25% for specific reasons" },
+  { param: "Premature exit", ppf: "Allowed after 15 years freely; before: only for serious illness/education", nps: "Allowed after 10 years - but 80% must go into annuity" },
   { param: "Min. investment", ppf: "₹500/year", nps: "₹1,000/year (Tier-I)" },
   { param: "Max. investment", ppf: "₹1,50,000/year", nps: "No upper limit" },
-  { param: "Who can open", ppf: "Any Indian resident (minor through parent)", nps: "Indian resident aged 18–70" },
-  { param: "Annuity requirement", ppf: "None — full amount available at maturity", nps: "40% must purchase annuity at 60 (annuity income is taxable)" },
+  { param: "Who can open", ppf: "Any Indian resident (minor through parent)", nps: "Indian resident aged 18-70" },
+  { param: "Annuity requirement", ppf: "None - full amount available at maturity", nps: "40% must purchase annuity at 60 (annuity income is taxable)" },
 ];
 
 export default function PpfVsNpsPage() {
@@ -37,7 +37,7 @@ export default function PpfVsNpsPage() {
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
         <p className="text-sm font-semibold text-forest-deep">Quick verdict</p>
         <p className="mt-1 text-sm text-forest-deep">
-          <strong>NPS wins on returns and additional tax savings</strong> (extra ₹50,000 via 80CCD-1B). <strong>PPF wins on simplicity, EEE tax status and flexibility</strong> — the entire corpus is yours at maturity, tax-free. Best strategy: use both — PPF for a safe guaranteed foundation, NPS for higher-return growth with the added tax deduction.
+          <strong>NPS wins on returns and additional tax savings</strong> (extra ₹50,000 via 80CCD-1B). <strong>PPF wins on simplicity, EEE tax status and flexibility</strong> - the entire corpus is yours at maturity, tax-free. Best strategy: use both - PPF for a safe guaranteed foundation, NPS for higher-return growth with the added tax deduction.
         </p>
       </div>
 
@@ -91,10 +91,10 @@ export default function PpfVsNpsPage() {
       <section className="mt-10">
         <h2 className="font-display text-2xl text-ink">The NPS annuity issue</h2>
         <p className="mt-2 text-ink-soft text-sm">
-          NPS's biggest disadvantage: at 60, you <strong>must</strong> use 40% of your corpus to buy an annuity. Current annuity rates in India are 5.5–6.5% p.a. — meaning that 40% of your corpus earns a low fixed income that is also fully taxable. This significantly reduces the real benefit of NPS's higher returns.
+          NPS's biggest disadvantage: at 60, you <strong>must</strong> use 40% of your corpus to buy an annuity. Current annuity rates in India are 5.5-6.5% p.a. - meaning that 40% of your corpus earns a low fixed income that is also fully taxable. This significantly reduces the real benefit of NPS's higher returns.
         </p>
         <div className="mt-4 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 p-4 text-sm text-amber-900 dark:text-amber-200">
-          <strong>Example:</strong> ₹2.38 crore NPS corpus at 60 → ₹95.2L goes into annuity at 6% = ₹5.7L/year taxable income. The remaining ₹1.43Cr is yours tax-free. Compare: PPF ₹1.02Cr — all yours, completely tax-free, no strings attached.
+          <strong>Example:</strong> ₹2.38 crore NPS corpus at 60 → ₹95.2L goes into annuity at 6% = ₹5.7L/year taxable income. The remaining ₹1.43Cr is yours tax-free. Compare: PPF ₹1.02Cr - all yours, completely tax-free, no strings attached.
         </div>
       </section>
 
@@ -116,7 +116,7 @@ export default function PpfVsNpsPage() {
             <p className="font-semibold text-brass mb-3">Choose NPS when…</p>
             <ul className="space-y-2 text-sm text-amber-900 dark:text-amber-200">
               <li>✓ You are in 30% tax bracket (extra ₹50K deduction saves ₹15,600+)</li>
-              <li>✓ Your employer contributes to NPS (80CCD-2 — free money)</li>
+              <li>✓ Your employer contributes to NPS (80CCD-2 - free money)</li>
               <li>✓ You have a long horizon (20+ years) to absorb equity returns</li>
               <li>✓ You are comfortable with market-linked returns</li>
               <li>✓ You want the maximum possible retirement corpus</li>

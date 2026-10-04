@@ -14,7 +14,7 @@ type LegalPageProps = {
 export function LegalPage({ pill, title, subtitle, lastUpdated, icon, children }: LegalPageProps) {
   return (
     <div>
-      {/* Dark hero — matches header/footer */}
+      {/* Dark hero - matches header/footer */}
       <section className="relative bg-[#0c1628] overflow-hidden">
         <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
         {/* Subtle background glow */}

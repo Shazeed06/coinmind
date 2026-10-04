@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "SS Retail IPO 2026: GMP ₹138 (+33%), Allotment & Listing Sep 23 | CoinMind",
   description:
-    "SS Retail IPO listing Sep 23 2026. Price ₹403–₹424, GMP ₹138 (+33%), subscribed 108.69x. Check allotment status, expected listing price & full review.",
+    "SS Retail IPO listing Sep 23 2026. Price ₹403-₹424, GMP ₹138 (+33%), subscribed 108.69x. Check allotment status, expected listing price & full review.",
   keywords: [
     "SS Retail IPO",
     "SS Retail IPO GMP today",
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SS Retail IPO 2026: GMP ₹138, Listing Sep 23 & Allotment Status",
     description:
-      "SS Retail IPO listing Sep 23 — GMP ₹138 (+33%), subscribed 108.69x, price band ₹403–₹424. Full allotment guide.",
+      "SS Retail IPO listing Sep 23 - GMP ₹138 (+33%), subscribed 108.69x, price band ₹403-₹424. Full allotment guide.",
     url: `${site.url}/ipos/ss-retail-ipo`,
   },
 };
 
 const IPO_DETAILS = [
   { label: "Issue Size", value: "~₹148 crore (SME IPO)" },
-  { label: "Price Band", value: "₹403–₹424 per share" },
+  { label: "Price Band", value: "₹403-₹424 per share" },
   { label: "Lot Size", value: "35 shares" },
   { label: "Min. Investment (Retail)", value: "₹14,840 (1 lot at ₹424)" },
   { label: "Open Date", value: "16 September 2026" },
@@ -50,16 +50,16 @@ const CATEGORY_SUB = [
 ];
 
 const PROS = [
-  "Extremely strong subscription at 108.69x — massive institutional and retail demand",
+  "Extremely strong subscription at 108.69x - massive institutional and retail demand",
   "GMP ₹138 (+33%) signals strong grey market confidence for listing day performance",
-  "SME IPOs with high subscription ratios historically list at 15–40% premium",
-  "Retail segment subscribed ~60x — broad-based demand, not just institutional",
+  "SME IPOs with high subscription ratios historically list at 15-40% premium",
+  "Retail segment subscribed ~60x - broad-based demand, not just institutional",
 ];
 
 const CONS = [
-  "SME IPO — lower liquidity post-listing compared to mainboard IPOs",
+  "SME IPO - lower liquidity post-listing compared to mainboard IPOs",
   "High GMP-based expectations can lead to volatile post-listing corrections",
-  "Small issue size (~₹148 crore) — price can be volatile with low trading volumes",
+  "Small issue size (~₹148 crore) - price can be volatile with low trading volumes",
   "After high-subscription SME IPOs, allotment probability for retail is very low (1 lot per applicant)",
 ];
 
@@ -74,7 +74,7 @@ const ALLOTMENT_STEPS = [
 const FAQS = [
   {
     q: "What is the SS Retail IPO GMP today?",
-    a: "As of September 20, 2026, SS Retail IPO GMP (Grey Market Premium) is approximately ₹138 per share, which translates to an indicative listing price of around ₹562 (+33% over the issue price of ₹424). GMP can change rapidly — check live GMP sources for real-time updates.",
+    a: "As of September 20, 2026, SS Retail IPO GMP (Grey Market Premium) is approximately ₹138 per share, which translates to an indicative listing price of around ₹562 (+33% over the issue price of ₹424). GMP can change rapidly - check live GMP sources for real-time updates.",
   },
   {
     q: "When is SS Retail IPO listing date?",
@@ -94,7 +94,7 @@ const FAQS = [
   },
   {
     q: "Is SS Retail IPO allotment confirmed?",
-    a: "Allotment was finalized on September 19, 2026. Given 108.69x subscription, most retail applicants will not receive allotment — lottery-based allotment means only ~1 in 60 retail applicants may receive shares.",
+    a: "Allotment was finalized on September 19, 2026. Given 108.69x subscription, most retail applicants will not receive allotment - lottery-based allotment means only ~1 in 60 retail applicants may receive shares.",
   },
 ];
 
@@ -167,7 +167,7 @@ export default function SsRetailIpoPage() {
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Price Band</p>
-              <p className="text-xl font-bold text-white">₹403–₹424</p>
+              <p className="text-xl font-bold text-white">₹403-₹424</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Lot Size</p>
@@ -207,7 +207,7 @@ export default function SsRetailIpoPage() {
               </div>
             ))}
           </div>
-          <p className="mt-3 text-sm text-text-muted">Overall subscription: 108.69x — indicates extremely high demand. Allotment by lottery for retail investors.</p>
+          <p className="mt-3 text-sm text-text-muted">Overall subscription: 108.69x - indicates extremely high demand. Allotment by lottery for retail investors.</p>
         </section>
 
         {/* Allotment Steps */}
@@ -239,7 +239,7 @@ export default function SsRetailIpoPage() {
               SS Retail India Limited is a <strong className="text-text">multi-brand retail chain</strong> operating across fashion apparel, footwear, and lifestyle accessories in India. The company runs a network of retail stores targeting tier-2 and tier-3 cities where branded retail penetration is still growing.
             </p>
             <p>
-              The IPO proceeds (₹355 crore fresh issue) will be used primarily for <strong className="text-text">expanding its store network</strong> and repaying borrowings. The listing on <strong className="text-text">NSE Emerge</strong> (NSE's SME platform) reflects its mid-sized scale — making it accessible to retail investors at a lower minimum investment than mainboard IPOs.
+              The IPO proceeds (₹355 crore fresh issue) will be used primarily for <strong className="text-text">expanding its store network</strong> and repaying borrowings. The listing on <strong className="text-text">NSE Emerge</strong> (NSE's SME platform) reflects its mid-sized scale - making it accessible to retail investors at a lower minimum investment than mainboard IPOs.
             </p>
             <p>
               The 108.69x subscription across all categories signals extremely high investor demand, driven by attractive GMP and strong sector sentiment in organised retail.

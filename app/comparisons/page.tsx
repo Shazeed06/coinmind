@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Financial Comparisons India – SIP vs FD, PPF vs NPS, Old vs New Tax Regime | CoinMind",
+  title: "Financial Comparisons India - SIP vs FD, PPF vs NPS, Old vs New Tax Regime | CoinMind",
   description: "Side-by-side financial comparisons for Indian investors: SIP vs FD, PPF vs NPS, old vs new tax regime, rent vs buy, loan prepayment vs investing, and more.",
   alternates: { canonical: `${site.url}/comparisons` },
   openGraph: {
@@ -19,13 +19,13 @@ const COMPARISONS = [
     items: [
       {
         title: "SIP vs FD",
-        desc: "Mutual fund SIP vs fixed deposit — returns, risk, liquidity and tax implications compared.",
+        desc: "Mutual fund SIP vs fixed deposit - returns, risk, liquidity and tax implications compared.",
         href: "/comparisons/sip-vs-fd",
         badge: "Most read",
       },
       {
         title: "PPF vs FD",
-        desc: "Public Provident Fund vs Fixed Deposit — which is better for long-term tax-free savings?",
+        desc: "Public Provident Fund vs Fixed Deposit - which is better for long-term tax-free savings?",
         href: "/comparisons/ppf-vs-fd",
       },
       {
@@ -35,17 +35,17 @@ const COMPARISONS = [
       },
       {
         title: "NPS vs EPF",
-        desc: "Employee Provident Fund vs National Pension System — for salaried Indians planning retirement.",
+        desc: "Employee Provident Fund vs National Pension System - for salaried Indians planning retirement.",
         href: "/comparisons/nps-vs-epf",
       },
       {
         title: "SIP vs Lumpsum",
-        desc: "Monthly SIP or one-time lumpsum investment — which strategy suits your situation?",
+        desc: "Monthly SIP or one-time lumpsum investment - which strategy suits your situation?",
         href: "/comparisons/sip-vs-lumpsum",
       },
       {
         title: "Mutual Fund vs Stocks",
-        desc: "DIY equity investing vs mutual funds — risk, effort, returns and suitability compared.",
+        desc: "DIY equity investing vs mutual funds - risk, effort, returns and suitability compared.",
         href: "/comparisons/mutual-fund-vs-stocks",
       },
     ],
@@ -61,7 +61,7 @@ const COMPARISONS = [
       },
       {
         title: "ELSS vs PPF for 80C",
-        desc: "Best 80C investment — ELSS mutual funds or PPF? Returns, lock-in and tax treatment compared.",
+        desc: "Best 80C investment - ELSS mutual funds or PPF? Returns, lock-in and tax treatment compared.",
         href: "/comparisons/elss-vs-ppf",
       },
       {
@@ -87,7 +87,7 @@ const COMPARISONS = [
       },
       {
         title: "FD vs Debt Mutual Fund",
-        desc: "Fixed deposits vs debt mutual funds — post-tax returns, liquidity and risk profile compared.",
+        desc: "Fixed deposits vs debt mutual funds - post-tax returns, liquidity and risk profile compared.",
         href: "/comparisons/fd-vs-debt-mutual-fund",
       },
     ],
@@ -97,12 +97,12 @@ const COMPARISONS = [
     items: [
       {
         title: "Term vs ULIP vs Endowment",
-        desc: "Pure term insurance vs ULIPs vs traditional endowment plans — the total cost of mixing insurance and investment.",
+        desc: "Pure term insurance vs ULIPs vs traditional endowment plans - the total cost of mixing insurance and investment.",
         href: "/comparisons/term-vs-ulip-vs-endowment",
       },
       {
         title: "Health Insurance: Floater vs Individual",
-        desc: "Family floater vs individual health insurance policies — which offers better coverage per rupee?",
+        desc: "Family floater vs individual health insurance policies - which offers better coverage per rupee?",
         href: "/comparisons/floater-vs-individual-health-insurance",
       },
     ],
@@ -117,7 +117,7 @@ export default function ComparisonsPage() {
         <p className="text-xs font-semibold uppercase tracking-wider text-brass mb-2">Comparisons</p>
         <h1 className="font-display text-3xl sm:text-4xl text-ink">Financial Comparison Engine</h1>
         <p className="mt-3 text-ink-soft max-w-2xl">
-          Side-by-side analyses of India&apos;s most important financial choices — built on real numbers, not opinions. Each comparison uses the same metrics so you can make a fair decision.
+          Side-by-side analyses of India&apos;s most important financial choices - built on real numbers, not opinions. Each comparison uses the same metrics so you can make a fair decision.
         </p>
       </div>
 

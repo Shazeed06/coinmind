@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "PhonePe IPO 2026: Postponed, Expected Date, Price & Review | CoinMind",
   description:
-    "PhonePe IPO 2026 guide: UDRHP filed Jan 2026, postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12–15B. Latest updates, expected date & should you wait?",
+    "PhonePe IPO 2026 guide: UDRHP filed Jan 2026, postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest updates, expected date & should you wait?",
   keywords: [
     "PhonePe IPO",
     "PhonePe IPO 2026",
@@ -24,20 +24,20 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PhonePe IPO 2026: Status, Expected Price, GMP & Full Review",
     description:
-      "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12–15B. Latest update on expected dates.",
+      "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
     url: `${site.url}/ipos/phonepe-ipo`,
   },
 };
 
 const IPO_DETAILS = [
-  { label: "Issue Type", value: "100% Offer for Sale (OFS) — no fresh capital to company" },
+  { label: "Issue Type", value: "100% Offer for Sale (OFS) - no fresh capital to company" },
   { label: "Total OFS Size", value: "~₹12,000 crore" },
   { label: "Selling Shareholders", value: "Walmart (majority), early investors" },
   { label: "Expected Price Band", value: "Not announced (IPO postponed)" },
-  { label: "Expected Valuation", value: "$12–$15 billion" },
+  { label: "Expected Valuation", value: "$12-$15 billion" },
   { label: "UDRHP Filed", value: "January 2026" },
-  { label: "IPO Status", value: "Postponed (March 2026 — geopolitical volatility)" },
-  { label: "Expected Open Date", value: "Uncertain — 2026 or 2027 depending on market conditions" },
+  { label: "IPO Status", value: "Postponed (March 2026 - geopolitical volatility)" },
+  { label: "Expected Open Date", value: "Uncertain - 2026 or 2027 depending on market conditions" },
   { label: "Exchange", value: "BSE + NSE (proposed)" },
   { label: "Category", value: "Mainboard IPO" },
   { label: "Promoter", value: "Walmart Inc. (majority shareholder)" },
@@ -45,21 +45,21 @@ const IPO_DETAILS = [
 ];
 
 const PROS = [
-  "India's #1 UPI payment app — 550+ million registered users, 40%+ UPI transaction market share",
+  "India's #1 UPI payment app - 550+ million registered users, 40%+ UPI transaction market share",
   "Dominant fintech brand with strong recall in payments, insurance, lending, and mutual funds",
-  "Profitable at operating level — PhonePe achieved operating profitability in FY2024",
+  "Profitable at operating level - PhonePe achieved operating profitability in FY2024",
   "Diversified beyond payments: PhonePe Switch (app marketplace), Indus App Store, insurance distribution",
-  "Walmart-backed — world's largest retailer adds credibility and deep pockets for any emergency capital",
-  "Indian financial services market at very early stage — UPI volumes expected to 3x by 2030",
+  "Walmart-backed - world's largest retailer adds credibility and deep pockets for any emergency capital",
+  "Indian financial services market at very early stage - UPI volumes expected to 3x by 2030",
 ];
 
 const CONS = [
-  "100% OFS — no proceeds go to PhonePe itself; entirely a Walmart and investor exit",
-  "IPO already postponed once in March 2026 — signals uncertainty about optimal timing",
+  "100% OFS - no proceeds go to PhonePe itself; entirely a Walmart and investor exit",
+  "IPO already postponed once in March 2026 - signals uncertainty about optimal timing",
   "NPCI (UPI) regulations could limit monetisation pathways for dominant players",
   "Intense competition from Google Pay, Paytm, Amazon Pay, and bank-backed UPI apps",
   "Monetisation of UPI transactions heavily restricted by NPCI pricing norms",
-  "Dates remain unclear even after UDRHP — could slip to 2027 based on global markets",
+  "Dates remain unclear even after UDRHP - could slip to 2027 based on global markets",
 ];
 
 const FAQS = [
@@ -73,15 +73,15 @@ const FAQS = [
   },
   {
     q: "What is PhonePe IPO price band?",
-    a: "No price band has been announced. At a targeted valuation of $12–15 billion, the price per share will depend on the total equity base. Analysts estimate the issue price could range from ₹800–₹1,200 per share, but this is speculative.",
+    a: "No price band has been announced. At a targeted valuation of $12-15 billion, the price per share will depend on the total equity base. Analysts estimate the issue price could range from ₹800-₹1,200 per share, but this is speculative.",
   },
   {
     q: "Why is PhonePe IPO 100% OFS?",
-    a: "100% OFS means all IPO proceeds go to selling shareholders (primarily Walmart and early investors) — not to PhonePe itself. PhonePe management says the company is self-sufficient and doesn't need fresh capital right now. For investors, this means no balance sheet strengthening.",
+    a: "100% OFS means all IPO proceeds go to selling shareholders (primarily Walmart and early investors) - not to PhonePe itself. PhonePe management says the company is self-sufficient and doesn't need fresh capital right now. For investors, this means no balance sheet strengthening.",
   },
   {
     q: "What is PhonePe's valuation for IPO?",
-    a: "PhonePe's last known valuation was $12 billion (2023 fundraise). For the IPO, Walmart and bankers are targeting $12–15 billion. This is lower than the $15B peak valuation sought earlier, reflecting market discipline.",
+    a: "PhonePe's last known valuation was $12 billion (2023 fundraise). For the IPO, Walmart and bankers are targeting $12-15 billion. This is lower than the $15B peak valuation sought earlier, reflecting market discipline.",
   },
   {
     q: "How is PhonePe different from Paytm (listed)?",
@@ -93,9 +93,9 @@ export default function PhonePeIpoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "PhonePe IPO 2026: Postponed — Latest Status, Expected Date & Review",
+    headline: "PhonePe IPO 2026: Postponed - Latest Status, Expected Date & Review",
     description:
-      "PhonePe IPO postponed March 2026. UDRHP filed Jan 2026. 100% OFS ~₹12,000 Cr, valuation $12–15B. Latest update and review.",
+      "PhonePe IPO postponed March 2026. UDRHP filed Jan 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update and review.",
     url: `${site.url}/ipos/phonepe-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -132,7 +132,7 @@ export default function PhonePeIpoPage() {
             PhonePe IPO 2026
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            India's #1 UPI app with 550M+ users — IPO postponed in March 2026.
+            India's #1 UPI app with 550M+ users - IPO postponed in March 2026.
             UDRHP filed, awaiting favourable market conditions.
           </p>
 
@@ -155,7 +155,7 @@ export default function PhonePeIpoPage() {
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Valuation</p>
-              <p className="text-xl font-bold text-white">$12–15B</p>
+              <p className="text-xl font-bold text-white">$12-15B</p>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function PhonePeIpoPage() {
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons — Should You Wait?</h2>
+          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Wait?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
               <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>

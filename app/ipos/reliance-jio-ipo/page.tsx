@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Reliance Jio IPO 2026: Expected Date, Price Band, GMP & Review | CoinMind",
   description:
-    "Reliance Jio IPO 2026 complete guide: ₹40,000 crore issue, SEBI approved Aug 28, price expected ₹435+, valuation $130–180B. Latest GMP, dates & should you apply?",
+    "Reliance Jio IPO 2026 complete guide: ₹40,000 crore issue, SEBI approved Aug 28, price expected ₹435+, valuation $130-180B. Latest GMP, dates & should you apply?",
   keywords: [
     "Reliance Jio IPO",
     "Jio IPO 2026",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Reliance Jio IPO 2026: Price, GMP, Date & Full Review",
     description:
-      "India's most anticipated IPO — Jio Platforms ₹40,000 crore issue. SEBI approved. Latest date, GMP, valuation & expert review.",
+      "India's most anticipated IPO - Jio Platforms ₹40,000 crore issue. SEBI approved. Latest date, GMP, valuation & expert review.",
     url: `${site.url}/ipos/reliance-jio-ipo`,
   },
 };
@@ -34,10 +34,10 @@ const IPO_DETAILS = [
   { label: "Issue Type", value: "100% Fresh Issue (No OFS)" },
   { label: "Shares Offered", value: "~27 crore equity shares (2.9% dilution)" },
   { label: "Expected Price Band", value: "₹435+ per share (unconfirmed)" },
-  { label: "Expected Valuation", value: "$130–$180 billion (₹11–15 lakh crore)" },
+  { label: "Expected Valuation", value: "$130-$180 billion (₹11-15 lakh crore)" },
   { label: "DRHP Filed", value: "19 June 2026" },
   { label: "SEBI Approval", value: "28 August 2026" },
-  { label: "Expected Open Date", value: "TBA (Oct–Nov 2026 window)" },
+  { label: "Expected Open Date", value: "TBA (Oct - Nov 2026 window)" },
   { label: "Exchange", value: "BSE + NSE" },
   { label: "Category", value: "Mainboard IPO" },
   { label: "Face Value", value: "₹10 per share" },
@@ -45,31 +45,31 @@ const IPO_DETAILS = [
 ];
 
 const PROS = [
-  "India's largest telecom — 524+ million subscribers as of Mar 2026, ~60% of wireless data traffic",
-  "100% fresh issue — all proceeds go to the company, no promoter exit",
+  "India's largest telecom - 524+ million subscribers as of Mar 2026, ~60% of wireless data traffic",
+  "100% fresh issue - all proceeds go to the company, no promoter exit",
   "Massive growth runway in 5G services, JioFiber, JioAirFiber, and enterprise solutions",
   "Backed by Reliance Industries' balance sheet; investment-grade fundamentals",
   "Global strategic investors: Google, Meta, KKR, Silver Lake already invested at higher valuations",
-  "Network infrastructure advantage — pan-India 5G rollout largely complete",
+  "Network infrastructure advantage - pan-India 5G rollout largely complete",
 ];
 
 const CONS = [
-  "Rich valuation — $130–180B price tag leaves limited room for near-term listing pop",
+  "Rich valuation - $130-180B price tag leaves limited room for near-term listing pop",
   "Regulatory risks: DoT, TRAI spectrum pricing could compress margins",
-  "ARPU (avg revenue per user) still among Asia's lowest — monetisation pace uncertain",
-  "Reliance Group complexity — RPT (related party transactions) scrutiny likely",
-  "Large float (~27 cr shares) — absorption pressure on secondary market post-listing",
+  "ARPU (avg revenue per user) still among Asia's lowest - monetisation pace uncertain",
+  "Reliance Group complexity - RPT (related party transactions) scrutiny likely",
+  "Large float (~27 cr shares) - absorption pressure on secondary market post-listing",
   "No confirmed dates yet; geopolitical or market conditions may delay further",
 ];
 
 const FAQS = [
   {
     q: "What is the Reliance Jio IPO price band?",
-    a: "The official price band has not been announced yet as of September 2026. Based on analyst estimates and recent fundraising rounds, the price is expected to be ₹435 or above per share, implying a valuation of $130–180 billion.",
+    a: "The official price band has not been announced yet as of September 2026. Based on analyst estimates and recent fundraising rounds, the price is expected to be ₹435 or above per share, implying a valuation of $130-180 billion.",
   },
   {
     q: "When will Jio IPO open for subscription?",
-    a: "No official dates have been confirmed. Jio received SEBI approval on August 28, 2026. Most analysts expect the IPO to open in October–November 2026. Watch coinmind.in for the latest updates.",
+    a: "No official dates have been confirmed. Jio received SEBI approval on August 28, 2026. Most analysts expect the IPO to open in October - November 2026. Watch coinmind.in for the latest updates.",
   },
   {
     q: "What is the Jio IPO issue size?",
@@ -77,11 +77,11 @@ const FAQS = [
   },
   {
     q: "What is the Jio IPO lot size?",
-    a: "The lot size will be announced with the price band. For mainboard IPOs in this price range, the minimum application is typically set between ₹13,000–₹15,000 (1 lot).",
+    a: "The lot size will be announced with the price band. For mainboard IPOs in this price range, the minimum application is typically set between ₹13,000-₹15,000 (1 lot).",
   },
   {
     q: "Is Jio IPO a good investment?",
-    a: "Jio has strong fundamentals — 524M+ subscribers, 5G leadership, and diversified digital services. However, the valuation at $130–180B is aggressive. Long-term investors may find value, but listing gains depend heavily on market conditions and grey market sentiment closer to the date.",
+    a: "Jio has strong fundamentals - 524M+ subscribers, 5G leadership, and diversified digital services. However, the valuation at $130-180B is aggressive. Long-term investors may find value, but listing gains depend heavily on market conditions and grey market sentiment closer to the date.",
   },
   {
     q: "Who are the lead managers for Jio IPO?",
@@ -95,7 +95,7 @@ export default function RellianceJioIpoPage() {
     "@type": "Article",
     headline: "Reliance Jio IPO 2026: Expected Date, Price Band, GMP & Complete Review",
     description:
-      "Full analysis of Jio Platforms IPO — ₹40,000 crore fresh issue, SEBI approved Aug 28 2026, expected price ₹435+, valuation $130–180B.",
+      "Full analysis of Jio Platforms IPO - ₹40,000 crore fresh issue, SEBI approved Aug 28 2026, expected price ₹435+, valuation $130-180B.",
     url: `${site.url}/ipos/reliance-jio-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -133,7 +133,7 @@ export default function RellianceJioIpoPage() {
             Reliance Jio IPO 2026
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            India's most anticipated IPO — Jio Platforms plans to raise ₹40,000 crore.
+            India's most anticipated IPO - Jio Platforms plans to raise ₹40,000 crore.
             SEBI approved Aug 28, 2026. Price and dates to be announced.
           </p>
 
@@ -149,7 +149,7 @@ export default function RellianceJioIpoPage() {
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Valuation</p>
-              <p className="text-xl font-bold text-white">$130–180B</p>
+              <p className="text-xl font-bold text-white">$130-180B</p>
             </div>
             <div className="rounded-xl bg-yellow-400/10 border border-yellow-400/20 px-5 py-3 text-center">
               <p className="text-xs text-yellow-300/70 mb-1">Open Date</p>
@@ -189,17 +189,17 @@ export default function RellianceJioIpoPage() {
               Jio Platforms Limited (JPL) is India's largest digital connectivity and services platform, operating through its wholly owned subsidiary Reliance Jio Infocomm Limited (RJIL). As of March 31, 2026, Jio serves over <strong className="text-text">524 million subscribers</strong> and carries approximately 60% of India's wireless data traffic.
             </p>
             <p>
-              The company offers a full stack of digital services — Jio 5G, JioFiber, JioAirFiber, JioCinema, JioMart, JioSaavn, JioCloud, and enterprise solutions through Jio Business. It holds significant spectrum across sub-GHz, mid-band, and mmWave 5G bands.
+              The company offers a full stack of digital services - Jio 5G, JioFiber, JioAirFiber, JioCinema, JioMart, JioSaavn, JioCloud, and enterprise solutions through Jio Business. It holds significant spectrum across sub-GHz, mid-band, and mmWave 5G bands.
             </p>
             <p>
-              Key global investors include Google ($4.5B), Meta ($5.7B), KKR ($1.5B), Silver Lake ($1.5B), and Saudi Arabia's PIF — all at pre-IPO valuations of $57–65 billion, making the current IPO at $130–180B a significant step-up.
+              Key global investors include Google ($4.5B), Meta ($5.7B), KKR ($1.5B), Silver Lake ($1.5B), and Saudi Arabia's PIF - all at pre-IPO valuations of $57-65 billion, making the current IPO at $130-180B a significant step-up.
             </p>
           </div>
         </section>
 
         {/* Pros & Cons */}
         <section>
-          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons — Should You Apply?</h2>
+          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
               <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
@@ -232,7 +232,7 @@ export default function RellianceJioIpoPage() {
         <section className="rounded-2xl bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 p-5">
           <h2 className="text-base font-bold text-blue-800 dark:text-blue-300 mb-2">About GMP (Grey Market Premium)</h2>
           <p className="text-sm text-blue-700 dark:text-blue-400">
-            GMP for Jio IPO is not yet active since the price band hasn't been announced. Once subscription dates and price band are confirmed, grey market trading typically begins 1–2 weeks before the open date. GMP is an <strong>unofficial, unregulated indicator</strong> of market sentiment and does not guarantee listing price.
+            GMP for Jio IPO is not yet active since the price band hasn't been announced. Once subscription dates and price band are confirmed, grey market trading typically begins 1-2 weeks before the open date. GMP is an <strong>unofficial, unregulated indicator</strong> of market sentiment and does not guarantee listing price.
           </p>
         </section>
 

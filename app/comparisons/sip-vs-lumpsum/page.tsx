@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SIP vs Lumpsum Investment – Which Strategy is Better? | CoinMind",
+  title: "SIP vs Lumpsum Investment - Which Strategy is Better? | CoinMind",
   description: "SIP vs lumpsum investment comparison: which strategy gives better returns, lower risk and suits your situation. With real number examples for Indian investors.",
   alternates: { canonical: `${site.url}/comparisons/sip-vs-lumpsum` },
 };
@@ -16,7 +16,7 @@ export default function SipVsLumpsumPage() {
       </div>
 
       <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">SIP vs Lumpsum: Which is Better?</h1>
-      <p className="mt-3 text-ink-soft max-w-2xl">Two ways to invest in mutual funds — monthly SIP or a one-time lumpsum. Which one suits your situation?</p>
+      <p className="mt-3 text-ink-soft max-w-2xl">Two ways to invest in mutual funds - monthly SIP or a one-time lumpsum. Which one suits your situation?</p>
       <p className="mt-1 text-xs text-ink-faint">Last updated: September 2026</p>
 
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
@@ -40,14 +40,14 @@ export default function SipVsLumpsumPage() {
             <tbody>
               {[
                 { param: "How it works", sip: "Fixed amount invested every month", lump: "One-time large investment" },
-                { param: "Timing risk", sip: "Eliminated — buy at all market levels (rupee cost averaging)", lump: "High — investing at a market peak is costly" },
+                { param: "Timing risk", sip: "Eliminated - buy at all market levels (rupee cost averaging)", lump: "High - investing at a market peak is costly" },
                 { param: "Best in", sip: "Flat or volatile sideways markets", lump: "Bull markets (rising markets over the investment period)" },
                 { param: "Minimum to start", sip: "₹100/month", lump: "₹1,000" },
                 { param: "Requires market timing", sip: "No", lump: "Ideally yes (buy the dip)" },
                 { param: "Suitable for", sip: "Salaried investors with regular income", lump: "Investors with a lump sum (bonus, windfall)" },
                 { param: "Returns in rising markets", sip: "Slightly lower (later investments buy at higher NAV)", lump: "Higher (all money invested from day 1)" },
                 { param: "Returns in falling markets", sip: "Better (later investments buy at lower NAV)", lump: "Worse (full amount exposed to fall)" },
-                { param: "Psychological ease", sip: "High — small, regular, automatic", lump: "Lower — watching a large sum fall is stressful" },
+                { param: "Psychological ease", sip: "High - small, regular, automatic", lump: "Lower - watching a large sum fall is stressful" },
               ].map((row, i) => (
                 <tr key={row.param} className={i % 2 === 0 ? "bg-card" : "bg-paper-2"}>
                   <td className="px-4 py-3 text-ink-soft font-medium">{row.param}</td>
@@ -85,7 +85,7 @@ export default function SipVsLumpsumPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-2 text-ink-faint">Average cost per unit: ₹94.97 — lower than the average NAV of ₹96.67. Lumpsum at month 1 (₹30,000 at ₹100) = 300 units. SIP = 315.9 units. SIP wins in this volatile scenario.</p>
+          <p className="mt-2 text-ink-faint">Average cost per unit: ₹94.97 - lower than the average NAV of ₹96.67. Lumpsum at month 1 (₹30,000 at ₹100) = 300 units. SIP = 315.9 units. SIP wins in this volatile scenario.</p>
         </div>
       </section>
 

@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
+      { hostname: "images.unsplash.com" },
       { hostname: "coinmind.in" },
       { hostname: "www.coinmind.in" },
     ],
@@ -83,7 +84,7 @@ const nextConfig: NextConfig = {
       { source: "/tools/random-wheel", destination: "/tools", permanent: true },
       { source: "/tools/meme-generator", destination: "/tools", permanent: true },
       { source: "/tools/lorem-ipsum-generator", destination: "/tools", permanent: true },
-      // Broken link fixes — blog posts linked internally but not yet published
+      // Broken link fixes - blog posts linked internally but not yet published
       { source: "/blog/fd-vs-sip", destination: "/blog/sip-vs-lumpsum", permanent: true },
       { source: "/blog/how-to-save-income-tax-india-2025-guide", destination: "/income-tax", permanent: true },
       { source: "/blog/emergency-fund-how-much-need-india", destination: "/calculators/goal-emergency-fund", permanent: true },

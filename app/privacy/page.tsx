@@ -33,7 +33,7 @@ export default function PrivacyPage() {
       <LegalPage
         pill="Privacy Policy"
         title="Privacy Policy"
-        subtitle="Your calculator inputs stay in your browser — we never upload the numbers you enter. Here's exactly what we do and don't collect."
+        subtitle="Your calculator inputs stay in your browser - we never upload the numbers you enter. Here's exactly what we do and don't collect."
         lastUpdated="September 2026"
         icon={<Shield className="h-6 w-6 text-[#4ade80]" />}
       >
@@ -125,9 +125,9 @@ export default function PrivacyPage() {
               {site.name} uses the following third-party services, each governed by their own privacy policies:
             </p>
             <ul className="mt-3 space-y-2 text-text-muted body">
-              <li><strong>Google Analytics 4</strong> — <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
-              <li><strong>Google AdSense</strong> — <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
-              <li><strong>Vercel</strong> (hosting) — <a href="https://vercel.com/legal/privacy-policy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a></li>
+              <li><strong>Google Analytics 4</strong> - <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><strong>Google AdSense</strong> - <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><strong>Vercel</strong> (hosting) - <a href="https://vercel.com/legal/privacy-policy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a></li>
             </ul>
           </section>
 

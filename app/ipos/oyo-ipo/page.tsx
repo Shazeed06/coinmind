@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "OYO IPO 2026 (PRISM): Expected Date, Price ₹55-58, GMP & Review | CoinMind",
   description:
-    "OYO IPO 2026 (PRISM Hospitality) complete guide: ₹6,650 crore fresh issue, SEBI observation June 2026. Expected price ₹55–₹58, valuation $7–8B. Dates & review.",
+    "OYO IPO 2026 (PRISM Hospitality) complete guide: ₹6,650 crore fresh issue, SEBI observation June 2026. Expected price ₹55-₹58, valuation $7-8B. Dates & review.",
   keywords: [
     "OYO IPO",
     "OYO IPO 2026",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "OYO IPO 2026: Price Band, GMP, Date & Full Review",
     description:
-      "OYO (PRISM Hospitality) IPO — ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55–58.",
+      "OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55-58.",
     url: `${site.url}/ipos/oyo-ipo`,
   },
 };
@@ -33,8 +33,8 @@ const IPO_DETAILS = [
   { label: "Company Name", value: "PRISM Hospitality Ltd. (formerly OYO / Oravel Stays)" },
   { label: "Issue Size", value: "₹6,650 crore (100% Fresh Issue)" },
   { label: "Offer for Sale (OFS)", value: "Nil" },
-  { label: "Expected Price Band", value: "₹55–₹58 per share (unconfirmed)" },
-  { label: "Expected Valuation", value: "$7–$8 billion" },
+  { label: "Expected Price Band", value: "₹55-₹58 per share (unconfirmed)" },
+  { label: "Expected Valuation", value: "$7-$8 billion" },
   { label: "DRHP Updated", value: "2026 (multiple revisions after original 2023 filing)" },
   { label: "SEBI Observation Letter", value: "5 June 2026" },
   { label: "Expected Open Date", value: "TBA (Q4 2026, delayed from Aug 2026 target)" },
@@ -45,16 +45,16 @@ const IPO_DETAILS = [
 ];
 
 const PROS = [
-  "100% fresh issue — all ₹6,650 crore goes into business expansion and debt reduction",
-  "SEBI observation received June 2026 — regulatory hurdle cleared, listing imminent",
+  "100% fresh issue - all ₹6,650 crore goes into business expansion and debt reduction",
+  "SEBI observation received June 2026 - regulatory hurdle cleared, listing imminent",
   "Largest asset-light hospitality platform in India and Southeast Asia",
   "Turned EBITDA positive; revenue from hotels, coworking (OYO Workspaces), and holiday homes",
   "International footprint: UK (Motel 6 acquisition), USA (Leisure Inn), and Europe",
-  "Valuation significantly reset from earlier $10B+ claims to realistic $7–8B range",
+  "Valuation significantly reset from earlier $10B+ claims to realistic $7-8B range",
 ];
 
 const CONS = [
-  "Long IPO journey — first filed in 2021; multiple delays signal corporate governance concerns",
+  "Long IPO journey - first filed in 2021; multiple delays signal corporate governance concerns",
   "Highly leveraged; still carries significant debt even after partial repayment",
   "Asset-light model means heavy dependence on property partner relationships",
   "Ritesh Agarwal's buyback of shares in 2019 at $10B valuation raised red flags",
@@ -65,23 +65,23 @@ const CONS = [
 const FAQS = [
   {
     q: "What is OYO IPO price band?",
-    a: "The official price band has not been announced. Based on the revised valuation of $7–8 billion and the total shares outstanding, the expected price is in the ₹55–₹58 range. This will be confirmed in the final RHP.",
+    a: "The official price band has not been announced. Based on the revised valuation of $7-8 billion and the total shares outstanding, the expected price is in the ₹55-₹58 range. This will be confirmed in the final RHP.",
   },
   {
     q: "When will OYO IPO open for subscription?",
-    a: "No official dates have been announced. OYO received SEBI observation in June 2026. The original target of August 2026 was delayed. Analysts now expect Q4 2026 (October–December). Subscribe to CoinMind alerts for updates.",
+    a: "No official dates have been announced. OYO received SEBI observation in June 2026. The original target of August 2026 was delayed. Analysts now expect Q4 2026 (October - December). Subscribe to CoinMind alerts for updates.",
   },
   {
-    q: "What is PRISM Hospitality — same as OYO?",
+    q: "What is PRISM Hospitality - same as OYO?",
     a: "Yes. OYO (Oravel Stays Pvt. Ltd.) rebranded its parent entity for IPO purposes. The IPO is filed under PRISM Hospitality Ltd. but the operating brand remains OYO for hotels and vacation homes.",
   },
   {
     q: "How much is OYO IPO issue size?",
-    a: "OYO plans a 100% fresh issue of ₹6,650 crore. There is no OFS component, meaning no promoter or early investor exit — all money goes to the company.",
+    a: "OYO plans a 100% fresh issue of ₹6,650 crore. There is no OFS component, meaning no promoter or early investor exit - all money goes to the company.",
   },
   {
     q: "Is OYO IPO a good investment?",
-    a: "OYO has made progress — EBITDA positive, international expansion, and a more realistic valuation. However, the delayed IPO journey, governance concerns, and competitive landscape make it a moderate-to-high risk investment. Best suited for investors with a 3–5 year horizon.",
+    a: "OYO has made progress - EBITDA positive, international expansion, and a more realistic valuation. However, the delayed IPO journey, governance concerns, and competitive landscape make it a moderate-to-high risk investment. Best suited for investors with a 3-5 year horizon.",
   },
   {
     q: "What will OYO use the IPO proceeds for?",
@@ -95,7 +95,7 @@ export default function OyoIpoPage() {
     "@type": "Article",
     headline: "OYO IPO 2026 (PRISM): Expected Date, Price Band, GMP & Complete Review",
     description:
-      "Full analysis of OYO (PRISM Hospitality) IPO — ₹6,650 crore fresh issue, SEBI observation June 2026, expected price ₹55–58, valuation $7–8B.",
+      "Full analysis of OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026, expected price ₹55-58, valuation $7-8B.",
     url: `${site.url}/ipos/oyo-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -132,7 +132,7 @@ export default function OyoIpoPage() {
             OYO IPO 2026 (PRISM Hospitality)
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            India's largest hospitality platform plans to raise ₹6,650 crore — 100% fresh issue.
+            India's largest hospitality platform plans to raise ₹6,650 crore - 100% fresh issue.
             SEBI observation received June 2026. Dates TBA.
           </p>
 
@@ -143,11 +143,11 @@ export default function OyoIpoPage() {
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Expected Price</p>
-              <p className="text-xl font-bold text-white">₹55–₹58</p>
+              <p className="text-xl font-bold text-white">₹55-₹58</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Valuation</p>
-              <p className="text-xl font-bold text-white">$7–8B</p>
+              <p className="text-xl font-bold text-white">$7-8B</p>
             </div>
             <div className="rounded-xl bg-orange-400/10 border border-orange-400/20 px-5 py-3 text-center">
               <p className="text-xs text-orange-300/70 mb-1">Open Date</p>
@@ -185,13 +185,13 @@ export default function OyoIpoPage() {
               The company operates in <strong className="text-text">35+ countries</strong> through multiple brands: OYO Hotels & Homes (India), Motel 6 and Studio 6 (USA), Léman Luxury Apartments (Europe), and Sunday (vacation rentals). In India, OYO's tech platform connects 150,000+ hotels and homes across 900+ cities.
             </p>
             <p>
-              After significant restructuring in 2022–23, OYO achieved EBITDA profitability and substantially reduced its workforce and cost base. The revised IPO valuation at $7–8B is a significant discount to the $10B+ it sought in 2021.
+              After significant restructuring in 2022-23, OYO achieved EBITDA profitability and substantially reduced its workforce and cost base. The revised IPO valuation at $7-8B is a significant discount to the $10B+ it sought in 2021.
             </p>
           </div>
         </section>
 
         <section>
-          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons — Should You Apply?</h2>
+          <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
               <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>

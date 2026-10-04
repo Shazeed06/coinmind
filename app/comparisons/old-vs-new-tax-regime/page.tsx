@@ -3,25 +3,25 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Old vs New Tax Regime FY 2026-27 – Which is Better for You? | CoinMind",
-  description: "Old vs new income tax regime comparison for FY 2026-27. Breakeven deductions, slab rates, who should switch — with real examples for ₹8L to ₹50L income.",
+  title: "Old vs New Tax Regime FY 2026-27 - Which is Better for You? | CoinMind",
+  description: "Old vs new income tax regime comparison for FY 2026-27. Breakeven deductions, slab rates, who should switch - with real examples for ₹8L to ₹50L income.",
   alternates: { canonical: `${site.url}/comparisons/old-vs-new-tax-regime` },
 };
 
 const NEW_SLABS_2526 = [
   { range: "Up to ₹4 lakh", rate: "Nil" },
-  { range: "₹4 lakh – ₹8 lakh", rate: "5%" },
-  { range: "₹8 lakh – ₹12 lakh", rate: "10%" },
-  { range: "₹12 lakh – ₹16 lakh", rate: "15%" },
-  { range: "₹16 lakh – ₹20 lakh", rate: "20%" },
-  { range: "₹20 lakh – ₹24 lakh", rate: "25%" },
+  { range: "₹4 lakh - ₹8 lakh", rate: "5%" },
+  { range: "₹8 lakh - ₹12 lakh", rate: "10%" },
+  { range: "₹12 lakh - ₹16 lakh", rate: "15%" },
+  { range: "₹16 lakh - ₹20 lakh", rate: "20%" },
+  { range: "₹20 lakh - ₹24 lakh", rate: "25%" },
   { range: "Above ₹24 lakh", rate: "30%" },
 ];
 
 const OLD_SLABS = [
   { range: "Up to ₹2.5 lakh", rate: "Nil" },
-  { range: "₹2.5 lakh – ₹5 lakh", rate: "5%" },
-  { range: "₹5 lakh – ₹10 lakh", rate: "20%" },
+  { range: "₹2.5 lakh - ₹5 lakh", rate: "5%" },
+  { range: "₹5 lakh - ₹10 lakh", rate: "20%" },
   { range: "Above ₹10 lakh", rate: "30%" },
 ];
 
@@ -48,7 +48,7 @@ export default function OldVsNewTaxRegimePage() {
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
         <p className="text-sm font-semibold text-forest-deep">Quick verdict for FY 2026-27</p>
         <p className="mt-1 text-sm text-forest-deep">
-          The <strong>new regime wins for most salaried Indians</strong> — especially those with income up to ₹12 lakh (zero tax via 87A rebate) or those without large deductions. The old regime only wins if your total deductions exceed the breakeven amount for your income level.
+          The <strong>new regime wins for most salaried Indians</strong> - especially those with income up to ₹12 lakh (zero tax via 87A rebate) or those without large deductions. The old regime only wins if your total deductions exceed the breakeven amount for your income level.
         </p>
       </div>
 
@@ -144,11 +144,11 @@ export default function OldVsNewTaxRegimePage() {
         <div className="mt-4 grid sm:grid-cols-2 gap-3">
           {[
             { label: "Section 80C", limit: "Up to ₹1,50,000", items: "PPF, ELSS, life insurance, EPF, home loan principal, NPS" },
-            { label: "Standard Deduction", limit: "₹50,000 (salaried)", items: "Automatic for salaried and pensioners — no proof needed" },
-            { label: "Section 80D (Health)", limit: "₹25,000–₹1,00,000", items: "Health insurance premium for self, spouse, children, parents" },
+            { label: "Standard Deduction", limit: "₹50,000 (salaried)", items: "Automatic for salaried and pensioners - no proof needed" },
+            { label: "Section 80D (Health)", limit: "₹25,000-₹1,00,000", items: "Health insurance premium for self, spouse, children, parents" },
             { label: "HRA Exemption", limit: "Actual rent minus 10% of salary", items: "For employees who pay rent and get HRA from employer" },
             { label: "Home Loan Interest (24b)", limit: "Up to ₹2,00,000", items: "Interest on self-occupied home loan" },
-            { label: "NPS Employer (80CCD2)", limit: "Up to 14% of basic salary", items: "Available in new regime too — big advantage if employer contributes" },
+            { label: "NPS Employer (80CCD2)", limit: "Up to 14% of basic salary", items: "Available in new regime too - big advantage if employer contributes" },
           ].map((d) => (
             <div key={d.label} className="rounded-xl border border-line bg-card p-4 text-sm">
               <div className="flex justify-between items-start gap-2">

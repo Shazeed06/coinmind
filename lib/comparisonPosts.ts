@@ -197,7 +197,7 @@ PPF has a 15-year lock-in with the option to extend in blocks of five years. The
 
 | Feature | NPS (Tier I) | PPF |
 |---|---|---|
-| Returns | 10-14% (equity), 8-10% (debt) — market-linked | ~7.1% (government-set, revised quarterly) |
+| Returns | 10-14% (equity), 8-10% (debt) - market-linked | ~7.1% (government-set, revised quarterly) |
 | Risk level | Low to moderate (depends on asset allocation) | Virtually zero (sovereign guarantee) |
 | Lock-in period | Until age 60 (partial withdrawal after 3 years for specific purposes) | 15 years (partial withdrawal from year 7) |
 | Tax benefit on investment | 80CCD(1): up to Rs 1.5 lakh (within 80C limit); 80CCD(1B): additional Rs 50,000; 80CCD(2): employer contribution (no limit, up to 14% of salary for govt, 10% for others) | 80C: up to Rs 1.5 lakh |

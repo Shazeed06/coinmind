@@ -2,7 +2,7 @@ import type { Post } from "./data";
 
 export const cryptoPosts: Post[] = [
   /* ------------------------------------------------------------------ */
-  /*  1. What is Cryptocurrency — Beginner's Guide for Indian Investors */
+  /*  1. What is Cryptocurrency - Beginner's Guide for Indian Investors */
   /* ------------------------------------------------------------------ */
   {
     slug: "what-is-cryptocurrency-beginners-guide-india",
@@ -233,7 +233,7 @@ This article is for educational purposes and does not constitute financial or in
     title:
       "Cryptocurrency vs Mutual Funds: Which is Better for Indian Investors?",
     excerpt:
-      "A head-to-head comparison of cryptocurrency and mutual funds for Indian investors — covering historical returns, risk, regulation, tax treatment, liquidity, SIP options, volatility, and which one suits your financial goals.",
+      "A head-to-head comparison of cryptocurrency and mutual funds for Indian investors - covering historical returns, risk, regulation, tax treatment, liquidity, SIP options, volatility, and which one suits your financial goals.",
     category: "Investing",
     readMinutes: 11,
     date: "Sep 4, 2026",
@@ -429,7 +429,7 @@ This article is for educational purposes and does not constitute financial or in
     title:
       "Cryptocurrency vs Gold Investment in India: Detailed Comparison",
     excerpt:
-      "A thorough comparison of cryptocurrency (Bitcoin) and gold as investment options for Indian investors — covering returns, volatility, tax treatment, regulation, cultural significance, and how each fits into a diversified portfolio.",
+      "A thorough comparison of cryptocurrency (Bitcoin) and gold as investment options for Indian investors - covering returns, volatility, tax treatment, regulation, cultural significance, and how each fits into a diversified portfolio.",
     category: "Investing",
     readMinutes: 11,
     date: "Sep 4, 2026",
@@ -634,7 +634,7 @@ This article is for educational purposes and does not constitute financial or in
     title:
       "Is Cryptocurrency Legal in India? Rules, Tax, and RBI's Stance",
     excerpt:
-      "A comprehensive explainer on cryptocurrency's legal status in India — covering the 2018 RBI ban, the 2020 Supreme Court reversal, the 2022 Budget tax framework, the digital rupee, and what Indian investors can and cannot do with crypto in 2026.",
+      "A comprehensive explainer on cryptocurrency's legal status in India - covering the 2018 RBI ban, the 2020 Supreme Court reversal, the 2022 Budget tax framework, the digital rupee, and what Indian investors can and cannot do with crypto in 2026.",
     category: "Tax",
     readMinutes: 12,
     date: "Sep 4, 2026",
@@ -848,14 +848,14 @@ This article is for educational purposes and does not constitute legal, tax, or 
   },
 
   /* ------------------------------------------------------------------ */
-  /*  5. How to Report Cryptocurrency in ITR — Schedule VDA Guide      */
+  /*  5. How to Report Cryptocurrency in ITR - Schedule VDA Guide      */
   /* ------------------------------------------------------------------ */
   {
     slug: "how-to-report-crypto-itr-schedule-vda",
     title:
       "How to Report Cryptocurrency in ITR: Schedule VDA Guide",
     excerpt:
-      "A step-by-step guide to reporting cryptocurrency gains and income in your Indian income tax return — covering Schedule VDA, which ITR form to use, how to calculate gains, TDS credit, and the rules for airdrops, gifts, mining, and staking income.",
+      "A step-by-step guide to reporting cryptocurrency gains and income in your Indian income tax return - covering Schedule VDA, which ITR form to use, how to calculate gains, TDS credit, and the rules for airdrops, gifts, mining, and staking income.",
     category: "Tax",
     readMinutes: 12,
     date: "Sep 4, 2026",

@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Loan Prepayment vs Investing – Which is Better? | CoinMind",
+  title: "Loan Prepayment vs Investing - Which is Better? | CoinMind",
   description: "Should you prepay your home loan or invest the extra money? Data-driven comparison with break-even analysis, tax impact and verdict for Indian borrowers.",
   alternates: { canonical: `${site.url}/comparisons/loan-prepayment-vs-investing` },
 };
@@ -15,12 +15,12 @@ export default function LoanPrepaymentVsInvestingPage() {
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
       <h1 className="font-display text-3xl sm:text-4xl text-ink mt-4">Loan Prepayment vs Investing</h1>
-      <p className="mt-3 text-ink-soft">You have ₹5 lakh extra. Do you prepay your home loan or invest in equity? The math is clear — but so is the psychology.</p>
+      <p className="mt-3 text-ink-soft">You have ₹5 lakh extra. Do you prepay your home loan or invest in equity? The math is clear - but so is the psychology.</p>
 
       {/* Rule of thumb */}
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
         <p className="text-sm font-semibold text-forest-deep mb-1">The rule of thumb</p>
-        <p className="text-sm text-forest-deep">If your loan interest rate is <strong>higher</strong> than your expected post-tax investment return → prepay. If your expected investment return is <strong>higher</strong> → invest. For most home loans at 8–9% today, a diversified equity index fund at ~12% CAGR wins mathematically — but psychology matters.</p>
+        <p className="text-sm text-forest-deep">If your loan interest rate is <strong>higher</strong> than your expected post-tax investment return → prepay. If your expected investment return is <strong>higher</strong> → invest. For most home loans at 8-9% today, a diversified equity index fund at ~12% CAGR wins mathematically - but psychology matters.</p>
       </div>
 
       {/* Break-even analysis */}
@@ -71,7 +71,7 @@ export default function LoanPrepaymentVsInvestingPage() {
             <ul className="text-sm text-ink-soft space-y-1.5">
               <li>✓ Loan rate is under 8.5% (subsidised home loan)</li>
               <li>✓ Old regime: claiming 24b deduction (reduces effective rate)</li>
-              <li>✓ You have no emergency fund yet — build that first</li>
+              <li>✓ You have no emergency fund yet - build that first</li>
               <li>✓ You have 15+ years left and a long equity horizon</li>
               <li>✓ Employer NPS contribution not yet maxed (80CCD-2)</li>
             </ul>
@@ -81,7 +81,7 @@ export default function LoanPrepaymentVsInvestingPage() {
 
       {/* Tax section */}
       <section className="mt-8 rounded-xl bg-paper-2 border border-line p-5">
-        <p className="font-semibold text-ink mb-3">Tax dimension — old regime only</p>
+        <p className="font-semibold text-ink mb-3">Tax dimension - old regime only</p>
         <div className="space-y-2 text-sm text-ink-soft">
           <p><strong>Section 24(b):</strong> Deduction up to ₹2 lakh on home loan interest (self-occupied). At 30% tax slab: saves ₹60,000/year in tax → reduces effective interest rate from 8.5% to ~7.2%.</p>
           <p><strong>New regime:</strong> No 24b deduction → effective rate stays at 8.5%. This tilts the math more towards prepayment for new-regime taxpayers.</p>

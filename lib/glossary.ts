@@ -5773,10 +5773,10 @@ NFTs are classified as Virtual Digital Assets under Indian tax law. Any profit f
 
 | Type | Examples | Security | Convenience |
 | --- | --- | --- | --- |
-| **Hot wallet** (software) | MetaMask, Trust Wallet | Moderate — connected to the internet | High — easy to use for trading |
-| **Cold wallet** (hardware) | Ledger, Trezor | High — offline storage | Lower — extra steps to transact |
-| **Exchange wallet** | WazirX, CoinDCX | Varies — custodial | Highest — built into the exchange |
-| **Paper wallet** | Printed keys | High — fully offline | Impractical for regular use |
+| **Hot wallet** (software) | MetaMask, Trust Wallet | Moderate - connected to the internet | High - easy to use for trading |
+| **Cold wallet** (hardware) | Ledger, Trezor | High - offline storage | Lower - extra steps to transact |
+| **Exchange wallet** | WazirX, CoinDCX | Varies - custodial | Highest - built into the exchange |
+| **Paper wallet** | Printed keys | High - fully offline | Impractical for regular use |
 
 ## Hot wallets vs cold wallets
 
@@ -8075,8 +8075,8 @@ Compare gilt fund suitability with other fixed-income options using our [FD calc
     slug: "sip-full-form",
     term: "SIP Full Form",
     category: "Investing",
-    short: "SIP full form is Systematic Investment Plan — a method of investing a fixed amount in mutual funds at regular intervals, usually monthly.",
-    bodyMarkdown: "## What is the full form of SIP?\n\nSIP stands for **Systematic Investment Plan**. It is a disciplined method of investing a fixed amount of money in mutual funds at regular intervals — weekly, monthly, or quarterly — instead of investing a lump sum all at once.\n\n## How a SIP works\n\nWhen you start a SIP, you authorise your bank to automatically debit a fixed amount from your account and invest it in a chosen mutual fund scheme on a set date each month. You receive mutual fund units at the prevailing Net Asset Value (NAV) on that date. Because you invest regularly regardless of market conditions, you buy more units when prices are low and fewer units when prices are high — a strategy called rupee-cost averaging.\n\n## Key terms related to SIP\n\n| Term | Full form / meaning |\n|---|---|\n| SIP | Systematic Investment Plan |\n| NAV | Net Asset Value — price per unit of a mutual fund |\n| ELSS | Equity Linked Savings Scheme — a tax-saving mutual fund |\n| Step-up SIP | A SIP where you increase your monthly amount each year |\n| AMC | Asset Management Company — the fund house that manages your money |\n\n## Benefits of investing via SIP\n\n- **Rupee-cost averaging** — you automatically buy more units when markets fall\n- **Compounding** — returns earned on previous returns snowball over time\n- **Discipline** — the auto-debit removes the temptation to time the market\n- **Flexibility** — you can pause, modify, or stop a SIP without penalty\n- **Low minimum** — most Indian AMCs allow SIPs from as little as ₹500 per month\n\nUse the [SIP calculator](/calculators/sip) to estimate how much your monthly SIP will grow to at different return rates and tenures.",
+    short: "SIP full form is Systematic Investment Plan - a method of investing a fixed amount in mutual funds at regular intervals, usually monthly.",
+    bodyMarkdown: "## What is the full form of SIP?\n\nSIP stands for **Systematic Investment Plan**. It is a disciplined method of investing a fixed amount of money in mutual funds at regular intervals - weekly, monthly, or quarterly - instead of investing a lump sum all at once.\n\n## How a SIP works\n\nWhen you start a SIP, you authorise your bank to automatically debit a fixed amount from your account and invest it in a chosen mutual fund scheme on a set date each month. You receive mutual fund units at the prevailing Net Asset Value (NAV) on that date. Because you invest regularly regardless of market conditions, you buy more units when prices are low and fewer units when prices are high - a strategy called rupee-cost averaging.\n\n## Key terms related to SIP\n\n| Term | Full form / meaning |\n|---|---|\n| SIP | Systematic Investment Plan |\n| NAV | Net Asset Value - price per unit of a mutual fund |\n| ELSS | Equity Linked Savings Scheme - a tax-saving mutual fund |\n| Step-up SIP | A SIP where you increase your monthly amount each year |\n| AMC | Asset Management Company - the fund house that manages your money |\n\n## Benefits of investing via SIP\n\n- **Rupee-cost averaging** - you automatically buy more units when markets fall\n- **Compounding** - returns earned on previous returns snowball over time\n- **Discipline** - the auto-debit removes the temptation to time the market\n- **Flexibility** - you can pause, modify, or stop a SIP without penalty\n- **Low minimum** - most Indian AMCs allow SIPs from as little as ₹500 per month\n\nUse the [SIP calculator](/calculators/sip) to estimate how much your monthly SIP will grow to at different return rates and tenures.",
     faq: [
       {
         q: "What is the full form of SIP in mutual funds?",
