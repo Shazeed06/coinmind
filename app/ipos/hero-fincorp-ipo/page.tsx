@@ -26,6 +26,12 @@ export const metadata: Metadata = {
       "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
     url: `${site.url}/ipos/hero-fincorp-ipo`,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hero FinCorp IPO 2026: Price, GMP, Date & Full Review",
+    description:
+      "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
+  },
 };
 
 const IPO_DETAILS = [
@@ -99,7 +105,8 @@ export default function HeroFincorpIpoPage() {
     url: `${site.url}/ipos/hero-fincorp-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
-    dateModified: "2026-09-20",
+    datePublished: "2026-09-20",
+    dateModified: "2026-10-18",
     mainEntityOfPage: `${site.url}/ipos/hero-fincorp-ipo`,
   };
 
@@ -113,10 +120,21 @@ export default function HeroFincorpIpoPage() {
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "IPO Tracker", item: `${site.url}/ipos` },
+      { "@type": "ListItem", position: 3, name: "Hero FinCorp IPO 2026", item: `${site.url}/ipos/hero-fincorp-ipo` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <section className="bg-[#0c1628] py-12 sm:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
@@ -135,6 +153,7 @@ export default function HeroFincorpIpoPage() {
             NBFC arm of the Hero Group plans to raise ₹3,358 crore. DRHP filed November 2025.
             Price band and dates to be officially announced.
           </p>
+          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Dates and figures are unconfirmed until the RHP is filed.</p>
 
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
@@ -237,7 +256,7 @@ export default function HeroFincorpIpoPage() {
 
         <div className="text-center">
           <Link href="/ipos" className="inline-flex items-center gap-2 text-brand hover:underline font-medium text-sm">
-            ← View All IPOs for September 2026
+            ← View all IPOs on the CoinMind IPO Calendar
           </Link>
         </div>
       </div>

@@ -27,6 +27,12 @@ export const metadata: Metadata = {
       "OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55-58.",
     url: `${site.url}/ipos/oyo-ipo`,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "OYO IPO 2026: Price Band, GMP, Date & Full Review",
+    description:
+      "OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55-58.",
+  },
 };
 
 const IPO_DETAILS = [
@@ -99,7 +105,8 @@ export default function OyoIpoPage() {
     url: `${site.url}/ipos/oyo-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
-    dateModified: "2026-09-20",
+    datePublished: "2026-09-20",
+    dateModified: "2026-10-18",
     mainEntityOfPage: `${site.url}/ipos/oyo-ipo`,
   };
 
@@ -113,10 +120,21 @@ export default function OyoIpoPage() {
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "IPO Tracker", item: `${site.url}/ipos` },
+      { "@type": "ListItem", position: 3, name: "OYO IPO 2026", item: `${site.url}/ipos/oyo-ipo` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <section className="bg-[#0c1628] py-12 sm:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
@@ -135,6 +153,7 @@ export default function OyoIpoPage() {
             India's largest hospitality platform plans to raise ₹6,650 crore - 100% fresh issue.
             SEBI observation received June 2026. Dates TBA.
           </p>
+          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Dates and figures are unconfirmed until the RHP is filed.</p>
 
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
@@ -236,7 +255,7 @@ export default function OyoIpoPage() {
 
         <div className="text-center">
           <Link href="/ipos" className="inline-flex items-center gap-2 text-brand hover:underline font-medium text-sm">
-            ← View All IPOs for September 2026
+            ← View all IPOs on the CoinMind IPO Calendar
           </Link>
         </div>
       </div>

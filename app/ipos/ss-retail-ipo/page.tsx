@@ -3,9 +3,9 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "SS Retail IPO 2026: GMP ₹138 (+33%), Allotment & Listing Sep 23 | CoinMind",
+  title: { absolute: "SS Retail IPO: Listed ~50% Up, Review & Result | CoinMind" },
   description:
-    "SS Retail IPO listing Sep 23 2026. Price ₹403-₹424, GMP ₹138 (+33%), subscribed 108.69x. Check allotment status, expected listing price & full review.",
+    "SS Retail IPO listed 23 Sep 2026 at a strong premium (~+47-51% over the ₹424 issue price). Subscribed ~103-108x. Full review, subscription and listing result.",
   keywords: [
     "SS Retail IPO",
     "SS Retail IPO GMP today",
@@ -20,10 +20,16 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${site.url}/ipos/ss-retail-ipo` },
   openGraph: {
-    title: "SS Retail IPO 2026: GMP ₹138, Listing Sep 23 & Allotment Status",
+    title: "SS Retail IPO: Listed ~50% Up vs ₹424 Issue Price",
     description:
-      "SS Retail IPO listing Sep 23 - GMP ₹138 (+33%), subscribed 108.69x, price band ₹403-₹424. Full allotment guide.",
+      "SS Retail IPO listed 23 Sep 2026 at a strong premium over the ₹424 issue price after ~103-108x subscription. Full review and result.",
     url: `${site.url}/ipos/ss-retail-ipo`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SS Retail IPO: Listed ~50% Up vs ₹424 Issue Price",
+    description:
+      "SS Retail IPO listed 23 Sep 2026 at a strong premium over the ₹424 issue price after ~103-108x subscription. Full review and result.",
   },
 };
 
@@ -35,9 +41,11 @@ const IPO_DETAILS = [
   { label: "Open Date", value: "16 September 2026" },
   { label: "Close Date", value: "18 September 2026" },
   { label: "Allotment Date", value: "19 September 2026" },
-  { label: "Listing Date", value: "23 September 2026 (NSE SME)" },
-  { label: "Subscription", value: "108.69x (overall)" },
-  { label: "GMP (20 Sep 2026)", value: "₹138 → indicative listing ₹562 (+33%)" },
+  { label: "Status", value: "Listed on 23 September 2026" },
+  { label: "Issue Price", value: "₹424 (top of band)" },
+  { label: "Listing Result", value: "Listed ~+47-51% over issue (strong debut)" },
+  { label: "Subscription", value: "~103-108x (overall)" },
+  { label: "GMP (pre-listing)", value: "₹138 (+33%), unofficial" },
   { label: "Issue Type", value: "Book Built (Fresh Issue + OFS)" },
   { label: "Exchange", value: "NSE Emerge (SME platform)" },
   { label: "Category", value: "SME IPO" },
@@ -73,8 +81,8 @@ const ALLOTMENT_STEPS = [
 
 const FAQS = [
   {
-    q: "What is the SS Retail IPO GMP today?",
-    a: "As of September 20, 2026, SS Retail IPO GMP (Grey Market Premium) is approximately ₹138 per share, which translates to an indicative listing price of around ₹562 (+33% over the issue price of ₹424). GMP can change rapidly - check live GMP sources for real-time updates.",
+    q: "What was the SS Retail IPO GMP before listing?",
+    a: "Before listing, the grey market premium was around ₹138 (+33% over the ₹424 issue price). The stock then listed on 23 September 2026 at a stronger premium of roughly +47% to +51%. GMP is unofficial; the stock is now listed and trades at the live market price.",
   },
   {
     q: "When is SS Retail IPO listing date?",
@@ -89,8 +97,8 @@ const FAQS = [
     a: "SS Retail IPO lot size is 35 shares. Minimum investment for retail investors is ₹14,840 (35 × ₹424 = 1 lot at the upper price band).",
   },
   {
-    q: "What is the expected SS Retail IPO listing price?",
-    a: "Based on GMP of ₹138 on September 20, the expected listing price is around ₹562 per share (+33% over ₹424 issue price). However, actual listing price depends on market conditions on September 23. SME IPOs are volatile on listing day.",
+    q: "At what price did SS Retail IPO list?",
+    a: "SS Retail listed on 23 September 2026 at a strong premium - roughly +47% to +51% over the ₹424 issue price, per public IPO trackers. Verify the exact listing and current price on the exchange.",
   },
   {
     q: "Is SS Retail IPO allotment confirmed?",
@@ -102,13 +110,14 @@ export default function SsRetailIpoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "SS Retail IPO 2026: GMP ₹138, Listing Sep 23 & Allotment Status",
+    headline: "SS Retail IPO 2026: Listing Result, Subscription & Review",
     description:
-      "SS Retail IPO subscribed 108.69x, GMP ₹138 (+33%), listing Sep 23 2026. Check allotment, expected listing price.",
+      "SS Retail IPO subscribed ~103-108x and listed on 23 Sep 2026 at a strong premium (~+47-51%) over the ₹424 issue price.",
     url: `${site.url}/ipos/ss-retail-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
-    dateModified: "2026-09-20",
+    datePublished: "2026-09-16",
+    dateModified: "2026-10-18",
     mainEntityOfPage: `${site.url}/ipos/ss-retail-ipo`,
   };
 
@@ -122,10 +131,21 @@ export default function SsRetailIpoPage() {
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "IPO Tracker", item: `${site.url}/ipos` },
+      { "@type": "ListItem", position: 3, name: "SS Retail IPO 2026", item: `${site.url}/ipos/ss-retail-ipo` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Hero */}
       <section className="bg-[#0c1628] py-12 sm:py-16">
@@ -136,27 +156,28 @@ export default function SsRetailIpoPage() {
             </Link>
           </div>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-semibold text-green-300">
-            LISTING TOMORROW · SEP 23, 2026
+            ● LISTED · 23 SEP 2026 · STRONG DEBUT
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             SS Retail IPO 2026
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            Subscribed 108.69x. GMP of ₹138 suggests +33% listing premium.
-            Listing on NSE Emerge: September 23, 2026.
+            Subscribed ~103-108x. Listed on 23 September 2026 at a strong premium
+            (around +47-51%) over the ₹424 issue price.
           </p>
+          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Listing figures are per public trackers; verify on the exchange.</p>
 
           {/* GMP Banner */}
           <div className="mt-6 rounded-xl bg-green-500/10 border border-green-400/20 px-5 py-4 flex items-center gap-4">
             <div>
-              <p className="text-xs text-green-300/70 mb-1">GMP Today (Sep 20)</p>
-              <p className="text-3xl font-bold text-green-400">+₹138</p>
-              <p className="text-sm text-green-300/80">+33% over ₹424 issue price</p>
+              <p className="text-xs text-green-300/70 mb-1">Listed (23 Sep 2026)</p>
+              <p className="text-3xl font-bold text-green-400">~+50%</p>
+              <p className="text-sm text-green-300/80">strong debut over ₹424 issue</p>
             </div>
             <div className="ml-auto text-right">
-              <p className="text-xs text-white/50 mb-1">Est. Listing Price</p>
-              <p className="text-2xl font-bold text-white">₹562</p>
-              <p className="text-xs text-white/40">(based on GMP, not guaranteed)</p>
+              <p className="text-xs text-white/50 mb-1">Issue Price</p>
+              <p className="text-2xl font-bold text-white">₹424</p>
+              <p className="text-xs text-white/40">top of ₹403-₹424 band</p>
             </div>
           </div>
 
@@ -295,7 +316,7 @@ export default function SsRetailIpoPage() {
 
         <div className="text-center">
           <Link href="/ipos" className="inline-flex items-center gap-2 text-brand hover:underline font-medium text-sm">
-            ← View All IPOs for September 2026
+            ← View all IPOs on the CoinMind IPO Calendar
           </Link>
         </div>
       </div>

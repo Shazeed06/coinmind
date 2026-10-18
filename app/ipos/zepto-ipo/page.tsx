@@ -27,6 +27,12 @@ export const metadata: Metadata = {
       "Zepto quick-commerce IPO - ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300-350, valuation $5.6B. Full review.",
     url: `${site.url}/ipos/zepto-ipo`,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zepto IPO 2026: Price Band, GMP, Date & Full Review",
+    description:
+      "Zepto quick-commerce IPO - ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300-350, valuation $5.6B. Full review.",
+  },
 };
 
 const IPO_DETAILS = [
@@ -99,7 +105,8 @@ export default function ZeptoIpoPage() {
     url: `${site.url}/ipos/zepto-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
-    dateModified: "2026-09-20",
+    datePublished: "2026-09-20",
+    dateModified: "2026-10-18",
     mainEntityOfPage: `${site.url}/ipos/zepto-ipo`,
   };
 
@@ -113,10 +120,21 @@ export default function ZeptoIpoPage() {
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "IPO Tracker", item: `${site.url}/ipos` },
+      { "@type": "ListItem", position: 3, name: "Zepto IPO 2026", item: `${site.url}/ipos/zepto-ipo` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Hero */}
       <section className="bg-[#0c1628] py-12 sm:py-16">
@@ -136,6 +154,7 @@ export default function ZeptoIpoPage() {
             India's leading 10-minute delivery platform plans to raise ~₹11,000-₹12,000 crore.
             SEBI approved May 8, 2026. Open date to be announced.
           </p>
+          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Dates and figures are unconfirmed until the RHP is filed.</p>
 
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
@@ -245,7 +264,7 @@ export default function ZeptoIpoPage() {
 
         <div className="text-center">
           <Link href="/ipos" className="inline-flex items-center gap-2 text-brand hover:underline font-medium text-sm">
-            ← View All IPOs for September 2026
+            ← View all IPOs on the CoinMind IPO Calendar
           </Link>
         </div>
       </div>
