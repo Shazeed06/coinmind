@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "NSE IPO 2026: Listed at ₹1,800, Issue Price ₹1,785, Review & Share Price | CoinMind",
+  title: { absolute: "NSE IPO 2026: Listing Price, GMP & Review | CoinMind" },
   description:
     "NSE IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue price. Subscribed 5.71x. ₹22,561 cr OFS. Latest share price, listing gain, allotment & full review.",
   keywords: [

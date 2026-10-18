@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Jio IPO GMP Today: ₹250 (+22%) as of 18 Oct 2026 - Live Grey Market Premium | CoinMind",
+  title: { absolute: "Jio IPO GMP Today: Live Grey Market Premium | CoinMind" },
   description:
     "Jio Platforms IPO GMP today is ~₹250 (+22% over ₹1,119). Track the day-wise grey market premium, implied listing price, price band ₹1,065-1,119 and dates (21-23 Oct, listing 28 Oct).",
   keywords: [

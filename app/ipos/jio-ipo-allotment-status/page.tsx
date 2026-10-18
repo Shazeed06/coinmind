@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Jio IPO Allotment Status 2026: Check Online (26 Oct) - BSE & Registrar | CoinMind",
+  title: { absolute: "Jio IPO Allotment Status 2026: How to Check | CoinMind" },
   description:
     "Check Jio Platforms IPO allotment status online. Allotment expected 26 Oct 2026. Step-by-step guide via BSE and the registrar using PAN, application number or demat - plus listing on 28 Oct.",
   keywords: [

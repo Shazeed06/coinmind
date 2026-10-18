@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "IPO 2026 India: Open & Upcoming IPOs List with GMP Today | CoinMind",
+  title: { absolute: "IPO 2026 India: Open & Upcoming IPOs + GMP | CoinMind" },
   description:
     "Live IPO calendar for October 2026. Track open IPOs (Jio, Tonbo, Bonfiglioli, Zetwerk, Paras Healthcare), GMP today, price band, lot size, allotment & listing dates - all in one place.",
   keywords: [

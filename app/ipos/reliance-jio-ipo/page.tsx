@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Reliance Jio IPO 2026: GMP Today, Price Band ₹1,065-1,119, Date & Review | CoinMind",
+  title: { absolute: "Reliance Jio IPO 2026: GMP, Price Band & Date | CoinMind" },
   description:
     "Reliance Jio IPO opens 21-23 Oct 2026. Price band ₹1,065-₹1,119, lot 12 shares (₹13,428), ~₹30,000 cr fresh issue. Latest GMP, allotment (26 Oct), listing (28 Oct) & should you apply.",
   keywords: [
