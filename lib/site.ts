@@ -147,21 +147,21 @@ export const navMenus: NavMenu[] = [
     blurb: "Track upcoming IPOs, check GMP, allotment status and expert reviews.",
     columns: [
       {
-        heading: "Open & Listing Soon",
+        heading: "Jio IPO 2026",
         items: [
-          { label: "NSE IPO 2026", href: "/ipos/nse-ipo", desc: "₹22,561 Cr · Listing Sep 24" },
-          { label: "SS Retail IPO", href: "/ipos/ss-retail-ipo", desc: "GMP +33% · Listing Sep 23" },
-          { label: "A-One Steels IPO", href: "/ipos", desc: "Opens Sep 24 · GMP +15%" },
+          { label: "Reliance Jio IPO", href: "/ipos/reliance-jio-ipo", desc: "Opens 21 Oct · ₹1,065-1,119" },
+          { label: "Jio IPO GMP Today", href: "/ipos/jio-ipo-gmp-today", desc: "GMP ~₹250 (+22%)" },
+          { label: "Jio IPO Allotment Status", href: "/ipos/jio-ipo-allotment-status", desc: "Allotment 26 Oct" },
         ],
       },
       {
-        heading: "Upcoming Big IPOs",
+        heading: "More IPOs",
         items: [
-          { label: "Reliance Jio IPO", href: "/ipos/reliance-jio-ipo", desc: "₹40,000 Cr · SEBI approved" },
+          { label: "NSE IPO 2026", href: "/ipos/nse-ipo", desc: "Listed ₹1,800 · now ~₹1,750" },
           { label: "Zepto IPO", href: "/ipos/zepto-ipo", desc: "₹8,010 Cr · Dates awaited" },
-          { label: "OYO IPO", href: "/ipos/oyo-ipo", desc: "₹6,650 Cr · Q4 2026" },
-          { label: "Hero FinCorp IPO", href: "/ipos/hero-fincorp-ipo", desc: "₹3,358 Cr · NBFC" },
-          { label: "PhonePe IPO", href: "/ipos/phonepe-ipo", desc: "₹12,000 Cr · Postponed" },
+          { label: "OYO IPO", href: "/ipos/oyo-ipo", desc: "₹6,650 Cr · pipeline" },
+          { label: "Hero FinCorp IPO", href: "/ipos/hero-fincorp-ipo", desc: "₹3,668 Cr · NBFC" },
+          { label: "PhonePe IPO", href: "/ipos/phonepe-ipo", desc: "Est. ₹12,000 Cr+" },
         ],
       },
     ],

@@ -89,7 +89,13 @@
 
 * { border-color: var(--color-border); }
 
-html { scroll-behavior: smooth; }
+/* Sticky header is ~70px tall; offset anchor jumps so in-page targets (FAQs,
+   section links) are not hidden underneath it. Smooth scroll is gated on
+   prefers-reduced-motion so it respects users who ask for less motion. */
+html { scroll-padding-top: 80px; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
 body {
   background: var(--color-bg);
