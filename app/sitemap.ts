@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
-import { calculators, posts } from "@/lib/data";
+import { calculators, posts, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
 import { newsArticles } from "@/lib/newsArticles";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
@@ -13,7 +13,18 @@ import { GLOSSARY } from "@/lib/glossary";
 // "/sip/" covers both slug shapes now served by app/sip/[slug]: the amount
 // pages and the amount×duration pages that used to live at /sip-returns/*.
 // The /sip hub itself is unaffected: "/sip" does not start with "/sip/".
-const NOINDEX_SECTIONS = ["/sip/"];
+const NOINDEX_SECTIONS = [
+  "/sip/",
+  // Templated programmatic clusters: each page is one calculator template with
+  // a single swapped parameter (amount / salary / pair). Kept crawlable and
+  // user-linked, but excluded from the sitemap and noindexed at the page level
+  // (robots.index=false in each [slug] generateMetadata) so a large near-
+  // duplicate footprint is not submitted for indexing. Same treatment as /sip/.
+  "/in-hand-salary/",
+  "/currency/",
+  "/income-tax/",
+  "/calculators/fd/",
+];
 const NOINDEX_TOOLS = new Set([
   "color-picker", "base64", "url-encode-decode", "json-formatter",
   "case-converter", "character-counter", "word-counter", "text-compare",
@@ -54,6 +65,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ipos/reliance-jio-ipo", "/ipos/jio-ipo-gmp-today",
     "/ipos/jio-ipo-allotment-status", "/ipos/zepto-ipo", "/ipos/ss-retail-ipo",
     "/ipos/oyo-ipo", "/ipos/hero-fincorp-ipo", "/ipos/phonepe-ipo",
+    // IPO hub pages (evergreen)
+    "/ipos/ipo-gmp-today", "/ipos/upcoming-ipo", "/ipos/best-upcoming-ipos-2026",
+    "/ipos/sme-ipo", "/ipos/mainboard-vs-sme-ipo", "/ipos/ipo-allotment-status",
     // Trust & Transparency pages
     "/about/author", "/editorial-policy", "/financial-review-process", "/sources",
     // Research data pages
@@ -79,7 +93,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   calculators.filter((c) => c.live).forEach((c) => entries.push({ path: `/calculators/${c.slug}` }));
 
   // Blog posts
-  posts.forEach((p) => entries.push({ path: `/blog/${p.slug}`, lastmod: p.date }));
+  posts
+    .filter((p) => !NOINDEX_POST_SLUGS.has(p.slug))
+    .forEach((p) => entries.push({ path: `/blog/${p.slug}`, lastmod: p.date }));
 
   // News explainers
   newsArticles.forEach((a) => entries.push({ path: `/news/${a.slug}`, lastmod: a.date }));

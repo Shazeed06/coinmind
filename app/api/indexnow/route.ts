@@ -1,9 +1,6 @@
 import { site } from "@/lib/site";
-import { calculators, posts } from "@/lib/data";
+import { calculators, posts, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
-import { TAX_SLUGS } from "@/lib/pseo-tax";
-import { PAIR_SLUGS } from "@/lib/pseo-currency";
-import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 import { GLOSSARY } from "@/lib/glossary";
 
 // GET /api/indexnow: submits every public URL to IndexNow (Bing, Yandex, Naver,
@@ -61,11 +58,10 @@ function allUrls(): string[] {
     "/corrections",
     "/authors/sahil",
     ...calculators.filter((c) => c.live).map((c) => `/calculators/${c.slug}`),
-    ...posts.map((p) => `/blog/${p.slug}`),
+    ...posts.filter((p) => !NOINDEX_POST_SLUGS.has(p.slug)).map((p) => `/blog/${p.slug}`),
     ...aiToolDetails.map((d) => `/ai-tools/${d.slug}`),
-    ...TAX_SLUGS.map((s) => `/income-tax/${s}`),
-    ...PAIR_SLUGS.map((s) => `/currency/${s}`),
-    ...INHAND_SLUGS.map((s) => `/in-hand-salary/${s}`),
+    // income-tax, currency and in-hand-salary [slug] clusters are noindexed
+    // (templated programmatic pages), so they are intentionally not submitted.
     ...GLOSSARY.map((g) => `/glossary/${g.slug}`),
     "/ipos",
     "/ipos/nse-ipo",
@@ -77,6 +73,12 @@ function allUrls(): string[] {
     "/ipos/oyo-ipo",
     "/ipos/hero-fincorp-ipo",
     "/ipos/phonepe-ipo",
+    "/ipos/ipo-gmp-today",
+    "/ipos/upcoming-ipo",
+    "/ipos/best-upcoming-ipos-2026",
+    "/ipos/sme-ipo",
+    "/ipos/mainboard-vs-sme-ipo",
+    "/ipos/ipo-allotment-status",
   ];
   return paths.map((p) => `${site.url}${p}`);
 }

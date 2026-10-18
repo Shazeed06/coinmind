@@ -35,6 +35,7 @@ export async function generateMetadata({
   return {
     title: { absolute: `FD on ${label}: Maturity Amount at 6-8% Interest (2026)` },
     description: `Fixed deposit of ${label} - how much you get at 6%, 6.5%, 7%, 7.5% and 8% for 1 to 10 years. See maturity and interest for each rate and tenure.`,
+    robots: { index: false, follow: true },
     alternates: { canonical: `/calculators/fd/${slug}` },
     openGraph: {
       type: "article",

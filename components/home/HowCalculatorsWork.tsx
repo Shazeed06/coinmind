@@ -3,7 +3,7 @@ import SectionIntro from "./SectionIntro";
 import { Search, Calculator, BarChart3, CheckCircle } from "lucide-react";
 
 const STEPS = [
-  { icon: Search, step: "1", title: "Choose Your Calculator", desc: "Pick from 46 calculators: SIP, EMI, income tax, FD, PPF and more." },
+  { icon: Search, step: "1", title: "Choose Your Calculator", desc: "Pick from 50+ calculators: SIP, EMI, income tax, FD, PPF and more." },
   { icon: Calculator, step: "2", title: "Enter Your Numbers", desc: "Type in your amounts, rates and timeframes. Every input is clearly labelled." },
   { icon: BarChart3, step: "3", title: "See Instant Results", desc: "Get your answer immediately with breakdowns, charts and year-wise tables." },
   { icon: CheckCircle, step: "4", title: "Take Action", desc: "Use the insight to open a SIP, apply for a loan, or save on taxes." },

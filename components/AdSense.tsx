@@ -26,6 +26,11 @@ export default function AdSense({ clientId }: { clientId: string }) {
     if (document.querySelector("script[data-adsense]")) return;
 
     let done = false;
+    let timer: number | undefined;
+    const remove = () => {
+      EVENTS.forEach((e) => window.removeEventListener(e, load));
+      if (timer !== undefined) window.clearTimeout(timer);
+    };
     const load = () => {
       if (done) return;
       done = true;
@@ -37,11 +42,15 @@ export default function AdSense({ clientId }: { clientId: string }) {
       s.setAttribute("data-adsense", "1");
       document.head.appendChild(s);
     };
-    const remove = () => EVENTS.forEach((e) => window.removeEventListener(e, load));
 
     EVENTS.forEach((e) =>
       window.addEventListener(e, load, { passive: true, once: true })
     );
+    // Fallback so the script also loads for visitors who never interact and for
+    // crawlers that render the page (e.g. the AdSense review bot, Googlebot):
+    // waiting ~3s keeps the initial paint fast (protecting CWV) while still
+    // guaranteeing adsbygoogle.js is present for a non-interacting renderer.
+    timer = window.setTimeout(load, 3000);
     return remove;
   }, [clientId]);
 

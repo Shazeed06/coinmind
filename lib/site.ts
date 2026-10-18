@@ -155,6 +155,16 @@ export const navMenus: NavMenu[] = [
         ],
       },
       {
+        heading: "Browse & Track",
+        items: [
+          { label: "Upcoming IPOs", href: "/ipos/upcoming-ipo", desc: "Open, this week & pipeline" },
+          { label: "IPO GMP Today", href: "/ipos/ipo-gmp-today", desc: "Live grey market premium" },
+          { label: "Best Upcoming IPOs 2026", href: "/ipos/best-upcoming-ipos-2026", desc: "Ranked shortlist" },
+          { label: "IPO Allotment Status", href: "/ipos/ipo-allotment-status", desc: "How to check online" },
+          { label: "Mainboard vs SME IPO", href: "/ipos/mainboard-vs-sme-ipo", desc: "Which to choose" },
+        ],
+      },
+      {
         heading: "More IPOs",
         items: [
           { label: "NSE IPO 2026", href: "/ipos/nse-ipo", desc: "Listed ₹1,800 · now ~₹1,750" },

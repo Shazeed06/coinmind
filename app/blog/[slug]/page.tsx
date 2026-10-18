@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
-import { posts, type Post } from "@/lib/data";
+import { posts, type Post, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { site } from "@/lib/site";
 import { ChevronRight, Calculator, ArrowRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
@@ -28,6 +28,7 @@ export async function generateMetadata({
     title: { absolute: post.title },
     description: post.excerpt,
     keywords: post.keywords,
+    robots: NOINDEX_POST_SLUGS.has(post.slug) ? { index: false, follow: true } : undefined,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",

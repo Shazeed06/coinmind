@@ -1756,3 +1756,15 @@ export const posts: Post[] = [
   ...comparisonPosts,
   ...howToPosts,
 ];
+
+// Scaled "traffic" post collections (bulk SEO articles) stay crawlable and
+// internally linked but are noindexed, so a large near-duplicate footprint is
+// not submitted for indexing on a young domain (same rationale as the
+// programmatic calculator clusters). The curated editorial posts stay indexed.
+export const NOINDEX_POST_SLUGS: ReadonlySet<string> = new Set(
+  [
+    ...trafficPosts1, ...trafficPosts2, ...trafficPosts3, ...trafficPosts4,
+    ...trafficPosts5, ...trafficPosts6, ...trafficPosts7, ...trafficPosts8,
+    ...trafficPosts9, ...trafficPosts10, ...trafficPosts11,
+  ].map((p) => p.slug)
+);

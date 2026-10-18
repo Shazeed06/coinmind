@@ -4,8 +4,8 @@ import { ShieldCheck, FileText, Eye, RefreshCw, Lock, CheckCircle } from "lucide
 
 const PRINCIPLES = [
   { icon: ShieldCheck, title: "Source-Verified", desc: "Every formula cross-checked against SEBI, RBI and IT Department publications." },
-  { icon: FileText, title: "Expert-Reviewed", desc: "All content reviewed by a CA (Final) candidate for accuracy and relevance." },
-  { icon: RefreshCw, title: "Budget-Ready", desc: "Updated within 48 hours of every Union Budget and regulatory change." },
+  { icon: FileText, title: "Reviewed for Accuracy", desc: "Content reviewed by a Chartered Accountancy (Final) candidate for accuracy and relevance." },
+  { icon: RefreshCw, title: "Budget-Ready", desc: "Updated promptly after every Union Budget and major regulatory change." },
   { icon: Eye, title: "Radically Transparent", desc: "We show the formula behind every calculation, no black boxes." },
   { icon: Lock, title: "Privacy by Design", desc: "Zero data leaves your device. No accounts, no tracking, no storage." },
   { icon: CheckCircle, title: "Commitment Free", desc: "Every tool is free, forever. No upsells, no hidden tiers, no paywalls." },
@@ -20,7 +20,7 @@ export default function TrustTimeline() {
         subline="Six principles that guide everything we build."
       />
       <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
-        Financial decisions depend on accurate numbers. Every calculator on CoinMind is built using formulas published by India's regulatory bodies and reviewed by a qualified chartered accountancy candidate. When tax slabs change or RBI updates its rates, we update our tools within 48 hours so your calculations always reflect the latest rules.
+        Financial decisions depend on accurate numbers. Every calculator on CoinMind is built using formulas published by India's regulatory bodies and reviewed by a qualified chartered accountancy candidate. When tax slabs change or RBI updates its rates, we update our tools promptly so your calculations reflect the latest rules.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {PRINCIPLES.map((p) => (

@@ -22,7 +22,7 @@ export default function WhatIsCoinMind() {
       <div className="grid lg:grid-cols-12 gap-8">
         <div className="lg:col-span-7 text-center lg:text-left">
           <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0">
-            CoinMind is a free, privacy-first personal finance platform with 46 calculators, 24 tools, and expert guides.
+            CoinMind is a free, privacy-first personal finance platform with 50+ calculators, two dozen tools, and in-depth guides.
             Every formula is verified against official RBI and SEBI sources and updated after every Union Budget.
           </p>
           <p className="body text-text-muted leading-relaxed max-w-[680px] mx-auto lg:mx-0 mt-4">
@@ -56,7 +56,7 @@ export default function WhatIsCoinMind() {
               </p>
               <div className="space-y-4">
                 {[
-                  { country: "India", desc: "Primary audience: 46 calculators with Indian tax, SIP, PPF, NPS support" },
+                  { country: "India", desc: "Primary audience: 50+ calculators with Indian tax, SIP, PPF, NPS support" },
                   { country: "United States", desc: "Mortgage, retirement, currency: USD support throughout" },
                   { country: "United Kingdom", desc: "GBP support, mortgage and VAT calculators" },
                 ].map(({ country, desc }) => (

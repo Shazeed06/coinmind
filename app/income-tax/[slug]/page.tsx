@@ -65,6 +65,7 @@ export async function generateMetadata({
   return {
     title: { absolute: `Income Tax on ₹${label} Salary (FY 2026-27)` },
     description: `New regime income tax on a ₹${label} salary for FY 2026-27 is ${taxStr}, an effective rate of ${rateStr}%.${surchargeNote} See the full slab breakdown.`,
+    robots: { index: false, follow: true },
     alternates: { canonical: `/income-tax/${slug}` },
     openGraph: {
       type: "article",

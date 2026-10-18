@@ -181,6 +181,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
+    robots: { index: false, follow: true },
     alternates: { canonical },
     openGraph: {
       type: "website",
