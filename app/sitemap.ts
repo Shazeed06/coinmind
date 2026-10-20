@@ -157,9 +157,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       isStatic ? 0.3 :
       0.7;
 
+    // Honest lastmod: use the real content date when we have one (blog/news),
+    // a current date for the home page and the actively-maintained IPO tracker,
+    // and OMIT lastmod entirely for pages whose true edit date we do not track.
+    // A single hardcoded date stamped across hundreds of URLs is a weak/suspect
+    // freshness signal, so no lastmod is better than a fake uniform one.
+    const lastModified = entry.lastmod
+      ? new Date(entry.lastmod)
+      : p === "" || p.startsWith("/ipos")
+        ? new Date("2026-10-20")
+        : undefined;
     return {
       url: `${site.url}${p}`,
-      lastModified: entry.lastmod ? new Date(entry.lastmod) : new Date("2026-09-20"),
+      ...(lastModified ? { lastModified } : {}),
       changeFrequency,
       priority,
     };
