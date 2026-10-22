@@ -81,6 +81,19 @@ export const metadata: Metadata = {
   ...(site.adsenseClientId
     ? { other: { "google-adsense-account": site.adsenseClientId } }
     : {}),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   appleWebApp: {
     capable: true,
     title: site.name,
@@ -99,7 +112,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${display.variable} h-full`}>
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="apple-touch-icon" href="/icon.svg" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="help" type="text/plain" href="/llms.txt" />
       </head>

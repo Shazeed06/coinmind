@@ -47,7 +47,15 @@ const nextConfig: NextConfig = {
         ],
       },
       { source: "/fonts/(.*)", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
-      { source: "/(_next/static|favicon\\.ico|icon\\.svg)", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
+      {
+        source: "/(favicon\\.ico|icon\\.svg|apple-touch-icon\\.png|favicon-48x48\\.png|favicon-96x96\\.png|icon-192\\.png|icon-512\\.png|manifest\\.webmanifest)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      { source: "/(_next/static)(.*)", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
       { source: "/(opengraph-image|twitter-image)(.*)", headers: [{ key: "Cache-Control", value: "public, max-age=86400" }] },
     ];
   },
