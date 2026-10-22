@@ -1130,6 +1130,7 @@ import type { CoverVariant, CoverPalette } from "@/components/CoverArt";
 export type Post = {
   slug: string;
   title: string;
+  metaTitle?: string;
   excerpt: string;
   category: string;
   readMinutes: number;
@@ -1143,6 +1144,47 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  {
+    slug: "hra-exemption-calculator-india",
+    title: "HRA Exemption Calculator: How to Calculate HRA Tax Exemption in India (FY 2026-27)",
+    metaTitle: "HRA Exemption Calculator India FY 2026-27: Calculate HRA Tax Savings",
+    excerpt: "Calculate your HRA tax exemption in India. Understand HRA rules, the calculation formula, eligible rent, metro-city limits and old vs new tax regime.",
+    category: "Tax",
+    readMinutes: 8,
+    date: "Oct 22, 2026",
+    keywords: [
+      "HRA exemption calculator",
+      "HRA calculation",
+      "HRA exemption rules",
+      "HRA calculator India",
+      "HRA under new tax regime",
+      "how to calculate HRA exemption",
+    ],
+    art: { variant: "chart", palette: "forest" },
+    bodyMarkdown: "House Rent Allowance (HRA) is a component of salary that an employer may provide to help employees pay rent. Eligible salaried employees can claim an exemption on part of their HRA under the old tax regime, subject to the applicable income-tax rules.\n\nThe exemption is not automatically equal to the full HRA received. It depends on your salary, actual HRA, rent paid and the applicable city-based limit.\n\nUse the [CoinMind HRA Calculator](/calculators/hra) to estimate your eligible exemption before comparing your tax liability under the old and new tax regimes.\n\n**Quick answer:** Under the usual HRA rules for eligible employees, the exemption is the lowest of actual HRA received, rent paid minus 10% of eligible salary, and 50% or 40% of eligible salary depending on whether the residence is in a specified metro city or another location.\n\n## HRA Exemption Formula\n\nFor eligible employees, HRA exemption is generally the lowest of these three amounts:\n\n1. Actual HRA received from your employer.\n2. Rent paid minus 10% of eligible salary.\n3. 50% of eligible salary for Mumbai, Delhi, Kolkata or Chennai, or 40% for other locations.\n\nFor this calculation, eligible salary generally includes basic salary and qualifying dearness allowance, plus commission where it is based on a fixed percentage of turnover, subject to the applicable rules.\n\n### HRA Calculation Example\n\nSuppose an employee has the following annual salary details:\n\n| Component | Annual amount |\n|---|---:|\n| Basic salary | ₹6,00,000 |\n| HRA received | ₹2,40,000 |\n| Rent paid | ₹2,16,000 |\n| City | Delhi |\n\nAssuming the entire basic salary qualifies for this illustration:\n\n**Step 1: Actual HRA received**\n\n₹2,40,000\n\n**Step 2: Rent paid minus 10% of salary**\n\n₹2,16,000 - ₹60,000 = ₹1,56,000\n\n**Step 3: 50% of eligible salary**\n\n₹6,00,000 × 50% = ₹3,00,000\n\nThe lowest amount is ₹1,56,000.\n\nTherefore, the illustrative HRA exemption is ₹1,56,000, assuming the employee satisfies the applicable conditions and has the required documentation.\n\nThe remaining HRA is not automatically exempt merely because it was paid by the employer.\n\n## Is HRA Exemption Available Under the New Tax Regime?\n\nGenerally, no. The HRA exemption under Section 10(13A) is not available under the new tax regime for ordinary salaried employees. Eligible employees who want to claim HRA exemption generally need to evaluate the old tax regime, where the relevant exemption is permitted.\n\nThe new regime has different tax rates and restricts several exemptions and deductions. Whether the old or new regime is better depends on your income, eligible deductions, rent and other circumstances.\n\nDo not select a tax regime based on HRA alone. Compare your overall tax liability using the [Income Tax Calculator](/calculators/income-tax).\n\n## Documents Required for HRA Claims\n\nKeep the following records where applicable:\n\n- Rent receipts or other reliable evidence of rent payments.\n- Rental agreement, if available or required.\n- Evidence of rent payments.\n- Landlord details and PAN where required under the applicable rules.\n- Salary slips and Form 16 for reconciliation.\n\nDocumentation requirements can vary with the circumstances and applicable compliance rules. Do not claim an exemption for rent that was not actually paid.\n\n## Can You Claim HRA If You Live With Your Parents?\n\nIt may be possible if you genuinely pay rent to your parents, the arrangement is real, the rent is properly documented and all applicable tax conditions are met.\n\nMaintain evidence of the rental arrangement and payments. The treatment of rent received by your parents is a separate tax consideration. Do not create artificial rent transactions merely to obtain a deduction.\n\n## Can You Claim HRA If You Own a House?\n\nOwning a house does not, by itself, establish eligibility or ineligibility for HRA exemption. Your actual accommodation, rent payments, salary arrangement and the applicable tax rules matter.\n\nFor example, an employee who owns a home in one city but genuinely rents accommodation near their workplace may need to evaluate the facts and applicable provisions before claiming an exemption.\n\n## Common HRA Calculation Mistakes\n\n**1. Claiming the full HRA received:** The exemption is subject to a formula and eligibility requirements.\n\n**2. Using the wrong city percentage:** The 50% limit applies to Mumbai, Delhi, Kolkata and Chennai under the usual rules; the 40% limit applies to other locations.\n\n**3. Ignoring the tax regime:** The HRA exemption is generally unavailable under the new tax regime.\n\n**4. Using total CTC instead of eligible salary:** The calculation uses the relevant salary components defined by the tax rules.\n\n**5. Claiming rent that was never paid:** Keep accurate supporting records.\n\n**6. Assuming the exemption equals tax saved:** An HRA exemption reduces eligible taxable income; the final tax saving depends on your overall tax calculation.\n\n## Frequently Asked Questions\n\n### How much HRA is tax-free?\n\nThere is no single fixed amount. For eligible employees, the exemption is generally the lowest of actual HRA, rent paid minus 10% of eligible salary, and the applicable 40% or 50% salary limit.\n\n### Is HRA tax-free under the new tax regime?\n\nThe ordinary HRA exemption under Section 10(13A) is not available under the new tax regime.\n\n### Can I claim HRA without rent receipts?\n\nThe evidence required depends on your circumstances and applicable compliance requirements. You must be able to substantiate genuine rent payments and eligibility; do not assume a claim is valid simply because receipts are unavailable.\n\n### Is HRA calculated monthly or annually?\n\nThe calculation is generally performed using the relevant salary, HRA and rent amounts for the applicable period. Changes in salary, rent or accommodation during the year may require a period-wise calculation.\n\n### Does HRA exemption reduce my taxable salary?\n\nEligible HRA exemption reduces the amount of salary income subject to tax under the applicable rules. Your final tax saving depends on your overall taxable income and tax regime.\n\n## Calculate Your HRA Exemption\n\nUse the [CoinMind HRA Calculator](/calculators/hra) to estimate your eligible exemption based on your salary, rent and city. Then compare your estimated tax under the old and new tax regimes before making a decision.\n\n**Important:** This article provides general educational information, not individual tax advice. Verify current requirements with the Income Tax Department or a qualified tax professional before filing your return.\n\n**Official references:**\n- [Income Tax Department](https://www.incometax.gov.in/)\n- [Income-tax rules and tax rates](https://www.incometaxindia.gov.in/w/tax-rates-and-computation)",
+    faq: [
+      {
+        q: "How much HRA is tax-free?",
+        a: "There is no single fixed amount. For eligible employees, the exemption is generally the lowest of actual HRA, rent paid minus 10% of eligible salary, and the applicable 40% or 50% salary limit.",
+      },
+      {
+        q: "Is HRA tax-free under the new tax regime?",
+        a: "The ordinary HRA exemption under Section 10(13A) is not available under the new tax regime.",
+      },
+      {
+        q: "Can I claim HRA without rent receipts?",
+        a: "The evidence required depends on your circumstances and applicable compliance requirements. You must be able to substantiate genuine rent payments and eligibility; do not assume a claim is valid simply because receipts are unavailable.",
+      },
+      {
+        q: "Is HRA calculated monthly or annually?",
+        a: "The calculation is generally performed using the relevant salary, HRA and rent amounts for the applicable period. Changes in salary, rent or accommodation during the year may require a period-wise calculation.",
+      },
+      {
+        q: "Does HRA exemption reduce my taxable salary?",
+        a: "Eligible HRA exemption reduces the amount of salary income subject to tax under the applicable rules. Your final tax saving depends on your overall taxable income and tax regime.",
+      },
+    ],
+  },
   {
     slug: "chatgpt-vs-deepseek-india",
     title: "ChatGPT vs DeepSeek: Which AI is Better for Indian Users in 2026?",

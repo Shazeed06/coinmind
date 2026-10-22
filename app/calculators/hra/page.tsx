@@ -44,7 +44,10 @@ export default function Page() {
               <a href="/calculators/take-home-salary" className="text-forest">
                 Take-Home Salary Calculator
               </a>{" "}
-              to see the full picture of your in-hand pay.
+              to see the full picture of your in-hand pay, or read our in-depth{" "}
+              <a href="/blog/hra-exemption-calculator-india" className="text-forest">
+                HRA Exemption Guide
+              </a>.
             </p>
           </>
         ),

@@ -24,8 +24,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
+  const metaTitle = post.metaTitle ?? post.title;
   return {
-    title: { absolute: post.title },
+    title: { absolute: metaTitle },
     description: post.excerpt,
     keywords: post.keywords,
     robots: NOINDEX_POST_SLUGS.has(post.slug) ? { index: false, follow: true } : undefined,
@@ -35,7 +36,7 @@ export async function generateMetadata({
       url: `${site.url}/blog/${post.slug}`,
       siteName: site.name,
       locale: "en_IN",
-      title: post.title,
+      title: metaTitle,
       description: post.excerpt,
       images: [
         { url: "/opengraph-image", width: 1200, height: 630, alt: post.title },
@@ -43,7 +44,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: metaTitle,
       description: post.excerpt,
       images: ["/opengraph-image"],
     },
@@ -524,6 +525,12 @@ function getRelatedResources(category: string, slug: string) {
     return {
       calc: { label: "Crypto Tax Calculator", href: "/calculators/crypto-tax", desc: "Calculate 30% flat tax on VDA gains" },
       hub: { label: "Investing Hub", href: "/investing" },
+    };
+  }
+  if (s.includes("hra")) {
+    return {
+      calc: { label: "HRA Calculator", href: "/calculators/hra", desc: "Calculate your HRA tax exemption amount" },
+      hub: { label: "Income Tax Hub", href: "/income-tax" },
     };
   }
   if (s.includes("tax") || s.includes("itr") || s.includes("regime") || s.includes("deduction") || c.includes("tax")) {

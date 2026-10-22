@@ -103,7 +103,7 @@ export function resolveCoverImageUrl(
 
   let pool = TOPIC_PHOTOS.investing;
 
-  if (s.includes("tax") || s.includes("itr") || s.includes("regime") || s.includes("deduction") || l.includes("tax")) {
+  if (s.includes("tax") || s.includes("itr") || s.includes("regime") || s.includes("deduction") || s.includes("hra") || s.includes("exemption") || l.includes("tax")) {
     pool = TOPIC_PHOTOS.tax;
   } else if (s.includes("home-loan") || s.includes("mortgage") || s.includes("house") || s.includes("rent-vs-buy") || s.includes("property") || s.includes("real-estate")) {
     pool = TOPIC_PHOTOS.homeLoan;
