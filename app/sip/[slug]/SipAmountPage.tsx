@@ -64,7 +64,7 @@ export function amountMetadata(slug: string): Metadata {
       type: "article",
       url: `${site.url}/sip/${slug}`,
       siteName: site.name,
-      locale: "en_US",
+      locale: "en_IN",
       title: `SIP of ${amt} per Month - Returns & Corpus`,
       description: `See the projected corpus of a ${amt} monthly SIP at 10%, 12% and 14% over 5 to 30 years.`,
       images: [

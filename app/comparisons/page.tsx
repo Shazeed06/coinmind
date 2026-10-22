@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import Link from "next/link";
 
@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description: "Side-by-side financial comparisons for Indian investors: SIP vs FD, PPF vs NPS, old vs new tax regime, rent vs buy, loan prepayment vs investing, and more.",
   alternates: { canonical: `${site.url}/comparisons` },
   openGraph: {
+    locale: "en_IN",
     title: "Financial Comparisons India | CoinMind",
     description: "Make smarter money decisions with data-driven comparisons of India's most important financial choices.",
     url: `${site.url}/comparisons`,

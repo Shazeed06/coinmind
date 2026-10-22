@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import NumberToWords from "@/components/tools/NumberToWords";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Number to Words Converter - Rupees, Lakh & Crore",
     description:
       "Convert any number into words in the Indian or International system, with optional Rupees and Dollars currency wording. Runs entirely in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

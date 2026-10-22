@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import SplitPdf from "@/components/tools/SplitPdf";
 import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.coinmind.in/tools/split-pdf",
     siteName: site.name,
-    locale: "en_US",
+    locale: "en_IN",
     title: "Split PDF - Extract Pages from a PDF Free",
     description:
       "Extract a page range or split every page into separate PDFs, entirely in your browser. No upload, no sign-up.",

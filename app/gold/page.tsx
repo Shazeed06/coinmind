@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/gold` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/gold`,
     siteName: "CoinMind",
     title: "Gold Investment India - SGB, Gold ETFs, Digital Gold Guide 2026",

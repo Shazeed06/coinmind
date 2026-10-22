@@ -165,6 +165,8 @@ export default function CoverArt({
       <img
         src={photoSrc}
         alt={displayLabel ? `${displayLabel} editorial cover` : "Article cover illustration"}
+        width={1200}
+        height={675}
         loading="lazy"
         decoding="async"
         className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105"

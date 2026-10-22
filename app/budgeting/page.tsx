@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/budgeting` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/budgeting`,
     siteName: "CoinMind",
     title: "Budgeting & Money Management India - Free Budget Planner & Guides",

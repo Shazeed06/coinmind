@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/credit-score` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/credit-score`,
     siteName: "CoinMind",
     title: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health",

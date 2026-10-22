@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import CountdownToDate from "@/components/tools/CountdownToDate";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Countdown to Date - Live Days, Hours & Seconds",
     description:
       "Pick any date and time and watch a live countdown of the days, hours, minutes and seconds remaining - free and private in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "What happens if the date I choose is in the past?",
-    a: "The tool detects it and shows “This date has passed” instead of negative numbers, along with the date you selected. Just pick a future date and time to start counting down again.",
+    a: "The tool detects it and shows â€œThis date has passedâ€ instead of negative numbers, along with the date you selected. Just pick a future date and time to start counting down again.",
   },
   {
     q: "Which time zone does the countdown use?",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${site.url}/ipos/upcoming-ipo` },
   openGraph: {
+    locale: "en_IN",
     title: "Upcoming IPO 2026 India: Full List, Dates & Pipeline",
     description:
       "Every upcoming IPO in India for 2026 - Reliance Jio and Paras opening this week, plus the awaited Zepto, PhonePe, OYO, boAt and Razorpay pipeline.",
@@ -45,37 +46,37 @@ type IPO = {
 
 // Opening 21-23 Oct 2026 (allotment 26 Oct, listing 28 Oct)
 const OPENING: IPO[] = [
-  { name: "Reliance Jio Platforms", slug: "reliance-jio-ipo", band: "₹1,065-₹1,119", lot: "12 shares", gmp: "₹250", gmpPct: "+22%", issueSize: "₹30,213 cr (fresh)" },
-  { name: "Paras Healthcare", band: "₹660-₹693", lot: "21 shares", gmp: "₹92", gmpPct: "+13%", issueSize: "₹1,450 cr" },
+  { name: "Reliance Jio Platforms", slug: "reliance-jio-ipo", band: "â‚¹1,065-â‚¹1,119", lot: "12 shares", gmp: "â‚¹250", gmpPct: "+22%", issueSize: "â‚¹30,213 cr (fresh)" },
+  { name: "Paras Healthcare", band: "â‚¹660-â‚¹693", lot: "21 shares", gmp: "â‚¹92", gmpPct: "+13%", issueSize: "â‚¹1,450 cr" },
 ];
 
 // Open now, close 19 Oct 2026 (listing ~23 Oct)
 const OPEN_NOW: IPO[] = [
-  { name: "Tonbo Imaging India", band: "₹665-₹700", lot: "21 shares", gmp: "₹515", gmpPct: "+74%", issueSize: "₹852 cr OFS" },
-  { name: "Bonfiglioli Transmissions", band: "₹558-₹586", lot: "25 shares", gmp: "₹130", gmpPct: "+22%", issueSize: "₹2,534 cr" },
-  { name: "Sahajanand Medical Technologies", band: "₹327-₹344", lot: "43 shares", gmp: "₹29", gmpPct: "+8%", issueSize: "₹475 cr" },
-  { name: "Zetwerk Manufacturing", band: "₹143-₹151", lot: "99 shares", gmp: "₹6", gmpPct: "+4%", issueSize: "₹5,012 cr" },
+  { name: "Tonbo Imaging India", band: "â‚¹665-â‚¹700", lot: "21 shares", gmp: "â‚¹515", gmpPct: "+74%", issueSize: "â‚¹852 cr OFS" },
+  { name: "Bonfiglioli Transmissions", band: "â‚¹558-â‚¹586", lot: "25 shares", gmp: "â‚¹130", gmpPct: "+22%", issueSize: "â‚¹2,534 cr" },
+  { name: "Sahajanand Medical Technologies", band: "â‚¹327-â‚¹344", lot: "43 shares", gmp: "â‚¹29", gmpPct: "+8%", issueSize: "â‚¹475 cr" },
+  { name: "Zetwerk Manufacturing", band: "â‚¹143-â‚¹151", lot: "99 shares", gmp: "â‚¹6", gmpPct: "+4%", issueSize: "â‚¹5,012 cr" },
 ];
 
 const PIPELINE = [
-  { name: "Zepto", sector: "Quick Commerce", note: "U-DRHP filed; ~₹8,010 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "PhonePe", sector: "Fintech", note: "Confidential DRHP; est. ₹12,000-15,000 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "OYO (Oravel Stays)", sector: "Hospitality Tech", note: "SEBI observations in; ~₹6,650 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "Hero FinCorp", sector: "NBFC", note: "DRHP filed; ₹3,668 cr (fresh + OFS). Dates not announced; estimates, unconfirmed." },
-  { name: "boAt (Imagine Marketing)", sector: "Consumer Electronics", note: "Updated DRHP; ~₹1,500 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "Razorpay", sector: "Fintech / Payments", note: "Confidential filing; ~₹5,000 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "Veritas Finance", sector: "NBFC", note: "SEBI observations in; ~₹2,800 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "Zepto", sector: "Quick Commerce", note: "U-DRHP filed; ~â‚¹8,010 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "PhonePe", sector: "Fintech", note: "Confidential DRHP; est. â‚¹12,000-15,000 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "OYO (Oravel Stays)", sector: "Hospitality Tech", note: "SEBI observations in; ~â‚¹6,650 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "Hero FinCorp", sector: "NBFC", note: "DRHP filed; â‚¹3,668 cr (fresh + OFS). Dates not announced; estimates, unconfirmed." },
+  { name: "boAt (Imagine Marketing)", sector: "Consumer Electronics", note: "Updated DRHP; ~â‚¹1,500 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "Razorpay", sector: "Fintech / Payments", note: "Confidential filing; ~â‚¹5,000 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "Veritas Finance", sector: "NBFC", note: "SEBI observations in; ~â‚¹2,800 cr. Dates not announced; estimates, unconfirmed." },
   { name: "Flipkart", sector: "E-Commerce", note: "Listing deferred; no official filing yet. Dates not announced; estimates, unconfirmed." },
 ];
 
 const FAQS = [
   {
     q: "Which IPO is coming next in India?",
-    a: "The next big IPO is Reliance Jio Platforms, opening 21 October 2026 at a price band of ₹1,065-₹1,119, alongside Paras Healthcare (₹660-₹693). Both close on 23 October, with allotment around 26 October and listing on 28 October 2026. Four mainboard IPOs - Tonbo Imaging, Bonfiglioli, Sahajanand Medical and Zetwerk - are already open and close on 19 October.",
+    a: "The next big IPO is Reliance Jio Platforms, opening 21 October 2026 at a price band of â‚¹1,065-â‚¹1,119, alongside Paras Healthcare (â‚¹660-â‚¹693). Both close on 23 October, with allotment around 26 October and listing on 28 October 2026. Four mainboard IPOs - Tonbo Imaging, Bonfiglioli, Sahajanand Medical and Zetwerk - are already open and close on 19 October.",
   },
   {
     q: "What are the biggest upcoming IPOs in 2026?",
-    a: "After Jio (~₹30,213 cr), the most-awaited names in the pipeline are PhonePe (est. ₹12,000-15,000 cr), Zepto (~₹8,010 cr), OYO (~₹6,650 cr), Razorpay (~₹5,000 cr), Hero FinCorp (₹3,668 cr), Veritas Finance (~₹2,800 cr) and boAt (~₹1,500 cr). Flipkart's listing has been deferred. For all of these, dates are not announced and the sizes are estimates, unconfirmed until an RHP is filed.",
+    a: "After Jio (~â‚¹30,213 cr), the most-awaited names in the pipeline are PhonePe (est. â‚¹12,000-15,000 cr), Zepto (~â‚¹8,010 cr), OYO (~â‚¹6,650 cr), Razorpay (~â‚¹5,000 cr), Hero FinCorp (â‚¹3,668 cr), Veritas Finance (~â‚¹2,800 cr) and boAt (~â‚¹1,500 cr). Flipkart's listing has been deferred. For all of these, dates are not announced and the sizes are estimates, unconfirmed until an RHP is filed.",
   },
   {
     q: "How do I apply for an upcoming IPO?",
@@ -137,9 +138,9 @@ export default function UpcomingIpoPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>›</span>
+            <span>â€º</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>›</span>
+            <span>â€º</span>
             <span>Upcoming IPO</span>
           </nav>
 
@@ -149,7 +150,7 @@ export default function UpcomingIpoPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             A live list of upcoming IPOs in India - the big names opening this week led by the Reliance Jio Platforms IPO, the mainboard IPOs open for subscription right now, and the most-awaited pipeline whose dates are still to be announced.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">GMP is unofficial and indicative, as of 18 Oct 2026.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} Â· <span className="text-amber-600">GMP is unofficial and indicative, as of 18 Oct 2026.</span></p>
         </div>
       </section>
 
@@ -159,7 +160,7 @@ export default function UpcomingIpoPage() {
           {/* Quick answer block (AEO target) */}
           <div className="rounded-2xl border border-border bg-white p-5">
             <p className="text-text font-bold leading-relaxed">
-              The next big IPO is Reliance Jio, opening 21 Oct 2026 at a price band of ₹1,065-₹1,119, alongside Paras Healthcare. Both close 23 Oct, with listing on 28 Oct. Four mainboard IPOs (Tonbo, Bonfiglioli, Sahajanand Medical, Zetwerk) are open now and close 19 Oct. Beyond these, PhonePe, Zepto, OYO, Razorpay and boAt are in the pipeline with dates not yet announced.
+              The next big IPO is Reliance Jio, opening 21 Oct 2026 at a price band of â‚¹1,065-â‚¹1,119, alongside Paras Healthcare. Both close 23 Oct, with listing on 28 Oct. Four mainboard IPOs (Tonbo, Bonfiglioli, Sahajanand Medical, Zetwerk) are open now and close 19 Oct. Beyond these, PhonePe, Zepto, OYO, Razorpay and boAt are in the pipeline with dates not yet announced.
             </p>
           </div>
 
@@ -299,7 +300,7 @@ export default function UpcomingIpoPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              ← View all IPOs on the CoinMind IPO Calendar
+              â† View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

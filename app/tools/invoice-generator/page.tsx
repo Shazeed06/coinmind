@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import InvoiceGenerator from "@/components/tools/InvoiceGenerator";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Free Invoice Generator - Make Invoices Online",
     description:
       "Create professional invoices with a live preview and free PDF download. Add line items, tax and your currency of choice. 100% private, made in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "Which currencies are supported?",
-    a: "You can invoice in Indian Rupees (₹), US Dollars ($), British Pounds (£) or Euros (€). Pick your currency from the dropdown and every amount on the invoice updates instantly. The currency symbol appears next to every figure and in the total summary at the bottom.",
+    a: "You can invoice in Indian Rupees (â‚¹), US Dollars ($), British Pounds (Â£) or Euros (â‚¬). Pick your currency from the dropdown and every amount on the invoice updates instantly. The currency symbol appears next to every figure and in the total summary at the bottom.",
   },
   {
     q: "What should an invoice number look like?",

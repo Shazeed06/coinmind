@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import BudgetPlanner from "@/components/tools/BudgetPlanner";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Budget Planner - Free Monthly Budget Tool",
     description:
       "Plan your monthly budget in seconds. See money left to save, your savings rate and a live 50/30/20 breakdown - private, in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

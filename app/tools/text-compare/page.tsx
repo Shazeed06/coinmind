@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import TextCompare from "@/components/tools/TextCompare";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Text Compare - Free Online Diff Checker",
     description:
       "Compare two blocks of text line by line and see exactly what changed. Free, private and instant, right in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

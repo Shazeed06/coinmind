@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import PasswordGenerator from "@/components/tools/PasswordGenerator";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Password Generator - Strong Random Passwords",
     description:
       "Create strong, random passwords in your browser with the Web Crypto API. 100% private - passwords never leave your device.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

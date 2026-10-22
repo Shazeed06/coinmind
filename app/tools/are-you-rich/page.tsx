@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import IncomePercentile from "@/components/tools/IncomePercentile";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Are You Rich? Income Percentile Calculator",
     description:
       "Enter your income and country to estimate your income percentile - and find out where you rank versus everyone else.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

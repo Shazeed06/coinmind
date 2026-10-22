@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import ImageToBase64 from "@/components/tools/ImageToBase64";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Image to Base64 - Free Data URI Encoder",
     description:
       "Convert any image to a Base64 data URI with ready-to-copy HTML and CSS snippets. 100% private - your image never leaves your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What is a Base64 data URI?",
-    a: "It's a way of writing an image as plain text. The data URI starts with data:image/… followed by a long Base64-encoded string of the file's bytes. Because it's just text, you can paste it straight into HTML or CSS and the browser rebuilds the image, no separate file needed.",
+    a: "It's a way of writing an image as plain text. The data URI starts with data:image/â€¦ followed by a long Base64-encoded string of the file's bytes. Because it's just text, you can paste it straight into HTML or CSS and the browser rebuilds the image, no separate file needed.",
   },
   {
     q: "When should I embed an image as Base64?",

@@ -47,11 +47,6 @@ const AI_CRAWLERS = [
  */
 const INTERNAL_PATHS = [
   "/api/",
-  "/opengraph-image",
-  "/twitter-image",
-  "/icon",
-  "/favicon.ico",
-  "/manifest.webmanifest",
 ];
 
 export default function robots(): MetadataRoute.Robots {

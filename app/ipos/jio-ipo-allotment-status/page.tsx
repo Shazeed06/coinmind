@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${site.url}/ipos/jio-ipo-allotment-status` },
   openGraph: {
+    locale: "en_IN",
     title: "Jio IPO Allotment Status 2026: How to Check Online (26 Oct)",
     description:
       "Step-by-step guide to check Jio Platforms IPO allotment status on BSE and the registrar. Allotment 26 Oct, listing 28 Oct 2026.",
@@ -43,7 +44,7 @@ const TIMELINE = [
 ];
 
 const BSE_STEPS = [
-  "Go to the BSE allotment page: bseindia.com → Investors → Status of Issue Application (or search \"BSE IPO allotment\").",
+  "Go to the BSE allotment page: bseindia.com â†’ Investors â†’ Status of Issue Application (or search \"BSE IPO allotment\").",
   "Under Issue Type, select \"Equity\".",
   "In the Issue Name dropdown, select \"Jio Platforms Limited\" (appears once allotment is finalised).",
   "Enter your Application Number, or PAN.",
@@ -64,7 +65,7 @@ const FAQS = [
   },
   {
     q: "How can I check my Jio IPO allotment status?",
-    a: "You can check on the BSE website (Investors → Status of Issue Application) or on the official registrar's IPO page, using your PAN, application number, or demat/client ID. The Jio issue appears in the dropdown only after allotment is finalised on 26 Oct.",
+    a: "You can check on the BSE website (Investors â†’ Status of Issue Application) or on the official registrar's IPO page, using your PAN, application number, or demat/client ID. The Jio issue appears in the dropdown only after allotment is finalised on 26 Oct.",
   },
   {
     q: "What happens if I don't get the Jio IPO allotment?",
@@ -127,11 +128,11 @@ export default function JioIpoAllotmentStatusPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>›</span>
+            <span>â€º</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>›</span>
+            <span>â€º</span>
             <Link href="/ipos/reliance-jio-ipo" className="hover:text-brand">Jio IPO</Link>
-            <span>›</span>
+            <span>â€º</span>
             <span>Allotment Status</span>
           </nav>
 
@@ -210,19 +211,19 @@ export default function JioIpoAllotmentStatusPage() {
           {/* What next */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h2 className="font-bold text-emerald-800 mb-2">✅ If you are allotted</h2>
+              <h2 className="font-bold text-emerald-800 mb-2">âœ… If you are allotted</h2>
               <ul className="space-y-1.5 text-sm text-emerald-800">
-                <li className="flex gap-2"><span>•</span>Shares are credited to your demat ~27 Oct (one day before listing).</li>
-                <li className="flex gap-2"><span>•</span>The blocked amount is debited for the allotted shares only.</li>
-                <li className="flex gap-2"><span>•</span>You can hold or sell on listing day (28 Oct) based on the listing price.</li>
+                <li className="flex gap-2"><span>â€¢</span>Shares are credited to your demat ~27 Oct (one day before listing).</li>
+                <li className="flex gap-2"><span>â€¢</span>The blocked amount is debited for the allotted shares only.</li>
+                <li className="flex gap-2"><span>â€¢</span>You can hold or sell on listing day (28 Oct) based on the listing price.</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-              <h2 className="font-bold text-red-800 mb-2">❌ If you are not allotted</h2>
+              <h2 className="font-bold text-red-800 mb-2">âŒ If you are not allotted</h2>
               <ul className="space-y-1.5 text-sm text-red-800">
-                <li className="flex gap-2"><span>•</span>Your ASBA blocked amount is released/unblocked automatically.</li>
-                <li className="flex gap-2"><span>•</span>For UPI applications, the mandate is revoked - no money is debited.</li>
-                <li className="flex gap-2"><span>•</span>You can still buy Jio shares from the open market after listing.</li>
+                <li className="flex gap-2"><span>â€¢</span>Your ASBA blocked amount is released/unblocked automatically.</li>
+                <li className="flex gap-2"><span>â€¢</span>For UPI applications, the mandate is revoked - no money is debited.</li>
+                <li className="flex gap-2"><span>â€¢</span>You can still buy Jio shares from the open market after listing.</li>
               </ul>
             </div>
           </div>
@@ -246,7 +247,7 @@ export default function JioIpoAllotmentStatusPage() {
             <div className="flex flex-wrap gap-2 text-sm">
               <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Full Jio IPO Review</Link>
               <Link href="/ipos/jio-ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Jio IPO GMP Today</Link>
-              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs →</Link>
+              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs â†’</Link>
             </div>
           </div>
 
@@ -259,7 +260,7 @@ export default function JioIpoAllotmentStatusPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              ← View all IPOs on the CoinMind IPO Calendar
+              â† View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

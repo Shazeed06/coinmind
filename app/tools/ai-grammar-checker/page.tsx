@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AiGrammarChecker from "@/components/tools/AiGrammarChecker";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "AI Grammar Checker - Fix Grammar Free",
     description:
       "Fix grammar, spelling and punctuation instantly with AI. A fast, free Grammarly alternative that keeps your meaning and tone.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

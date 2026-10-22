@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import ScientificCalculator from "@/components/tools/ScientificCalculator";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Scientific Calculator - Free Online" },
   description:
-    "Free online scientific calculator with sin, cos, tan, log, ln, powers, roots, factorial, π and e. Keyboard support, runs 100% in your browser.",
+    "Free online scientific calculator with sin, cos, tan, log, ln, powers, roots, factorial, Ï€ and e. Keyboard support, runs 100% in your browser.",
   alternates: { canonical: "/tools/scientific-calculator" },
   openGraph: {
     type: "website",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Scientific Calculator - Free Online",
     description:
       "Online scientific calculator with trig, logs, powers, roots and factorial. Keyboard support and Deg/Rad toggle - runs entirely in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -34,15 +34,15 @@ const faqData = [
   },
   {
     q: "Does it work on a phone and with a keyboard?",
-    a: "Both. The button grid is sized for touch on phones and tablets, and on a desktop you can type directly: digits, + − * / ^ ( ) ! and % all work, Enter evaluates the expression and Escape clears it.",
+    a: "Both. The button grid is sized for touch on phones and tablets, and on a desktop you can type directly: digits, + âˆ’ * / ^ ( ) ! and % all work, Enter evaluates the expression and Escape clears it.",
   },
   {
     q: "What is the difference between Deg and Rad?",
-    a: "The Deg/Rad toggle controls how the trigonometry functions read angles. In Deg mode sin, cos and tan treat your input as degrees (so sin(30) = 0.5); in Rad mode they treat it as radians (so sin(π/6) = 0.5). Tap the toggle in the top-left of the display to switch.",
+    a: "The Deg/Rad toggle controls how the trigonometry functions read angles. In Deg mode sin, cos and tan treat your input as degrees (so sin(30) = 0.5); in Rad mode they treat it as radians (so sin(Ï€/6) = 0.5). Tap the toggle in the top-left of the display to switch.",
   },
   {
     q: "How do powers, roots and factorial work?",
-    a: "Use xʸ (the ^ key) for any power, for example 2^10. The x² key squares the current value, √ takes a square root, and n! calculates the factorial of a non-negative whole number, such as 5! = 120. Percent (%) divides a value by 100, so 50% becomes 0.5.",
+    a: "Use xÊ¸ (the ^ key) for any power, for example 2^10. The xÂ² key squares the current value, âˆš takes a square root, and n! calculates the factorial of a non-negative whole number, such as 5! = 120. Percent (%) divides a value by 100, so 50% becomes 0.5.",
   },
   {
     q: "Is my calculation private?",
@@ -119,7 +119,7 @@ export default function Page() {
           {
             step: "Use scientific functions",
             detail:
-              "Click sin, cos or tan for trigonometry; ln for natural log or log for base-10; xʸ (or the ^ key) for powers like 2^10; √ for square roots; and n! for factorials. Use the π and e buttons for those constants.",
+              "Click sin, cos or tan for trigonometry; ln for natural log or log for base-10; xÊ¸ (or the ^ key) for powers like 2^10; âˆš for square roots; and n! for factorials. Use the Ï€ and e buttons for those constants.",
           },
           {
             step: "Press equals or Enter",
@@ -149,7 +149,7 @@ export default function Page() {
               "Since everything runs locally in the browser with no server dependency, the calculator works without an internet connection and on devices where you cannot install any software.",
           },
         ]}
-        howItWorks="The calculator uses a custom expression parser built in JavaScript, not the browser's eval function, which would be a security risk. When you press equals, the parser tokenizes your input into numbers, operators and functions, then evaluates them using a recursive-descent algorithm that respects the correct order of operations. Powers are right-associative (so 2^3^2 = 2^(3^2) = 512), unary minus is handled correctly for negative numbers, and implicit multiplication next to constants like 2π is supported. The entire computation happens in your browser with zero network requests."
+        howItWorks="The calculator uses a custom expression parser built in JavaScript, not the browser's eval function, which would be a security risk. When you press equals, the parser tokenizes your input into numbers, operators and functions, then evaluates them using a recursive-descent algorithm that respects the correct order of operations. Powers are right-associative (so 2^3^2 = 2^(3^2) = 512), unary minus is handled correctly for negative numbers, and implicit multiplication next to constants like 2Ï€ is supported. The entire computation happens in your browser with zero network requests."
         tips={[
           "Use parentheses liberally. When in doubt about operator precedence, wrap parts of your expression in parentheses to make the intended order explicit and avoid surprises.",
           "Switch between Deg and Rad before typing your expression. The toggle only affects trig functions evaluated after you switch, not any number already on the display.",

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/sip` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/sip`,
     siteName: "CoinMind",
     title: "SIP Investment Guide - Systematic Investment Plans Explained",

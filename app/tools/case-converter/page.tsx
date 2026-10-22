@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import CaseConverter from "@/components/tools/CaseConverter";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Case Converter - Change Text Case Online",
     description:
       "Change text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more in one click. 100% private - your text never leaves your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

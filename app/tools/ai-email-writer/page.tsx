@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AiEmailWriter from "@/components/tools/AiEmailWriter";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "AI Email & Cover Letter Writer - Free",
     description:
       "Enter a few key points, pick a tone, and get a complete, ready-to-send email or cover letter in seconds.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

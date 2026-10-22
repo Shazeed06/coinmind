@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import CharacterCounter from "@/components/tools/CharacterCounter";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Character Counter - Count Characters Online",
     description:
       "Count characters online in real time - with and without spaces, plus words, sentences and live Twitter, SMS and meta-tag limits. Runs in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

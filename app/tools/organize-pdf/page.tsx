@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import OrganizePdf from "@/components/tools/OrganizePdf";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.coinmind.in/tools/organize-pdf",
     siteName: site.name,
-    locale: "en_US",
+    locale: "en_IN",
     title: "Organize PDF - Reorder & Delete PDF Pages Free",
     description:
       "Reorder pages and remove the ones you don't need, then rebuild a clean PDF - entirely in your browser. No upload, no sign-up.",

@@ -34,7 +34,7 @@ export async function generateMetadata({
       type: "article",
       url: `${site.url}/blog/${post.slug}`,
       siteName: site.name,
-      locale: "en_US",
+      locale: "en_IN",
       title: post.title,
       description: post.excerpt,
       images: [
@@ -520,6 +520,12 @@ function getRelatedResources(category: string, slug: string) {
   const s = slug.toLowerCase();
   const c = category.toLowerCase();
 
+  if (s.includes("crypto") || s.includes("bitcoin") || c.includes("crypto")) {
+    return {
+      calc: { label: "Crypto Tax Calculator", href: "/calculators/crypto-tax", desc: "Calculate 30% flat tax on VDA gains" },
+      hub: { label: "Investing Hub", href: "/investing" },
+    };
+  }
   if (s.includes("tax") || s.includes("itr") || s.includes("regime") || s.includes("deduction") || c.includes("tax")) {
     return {
       calc: { label: "Income Tax Calculator", href: "/calculators/income-tax", desc: "Compare new vs old regime tax liability" },
@@ -529,7 +535,7 @@ function getRelatedResources(category: string, slug: string) {
   if (s.includes("salary") || s.includes("in-hand") || s.includes("take-home") || s.includes("ctc")) {
     return {
       calc: { label: "In-Hand Salary Calculator", href: "/calculators/take-home-salary", desc: "Calculate exact monthly take-home pay" },
-      hub: { label: "Salary Guide Hub", href: "/in-hand-salary" },
+      hub: { label: "Income Tax Hub", href: "/income-tax" },
     };
   }
   if (s.includes("loan") || s.includes("emi") || s.includes("mortgage") || s.includes("prepayment") || c.includes("loan")) {
@@ -538,16 +544,40 @@ function getRelatedResources(category: string, slug: string) {
       hub: { label: "Loans Hub", href: "/loans" },
     };
   }
+  if (s.includes("ppf") || s.includes("public-provident") || c.includes("ppf")) {
+    return {
+      calc: { label: "PPF Calculator", href: "/calculators/ppf", desc: "Calculate PPF maturity and tax-free interest" },
+      hub: { label: "Savings Hub", href: "/savings" },
+    };
+  }
   if (s.includes("fd") || s.includes("fixed-deposit") || s.includes("rd") || s.includes("saving") || c.includes("saving")) {
     return {
       calc: { label: "FD Calculator", href: "/calculators/fd", desc: "Calculate fixed deposit maturity returns" },
       hub: { label: "Savings Hub", href: "/savings" },
     };
   }
-  if (s.includes("retirement") || s.includes("epf") || s.includes("nps") || s.includes("pension") || s.includes("fire") || c.includes("retirement")) {
+  if (s.includes("nps") || c.includes("nps")) {
+    return {
+      calc: { label: "NPS Calculator", href: "/calculators/nps", desc: "Calculate pension corpus and monthly annuity" },
+      hub: { label: "Retirement Hub", href: "/retirement" },
+    };
+  }
+  if (s.includes("epf") || s.includes("provident-fund") || c.includes("epf")) {
+    return {
+      calc: { label: "EPF Calculator", href: "/calculators/epf", desc: "Calculate EPF maturity balance & employer share" },
+      hub: { label: "Retirement Hub", href: "/retirement" },
+    };
+  }
+  if (s.includes("retirement") || s.includes("pension") || s.includes("fire") || c.includes("retirement")) {
     return {
       calc: { label: "Retirement Calculator", href: "/calculators/retirement", desc: "Plan retirement corpus & FIRE target" },
       hub: { label: "Retirement Hub", href: "/retirement" },
+    };
+  }
+  if (s.includes("sip") || s.includes("mutual-fund") || c.includes("sip") || c.includes("mutual fund")) {
+    return {
+      calc: { label: "SIP Calculator", href: "/calculators/sip", desc: "See monthly mutual fund wealth growth" },
+      hub: { label: "SIP Hub", href: "/sip" },
     };
   }
   if (s.includes("gold") || s.includes("sgb")) {

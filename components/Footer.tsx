@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           {/* Nav link columns */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+          <div className="lg:col-span-4 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
             {footerNav.map((col, i) => (
               <div key={col.title}>
                 {/* Mobile accordion toggle */}

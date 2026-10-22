@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import QrCodeGenerator from "@/components/tools/QrCodeGenerator";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "QR Code Generator - Free Custom QR Codes",
     description:
       "Create custom QR codes for any URL or text - choose colours, size and error correction, then download as PNG or SVG. 100% private, made in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -135,7 +135,7 @@ export default function Page() {
           },
           {
             scenario: "You are sharing Wi-Fi access with guests",
-            detail: "Instead of spelling out a long network password or typing it into each person's phone individually, encode your Wi-Fi credentials into a QR code. Guests scan the code with their phone camera and connect instantly. Print the code and frame it in a guest room, add it to a welcome card, or display it at the counter of a café or co-working space.",
+            detail: "Instead of spelling out a long network password or typing it into each person's phone individually, encode your Wi-Fi credentials into a QR code. Guests scan the code with their phone camera and connect instantly. Print the code and frame it in a guest room, add it to a welcome card, or display it at the counter of a cafÃ© or co-working space.",
           },
           {
             scenario: "You need a quick digital-to-physical bridge",

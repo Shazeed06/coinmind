@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/income-tax` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/income-tax`,
     siteName: "CoinMind",
     title: "Income Tax India Guide - New vs Old Regime, Deductions & Filing",

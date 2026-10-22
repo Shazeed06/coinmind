@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/savings` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/savings`,
     siteName: "CoinMind",
     title: "Savings Guide India - FD, PPF, NPS, NSC, SSY & Post Office Schemes",

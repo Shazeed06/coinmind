@@ -96,6 +96,7 @@ export async function GET() {
     `  - PhonePe IPO 2026 review: ${base}/ipos/phonepe-ipo`,
     ``,
     `Topic hubs, each a long-form overview with FAQs:`,
+    `  - SIP: ${base}/sip`,
     `  - Investing: ${base}/investing`,
     `  - Income Tax: ${base}/income-tax`,
     `  - Savings: ${base}/savings`,

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AiBusinessNameGenerator from "@/components/tools/AiBusinessNameGenerator";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "AI Business Name Generator - Free",
     description:
       "Describe your idea, pick a style, and get 15 creative, brandable startup name ideas in seconds - free and instant.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

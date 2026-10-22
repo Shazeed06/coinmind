@@ -227,6 +227,20 @@ export const navMenus: NavMenu[] = [
 
 export const footerNav: { title: string; items: NavItem[] }[] = [
   {
+    title: "Finance Hubs",
+    items: [
+      { label: "SIP Hub", href: "/sip" },
+      { label: "Investing Hub", href: "/investing" },
+      { label: "Income Tax Hub", href: "/income-tax" },
+      { label: "Loans Hub", href: "/loans" },
+      { label: "Savings Hub", href: "/savings" },
+      { label: "Retirement Hub", href: "/retirement" },
+      { label: "Gold Hub", href: "/gold" },
+      { label: "Budgeting Hub", href: "/budgeting" },
+      { label: "Credit Score Hub", href: "/credit-score" },
+    ],
+  },
+  {
     title: "Calculators",
     items: [
       { label: "SIP Calculator", href: "/calculators/sip" },

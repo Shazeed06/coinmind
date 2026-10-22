@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AiSummarizer from "@/components/tools/AiSummarizer";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "AI Text Summarizer - Free Summary Generator",
     description:
       "Paste any long text and get an instant AI summary - short, medium or detailed, as plain text or bullet points. Free, no sign-up.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

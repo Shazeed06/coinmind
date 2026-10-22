@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/loans` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/loans`,
     siteName: "CoinMind",
     title: "Loans & EMI Guide - Home, Car, Personal & Education Loans India",

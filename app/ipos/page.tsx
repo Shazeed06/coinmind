@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${site.url}/ipos` },
   openGraph: {
+    locale: "en_IN",
     title: "IPO 2026 India: Open & Upcoming IPOs with GMP Today",
     description:
       "Live tracker for open and upcoming IPOs in India - Jio, Tonbo, Paras Healthcare and more. Price band, GMP, lot size, allotment and listing dates.",
@@ -60,26 +61,26 @@ const OPENING: IPO[] = [
     type: "Mainboard",
     open: "21 Oct 2026",
     close: "23 Oct 2026",
-    priceBand: "₹1,065-₹1,119",
+    priceBand: "â‚¹1,065-â‚¹1,119",
     lotSize: "12 shares",
-    gmp: "₹250",
+    gmp: "â‚¹250",
     gmpPct: "+22%",
     status: "Upcoming",
     listingDate: "28 Oct 2026",
-    issueSize: "₹30,213 cr",
+    issueSize: "â‚¹30,213 cr",
   },
   {
     name: "Paras Healthcare",
     type: "Mainboard",
     open: "21 Oct 2026",
     close: "23 Oct 2026",
-    priceBand: "₹660-₹693",
+    priceBand: "â‚¹660-â‚¹693",
     lotSize: "21 shares",
-    gmp: "₹92",
+    gmp: "â‚¹92",
     gmpPct: "+13%",
     status: "Upcoming",
     listingDate: "28 Oct 2026",
-    issueSize: "₹1,450 cr",
+    issueSize: "â‚¹1,450 cr",
   },
 ];
 
@@ -90,52 +91,52 @@ const OPEN: IPO[] = [
     type: "Mainboard",
     open: "15 Oct 2026",
     close: "19 Oct 2026",
-    priceBand: "₹665-₹700",
+    priceBand: "â‚¹665-â‚¹700",
     lotSize: "21 shares",
-    gmp: "₹515",
+    gmp: "â‚¹515",
     gmpPct: "+74%",
     status: "Open",
     listingDate: "23 Oct 2026",
-    issueSize: "₹852 cr",
+    issueSize: "â‚¹852 cr",
   },
   {
     name: "Bonfiglioli Transmissions",
     type: "Mainboard",
     open: "15 Oct 2026",
     close: "19 Oct 2026",
-    priceBand: "₹558-₹586",
+    priceBand: "â‚¹558-â‚¹586",
     lotSize: "25 shares",
-    gmp: "₹130",
+    gmp: "â‚¹130",
     gmpPct: "+22%",
     status: "Open",
     listingDate: "23 Oct 2026",
-    issueSize: "₹2,534 cr",
+    issueSize: "â‚¹2,534 cr",
   },
   {
     name: "Sahajanand Medical Technologies",
     type: "Mainboard",
     open: "15 Oct 2026",
     close: "19 Oct 2026",
-    priceBand: "₹327-₹344",
+    priceBand: "â‚¹327-â‚¹344",
     lotSize: "43 shares",
-    gmp: "₹29",
+    gmp: "â‚¹29",
     gmpPct: "+8%",
     status: "Open",
     listingDate: "23 Oct 2026",
-    issueSize: "₹475 cr",
+    issueSize: "â‚¹475 cr",
   },
   {
     name: "Zetwerk Manufacturing",
     type: "Mainboard",
     open: "15 Oct 2026",
     close: "19 Oct 2026",
-    priceBand: "₹143-₹151",
+    priceBand: "â‚¹143-â‚¹151",
     lotSize: "99 shares",
-    gmp: "₹6",
+    gmp: "â‚¹6",
     gmpPct: "+4%",
     status: "Open",
     listingDate: "23 Oct 2026",
-    issueSize: "₹5,012 cr",
+    issueSize: "â‚¹5,012 cr",
   },
 ];
 
@@ -147,22 +148,22 @@ const LISTED: IPO[] = [
     type: "Mainboard",
     open: "17 Sep 2026",
     close: "21 Sep 2026",
-    priceBand: "₹1,700-₹1,785",
+    priceBand: "â‚¹1,700-â‚¹1,785",
     status: "Listed",
     listingDate: "24 Sep 2026",
-    issueSize: "₹22,561 cr OFS",
-    result: "Listed ₹1,800 (+0.8%) · now ~₹1,750",
+    issueSize: "â‚¹22,561 cr OFS",
+    result: "Listed â‚¹1,800 (+0.8%) Â· now ~â‚¹1,750",
   },
 ];
 
 const BIG_UPCOMING = [
-  { name: "Zepto", sector: "Quick Commerce", note: "U-DRHP filed; ~₹8,010 cr fresh + OFS; timeline pushed back" },
-  { name: "PhonePe", sector: "Fintech", note: "Confidential DRHP; est. ₹12,000-15,000 cr; timing under review" },
-  { name: "OYO (Oravel Stays)", sector: "Hospitality Tech", note: "SEBI observations in; ~₹6,650 cr fresh" },
-  { name: "Hero FinCorp", sector: "NBFC", note: "DRHP filed; ₹3,668 cr (fresh + OFS)" },
-  { name: "boAt (Imagine Marketing)", sector: "Consumer Electronics", note: "Updated DRHP; cut to ₹1,500 cr" },
-  { name: "Razorpay", sector: "Fintech / Payments", note: "Confidential filing; ~₹5,000 cr; targeting end-2026" },
-  { name: "Veritas Finance", sector: "NBFC", note: "SEBI observations in; ~₹2,800 cr" },
+  { name: "Zepto", sector: "Quick Commerce", note: "U-DRHP filed; ~â‚¹8,010 cr fresh + OFS; timeline pushed back" },
+  { name: "PhonePe", sector: "Fintech", note: "Confidential DRHP; est. â‚¹12,000-15,000 cr; timing under review" },
+  { name: "OYO (Oravel Stays)", sector: "Hospitality Tech", note: "SEBI observations in; ~â‚¹6,650 cr fresh" },
+  { name: "Hero FinCorp", sector: "NBFC", note: "DRHP filed; â‚¹3,668 cr (fresh + OFS)" },
+  { name: "boAt (Imagine Marketing)", sector: "Consumer Electronics", note: "Updated DRHP; cut to â‚¹1,500 cr" },
+  { name: "Razorpay", sector: "Fintech / Payments", note: "Confidential filing; ~â‚¹5,000 cr; targeting end-2026" },
+  { name: "Veritas Finance", sector: "NBFC", note: "SEBI observations in; ~â‚¹2,800 cr" },
   { name: "Flipkart", sector: "E-Commerce", note: "Listing deferred; no official filing yet" },
 ];
 
@@ -177,7 +178,7 @@ const STATUS_STYLE: Record<string, string> = {
 function GmpBadge({ gmp, gmpPct }: { gmp?: string; gmpPct?: string }) {
   if (!gmp || gmp === " - ") return <span className="text-text-muted text-xs"> - </span>;
   const positive = gmpPct && gmpPct.startsWith("+") && gmpPct !== "+0%";
-  const zero = gmpPct === "0%" || gmp === "₹0";
+  const zero = gmpPct === "0%" || gmp === "â‚¹0";
   return (
     <span className={`text-xs font-semibold ${positive ? "text-emerald-600" : zero ? "text-slate-400" : "text-red-500"}`}>
       {gmp} {gmpPct ? `(${gmpPct})` : ""}
@@ -261,9 +262,9 @@ export default function IpoPage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: "Which big IPO is opening this week?", acceptedAnswer: { "@type": "Answer", text: "The Reliance Jio Platforms IPO - India's largest-ever IPO - opens 21 October 2026 at a price band of ₹1,065-₹1,119, alongside Paras Healthcare. Four mainboard IPOs (Tonbo Imaging, Bonfiglioli, Sahajanand Medical, Zetwerk) are already open and close 19 October." } },
+      { "@type": "Question", name: "Which big IPO is opening this week?", acceptedAnswer: { "@type": "Answer", text: "The Reliance Jio Platforms IPO - India's largest-ever IPO - opens 21 October 2026 at a price band of â‚¹1,065-â‚¹1,119, alongside Paras Healthcare. Four mainboard IPOs (Tonbo Imaging, Bonfiglioli, Sahajanand Medical, Zetwerk) are already open and close 19 October." } },
       { "@type": "Question", name: "What is IPO GMP (Grey Market Premium)?", acceptedAnswer: { "@type": "Answer", text: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily - treat it as informal sentiment, not a guarantee." } },
-      { "@type": "Question", name: "What is the minimum investment for an IPO?", acceptedAnswer: { "@type": "Answer", text: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000-₹15,000. For the Jio IPO, 1 lot = 12 shares = ₹13,428 at the upper band." } },
+      { "@type": "Question", name: "What is the minimum investment for an IPO?", acceptedAnswer: { "@type": "Answer", text: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between â‚¹10,000-â‚¹15,000. For the Jio IPO, 1 lot = 12 shares = â‚¹13,428 at the upper band." } },
       { "@type": "Question", name: "What is ASBA in IPO?", acceptedAnswer: { "@type": "Answer", text: "ASBA (Application Supported by Blocked Amount) is a process where your bank blocks the application money in your account instead of debiting it. The amount is only debited if you get allotment." } },
       { "@type": "Question", name: "How is IPO allotment decided?", acceptedAnswer: { "@type": "Answer", text: "For oversubscribed IPOs, allotment in the retail category is done by lottery - each applicant has the same probability of getting 1 lot. Applying from multiple accounts (different PANs) increases your chances." } },
     ],
@@ -279,7 +280,7 @@ export default function IpoPage() {
         <div className="container-main">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6">
             <Link href="/" className="hover:text-brand transition-colors">Home</Link>
-            <span>›</span>
+            <span>â€º</span>
             <span>IPO Tracker</span>
           </nav>
           <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 rounded-full px-3 py-1 mb-3">
@@ -294,7 +295,7 @@ export default function IpoPage() {
           <div className="mt-4 flex flex-wrap gap-2 text-xs text-text-muted">
             <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Last updated: 18 Oct 2026</span>
             <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Jio IPO opens 21 Oct</span>
-            <span className="text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">⚠ GMP is unofficial &amp; indicative only</span>
+            <span className="text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">âš  GMP is unofficial &amp; indicative only</span>
           </div>
         </div>
       </section>
@@ -306,11 +307,11 @@ export default function IpoPage() {
           <div className="mb-10 rounded-2xl border border-brand/20 bg-gradient-to-br from-brand/5 to-transparent p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-brand rounded-full px-3 py-1">Spotlight</span>
-              <span className="text-xs font-semibold text-emerald-700">Opens 21 Oct · GMP ~₹250 (+22%)</span>
+              <span className="text-xs font-semibold text-emerald-700">Opens 21 Oct Â· GMP ~â‚¹250 (+22%)</span>
             </div>
             <h2 className="text-xl font-bold text-text">Reliance Jio Platforms IPO - India&apos;s Biggest-Ever IPO</h2>
             <p className="mt-2 text-sm text-text-muted max-w-2xl">
-              ₹30,000 crore fresh issue, price band ₹1,065-₹1,119, lot size 12 shares (₹13,428). Subscription 21-23 Oct, allotment 26 Oct, listing 28 Oct on BSE &amp; NSE.
+              â‚¹30,000 crore fresh issue, price band â‚¹1,065-â‚¹1,119, lot size 12 shares (â‚¹13,428). Subscription 21-23 Oct, allotment 26 Oct, listing 28 Oct on BSE &amp; NSE.
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
               <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand text-white px-4 py-1.5 font-medium hover:opacity-90">Full Jio IPO Review</Link>
@@ -322,21 +323,21 @@ export default function IpoPage() {
           {/* Opening this week */}
           <IpoTable
             ipos={OPENING}
-            title="🚀 Opening This Week (21-23 Oct)"
+            title="ðŸš€ Opening This Week (21-23 Oct)"
             note="Big-ticket mainboard IPOs opening for subscription this week. Apply on the open date via your broker app."
           />
 
           {/* Currently Open */}
           <IpoTable
             ipos={OPEN}
-            title="🟢 Currently Open for Subscription"
+            title="ðŸŸ¢ Currently Open for Subscription"
             note="Close 19 Oct 2026. Apply now via your broker (Zerodha, Groww, Angel One, Upstox, etc.)."
           />
 
           {/* Recently listed */}
           <IpoTable
             ipos={LISTED}
-            title="● Recently Listed"
+            title="â— Recently Listed"
             note="Subscription closed and shares now trading on the exchanges."
           />
 
@@ -349,7 +350,7 @@ export default function IpoPage() {
 
           {/* Big upcoming IPOs */}
           <div className="mb-10">
-            <h2 className="text-lg font-bold text-text mb-1">🔭 Most Awaited Upcoming IPOs (Dates Not Yet Announced)</h2>
+            <h2 className="text-lg font-bold text-text mb-1">ðŸ”­ Most Awaited Upcoming IPOs (Dates Not Yet Announced)</h2>
             <p className="text-sm text-text-muted mb-4">These companies have filed with SEBI or are in advanced stages. Dates and sizes are estimates and unconfirmed until the RHP is filed.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {BIG_UPCOMING.map((co) => (
@@ -369,7 +370,7 @@ export default function IpoPage() {
               {[
                 { step: "1", title: "Open a Demat + Trading Account", body: "You need a demat account with a broker like Zerodha, Groww, Angel One, or Upstox to apply for IPOs." },
                 { step: "2", title: "Link your bank account (ASBA / UPI)", body: "IPO applications use ASBA (Applications Supported by Blocked Amount) or UPI. Your bank blocks the amount; it is debited only if allotted." },
-                { step: "3", title: "Apply on open date", body: "Log in to your broker app → IPO section → Select the IPO → Choose lot size (minimum 1 lot) → Place bid at cut-off price." },
+                { step: "3", title: "Apply on open date", body: "Log in to your broker app â†’ IPO section â†’ Select the IPO â†’ Choose lot size (minimum 1 lot) â†’ Place bid at cut-off price." },
                 { step: "4", title: "Wait for allotment", body: "Allotment is by lottery for oversubscribed IPOs. Check allotment status via BSE/NSE or the registrar - see our Jio IPO allotment guide." },
                 { step: "5", title: "Listing day", body: "Shares are credited to your demat before listing. You can hold or sell on listing day based on the listing premium." },
               ].map((item) => (
@@ -391,7 +392,7 @@ export default function IpoPage() {
               {[
                 {
                   q: "Which big IPO is opening this week?",
-                  a: "The Reliance Jio Platforms IPO - India's largest-ever - opens 21 October 2026 at ₹1,065-₹1,119, alongside Paras Healthcare. Four mainboard IPOs (Tonbo Imaging, Bonfiglioli, Sahajanand Medical, Zetwerk) are already open and close 19 October.",
+                  a: "The Reliance Jio Platforms IPO - India's largest-ever - opens 21 October 2026 at â‚¹1,065-â‚¹1,119, alongside Paras Healthcare. Four mainboard IPOs (Tonbo Imaging, Bonfiglioli, Sahajanand Medical, Zetwerk) are already open and close 19 October.",
                 },
                 {
                   q: "What is IPO GMP (Grey Market Premium)?",
@@ -399,7 +400,7 @@ export default function IpoPage() {
                 },
                 {
                   q: "What is the minimum investment for an IPO?",
-                  a: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000-₹15,000. For the Jio IPO, 1 lot = 12 shares = ₹13,428 at the upper band.",
+                  a: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between â‚¹10,000-â‚¹15,000. For the Jio IPO, 1 lot = 12 shares = â‚¹13,428 at the upper band.",
                 },
                 {
                   q: "What is ASBA in IPO?",

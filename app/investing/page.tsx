@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/investing` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/investing`,
     siteName: "CoinMind",
     title: "Investing in India - Mutual Funds, Stocks, Gold & ETFs Guide",

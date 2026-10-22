@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import StopwatchTimer from "@/components/tools/StopwatchTimer";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Online Stopwatch & Countdown Timer - Free Tool",
     description:
       "A precise stopwatch with lap times plus a countdown timer with an alarm - free, private and instant, right in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "Will the countdown timer make a sound when it ends?",
-    a: "Yes. When the countdown reaches zero it plays a short beep using the Web Audio API and flashes a clear “Time’s up!” message. Make sure your device isn’t muted to hear the alarm.",
+    a: "Yes. When the countdown reaches zero it plays a short beep using the Web Audio API and flashes a clear â€œTimeâ€™s up!â€ message. Make sure your device isnâ€™t muted to hear the alarm.",
   },
   {
     q: "Does the timer keep running if I switch tabs?",

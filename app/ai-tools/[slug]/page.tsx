@@ -28,7 +28,7 @@ export async function generateMetadata({
       type: "article",
       url: `${site.url}/ai-tools/${slug}`,
       siteName: site.name,
-      locale: "en_US",
+      locale: "en_IN",
       title: `${tool.name} - Review, Pricing & Hacks`,
       description: tool.tagline,
       images: [

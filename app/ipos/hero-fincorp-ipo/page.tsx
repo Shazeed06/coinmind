@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Hero FinCorp IPO 2026: Price Band ₹428, Lot Size, GMP & Review | CoinMind",
+  title: "Hero FinCorp IPO 2026: Price Band â‚¹428, Lot Size, GMP & Review | CoinMind",
   description:
-    "Hero FinCorp IPO 2026 complete guide: ₹3,358 crore issue (₹1,790 Cr fresh + OFS), expected price ~₹428, lot 34 shares. Latest dates, GMP & should you apply?",
+    "Hero FinCorp IPO 2026 complete guide: â‚¹3,358 crore issue (â‚¹1,790 Cr fresh + OFS), expected price ~â‚¹428, lot 34 shares. Latest dates, GMP & should you apply?",
   keywords: [
     "Hero FinCorp IPO",
     "Hero FinCorp IPO 2026",
@@ -21,26 +21,27 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${site.url}/ipos/hero-fincorp-ipo` },
   openGraph: {
+    locale: "en_IN",
     title: "Hero FinCorp IPO 2026: Price, GMP, Date & Full Review",
     description:
-      "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
+      "Hero FinCorp IPO - â‚¹3,358 crore issue, NBFC arm of Hero Group. Expected price ~â‚¹428, lot 34 shares. Latest review.",
     url: `${site.url}/ipos/hero-fincorp-ipo`,
   },
   twitter: {
     card: "summary_large_image",
     title: "Hero FinCorp IPO 2026: Price, GMP, Date & Full Review",
     description:
-      "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
+      "Hero FinCorp IPO - â‚¹3,358 crore issue, NBFC arm of Hero Group. Expected price ~â‚¹428, lot 34 shares. Latest review.",
   },
 };
 
 const IPO_DETAILS = [
-  { label: "Total Issue Size", value: "₹3,358 crore" },
-  { label: "Fresh Issue", value: "₹1,790 crore" },
-  { label: "Offer for Sale (OFS)", value: "~₹1,568 crore (promoter partial exit)" },
-  { label: "Expected Price Band", value: "~₹428 per share (unconfirmed)" },
+  { label: "Total Issue Size", value: "â‚¹3,358 crore" },
+  { label: "Fresh Issue", value: "â‚¹1,790 crore" },
+  { label: "Offer for Sale (OFS)", value: "~â‚¹1,568 crore (promoter partial exit)" },
+  { label: "Expected Price Band", value: "~â‚¹428 per share (unconfirmed)" },
   { label: "Lot Size", value: "34 shares" },
-  { label: "Min. Investment (Retail)", value: "~₹14,552 (34 × ₹428)" },
+  { label: "Min. Investment (Retail)", value: "~â‚¹14,552 (34 Ã— â‚¹428)" },
   { label: "DRHP Filed", value: "November 2025" },
   { label: "Expected SEBI Approval", value: "Q1 - Q2 2026" },
   { label: "Expected Open Date", value: "TBA (revised from Aug 2026; Q4 2026 likely)" },
@@ -62,7 +63,7 @@ const PROS = [
 const CONS = [
   "NBFC sector faces higher NPA risk in two-wheeler segment - borrowers skew lower income",
   "RBI regulatory tightening on NBFCs could impact cost of funds",
-  "Significant OFS component (₹1,568 cr) - partial promoter exit dampens sentiment",
+  "Significant OFS component (â‚¹1,568 cr) - partial promoter exit dampens sentiment",
   "Competition from Bajaj Finance, Mahindra Finance, and digital-first lenders",
   "Rising interest rates can compress NIM (net interest margin)",
   "Dates keep getting pushed - originally targeted Aug 2026 but likely delayed to Q4",
@@ -71,11 +72,11 @@ const CONS = [
 const FAQS = [
   {
     q: "What is Hero FinCorp IPO price band?",
-    a: "The official price band has not been announced. Based on DRHP estimates and analyst projections, the price is expected around ₹428 per share. This is unconfirmed and will be finalized in the RHP.",
+    a: "The official price band has not been announced. Based on DRHP estimates and analyst projections, the price is expected around â‚¹428 per share. This is unconfirmed and will be finalized in the RHP.",
   },
   {
     q: "What is Hero FinCorp IPO lot size?",
-    a: "The expected lot size is 34 shares. At the estimated price of ₹428, the minimum retail investment would be approximately ₹14,552 for 1 lot.",
+    a: "The expected lot size is 34 shares. At the estimated price of â‚¹428, the minimum retail investment would be approximately â‚¹14,552 for 1 lot.",
   },
   {
     q: "When will Hero FinCorp IPO open?",
@@ -101,7 +102,7 @@ export default function HeroFincorpIpoPage() {
     "@type": "Article",
     headline: "Hero FinCorp IPO 2026: Price Band, GMP, Date & Complete Review",
     description:
-      "Full analysis of Hero FinCorp IPO - ₹3,358 crore issue, expected price ₹428, lot 34 shares, NBFC arm of Hero Group.",
+      "Full analysis of Hero FinCorp IPO - â‚¹3,358 crore issue, expected price â‚¹428, lot 34 shares, NBFC arm of Hero Group.",
     url: `${site.url}/ipos/hero-fincorp-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -140,29 +141,29 @@ export default function HeroFincorpIpoPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="mb-4">
             <Link href="/ipos" className="text-sm text-white/50 hover:text-white/80 transition-colors">
-              ← IPO Calendar
+              â† IPO Calendar
             </Link>
           </div>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-400/10 px-3 py-1 text-xs font-semibold text-blue-300">
-            UPCOMING · DATES TBA
+            UPCOMING Â· DATES TBA
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             Hero FinCorp IPO 2026
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            NBFC arm of the Hero Group plans to raise ₹3,358 crore. DRHP filed November 2025.
+            NBFC arm of the Hero Group plans to raise â‚¹3,358 crore. DRHP filed November 2025.
             Price band and dates to be officially announced.
           </p>
-          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Dates and figures are unconfirmed until the RHP is filed.</p>
+          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 Â· Dates and figures are unconfirmed until the RHP is filed.</p>
 
           <div className="mt-6 flex flex-wrap gap-4">
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Issue Size</p>
-              <p className="text-xl font-bold text-white">₹3,358 Cr</p>
+              <p className="text-xl font-bold text-white">â‚¹3,358 Cr</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Expected Price</p>
-              <p className="text-xl font-bold text-white">~₹428</p>
+              <p className="text-xl font-bold text-white">~â‚¹428</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Lot Size</p>
@@ -214,21 +215,21 @@ export default function HeroFincorpIpoPage() {
           <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
-              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>
+              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">âœ“ Strengths</h3>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
                   <li key={i} className="text-sm text-green-800 dark:text-green-300 flex gap-2">
-                    <span className="shrink-0 mt-0.5">•</span>{p}
+                    <span className="shrink-0 mt-0.5">â€¢</span>{p}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
-              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">✗ Risks</h3>
+              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ— Risks</h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
                   <li key={i} className="text-sm text-red-800 dark:text-red-300 flex gap-2">
-                    <span className="shrink-0 mt-0.5">•</span>{c}
+                    <span className="shrink-0 mt-0.5">â€¢</span>{c}
                   </li>
                 ))}
               </ul>
@@ -256,7 +257,7 @@ export default function HeroFincorpIpoPage() {
 
         <div className="text-center">
           <Link href="/ipos" className="inline-flex items-center gap-2 text-brand hover:underline font-medium text-sm">
-            ← View all IPOs on the CoinMind IPO Calendar
+            â† View all IPOs on the CoinMind IPO Calendar
           </Link>
         </div>
       </div>

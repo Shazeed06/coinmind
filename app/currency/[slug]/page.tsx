@@ -187,7 +187,7 @@ export async function generateMetadata({
       type: "website",
       url: `${site.url}${canonical}`,
       siteName: site.name,
-      locale: "en_US",
+      locale: "en_IN",
       title,
       description,
       images: [

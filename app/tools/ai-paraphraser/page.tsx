@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AiParaphraser from "@/components/tools/AiParaphraser";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "AI Paraphrasing Tool - Free Rewriter",
     description:
       "Rewrite and rephrase any text in seconds with AI. Choose from fluent, formal, casual, simple, shorten or expand styles - free and no sign-up.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

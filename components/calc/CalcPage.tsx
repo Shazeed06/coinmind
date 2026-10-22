@@ -11,28 +11,83 @@ import CalcActions from "@/components/calc/CalcActions";
 import { site } from "@/lib/site";
 
 // Maps calculator slug → relevant hub page(s)
+const HUB_SIP = { label: "SIP Hub - guides, ELSS, step-up SIP, and more", href: "/sip" };
+const HUB_INVESTING = { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" };
+const HUB_INCOME_TAX = { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" };
+const HUB_LOANS = { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" };
+const HUB_SAVINGS = { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" };
+const HUB_RETIREMENT = { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" };
+const HUB_BUDGETING = { label: "Budgeting Hub - cash flow, expense tracking, and financial health", href: "/budgeting" };
+
 const HUB_LINKS: Record<string, { label: string; href: string }> = {
-  "sip": { label: "SIP Hub - guides, ELSS, step-up SIP, and more", href: "/sip" },
-  "step-up-sip": { label: "SIP Hub - guides, ELSS, step-up SIP, and more", href: "/sip" },
-  "lumpsum": { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" },
-  "mutual-fund-returns": { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" },
-  "cagr": { label: "Investing Hub - mutual funds, stocks, gold, and more", href: "/investing" },
-  "income-tax": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "tds": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "capital-gains": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "hra": { label: "Income Tax Hub - regimes, deductions, ITR filing, and more", href: "/income-tax" },
-  "emi": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
-  "home-loan": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
-  "home-loan-eligibility": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
-  "personal-loan": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
-  "car-loan-emi": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
-  "education-loan-emi": { label: "Loans Hub - home loans, car loans, personal loans, and more", href: "/loans" },
-  "fd": { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" },
-  "rd": { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" },
-  "ppf": { label: "Savings Hub - FD, PPF, RD, savings strategies, and more", href: "/savings" },
-  "nps": { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
-  "fire": { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
-  "epf": { label: "Retirement Hub - NPS, EPF, FIRE, pension planning, and more", href: "/retirement" },
+  // SIP
+  "sip": HUB_SIP,
+  "step-up-sip": HUB_SIP,
+  "goal-sip": HUB_SIP,
+  "swp": HUB_SIP,
+
+  // Investing
+  "lumpsum": HUB_INVESTING,
+  "mutual-fund-returns": HUB_INVESTING,
+  "cagr": HUB_INVESTING,
+  "currency-converter": HUB_INVESTING,
+  "percentage-calculator": HUB_INVESTING,
+  "goal": HUB_INVESTING,
+  "goal-child-education": HUB_INVESTING,
+  "goal-marriage": HUB_INVESTING,
+
+  // Income Tax
+  "income-tax": HUB_INCOME_TAX,
+  "tds": HUB_INCOME_TAX,
+  "capital-gains": HUB_INCOME_TAX,
+  "hra": HUB_INCOME_TAX,
+  "gst": HUB_INCOME_TAX,
+  "take-home-salary": HUB_INCOME_TAX,
+  "sales-tax": HUB_INCOME_TAX,
+  "hourly-to-salary": HUB_INCOME_TAX,
+  "crypto-tax": HUB_INCOME_TAX,
+
+  // Loans
+  "emi": HUB_LOANS,
+  "home-loan": HUB_LOANS,
+  "home-loan-eligibility": HUB_LOANS,
+  "personal-loan": HUB_LOANS,
+  "personal-loan-emi": HUB_LOANS,
+  "car-loan-emi": HUB_LOANS,
+  "education-loan-emi": HUB_LOANS,
+  "rent-vs-buy": HUB_LOANS,
+  "mortgage": HUB_LOANS,
+  "goal-house-down-payment": HUB_LOANS,
+
+  // Savings
+  "fd": HUB_SAVINGS,
+  "rd": HUB_SAVINGS,
+  "ppf": HUB_SAVINGS,
+  "compound-interest": HUB_SAVINGS,
+  "inflation": HUB_SAVINGS,
+  "simple-interest": HUB_SAVINGS,
+  "sukanya-samriddhi": HUB_SAVINGS,
+  "nsc": HUB_SAVINGS,
+  "scss": HUB_SAVINGS,
+  "post-office-mis": HUB_SAVINGS,
+  "goal-car": HUB_SAVINGS,
+  "goal-emergency-fund": HUB_SAVINGS,
+
+  // Retirement
+  "retirement": HUB_RETIREMENT,
+  "nps": HUB_RETIREMENT,
+  "fire": HUB_RETIREMENT,
+  "epf": HUB_RETIREMENT,
+  "gratuity": HUB_RETIREMENT,
+  "age-calculator": HUB_RETIREMENT,
+  "date-difference-calculator": HUB_RETIREMENT,
+  "what-if-simulator": HUB_RETIREMENT,
+
+  // Budgeting
+  "tip-calculator": HUB_BUDGETING,
+  "discount": HUB_BUDGETING,
+  "net-worth": HUB_BUDGETING,
+  "financial-health": HUB_BUDGETING,
 };
 
 // Maps calculator slug → relevant comparison pages

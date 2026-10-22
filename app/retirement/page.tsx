@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/retirement` },
   openGraph: {
     type: "website",
+    locale: "en_IN",
     url: `${site.url}/retirement`,
     siteName: "CoinMind",
     title: "Retirement Planning India - NPS, PPF, EPF & SWP Guide 2026",

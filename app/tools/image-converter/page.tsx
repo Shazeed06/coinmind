@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import ImageConverter from "@/components/tools/ImageConverter";
 import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Image Converter - JPG, PNG & WebP Online Free",
     description:
       "Convert images between JPG, PNG and WebP instantly. 100% private - your images never leave your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AiCaptionGenerator from "@/components/tools/AiCaptionGenerator";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "AI Caption & Hashtag Generator - Free",
     description:
       "Describe your post, pick a platform and tone, and get 5 engaging captions plus 10-15 relevant hashtags, powered by AI.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import MergePdf from "@/components/tools/MergePdf";
 import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.coinmind.in/tools/merge-pdf",
     siteName: site.name,
-    locale: "en_US",
+    locale: "en_IN",
     title: "Merge PDF - Combine PDF Files Online Free",
     description:
       "Free online tool to combine multiple PDF files into one document, entirely in your browser - reorder pages, then download. No upload, no sign-up, 100% private.",
@@ -38,7 +38,7 @@ const howToUse = [
   },
   {
     step: "Remove unwanted files",
-    detail: "Click the remove button (the × icon) on any file you decide you don't want. The card disappears immediately and that file won't be included in the merged output.",
+    detail: "Click the remove button (the Ã— icon) on any file you decide you don't want. The card disappears immediately and that file won't be included in the merged output.",
   },
   {
     step: "Verify the page count",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import ColorPicker from "@/components/tools/ColorPicker";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Color Picker - HEX, RGB & HSL Converter",
     description:
       "Pick a color and convert between HEX, RGB and HSL with one-click copy and instant tints and shades. Runs entirely in your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What is the difference between HEX, RGB and HSL?",
-    a: "They describe the same color in different ways. HEX is a six-digit code used in HTML and CSS (#RRGGBB). RGB lists the red, green and blue channels from 0 to 255. HSL uses hue (0-360°), saturation and lightness, which makes it easy to create lighter or darker versions of a color by adjusting one number.",
+    a: "They describe the same color in different ways. HEX is a six-digit code used in HTML and CSS (#RRGGBB). RGB lists the red, green and blue channels from 0 to 255. HSL uses hue (0-360Â°), saturation and lightness, which makes it easy to create lighter or darker versions of a color by adjusting one number.",
   },
   {
     q: "What are tints and shades?",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import WordCounter from "@/components/tools/WordCounter";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Word Counter - Count Words & Characters Free",
     description:
       "Live word, character, sentence and paragraph counts with reading and speaking time. 100% private - your text never leaves your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import CropImage from "@/components/tools/CropImage";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Crop Image - Free Online Photo Cropper Tool",
     description:
       "Crop photos with a draggable box or exact pixel values and aspect-ratio presets. 100% private - nothing is uploaded.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

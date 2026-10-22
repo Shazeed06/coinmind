@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import ImageToPdf from "@/components/tools/ImageToPdf";
 import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.coinmind.in/tools/image-to-pdf",
     siteName: site.name,
-    locale: "en_US",
+    locale: "en_IN",
     title: "Image to PDF - Convert JPG & PNG to PDF Free",
     description:
       "Combine JPG and PNG images into a single PDF, entirely in your browser. No upload, no sign-up.",
@@ -95,7 +95,7 @@ const faqs = [
   },
   {
     q: "Can I choose the page size?",
-    a: "Yes. You have three options. Fit to image creates each page at exactly the dimensions of its image, so photos and scans fill the page edge to edge. A4 (210 × 297 mm) and Letter (8.5 × 11 inches) place each image on a standard-sized page, centred by default. You can also set the page orientation to portrait or landscape and add a margin in millimetres for a clean border around each image.",
+    a: "Yes. You have three options. Fit to image creates each page at exactly the dimensions of its image, so photos and scans fill the page edge to edge. A4 (210 Ã— 297 mm) and Letter (8.5 Ã— 11 inches) place each image on a standard-sized page, centred by default. You can also set the page orientation to portrait or landscape and add a margin in millimetres for a clean border around each image.",
   },
   {
     q: "Is there a limit on how many images I can add?",

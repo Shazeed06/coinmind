@@ -34,6 +34,7 @@ export function org(): Thing {
 
 export function website(): Thing {
   return {
+    "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${site.url}/#website`,
     name: site.name,

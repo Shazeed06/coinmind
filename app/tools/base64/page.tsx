@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Base64Tool from "@/components/tools/Base64Tool";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Base64 Encode & Decode - Free Online Tool",
     description:
       "Encode text to Base64 or decode it back, with correct UTF-8 handling. 100% private - your text never leaves your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

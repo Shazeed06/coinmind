@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import RemoveDuplicateLines from "@/components/tools/RemoveDuplicateLines";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Remove Duplicate Lines - Free Online Tool",
     description:
       "Delete repeated lines from any list, with case-insensitive matching, trimming, sorting and blank-line removal. Free, private and instant.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

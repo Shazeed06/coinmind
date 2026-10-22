@@ -20,7 +20,7 @@ const NOINDEX_SECTIONS = [
   // user-linked, but excluded from the sitemap and noindexed at the page level
   // (robots.index=false in each [slug] generateMetadata) so a large near-
   // duplicate footprint is not submitted for indexing. Same treatment as /sip/.
-  "/in-hand-salary/",
+  // NOTE: /in-hand-salary/ is intentionally indexed (high search volume in India).
   "/currency/",
   "/income-tax/",
   "/calculators/fd/",

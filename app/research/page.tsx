@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { site } from "@/lib/site";
 import Link from "next/link";
 
@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description: "Free access to India's historical finance data: income tax slab history, PPF/EPF/NPS rate history, RBI repo rate timeline, inflation series, and more.",
   alternates: { canonical: `${site.url}/research` },
   openGraph: {
+    locale: "en_IN",
     title: "Historical Finance Data India | CoinMind Research",
     description: "India's historical tax slabs, PPF rate history, RBI repo rates, inflation data - all free, sourced from official government records.",
     url: `${site.url}/research`,
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 const RESEARCH_SECTIONS = [
   {
     title: "Income Tax History",
-    icon: "📊",
+    icon: "ðŸ“Š",
     desc: "How India's tax slabs have changed since 2014 - both old and new regimes.",
     items: [
       { label: "New Regime Tax Slabs: FY 2020-21 to FY 2026-27", href: "/research/income-tax-slabs-history", live: true },
@@ -27,7 +28,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "Savings Scheme Rates",
-    icon: "💰",
+    icon: "ðŸ’°",
     desc: "Government-declared interest rates for PPF, EPF, NSC, SCSS, and Post Office schemes over the years.",
     items: [
       { label: "PPF Interest Rate History (2000-2026)", href: "/research/ppf-rate-history", live: true },
@@ -40,7 +41,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "RBI & Monetary Policy",
-    icon: "🏦",
+    icon: "ðŸ¦",
     desc: "Reserve Bank of India repo rate decisions, CRR/SLR history, and policy timelines.",
     items: [
       { label: "RBI Repo Rate History (2000-2026)", href: "/research/rbi-repo-rate-history", live: true },
@@ -50,7 +51,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "Inflation Data",
-    icon: "📈",
+    icon: "ðŸ“ˆ",
     desc: "India CPI and WPI inflation series, year-by-year.",
     items: [
       { label: "India CPI Inflation History (2013-2026)", href: "/research/cpi-inflation-history", live: false },
@@ -60,7 +61,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "NPS & Pension",
-    icon: "🎯",
+    icon: "ðŸŽ¯",
     desc: "NPS scheme returns, annuity rates, and historical performance data.",
     items: [
       { label: "NPS Tier-I Returns by Fund Manager (5-year)", href: "/research/nps-returns-history", live: false },
@@ -101,7 +102,7 @@ export default function ResearchPage() {
                     className="rounded-xl border border-line bg-card px-4 py-3 text-sm font-medium text-ink hover:border-forest hover:text-forest transition-colors"
                   >
                     {item.label}
-                    <span className="ml-2 text-ink-faint">→</span>
+                    <span className="ml-2 text-ink-faint">â†’</span>
                   </Link>
                 ) : (
                   <span
@@ -136,7 +137,7 @@ export default function ResearchPage() {
             "Finance Ministry Budget documents",
           ].map((s) => (
             <div key={s} className="flex items-start gap-1.5">
-              <span className="text-forest mt-0.5">✓</span>
+              <span className="text-forest mt-0.5">âœ“</span>
               <span>{s}</span>
             </div>
           ))}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description: "Embed free financial calculators on your website. SIP calculator widget, EMI calculator widget, FD calculator widget - free for bloggers, advisors and publishers.",
   alternates: { canonical: `${site.url}/widgets` },
   openGraph: {
+    locale: "en_IN",
     title: "Free Financial Calculator Widgets | CoinMind",
     description: "Embed India's best free financial calculators on your website. No login, no API key, just paste the code.",
     url: `${site.url}/widgets`,
@@ -54,9 +55,9 @@ export default function WidgetsPage() {
       {/* Use cases */}
       <div className="grid sm:grid-cols-3 gap-4 mb-10">
         {[
-          { icon: "✍️", title: "Finance bloggers", desc: "Keep readers on your page longer with interactive tools." },
-          { icon: "🏢", title: "Financial advisors", desc: "Offer calculators on your website without building them." },
-          { icon: "📰", title: "Publishers", desc: "Enhance articles with real-time calculations." },
+          { icon: "âœï¸", title: "Finance bloggers", desc: "Keep readers on your page longer with interactive tools." },
+          { icon: "ðŸ¢", title: "Financial advisors", desc: "Offer calculators on your website without building them." },
+          { icon: "ðŸ“°", title: "Publishers", desc: "Enhance articles with real-time calculations." },
         ].map((uc) => (
           <div key={uc.title} className="rounded-xl border border-line bg-card p-4">
             <div className="text-2xl mb-2">{uc.icon}</div>

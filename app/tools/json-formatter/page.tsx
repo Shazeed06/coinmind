@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import JsonFormatter from "@/components/tools/JsonFormatter";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "JSON Formatter & Validator - Free Online",
     description:
       "Beautify, minify and validate JSON with precise error locations. 100% private - your data never leaves your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",

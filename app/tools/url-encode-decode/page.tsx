@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import UrlEncodeTool from "@/components/tools/UrlEncodeTool";
 import { site } from "@/lib/site";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "URL Encode & Decode - Free Online Tool",
     description:
       "Percent-encode and decode URLs and query strings with encodeURIComponent or encodeURI. 100% private - your text never leaves your browser.",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
