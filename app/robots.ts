@@ -57,6 +57,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: INTERNAL_PATHS,
       },
+      {
+        userAgent: AI_CRAWLERS,
+        allow: "/",
+        disallow: INTERNAL_PATHS,
+      },
     ],
     sitemap: `${site.url}/sitemap.xml`,
     host: site.url,

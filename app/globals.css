@@ -178,7 +178,7 @@ h4 {
   margin: 0 auto;
   padding-inline: clamp(1rem, 4vw, 1.5rem);
 }
-.prose-container { max-width: 720px; margin: 0 auto; }
+.prose-container { max-width: 100%; width: 100%; }
 
 /* Long-form review bodies rendered by <ArticleMarkdown/> on the AI tool pages,
    which use the ink/forest palette rather than the blog's <Prose> wrapper. */

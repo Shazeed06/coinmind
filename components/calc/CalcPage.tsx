@@ -268,7 +268,7 @@ export default function CalcPage({
       {/* How it works */}
       <section className="mt-12 max-w-3xl">
         <h2 className="font-display text-2xl text-ink">{how.heading}</h2>
-        <div className="mt-5 max-w-[600px] text-ink-soft leading-relaxed space-y-4">{how.body}</div>
+        <div className="mt-5 text-ink-soft leading-relaxed space-y-4">{how.body}</div>
       </section>
 
       {/* FAQ */}

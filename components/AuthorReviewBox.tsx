@@ -27,7 +27,7 @@ export default function AuthorReviewBox({
         <div>
           <p className="font-semibold text-ink">
             Written &amp; reviewed by{" "}
-            <Link href="/about#author" className="text-forest underline underline-offset-2 decoration-forest/40 transition-colors hover:decoration-forest">
+            <Link href={`/authors/${site.author.slug}`} className="text-forest underline underline-offset-2 decoration-forest/40 transition-colors hover:decoration-forest">
               {site.author.fullName}
             </Link>
             , {site.author.credential}

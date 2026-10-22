@@ -144,10 +144,12 @@ export default async function Page({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJson) }}
       />
 
-      <section className="section-pad pb-0 bg-white">
+      {/* Uplifted Editorial Hero Section */}
+      <section className="bg-white border-b border-border/60 pt-6 sm:pt-10 pb-8 sm:pb-12">
         <div className="container-main">
+          {/* Breadcrumb Navigation */}
           <nav
-            className="flex items-center gap-1.5 text-sm text-text-muted mb-4"
+            className="flex items-center gap-1.5 text-xs sm:text-sm text-text-muted mb-4"
             aria-label="Breadcrumb"
           >
             <Link href="/" className="hover:text-brand transition-colors">
@@ -161,53 +163,67 @@ export default async function Page({
             <span className="text-text truncate">{article.title}</span>
           </nav>
 
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Metadata Badges */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
             <Pill>{article.category}</Pill>
-            <span className="text-xs text-text-muted">{article.tag}</span>
+            <span className="text-xs text-text-muted font-medium">{article.tag}</span>
+            <span className="text-xs text-text-muted">·</span>
+            <span className="text-xs text-text-muted">{article.readMinutes} min read</span>
+            <span className="text-xs text-text-muted">·</span>
+            <span className="text-xs text-text-muted">{article.date}</span>
           </div>
 
-          <h1 className="h1-article text-text mt-3 max-w-[720px]">{article.title}</h1>
+          {/* News Headline */}
+          <h1 className="h1-article text-text mt-2 max-w-4xl tracking-tight leading-[1.14]">
+            {article.title}
+          </h1>
 
-          <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white text-sm font-semibold">
-              {site.author.fullName.charAt(0)}
-            </span>
-            <div className="text-sm">
-              <p className="font-semibold text-text">
-                {site.author.fullName}{" "}
-                <span className="font-normal text-text-muted">
-                  · {site.author.credential}
+          {/* Lead Summary */}
+          <p className="mt-4 text-lg sm:text-xl text-text-muted max-w-3xl leading-relaxed">
+            {article.summary}
+          </p>
+
+          {/* Author & Source Byline */}
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-border pt-5">
+            <div className="flex items-center gap-3">
+              <Link href={`/authors/${site.author.slug}`}>
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-brand text-white text-sm font-semibold hover:opacity-90 transition-opacity">
+                  {site.author.fullName.charAt(0)}
                 </span>
-              </p>
-              <p className="text-text-muted">
-                {article.date} · {article.readMinutes} min read · {article.source}
-              </p>
+              </Link>
+              <div className="text-sm">
+                <p className="font-semibold text-text">
+                  <Link href={`/authors/${site.author.slug}`} className="hover:text-brand hover:underline">
+                    {site.author.fullName}
+                  </Link>
+                  <span className="font-normal text-text-muted"> · {site.author.credential}</span>
+                </p>
+                <p className="text-xs text-text-muted">
+                  {article.date} · {article.readMinutes} min read · Source: {article.source}
+                </p>
+              </div>
             </div>
+          </div>
+
+          {/* Featured Hero Image - PROMINENTLY VISIBLE ABOVE THE FOLD */}
+          <div className="mt-8 aspect-[16/9] sm:aspect-[21/9] max-h-[460px] w-full rounded-2xl border border-border overflow-hidden shadow-sm bg-slate-900">
+            <CoverArt
+              seed={article.slug}
+              variant={art.variant}
+              palette={art.palette}
+              label={article.category}
+              className="h-full w-full"
+            />
           </div>
         </div>
       </section>
 
-      <div className="container-main section-pad pt-8">
-        <div className="aspect-[2/1] rounded-card border border-border overflow-hidden mb-8">
-          <CoverArt
-            seed={article.slug}
-            variant={art.variant}
-            palette={art.palette}
-            label={article.category}
-            className="h-full w-full"
-          />
-        </div>
-      </div>
-
-      <div className="container-main section-pad pt-0">
-        <div className="grid lg:grid-cols-12 gap-8">
+      {/* Main Content Area */}
+      <div className="container-main py-10 sm:py-14">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Main Article Column: 8 of 12 columns for generous, comfortable reading width */}
           <article className="lg:col-span-8">
-            {/* `article-body` (globals.css) supplies the table and list styling
-                that Prose alone does not cover for markdown-rendered bodies. */}
             <Prose className="article-body">
-              <p className="text-lg text-text-muted mb-8 leading-relaxed">
-                {article.summary}
-              </p>
               <ArticleMarkdown markdown={article.bodyMarkdown} />
             </Prose>
 
@@ -239,9 +255,10 @@ export default async function Page({
             </div>
           </article>
 
+          {/* Sidebar: 4 of 12 columns */}
           <aside className="lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-              <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent">
+              <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent shadow-2xs">
                 <Calculator className="h-8 w-8 text-brand" />
                 <p className="text-sm font-semibold text-text mt-3">Run your own numbers</p>
                 <p className="text-xs text-text-muted mt-1">
@@ -276,7 +293,7 @@ export default async function Page({
                           {a.title}
                         </p>
                         <p className="text-[11px] text-text-muted mt-1">
-                          {a.readMinutes} min read
+                          {a.readMinutes} min read · {a.date}
                         </p>
                       </div>
                     </Link>

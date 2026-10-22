@@ -638,7 +638,7 @@ export default async function Page({
       author: {
         "@type": "Person",
         name: site.author.fullName,
-        url: `${site.url}/about`,
+        url: `${site.url}/authors/${site.author.slug}`,
         jobTitle: site.author.role,
         description: site.author.bio,
       },
@@ -675,18 +675,16 @@ export default async function Page({
     });
   }
   const articleJson = { "@context": "https://schema.org", "@graph": graph };
-  const TOC = [
-    { id: `post-${post.slug}`, label: post.title },
-    ...(faqItems.length ? [{ id: "faq", label: "Frequently asked questions" }] : []),
-  ];
 
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJson) }} />
 
-      <section className="section-pad pb-0 bg-white">
+      {/* Uplifted Editorial Hero Section */}
+      <section className="bg-white border-b border-border/60 pt-6 sm:pt-10 pb-8 sm:pb-12">
         <div className="container-main">
-          <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-4" aria-label="Breadcrumb">
+          {/* Breadcrumb Navigation */}
+          <nav className="flex items-center gap-1.5 text-xs sm:text-sm text-text-muted mb-4" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-brand transition-colors">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/blog" className="hover:text-brand transition-colors">Guides</Link>
@@ -694,45 +692,63 @@ export default async function Page({
             <span className="text-text truncate">{post.title}</span>
           </nav>
 
-          <Pill>{post.category}</Pill>
-          <h1 className="h1-article text-text mt-3 max-w-[720px]">{post.title}</h1>
+          {/* Meta Tags */}
+          <div className="flex flex-wrap items-center gap-2.5 mb-3">
+            <Pill>{post.category}</Pill>
+            <span className="text-xs text-text-muted font-medium">{post.readMinutes} min read</span>
+            <span className="text-xs text-text-muted">·</span>
+            <span className="text-xs text-text-muted">{post.date}</span>
+          </div>
 
-          <div className="mt-5 flex items-center gap-3 border-t border-border pt-5">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white text-sm font-semibold">
-              {site.author.fullName.charAt(0)}
-            </span>
-            <div className="text-sm">
-              <p className="font-semibold text-text">
-                {site.author.fullName} <span className="font-normal text-text-muted">· {site.author.credential}</span>
-              </p>
-              <p className="text-text-muted">{post.date} · {post.readMinutes} min read</p>
+          {/* Article Title */}
+          <h1 className="h1-article text-text mt-2 max-w-4xl tracking-tight leading-[1.14]">
+            {post.title}
+          </h1>
+
+          {/* Lead Excerpt */}
+          <p className="mt-4 text-lg sm:text-xl text-text-muted max-w-3xl leading-relaxed">
+            {post.excerpt}
+          </p>
+
+          {/* Author Byline Bar */}
+          <div className="mt-6 flex items-center justify-between gap-4 border-t border-border pt-5">
+            <div className="flex items-center gap-3">
+              <Link href={`/authors/${site.author.slug}`}>
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-brand text-white text-sm font-semibold hover:opacity-90 transition-opacity">
+                  {site.author.fullName.charAt(0)}
+                </span>
+              </Link>
+              <div className="text-sm">
+                <p className="font-semibold text-text">
+                  <Link href={`/authors/${site.author.slug}`} className="hover:text-brand hover:underline">
+                    {site.author.fullName}
+                  </Link>
+                  <span className="font-normal text-text-muted"> · {site.author.credential}</span>
+                </p>
+                <p className="text-xs text-text-muted">{post.date} · {post.readMinutes} min read · Reviewed for accuracy</p>
+              </div>
             </div>
+          </div>
+
+          {/* Featured Hero Image - PROMINENTLY VISIBLE ABOVE THE FOLD */}
+          <div className="mt-8 aspect-[16/9] sm:aspect-[21/9] max-h-[460px] w-full rounded-2xl border border-border overflow-hidden shadow-sm bg-slate-900">
+            <CoverArt
+              seed={post.slug}
+              variant={post.art.variant}
+              palette={post.art.palette}
+              label={post.category}
+              className="h-full w-full"
+            />
           </div>
         </div>
       </section>
 
-      <div className="container-main section-pad pt-8">
-        <div className="aspect-[2/1] rounded-card border border-border overflow-hidden mb-8">
-          <CoverArt seed={post.slug} variant={post.art.variant} palette={post.art.palette} label={post.category} className="h-full w-full" />
-        </div>
-      </div>
-
-      <div className="container-main section-pad pt-0">
-        <div className="grid lg:grid-cols-12 gap-8">
-          <aside className="hidden lg:block lg:col-span-2">
-            <div className="sticky top-24 space-y-1">
-              <p className="eyebrow text-text-muted mb-3">On this page</p>
-              {TOC.map(({ id, label }) => (
-                <a key={id} href={`#${id}`} className="block text-sm py-1.5 border-l-2 border-border pl-3 text-text-muted hover:text-text hover:border-text-muted transition-colors">{label}</a>
-              ))}
-            </div>
-          </aside>
-
-          {/* The "On this page" link targets this id. Without it the anchor
-              resolved to nothing and clicking it did nothing at all. */}
-          <article id={`post-${post.slug}`} className="lg:col-span-7 scroll-mt-24">
+      {/* Main Reading Content Area with generous width */}
+      <div className="container-main py-10 sm:py-14">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Main Article Column: 8 of 12 columns for generous, comfortable reading width */}
+          <article id={`post-${post.slug}`} className="lg:col-span-8 scroll-mt-24">
             <Prose>
-              <p className="text-lg text-text-muted mb-8 leading-relaxed">{post.excerpt}</p>
               {body}
             </Prose>
 
@@ -769,9 +785,11 @@ export default async function Page({
             </div>
           </article>
 
-          <aside className="hidden lg:block lg:col-span-3">
+          {/* Sticky Sidebar: 4 of 12 columns */}
+          <aside className="lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-              <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent">
+              {/* Interactive Tool CTA */}
+              <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent shadow-2xs">
                 <Calculator className="h-8 w-8 text-brand" />
                 <p className="text-sm font-semibold text-text mt-3">Try {related.calc.label}</p>
                 <p className="text-xs text-text-muted mt-1">{related.calc.desc}</p>
@@ -780,19 +798,27 @@ export default async function Page({
                 </Link>
               </div>
 
+              {/* Topic Hub Crosslink */}
               <div className="p-4 rounded-card border border-border bg-bg-alt">
                 <p className="eyebrow text-text-muted">Explore Section</p>
                 <Link href={related.hub.href} className="mt-1 block text-sm font-semibold text-text hover:text-brand transition-colors">
                   {related.hub.label} &rarr;
                 </Link>
               </div>
+
+              {/* Keep Reading Related Posts */}
               <div>
                 <p className="eyebrow text-text-muted mb-3">Keep reading</p>
                 <div className="space-y-3">
                   {more.map((p) => (
-                    <Link key={p.slug} href={`/blog/${p.slug}`} className="block">
-                      <p className="text-sm text-text hover:text-brand transition-colors line-clamp-2">{p.title}</p>
-                      <p className="text-xs text-text-muted mt-0.5">{p.readMinutes} min read</p>
+                    <Link
+                      key={p.slug}
+                      href={`/blog/${p.slug}`}
+                      className="block p-3 rounded-lg border border-transparent hover:border-border hover:bg-bg-alt transition-all"
+                    >
+                      <p className="text-xs font-semibold text-brand mb-1">{p.category}</p>
+                      <p className="text-sm font-medium text-text hover:text-brand transition-colors line-clamp-2">{p.title}</p>
+                      <p className="text-xs text-text-muted mt-1">{p.readMinutes} min read · {p.date}</p>
                     </Link>
                   ))}
                 </div>

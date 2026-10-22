@@ -75,7 +75,7 @@ export default function Page() {
           "@type": "Person",
           name: site.author.fullName,
           jobTitle: site.author.credential,
-          url: `${site.url}/about#author`,
+          url: `${site.url}/authors/${site.author.slug}`,
         },
         publisher: { "@type": "Organization", name: site.name, url: site.url },
         datePublished: "2026-07-24",
