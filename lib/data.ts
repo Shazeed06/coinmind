@@ -1141,6 +1141,9 @@ export type Post = {
   // Older posts use the hand-written JSX in the blog [slug] `bodies` record.
   bodyMarkdown?: string;
   faq?: { q: string; a: string }[];
+  // Optional "Key Takeaways" bullets shown in a callout at the top of the
+  // article. When omitted, the callout is not rendered.
+  keyTakeaways?: string[];
 };
 
 export const posts: Post[] = [
@@ -1604,14 +1607,41 @@ export const posts: Post[] = [
   },
   {
     slug: "sip-vs-lumpsum",
-    title: "SIP vs Lumpsum: Which Actually Builds More Wealth?",
+    title: "SIP vs Lump Sum: Which Strategy Makes Sense for You in 2026?",
+    metaTitle: "SIP vs Lump Sum 2026: Which Investment Strategy Is Better?",
     excerpt:
-      "Across market cycles, the answer isn't what most people assume - and it depends heavily on one thing.",
-    category: "Investing",
-    readMinutes: 7,
-    date: "Jul 8, 2026",
-    keywords: ["sip vs lumpsum", "mutual fund investing"],
+      "Compare returns, risk, time horizon and market conditions to understand which investment strategy suits your financial goals, with charts and real examples.",
+    category: "Mutual Funds",
+    readMinutes: 8,
+    date: "Oct 20, 2026",
+    keywords: ["sip vs lumpsum", "sip vs lump sum", "mutual fund investing", "rupee cost averaging", "lump sum investment india"],
     art: { variant: "chart", palette: "brass" },
+    keyTakeaways: [
+      "SIP helps you invest gradually and reduces the risk of market volatility.",
+      "Lump sum can generate higher returns in a rising market, but comes with higher risk.",
+      "Your choice depends on your financial goals, time horizon and risk appetite.",
+      "Use a calculator to compare both strategies with your own numbers.",
+    ],
+    bodyMarkdown:
+      "When it comes to investing in mutual funds, one of the most common questions is: should you invest via SIP (Systematic Investment Plan) or go with a lump sum investment? Both strategies can help you build wealth, but they work differently and suit different situations. In this guide, we'll compare SIP and lump sum in detail, with examples and practical insights to help you decide what's right for you in 2026.\n\n## Introduction\n\nA Systematic Investment Plan (SIP) means investing a fixed amount at regular intervals, usually every month. A lump sum investment means putting a larger amount into the market all at once. The right approach depends less on which is \"better\" in theory and more on your cash flow, time horizon and comfort with market swings.\n\nIf you earn and invest from a monthly salary, a SIP is the natural fit. If a large amount is sitting idle, from a bonus, a maturity or an inheritance, the SIP-versus-lump-sum question becomes a real decision.\n\n## SIP vs Lump Sum: Key Differences\n\n| Aspect | SIP (Systematic Investment Plan) | Lump Sum Investment |\n|---|---|---|\n| Investment Amount | Fixed amount at regular intervals | One-time investment |\n| Market Risk | Lower (rupee cost averaging) | Higher (depends on market timing) |\n| Best For | Salaried individuals, long-term goals | Investors with surplus funds |\n| Returns Potential | Moderate, more stable | Higher, if invested at the right time |\n| Flexibility | High (start with small amounts) | Lower (requires large capital) |\n\n## Returns Comparison: Example\n\nConsider how a ₹10,000 monthly SIP compares with a ₹1,20,000 lump sum investment over 10 years at an assumed average return of 12% per annum.\n\n| Strategy | Total Invested | Illustrative Value (10 yrs) |\n|---|---:|---:|\n| SIP (₹10,000/month) | ₹12,00,000 | ₹22,83,102 |\n| Lump Sum (₹1,20,000 one-time) | ₹1,20,000 | ₹3,72,702 |\n\nThe two are not directly comparable here because the amounts invested are very different: the SIP puts in ₹12 lakh over ten years, while the one-time lump sum is only ₹1.2 lakh. The point of the example is the mechanics, not a winner. To compare like with like, run the same total amount both ways in the [SIP Calculator](/calculators/sip).\n\n> **Note:** This is an illustrative example assuming 12% annual returns. Actual returns vary with market conditions and are not guaranteed.\n\n## When to Choose SIP?\n\n- You have a regular income and want to invest gradually.\n- You are new to investing and want to reduce market-timing risk.\n- You are investing for long-term goals like retirement, a child's education or buying a home.\n- You prefer discipline and automation over watching the market.\n\n## When to Choose Lump Sum?\n\n- You have a large surplus amount (a bonus, inheritance or asset-sale proceeds).\n- You believe the market is reasonably valued or in a long-term growth phase.\n- You have a higher risk appetite and a longer investment horizon.\n- You do not need the money in the short term and can ride out volatility.\n\nA common middle path is a Systematic Transfer Plan (STP): park the lump sum in a low-risk fund and move it into equity in instalments over 6-12 months, which balances growth and timing risk.\n\n## Risk Factors to Consider\n\nLump sum investments are more sensitive to market volatility. If the market falls soon after you invest, your portfolio value can decline sharply. SIP reduces this risk by averaging the purchase cost over time, but it does not guarantee profits or protect against prolonged market downturns.\n\nNeither approach removes market risk entirely. Your asset allocation, fund selection and holding period matter far more than the SIP-versus-lump-sum choice alone.\n\n## Final Thoughts\n\nThere is no single correct answer. For most salaried investors, a SIP is the practical and disciplined choice. For those holding a surplus with a long horizon and higher risk tolerance, a lump sum, or a staggered STP, can work well. Compare both with your own numbers before deciding.\n\n**Important:** This article is for educational purposes only and does not constitute financial advice. Mutual fund investments are subject to market risks; read all scheme-related documents carefully.\n\n## Frequently Asked Questions\n\n### Is SIP safer than lump sum?\n\nSIP is generally lower-risk because it spreads your investment across different market levels through rupee cost averaging. Lump sum carries higher timing risk, though it can outperform in a steadily rising market.\n\n### Can I do both SIP and lump sum together?\n\nYes. Many investors run a regular SIP from their salary and additionally invest lump sums when they receive a bonus or windfall. The two approaches are complementary.\n\n### Which gives higher returns, SIP or lump sum?\n\nIn a consistently rising market, a lump sum invested early can give higher returns because the full amount compounds for longer. In volatile or falling markets, SIP often performs better due to averaging. Historical returns do not guarantee future results.\n\n### How much should I invest in a SIP?\n\nA common guideline is to invest what you can sustain every month without disrupting your essential expenses and emergency fund. Use the [SIP Calculator](/calculators/sip) to size a SIP against your goal.\n\n## Sources & References\n\n- [Association of Mutual Funds in India (AMFI)](https://www.amfiindia.com/)\n- [Securities and Exchange Board of India (SEBI)](https://www.sebi.gov.in/)",
+    faq: [
+      {
+        q: "Is SIP safer than lump sum?",
+        a: "SIP is generally lower-risk because it spreads your investment across different market levels through rupee cost averaging. Lump sum carries higher timing risk, though it can outperform in a steadily rising market.",
+      },
+      {
+        q: "Can I do both SIP and lump sum together?",
+        a: "Yes. Many investors run a regular SIP from their salary and additionally invest lump sums when they receive a bonus or windfall. The two approaches are complementary.",
+      },
+      {
+        q: "Which gives higher returns, SIP or lump sum?",
+        a: "In a consistently rising market, a lump sum invested early can give higher returns because the full amount compounds for longer. In volatile or falling markets, SIP often performs better due to averaging. Historical returns do not guarantee future results.",
+      },
+      {
+        q: "How much should I invest in a SIP?",
+        a: "A common guideline is to invest what you can sustain every month without disrupting your essential expenses and emergency fund. Use the SIP calculator to size a SIP against your goal.",
+      },
+    ],
   },
   {
     slug: "how-to-improve-credit-score",

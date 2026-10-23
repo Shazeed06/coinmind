@@ -2,10 +2,65 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useCallback } from "react";
-import { navMenus, type NavMenu } from "@/lib/site";
-import { Search, X, Menu, ChevronDown, ArrowRight, Zap } from "lucide-react";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { navMenus, type NavMenu, type NavColumn, type NavItem } from "@/lib/site";
+import {
+  Search, X, Menu, ChevronDown, ChevronRight, ArrowRight, Zap,
+  Calculator, LineChart, PiggyBank, BookOpen, BarChart3, Lightbulb, Flame,
+  Building2, FileText, Wrench, Bot, Sparkles, GraduationCap, Star,
+  TrendingUp, Coins, Landmark, Receipt, Gauge, Umbrella, Wallet, Newspaper,
+  Scale, Microscope, Activity, Target, HeartPulse, Percent, ShieldCheck,
+  Rocket, Image as ImageIcon, type LucideIcon,
+} from "lucide-react";
 import { LogoMark } from "./Logo";
+import { resolveCoverImageUrl } from "./CoverArt";
+
+// Icon registry for nav column headings (keyed by `icon` in lib/site.ts).
+const ICONS: Record<string, LucideIcon> = {
+  calculator: Calculator, lineChart: LineChart, piggy: PiggyBank,
+  book: BookOpen, barChart: BarChart3, bulb: Lightbulb, flame: Flame,
+  search: Search, building: Building2, fileText: FileText, wrench: Wrench,
+  bot: Bot, sparkles: Sparkles,
+};
+
+// Keyword → icon + colour for individual nav links, so each item gets a
+// topical, coloured icon without hand-annotating every entry.
+const ITEM_ICONS: [RegExp, LucideIcon, string][] = [
+  [/lump\s*sum|lumpsum/, Coins, "#0284c7"],
+  [/\bsip\b|systematic/, TrendingUp, "#2f5bea"],
+  [/mutual fund|\bfund\b/, BarChart3, "#2f5bea"],
+  [/emi|loan|mortgage/, Landmark, "#d97706"],
+  [/income tax|\btax\b/, Receipt, "#16a34a"],
+  [/credit|cibil/, Gauge, "#e11d48"],
+  [/retire|pension|\bnps\b|\bepf\b|fire/, Umbrella, "#7c3aed"],
+  [/\bppf\b/, ShieldCheck, "#16a34a"],
+  [/\bfd\b|fixed deposit|savings|\brd\b/, PiggyBank, "#16a34a"],
+  [/gold|metal/, Coins, "#d97706"],
+  [/net worth/, Scale, "#0284c7"],
+  [/\bgoal\b/, Target, "#2f5bea"],
+  [/health|score/, HeartPulse, "#e11d48"],
+  [/cagr|compound|return|interest/, Percent, "#7c3aed"],
+  [/investing|invest|stock|market|equity/, LineChart, "#2f5bea"],
+  [/glossary/, BookOpen, "#0284c7"],
+  [/news/, Newspaper, "#d97706"],
+  [/guide|blog|article|how-to/, BookOpen, "#2f5bea"],
+  [/compar/, Scale, "#7c3aed"],
+  [/research/, Microscope, "#0284c7"],
+  [/finance today|live|rbi/, Activity, "#16a34a"],
+  [/ipo|gmp|allot|\bnse\b|zepto|oyo|phonepe|fincorp|jio/, Rocket, "#2f5bea"],
+  [/upcoming/, TrendingUp, "#16a34a"],
+  [/merge pdf|image to pdf|\bpdf\b|document/, FileText, "#e11d48"],
+  [/invoice/, Receipt, "#d97706"],
+  [/resume/, FileText, "#2f5bea"],
+  [/compress|image/, ImageIcon, "#7c3aed"],
+  [/chatgpt|gemini|deepseek|ask ai|ai tool|assistant|\bai\b/, Sparkles, "#7c3aed"],
+  [/budget/, Wallet, "#16a34a"],
+];
+function iconFor(label: string, href: string): { Icon: LucideIcon; color: string } {
+  const t = `${label} ${href}`.toLowerCase();
+  for (const [re, Icon, color] of ITEM_ICONS) if (re.test(t)) return { Icon, color };
+  return { Icon: BarChart3, color: "#64748b" };
+}
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -118,6 +173,7 @@ export default function Header() {
                     aria-expanded={open}
                     aria-haspopup="true"
                     onFocus={() => openNow(m.label)}
+                    data-nav-trigger={m.label}
                     className={`relative inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-150 ${
                       active || open
                         ? "text-white bg-white/10"
@@ -135,7 +191,14 @@ export default function Header() {
                     )}
                   </Link>
 
-                  {open && <MenuPanel menu={m} isActive={isActive} />}
+                  {open && (
+                    <MenuPanel
+                      menu={m}
+                      isActive={isActive}
+                      onEnter={() => openNow(m.label)}
+                      onLeave={closeSoon}
+                    />
+                  )}
                 </div>
               );
             })}
@@ -261,70 +324,201 @@ export default function Header() {
   );
 }
 
-function MenuPanel({ menu, isActive }: { menu: NavMenu; isActive: (h: string) => boolean }) {
+function MenuPanel({
+  menu, isActive, onEnter, onLeave,
+}: {
+  menu: NavMenu;
+  isActive: (h: string) => boolean;
+  onEnter: () => void;
+  onLeave: () => void;
+}) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [caretX, setCaretX] = useState(80);
+
+  // Point the caret at the active trigger even though the panel is centered.
+  useLayoutEffect(() => {
+    const trigger = document.querySelector<HTMLElement>(`[data-nav-trigger="${menu.label}"]`);
+    const card = wrapRef.current?.querySelector<HTMLElement>("[data-panel-card]");
+    if (!trigger || !card) return;
+    const place = () => {
+      const tr = trigger.getBoundingClientRect();
+      const cr = card.getBoundingClientRect();
+      const x = tr.left + tr.width / 2 - cr.left;
+      setCaretX(Math.max(28, Math.min(cr.width - 28, x)));
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
+  }, [menu.label]);
+
+  const colColors = ["#2f5bea", "#16a34a", "#d97706", "#7c3aed"];
+
   return (
     <div
-      className="absolute left-0 top-full pt-2.5 z-50"
-      style={{ minWidth: menu.columns.length > 1 ? 600 : 300 }}
+      ref={wrapRef}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      className="fixed left-1/2 z-50 -translate-x-1/2 px-2"
+      style={{ top: "78px", width: "min(1140px, calc(100vw - 16px))" }}
     >
-      {/* Glow effect */}
-      <div className="absolute inset-0 top-2 rounded-2xl bg-[#2f5bea]/10 blur-xl pointer-events-none" />
-
-      <div className="relative rounded-2xl border border-[#1e3a5f] bg-[#0c1628]/98 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden">
-        {/* Panel blurb header */}
-        <div className="px-5 pt-4 pb-3 border-b border-[#1e3a5f]/60 flex items-center gap-2">
-          <div className="h-1.5 w-1.5 rounded-full bg-[#4ade80]" />
-          <p className="text-sm text-slate-400 leading-relaxed">{menu.blurb}</p>
-        </div>
-
-        <div className={`p-3 grid gap-1 ${menu.columns.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-          {menu.columns.map((col, ci) => (
-            <div key={col.heading ?? ci}>
-              {col.heading && (
-                <p className="px-3 pt-2.5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-600">
-                  {col.heading}
-                </p>
-              )}
-              {col.items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-all duration-150 ${
-                    isActive(item.href)
-                      ? "bg-[#2f5bea]/15 text-[#6b9cff]"
-                      : "hover:bg-white/5"
-                  }`}
-                >
-                  <div className={`mt-1 h-1.5 w-1.5 rounded-full shrink-0 transition-colors ${
-                    isActive(item.href) ? "bg-[#6b9cff]" : "bg-slate-600 group-hover:bg-[#4ade80]"
-                  }`} />
-                  <div>
-                    <span className={`block text-sm font-medium leading-snug transition-colors ${
-                      isActive(item.href) ? "text-[#6b9cff]" : "text-slate-300 group-hover:text-white"
-                    }`}>
-                      {item.label}
-                    </span>
-                    {item.desc && (
-                      <span className="block text-xs text-slate-600 mt-0.5 leading-snug group-hover:text-slate-500 transition-colors">
-                        {item.desc}
-                      </span>
-                    )}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-
-        {menu.footer && (
-          <Link
-            href={menu.footer.href}
-            className="group flex items-center justify-between gap-2 border-t border-[#1e3a5f]/60 bg-gradient-to-r from-[#2f5bea]/8 to-transparent px-5 py-3 text-sm font-semibold text-[#6b9cff] hover:from-[#2f5bea]/15 transition-all"
+      {/* hover bridge above the card */}
+      <div className="absolute inset-x-0 -top-3 h-3" aria-hidden="true" />
+      <div
+        data-panel-card
+        className="relative rounded-2xl border border-[#e6eaf2] bg-white shadow-[0_24px_70px_rgba(15,23,42,0.28)]"
+      >
+        <span
+          className="absolute -top-2 z-10 h-4 w-4 rotate-45 rounded-[3px] border-l border-t border-[#e6eaf2] bg-white"
+          style={{ left: caretX - 8 }}
+          aria-hidden="true"
+        />
+        <div className="relative flex overflow-hidden rounded-2xl">
+          {menu.promo && <PromoCard promo={menu.promo} />}
+          <div
+            className="grid flex-1 gap-1 p-5"
+            style={{ gridTemplateColumns: `repeat(${menu.columns.length}, minmax(0, 1fr))` }}
           >
-            {menu.footer.label}
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+            {menu.columns.map((col, ci) => (
+              <div key={col.heading ?? ci} className="min-w-0 px-2">
+                <ColHeading col={col} color={colColors[ci % colColors.length]} />
+                <div className="mt-2 space-y-0.5">
+                  {col.items.map((item) => (
+                    <ItemLink
+                      key={item.href}
+                      item={item}
+                      isActive={isActive}
+                      fallback={colColors[ci % colColors.length]}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          {menu.popular && <PopularList popular={menu.popular} />}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PromoCard({ promo }: { promo: NonNullable<NavMenu["promo"]> }) {
+  return (
+    <div className="hidden w-[248px] shrink-0 flex-col border-r border-[#eef1f6] bg-gradient-to-b from-[#eef4ff] to-[#f7f9fc] p-6 lg:flex">
+      <span className="w-fit rounded-full bg-[#dcfce7] px-3 py-1 text-[11px] font-semibold text-[#15803d]">
+        {promo.pill}
+      </span>
+      <div className="my-6 grid place-items-center">
+        <GraduationCap className="h-16 w-16 text-[#2f5bea]" strokeWidth={1.4} />
+      </div>
+      <h3 className="text-[1.3rem] font-extrabold leading-[1.15] tracking-tight text-[#0f172a]">
+        {promo.title}
+      </h3>
+      <p className="mt-2 text-[13px] leading-relaxed text-[#64748b]">{promo.desc}</p>
+      <Link
+        href={promo.cta.href}
+        className="mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#2f5bea] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(47,91,234,0.35)] transition-colors hover:bg-[#2558e8]"
+      >
+        {promo.cta.label} <ArrowRight className="h-4 w-4" />
+      </Link>
+    </div>
+  );
+}
+
+function ColHeading({ col, color }: { col: NavColumn; color: string }) {
+  const Icon = col.icon ? ICONS[col.icon] : undefined;
+  return (
+    <div className="flex items-center gap-2.5 px-2.5">
+      {Icon && (
+        <span
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl"
+          style={{ backgroundColor: `${color}1a`, color }}
+        >
+          <Icon className="h-[18px] w-[18px]" />
+        </span>
+      )}
+      <div className="min-w-0">
+        <p className="text-[13.5px] font-bold leading-tight text-[#0f172a]">{col.heading}</p>
+        {col.sub && <p className="mt-0.5 text-[11px] leading-tight text-[#94a3b8]">{col.sub}</p>}
+      </div>
+    </div>
+  );
+}
+
+function ItemLink({
+  item, isActive, fallback,
+}: {
+  item: NavItem;
+  isActive: (h: string) => boolean;
+  fallback: string;
+}) {
+  const resolved =
+    item.icon && ICONS[item.icon]
+      ? { Icon: ICONS[item.icon], color: fallback }
+      : iconFor(item.label, item.href);
+  const Icon = resolved.Icon;
+  const active = isActive(item.href);
+  return (
+    <Link
+      href={item.href}
+      className={`group flex items-center gap-2.5 rounded-lg px-2.5 py-2 transition-colors ${
+        active ? "bg-[#eff4ff]" : "hover:bg-[#f4f7fb]"
+      }`}
+    >
+      <Icon className="h-[18px] w-[18px] shrink-0" style={{ color: resolved.color }} />
+      <span
+        className={`flex-1 truncate text-[13.5px] font-medium leading-tight ${
+          active ? "text-[#2f5bea]" : "text-[#334155] group-hover:text-[#0f172a]"
+        }`}
+      >
+        {item.label}
+      </span>
+      <ChevronRight className="h-4 w-4 shrink-0 text-[#cbd5e1] transition-all group-hover:translate-x-0.5 group-hover:text-[#94a3b8]" />
+    </Link>
+  );
+}
+
+function PopularList({ popular }: { popular: NonNullable<NavMenu["popular"]> }) {
+  return (
+    <div className="hidden w-[290px] shrink-0 flex-col border-l border-[#eef1f6] bg-[#f6faf7] p-5 xl:flex">
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex items-center gap-2.5">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#dcfce7] text-[#15803d]">
+            <Star className="h-[18px] w-[18px]" />
+          </span>
+          <div>
+            <p className="text-[13.5px] font-bold leading-tight text-[#0f172a]">{popular.heading}</p>
+            <p className="mt-0.5 text-[11px] leading-tight text-[#94a3b8]">{popular.sub}</p>
+          </div>
+        </div>
+        <Link
+          href={popular.viewAllHref}
+          className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[#2f5bea] hover:underline"
+        >
+          View All <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+      <div className="mt-3 space-y-0.5">
+        {popular.items.map((it) => (
+          <Link
+            key={it.href}
+            href={it.href}
+            className="group flex items-center gap-3 rounded-xl p-2 transition-colors hover:bg-white"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={resolveCoverImageUrl(it.seed)}
+              alt=""
+              width={52}
+              height={40}
+              loading="lazy"
+              className="h-10 w-[52px] shrink-0 rounded-lg border border-[#e6eaf2] bg-[#e6eaf2] object-cover"
+            />
+            <span className="flex-1 text-[13px] font-semibold leading-snug text-[#334155] line-clamp-2 group-hover:text-[#2f5bea]">
+              {it.label}
+            </span>
+            <ChevronRight className="h-4 w-4 shrink-0 text-[#cbd5e1]" />
           </Link>
-        )}
+        ))}
       </div>
     </div>
   );
