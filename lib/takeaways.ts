@@ -16,7 +16,7 @@ function firstSentence(text: string, max = 170): string {
 export function getKeyTakeaways(post: Post): string[] {
   if (post.keyTakeaways?.length) return post.keyTakeaways;
 
-  // From FAQ answers — usually the most self-contained, concrete statements.
+  // From FAQ answers - usually the most self-contained, concrete statements.
   if (post.faq?.length) {
     const items = post.faq
       .slice(0, 4)

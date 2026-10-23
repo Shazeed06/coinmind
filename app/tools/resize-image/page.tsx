@@ -65,7 +65,7 @@ const whenToUse = [
   },
   {
     scenario: "Creating thumbnails or social media assets at specific sizes",
-    detail: "Instagram posts work best at 1080 Ã— 1080 pixels, YouTube thumbnails at 1280 Ã— 720, and Twitter cards at 1200 Ã— 675. Use pixel mode with the aspect ratio unlocked to hit precise non-square dimensions, or crop first to the right ratio and then resize to the exact pixel target.",
+    detail: "Instagram posts work best at 1080 Ã- 1080 pixels, YouTube thumbnails at 1280 Ã- 720, and Twitter cards at 1200 Ã- 675. Use pixel mode with the aspect ratio unlocked to hit precise non-square dimensions, or crop first to the right ratio and then resize to the exact pixel target.",
   },
 ];
 
@@ -87,7 +87,7 @@ const faqs = [
   },
   {
     q: "How do I keep the image from looking stretched?",
-    a: "Turn on the Lock aspect ratio toggle. When it's enabled, changing either the width or height automatically recalculates the other dimension to preserve the original proportions. For example, if your image is 3000 Ã— 2000 pixels (a 3:2 ratio) and you set the width to 1500, the height updates to 1000 automatically. Leave it locked at all times unless you specifically intend to stretch or squash the image to non-proportional dimensions for a creative effect.",
+    a: "Turn on the Lock aspect ratio toggle. When it's enabled, changing either the width or height automatically recalculates the other dimension to preserve the original proportions. For example, if your image is 3000 Ã- 2000 pixels (a 3:2 ratio) and you set the width to 1500, the height updates to 1000 automatically. Leave it locked at all times unless you specifically intend to stretch or squash the image to non-proportional dimensions for a creative effect.",
   },
   {
     q: "What does the scale percentage do?",

@@ -159,7 +159,7 @@ export default function NseIpoPage() {
 
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="text-[10px] font-bold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 rounded-full px-3 py-1">Mainboard IPO</span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1">â— Listed 24 Sep 2026</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1">â- Listed 24 Sep 2026</span>
             <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">Debut +0.84%</span>
           </div>
 

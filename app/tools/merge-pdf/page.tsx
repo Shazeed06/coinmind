@@ -38,7 +38,7 @@ const howToUse = [
   },
   {
     step: "Remove unwanted files",
-    detail: "Click the remove button (the Ã— icon) on any file you decide you don't want. The card disappears immediately and that file won't be included in the merged output.",
+    detail: "Click the remove button (the Ã- icon) on any file you decide you don't want. The card disappears immediately and that file won't be included in the merged output.",
   },
   {
     step: "Verify the page count",

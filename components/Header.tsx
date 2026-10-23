@@ -3,69 +3,38 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
-import { navMenus, type NavMenu, type NavColumn, type NavItem } from "@/lib/site";
+import { navMenus, type NavMenu, type NavItem } from "@/lib/site";
 import {
   Search, X, Menu, ChevronDown, ChevronRight, ArrowRight, Zap,
-  Calculator, LineChart, PiggyBank, BookOpen, BarChart3, Lightbulb, Flame,
-  Building2, FileText, Wrench, Bot, Sparkles, GraduationCap, Star,
-  TrendingUp, Coins, Landmark, Receipt, Gauge, Umbrella, Wallet, Newspaper,
-  Scale, Microscope, Activity, Target, HeartPulse, Percent, ShieldCheck,
-  Rocket, Image as ImageIcon, type LucideIcon,
+  TrendingUp, Landmark, Receipt, PiggyBank, ShieldCheck, Umbrella, BookOpen,
+  Gauge, Activity, Flame, Rocket, BarChart3, Target, Scale, FileText,
+  Image as ImageIcon, Wallet, Star, Bot, Sparkles, type LucideIcon,
 } from "lucide-react";
 import { LogoMark } from "./Logo";
-import { resolveCoverImageUrl } from "./CoverArt";
 
-// Icon registry for nav column headings (keyed by `icon` in lib/site.ts).
+// Icon + accent colour per nav `icon` key (see lib/site.ts).
 const ICONS: Record<string, LucideIcon> = {
-  calculator: Calculator, lineChart: LineChart, piggy: PiggyBank,
-  book: BookOpen, barChart: BarChart3, bulb: Lightbulb, flame: Flame,
-  search: Search, building: Building2, fileText: FileText, wrench: Wrench,
-  bot: Bot, sparkles: Sparkles,
+  invest: TrendingUp, loan: Landmark, tax: Receipt, savings: PiggyBank,
+  ppf: ShieldCheck, retire: Umbrella, book: BookOpen, credit: Gauge,
+  live: Activity, flame: Flame, rocket: Rocket, chart: BarChart3,
+  target: Target, compare: Scale, resume: FileText, fileText: FileText,
+  image: ImageIcon, budget: Wallet, star: Star, bot: Bot, sparkles: Sparkles,
 };
-
-// Keyword → icon + colour for individual nav links, so each item gets a
-// topical, coloured icon without hand-annotating every entry.
-const ITEM_ICONS: [RegExp, LucideIcon, string][] = [
-  [/lump\s*sum|lumpsum/, Coins, "#0284c7"],
-  [/\bsip\b|systematic/, TrendingUp, "#2f5bea"],
-  [/mutual fund|\bfund\b/, BarChart3, "#2f5bea"],
-  [/emi|loan|mortgage/, Landmark, "#d97706"],
-  [/income tax|\btax\b/, Receipt, "#16a34a"],
-  [/credit|cibil/, Gauge, "#e11d48"],
-  [/retire|pension|\bnps\b|\bepf\b|fire/, Umbrella, "#7c3aed"],
-  [/\bppf\b/, ShieldCheck, "#16a34a"],
-  [/\bfd\b|fixed deposit|savings|\brd\b/, PiggyBank, "#16a34a"],
-  [/gold|metal/, Coins, "#d97706"],
-  [/net worth/, Scale, "#0284c7"],
-  [/\bgoal\b/, Target, "#2f5bea"],
-  [/health|score/, HeartPulse, "#e11d48"],
-  [/cagr|compound|return|interest/, Percent, "#7c3aed"],
-  [/investing|invest|stock|market|equity/, LineChart, "#2f5bea"],
-  [/glossary/, BookOpen, "#0284c7"],
-  [/news/, Newspaper, "#d97706"],
-  [/guide|blog|article|how-to/, BookOpen, "#2f5bea"],
-  [/compar/, Scale, "#7c3aed"],
-  [/research/, Microscope, "#0284c7"],
-  [/finance today|live|rbi/, Activity, "#16a34a"],
-  [/ipo|gmp|allot|\bnse\b|zepto|oyo|phonepe|fincorp|jio/, Rocket, "#2f5bea"],
-  [/upcoming/, TrendingUp, "#16a34a"],
-  [/merge pdf|image to pdf|\bpdf\b|document/, FileText, "#e11d48"],
-  [/invoice/, Receipt, "#d97706"],
-  [/resume/, FileText, "#2f5bea"],
-  [/compress|image/, ImageIcon, "#7c3aed"],
-  [/chatgpt|gemini|deepseek|ask ai|ai tool|assistant|\bai\b/, Sparkles, "#7c3aed"],
-  [/budget/, Wallet, "#16a34a"],
-];
-function iconFor(label: string, href: string): { Icon: LucideIcon; color: string } {
-  const t = `${label} ${href}`.toLowerCase();
-  for (const [re, Icon, color] of ITEM_ICONS) if (re.test(t)) return { Icon, color };
+const COLORS: Record<string, string> = {
+  invest: "#2f5bea", loan: "#d97706", tax: "#16a34a", savings: "#16a34a",
+  ppf: "#16a34a", retire: "#7c3aed", book: "#2f5bea", credit: "#e11d48",
+  live: "#16a34a", flame: "#e11d48", rocket: "#2f5bea", chart: "#2f5bea",
+  target: "#0284c7", compare: "#7c3aed", resume: "#2f5bea", fileText: "#e11d48",
+  image: "#7c3aed", budget: "#16a34a", star: "#d97706", bot: "#7c3aed", sparkles: "#7c3aed",
+};
+function iconMeta(key?: string): { Icon: LucideIcon; color: string } {
+  if (key && ICONS[key]) return { Icon: ICONS[key], color: COLORS[key] ?? "#2f5bea" };
   return { Icon: BarChart3, color: "#64748b" };
 }
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -84,13 +53,6 @@ export default function Header() {
   }, [menuOpen]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
     if (!openMenu) return;
     const onDown = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) setOpenMenu(null);
@@ -100,15 +62,8 @@ export default function Header() {
   }, [openMenu]);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-      e.preventDefault();
-      setSearchOpen(true);
-    }
-    if (e.key === "Escape") {
-      setSearchOpen(false);
-      setMenuOpen(false);
-      setOpenMenu(null);
-    }
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); setSearchOpen(true); }
+    if (e.key === "Escape") { setSearchOpen(false); setMenuOpen(false); setOpenMenu(null); }
   }, []);
 
   useEffect(() => {
@@ -120,7 +75,7 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const menuIsActive = (m: NavMenu) =>
-    isActive(m.href) || m.columns.some((c) => c.items.some((i) => isActive(i.href)));
+    isActive(m.href) || m.items.some((i) => isActive(i.href));
 
   const openNow = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -133,91 +88,59 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`sticky top-0 z-50 flex flex-col transition-all duration-300 ${
-          scrolled
-            ? "bg-[#0c1628]/95 backdrop-blur-xl border-b border-[#1e3a5f]/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-            : "bg-[#0c1628] border-b border-[#1e3a5f]/40"
-        }`}
-      >
-        {/* Top gradient accent strip */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea] shrink-0" />
-
-        <div className="container-main flex items-center gap-4 w-full h-[68px] sm:h-[76px]">
-
+      <header className="sticky top-0 z-50 border-b border-[#e9edf3] bg-white/95 backdrop-blur-xl shadow-[0_1px_0_rgba(15,23,42,0.03),0_8px_24px_-18px_rgba(15,23,42,0.25)]">
+        <div className="container-main flex h-[68px] w-full items-center gap-4 sm:h-[74px]">
           {/* Logo */}
-          <Link href="/" aria-label="CoinMind home" className="shrink-0 group">
+          <Link href="/" aria-label="CoinMind home" className="group shrink-0">
             <span className="inline-flex items-center gap-2.5">
               <LogoMark className="h-8 w-8 shrink-0" />
-              <span className="text-[1.3rem] font-700 tracking-tight lowercase leading-none">
-                <span className="text-[#6b9cff] group-hover:text-[#93b4ff] transition-colors">coin</span>
-                <span className="text-[#4ade80] group-hover:text-[#86efac] transition-colors">mind</span>
+              <span className="text-[1.3rem] font-extrabold lowercase leading-none tracking-tight">
+                <span className="text-[#1b2a4e]">coin</span>
+                <span className="text-[#2f5bea]">mind</span>
               </span>
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav ref={navRef} className="hidden md:flex items-center gap-1 ml-6" aria-label="Main navigation">
+          <nav ref={navRef} className="ml-6 hidden items-center gap-0.5 md:flex" aria-label="Main navigation">
             {navMenus.map((m) => {
               const open = openMenu === m.label;
               const active = menuIsActive(m);
               return (
-                <div
-                  key={m.label}
-                  className="relative"
-                  onMouseEnter={() => openNow(m.label)}
-                  onMouseLeave={closeSoon}
-                >
+                <div key={m.label} className="relative" onMouseEnter={() => openNow(m.label)} onMouseLeave={closeSoon}>
                   <Link
                     href={m.href}
                     aria-expanded={open}
                     aria-haspopup="true"
                     onFocus={() => openNow(m.label)}
                     data-nav-trigger={m.label}
-                    className={`relative inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-150 ${
-                      active || open
-                        ? "text-white bg-white/10"
-                        : "text-slate-400 hover:text-white hover:bg-white/8"
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors ${
+                      active || open ? "bg-[#eff4ff] text-[#2f5bea]" : "text-[#475569] hover:bg-[#f4f7fb] hover:text-[#0f172a]"
                     }`}
                   >
                     {m.label}
-                    <ChevronDown
-                      className={`h-3 w-3 opacity-60 transition-transform duration-200 ${open ? "rotate-180 opacity-100" : ""}`}
-                      aria-hidden="true"
-                    />
-                    {/* Active dot */}
-                    {active && (
-                      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[3px] w-[3px] rounded-full bg-[#4ade80]" />
-                    )}
+                    <ChevronDown className={`h-3.5 w-3.5 opacity-70 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden="true" />
                   </Link>
-
-                  {open && (
-                    <MenuPanel
-                      menu={m}
-                      isActive={isActive}
-                      onEnter={() => openNow(m.label)}
-                      onLeave={closeSoon}
-                    />
-                  )}
+                  {open && <MenuPanel menu={m} isActive={isActive} onEnter={() => openNow(m.label)} onLeave={closeSoon} />}
                 </div>
               );
             })}
           </nav>
 
           {/* Desktop right */}
-          <div className="hidden md:flex items-center gap-3 ml-auto">
+          <div className="ml-auto hidden items-center gap-2.5 md:flex">
             <button
               onClick={() => setSearchOpen(true)}
-              className="inline-flex items-center gap-2 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-3 py-[7px] text-sm text-slate-400 hover:text-white hover:border-slate-500 transition-all duration-150"
+              className="inline-flex items-center gap-2 rounded-lg border border-[#e6eaf2] bg-[#f7f9fc] px-3 py-[7px] text-sm text-[#64748b] transition-colors hover:border-[#cbd5e1] hover:text-[#334155]"
               aria-label="Open search"
             >
               <Search className="h-3.5 w-3.5" />
-              <span className="hidden lg:inline">Search</span>
+              <span className="hidden lg:inline">Search calculators, guides, tools…</span>
               <ShortcutHint />
             </button>
             <Link
               href="/calculators"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(47,91,234,0.35)] hover:shadow-[0_0_28px_rgba(47,91,234,0.55)] hover:from-[#3d68f5] hover:to-[#2558e8] transition-all duration-200"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(47,91,234,0.6)] transition-all hover:from-[#3d68f5] hover:to-[#2558e8]"
             >
               <Zap className="h-3.5 w-3.5" />
               Free Calculators
@@ -225,95 +148,51 @@ export default function Header() {
           </div>
 
           {/* Mobile right */}
-          <div className="flex items-center gap-1 ml-auto md:hidden">
-            <button
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-white/8 transition-colors"
-              aria-label="Open search"
-            >
+          <div className="ml-auto flex items-center gap-1 md:hidden">
+            <button type="button" onClick={() => setSearchOpen(true)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#475569] hover:bg-[#f4f7fb] hover:text-[#0f172a]" aria-label="Open search">
               <Search className="h-5 w-5" />
             </button>
-            <button
-              type="button"
-              onClick={() => setMenuOpen((v) => !v)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-300 hover:text-white hover:bg-white/8 transition-colors"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-            >
+            <button type="button" onClick={() => setMenuOpen((v) => !v)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#334155] hover:bg-[#f4f7fb]" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
               {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile drawer - outside header so it overlays content properly */}
+      {/* Mobile drawer */}
       {menuOpen && (
-        <div className="fixed inset-0 top-[66px] sm:top-[70px] z-40 md:hidden bg-[#080f1e] overflow-y-auto">
-          <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
-          <nav className="container-main py-5 flex flex-col gap-2 pb-20">
+        <div className="fixed inset-0 top-[66px] sm:top-[72px] z-40 overflow-y-auto bg-white md:hidden">
+          <nav className="container-main flex flex-col gap-2 py-5 pb-20">
             {navMenus.map((m) => {
               const expanded = mobileSection === m.label;
               const active = menuIsActive(m);
               return (
-                <div
-                  key={m.label}
-                  className={`rounded-xl overflow-hidden border transition-colors ${
-                    active ? "border-[#2f5bea]/40 bg-[#2f5bea]/8" : "border-[#1e3a5f]"
-                  }`}
-                >
-                  <button
-                    onClick={() => setMobileSection(expanded ? null : m.label)}
-                    aria-expanded={expanded}
-                    className="w-full flex items-center justify-between px-4 py-4 text-left"
-                  >
-                    <span className={`font-semibold text-[15px] ${active ? "text-white" : "text-slate-300"}`}>
-                      {m.label}
-                    </span>
-                    <ChevronDown
-                      className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-                      aria-hidden="true"
-                    />
+                <div key={m.label} className={`overflow-hidden rounded-xl border ${active ? "border-[#2f5bea]/40 bg-[#eff4ff]/40" : "border-[#e6eaf2]"}`}>
+                  <button onClick={() => setMobileSection(expanded ? null : m.label)} aria-expanded={expanded} className="flex w-full items-center justify-between px-4 py-4 text-left">
+                    <span className={`text-[15px] font-semibold ${active ? "text-[#2f5bea]" : "text-[#334155]"}`}>{m.label}</span>
+                    <ChevronDown className={`h-4 w-4 text-[#94a3b8] transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
                   </button>
-
                   {expanded && (
-                    <div className="border-t border-[#1e3a5f]/60 bg-[#0a1628]/60 px-2 py-2">
-                      {m.columns.flatMap((c) => c.items).map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={`block rounded-lg px-3 py-3 transition-colors ${
-                            isActive(item.href)
-                              ? "bg-[#2f5bea]/20 text-[#6b9cff]"
-                              : "text-slate-300 hover:bg-white/5 hover:text-white"
-                          }`}
-                        >
-                          <span className="block text-sm font-medium">{item.label}</span>
-                          {item.desc && (
-                            <span className="block text-xs text-slate-500 mt-0.5">{item.desc}</span>
-                          )}
-                        </Link>
-                      ))}
-                      {m.footer && (
-                        <Link
-                          href={m.footer.href}
-                          className="flex items-center gap-1.5 rounded-lg px-3 py-3 text-sm font-semibold text-[#6b9cff]"
-                        >
-                          {m.footer.label} <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
-                      )}
+                    <div className="border-t border-[#eef1f6] bg-[#f7f9fc]/60 px-2 py-2">
+                      {m.items.map((item) => {
+                        const { Icon, color } = iconMeta(item.icon);
+                        return (
+                          <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[#334155] hover:bg-white">
+                            <Icon className="h-[18px] w-[18px] shrink-0" style={{ color }} />
+                            <span className="text-sm font-medium">{item.label}</span>
+                          </Link>
+                        );
+                      })}
+                      <Link href={m.href} className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#2f5bea]">
+                        View all <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
                     </div>
                   )}
                 </div>
               );
             })}
-
-            <Link
-              href="/calculators"
-              className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-4 font-semibold text-white shadow-[0_0_24px_rgba(47,91,234,0.4)]"
-            >
-              <Zap className="h-4 w-4" />
-              Free Calculators - No sign-up
+            <Link href="/calculators" className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-4 font-semibold text-white">
+              <Zap className="h-4 w-4" /> Free Calculators
             </Link>
           </nav>
         </div>
@@ -333,192 +212,65 @@ function MenuPanel({
   onLeave: () => void;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [caretX, setCaretX] = useState(80);
+  const [pos, setPos] = useState<{ left: number; width: number; caret: number }>({ left: 0, width: 520, caret: 60 });
 
-  // Point the caret at the active trigger even though the panel is centered.
   useLayoutEffect(() => {
     const trigger = document.querySelector<HTMLElement>(`[data-nav-trigger="${menu.label}"]`);
-    const card = wrapRef.current?.querySelector<HTMLElement>("[data-panel-card]");
-    if (!trigger || !card) return;
+    if (!trigger) return;
     const place = () => {
+      const vw = window.innerWidth;
+      const width = Math.min(520, vw - 24);
       const tr = trigger.getBoundingClientRect();
-      const cr = card.getBoundingClientRect();
-      const x = tr.left + tr.width / 2 - cr.left;
-      setCaretX(Math.max(28, Math.min(cr.width - 28, x)));
+      const center = tr.left + tr.width / 2;
+      let left = center - width / 2;
+      left = Math.max(12, Math.min(vw - width - 12, left));
+      setPos({ left, width, caret: Math.max(24, Math.min(width - 24, center - left)) });
     };
     place();
     window.addEventListener("resize", place);
     return () => window.removeEventListener("resize", place);
   }, [menu.label]);
 
-  const colColors = ["#2f5bea", "#16a34a", "#d97706", "#7c3aed"];
-
   return (
     <div
       ref={wrapRef}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className="fixed left-1/2 z-50 -translate-x-1/2 px-2"
-      style={{ top: "78px", width: "min(1140px, calc(100vw - 16px))" }}
+      className="fixed z-50"
+      style={{ top: "74px", left: pos.left, width: pos.width }}
     >
-      {/* hover bridge above the card */}
       <div className="absolute inset-x-0 -top-3 h-3" aria-hidden="true" />
-      <div
-        data-panel-card
-        className="relative rounded-2xl border border-[#e6eaf2] bg-white shadow-[0_24px_70px_rgba(15,23,42,0.28)]"
-      >
-        <span
-          className="absolute -top-2 z-10 h-4 w-4 rotate-45 rounded-[3px] border-l border-t border-[#e6eaf2] bg-white"
-          style={{ left: caretX - 8 }}
-          aria-hidden="true"
-        />
-        <div className="relative flex overflow-hidden rounded-2xl">
-          {menu.promo && <PromoCard promo={menu.promo} />}
-          <div
-            className="grid flex-1 gap-1 p-5"
-            style={{ gridTemplateColumns: `repeat(${menu.columns.length}, minmax(0, 1fr))` }}
-          >
-            {menu.columns.map((col, ci) => (
-              <div key={col.heading ?? ci} className="min-w-0 px-2">
-                <ColHeading col={col} color={colColors[ci % colColors.length]} />
-                <div className="mt-2 space-y-0.5">
-                  {col.items.map((item) => (
-                    <ItemLink
-                      key={item.href}
-                      item={item}
-                      isActive={isActive}
-                      fallback={colColors[ci % colColors.length]}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
+      <div className="relative rounded-2xl border border-[#e6eaf2] bg-white shadow-[0_24px_70px_-24px_rgba(15,23,42,0.4)]">
+        <span className="absolute -top-2 z-10 h-4 w-4 rotate-45 rounded-[3px] border-l border-t border-[#e6eaf2] bg-white" style={{ left: pos.caret - 8 }} aria-hidden="true" />
+        <div className="p-3">
+          <div className="mb-1.5 flex items-center justify-between px-2.5 py-1">
+            <p className="text-[12px] font-bold uppercase tracking-wider text-[#94a3b8]">{menu.label}</p>
+            <Link href={menu.href} className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-[#2f5bea] hover:underline">
+              View all <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
-          {menu.popular && <PopularList popular={menu.popular} />}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function PromoCard({ promo }: { promo: NonNullable<NavMenu["promo"]> }) {
-  return (
-    <div className="hidden w-[248px] shrink-0 flex-col border-r border-[#eef1f6] bg-gradient-to-b from-[#eef4ff] to-[#f7f9fc] p-6 lg:flex">
-      <span className="w-fit rounded-full bg-[#dcfce7] px-3 py-1 text-[11px] font-semibold text-[#15803d]">
-        {promo.pill}
-      </span>
-      <div className="my-6 grid place-items-center">
-        <GraduationCap className="h-16 w-16 text-[#2f5bea]" strokeWidth={1.4} />
-      </div>
-      <h3 className="text-[1.3rem] font-extrabold leading-[1.15] tracking-tight text-[#0f172a]">
-        {promo.title}
-      </h3>
-      <p className="mt-2 text-[13px] leading-relaxed text-[#64748b]">{promo.desc}</p>
-      <Link
-        href={promo.cta.href}
-        className="mt-5 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#2f5bea] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(47,91,234,0.35)] transition-colors hover:bg-[#2558e8]"
-      >
-        {promo.cta.label} <ArrowRight className="h-4 w-4" />
-      </Link>
-    </div>
-  );
-}
-
-function ColHeading({ col, color }: { col: NavColumn; color: string }) {
-  const Icon = col.icon ? ICONS[col.icon] : undefined;
-  return (
-    <div className="flex items-center gap-2.5 px-2.5">
-      {Icon && (
-        <span
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl"
-          style={{ backgroundColor: `${color}1a`, color }}
-        >
-          <Icon className="h-[18px] w-[18px]" />
-        </span>
-      )}
-      <div className="min-w-0">
-        <p className="text-[13.5px] font-bold leading-tight text-[#0f172a]">{col.heading}</p>
-        {col.sub && <p className="mt-0.5 text-[11px] leading-tight text-[#94a3b8]">{col.sub}</p>}
-      </div>
-    </div>
-  );
-}
-
-function ItemLink({
-  item, isActive, fallback,
-}: {
-  item: NavItem;
-  isActive: (h: string) => boolean;
-  fallback: string;
-}) {
-  const resolved =
-    item.icon && ICONS[item.icon]
-      ? { Icon: ICONS[item.icon], color: fallback }
-      : iconFor(item.label, item.href);
-  const Icon = resolved.Icon;
-  const active = isActive(item.href);
-  return (
-    <Link
-      href={item.href}
-      className={`group flex items-center gap-2.5 rounded-lg px-2.5 py-2 transition-colors ${
-        active ? "bg-[#eff4ff]" : "hover:bg-[#f4f7fb]"
-      }`}
-    >
-      <Icon className="h-[18px] w-[18px] shrink-0" style={{ color: resolved.color }} />
-      <span
-        className={`flex-1 truncate text-[13.5px] font-medium leading-tight ${
-          active ? "text-[#2f5bea]" : "text-[#334155] group-hover:text-[#0f172a]"
-        }`}
-      >
-        {item.label}
-      </span>
-      <ChevronRight className="h-4 w-4 shrink-0 text-[#cbd5e1] transition-all group-hover:translate-x-0.5 group-hover:text-[#94a3b8]" />
-    </Link>
-  );
-}
-
-function PopularList({ popular }: { popular: NonNullable<NavMenu["popular"]> }) {
-  return (
-    <div className="hidden w-[290px] shrink-0 flex-col border-l border-[#eef1f6] bg-[#f6faf7] p-5 xl:flex">
-      <div className="flex items-start justify-between gap-2">
-        <div className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#dcfce7] text-[#15803d]">
-            <Star className="h-[18px] w-[18px]" />
-          </span>
-          <div>
-            <p className="text-[13.5px] font-bold leading-tight text-[#0f172a]">{popular.heading}</p>
-            <p className="mt-0.5 text-[11px] leading-tight text-[#94a3b8]">{popular.sub}</p>
+          <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2">
+            {menu.items.map((item) => {
+              const { Icon, color } = iconMeta(item.icon);
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`group flex items-start gap-3 rounded-xl px-2.5 py-2.5 transition-colors ${active ? "bg-[#eff4ff]" : "hover:bg-[#f4f7fb]"}`}
+                >
+                  <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg" style={{ backgroundColor: `${color}14`, color }}>
+                    <Icon className="h-[18px] w-[18px]" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className={`block truncate text-[13.5px] font-semibold ${active ? "text-[#2f5bea]" : "text-[#0f172a]"}`}>{item.label}</span>
+                    {item.desc && <span className="block truncate text-[12px] text-[#64748b]">{item.desc}</span>}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
-        <Link
-          href={popular.viewAllHref}
-          className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[#2f5bea] hover:underline"
-        >
-          View All <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
-      </div>
-      <div className="mt-3 space-y-0.5">
-        {popular.items.map((it) => (
-          <Link
-            key={it.href}
-            href={it.href}
-            className="group flex items-center gap-3 rounded-xl p-2 transition-colors hover:bg-white"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={resolveCoverImageUrl(it.seed)}
-              alt=""
-              width={52}
-              height={40}
-              loading="lazy"
-              className="h-10 w-[52px] shrink-0 rounded-lg border border-[#e6eaf2] bg-[#e6eaf2] object-cover"
-            />
-            <span className="flex-1 text-[13px] font-semibold leading-snug text-[#334155] line-clamp-2 group-hover:text-[#2f5bea]">
-              {it.label}
-            </span>
-            <ChevronRight className="h-4 w-4 shrink-0 text-[#cbd5e1]" />
-          </Link>
-        ))}
       </div>
     </div>
   );
@@ -531,7 +283,7 @@ function ShortcutHint() {
   }, []);
   if (isMac === null) return null;
   return (
-    <span className="hidden lg:inline text-[11px] border border-[#1e3a5f] rounded px-1.5 py-0.5 text-slate-600 font-mono">
+    <span className="hidden rounded border border-[#e6eaf2] bg-white px-1.5 py-0.5 font-mono text-[11px] text-[#94a3b8] lg:inline">
       {isMac ? "⌘K" : "Ctrl K"}
     </span>
   );
@@ -572,10 +324,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
       ).slice(0, 7)
     : POPULAR;
 
-  const navigate = (href: string) => {
-    onClose();
-    router.push(href);
-  };
+  const navigate = (href: string) => { onClose(); router.push(href); };
 
   const onKey = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowDown") { e.preventDefault(); setActive((a) => Math.min(a + 1, results.length - 1)); }
@@ -584,72 +333,44 @@ function SearchModal({ onClose }: { onClose: () => void }) {
   };
 
   const catColor = (cat: string) =>
-    cat === "Calculator" ? "text-[#6b9cff]" : cat === "Guide" ? "text-[#4ade80]" : "text-slate-400";
+    cat === "Calculator" ? "text-[#2f5bea]" : cat === "Guide" ? "text-[#16a34a]" : "text-[#64748b]";
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-[8vh] sm:pt-[12vh] bg-black/70 backdrop-blur-md"
-      onClick={onClose}
-    >
-      <div
-        className="w-full max-w-[600px] mx-4 sm:mx-6 bg-[#0c1628] rounded-2xl border border-[#1e3a5f] shadow-[0_24px_80px_rgba(0,0,0,0.7)] overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Input row */}
-        <div className="flex items-center gap-3 px-4 sm:px-5 border-b border-[#1e3a5f]">
-          <Search className="h-4 w-4 text-slate-500 shrink-0" aria-hidden="true" />
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 pt-[8vh] backdrop-blur-sm sm:pt-[12vh]" onClick={onClose}>
+      <div className="mx-4 w-full max-w-[600px] overflow-hidden rounded-2xl border border-[#e6eaf2] bg-white shadow-[0_24px_80px_rgba(15,23,42,0.3)] sm:mx-6" onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center gap-3 border-b border-[#e6eaf2] px-4 sm:px-5">
+          <Search className="h-4 w-4 shrink-0 text-[#94a3b8]" aria-hidden="true" />
           <input
-            type="search"
-            value={query}
+            type="search" value={query}
             onChange={(e) => { setQuery(e.target.value); setActive(0); }}
             onKeyDown={onKey}
-            placeholder="Search calculators, guides, tools..."
+            placeholder="Search calculators, guides, tools…"
             aria-label="Search CoinMind"
-            className="flex-1 h-14 text-sm bg-transparent outline-none text-white placeholder:text-slate-600"
+            className="h-14 flex-1 bg-transparent text-sm text-[#0f172a] outline-none placeholder:text-[#94a3b8]"
             autoFocus
           />
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-xs text-slate-600 hover:text-slate-400 border border-[#1e3a5f] rounded-lg px-2 py-1 transition-colors"
-          >
-            Esc
-          </button>
+          <button type="button" onClick={onClose} className="rounded-lg border border-[#e6eaf2] px-2 py-1 text-xs text-[#94a3b8] transition-colors hover:text-[#475569]">Esc</button>
         </div>
-
-        {/* Results */}
-        <div className="py-2 max-h-[340px] overflow-y-auto">
-          {!query && (
-            <p className="px-4 pt-1 pb-2 text-[10px] font-bold uppercase tracking-widest text-slate-600">
-              Popular
-            </p>
-          )}
-          {results.length === 0 && (
-            <p className="px-4 py-6 text-sm text-slate-500 text-center">No results for "{query}"</p>
-          )}
+        <div className="max-h-[340px] overflow-y-auto py-2">
+          {!query && <p className="px-4 pb-2 pt-1 text-[10px] font-bold uppercase tracking-widest text-[#94a3b8]">Popular</p>}
+          {results.length === 0 && <p className="px-4 py-6 text-center text-sm text-[#94a3b8]">No results for &ldquo;{query}&rdquo;</p>}
           {results.map((item, i) => (
             <button
               key={item.href}
               onClick={() => navigate(item.href)}
               onMouseEnter={() => setActive(i)}
-              className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
-                i === active ? "bg-white/8" : "hover:bg-white/5"
-              }`}
+              className={`flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors ${i === active ? "bg-[#f4f7fb]" : "hover:bg-[#f7f9fc]"}`}
             >
-              <span className={`text-[10px] font-bold uppercase tracking-wider shrink-0 w-16 ${catColor(item.cat)}`}>
-                {item.cat}
-              </span>
-              <span className="text-sm text-slate-200 flex-1">{item.label}</span>
-              <ArrowRight className={`h-3.5 w-3.5 text-slate-600 shrink-0 transition-opacity ${i === active ? "opacity-100" : "opacity-0"}`} />
+              <span className={`w-16 shrink-0 text-[10px] font-bold uppercase tracking-wider ${catColor(item.cat)}`}>{item.cat}</span>
+              <span className="flex-1 text-sm text-[#334155]">{item.label}</span>
+              <ArrowRight className={`h-3.5 w-3.5 shrink-0 text-[#cbd5e1] transition-opacity ${i === active ? "opacity-100" : "opacity-0"}`} />
             </button>
           ))}
         </div>
-
-        {/* Footer hint */}
-        <div className="px-4 py-2.5 border-t border-[#1e3a5f] bg-[#080f1e]/60 flex items-center gap-4">
-          <span className="text-[11px] text-slate-700">↑↓ navigate</span>
-          <span className="text-[11px] text-slate-700">↵ open</span>
-          <span className="text-[11px] text-slate-700">Esc close</span>
+        <div className="flex items-center gap-4 border-t border-[#e6eaf2] bg-[#f7f9fc] px-4 py-2.5">
+          <span className="text-[11px] text-[#94a3b8]">↑↓ navigate</span>
+          <span className="text-[11px] text-[#94a3b8]">↵ open</span>
+          <span className="text-[11px] text-[#94a3b8]">Esc close</span>
         </div>
       </div>
     </div>

@@ -231,7 +231,7 @@ export default function ZeptoIpoPage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
-              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ— Risks</h3>
+              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ- Risks</h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
                   <li key={i} className="text-sm text-red-800 dark:text-red-300 flex gap-2">
