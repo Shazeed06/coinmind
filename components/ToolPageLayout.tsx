@@ -44,13 +44,13 @@ export function ToolPageLayout({
       />
       <section className="section-pad pb-0 bg-white">
         <div className="container-main">
-          <div className="max-w-[720px]">
+          <div className="max-w-[720px] mx-auto">
             <Breadcrumb items={[{ label: "Tools", href: "/tools" }, { label: title }]} />
             <Pill>Free Tool</Pill>
             <h1 className="h1 text-text mt-3 break-words">{title}</h1>
             {/* 16px rather than 12px: this h1 reaches 56px, and the description
                 needs to clear its descenders to read as the same unit. */}
-            <p className="body text-text-muted mt-4 max-w-[600px]">{description}</p>
+            <p className="body text-text-muted mt-4 max-w-[600px] text-justify hyphens-auto">{description}</p>
             <AuthorByline className="mt-6 pt-6 border-t border-border" />
           </div>
         </div>
@@ -63,7 +63,7 @@ export function ToolPageLayout({
           and lets the tool section own the padding below. */}
       <section className="pt-8 bg-white">
         <div className="container-main">
-          <div className="max-w-[720px]">
+          <div className="max-w-[720px] mx-auto">
             <FinancialDisclaimer type={disclaimerType} />
           </div>
         </div>
@@ -71,14 +71,14 @@ export function ToolPageLayout({
 
       <section className="section-pad pt-8 bg-white">
         <div className="container-main">
-          <div className="max-w-[720px]">{children}</div>
+          <div className="max-w-[720px] mx-auto">{children}</div>
         </div>
       </section>
 
       {howToUse && (
         <section className="section-pad bg-bg-alt">
           <div className="container-main">
-            <div className="max-w-[720px]">
+            <div className="max-w-[720px] mx-auto">
               <h2 className="h3 text-text">How to use this tool</h2>
               <ol className="mt-5 space-y-4">
                 {howToUse.map((step, i) => (
@@ -88,7 +88,7 @@ export function ToolPageLayout({
                     </span>
                     <div>
                       <p className="text-base font-semibold text-text">{step.step}</p>
-                      <p className="text-sm text-text-muted mt-1">{step.detail}</p>
+                      <p className="text-sm text-text-muted mt-1 text-justify hyphens-auto">{step.detail}</p>
                     </div>
                   </li>
                 ))}
@@ -101,13 +101,13 @@ export function ToolPageLayout({
       {whenToUse && (
         <section className="section-pad bg-white">
           <div className="container-main">
-            <div className="max-w-[720px]">
+            <div className="max-w-[720px] mx-auto">
               <h2 className="h3 text-text">When you&apos;d use this</h2>
               <div className="mt-5 space-y-6">
                 {whenToUse.map((scenario, i) => (
                   <div key={i}>
                     <p className="text-base font-semibold text-text">{scenario.scenario}</p>
-                    <p className="text-sm text-text-muted mt-1">{scenario.detail}</p>
+                    <p className="text-sm text-text-muted mt-1 text-justify hyphens-auto">{scenario.detail}</p>
                   </div>
                 ))}
               </div>
@@ -119,9 +119,9 @@ export function ToolPageLayout({
       {howItWorks && (
         <section className="section-pad bg-bg-alt">
           <div className="container-main">
-            <div className="max-w-[720px]">
+            <div className="max-w-[720px] mx-auto">
               <h2 className="h3 text-text">How it works</h2>
-              <p className="body text-text-muted mt-5 max-w-[600px]">{howItWorks}</p>
+              <p className="body text-text-muted mt-5 max-w-[600px] text-justify hyphens-auto">{howItWorks}</p>
             </div>
           </div>
         </section>
@@ -130,7 +130,7 @@ export function ToolPageLayout({
       {tips && tips.length > 0 && (
         <section className="section-pad bg-white">
           <div className="container-main">
-            <div className="max-w-[720px]">
+            <div className="max-w-[720px] mx-auto">
               <h2 className="h3 text-text">Tips & common mistakes</h2>
               <ul className="mt-5 space-y-3">
                 {tips.map((tip, i) => (
@@ -148,7 +148,7 @@ export function ToolPageLayout({
       {faqs && faqs.length > 0 && (
         <section className="section-pad bg-bg-alt">
           <div className="container-main">
-            <div className="max-w-[720px]">
+            <div className="max-w-[720px] mx-auto">
               <h2 className="h3 text-text">Frequently asked questions</h2>
               {/* space-y-1 put a 4px hole between each row and the border-b of
                   the row above it, so the rules floated free of the list rather
@@ -166,7 +166,7 @@ export function ToolPageLayout({
                       <span>{faq.q}</span>
                       <span className="text-text-muted text-lg leading-none mt-0.5 shrink-0 group-open:rotate-45 transition-transform">+</span>
                     </summary>
-                    <p className="text-sm text-text-muted mt-3 pr-8 max-w-[600px] leading-relaxed">{faq.a}</p>
+                    <p className="text-sm text-text-muted mt-3 pr-8 max-w-[600px] leading-relaxed text-justify hyphens-auto">{faq.a}</p>
                   </details>
                 ))}
               </div>
@@ -178,7 +178,7 @@ export function ToolPageLayout({
       {relatedTools && relatedTools.length > 0 && (
         <section className="section-pad bg-white">
           <div className="container-main">
-            <div className="max-w-[720px]">
+            <div className="max-w-[720px] mx-auto">
               <h2 className="h3 text-text">Related tools</h2>
               <div className="mt-5 flex flex-wrap gap-2">
                 {relatedTools.map((tool) => (

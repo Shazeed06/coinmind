@@ -191,7 +191,7 @@ h4 {
   font-size: 1.125rem; font-weight: 600; line-height: 1.35;
   color: var(--color-ink); margin-top: 1.75rem; margin-bottom: 0.5rem;
 }
-.article-body p { color: var(--color-ink-soft); line-height: 1.7; margin-bottom: 1rem; }
+.article-body p { color: var(--color-ink-soft); line-height: 1.7; margin-bottom: 1rem; text-align: justify; hyphens: auto; }
 .article-body ul, .article-body ol {
   color: var(--color-ink-soft); line-height: 1.7;
   margin: 0 0 1rem 0; padding-left: 1.25rem;

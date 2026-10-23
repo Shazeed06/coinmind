@@ -17,6 +17,13 @@ const csp = [
   `upgrade-insecure-requests`,
 ].join("; ");
 
+// In development, never send immutable Cache-Control for build assets: Turbopack
+// reuses chunk URLs across rebuilds, so an immutable cache makes the browser
+// serve stale chunks (and HMR then fails with "module factory not available").
+// The long-lived immutable cache is correct only for production builds.
+const isProd = process.env.NODE_ENV === "production";
+const assetCache = isProd ? "public, max-age=31536000, immutable" : "no-store";
+
 const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "@radix-ui/react-dialog"],
@@ -46,7 +53,7 @@ const nextConfig: NextConfig = {
           { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
         ],
       },
-      { source: "/fonts/(.*)", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
+      { source: "/fonts/(.*)", headers: [{ key: "Cache-Control", value: assetCache }] },
       {
         source: "/(favicon\\.ico|icon\\.svg|apple-touch-icon\\.png|favicon-48x48\\.png|favicon-96x96\\.png|icon-192\\.png|icon-512\\.png|manifest\\.webmanifest)",
         headers: [
@@ -55,7 +62,7 @@ const nextConfig: NextConfig = {
           { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
-      { source: "/(_next/static)(.*)", headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }] },
+      { source: "/(_next/static)(.*)", headers: [{ key: "Cache-Control", value: assetCache }] },
       { source: "/(opengraph-image|twitter-image)(.*)", headers: [{ key: "Cache-Control", value: "public, max-age=86400" }] },
     ];
   },

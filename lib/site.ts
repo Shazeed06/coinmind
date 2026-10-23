@@ -61,310 +61,76 @@ export const primaryNav: NavItem[] = [
 ];
 
 /**
- * Header navigation, grouped into a small number of top-level mega-menus.
- *
- * Each menu drives a rich dropdown: an optional promo card, icon-led category
- * columns, and an optional "popular" list with thumbnails. `href` on a menu is
- * the section landing page, so the trigger stays a real link even without the
- * panel. Column/item `icon` keys resolve against ICONS in components/Header.tsx;
- * items with no icon fall back to a keyword match.
+ * Header navigation. Five clear top-level menus, each with a simple dropdown:
+ * a 2-column list of its key links (icon + label + one-line description) and a
+ * "View all" link to the section. `icon` keys resolve against ICONS in
+ * components/Header.tsx; items without one fall back to a keyword match.
  */
-export type NavColumn = {
-  heading?: string;
-  sub?: string;
-  icon?: string;
-  items: NavItem[];
-};
-
-export type NavPromo = {
-  pill: string;
-  title: string;
-  desc: string;
-  cta: NavItem;
-};
-
-export type NavPopular = {
-  heading: string;
-  sub: string;
-  viewAllHref: string;
-  /** `seed` picks the thumbnail photo (see resolveCoverImageUrl). */
-  items: { label: string; href: string; seed: string }[];
-};
-
 export type NavMenu = {
   label: string;
   href: string;
-  blurb: string;
-  columns: NavColumn[];
-  footer?: NavItem;
-  promo?: NavPromo;
-  popular?: NavPopular;
+  items: NavItem[];
 };
 
 export const navMenus: NavMenu[] = [
   {
     label: "Calculators",
     href: "/calculators",
-    blurb: "Free, private and instant. Every calculator runs in your browser.",
-    promo: {
-      pill: "Free & Private",
-      title: "Plan your money in minutes",
-      desc: "Every calculator runs in your browser. No sign-up, nothing uploaded.",
-      cta: { label: "Browse all calculators", href: "/calculators" },
-    },
-    columns: [
-      {
-        heading: "Most Used",
-        sub: "Start here",
-        icon: "calculator",
-        items: [
-          { label: "SIP Calculator", href: "/calculators/sip", desc: "Monthly mutual fund returns" },
-          { label: "EMI Calculator", href: "/calculators/emi", desc: "Home, car and personal loans" },
-          { label: "Income Tax Calculator", href: "/calculators/income-tax", desc: "New vs old regime" },
-        ],
-      },
-      {
-        heading: "Planning",
-        sub: "Plan ahead",
-        icon: "lineChart",
-        items: [
-          { label: "Retirement Calculator", href: "/calculators/retirement", desc: "How much you need" },
-          { label: "FIRE Calculator", href: "/calculators/fire", desc: "Retire early planning" },
-          { label: "Net Worth Calculator", href: "/calculators/net-worth", desc: "Your financial position" },
-          { label: "Goal Calculator", href: "/calculators/goal", desc: "SIP for any target" },
-          { label: "Financial Health Score", href: "/calculators/financial-health", desc: "Score across 5 dimensions" },
-        ],
-      },
-      {
-        heading: "Savings & Returns",
-        sub: "Grow your money",
-        icon: "piggy",
-        items: [
-          { label: "FD Calculator", href: "/calculators/fd", desc: "Fixed deposit maturity" },
-          { label: "PPF Calculator", href: "/calculators/ppf", desc: "Tax-free long-term growth" },
-          { label: "Lumpsum Calculator", href: "/calculators/lumpsum", desc: "One-time investment" },
-          { label: "CAGR Calculator", href: "/calculators/cagr", desc: "Annualised growth rate" },
-          { label: "Compound Interest", href: "/calculators/compound-interest", desc: "The power of compounding" },
-        ],
-      },
+    items: [
+      { label: "SIP Calculator", href: "/calculators/sip", desc: "Mutual fund returns", icon: "invest" },
+      { label: "EMI Calculator", href: "/calculators/emi", desc: "Loan monthly payment", icon: "loan" },
+      { label: "Income Tax Calculator", href: "/calculators/income-tax", desc: "New vs old regime", icon: "tax" },
+      { label: "FD Calculator", href: "/calculators/fd", desc: "Fixed deposit maturity", icon: "savings" },
+      { label: "PPF Calculator", href: "/calculators/ppf", desc: "Tax-free long-term growth", icon: "ppf" },
+      { label: "NPS Calculator", href: "/calculators/nps", desc: "Retirement corpus", icon: "retire" },
     ],
-    popular: {
-      heading: "Popular Calculators",
-      sub: "Most used tools",
-      viewAllHref: "/calculators",
-      items: [
-        { label: "SIP Calculator", href: "/calculators/sip", seed: "sip investing mutual fund" },
-        { label: "Income Tax Calculator", href: "/calculators/income-tax", seed: "income tax" },
-        { label: "EMI Calculator", href: "/calculators/emi", seed: "home loan emi" },
-        { label: "FD Calculator", href: "/calculators/fd", seed: "fixed deposit savings" },
-      ],
-    },
-    footer: { label: "Browse all calculators", href: "/calculators" },
   },
   {
-    label: "Learn",
+    label: "Guides",
     href: "/blog",
-    blurb: "Plain-English money and AI explainers, written for Indian readers.",
-    promo: {
-      pill: "Learn & Grow",
-      title: "Build your financial knowledge",
-      desc: "Easy guides, expert insights and practical knowledge to make better financial decisions.",
-      cta: { label: "View all guides", href: "/blog" },
-    },
-    columns: [
-      {
-        heading: "Investment Basics",
-        sub: "Start your financial journey",
-        icon: "book",
-        items: [
-          { label: "Guides", href: "/blog", desc: "How-to articles and comparisons" },
-          { label: "Glossary", href: "/glossary", desc: "Finance and AI terms explained" },
-          { label: "News", href: "/news", desc: "What changed and why it matters" },
-        ],
-      },
-      {
-        heading: "Popular Topics",
-        sub: "Deep dive into concepts",
-        icon: "barChart",
-        items: [
-          { label: "Investing", href: "/investing", desc: "Where to put your money" },
-          { label: "Income Tax", href: "/income-tax", desc: "Regimes, deductions, filing" },
-          { label: "Credit Score", href: "/credit-score", desc: "Check and improve your CIBIL" },
-          { label: "Savings", href: "/savings", desc: "FD, RD and safe returns" },
-          { label: "Retirement", href: "/retirement", desc: "NPS, EPF and planning" },
-        ],
-      },
-      {
-        heading: "Data & Compare",
-        sub: "Stay updated & informed",
-        icon: "bulb",
-        items: [
-          { label: "Comparison Engine", href: "/comparisons", desc: "Side-by-side decisions" },
-          { label: "Research Hub", href: "/research", desc: "Rate histories & data" },
-          { label: "Finance Today", href: "/finance-today", desc: "Live RBI, FD, EPF, tax" },
-        ],
-      },
+    items: [
+      { label: "All Guides", href: "/blog", desc: "How-to articles & tips", icon: "book" },
+      { label: "Investing", href: "/investing", desc: "Grow your money", icon: "invest" },
+      { label: "Income Tax", href: "/income-tax", desc: "Save on taxes", icon: "tax" },
+      { label: "Credit Score", href: "/credit-score", desc: "Improve your CIBIL", icon: "credit" },
+      { label: "Finance Today", href: "/finance-today", desc: "Live RBI, FD & gold rates", icon: "live" },
+      { label: "Glossary", href: "/glossary", desc: "Finance & AI terms", icon: "book" },
     ],
-    popular: {
-      heading: "Popular Guides",
-      sub: "Most read articles",
-      viewAllHref: "/blog",
-      items: [
-        { label: "SIP vs Lump Sum: Which is Better?", href: "/blog/sip-vs-lumpsum", seed: "sip-vs-lumpsum" },
-        { label: "How to Save Income Tax in India", href: "/blog/how-to-save-income-tax", seed: "how-to-save-income-tax tax" },
-        { label: "Improve Your Credit Score Fast", href: "/blog/how-to-improve-credit-score", seed: "credit-score" },
-        { label: "Build an Emergency Fund", href: "/blog/emergency-fund-guide", seed: "emergency fund savings" },
-      ],
-    },
-    footer: { label: "Read the latest guides", href: "/blog" },
   },
   {
     label: "IPO",
     href: "/ipos",
-    blurb: "Track upcoming IPOs, check GMP, allotment status and expert reviews.",
-    promo: {
-      pill: "IPO Watch",
-      title: "Track every IPO in one place",
-      desc: "GMP, allotment status, dates and expert reviews, updated regularly.",
-      cta: { label: "View IPO calendar", href: "/ipos" },
-    },
-    columns: [
-      {
-        heading: "Jio IPO 2026",
-        sub: "The big one",
-        icon: "flame",
-        items: [
-          { label: "Reliance Jio IPO", href: "/ipos/reliance-jio-ipo", desc: "Opens 21 Oct · ₹1,065-1,119" },
-          { label: "Jio IPO GMP Today", href: "/ipos/jio-ipo-gmp-today", desc: "GMP ~₹250 (+22%)" },
-          { label: "Jio IPO Allotment Status", href: "/ipos/jio-ipo-allotment-status", desc: "Allotment 26 Oct" },
-        ],
-      },
-      {
-        heading: "Browse & Track",
-        sub: "Live grey-market data",
-        icon: "search",
-        items: [
-          { label: "Upcoming IPOs", href: "/ipos/upcoming-ipo", desc: "Open, this week & pipeline" },
-          { label: "IPO GMP Today", href: "/ipos/ipo-gmp-today", desc: "Live grey market premium" },
-          { label: "Best Upcoming IPOs 2026", href: "/ipos/best-upcoming-ipos-2026", desc: "Ranked shortlist" },
-          { label: "IPO Allotment Status", href: "/ipos/ipo-allotment-status", desc: "How to check online" },
-          { label: "Mainboard vs SME IPO", href: "/ipos/mainboard-vs-sme-ipo", desc: "Which to choose" },
-        ],
-      },
-      {
-        heading: "More IPOs",
-        sub: "In the pipeline",
-        icon: "building",
-        items: [
-          { label: "NSE IPO 2026", href: "/ipos/nse-ipo", desc: "Listed ₹1,800 · now ~₹1,750" },
-          { label: "Zepto IPO", href: "/ipos/zepto-ipo", desc: "₹8,010 Cr · Dates awaited" },
-          { label: "OYO IPO", href: "/ipos/oyo-ipo", desc: "₹6,650 Cr · pipeline" },
-          { label: "Hero FinCorp IPO", href: "/ipos/hero-fincorp-ipo", desc: "₹3,668 Cr · NBFC" },
-          { label: "PhonePe IPO", href: "/ipos/phonepe-ipo", desc: "Est. ₹12,000 Cr+" },
-        ],
-      },
+    items: [
+      { label: "Reliance Jio IPO", href: "/ipos/reliance-jio-ipo", desc: "Opens 21 Oct 2026", icon: "flame" },
+      { label: "Upcoming IPOs", href: "/ipos/upcoming-ipo", desc: "Open & pipeline", icon: "rocket" },
+      { label: "IPO GMP Today", href: "/ipos/ipo-gmp-today", desc: "Live grey market premium", icon: "chart" },
+      { label: "Allotment Status", href: "/ipos/ipo-allotment-status", desc: "How to check online", icon: "tax" },
+      { label: "Best IPOs 2026", href: "/ipos/best-upcoming-ipos-2026", desc: "Ranked shortlist", icon: "target" },
+      { label: "Mainboard vs SME", href: "/ipos/mainboard-vs-sme-ipo", desc: "Which to choose", icon: "compare" },
     ],
-    popular: {
-      heading: "Most Tracked",
-      sub: "Trending IPOs",
-      viewAllHref: "/ipos",
-      items: [
-        { label: "Reliance Jio IPO 2026", href: "/ipos/reliance-jio-ipo", seed: "ipo stock market" },
-        { label: "Jio IPO GMP Today", href: "/ipos/jio-ipo-gmp-today", seed: "stock market chart" },
-        { label: "Upcoming IPOs This Week", href: "/ipos/upcoming-ipo", seed: "investing stock exchange" },
-        { label: "Best Upcoming IPOs 2026", href: "/ipos/best-upcoming-ipos-2026", seed: "investing growth" },
-      ],
-    },
-    footer: { label: "View IPO calendar", href: "/ipos" },
   },
   {
     label: "Tools",
     href: "/tools",
-    blurb: "Everyday utilities that work offline in your browser. Nothing is uploaded.",
-    promo: {
-      pill: "Free Utilities",
-      title: "Everyday tools that just work",
-      desc: "Documents, images and more, offline in your browser. Nothing is uploaded.",
-      cta: { label: "Browse all tools", href: "/tools" },
-    },
-    columns: [
-      {
-        heading: "Documents",
-        sub: "PDF & invoices",
-        icon: "fileText",
-        items: [
-          { label: "Merge PDF", href: "/tools/merge-pdf", desc: "Join files into one" },
-          { label: "Image to PDF", href: "/tools/image-to-pdf", desc: "Photos into a document" },
-          { label: "Invoice Generator", href: "/tools/invoice-generator", desc: "Professional invoices" },
-        ],
-      },
-      {
-        heading: "Everyday",
-        sub: "Daily helpers",
-        icon: "wrench",
-        items: [
-          { label: "Resume Builder", href: "/resume-builder", desc: "ATS-friendly resume" },
-          { label: "Compress Image", href: "/tools/compress-image", desc: "Smaller files, same quality" },
-          { label: "Budget Planner", href: "/tools/budget-planner", desc: "Track income and spending" },
-        ],
-      },
+    items: [
+      { label: "Resume Builder", href: "/resume-builder", desc: "ATS-friendly resume", icon: "resume" },
+      { label: "Merge PDF", href: "/tools/merge-pdf", desc: "Join files into one", icon: "fileText" },
+      { label: "Image to PDF", href: "/tools/image-to-pdf", desc: "Photos into a document", icon: "fileText" },
+      { label: "Compress Image", href: "/tools/compress-image", desc: "Smaller files, same quality", icon: "image" },
+      { label: "Invoice Generator", href: "/tools/invoice-generator", desc: "Professional invoices", icon: "tax" },
+      { label: "Budget Planner", href: "/tools/budget-planner", desc: "Track income & spending", icon: "budget" },
     ],
-    popular: {
-      heading: "Popular Tools",
-      sub: "Most used utilities",
-      viewAllHref: "/tools",
-      items: [
-        { label: "Resume Builder", href: "/resume-builder", seed: "resume career salary" },
-        { label: "Merge PDF", href: "/tools/merge-pdf", seed: "documents tax paperwork" },
-        { label: "Image to PDF", href: "/tools/image-to-pdf", seed: "documents filing" },
-        { label: "Compress Image", href: "/tools/compress-image", seed: "ai tech laptop" },
-      ],
-    },
-    footer: { label: "Browse all free tools", href: "/tools" },
   },
   {
     label: "AI",
     href: "/ai-tools",
-    blurb: "Hands-on reviews of the AI tools worth your time, plus a free assistant.",
-    promo: {
-      pill: "AI + Money",
-      title: "The AI tools worth your time",
-      desc: "Hands-on reviews and a free AI money assistant that speaks plain English.",
-      cta: { label: "Compare all AI tools", href: "/ai-tools" },
-    },
-    columns: [
-      {
-        heading: "Start Here",
-        sub: "Where to begin",
-        icon: "bot",
-        items: [
-          { label: "AI Tool Reviews", href: "/ai-tools", desc: "Pricing, pros and cons" },
-          { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant" },
-        ],
-      },
-      {
-        heading: "Popular Reviews",
-        sub: "Tried & tested",
-        icon: "sparkles",
-        items: [
-          { label: "ChatGPT", href: "/ai-tools/chatgpt", desc: "The default first stop" },
-          { label: "Gemini", href: "/ai-tools/gemini", desc: "Best Indic language support" },
-          { label: "DeepSeek", href: "/ai-tools/deepseek", desc: "Frontier quality, free" },
-        ],
-      },
+    items: [
+      { label: "AI Tool Reviews", href: "/ai-tools", desc: "Pricing, pros & cons", icon: "star" },
+      { label: "Ask AI", href: "/ai-assistant", desc: "Free AI money assistant", icon: "bot" },
+      { label: "ChatGPT", href: "/ai-tools/chatgpt", desc: "The default first stop", icon: "sparkles" },
+      { label: "Gemini", href: "/ai-tools/gemini", desc: "Best Indic language support", icon: "sparkles" },
+      { label: "DeepSeek", href: "/ai-tools/deepseek", desc: "Frontier quality, free", icon: "sparkles" },
     ],
-    popular: {
-      heading: "Popular AI Tools",
-      sub: "Most read reviews",
-      viewAllHref: "/ai-tools",
-      items: [
-        { label: "ChatGPT Review", href: "/ai-tools/chatgpt", seed: "chatgpt ai" },
-        { label: "Gemini Review", href: "/ai-tools/gemini", seed: "gemini ai model" },
-        { label: "DeepSeek Review", href: "/ai-tools/deepseek", seed: "deepseek ai coding" },
-        { label: "Ask AI Assistant", href: "/ai-assistant", seed: "ai chatbot assistant" },
-      ],
-    },
-    footer: { label: "Compare all AI tools", href: "/ai-tools" },
   },
 ];
 

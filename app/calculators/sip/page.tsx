@@ -229,7 +229,7 @@ export default function Page() {
             <section id="formula" style={{ scrollMarginTop: "6rem" }}>
               <h2>The Formula</h2>
               <div className="not-prose p-4 rounded-card bg-bg-alt border-l-4 border-brand font-mono text-sm my-4">
-                FV = P Ã— [((1 + r)<sup>n</sup> âˆ’ 1) / r] Ã— (1 + r)
+                FV = P Ã- [((1 + r)<sup>n</sup> âˆ’ 1) / r] Ã- (1 + r)
                 <br /><br />
                 Where: P = Monthly SIP amount, r = Monthly return rate (annual/12), n = Total months
               </div>

@@ -337,7 +337,7 @@ export default function IpoPage() {
           {/* Recently listed */}
           <IpoTable
             ipos={LISTED}
-            title="â— Recently Listed"
+            title="â- Recently Listed"
             note="Subscription closed and shares now trading on the exchanges."
           />
 

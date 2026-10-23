@@ -44,7 +44,7 @@ export default function SipVsFdPage() {
       <div className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-5">
         <p className="text-sm font-semibold text-forest-deep">Quick verdict</p>
         <p className="mt-1 text-sm text-forest-deep">
-          For goals <strong>5+ years away</strong>, SIP in a diversified equity mutual fund typically delivers 2-3Ã— more wealth than an FD, especially after tax. For goals <strong>under 3 years</strong> or when capital safety is non-negotiable, FD wins - guaranteed returns and zero volatility.
+          For goals <strong>5+ years away</strong>, SIP in a diversified equity mutual fund typically delivers 2-3Ã- more wealth than an FD, especially after tax. For goals <strong>under 3 years</strong> or when capital safety is non-negotiable, FD wins - guaranteed returns and zero volatility.
         </p>
       </div>
 

@@ -95,7 +95,7 @@ const FAQS = [
   },
   {
     q: "What is the SS Retail IPO lot size?",
-    a: "SS Retail IPO lot size is 35 shares. Minimum investment for retail investors is â‚¹14,840 (35 Ã— â‚¹424 = 1 lot at the upper price band).",
+    a: "SS Retail IPO lot size is 35 shares. Minimum investment for retail investors is â‚¹14,840 (35 Ã- â‚¹424 = 1 lot at the upper price band).",
   },
   {
     q: "At what price did SS Retail IPO list?",
@@ -157,7 +157,7 @@ export default function SsRetailIpoPage() {
             </Link>
           </div>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-semibold text-green-300">
-            â— LISTED Â· 23 SEP 2026 Â· STRONG DEBUT
+            â- LISTED Â· 23 SEP 2026 Â· STRONG DEBUT
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             SS Retail IPO 2026
@@ -284,7 +284,7 @@ export default function SsRetailIpoPage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
-              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ— Risks</h3>
+              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ- Risks</h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
                   <li key={i} className="text-sm text-red-800 dark:text-red-300 flex gap-2">

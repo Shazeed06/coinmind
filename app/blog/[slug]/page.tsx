@@ -812,7 +812,7 @@ export default async function Page({
           </article>
 
           {/* Sidebar: 4 of 12 columns. Topic-matched live calculator, TOC,
-              related articles and newsletter — consistent across every post. */}
+              related articles and newsletter - consistent across every post. */}
           <aside className="lg:col-span-4">
             <div className="space-y-6 article-sidebar">
               {/* Live, topic-matched calculator (falls back to a CTA card) */}
@@ -843,7 +843,7 @@ export default async function Page({
           </aside>
         </div>
 
-        {/* Trust strip — full width below the article, same on every post */}
+        {/* Trust strip - full width below the article, same on every post */}
         <TrustBadges />
       </div>
     </div>

@@ -41,7 +41,7 @@ const IPO_DETAILS = [
   { label: "Offer for Sale (OFS)", value: "~â‚¹1,568 crore (promoter partial exit)" },
   { label: "Expected Price Band", value: "~â‚¹428 per share (unconfirmed)" },
   { label: "Lot Size", value: "34 shares" },
-  { label: "Min. Investment (Retail)", value: "~â‚¹14,552 (34 Ã— â‚¹428)" },
+  { label: "Min. Investment (Retail)", value: "~â‚¹14,552 (34 Ã- â‚¹428)" },
   { label: "DRHP Filed", value: "November 2025" },
   { label: "Expected SEBI Approval", value: "Q1 - Q2 2026" },
   { label: "Expected Open Date", value: "TBA (revised from Aug 2026; Q4 2026 likely)" },
@@ -225,7 +225,7 @@ export default function HeroFincorpIpoPage() {
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
-              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ— Risks</h3>
+              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ- Risks</h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
                   <li key={i} className="text-sm text-red-800 dark:text-red-300 flex gap-2">

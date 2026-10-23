@@ -42,7 +42,7 @@ const LAST_UPDATED = "18 October 2026";
 const IPO_DETAILS = [
   { label: "Price Band", value: "â‚¹1,065 - â‚¹1,119 per share" },
   { label: "Lot Size", value: "12 shares (1 lot)" },
-  { label: "Min. Investment (retail)", value: "â‚¹13,428 (12 Ã— â‚¹1,119)" },
+  { label: "Min. Investment (retail)", value: "â‚¹13,428 (12 Ã- â‚¹1,119)" },
   { label: "Issue Size", value: "~â‚¹30,000 crore (fresh issue)" },
   { label: "Issue Type", value: "100% Fresh Issue (No OFS)" },
   { label: "Shares Offered", value: "~27 crore equity shares" },
@@ -255,7 +255,7 @@ export default function RelianceJioIpoPage() {
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
               <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3 flex items-center gap-2">
-                <span className="text-base">âœ—</span> Risks
+                <span className="text-base">âœ-</span> Risks
               </h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (

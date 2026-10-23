@@ -28,7 +28,7 @@ export function org(): Thing {
     areaServed: ["IN", "US", "GB", "Worldwide"],
     publishingPrinciples: `${site.url}/editorial-standards`,
     knowsAbout: ["Personal finance", "Income tax", "Mutual funds and SIP", "Fixed deposits", "PPF, EPF and NPS", "AI tools"],
-    // No social profiles yet — omit sameAs rather than claim accounts that
+    // No social profiles yet - omit sameAs rather than claim accounts that
     // don't exist. Add the real profile URLs here if/when they're created.
   };
 }
