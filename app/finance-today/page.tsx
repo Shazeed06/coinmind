@@ -53,7 +53,7 @@ const CURRENT_RATES = {
 
 export default function FinanceTodayPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 sm:px-6 py-12">
+    <main className="container-main py-12">
       {/* Header */}
       <div className="mb-2">
         <span className="text-xs font-semibold uppercase tracking-wider text-brass">Live Rates</span>

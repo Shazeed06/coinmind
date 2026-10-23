@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function IncomeTaxSlabsHistoryPage() {
   return (
-    <main className="mx-auto max-w-3xl px-4 sm:px-6 py-12">
+    <main className="container-main py-12">
       <div className="mb-2">
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>

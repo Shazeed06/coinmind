@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 animate-pulse">
+    <div className="container-main py-14 animate-pulse">
       <div className="h-6 w-28 rounded-full bg-line mb-6" />
       {/* max-w-full keeps these placeholder bars inside a 375px viewport:
           w-96 alone pushed the whole page into a horizontal scroll. */}

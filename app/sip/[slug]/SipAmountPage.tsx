@@ -199,7 +199,7 @@ export default function SipAmountPage({ slug }: { slug: string }) {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <div className="container-main">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}

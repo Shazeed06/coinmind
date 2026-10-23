@@ -36,7 +36,7 @@ const tierStyle: Record<string, string> = {
 
 export default function Page() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <div className="container-main">
       <header className="pt-14 pb-4 max-w-3xl">
         <span className="inline-flex items-center gap-2 rounded-full bg-brass-soft px-3 py-1.5 text-xs font-semibold text-brass">
           <IconSparkle className="h-3.5 w-3.5" /> AI Tools Directory

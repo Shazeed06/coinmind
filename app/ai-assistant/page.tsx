@@ -112,7 +112,7 @@ export default function Page() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-10">
+    <div className="container-main pb-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
