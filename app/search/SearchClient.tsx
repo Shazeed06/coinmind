@@ -100,7 +100,7 @@ export default function SearchClient() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-14">
+    <div className="container-main py-14">
       <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-6">
         Search CoinMind
       </h1>

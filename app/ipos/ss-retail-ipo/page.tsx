@@ -150,7 +150,7 @@ export default function SsRetailIpoPage() {
 
       {/* Hero */}
       <section className="bg-[#0c1628] py-12 sm:py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="container-main">
           <div className="mb-4">
             <Link href="/ipos" className="text-sm text-white/50 hover:text-white/80 transition-colors">
               â† IPO Calendar
@@ -199,7 +199,7 @@ export default function SsRetailIpoPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-14 space-y-12">
+      <div className="container-main py-10 sm:py-14 space-y-12">
 
         {/* Key Details */}
         <section>

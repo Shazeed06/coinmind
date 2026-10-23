@@ -200,7 +200,7 @@ export default async function Page({
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6">
+    <div className="container-main">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

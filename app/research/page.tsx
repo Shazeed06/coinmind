@@ -72,7 +72,7 @@ const RESEARCH_SECTIONS = [
 
 export default function ResearchPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 sm:px-6 py-12">
+    <main className="container-main py-12">
       {/* Header */}
       <div className="mb-10">
         <p className="text-xs font-semibold uppercase tracking-wider text-brass mb-2">CoinMind Research</p>

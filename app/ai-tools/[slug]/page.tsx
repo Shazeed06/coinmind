@@ -103,7 +103,7 @@ export default async function Page({
   const json = { "@context": "https://schema.org", "@graph": graph };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 pb-8">
+    <div className="container-main pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
