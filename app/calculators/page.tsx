@@ -22,6 +22,46 @@ const CAT_META: { key: string; label: string; Icon: LucideIcon; color: string; s
 const CATS = CAT_META.filter((c) => LIVE.some((x) => x.category === c.key));
 const colorOf = (cat: string) => CAT_META.find((c) => c.key === cat)?.color ?? "#2f5bea";
 
+// Hand-picked, topic-relevant cover photo per calculator so each card shows an
+// image that actually matches the tool. Unmapped calculators fall back to the
+// category-based picker.
+const PHOTO: Record<string, string> = {
+  sip: "1579621970563-ebec7560ff3e", lumpsum: "1611974789855-9c2a0a7236a3",
+  "mutual-fund-returns": "1611974789855-9c2a0a7236a3", "goal-sip": "1579621970563-ebec7560ff3e",
+  "step-up-sip": "1590283603385-17ffb3a7f29f", swp: "1526304640581-d334cdbbf45e",
+  cagr: "1642543492481-44e81e3914a7", "what-if-simulator": "1590283603385-17ffb3a7f29f",
+  goal: "1579546929518-9e396f3cc809", "goal-child-education": "1507679799987-c73779587ccf",
+  "goal-marriage": "1519741497674-611481863552",
+  retirement: "1516726817505-f5ed825624d8", fire: "1476703993599-0035a21b17a9",
+  nps: "1534528741775-53994a69daeb", epf: "1534528741775-53994a69daeb",
+  emi: "1560518883-ce09059eeffa", "home-loan-eligibility": "1570129477492-45c003edd2be",
+  mortgage: "1560518883-ce09059eeffa", "rent-vs-buy": "1564013799919-ab600027ffc6",
+  "goal-house-down-payment": "1570129477492-45c003edd2be",
+  "car-loan-emi": "1503376780353-7e6692767b70", "goal-car": "1503376780353-7e6692767b70",
+  "personal-loan-emi": "1526304640581-d334cdbbf45e", "education-loan-emi": "1434030216411-0b793f4b4173",
+  "income-tax": "1554224155-8d04cb21cd6c", gst: "1554224154-26032ffc0d07",
+  tds: "1554224155-6726b3ff858f", "capital-gains": "1611974789855-9c2a0a7236a3",
+  hra: "1560518883-ce09059eeffa", "take-home-salary": "1434030216411-0b793f4b4173",
+  "crypto-tax": "1518770660439-4636190af475", "sales-tax": "1556742049-0a67c5574f73",
+  fd: "1567427017947-545c5f8d16ad", rd: "1567427017947-545c5f8d16ad",
+  ppf: "1579621970795-87facc2f976d", nsc: "1526304640581-d334cdbbf45e",
+  scss: "1516726817505-f5ed825624d8", "post-office-mis": "1526304640581-d334cdbbf45e",
+  "compound-interest": "1579621970563-ebec7560ff3e", "simple-interest": "1554224155-8d04cb21cd6c",
+  inflation: "1554224154-26032ffc0d07", gratuity: "1497215728101-856f4ea42174",
+  sukanya: "1519741497674-611481863552", "goal-emergency-fund": "1434030216411-0b793f4b4173",
+  "currency-converter": "1526304640581-d334cdbbf45e", "age-calculator": "1454165804606-c3d57bc86b40",
+  "date-difference-calculator": "1454165804606-c3d57bc86b40", "percentage-calculator": "1556742049-0a67c5574f73",
+  "tip-calculator": "1554224155-6726b3ff858f", discount: "1556742049-0a67c5574f73",
+  "hourly-to-salary": "1497215728101-856f4ea42174", "net-worth": "1590283603385-17ffb3a7f29f",
+  "financial-health": "1590283603385-17ffb3a7f29f",
+};
+function imgFor(c: CalcType) {
+  const id = PHOTO[c.slug];
+  return id
+    ? `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&h=500&q=80`
+    : resolveCoverImageUrl(c.slug, c.category);
+}
+
 function CalcCard({ c }: { c: CalcType }) {
   const color = colorOf(c.category);
   return (
@@ -32,7 +72,7 @@ function CalcCard({ c }: { c: CalcType }) {
       <div className="relative aspect-[16/10] w-full overflow-hidden" style={{ backgroundColor: `${color}12` }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={resolveCoverImageUrl(c.slug, c.category)}
+          src={imgFor(c)}
           alt=""
           loading="lazy"
           decoding="async"
