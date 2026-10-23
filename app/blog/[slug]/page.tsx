@@ -4,11 +4,20 @@ import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import { posts, type Post, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { site } from "@/lib/site";
-import { ChevronRight, Calculator, ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
 import ArticleMarkdown from "@/components/ArticleMarkdown";
 import AuthorReviewBox from "@/components/AuthorReviewBox";
+import KeyTakeaways from "@/components/KeyTakeaways";
+import ArticleShareBar from "@/components/ArticleShareBar";
+import ArticleCalcWidget, { type CalcWidgetType } from "@/components/ArticleCalcWidget";
+import RelatedArticles from "@/components/RelatedArticles";
+import NewsletterCard from "@/components/NewsletterCard";
+import TrustBadges from "@/components/TrustBadges";
+import ArticleTOC from "@/components/ArticleTOC";
 import { Pill, Prose } from "@/components/ui";
+import { tocFromMarkdown } from "@/lib/toc";
+import { getKeyTakeaways } from "@/lib/takeaways";
 
 export const dynamicParams = false;
 
@@ -611,6 +620,17 @@ function getRelatedResources(category: string, slug: string) {
   };
 }
 
+// Maps the topic-matched calculator to the live widget variant it can compute
+// in the sidebar. Anything without a quick formula falls back to a CTA card.
+function calcTypeFor(href: string): CalcWidgetType {
+  if (href.includes("/calculators/sip")) return "sip";
+  if (href.includes("/calculators/emi")) return "emi";
+  if (href.includes("/calculators/fd")) return "fd";
+  if (href.includes("/calculators/ppf")) return "ppf";
+  if (href.includes("/calculators/compound-interest")) return "lumpsum";
+  return "cta";
+}
+
 export default async function Page({
   params,
 }: {
@@ -628,6 +648,10 @@ export default async function Page({
   const more = relatedPosts(post);
   const { items: faqItems, bodyHasFaqSection } = faqToRender(post);
   const related = getRelatedResources(post.category, post.slug);
+  const calcType = calcTypeFor(related.calc.href);
+  const toc = tocFromMarkdown(post.bodyMarkdown);
+  const keyTakeaways = getKeyTakeaways(post);
+  const articleUrl = `${site.url}/blog/${post.slug}`;
 
   const graph: Record<string, unknown>[] = [
     {
@@ -728,6 +752,7 @@ export default async function Page({
                 <p className="text-xs text-text-muted">{post.date} · {post.readMinutes} min read · Reviewed for accuracy</p>
               </div>
             </div>
+            <ArticleShareBar url={articleUrl} title={post.title} />
           </div>
 
           {/* Featured Hero Image - PROMINENTLY VISIBLE ABOVE THE FOLD */}
@@ -748,6 +773,7 @@ export default async function Page({
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Main Article Column: 8 of 12 columns for generous, comfortable reading width */}
           <article id={`post-${post.slug}`} className="lg:col-span-8 scroll-mt-24">
+            {keyTakeaways.length ? <KeyTakeaways items={keyTakeaways} /> : null}
             <Prose>
               {body}
             </Prose>
@@ -785,18 +811,20 @@ export default async function Page({
             </div>
           </article>
 
-          {/* Sticky Sidebar: 4 of 12 columns */}
+          {/* Sidebar: 4 of 12 columns. Topic-matched live calculator, TOC,
+              related articles and newsletter — consistent across every post. */}
           <aside className="lg:col-span-4">
-            <div className="sticky top-24 space-y-6">
-              {/* Interactive Tool CTA */}
-              <div className="p-5 rounded-card border border-border bg-gradient-to-br from-brand/5 to-transparent shadow-2xs">
-                <Calculator className="h-8 w-8 text-brand" />
-                <p className="text-sm font-semibold text-text mt-3">Try {related.calc.label}</p>
-                <p className="text-xs text-text-muted mt-1">{related.calc.desc}</p>
-                <Link href={related.calc.href} className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline">
-                  Open Calculator <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+            <div className="space-y-6 article-sidebar">
+              {/* Live, topic-matched calculator (falls back to a CTA card) */}
+              <ArticleCalcWidget
+                type={calcType}
+                href={related.calc.href}
+                label={related.calc.label}
+                desc={related.calc.desc}
+              />
+
+              {/* On this page */}
+              {toc.length >= 3 && <ArticleTOC items={toc} />}
 
               {/* Topic Hub Crosslink */}
               <div className="p-4 rounded-card border border-border bg-bg-alt">
@@ -806,26 +834,17 @@ export default async function Page({
                 </Link>
               </div>
 
-              {/* Keep Reading Related Posts */}
-              <div>
-                <p className="eyebrow text-text-muted mb-3">Keep reading</p>
-                <div className="space-y-3">
-                  {more.map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={`/blog/${p.slug}`}
-                      className="block p-3 rounded-lg border border-transparent hover:border-border hover:bg-bg-alt transition-all"
-                    >
-                      <p className="text-xs font-semibold text-brand mb-1">{p.category}</p>
-                      <p className="text-sm font-medium text-text hover:text-brand transition-colors line-clamp-2">{p.title}</p>
-                      <p className="text-xs text-text-muted mt-1">{p.readMinutes} min read · {p.date}</p>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              {/* Related articles with thumbnails */}
+              <RelatedArticles posts={more} />
+
+              {/* Newsletter signup */}
+              <NewsletterCard />
             </div>
           </aside>
         </div>
+
+        {/* Trust strip — full width below the article, same on every post */}
+        <TrustBadges />
       </div>
     </div>
   );
