@@ -66,7 +66,7 @@ const bodyProse = [
   // The body column is max-w-3xl so its tables have room, but at 768px a
   // paragraph runs about 98 characters per line. Capping the running text at
   // 600px brings it to roughly 75 while leaving tables and headings full width.
-  "[&_p]:text-ink-soft [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:max-w-[600px]",
+  "[&_p]:text-ink-soft [&_p]:leading-relaxed [&_p]:mb-4 [&_p]:max-w-[640px] [&_p]:text-justify [&_p]:[hyphens:auto]",
   "[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_ul]:space-y-1.5 [&_ul]:text-ink-soft [&_ul]:max-w-[600px]",
   "[&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-4 [&_ol]:space-y-1.5 [&_ol]:text-ink-soft [&_ol]:max-w-[600px]",
   "[&_li]:leading-relaxed",
@@ -104,7 +104,7 @@ export default function HubPage({
   ]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-14">
+    <div className="container-main py-10 sm:py-14">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
