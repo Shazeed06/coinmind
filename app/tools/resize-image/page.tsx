@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/resize-image",
+    url: "https://coinmind.in/tools/resize-image",
     title: "Resize Image - Free Online Image Resizer (JPG/PNG)",
     description:
       "Change image width and height in pixels or by percentage, lock the aspect ratio, and download. 100% private - nothing is uploaded.",

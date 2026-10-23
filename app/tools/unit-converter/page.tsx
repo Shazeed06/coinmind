@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/unit-converter",
+    url: "https://coinmind.in/tools/unit-converter",
     title: "Unit Converter - Length, Weight, Temperature",
     description:
       "Convert length, weight, temperature, area, volume, speed, time and data units instantly - free and private in your browser.",

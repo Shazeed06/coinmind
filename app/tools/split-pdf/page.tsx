@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/split-pdf" },
   openGraph: {
     type: "website",
-    url: "https://www.coinmind.in/tools/split-pdf",
+    url: "https://coinmind.in/tools/split-pdf",
     siteName: site.name,
     locale: "en_IN",
     title: "Split PDF - Extract Pages from a PDF Free",

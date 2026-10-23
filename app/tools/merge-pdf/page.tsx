@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/merge-pdf" },
   openGraph: {
     type: "website",
-    url: "https://www.coinmind.in/tools/merge-pdf",
+    url: "https://coinmind.in/tools/merge-pdf",
     siteName: site.name,
     locale: "en_IN",
     title: "Merge PDF - Combine PDF Files Online Free",

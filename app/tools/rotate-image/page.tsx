@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/rotate-image",
+    url: "https://coinmind.in/tools/rotate-image",
     title: "Rotate & Flip Image - Free Online Image Rotator",
     description:
       "Rotate images left or right and mirror them horizontally or vertically with a live preview. 100% private - nothing is uploaded.",

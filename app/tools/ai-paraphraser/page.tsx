@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/ai-paraphraser",
+    url: "https://coinmind.in/tools/ai-paraphraser",
     title: "AI Paraphrasing Tool - Free Rewriter",
     description:
       "Rewrite and rephrase any text in seconds with AI. Choose from fluent, formal, casual, simple, shorten or expand styles - free and no sign-up.",

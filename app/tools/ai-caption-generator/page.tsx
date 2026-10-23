@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/ai-caption-generator",
+    url: "https://coinmind.in/tools/ai-caption-generator",
     title: "AI Caption & Hashtag Generator - Free",
     description:
       "Describe your post, pick a platform and tone, and get 5 engaging captions plus 10-15 relevant hashtags, powered by AI.",

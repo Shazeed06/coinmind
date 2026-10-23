@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/qr-code-generator",
+    url: "https://coinmind.in/tools/qr-code-generator",
     title: "QR Code Generator - Free Custom QR Codes",
     description:
       "Create custom QR codes for any URL or text - choose colours, size and error correction, then download as PNG or SVG. 100% private, made in your browser.",

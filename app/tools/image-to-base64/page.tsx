@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/image-to-base64",
+    url: "https://coinmind.in/tools/image-to-base64",
     title: "Image to Base64 - Free Data URI Encoder",
     description:
       "Convert any image to a Base64 data URI with ready-to-copy HTML and CSS snippets. 100% private - your image never leaves your browser.",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/budget-planner",
+    url: "https://coinmind.in/tools/budget-planner",
     title: "Budget Planner - Free Monthly Budget Tool",
     description:
       "Plan your monthly budget in seconds. See money left to save, your savings rate and a live 50/30/20 breakdown - private, in your browser.",

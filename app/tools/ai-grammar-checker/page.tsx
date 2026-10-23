@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/ai-grammar-checker",
+    url: "https://coinmind.in/tools/ai-grammar-checker",
     title: "AI Grammar Checker - Fix Grammar Free",
     description:
       "Fix grammar, spelling and punctuation instantly with AI. A fast, free Grammarly alternative that keeps your meaning and tone.",

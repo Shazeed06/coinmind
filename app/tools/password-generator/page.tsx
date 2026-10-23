@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/password-generator",
+    url: "https://coinmind.in/tools/password-generator",
     title: "Password Generator - Strong Random Passwords",
     description:
       "Create strong, random passwords in your browser with the Web Crypto API. 100% private - passwords never leave your device.",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/are-you-rich",
+    url: "https://coinmind.in/tools/are-you-rich",
     title: "Are You Rich? Income Percentile Calculator",
     description:
       "Enter your income and country to estimate your income percentile - and find out where you rank versus everyone else.",

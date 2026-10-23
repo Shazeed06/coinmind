@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/organize-pdf" },
   openGraph: {
     type: "website",
-    url: "https://www.coinmind.in/tools/organize-pdf",
+    url: "https://coinmind.in/tools/organize-pdf",
     siteName: site.name,
     locale: "en_IN",
     title: "Organize PDF - Reorder & Delete PDF Pages Free",

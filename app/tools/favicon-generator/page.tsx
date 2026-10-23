@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/favicon-generator",
+    url: "https://coinmind.in/tools/favicon-generator",
     title: "Favicon Generator - Free Favicon Maker Online",
     description:
       "Turn any image or logo into favicon PNGs at every standard size, with ready-to-paste HTML. 100% private - your image never leaves your browser.",

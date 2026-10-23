@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/gpa-calculator",
+    url: "https://coinmind.in/tools/gpa-calculator",
     title: "GPA & CGPA Calculator - Free Online",
     description:
       "Add courses, credits and grades for a live weighted GPA (4.0) or CGPA (10-point), with a CGPA to percentage helper. Runs privately in your browser.",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/scientific-calculator",
+    url: "https://coinmind.in/tools/scientific-calculator",
     title: "Scientific Calculator - Free Online",
     description:
       "Online scientific calculator with trig, logs, powers, roots and factorial. Keyboard support and Deg/Rad toggle - runs entirely in your browser.",

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/word-counter",
+    url: "https://coinmind.in/tools/word-counter",
     title: "Word Counter - Count Words & Characters Free",
     description:
       "Live word, character, sentence and paragraph counts with reading and speaking time. 100% private - your text never leaves your browser.",

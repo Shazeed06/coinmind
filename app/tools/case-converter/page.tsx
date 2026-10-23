@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/case-converter",
+    url: "https://coinmind.in/tools/case-converter",
     title: "Case Converter - Change Text Case Online",
     description:
       "Change text to UPPERCASE, lowercase, Title Case, camelCase, snake_case and more in one click. 100% private - your text never leaves your browser.",

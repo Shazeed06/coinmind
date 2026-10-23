@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/json-formatter",
+    url: "https://coinmind.in/tools/json-formatter",
     title: "JSON Formatter & Validator - Free Online",
     description:
       "Beautify, minify and validate JSON with precise error locations. 100% private - your data never leaves your browser.",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/image-converter",
+    url: "https://coinmind.in/tools/image-converter",
     title: "Image Converter - JPG, PNG & WebP Online Free",
     description:
       "Convert images between JPG, PNG and WebP instantly. 100% private - your images never leave your browser.",

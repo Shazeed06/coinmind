@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/base64",
+    url: "https://coinmind.in/tools/base64",
     title: "Base64 Encode & Decode - Free Online Tool",
     description:
       "Encode text to Base64 or decode it back, with correct UTF-8 handling. 100% private - your text never leaves your browser.",

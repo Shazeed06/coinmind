@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/color-picker",
+    url: "https://coinmind.in/tools/color-picker",
     title: "Color Picker - HEX, RGB & HSL Converter",
     description:
       "Pick a color and convert between HEX, RGB and HSL with one-click copy and instant tints and shades. Runs entirely in your browser.",

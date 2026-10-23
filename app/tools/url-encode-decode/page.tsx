@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/url-encode-decode",
+    url: "https://coinmind.in/tools/url-encode-decode",
     title: "URL Encode & Decode - Free Online Tool",
     description:
       "Percent-encode and decode URLs and query strings with encodeURIComponent or encodeURI. 100% private - your text never leaves your browser.",

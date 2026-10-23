@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/rotate-pdf" },
   openGraph: {
     type: "website",
-    url: "https://www.coinmind.in/tools/rotate-pdf",
+    url: "https://coinmind.in/tools/rotate-pdf",
     siteName: site.name,
     locale: "en_IN",
     title: "Rotate PDF - Turn PDF Pages 90Â°, 180Â° Free",

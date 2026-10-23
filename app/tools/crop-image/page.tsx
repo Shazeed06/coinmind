@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    url: "https://www.coinmind.in/tools/crop-image",
+    url: "https://coinmind.in/tools/crop-image",
     title: "Crop Image - Free Online Photo Cropper Tool",
     description:
       "Crop photos with a draggable box or exact pixel values and aspect-ratio presets. 100% private - nothing is uploaded.",

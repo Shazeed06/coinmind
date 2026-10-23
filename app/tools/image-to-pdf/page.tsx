@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/image-to-pdf" },
   openGraph: {
     type: "website",
-    url: "https://www.coinmind.in/tools/image-to-pdf",
+    url: "https://coinmind.in/tools/image-to-pdf",
     siteName: site.name,
     locale: "en_IN",
     title: "Image to PDF - Convert JPG & PNG to PDF Free",
