@@ -20,7 +20,7 @@ export function tocFromMarkdown(markdown?: string): TocItem[] {
     const m = /^##\s+(.+?)\s*$/.exec(line.trim());
     if (!m || line.trim().startsWith("### ")) continue;
     const label = m[1].replace(/\*\*/g, "").trim();
-    let id = slugify(label);
+    const id = slugify(label);
     if (!id || seen.has(id)) continue;
     seen.add(id);
     items.push({ id, label });
