@@ -151,48 +151,72 @@ export default function HubPage({
           <HubSection key={s.title} {...s} />
         ))}
 
-        {bodyMarkdown && (
-          <section className="mt-4 border-t border-line pt-10">
-            <div className={`max-w-3xl ${bodyProse}`}>
-              <ArticleMarkdown markdown={bodyMarkdown} />
-            </div>
-          </section>
-        )}
+        {/* Explainer + FAQ in a two-column layout so this block spans the same
+            full width as the card grids above, instead of a narrow centre
+            column. The reading text stays comfortable in the main column while
+            a sticky sidebar carries related topics and a tools CTA. */}
+        {(bodyMarkdown || (faqs && faqs.length > 0)) && (
+          <div className="mt-4 grid gap-10 border-t border-line pt-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-8 min-w-0">
+              {bodyMarkdown && (
+                <div className={bodyProse}>
+                  <ArticleMarkdown markdown={bodyMarkdown} />
+                </div>
+              )}
 
-        {faqs && faqs.length > 0 && (
-          <section className="mt-12 border-t border-line pt-10">
-            <div className="max-w-3xl">
-              <SectionHeading>Frequently Asked Questions</SectionHeading>
-              <div className="grid gap-4">
-                {faqs.map((f) => (
-                  <div key={f.q} className="rounded-2xl border border-line bg-card p-4 shadow-sm sm:p-5">
-                    <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
-                    <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
+              {faqs && faqs.length > 0 && (
+                <section className={bodyMarkdown ? "mt-14" : ""}>
+                  <SectionHeading>Frequently Asked Questions</SectionHeading>
+                  <div className="grid gap-4">
+                    {faqs.map((f) => (
+                      <div key={f.q} className="rounded-xl border border-line bg-card p-4 shadow-sm sm:p-5">
+                        <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
+                        <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </section>
+              )}
             </div>
-          </section>
-        )}
 
-        {relatedHubs && relatedHubs.length > 0 && (
-          <section className="mt-12 border-t border-line pt-10">
-            <div className="max-w-3xl">
-              <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
-              <div className="flex flex-wrap gap-3">
-                {relatedHubs.map((r) => (
+            <aside className="lg:col-span-4">
+              <div className="space-y-6 lg:sticky lg:top-24">
+                {relatedHubs && relatedHubs.length > 0 && (
+                  <div className="rounded-2xl border border-line bg-card p-5 shadow-sm">
+                    <h2 className="font-display text-lg text-ink">Related topics</h2>
+                    <div className="mt-3 flex flex-col">
+                      {relatedHubs.map((r) => (
+                        <Link
+                          key={r.href}
+                          href={r.href}
+                          className="group -mx-2 flex items-center justify-between gap-2 rounded-lg px-2 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-forest-soft/40 hover:text-forest"
+                        >
+                          {r.title}
+                          <IconArrow className="h-3.5 w-3.5 opacity-60 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="rounded-2xl border border-forest/25 bg-forest-soft p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-forest">Free tools</p>
+                  <p className="mt-1.5 text-sm font-semibold text-ink">
+                    Put the numbers to work
+                  </p>
+                  <p className="mt-1 text-xs text-ink-soft">
+                    CoinMind&apos;s calculators are instant, private and free - no sign-up.
+                  </p>
                   <Link
-                    key={r.href}
-                    href={r.href}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft shadow-sm hover:border-forest hover:text-forest transition-colors"
+                    href="/calculators"
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest hover:underline"
                   >
-                    {r.title}
-                    <IconArrow className="h-3.5 w-3.5" />
+                    Browse calculators <IconArrow className="h-3.5 w-3.5" />
                   </Link>
-                ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </aside>
+          </div>
         )}
       </div>
     </div>

@@ -161,92 +161,90 @@ export default async function Page({
         </p>
       </section>
 
-      {/* Full explainer */}
-      <article className="article mt-10">
-        <ArticleMarkdown markdown={term.bodyMarkdown} />
-      </article>
+      {/* Explainer + FAQ in the main column with related links in a sticky
+          sidebar, so the long-form body reads at a comfortable width while the
+          page still uses the full container width. Sidebar stacks on mobile. */}
+      <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-8 min-w-0">
+          <article className="article">
+            <ArticleMarkdown markdown={term.bodyMarkdown} />
+          </article>
 
-      {/* FAQs: visible Q&A, mirrored into the FAQPage JSON-LD above */}
-      {term.faq && term.faq.length > 0 && (
-        <section className="mt-12">
-          <h2 className="font-display text-2xl text-ink">
-            {term.term} FAQs
-          </h2>
-          <p className="mt-2 text-ink-soft">
-            The questions people most often ask about {term.term}, answered for
-            Indian readers.
-          </p>
-          <div className="mt-5 space-y-3">
-            {term.faq.map((f) => (
-              <div key={f.q} className="rounded-2xl border border-line bg-card p-5">
-                <h3 className="font-display text-base text-ink">
-                  {f.q}
-                </h3>
-                <p className="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
+          {/* FAQs: visible Q&A, mirrored into the FAQPage JSON-LD above */}
+          {term.faq && term.faq.length > 0 && (
+            <section className="mt-12">
+              <h2 className="font-display text-2xl text-ink">{term.term} FAQs</h2>
+              <p className="mt-2 text-ink-soft">
+                The questions people most often ask about {term.term}, answered
+                for Indian readers.
+              </p>
+              <div className="mt-5 space-y-3">
+                {term.faq.map((f) => (
+                  <div key={f.q} className="rounded-2xl border border-line bg-card p-5">
+                    <h3 className="font-display text-base text-ink">{f.q}</h3>
+                    <p className="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Related calculator / tool / guide CTA */}
-      {term.relatedHref && (
-        <section className="mt-10 rounded-2xl border border-line bg-forest-soft p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <h2 className="font-display text-xl text-ink">
-              Put {term.term} into practice
-            </h2>
-            <p className="mt-1 text-sm text-ink-soft">
-              Try the tool or guide most relevant to this term.
-            </p>
-          </div>
-          <Link
-            href={term.relatedHref}
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-forest-deep"
-          >
-            {term.relatedLabel ?? "Open"} <IconArrow className="h-4 w-4" />
-          </Link>
-        </section>
-      )}
-
-      {/* Related terms */}
-      {relatedTerms.length > 0 && (
-        <section className="mt-12">
-          <h2 className="font-display text-2xl text-ink">
-            Related terms
-          </h2>
-          <div className="mt-5 flex flex-wrap gap-2.5">
-            {relatedTerms.map((r) => (
-              <Link
-                key={r.slug}
-                href={`/glossary/${r.slug}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-4 py-2 text-sm text-ink-soft hover:border-forest hover:text-forest transition-colors"
-              >
-                <IconCheck className="h-3.5 w-3.5 text-forest" />
-                {r.term}
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Back to full glossary */}
-      <section className="mt-12 rounded-2xl border border-line bg-paper-2 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h2 className="font-display text-xl text-ink">
-            Browse the full glossary
-          </h2>
-          <p className="mt-1 text-sm text-ink-soft">
-            {GLOSSARY.length} finance &amp; AI terms explained in plain English.
-          </p>
+            </section>
+          )}
         </div>
-        <Link
-          href="/glossary"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-card px-6 py-3 text-sm font-semibold text-forest transition-colors hover:border-forest"
-        >
-          All terms <IconArrow className="h-4 w-4" />
-        </Link>
-      </section>
+
+        <aside className="lg:col-span-4">
+          <div className="space-y-6 lg:sticky lg:top-24">
+            {/* Related calculator / tool / guide CTA */}
+            {term.relatedHref && (
+              <div className="rounded-2xl border border-forest/25 bg-forest-soft p-5">
+                <h2 className="font-display text-base text-ink">
+                  Put {term.term} into practice
+                </h2>
+                <p className="mt-1 text-sm text-ink-soft">
+                  Try the tool or guide most relevant to this term.
+                </p>
+                <Link
+                  href={term.relatedHref}
+                  className="mt-3 inline-flex items-center gap-2 rounded-full bg-forest px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-forest-deep"
+                >
+                  {term.relatedLabel ?? "Open"} <IconArrow className="h-4 w-4" />
+                </Link>
+              </div>
+            )}
+
+            {/* Related terms */}
+            {relatedTerms.length > 0 && (
+              <div className="rounded-2xl border border-line bg-card p-5 shadow-sm">
+                <h2 className="font-display text-base text-ink">Related terms</h2>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {relatedTerms.map((r) => (
+                    <Link
+                      key={r.slug}
+                      href={`/glossary/${r.slug}`}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-line bg-bg px-3 py-1.5 text-sm text-ink-soft hover:border-forest hover:text-forest transition-colors"
+                    >
+                      <IconCheck className="h-3.5 w-3.5 text-forest" />
+                      {r.term}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Back to full glossary */}
+            <div className="rounded-2xl border border-line bg-paper-2 p-5">
+              <h2 className="font-display text-base text-ink">Browse the full glossary</h2>
+              <p className="mt-1 text-sm text-ink-soft">
+                {GLOSSARY.length} finance &amp; AI terms in plain English.
+              </p>
+              <Link
+                href="/glossary"
+                className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest hover:underline"
+              >
+                All terms <IconArrow className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <div className="mt-12 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
         <strong className="text-ink">A note on accuracy:</strong> this definition
