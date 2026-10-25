@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
-import { posts, type Post, NOINDEX_POST_SLUGS } from "@/lib/data";
+import { posts, indexablePosts, type Post, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { site } from "@/lib/site";
 import { ChevronRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
@@ -498,7 +498,9 @@ function relatedPosts(post: Post, limit = 3) {
   const exactKeywords = new Set(post.keywords.map((k) => k.toLowerCase()));
   const words = keywordWords(post.keywords);
 
-  return posts
+  // Recommend only indexable posts, so a crawlable article never links out to a
+  // noindexed traffic post.
+  return indexablePosts
     .map((candidate, index) => ({ candidate, index }))
     .filter(({ candidate }) => candidate.slug !== post.slug)
     .map(({ candidate, index }) => {

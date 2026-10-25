@@ -2226,3 +2226,13 @@ export const NOINDEX_POST_SLUGS: ReadonlySet<string> = new Set(
     .map((p) => p.slug)
     .filter((s) => !INDEXED_TRAFFIC_SLUGS.has(s)),
 );
+
+// Posts safe to surface in crawlable listings — the /blog grid and archive,
+// related-post rails, the SIP page's reading list and author pages. It drops
+// the noindexed traffic posts so no internal link ever points a crawler (or the
+// AdSense reviewer) at a thin or off-topic page. Those pages still resolve at
+// their own URL and carry <meta robots="noindex">, but they are orphaned from
+// the site's link graph and already excluded from the sitemap.
+export const indexablePosts: Post[] = posts.filter(
+  (p) => !NOINDEX_POST_SLUGS.has(p.slug),
+);
