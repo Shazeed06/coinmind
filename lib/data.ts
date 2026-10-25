@@ -1148,6 +1148,314 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "nps-vatsalya-scheme-guide",
+    title: "NPS Vatsalya Scheme 2026: How to Open, Contribution, Returns & Rules",
+    metaTitle: "NPS Vatsalya 2026: Open Account, Contribution, Returns & Withdrawal Rules",
+    excerpt:
+      "NPS Vatsalya is a government pension scheme for minors, run under the PFRDA and NPS Trust. Learn who can open it, the minimum contribution, how the money is invested, withdrawal rules and how it converts to a regular NPS at 18.",
+    category: "Retirement",
+    readMinutes: 8,
+    date: "Oct 25, 2026",
+    keywords: [
+      "NPS Vatsalya",
+      "NPS Vatsalya scheme",
+      "NPS Vatsalya account opening",
+      "NPS Vatsalya contribution",
+      "NPS Vatsalya returns",
+      "NPS for child India",
+      "pension scheme for minors",
+    ],
+    art: { variant: "piggy", palette: "forest" },
+    bodyMarkdown: `**NPS Vatsalya** is a pension-cum-savings scheme for children in India, run under the Pension Fund Regulatory and Development Authority (PFRDA) through the NPS Trust. A parent or guardian opens and operates the account for a minor, and the long investing runway means even small, regular contributions can compound into a meaningful retirement corpus by the time the child is an adult.
+
+**Quick answer:** NPS Vatsalya lets a guardian open a pension account for any Indian minor under 18. The minimum contribution is ₹1,000 a year with no upper limit, the money is invested across equity and debt like a regular [NPS](/glossary/nps) account, and on the child turning 18 the account converts into a standard NPS account in their own name.
+
+## What is NPS Vatsalya?
+
+NPS Vatsalya extends the National Pension System to minors. The account is held in the child's name but operated by a guardian until the child turns 18. Contributions are invested by professional pension fund managers across equity, corporate bonds and government securities, and the corpus grows tax-deferred inside the NPS framework.
+
+The idea is simple: starting a retirement account decades early gives compounding far more time to work than starting in your 20s or 30s. A modest yearly contribution made from birth has 60-plus years to grow.
+
+## Who can open an NPS Vatsalya account?
+
+- The child must be an **Indian citizen (resident or NRI/OCI, subject to rules) and below 18 years** of age.
+- The account is opened and operated by a **parent or legal guardian**.
+- Both the minor and the guardian need to complete KYC.
+
+## Contribution rules
+
+| Rule | Detail |
+|---|---|
+| Minimum to open | ₹1,000 |
+| Minimum per year | ₹1,000 |
+| Maximum per year | No upper limit |
+| Who contributes | Guardian (and others) on behalf of the minor |
+
+There is no cap on how much you put in, so families can scale contributions up as their income grows.
+
+## How the money is invested
+
+NPS Vatsalya uses the same investment architecture as the regular NPS. You choose a pension fund manager and an investment option - typically an **auto choice** that adjusts the equity-to-debt mix with age, or an **active choice** where you set the allocation yourself across equity, corporate debt and government securities.
+
+Because the horizon is so long, many guardians lean towards a higher equity allocation in the early years for growth, then let it taper down. Returns are market-linked and not guaranteed.
+
+## What happens when the child turns 18
+
+On the minor turning 18, the account is converted into a normal NPS account in the young adult's name. They complete fresh KYC and can then continue contributing under the regular NPS rules, choosing their own allocation and, eventually, drawing a pension at retirement.
+
+There is also an option to exit at 18 under the scheme's rules, subject to the conditions in force at that time.
+
+## Withdrawal and exit rules
+
+NPS Vatsalya is built for the long term, so liquidity is limited by design:
+
+- **Partial withdrawal** is allowed after a minimum lock-in from account opening, for specified needs such as the child's education, treatment of specified illnesses or disability, up to a capped share of the contributions and a limited number of times.
+- On reaching 18, the account continues as a regular NPS account, where the usual NPS exit and annuity rules apply at retirement.
+
+Always confirm the current withdrawal limits and conditions on the official NPS Trust portal before planning around them, as scheme parameters can be revised.
+
+## How much can it grow? An illustration
+
+The power of NPS Vatsalya is time. Investing a fixed amount every year from a young age, with market-linked growth, can build a large corpus purely because of the decades of compounding.
+
+To see how regular investing compounds over long periods for your own numbers, use the [SIP calculator](/calculators/sip) for monthly contributions or the [NPS calculator](/calculators/nps) to project a pension corpus and annuity. Treat the output as an estimate, since actual NPS returns vary with markets.
+
+## NPS Vatsalya vs other ways to save for a child
+
+- **Sukanya Samriddhi Yojana** (for a girl child) offers guaranteed, tax-free returns but a shorter horizon and lower flexibility - see the [Sukanya Samriddhi calculator](/calculators/sukanya-samriddhi).
+- **Children's mutual funds / long-term SIPs** offer flexibility and liquidity but no pension structure.
+- **NPS Vatsalya** is unique in creating a genuine, portable retirement account from childhood at very low cost.
+
+Many families use NPS Vatsalya alongside, not instead of, a liquid education fund.
+
+## How to open an NPS Vatsalya account
+
+1. Visit the official eNPS portal or an authorised Point of Presence (PoP) such as a bank.
+2. Select the NPS Vatsalya option and enter the guardian and minor details.
+3. Complete KYC for the guardian and the minor (date of birth proof for the child).
+4. Make the initial contribution of at least ₹1,000.
+5. A Permanent Retirement Account Number (PRAN) is issued in the minor's name.
+
+Most of this can be done online in a few minutes.
+
+## Frequently Asked Questions
+
+### What is the minimum contribution for NPS Vatsalya?
+
+The minimum is ₹1,000 to open the account and ₹1,000 per year thereafter. There is no maximum limit, so you can contribute as much as you want.
+
+### Who can open an NPS Vatsalya account?
+
+A parent or legal guardian opens and operates the account on behalf of an Indian minor below 18 years of age. The account is held in the child's name.
+
+### What happens to NPS Vatsalya when the child turns 18?
+
+The account converts into a regular NPS account in the young adult's name after fresh KYC. They can then continue it under normal NPS rules or exit as permitted under the scheme.
+
+### Can I withdraw money from NPS Vatsalya before the child turns 18?
+
+Partial withdrawals are allowed after a minimum lock-in for specific purposes such as education, specified illness or disability, up to a capped share of contributions and a limited number of times. Confirm the current limits on the NPS Trust portal.
+
+### Is NPS Vatsalya a good investment for my child?
+
+For long-term retirement saving it is attractive because of the very long compounding runway and low cost. It is less suitable if you need the money for near-term goals, since it is designed to be illiquid. Many families pair it with a separate, more liquid education fund.
+
+**Important:** This article is general educational information, not personalised financial advice. Scheme rules can change - verify current details on the official PFRDA and NPS Trust websites before investing.
+
+**Official references:**
+- [NPS Trust](https://npstrust.org.in/)
+- [PFRDA](https://www.pfrda.org.in/)`,
+    faq: [
+      {
+        q: "What is the minimum contribution for NPS Vatsalya?",
+        a: "The minimum is ₹1,000 to open the account and ₹1,000 per year thereafter. There is no maximum limit, so you can contribute as much as you want on behalf of the child.",
+      },
+      {
+        q: "Who can open an NPS Vatsalya account?",
+        a: "A parent or legal guardian opens and operates the account on behalf of an Indian minor below 18 years of age. The account is held in the child's name and both the minor and guardian complete KYC.",
+      },
+      {
+        q: "What happens to NPS Vatsalya when the child turns 18?",
+        a: "The account converts into a regular NPS account in the young adult's name after fresh KYC. They can then continue contributing under normal NPS rules or exit as permitted under the scheme.",
+      },
+      {
+        q: "Can I withdraw from NPS Vatsalya before the child turns 18?",
+        a: "Partial withdrawals are allowed after a minimum lock-in for specific purposes such as education, specified illness or disability, up to a capped share of the contributions and a limited number of times. Confirm the current limits on the NPS Trust portal.",
+      },
+      {
+        q: "How do I open an NPS Vatsalya account online?",
+        a: "Visit the official eNPS portal or an authorised Point of Presence such as a bank, choose the NPS Vatsalya option, enter guardian and minor details, complete KYC with the child's date-of-birth proof, and make the minimum ₹1,000 contribution. A PRAN is issued in the minor's name.",
+      },
+      {
+        q: "Is NPS Vatsalya better than Sukanya Samriddhi Yojana?",
+        a: "They serve different goals. Sukanya Samriddhi (for a girl child) gives guaranteed, tax-free returns over a shorter horizon, while NPS Vatsalya is a market-linked retirement account with a much longer compounding runway. Many families use both - a guaranteed scheme plus NPS Vatsalya for long-term growth.",
+      },
+    ],
+    keyTakeaways: [
+      "NPS Vatsalya is a PFRDA-run pension account for any Indian minor under 18, operated by a parent or guardian.",
+      "Minimum contribution is ₹1,000 a year with no upper limit; money is invested across equity and debt like a regular NPS.",
+      "On turning 18 the account converts into a standard NPS account in the child's own name.",
+      "Partial withdrawals are limited and allowed only for specific needs such as education or illness after a lock-in.",
+    ],
+  },
+  {
+    slug: "gold-loan-guide-india",
+    title: "Gold Loan in India 2026: Interest Rates, Per Gram Value, Eligibility & How It Works",
+    metaTitle: "Gold Loan India 2026: Interest Rates, Per Gram Value & Eligibility",
+    excerpt:
+      "A complete guide to gold loans in India: how loan-to-value works, the per-gram amount you can borrow, typical interest rates, eligibility, documents, repayment options and gold loan vs personal loan.",
+    category: "Loans",
+    readMinutes: 9,
+    date: "Oct 25, 2026",
+    keywords: [
+      "gold loan",
+      "gold loan interest rate",
+      "gold loan per gram",
+      "gold loan eligibility",
+      "gold loan vs personal loan",
+      "gold loan India 2026",
+      "how gold loan works",
+    ],
+    art: { variant: "card", palette: "brass" },
+    bodyMarkdown: `A **gold loan** is a secured loan where you pledge gold jewellery or coins with a bank or NBFC and borrow money against their value. Because the loan is backed by gold, it is usually faster to get and cheaper than an unsecured [personal loan](/calculators/personal-loan-emi), which makes it a popular way to raise short-term funds in India - especially with gold prices high.
+
+**Quick answer:** In a gold loan you pledge gold as collateral and borrow up to a regulated share of its value. The RBI caps the loan-to-value (LTV) at 75%, so on gold worth ₹1,00,000 you can borrow up to about ₹75,000. Interest rates are typically lower than personal loans because the loan is secured, and the gold is returned once you repay.
+
+## How a gold loan works
+
+1. You take your gold to a lender, who checks its purity (usually 18-22 karat is accepted) and weight.
+2. The lender values the gold based on the current market rate for its purity.
+3. You are offered a loan up to the regulated **loan-to-value (LTV)** limit.
+4. You submit basic KYC, sign the agreement and receive the money - often the same day.
+5. You repay as agreed, and the gold is returned in the same sealed condition.
+
+The gold stays safely in the lender's vault for the loan period and is never sold unless you default.
+
+## Loan-to-value (LTV) and the per-gram amount
+
+The RBI caps the LTV on gold loans at **75%** of the value of the pledged gold. So the maximum you can borrow is three-quarters of what your gold is worth.
+
+The **per-gram** loan amount you see advertised is simply the eligible loan value for one gram of gold at a given purity:
+
+> Per-gram loan = (market rate per gram for that purity) × LTV
+
+Since gold prices move daily, the per-gram amount changes daily too. Purity matters: 22-karat gold fetches a higher per-gram value than 18-karat. Only the gold content is valued - stones, gems and the making charges in jewellery are not.
+
+## Gold loan interest rates in India
+
+Interest rates vary widely by lender type:
+
+| Lender type | Typical rate range |
+|---|---|
+| Public & private banks | Lower end (often single digits to mid-teens) |
+| Gold-loan NBFCs | Higher, can reach the low-to-mid 20s% |
+
+Banks usually offer the lowest rates but may be slower and stricter. Specialist gold-loan NBFCs are faster and more flexible on documentation but charge more. Always compare the **annual percentage rate**, not just the headline rate, and check processing fees, valuation charges and any prepayment penalty.
+
+Use the [EMI calculator](/calculators/emi) to see the monthly cost of a gold loan at different rates and tenures before you borrow.
+
+## Eligibility and documents
+
+Gold loans have the simplest eligibility of any loan because the gold is the security:
+
+- **Age:** usually 18 and above.
+- **Who can apply:** salaried, self-employed, farmers, homemakers - income proof is often not required.
+- **Gold:** jewellery or coins of accepted purity (commonly 18-22 karat); bank coins up to a weight limit.
+
+**Documents** are minimal: a PAN or Form 60, and an address/identity proof such as Aadhaar. No credit score or income document is typically needed, which is why gold loans are accessible even to those a [personal loan](/calculators/personal-loan-emi) would reject.
+
+## Repayment options
+
+Gold loans are flexible on how you repay:
+
+- **Regular EMI:** equal monthly payments of principal plus interest.
+- **Bullet repayment:** pay the entire principal and interest at the end of the tenure - useful for short-term needs.
+- **Interest-only / periodic interest:** pay interest during the tenure and principal at the end.
+- **Overdraft:** withdraw as needed against a sanctioned limit and pay interest only on what you use.
+
+Short tenures (a few months to a few years) are common. Prepayment is usually allowed, often with no penalty - check before signing.
+
+## Gold loan vs personal loan
+
+| Feature | Gold loan | Personal loan |
+|---|---|---|
+| Security | Secured (gold pledged) | Unsecured |
+| Interest rate | Generally lower | Generally higher |
+| Disbursal speed | Very fast (same day) | Fast, but credit checks apply |
+| Credit score | Usually not required | Important |
+| Risk | Gold can be auctioned on default | No asset at risk |
+| Best for | Short-term needs, those without income proof | Larger needs, no asset to pledge |
+
+If you own gold and need money quickly and cheaply, a gold loan is usually the better choice. If you would rather not risk your gold or need a larger amount over a longer period, compare a personal loan.
+
+## The risk you must understand
+
+If you fail to repay, the lender can **auction your gold** to recover the dues, after giving notice as required. Falling gold prices can also trigger a margin call where you must pay down the loan or pledge more gold. Borrow only what you can comfortably repay, and keep the tenure short.
+
+## Frequently Asked Questions
+
+### How much loan can I get per gram of gold?
+
+It depends on the daily market rate for your gold's purity and the 75% LTV cap. The per-gram loan equals the market value of one gram at that purity multiplied by the LTV, so it changes every day and is higher for 22-karat than 18-karat gold.
+
+### What is the interest rate on a gold loan in India?
+
+Rates vary by lender - banks are usually at the lower end while gold-loan NBFCs charge more, sometimes into the low-to-mid 20s%. Compare the annual percentage rate plus processing and valuation charges across a few lenders before choosing.
+
+### What is the maximum gold loan I can get?
+
+The RBI caps the loan-to-value at 75% of the pledged gold's value, so you can borrow up to three-quarters of what your gold is worth. The absolute amount depends on the weight and purity of the gold you pledge.
+
+### Do I need a good credit score for a gold loan?
+
+Usually not. Because the loan is secured by gold, most lenders do not require a credit score or income proof, which makes gold loans accessible even to people who may not qualify for a personal loan.
+
+### What happens if I cannot repay my gold loan?
+
+The lender can auction your pledged gold to recover the outstanding amount after giving the required notice. A sharp fall in gold prices can also trigger a request to pay down the loan or add gold. Borrow conservatively and keep the tenure short to avoid this.
+
+### Is gold loan better than a personal loan?
+
+If you own gold and need funds quickly and at a lower rate, a gold loan is usually cheaper and faster, with no credit-score hurdle. A personal loan suits larger or longer-term needs and keeps your gold free, but costs more. Compare both with the [EMI calculator](/calculators/emi).
+
+**Important:** This article is general educational information, not personalised financial advice. Interest rates, LTV limits and charges vary by lender and can change - verify current terms with the lender and the RBI before borrowing.
+
+**Official references:**
+- [Reserve Bank of India](https://www.rbi.org.in/)`,
+    faq: [
+      {
+        q: "How much loan can I get per gram of gold?",
+        a: "It depends on the daily market rate for your gold's purity and the RBI's 75% loan-to-value cap. The per-gram loan equals the market value of one gram at that purity multiplied by the LTV, so it changes every day and is higher for 22-karat than 18-karat gold.",
+      },
+      {
+        q: "What is the interest rate on a gold loan in India?",
+        a: "Rates vary by lender - banks are usually at the lower end while gold-loan NBFCs charge more, sometimes into the low-to-mid 20s%. Compare the annual percentage rate plus processing and valuation charges across a few lenders before choosing.",
+      },
+      {
+        q: "What is the maximum gold loan I can get?",
+        a: "The RBI caps the loan-to-value at 75% of the pledged gold's value, so you can borrow up to three-quarters of what your gold is worth. The exact amount depends on the weight and purity of the gold you pledge.",
+      },
+      {
+        q: "Do I need a good credit score for a gold loan?",
+        a: "Usually not. Because the loan is secured by gold, most lenders do not require a credit score or income proof, which makes gold loans accessible even to people who may not qualify for an unsecured personal loan.",
+      },
+      {
+        q: "What happens if I cannot repay my gold loan?",
+        a: "The lender can auction your pledged gold to recover the outstanding amount after giving the required notice. A sharp fall in gold prices can also trigger a request to pay down the loan or add more gold. Borrow conservatively and keep the tenure short.",
+      },
+      {
+        q: "Is a gold loan better than a personal loan?",
+        a: "If you own gold and need funds quickly at a lower rate, a gold loan is usually cheaper and faster, with no credit-score hurdle. A personal loan suits larger or longer-term needs and keeps your gold free, but costs more. Compare both with the EMI calculator.",
+      },
+    ],
+    keyTakeaways: [
+      "A gold loan is secured by pledged gold, so it is faster and usually cheaper than a personal loan.",
+      "The RBI caps loan-to-value at 75%, so you can borrow up to three-quarters of your gold's value.",
+      "The per-gram amount depends on the daily gold rate and purity (22K fetches more than 18K); only gold content is valued, not stones or making charges.",
+      "Repay flexibly (EMI, bullet, interest-only or overdraft) - but on default the lender can auction your gold.",
+    ],
+  },
+  {
     slug: "hra-exemption-calculator-india",
     title: "HRA Exemption Calculator: How to Calculate HRA Tax Exemption in India (FY 2026-27)",
     metaTitle: "HRA Exemption Calculator India FY 2026-27: Calculate HRA Tax Savings",
