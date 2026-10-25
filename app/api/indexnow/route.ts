@@ -66,6 +66,8 @@ function allUrls(): string[] {
     "/ipos",
     "/ipos/nse-ipo",
     "/ipos/reliance-jio-ipo",
+    "/ipos/eaaa-india-alternatives-ipo",
+    "/ipos/sfc-environmental-technologies-ipo",
     "/ipos/jio-ipo-gmp-today",
     "/ipos/jio-ipo-allotment-status",
     "/ipos/zepto-ipo",

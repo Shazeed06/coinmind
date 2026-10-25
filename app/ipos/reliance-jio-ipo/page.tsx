@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+const LAST_UPDATED = "25 October 2026";
 
 const IPO_DETAILS = [
   { label: "Price Band", value: "₹1,065 - ₹1,119 per share" },
@@ -50,11 +50,13 @@ const IPO_DETAILS = [
   { label: "Face Value", value: "₹10 per share" },
   { label: "IPO Open Date", value: "21 October 2026" },
   { label: "IPO Close Date", value: "23 October 2026" },
-  { label: "Allotment Date", value: "26 October 2026 (expected)" },
+  { label: "Subscription", value: "Closed - subscribed ~21.4x overall" },
+  { label: "Allotment Date", value: "26 October 2026" },
   { label: "Listing Date", value: "28 October 2026 (expected)" },
   { label: "Exchanges", value: "BSE + NSE" },
+  { label: "Registrar", value: "KFin Technologies" },
   { label: "Category", value: "Mainboard IPO" },
-  { label: "GMP (indicative)", value: "~₹250 (+22%) as of 18 Oct 2026" },
+  { label: "GMP (indicative)", value: "~₹248 (+22%) as of 25 Oct 2026" },
 ];
 
 const PROS = [
@@ -86,7 +88,7 @@ const FAQS = [
   },
   {
     q: "What is the Jio IPO GMP today?",
-    a: "As of 18 October 2026, the grey market premium (GMP) for the Jio IPO is around ₹250, roughly 22% over the ₹1,119 upper price band, implying an indicative listing price near ₹1,369. GMP is an unofficial, unregulated indicator that changes daily and does not guarantee the actual listing price.",
+    a: "As of 25 October 2026, with the issue now closed, the grey market premium (GMP) for the Jio IPO is around ₹248, roughly 22% over the ₹1,119 upper price band, implying an indicative listing price near ₹1,367. GMP is an unofficial, unregulated indicator that changes daily and does not guarantee the actual listing price.",
   },
   {
     q: "What is the Jio IPO lot size and minimum investment?",
@@ -145,14 +147,15 @@ export default function RelianceJioIpoPage() {
             </Link>
           </div>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
-            OPENS 21 OCT · SUBSCRIPTION 21-23 OCT 2026
+            CLOSED · SUBSCRIBED ~21.4x · LISTS 28 OCT 2026
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             Reliance Jio IPO 2026
           </h1>
           <p className="mt-3 text-white/60 text-base sm:text-lg max-w-2xl">
-            India's biggest-ever IPO. Jio Platforms opens for subscription on 21 October 2026 at a price band of
-            ₹1,065-₹1,119 per share, raising about ₹30,000 crore. Listing expected 28 Oct on BSE &amp; NSE.
+            India's biggest-ever IPO. Jio Platforms closed its subscription on 23 October 2026 (subscribed about 21.4x)
+            at a price band of ₹1,065-₹1,119 per share, raising about ₹30,213 crore. Allotment on 26 Oct, listing
+            expected 28 Oct on BSE &amp; NSE.
           </p>
 
           {/* Status banner */}
@@ -166,8 +169,8 @@ export default function RelianceJioIpoPage() {
               <p className="text-xl font-bold text-white">₹13,428</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
-              <p className="text-xs text-white/50 mb-1">GMP (18 Oct)</p>
-              <p className="text-xl font-bold text-emerald-300">~₹250 (+22%)</p>
+              <p className="text-xs text-white/50 mb-1">GMP (25 Oct)</p>
+              <p className="text-xl font-bold text-emerald-300">~₹248 (+22%)</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Listing</p>
@@ -184,12 +187,12 @@ export default function RelianceJioIpoPage() {
         <section className="rounded-2xl border border-border bg-surface p-5">
           <h2 className="text-base font-bold text-text mb-2">Reliance Jio IPO - quick summary</h2>
           <p className="text-sm text-text-muted leading-relaxed">
-            The <strong className="text-text">Reliance Jio Platforms IPO</strong> opens <strong className="text-text">21 October 2026</strong> and
-            closes <strong className="text-text">23 October 2026</strong>, with a price band of <strong className="text-text">₹1,065-₹1,119</strong> per
-            share and a lot size of <strong className="text-text">12 shares (₹13,428 minimum)</strong>. It is a ~₹30,000 crore
-            100% fresh issue. Allotment is expected on <strong className="text-text">26 Oct</strong> and listing on BSE &amp; NSE on
+            The <strong className="text-text">Reliance Jio Platforms IPO</strong> opened <strong className="text-text">21 October 2026</strong> and
+            closed <strong className="text-text">23 October 2026</strong> (subscribed about 21.4x), with a price band of <strong className="text-text">₹1,065-₹1,119</strong> per
+            share and a lot size of <strong className="text-text">12 shares (₹13,428 minimum)</strong>. It is a ~₹30,213 crore
+            100% fresh issue. Allotment is on <strong className="text-text">26 Oct</strong> and listing on BSE &amp; NSE on
             <strong className="text-text"> 28 Oct 2026</strong>. The latest grey market premium (GMP) is about
-            <strong className="text-text"> ₹250 (+22%)</strong> as of 18 Oct 2026 - unofficial and subject to daily change.
+            <strong className="text-text"> ₹248 (+22%)</strong> as of 25 Oct 2026 - unofficial and subject to daily change.
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs">
             <Link href="/ipos/jio-ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">
@@ -273,7 +276,7 @@ export default function RelianceJioIpoPage() {
         <section className="rounded-2xl bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-800 p-5">
           <h2 className="text-base font-bold text-blue-800 dark:text-blue-300 mb-2">About GMP (Grey Market Premium)</h2>
           <p className="text-sm text-blue-700 dark:text-blue-400">
-            As of 18 October 2026, the Jio IPO GMP is around <strong>₹250</strong>, implying a listing near <strong>₹1,369</strong> (about 22% over the ₹1,119 upper band). GMP is an <strong>unofficial, unregulated indicator</strong> of market sentiment, it moves daily and does not guarantee the listing price. For the latest reading, see our{" "}
+            As of 25 October 2026, the Jio IPO GMP is around <strong>₹248</strong>, implying a listing near <strong>₹1,367</strong> (about 22% over the ₹1,119 upper band). GMP is an <strong>unofficial, unregulated indicator</strong> of market sentiment, it moves daily and does not guarantee the listing price. For the latest reading, see our{" "}
             <Link href="/ipos/jio-ipo-gmp-today" className="underline font-medium">Jio IPO GMP Today tracker</Link>.
           </p>
         </section>
