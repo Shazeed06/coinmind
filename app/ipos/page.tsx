@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "IPO 2026 India: Open & Upcoming IPOs + GMP | CoinMind" },
   description:
-    "Live IPO calendar for October 2026. Track open IPOs (Jio, Tonbo, Bonfiglioli, Zetwerk, Paras Healthcare), GMP today, price band, lot size, allotment & listing dates - all in one place.",
+    "Live IPO calendar for India, October-November 2026. Track open IPOs (EAAA India Alternatives, SFC Environmental), the Jio IPO listing on 28 Oct, GMP today, price band, lot size, allotment & listing dates - all in one place.",
   keywords: [
     "upcoming IPO 2026 India",
     "IPO open today India",
@@ -53,8 +53,40 @@ type IPO = {
   result?: string;
 };
 
-// Opening 21-23 Oct 2026 (allotment 26 Oct, listing ~28 Oct)
-const OPENING: IPO[] = [
+// Currently open for subscription (as of 25 Oct 2026)
+const OPEN: IPO[] = [
+  {
+    name: "EAAA India Alternatives",
+    slug: "eaaa-india-alternatives-ipo",
+    type: "Mainboard",
+    open: "26 Oct 2026",
+    close: "28 Oct 2026",
+    priceBand: "₹1,585-₹1,665",
+    lotSize: "9 shares",
+    gmp: "₹42",
+    gmpPct: "+2.5%",
+    status: "Open",
+    listingDate: "2 Nov 2026",
+    issueSize: "₹1,200 cr OFS",
+  },
+  {
+    name: "SFC Environmental Technologies",
+    slug: "sfc-environmental-technologies-ipo",
+    type: "Mainboard",
+    open: "27 Oct 2026",
+    close: "29 Oct 2026",
+    priceBand: "₹313-₹330",
+    lotSize: "45 shares",
+    gmp: "₹32",
+    gmpPct: "+9.7%",
+    status: "Open",
+    listingDate: "3 Nov 2026",
+    issueSize: "₹667.53 cr",
+  },
+];
+
+// Subscription closed, heading to allotment & listing
+const CLOSED: IPO[] = [
   {
     name: "Reliance Jio Platforms",
     slug: "reliance-jio-ipo",
@@ -63,11 +95,11 @@ const OPENING: IPO[] = [
     close: "23 Oct 2026",
     priceBand: "₹1,065-₹1,119",
     lotSize: "12 shares",
-    gmp: "₹250",
+    gmp: "₹248",
     gmpPct: "+22%",
-    status: "Upcoming",
+    status: "Listing Soon",
     listingDate: "28 Oct 2026",
-    issueSize: "₹30,213 cr",
+    issueSize: "₹30,213 cr · subscribed ~21.4x",
   },
   {
     name: "Paras Healthcare",
@@ -78,70 +110,18 @@ const OPENING: IPO[] = [
     lotSize: "21 shares",
     gmp: "₹92",
     gmpPct: "+13%",
-    status: "Upcoming",
+    status: "Listing Soon",
     listingDate: "28 Oct 2026",
     issueSize: "₹1,450 cr",
   },
 ];
 
-// Open now, close 19 Oct 2026 (allotment 21 Oct, listing ~23 Oct)
-const OPEN: IPO[] = [
-  {
-    name: "Tonbo Imaging India",
-    type: "Mainboard",
-    open: "15 Oct 2026",
-    close: "19 Oct 2026",
-    priceBand: "₹665-₹700",
-    lotSize: "21 shares",
-    gmp: "₹515",
-    gmpPct: "+74%",
-    status: "Open",
-    listingDate: "23 Oct 2026",
-    issueSize: "₹852 cr",
-  },
-  {
-    name: "Bonfiglioli Transmissions",
-    type: "Mainboard",
-    open: "15 Oct 2026",
-    close: "19 Oct 2026",
-    priceBand: "₹558-₹586",
-    lotSize: "25 shares",
-    gmp: "₹130",
-    gmpPct: "+22%",
-    status: "Open",
-    listingDate: "23 Oct 2026",
-    issueSize: "₹2,534 cr",
-  },
-  {
-    name: "Sahajanand Medical Technologies",
-    type: "Mainboard",
-    open: "15 Oct 2026",
-    close: "19 Oct 2026",
-    priceBand: "₹327-₹344",
-    lotSize: "43 shares",
-    gmp: "₹29",
-    gmpPct: "+8%",
-    status: "Open",
-    listingDate: "23 Oct 2026",
-    issueSize: "₹475 cr",
-  },
-  {
-    name: "Zetwerk Manufacturing",
-    type: "Mainboard",
-    open: "15 Oct 2026",
-    close: "19 Oct 2026",
-    priceBand: "₹143-₹151",
-    lotSize: "99 shares",
-    gmp: "₹6",
-    gmpPct: "+4%",
-    status: "Open",
-    listingDate: "23 Oct 2026",
-    issueSize: "₹5,012 cr",
-  },
-];
-
 // Recently listed
 const LISTED: IPO[] = [
+  { name: "Tonbo Imaging India", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹665-₹700", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹852 cr" },
+  { name: "Bonfiglioli Transmissions", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹558-₹586", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹2,534 cr" },
+  { name: "Sahajanand Medical Technologies", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹327-₹344", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹475 cr" },
+  { name: "Zetwerk Manufacturing", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹143-₹151", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹5,012 cr" },
   {
     name: "National Stock Exchange (NSE)",
     slug: "nse-ipo",
@@ -152,7 +132,7 @@ const LISTED: IPO[] = [
     status: "Listed",
     listingDate: "24 Sep 2026",
     issueSize: "₹22,561 cr OFS",
-    result: "Listed ₹1,800 (+0.8%) · now ~₹1,750",
+    result: "Listed ₹1,800 (+0.8%)",
   },
 ];
 
@@ -255,14 +235,14 @@ export default function IpoPage() {
     name: "Open & Upcoming IPOs in India 2026",
     description: "Live list of open and upcoming IPOs in India for October 2026",
     url: `${site.url}/ipos`,
-    numberOfItems: OPENING.length + OPEN.length + LISTED.length,
+    numberOfItems: OPEN.length + CLOSED.length + LISTED.length,
   };
 
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: "Which big IPO is opening this week?", acceptedAnswer: { "@type": "Answer", text: "The Reliance Jio Platforms IPO - India's largest-ever IPO - opens 21 October 2026 at a price band of ₹1,065-₹1,119, alongside Paras Healthcare. Four mainboard IPOs (Tonbo Imaging, Bonfiglioli, Sahajanand Medical, Zetwerk) are already open and close 19 October." } },
+      { "@type": "Question", name: "Which IPOs are open right now?", acceptedAnswer: { "@type": "Answer", text: "As of 25 October 2026, EAAA India Alternatives (Edelweiss, 26-28 Oct) and SFC Environmental Technologies (27-29 Oct) are open for subscription. The Reliance Jio Platforms IPO - India's largest-ever - has closed (subscribed ~21.4x) and lists on 28 October 2026 on BSE and NSE." } },
       { "@type": "Question", name: "What is IPO GMP (Grey Market Premium)?", acceptedAnswer: { "@type": "Answer", text: "GMP is an informal market price at which IPO shares are traded before listing. It gives a rough idea of expected listing gains. GMP is unregulated and can change daily - treat it as informal sentiment, not a guarantee." } },
       { "@type": "Question", name: "What is the minimum investment for an IPO?", acceptedAnswer: { "@type": "Answer", text: "The minimum lot size varies per IPO. For mainboard IPOs, SEBI mandates the minimum application to be between ₹10,000-₹15,000. For the Jio IPO, 1 lot = 12 shares = ₹13,428 at the upper band." } },
       { "@type": "Question", name: "What is ASBA in IPO?", acceptedAnswer: { "@type": "Answer", text: "ASBA (Application Supported by Blocked Amount) is a process where your bank blocks the application money in your account instead of debiting it. The amount is only debited if you get allotment." } },
@@ -290,11 +270,11 @@ export default function IpoPage() {
             IPO 2026 India - Open &amp; Upcoming IPOs with GMP Today
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            Track every mainboard IPO open for subscription right now, the big IPOs opening this week - led by the Reliance Jio Platforms IPO - plus grey market premium (GMP), price band, lot size, and allotment dates, all in one place.
+            Track every mainboard IPO open for subscription right now, the IPOs heading to listing this week - led by the Reliance Jio Platforms IPO (lists 28 Oct) - plus grey market premium (GMP), price band, lot size, and allotment dates, all in one place.
           </p>
           <div className="mt-4 flex flex-wrap gap-2 text-xs text-text-muted">
-            <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Last updated: 18 Oct 2026</span>
-            <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Jio IPO opens 21 Oct</span>
+            <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Last updated: 25 Oct 2026</span>
+            <span className="bg-bg-alt border border-border px-3 py-1 rounded-full">Jio IPO lists 28 Oct</span>
             <span className="text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">⚠ GMP is unofficial &amp; indicative only</span>
           </div>
         </div>
@@ -307,11 +287,11 @@ export default function IpoPage() {
           <div className="mb-10 rounded-2xl border border-brand/20 bg-gradient-to-br from-brand/5 to-transparent p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-brand rounded-full px-3 py-1">Spotlight</span>
-              <span className="text-xs font-semibold text-emerald-700">Opens 21 Oct · GMP ~₹250 (+22%)</span>
+              <span className="text-xs font-semibold text-emerald-700">Subscribed ~21.4x · Lists 28 Oct · GMP ~₹248 (+22%)</span>
             </div>
             <h2 className="text-xl font-bold text-text">Reliance Jio Platforms IPO - India&apos;s Biggest-Ever IPO</h2>
             <p className="mt-2 text-sm text-text-muted max-w-2xl">
-              ₹30,000 crore fresh issue, price band ₹1,065-₹1,119, lot size 12 shares (₹13,428). Subscription 21-23 Oct, allotment 26 Oct, listing 28 Oct on BSE &amp; NSE.
+              ₹30,213 crore issue, price band ₹1,065-₹1,119, lot size 12 shares (₹13,428). Subscription closed 23 Oct (~21.4x overall), allotment 26 Oct, listing 28 Oct on BSE &amp; NSE.
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
               <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand text-white px-4 py-1.5 font-medium hover:opacity-90">Full Jio IPO Review</Link>
@@ -320,18 +300,18 @@ export default function IpoPage() {
             </div>
           </div>
 
-          {/* Opening this week */}
-          <IpoTable
-            ipos={OPENING}
-            title="🚀 Opening This Week (21-23 Oct)"
-            note="Big-ticket mainboard IPOs opening for subscription this week. Apply on the open date via your broker app."
-          />
-
           {/* Currently Open */}
           <IpoTable
             ipos={OPEN}
             title="🟢 Currently Open for Subscription"
-            note="Close 19 Oct 2026. Apply now via your broker (Zerodha, Groww, Angel One, Upstox, etc.)."
+            note="Apply now via your broker (Zerodha, Groww, Angel One, Upstox, etc.) before the close date."
+          />
+
+          {/* Closed - allotment & listing */}
+          <IpoTable
+            ipos={CLOSED}
+            title="⏳ Closed - Allotment & Listing (28 Oct)"
+            note="Subscription has closed; allotment is being finalised and shares list on 28 Oct 2026."
           />
 
           {/* Recently listed */}
@@ -344,7 +324,7 @@ export default function IpoPage() {
           {/* Disclaimer */}
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 mb-10">
             <p className="text-sm text-amber-800">
-              <strong>GMP Disclaimer:</strong> Grey Market Premium (GMP) is an informal, unregulated indicator from the grey market, stamped as of 18 Oct 2026 and subject to daily change. It is <strong>not endorsed by SEBI</strong> and does not predict actual listing price. Verify price bands, lot sizes and dates against the RHP and the BSE/NSE issue pages before applying.
+              <strong>GMP Disclaimer:</strong> Grey Market Premium (GMP) is an informal, unregulated indicator from the grey market, stamped as of 25 Oct 2026 and subject to daily change. It is <strong>not endorsed by SEBI</strong> and does not predict actual listing price. Verify price bands, lot sizes and dates against the RHP and the BSE/NSE issue pages before applying.
             </p>
           </div>
 
@@ -391,8 +371,8 @@ export default function IpoPage() {
             <div className="space-y-4">
               {[
                 {
-                  q: "Which big IPO is opening this week?",
-                  a: "The Reliance Jio Platforms IPO - India's largest-ever - opens 21 October 2026 at ₹1,065-₹1,119, alongside Paras Healthcare. Four mainboard IPOs (Tonbo Imaging, Bonfiglioli, Sahajanand Medical, Zetwerk) are already open and close 19 October.",
+                  q: "Which IPOs are open right now?",
+                  a: "As of 25 October 2026, EAAA India Alternatives (Edelweiss, 26-28 Oct) and SFC Environmental Technologies (27-29 Oct) are open for subscription. The Reliance Jio Platforms IPO - India's largest-ever - has closed (subscribed ~21.4x) and lists on 28 October 2026 on BSE and NSE.",
                 },
                 {
                   q: "What is IPO GMP (Grey Market Premium)?",
