@@ -174,13 +174,21 @@ export default function Header() {
                   </button>
                   {expanded && (
                     <div className="border-t border-[#eef1f6] bg-[#f7f9fc]/60 px-2 py-2">
-                      {m.items.map((item) => {
+                      {m.items.map((item, idx) => {
                         const { Icon, color } = iconMeta(item.icon);
+                        const showGroup = item.group && item.group !== m.items[idx - 1]?.group;
                         return (
-                          <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[#334155] hover:bg-white">
-                            <Icon className="h-[18px] w-[18px] shrink-0" style={{ color }} />
-                            <span className="text-sm font-medium">{item.label}</span>
-                          </Link>
+                          <div key={item.href}>
+                            {showGroup && (
+                              <p className="px-3 pb-0.5 pt-2 text-[11px] font-semibold uppercase tracking-wider text-[#94a3b8]">
+                                {item.group}
+                              </p>
+                            )}
+                            <Link href={item.href} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[#334155] hover:bg-white">
+                              <Icon className="h-[18px] w-[18px] shrink-0" style={{ color }} />
+                              <span className="text-sm font-medium">{item.label}</span>
+                            </Link>
+                          </div>
                         );
                       })}
                       <Link href={m.href} className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#2f5bea]">
@@ -231,6 +239,22 @@ function MenuPanel({
     return () => window.removeEventListener("resize", place);
   }, [menu.label]);
 
+  // Bucket items by their optional `group` label, preserving order. When no
+  // item carries a group the whole menu is one unlabelled bucket (flat, as
+  // before); when some do, each bucket gets a small subheading so the dropdown
+  // reads as clearly separated sections.
+  const groups: { name: string | null; items: typeof menu.items }[] = [];
+  for (const item of menu.items) {
+    const g = item.group ?? null;
+    let bucket = groups.find((x) => x.name === g);
+    if (!bucket) {
+      bucket = { name: g, items: [] };
+      groups.push(bucket);
+    }
+    bucket.items.push(item);
+  }
+  const hasGroups = groups.some((g) => g.name);
+
   return (
     <div
       ref={wrapRef}
@@ -249,27 +273,36 @@ function MenuPanel({
               View all <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2">
-            {menu.items.map((item) => {
-              const { Icon, color } = iconMeta(item.icon);
-              const active = isActive(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`group flex items-start gap-3 rounded-xl px-2.5 py-2.5 transition-colors ${active ? "bg-[#eff4ff]" : "hover:bg-[#f4f7fb]"}`}
-                >
-                  <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg" style={{ backgroundColor: `${color}14`, color }}>
-                    <Icon className="h-[18px] w-[18px]" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className={`block truncate text-[13.5px] font-semibold ${active ? "text-[#2f5bea]" : "text-[#0f172a]"}`}>{item.label}</span>
-                    {item.desc && <span className="block truncate text-[12px] text-[#64748b]">{item.desc}</span>}
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
+          {groups.map((grp, gi) => (
+            <div key={grp.name ?? gi} className={gi > 0 ? "mt-1.5 border-t border-[#f1f5f9] pt-1.5" : ""}>
+              {hasGroups && grp.name && (
+                <p className="px-2.5 pb-0.5 pt-1 text-[11px] font-semibold uppercase tracking-wider text-[#94a3b8]">
+                  {grp.name}
+                </p>
+              )}
+              <div className="grid grid-cols-1 gap-0.5 sm:grid-cols-2">
+                {grp.items.map((item) => {
+                  const { Icon, color } = iconMeta(item.icon);
+                  const active = isActive(item.href);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`group flex items-start gap-3 rounded-xl px-2.5 py-2.5 transition-colors ${active ? "bg-[#eff4ff]" : "hover:bg-[#f4f7fb]"}`}
+                    >
+                      <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg" style={{ backgroundColor: `${color}14`, color }}>
+                        <Icon className="h-[18px] w-[18px]" />
+                      </span>
+                      <span className="min-w-0">
+                        <span className={`block truncate text-[13.5px] font-semibold ${active ? "text-[#2f5bea]" : "text-[#0f172a]"}`}>{item.label}</span>
+                        {item.desc && <span className="block truncate text-[12px] text-[#64748b]">{item.desc}</span>}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
