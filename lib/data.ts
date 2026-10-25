@@ -2184,10 +2184,45 @@ export const posts: Post[] = ALL_POSTS.filter((p) => !REMOVED_POST_SLUGS.has(p.s
 // internally linked but are noindexed, so a large near-duplicate footprint is
 // not submitted for indexing on a young domain (same rationale as the
 // programmatic calculator clusters). The curated editorial posts stay indexed.
+// Substantial, unique, finance-relevant traffic posts promoted back to
+// indexable: they are removed from the noindex set below, so the sitemap and
+// IndexNow (both of which exclude noindexed slugs) pick them up automatically.
+// Near-duplicates of already-indexed pages are deliberately left noindexed to
+// avoid keyword cannibalisation.
+const INDEXED_TRAFFIC_SLUGS: ReadonlySet<string> = new Set([
+  "groww-vs-zerodha-vs-angel-one-2026",
+  "how-to-open-demat-account",
+  "best-credit-cards-india-2026",
+  "best-mutual-funds-2026-india",
+  "loan-against-property-guide",
+  "atal-pension-yojana-guide",
+  "sukanya-samriddhi-yojana-2026",
+  "home-loan-emi-calculator-guide-2026",
+  "best-health-insurance-family-2026",
+  "nri-investment-options-india",
+  "stock-market-beginners-india",
+  "sbi-vs-hdfc-vs-icici-comparison",
+  "gratuity-rules-india-2026",
+  "education-loan-india-guide",
+  "lic-best-plans-2026",
+  "gold-rate-digital-vs-physical-2026",
+  "fd-rates-senior-citizens-2026",
+  "best-investment-apps-india-2026",
+  "cryptocurrency-tax-india-2026",
+  "credit-card-vs-debit-card",
+  "personal-loan-vs-credit-card",
+  "gst-registration-process-india",
+  "real-estate-vs-mutual-funds",
+  "best-credit-card-amazon-flipkart-2026",
+  "cibil-score-check-improve-guide",
+]);
+
 export const NOINDEX_POST_SLUGS: ReadonlySet<string> = new Set(
   [
     ...trafficPosts1, ...trafficPosts2, ...trafficPosts3, ...trafficPosts4,
     ...trafficPosts5, ...trafficPosts6, ...trafficPosts7, ...trafficPosts8,
     ...trafficPosts9, ...trafficPosts10, ...trafficPosts11,
-  ].map((p) => p.slug)
+  ]
+    .map((p) => p.slug)
+    .filter((s) => !INDEXED_TRAFFIC_SLUGS.has(s)),
 );
