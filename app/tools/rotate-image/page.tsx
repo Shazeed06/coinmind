@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Rotate & Flip Image - Free Online Image Rotator" },
   description:
-    "Free tool to rotate an image 90Â° left or right and flip it horizontally or vertically, with a live preview. Download as JPG, PNG or WebP.",
+    "Free tool to rotate an image 90° left or right and flip it horizontally or vertically, with a live preview. Download as JPG, PNG or WebP.",
   alternates: { canonical: "/tools/rotate-image" },
   openGraph: {
     type: "website",
@@ -34,7 +34,7 @@ const faqData = [
   },
   {
     q: "What's the difference between rotating and flipping?",
-    a: "Rotating turns the whole image around its centre in 90Â° steps. Flipping mirrors it: horizontal flip swaps left and right (like a mirror), while vertical flip swaps top and bottom. You can combine both.",
+    a: "Rotating turns the whole image around its centre in 90° steps. Flipping mirrors it: horizontal flip swaps left and right (like a mirror), while vertical flip swaps top and bottom. You can combine both.",
   },
   {
     q: "Can I fix a sideways photo from my phone?",
@@ -42,11 +42,11 @@ const faqData = [
   },
   {
     q: "Does rotating an image lose quality?",
-    a: "Rotating by 90Â° or flipping is lossless. The pixels are just rearranged, not resampled. The only quality change comes from the output format: PNG stays pixel-perfect, while JPG and WebP re-encode at high quality.",
+    a: "Rotating by 90° or flipping is lossless. The pixels are just rearranged, not resampled. The only quality change comes from the output format: PNG stays pixel-perfect, while JPG and WebP re-encode at high quality.",
   },
   {
     q: "Can I combine a rotation and a flip?",
-    a: "Yes. The buttons stack, so you can rotate 90Â° and then flip horizontally, for example. The preview always shows the final result, and the downloaded file matches exactly what you see.",
+    a: "Yes. The buttons stack, so you can rotate 90° and then flip horizontally, for example. The preview always shows the final result, and the downloaded file matches exactly what you see.",
   },
   {
     q: "Does rotating or flipping change the file size?",
@@ -104,7 +104,7 @@ export default function Page() {
       />
       <ToolPageLayout
         title="Rotate & Flip Image"
-        description="Straighten a sideways photo or mirror an image in one click: rotate 90Â° left or right and flip horizontally or vertically, with a live preview and nothing uploaded."
+        description="Straighten a sideways photo or mirror an image in one click: rotate 90° left or right and flip horizontally or vertically, with a live preview and nothing uploaded."
         howToUse={[
           {
             step: "Upload your image",

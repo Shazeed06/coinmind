@@ -55,9 +55,9 @@ export default function WidgetsPage() {
       {/* Use cases */}
       <div className="grid sm:grid-cols-3 gap-4 mb-10">
         {[
-          { icon: "âœï¸", title: "Finance bloggers", desc: "Keep readers on your page longer with interactive tools." },
-          { icon: "ðŸ¢", title: "Financial advisors", desc: "Offer calculators on your website without building them." },
-          { icon: "ðŸ“°", title: "Publishers", desc: "Enhance articles with real-time calculations." },
+          { icon: "✍️", title: "Finance bloggers", desc: "Keep readers on your page longer with interactive tools." },
+          { icon: "🏢", title: "Financial advisors", desc: "Offer calculators on your website without building them." },
+          { icon: "📰", title: "Publishers", desc: "Enhance articles with real-time calculations." },
         ].map((uc) => (
           <div key={uc.title} className="rounded-xl border border-line bg-card p-4">
             <div className="text-2xl mb-2">{uc.icon}</div>

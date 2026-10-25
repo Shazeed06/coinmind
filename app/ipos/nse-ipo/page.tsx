@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "NSE IPO 2026: Listing Price, GMP & Review | CoinMind" },
   description:
-    "NSE IPO listed 24 Sep 2026 at â‚¹1,800 (+0.84%) vs â‚¹1,785 issue price. Subscribed 5.71x. â‚¹22,561 cr OFS. Latest share price, listing gain, allotment & full review.",
+    "NSE IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue price. Subscribed 5.71x. ₹22,561 cr OFS. Latest share price, listing gain, allotment & full review.",
   keywords: [
     "NSE IPO",
     "NSE IPO listing price",
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/ipos/nse-ipo` },
   openGraph: {
     locale: "en_IN",
-    title: "NSE IPO 2026: Listed at â‚¹1,800, Review & Share Price",
+    title: "NSE IPO 2026: Listed at ₹1,800, Review & Share Price",
     description:
-      "National Stock Exchange of India IPO listed 24 Sep 2026 at â‚¹1,800 (+0.84%) vs â‚¹1,785 issue. Subscribed 5.71x, â‚¹22,561 cr OFS. Latest price & full review.",
+      "National Stock Exchange of India IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue. Subscribed 5.71x, ₹22,561 cr OFS. Latest price & full review.",
     url: `${site.url}/ipos/nse-ipo`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "NSE IPO 2026: Listed at â‚¹1,800, Review & Share Price",
+    title: "NSE IPO 2026: Listed at ₹1,800, Review & Share Price",
     description:
-      "NSE IPO listed 24 Sep 2026 at â‚¹1,800 (+0.84%) vs â‚¹1,785 issue price. Subscribed 5.71x, â‚¹22,561 cr OFS. Latest share price and full review.",
+      "NSE IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue price. Subscribed 5.71x, ₹22,561 cr OFS. Latest share price and full review.",
   },
 };
 
@@ -40,12 +40,12 @@ const LAST_UPDATED = "18 October 2026";
 
 const IPO_DETAILS = [
   { label: "Status", value: "Listed on 24 Sep 2026" },
-  { label: "Issue Price", value: "â‚¹1,785 per share (top of band)" },
-  { label: "Listing Price (BSE)", value: "â‚¹1,800 (+0.84% vs issue)" },
-  { label: "Listing Day Range", value: "~â‚¹1,800 - â‚¹1,845/â‚¹1,878 (intraday high varies by source)" },
-  { label: "Price Band", value: "â‚¹1,700 - â‚¹1,785 per share" },
-  { label: "Issue Size", value: "â‚¹22,561.57 crore (100% OFS)" },
-  { label: "Lot Size", value: "8 shares (â‚¹14,280 at â‚¹1,785)" },
+  { label: "Issue Price", value: "₹1,785 per share (top of band)" },
+  { label: "Listing Price (BSE)", value: "₹1,800 (+0.84% vs issue)" },
+  { label: "Listing Day Range", value: "~₹1,800 - ₹1,845/₹1,878 (intraday high varies by source)" },
+  { label: "Price Band", value: "₹1,700 - ₹1,785 per share" },
+  { label: "Issue Size", value: "₹22,561.57 crore (100% OFS)" },
+  { label: "Lot Size", value: "8 shares (₹14,280 at ₹1,785)" },
   { label: "Overall Subscription", value: "5.71x" },
   { label: "Open - Close", value: "17 - 21 September 2026" },
   { label: "Allotment Date", value: "22 September 2026" },
@@ -71,9 +71,9 @@ const PROS = [
 ];
 
 const CONS = [
-  "Muted debut - listed only +0.84% and has since slipped below the â‚¹1,785 issue price",
+  "Muted debut - listed only +0.84% and has since slipped below the ₹1,785 issue price",
   "100% OFS - no fresh capital for the company; existing holders cashed out",
-  "Rich valuation - roughly â‚¹9 lakh crore market cap at issue price",
+  "Rich valuation - roughly ₹9 lakh crore market cap at issue price",
   "Regulatory overhang - SEBI's past co-location case and ongoing scrutiny",
   "Retail portion only 1.39x - limited retail enthusiasm vs institutions",
   "Trading near/below issue price in October - listing gains did not sustain",
@@ -85,7 +85,7 @@ export default function NseIpoPage() {
     "@type": "Article",
     headline: "NSE IPO 2026: Listing Price, Subscription, Share Price & Review",
     description:
-      "National Stock Exchange of India IPO listed 24 Sep 2026 at â‚¹1,800 (+0.84%) vs â‚¹1,785 issue price, subscribed 5.71x, â‚¹22,561 crore OFS.",
+      "National Stock Exchange of India IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue price, subscribed 5.71x, ₹22,561 crore OFS.",
     url: `${site.url}/ipos/nse-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -103,7 +103,7 @@ export default function NseIpoPage() {
         name: "At what price did NSE IPO list?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "NSE listed on BSE on 24 September 2026 at â‚¹1,800, a gain of about 0.84% over the â‚¹1,785 issue price. It touched an intraday high between â‚¹1,845 and â‚¹1,878 (sources differ) before closing near â‚¹1,818 on debut.",
+          text: "NSE listed on BSE on 24 September 2026 at ₹1,800, a gain of about 0.84% over the ₹1,785 issue price. It touched an intraday high between ₹1,845 and ₹1,878 (sources differ) before closing near ₹1,818 on debut.",
         },
       },
       {
@@ -111,7 +111,7 @@ export default function NseIpoPage() {
         name: "What is the NSE share price now?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "As of mid-October 2026, NSE shares were trading around â‚¹1,750, slightly below the â‚¹1,785 issue price. Share prices change continuously - check the official BSE quote (scrip code 544937) for the live price.",
+          text: "As of mid-October 2026, NSE shares were trading around ₹1,750, slightly below the ₹1,785 issue price. Share prices change continuously - check the official BSE quote (scrip code 544937) for the live price.",
         },
       },
       {
@@ -127,7 +127,7 @@ export default function NseIpoPage() {
         name: "Was the NSE IPO a fresh issue or OFS?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The NSE IPO was a 100% Offer for Sale (OFS) of â‚¹22,561.57 crore. No fresh capital was raised by NSE; existing shareholders sold their shares, so the company did not receive the proceeds.",
+          text: "The NSE IPO was a 100% Offer for Sale (OFS) of ₹22,561.57 crore. No fresh capital was raised by NSE; existing shareholders sold their shares, so the company did not receive the proceeds.",
         },
       },
       {
@@ -135,7 +135,7 @@ export default function NseIpoPage() {
         name: "What were the NSE IPO price band and lot size?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The price band was â‚¹1,700 to â‚¹1,785 per share with a lot size of 8 shares, so the minimum retail application at the cut-off price was â‚¹14,280.",
+          text: "The price band was ₹1,700 to ₹1,785 per share with a lot size of 8 shares, so the minimum retail application at the cut-off price was ₹14,280.",
         },
       },
     ],
@@ -151,15 +151,15 @@ export default function NseIpoPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>â€º</span>
+            <span>›</span>
             <span>NSE IPO 2026</span>
           </nav>
 
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="text-[10px] font-bold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 rounded-full px-3 py-1">Mainboard IPO</span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1">â- Listed 24 Sep 2026</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1">● Listed 24 Sep 2026</span>
             <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">Debut +0.84%</span>
           </div>
 
@@ -167,9 +167,9 @@ export default function NseIpoPage() {
             NSE IPO 2026 - National Stock Exchange of India
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            India&apos;s largest stock exchange listed on 24 September 2026. The â‚¹22,561 crore OFS was subscribed 5.71x and debuted at â‚¹1,800 on BSE, just 0.84% above the â‚¹1,785 issue price. Here&apos;s the full review and where the stock stands now.
+            India&apos;s largest stock exchange listed on 24 September 2026. The ₹22,561 crore OFS was subscribed 5.71x and debuted at ₹1,800 on BSE, just 0.84% above the ₹1,785 issue price. Here&apos;s the full review and where the stock stands now.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} Â· Share price data is indicative - verify on BSE (scrip 544937).</p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · Share price data is indicative - verify on BSE (scrip 544937).</p>
         </div>
       </section>
 
@@ -180,19 +180,19 @@ export default function NseIpoPage() {
           <div className="rounded-xl border border-slate-200 bg-white p-4 flex flex-wrap items-center gap-4">
             <div>
               <p className="text-xs text-text-muted font-semibold uppercase tracking-wide">Issue Price</p>
-              <p className="text-2xl font-extrabold text-text">â‚¹1,785</p>
+              <p className="text-2xl font-extrabold text-text">₹1,785</p>
             </div>
             <div className="h-10 w-px bg-border hidden sm:block" />
             <div>
               <p className="text-xs text-text-muted font-semibold uppercase tracking-wide">Listed At</p>
-              <p className="text-2xl font-extrabold text-emerald-700">â‚¹1,800 <span className="text-base font-semibold">(+0.84%)</span></p>
+              <p className="text-2xl font-extrabold text-emerald-700">₹1,800 <span className="text-base font-semibold">(+0.84%)</span></p>
             </div>
             <div className="h-10 w-px bg-border hidden sm:block" />
             <div>
               <p className="text-xs text-text-muted font-semibold uppercase tracking-wide">Price Now (16 Oct)</p>
-              <p className="text-lg font-bold text-red-600">~â‚¹1,750 <span className="text-xs">(below issue)</span></p>
+              <p className="text-lg font-bold text-red-600">~₹1,750 <span className="text-xs">(below issue)</span></p>
             </div>
-            <p className="text-[10px] text-text-muted w-full mt-1">Listing-day intraday high varied by source (~â‚¹1,845-â‚¹1,878). Figures are third-party/aggregator data; verify on BSE.</p>
+            <p className="text-[10px] text-text-muted w-full mt-1">Listing-day intraday high varied by source (~₹1,845-₹1,878). Figures are third-party/aggregator data; verify on BSE.</p>
           </div>
 
           {/* Details table */}
@@ -249,7 +249,7 @@ export default function NseIpoPage() {
               </p>
               <div className="grid sm:grid-cols-3 gap-3 mt-4">
                 {[
-                  { stat: "â‚¹95,000+ cr", label: "Daily Turnover (avg.)" },
+                  { stat: "₹95,000+ cr", label: "Daily Turnover (avg.)" },
                   { stat: "95%+", label: "F&O Market Share" },
                   { stat: "1992", label: "Founded" },
                 ].map((s) => (
@@ -265,22 +265,22 @@ export default function NseIpoPage() {
           {/* Pros & Cons */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h2 className="font-bold text-emerald-800 mb-3">âœ… Long-term Strengths</h2>
+              <h2 className="font-bold text-emerald-800 mb-3">✅ Long-term Strengths</h2>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
                   <li key={i} className="flex gap-2 text-sm text-emerald-800">
-                    <span className="mt-0.5 shrink-0">â€¢</span>
+                    <span className="mt-0.5 shrink-0">•</span>
                     <span>{p}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-              <h2 className="font-bold text-red-800 mb-3">âš ï¸ Risks &amp; Concerns</h2>
+              <h2 className="font-bold text-red-800 mb-3">⚠️ Risks &amp; Concerns</h2>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
                   <li key={i} className="flex gap-2 text-sm text-red-800">
-                    <span className="mt-0.5 shrink-0">â€¢</span>
+                    <span className="mt-0.5 shrink-0">•</span>
                     <span>{c}</span>
                   </li>
                 ))}
@@ -294,7 +294,7 @@ export default function NseIpoPage() {
             <p className="text-sm text-text-muted mb-3">Allotment is complete and the stock is listed. If you still want to check your historical allotment:</p>
             <ol className="space-y-2">
               {[
-                "Go to BSE: bseindia.com â†’ Investors â†’ Status of Issue Application",
+                "Go to BSE: bseindia.com → Investors → Status of Issue Application",
                 "OR the registrar MUFG Intime (formerly Link Intime): linkintime.co.in",
                 "Enter your Application No., PAN, or Demat Account No.",
                 "Select \"National Stock Exchange of India\" and check status",
@@ -314,11 +314,11 @@ export default function NseIpoPage() {
               {[
                 {
                   q: "At what price did NSE IPO list?",
-                  a: "NSE listed on BSE on 24 Sep 2026 at â‚¹1,800, up ~0.84% over the â‚¹1,785 issue price. Intraday it reached between â‚¹1,845 and â‚¹1,878 (sources differ) before closing near â‚¹1,818 on debut day.",
+                  a: "NSE listed on BSE on 24 Sep 2026 at ₹1,800, up ~0.84% over the ₹1,785 issue price. Intraday it reached between ₹1,845 and ₹1,878 (sources differ) before closing near ₹1,818 on debut day.",
                 },
                 {
                   q: "What is the NSE share price now?",
-                  a: "As of mid-October 2026, NSE traded around â‚¹1,750 - slightly below its â‚¹1,785 issue price. Prices move continuously; check the live BSE quote (scrip 544937).",
+                  a: "As of mid-October 2026, NSE traded around ₹1,750 - slightly below its ₹1,785 issue price. Prices move continuously; check the live BSE quote (scrip 544937).",
                 },
                 {
                   q: "How many times was the NSE IPO subscribed?",
@@ -326,11 +326,11 @@ export default function NseIpoPage() {
                 },
                 {
                   q: "Was NSE IPO a fresh issue or OFS?",
-                  a: "A 100% Offer for Sale (OFS) of â‚¹22,561.57 crore. No fresh capital went to NSE; existing shareholders sold shares.",
+                  a: "A 100% Offer for Sale (OFS) of ₹22,561.57 crore. No fresh capital went to NSE; existing shareholders sold shares.",
                 },
                 {
                   q: "What were the price band and lot size?",
-                  a: "Price band â‚¹1,700-â‚¹1,785; lot size 8 shares; minimum retail application â‚¹14,280 at the cut-off price.",
+                  a: "Price band ₹1,700-₹1,785; lot size 8 shares; minimum retail application ₹14,280 at the cut-off price.",
                 },
                 {
                   q: "Should I buy NSE shares now?",
@@ -352,7 +352,7 @@ export default function NseIpoPage() {
               <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Reliance Jio IPO (opens 21 Oct)</Link>
               <Link href="/ipos/jio-ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Jio IPO GMP Today</Link>
               <Link href="/ipos/phonepe-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">PhonePe IPO</Link>
-              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs â†’</Link>
+              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs →</Link>
             </div>
           </div>
 
@@ -366,7 +366,7 @@ export default function NseIpoPage() {
           {/* Back to tracker */}
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              â† View all IPOs on the CoinMind IPO Calendar
+              ← View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

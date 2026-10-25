@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "What happens if the date I choose is in the past?",
-    a: "The tool detects it and shows â€œThis date has passedâ€ instead of negative numbers, along with the date you selected. Just pick a future date and time to start counting down again.",
+    a: "The tool detects it and shows “This date has passed” instead of negative numbers, along with the date you selected. Just pick a future date and time to start counting down again.",
   },
   {
     q: "Which time zone does the countdown use?",

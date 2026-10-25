@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const RESEARCH_SECTIONS = [
   {
     title: "Income Tax History",
-    icon: "ðŸ“Š",
+    icon: "📊",
     desc: "How India's tax slabs have changed since 2014 - both old and new regimes.",
     items: [
       { label: "New Regime Tax Slabs: FY 2020-21 to FY 2026-27", href: "/research/income-tax-slabs-history", live: true },
@@ -28,7 +28,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "Savings Scheme Rates",
-    icon: "ðŸ’°",
+    icon: "💰",
     desc: "Government-declared interest rates for PPF, EPF, NSC, SCSS, and Post Office schemes over the years.",
     items: [
       { label: "PPF Interest Rate History (2000-2026)", href: "/research/ppf-rate-history", live: true },
@@ -41,7 +41,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "RBI & Monetary Policy",
-    icon: "ðŸ¦",
+    icon: "🏦",
     desc: "Reserve Bank of India repo rate decisions, CRR/SLR history, and policy timelines.",
     items: [
       { label: "RBI Repo Rate History (2000-2026)", href: "/research/rbi-repo-rate-history", live: true },
@@ -51,7 +51,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "Inflation Data",
-    icon: "ðŸ“ˆ",
+    icon: "📈",
     desc: "India CPI and WPI inflation series, year-by-year.",
     items: [
       { label: "India CPI Inflation History (2013-2026)", href: "/research/cpi-inflation-history", live: false },
@@ -61,7 +61,7 @@ const RESEARCH_SECTIONS = [
   },
   {
     title: "NPS & Pension",
-    icon: "ðŸŽ¯",
+    icon: "🎯",
     desc: "NPS scheme returns, annuity rates, and historical performance data.",
     items: [
       { label: "NPS Tier-I Returns by Fund Manager (5-year)", href: "/research/nps-returns-history", live: false },
@@ -102,7 +102,7 @@ export default function ResearchPage() {
                     className="rounded-xl border border-line bg-card px-4 py-3 text-sm font-medium text-ink hover:border-forest hover:text-forest transition-colors"
                   >
                     {item.label}
-                    <span className="ml-2 text-ink-faint">â†’</span>
+                    <span className="ml-2 text-ink-faint">→</span>
                   </Link>
                 ) : (
                   <span
@@ -137,7 +137,7 @@ export default function ResearchPage() {
             "Finance Ministry Budget documents",
           ].map((s) => (
             <div key={s} className="flex items-start gap-1.5">
-              <span className="text-forest mt-0.5">âœ“</span>
+              <span className="text-forest mt-0.5">✓</span>
               <span>{s}</span>
             </div>
           ))}

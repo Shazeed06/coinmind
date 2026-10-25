@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "How do you convert Celsius to Fahrenheit?",
-    a: "Multiply the Celsius value by 9/5 (which is 1.8) and add 32. So 20Â°C becomes 20 Ã- 1.8 + 32 = 68Â°F. To go the other direction, subtract 32 first, then divide by 1.8. The temperature tab in this converter applies the exact formula automatically, and it also handles Kelvin conversions using the K = Â°C + 273.15 relationship.",
+    a: "Multiply the Celsius value by 9/5 (which is 1.8) and add 32. So 20°C becomes 20 × 1.8 + 32 = 68°F. To go the other direction, subtract 32 first, then divide by 1.8. The temperature tab in this converter applies the exact formula automatically, and it also handles Kelvin conversions using the K = °C + 273.15 relationship.",
   },
   {
     q: "Is a US gallon the same as a UK gallon?",
@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     q: "Why does the converter use a base-unit system?",
-    a: "For most categories except temperature, the converter stores each unit as a scaling factor relative to a single base unit: the metre for length, the kilogram for weight, the litre for volume, and so on. A conversion from any unit to any other is then a single multiplication and division: value Ã- from-factor Ã· to-factor. This approach avoids chaining multiple conversions together, which would accumulate rounding errors, and keeps every result accurate to the limits of JavaScript's floating-point arithmetic.",
+    a: "For most categories except temperature, the converter stores each unit as a scaling factor relative to a single base unit: the metre for length, the kilogram for weight, the litre for volume, and so on. A conversion from any unit to any other is then a single multiplication and division: value × from-factor ÷ to-factor. This approach avoids chaining multiple conversions together, which would accumulate rounding errors, and keeps every result accurate to the limits of JavaScript's floating-point arithmetic.",
   },
   {
     q: "What categories does the converter support?",
@@ -142,7 +142,7 @@ export default function Page() {
             detail: "Whether you are buying lumber measured in feet for a project planned in metres, converting laboratory measurements between metric and imperial, or calculating data transfer sizes for a technical specification, precise unit conversion matters. This tool uses internationally defined conversion factors, such as 1 inch = exactly 0.0254 metres, so your answers are standards-accurate rather than based on rough rules of thumb.",
           },
         ]}
-        howItWorks="This converter stores every unit as a scaling factor relative to a single base unit within each category. For length, the base is the metre; for weight, the kilogram; for volume, the litre. A conversion from any unit to any other is a straightforward operation: multiply the input value by the source unit's factor to reach the base unit, then divide by the target unit's factor. Temperature is the exception. Because Celsius, Fahrenheit, and Kelvin have different zero points, simple ratios do not work. The temperature tab uses the exact linear conversion formulas instead (Â°F = Â°C Ã- 9/5 + 32, K = Â°C + 273.15). All arithmetic runs in JavaScript inside your browser, so there is zero network latency and your numbers stay private."
+        howItWorks="This converter stores every unit as a scaling factor relative to a single base unit within each category. For length, the base is the metre; for weight, the kilogram; for volume, the litre. A conversion from any unit to any other is a straightforward operation: multiply the input value by the source unit's factor to reach the base unit, then divide by the target unit's factor. Temperature is the exception. Because Celsius, Fahrenheit, and Kelvin have different zero points, simple ratios do not work. The temperature tab uses the exact linear conversion formulas instead (°F = °C × 9/5 + 32, K = °C + 273.15). All arithmetic runs in JavaScript inside your browser, so there is zero network latency and your numbers stay private."
         tips={[
           "Use the reference line to verify the scale of your result. The converter shows \"1 unit A = X unit B\" below the input field, which lets you quickly check that the conversion factor looks right before you rely on the calculated number. If the reference line seems off, you may have selected the wrong unit in either dropdown.",
           "For temperature, remember that the scales do not share a common zero point. A common mistake is multiplying or dividing temperature values as though they were lengths or weights. This tool applies the correct formula automatically, but if you are doing mental arithmetic, always apply the full formula (add or subtract the offset, then multiply) rather than treating degrees as interchangeable ratios.",

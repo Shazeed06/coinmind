@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "Which currencies are supported?",
-    a: "You can invoice in Indian Rupees (â‚¹), US Dollars ($), British Pounds (Â£) or Euros (â‚¬). Pick your currency from the dropdown and every amount on the invoice updates instantly. The currency symbol appears next to every figure and in the total summary at the bottom.",
+    a: "You can invoice in Indian Rupees (₹), US Dollars ($), British Pounds (£) or Euros (€). Pick your currency from the dropdown and every amount on the invoice updates instantly. The currency symbol appears next to every figure and in the total summary at the bottom.",
   },
   {
     q: "What should an invoice number look like?",

@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "Will the countdown timer make a sound when it ends?",
-    a: "Yes. When the countdown reaches zero it plays a short beep using the Web Audio API and flashes a clear â€œTimeâ€™s up!â€ message. Make sure your device isnâ€™t muted to hear the alarm.",
+    a: "Yes. When the countdown reaches zero it plays a short beep using the Web Audio API and flashes a clear “Time’s up!” message. Make sure your device isn’t muted to hear the alarm.",
   },
   {
     q: "Does the timer keep running if I switch tabs?",
