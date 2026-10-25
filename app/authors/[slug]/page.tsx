@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site } from "@/lib/site";
-import { posts } from "@/lib/data";
+import { indexablePosts as posts } from "@/lib/data";
 import { ShieldAlert } from "lucide-react";
 
 export function generateStaticParams() {

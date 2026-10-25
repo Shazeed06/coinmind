@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useState, useMemo } from "react";
-import { posts } from "@/lib/data";
+// Listings link only indexable posts, so the noindexed traffic posts stay
+// orphaned from the crawl graph (they remain reachable at their own URL).
+import { indexablePosts as posts } from "@/lib/data";
 import { ArrowRight, Search } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
 import { Pill, EmptyState } from "@/components/ui";

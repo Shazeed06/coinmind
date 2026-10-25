@@ -5,7 +5,7 @@ import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
 import CalcActions from "@/components/calc/CalcActions";
 import { site } from "@/lib/site";
-import { calculators, posts } from "@/lib/data";
+import { calculators, indexablePosts as posts } from "@/lib/data";
 import { breadcrumb, faqPage, graph, howTo, webApp } from "@/lib/ld";
 import { Calculator, ArrowRight, CheckCircle, AlertTriangle, User, ChevronRight } from "lucide-react";
 import { Breadcrumb, Pill, Prose, DataTable, CardBody, CardFooter, Grid } from "@/components/ui";
