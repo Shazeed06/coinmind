@@ -208,7 +208,7 @@ You can invest through a [SIP](/glossary/sip) for regular monthly amounts or a o
         a: "Some schemes offer an IDCW option, formerly called the dividend option, which pays out part of the gains. The payout is not extra money: the NAV falls by the same amount, and the receipt is taxed at your slab rate. The growth option is usually the more tax-efficient default.",
       },
     ],
-    related: ["sip", "nav", "etf", "index-fund", "expense-ratio"],
+    related: ["sip", "nav", "etf", "index-fund", "demat-account"],
     relatedHref: "/calculators/sip",
     relatedLabel: "SIP Calculator",
   },
@@ -713,7 +713,7 @@ Either way you get instant [diversification](/glossary/diversification) at a low
         a: "Because it is passive. It mirrors an index rather than paying a research team to select stocks, so there is no research budget to recover. Large Indian index ETFs often charge a small fraction of what an active fund charges, and that gap compounds substantially across a working lifetime.",
       },
     ],
-    related: ["index-fund", "mutual-fund", "nav", "expense-ratio", "diversification"],
+    related: ["index-fund", "mutual-fund", "nav", "demat-account", "diversification"],
   },
   {
     slug: "index-fund",
@@ -1266,7 +1266,7 @@ Finally, size the position as though it might halve, because sometimes it does. 
         a: "No. Allotted shares are credited in electronic form, so a demat account is mandatory before you apply. Opening one takes a day or two with any SEBI-registered broker and requires PAN, Aadhaar, a bank account and completed KYC. You also need a linked bank account for the ASBA block.",
       },
     ],
-    related: ["dividend", "capital-gains", "mutual-fund", "diversification"],
+    related: ["dividend", "capital-gains", "mutual-fund", "diversification", "demat-account"],
   },
   {
     slug: "dividend",
@@ -8102,6 +8102,82 @@ Compare gilt fund suitability with other fixed-income options using our [FD calc
     related: ["mutual-fund", "nav", "elss", "index-fund"],
     relatedHref: "/calculators/sip",
     relatedLabel: "SIP Calculator",
+  },
+  {
+    slug: "demat-account",
+    term: "Demat Account",
+    category: "Banking",
+    short:
+      "A demat account holds your shares, mutual funds and bonds in electronic form, like a bank account for investments - required to invest in Indian stocks.",
+    bodyMarkdown: `## What is a demat account?
+
+A **demat account** (short for *dematerialised account*) holds your shares, [mutual funds](/glossary/mutual-fund), [ETFs](/glossary/etf), bonds and government securities in electronic form, the way a bank account holds your money. Before demat, shares were physical paper certificates that could be lost, torn or forged. Today SEBI requires securities to be held electronically, so you need a demat account to invest in the Indian stock market, buy an [IPO](/glossary/ipo) or hold most ETFs.
+
+## Demat account vs trading account
+
+People often confuse the two. You usually open both together with a broker, but they do different jobs.
+
+| Account | What it does |
+|---|---|
+| Demat account | **Stores** your shares and securities, like a locker |
+| Trading account | **Places** buy and sell orders on the exchange |
+
+In short: the trading account transacts, the demat account holds what you own.
+
+## How to open a demat account
+
+1. Pick a SEBI-registered broker or depository participant (DP).
+2. Fill the online application with your PAN, Aadhaar and bank details.
+3. Complete KYC and in-person verification (IPV), usually a short video.
+4. E-sign the form with an Aadhaar OTP.
+5. The account opens in one to two working days and you get a BO (beneficiary owner) ID.
+
+Most brokers now let you open a demat account **online, paperless and often free** in a few minutes.
+
+## Documents required
+
+- **PAN card** (mandatory)
+- **Aadhaar** (for KYC and e-sign)
+- **Bank proof** - a cancelled cheque or recent statement
+- Photograph and signature
+- Income proof (only if you want to trade in futures and options)
+
+## Charges to check
+
+- **Account opening:** frequently free, but confirm.
+- **Annual Maintenance Charge (AMC):** roughly ₹0-₹750 a year depending on the broker.
+- **DP / transaction charges:** a small fee each time you sell.
+
+Once your account is active you can start a [SIP](/calculators/sip), buy ETFs, or apply for an IPO. See the [Investing Hub](/investing) to decide what to buy first.`,
+    faq: [
+      {
+        q: "What is the full form of demat account?",
+        a: "Demat is short for dematerialised. A demat account holds your shares, mutual funds, bonds and ETFs in electronic (dematerialised) form instead of physical paper certificates.",
+      },
+      {
+        q: "How do I open a demat account?",
+        a: "Choose a SEBI-registered broker, fill the online form with your PAN, Aadhaar and bank details, complete video KYC and in-person verification, then e-sign with an Aadhaar OTP. Most demat accounts open online in one to two working days.",
+      },
+      {
+        q: "What documents are required to open a demat account?",
+        a: "You need a PAN card (mandatory), Aadhaar for KYC and e-sign, a bank proof such as a cancelled cheque or statement, and a photograph and signature. Income proof is needed only if you plan to trade in futures and options.",
+      },
+      {
+        q: "Is a demat account free?",
+        a: "Many brokers open a demat account for free, but most charge an Annual Maintenance Charge (AMC) of roughly ₹0-₹750 a year, plus small DP charges when you sell. Compare brokers before opening one.",
+      },
+      {
+        q: "What is the difference between a demat and a trading account?",
+        a: "A demat account stores the securities you own, like a locker. A trading account places buy and sell orders on the exchange. You generally open both together to invest in shares.",
+      },
+      {
+        q: "Can I open a demat account online?",
+        a: "Yes. Almost every broker in India offers fully online, paperless demat account opening using Aadhaar-based e-KYC and video verification, so you can open one from home without visiting a branch.",
+      },
+    ],
+    related: ["mutual-fund", "ipo", "etf", "nav", "sip"],
+    relatedHref: "/investing",
+    relatedLabel: "Investing Hub",
   },
 ];
 
