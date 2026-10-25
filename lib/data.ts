@@ -1164,7 +1164,7 @@ export type Post = {
   keyTakeaways?: string[];
 };
 
-export const posts: Post[] = [
+const ALL_POSTS: Post[] = [
   {
     slug: "nps-vatsalya-scheme-guide",
     title: "NPS Vatsalya Scheme 2026: How to Open, Contribution, Returns & Rules",
@@ -2154,6 +2154,31 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   ...comparisonPosts,
   ...howToPosts,
 ];
+
+// Off-topic posts removed from the site (generic AI-tool listicles, consumer
+// electronics, off-topic career/education) that diluted the finance focus.
+// They are filtered out of `posts` so no page is generated, and each slug is
+// 301-redirected in next.config.ts. Kept here as a single source of truth.
+export const REMOVED_POST_SLUGS: ReadonlySet<string> = new Set([
+  "best-ai-image-generators-2026",
+  "best-ai-photo-editors-free-2026",
+  "best-ai-writing-tools-2026",
+  "best-ai-coding-assistants-2026",
+  "ai-video-editor-reels-maker-free",
+  "ai-content-detector-tools-free-2026",
+  "best-laptops-under-50000-india",
+  "best-smartwatch-under-5000-india-2026",
+  "best-electric-scooter-under-1-lakh-2026",
+  "electric-cars-india-2026-price",
+  "ayurveda-wellness-trends-india-2026",
+  "ai-vs-machine-learning-difference",
+  "linkedin-profile-tips-2026",
+  "digital-marketing-course-free-certificate",
+  "best-online-courses-free-india",
+  "government-job-prep-ssc-upsc-2026",
+]);
+
+export const posts: Post[] = ALL_POSTS.filter((p) => !REMOVED_POST_SLUGS.has(p.slug));
 
 // Scaled "traffic" post collections (bulk SEO articles) stay crawlable and
 // internally linked but are noindexed, so a large near-duplicate footprint is

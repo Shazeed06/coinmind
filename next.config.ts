@@ -110,6 +110,25 @@ const nextConfig: NextConfig = {
       // for the same queries and neither ranked. Removed from the post data and
       // 301'd into the stronger, more complete guide.
       { source: "/blog/how-to-check-improve-cibil-score", destination: "/blog/cibil-score-check-improve-guide", permanent: true },
+      // Off-topic posts removed to tighten the site's finance focus. Generic
+      // AI-tool listicles point to the AI tools hub; everything else (consumer
+      // electronics, off-topic career/education) points to the blog index.
+      { source: "/blog/best-ai-image-generators-2026", destination: "/ai-tools", permanent: true },
+      { source: "/blog/best-ai-photo-editors-free-2026", destination: "/ai-tools", permanent: true },
+      { source: "/blog/best-ai-writing-tools-2026", destination: "/ai-tools", permanent: true },
+      { source: "/blog/best-ai-coding-assistants-2026", destination: "/ai-tools", permanent: true },
+      { source: "/blog/ai-video-editor-reels-maker-free", destination: "/ai-tools", permanent: true },
+      { source: "/blog/ai-content-detector-tools-free-2026", destination: "/ai-tools", permanent: true },
+      { source: "/blog/ai-vs-machine-learning-difference", destination: "/ai-tools", permanent: true },
+      { source: "/blog/best-laptops-under-50000-india", destination: "/blog", permanent: true },
+      { source: "/blog/best-smartwatch-under-5000-india-2026", destination: "/blog", permanent: true },
+      { source: "/blog/best-electric-scooter-under-1-lakh-2026", destination: "/blog", permanent: true },
+      { source: "/blog/electric-cars-india-2026-price", destination: "/blog", permanent: true },
+      { source: "/blog/ayurveda-wellness-trends-india-2026", destination: "/blog", permanent: true },
+      { source: "/blog/linkedin-profile-tips-2026", destination: "/blog", permanent: true },
+      { source: "/blog/digital-marketing-course-free-certificate", destination: "/blog", permanent: true },
+      { source: "/blog/best-online-courses-free-india", destination: "/blog", permanent: true },
+      { source: "/blog/government-job-prep-ssc-upsc-2026", destination: "/blog", permanent: true },
       // Research sub-pages linked from /research hub but not yet built
       { source: "/research/old-regime-slabs-history", destination: "/research", permanent: true },
       { source: "/research/80c-limit-history", destination: "/research", permanent: true },
