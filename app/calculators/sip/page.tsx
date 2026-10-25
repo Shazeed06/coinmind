@@ -3,6 +3,8 @@ import Link from "next/link";
 import SipCalculator from "@/components/calc/SipCalculator";
 import AuthorReviewBox, { type Source } from "@/components/AuthorReviewBox";
 import { FinancialDisclaimer } from "@/components/FinancialDisclaimer";
+import CalcActions from "@/components/calc/CalcActions";
+import { site } from "@/lib/site";
 import { calculators, posts } from "@/lib/data";
 import { breadcrumb, faqPage, graph, howTo, webApp } from "@/lib/ld";
 import { Calculator, ArrowRight, CheckCircle, AlertTriangle, User, ChevronRight } from "lucide-react";
@@ -161,6 +163,9 @@ export default function Page() {
           <p className="body text-text-muted mt-3 max-w-[640px]">
             Calculate SIP returns with step-up, LTCG tax, and inflation-adjusted real value. Free, instant and private.
           </p>
+          <div className="mt-4">
+            <CalcActions title="SIP Calculator" url={`${site.url}/calculators/sip`} />
+          </div>
         </div>
       </section>
 
