@@ -180,7 +180,9 @@ export default function CalcPage({
   const related = [
     ...pool.filter((c) => c.category === category),
     ...pool.filter((c) => c.category !== category),
-  ].slice(0, 3);
+  ].slice(0, 4);
+  const sameCategory =
+    category !== undefined && related.length > 0 && related.every((c) => c.category === category);
 
   // Tax rules and market returns carry different caveats, so the shared shell
   // picks the matching wording rather than always falling back to "general".
@@ -215,7 +217,7 @@ export default function CalcPage({
       />
 
       {/* Breadcrumb */}
-      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2">
+      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2 flex-wrap">
         <Link href="/" className="hover:text-forest">Home</Link>
         <span>/</span>
         <Link href="/calculators" className="hover:text-forest">Calculators</Link>
@@ -228,19 +230,19 @@ export default function CalcPage({
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           <IconCalculator className="h-3.5 w-3.5" /> Free calculator
         </span>
-        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
+        <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl text-ink leading-[1.08]">
           {title}
         </h1>
         {/* 16px, not 12px: the h1 runs up to 48px here, and a subtitle sitting
             12px under it read as a stray line rather than part of the title. */}
-        <p className="mt-4 text-lg text-ink-soft">{subtitle}</p>
+        <p className="mt-4 text-base sm:text-lg text-ink-soft">{subtitle}</p>
         <div className="mt-4">
           <CalcActions title={title} url={`${site.url}/calculators/${slug}`} />
         </div>
       </header>
 
       {/* The calculator */}
-      <div className="mt-10">{calculator}</div>
+      <div className="mt-8 sm:mt-10">{calculator}</div>
 
       {/* YMYL: every calculator under /calculators is a money tool, and none of
           them carried a disclaimer while components/ToolPageLayout.tsx already
@@ -250,134 +252,128 @@ export default function CalcPage({
         <FinancialDisclaimer type={disclaimerType} />
       </div>
 
-      {/* Intro / SEO copy.
-          Section spacing on this page runs on a two-step scale: 64px (mt-16)
-          between major blocks, 48px (mt-12) between a block and its own
-          follow-on. It was previously an ad-hoc 56/40/48/48/64 ladder, so no
-          two gaps agreed and nothing read as grouped.
+      {/* Below-calculator content: a two-column reading layout so the long-form
+          SEO copy no longer sits in a narrow left column with an empty right
+          half. The main column carries the explainer and FAQ; the sticky
+          sidebar keeps related calculators, comparisons and the topic hub in
+          view, which also strengthens internal linking on these high-intent
+          pages. On mobile the sidebar stacks below the article. */}
+      <div className="mt-12 sm:mt-16 grid gap-10 lg:grid-cols-12 lg:gap-12">
+        {/* Main article column */}
+        <div className="lg:col-span-8 min-w-0">
+          <p className="max-w-[640px] text-ink-soft leading-relaxed">{intro}</p>
 
-          The measure cap matters more than the column: at max-w-3xl this
-          paragraph ran ~98 characters per line on a 1280px screen. ~600px puts
-          it near 75, which is where continuous prose stays readable. The
-          surrounding column stays max-w-3xl so headings, the FAQ list and the
-          author box keep a shared left and right edge. */}
-      <section className="mt-16 max-w-3xl">
-        <p className="max-w-[600px] text-ink-soft leading-relaxed">{intro}</p>
-      </section>
+          {/* How it works */}
+          <section className="mt-12">
+            <h2 className="font-display text-2xl text-ink">{how.heading}</h2>
+            <div className="mt-5 text-ink-soft leading-relaxed space-y-4">{how.body}</div>
+          </section>
 
-      {/* How it works */}
-      <section className="mt-12 max-w-3xl">
-        <h2 className="font-display text-2xl text-ink">{how.heading}</h2>
-        <div className="mt-5 text-ink-soft leading-relaxed space-y-4">{how.body}</div>
-      </section>
+          {/* FAQ */}
+          <section className="mt-12">
+            {/* Keyword-bearing rather than generic: this single line puts the
+                page's primary keyword into an H2 on every calculator. */}
+            <h2 className="font-display text-2xl text-ink">
+              {title}: frequently asked questions
+            </h2>
+            <div className="mt-5 divide-y divide-line border-y border-line">
+              {faqs.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex cursor-pointer items-start justify-between gap-4 text-ink font-medium list-none transition-colors hover:text-forest">
+                    <span>{f.q}</span>
+                    <span className="mt-0.5 shrink-0 text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 max-w-[640px] pr-8 text-ink-soft leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
 
-      {/* FAQ */}
-      <section className="mt-16 max-w-3xl">
-        {/* Keyword-bearing rather than generic: this single line puts the page's
-            primary keyword into an H2 on every calculator that uses CalcPage. */}
-        <h2 className="font-display text-2xl text-ink">
-          {title}: frequently asked questions
-        </h2>
-        {/* Rows were py-4, which put only 32px between one question and the
-            next and made the closed list hard to scan. py-5 opens the rhythm;
-            the answer keeps a prose measure and gains right padding so it never
-            slides under the +/x control. items-start keeps that control aligned
-            to the first line when a question wraps to two. */}
-        <div className="mt-5 divide-y divide-line border-y border-line">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-5">
-              <summary className="flex cursor-pointer items-start justify-between gap-4 text-ink font-medium list-none transition-colors hover:text-forest">
-                <span>{f.q}</span>
-                <span className="mt-0.5 shrink-0 text-ink-faint transition-transform group-open:rotate-45 text-xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p className="mt-3 max-w-[600px] pr-8 text-ink-soft leading-relaxed">{f.a}</p>
-            </details>
-          ))}
+          {/* Relevant partner offer, renders only when an affiliate href is set
+              in lib/affiliates.ts (hidden by default, so nothing misleading shows). */}
+          <AffiliateCta offer={offerForCategory(category)} className="mt-12" />
+
+          {/* E-E-A-T: who wrote/reviewed this + official sources (YMYL trust) */}
+          <div className="mt-12">
+            <AuthorReviewBox sources={sources} />
+          </div>
         </div>
-      </section>
 
-      {/* Relevant partner offer, renders only when an affiliate href is set
-          in lib/affiliates.ts (hidden by default, so nothing misleading shows). */}
-      <AffiliateCta offer={offerForCategory(category)} className="mt-16 max-w-3xl" />
+        {/* Sticky sidebar */}
+        <aside className="lg:col-span-4">
+          <div className="space-y-6 lg:sticky lg:top-24">
+            {/* Related calculators */}
+            {related.length > 0 && (
+              <div className="rounded-2xl border border-line bg-card p-5">
+                <h2 className="font-display text-lg text-ink">
+                  More free {sameCategory ? `${category!.toLowerCase()} ` : ""}calculators
+                </h2>
+                <div className="mt-4 space-y-1">
+                  {related.map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={`/calculators/${c.slug}`}
+                      className="group flex items-start justify-between gap-3 rounded-lg px-3 py-2.5 -mx-1 hover:bg-forest-soft/40 transition-colors"
+                    >
+                      <span>
+                        <span className="block text-sm font-semibold text-ink group-hover:text-forest transition-colors">
+                          {c.title}
+                        </span>
+                        <span className="mt-0.5 block text-xs text-ink-faint line-clamp-1">{c.blurb}</span>
+                      </span>
+                      <IconArrow className="mt-1 h-3.5 w-3.5 shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-forest" />
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/calculators"
+                  className="mt-3 inline-flex items-center gap-1 px-3 text-sm font-semibold text-forest hover:underline"
+                >
+                  All calculators <IconArrow className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            )}
 
-      {/* E-E-A-T: who wrote/reviewed this + official sources (YMYL trust) */}
-      <div className="mt-16 max-w-3xl">
-        <AuthorReviewBox sources={sources} />
+            {/* Comparison links */}
+            {COMPARISON_LINKS[slug] && COMPARISON_LINKS[slug].length > 0 && (
+              <div className="rounded-2xl border border-line bg-card p-5">
+                <h2 className="font-display text-lg text-ink">Compare your options</h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {COMPARISON_LINKS[slug].map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-line bg-bg px-3.5 py-1.5 text-sm font-medium text-ink-soft hover:border-forest hover:text-forest transition-colors"
+                    >
+                      {c.label}
+                      <IconArrow className="h-3.5 w-3.5" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Hub crosslink */}
+            {HUB_LINKS[slug] && (
+              <div className="rounded-2xl border border-forest/25 bg-forest-soft p-5">
+                <p className="text-xs font-semibold uppercase tracking-wide text-forest">Go deeper</p>
+                <Link
+                  href={HUB_LINKS[slug].href}
+                  className="mt-1.5 block text-sm font-semibold text-ink hover:text-forest transition-colors"
+                >
+                  {HUB_LINKS[slug].label} &rarr;
+                </Link>
+              </div>
+            )}
+          </div>
+        </aside>
       </div>
 
-      {/* Optional extra content (e.g. programmatic-SEO internal links) */}
-      {extra ? <section className="mt-16">{extra}</section> : null}
-
-      {/* Comparison links - contextual internal links to /comparisons/ pages */}
-      {COMPARISON_LINKS[slug] && COMPARISON_LINKS[slug].length > 0 && (
-        <section className="mt-16 max-w-3xl">
-          <h2 className="font-display text-xl text-ink mb-4">Compare your options</h2>
-          <div className="flex flex-wrap gap-2">
-            {COMPARISON_LINKS[slug].map((c) => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft hover:border-forest hover:text-forest transition-colors"
-              >
-                {c.label}
-                <IconArrow className="h-3.5 w-3.5" />
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Hub page cross-link - points to the topic hub for deeper reading */}
-      {HUB_LINKS[slug] && (
-        <section className="mt-8 max-w-3xl">
-          <p className="text-sm text-ink-faint">
-            Go deeper:{" "}
-            <Link href={HUB_LINKS[slug].href} className="text-forest font-medium hover:underline">
-              {HUB_LINKS[slug].label}
-            </Link>
-          </p>
-        </section>
-      )}
-
-      {/* Related. Guarded on length: a calculator that is the only live one in
-          the set produced a heading above an empty grid. The rule closes the
-          article column off from the card grid that follows it, and the
-          two-column sm step stops three ~200px columns from crushing a title
-          and its two-line blurb on small tablets. */}
-      {related.length > 0 && (
-        <section className="mt-16 border-t border-line pt-12 mb-16">
-          {/* Only claim the category when every card actually belongs to it.
-              Otherwise the heading is a promise the cards below do not keep. */}
-          <h2 className="font-display text-2xl text-ink">
-            More free{" "}
-            {category && related.every((c) => c.category === category)
-              ? `${category.toLowerCase()} `
-              : ""}
-            calculators
-          </h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/calculators/${c.slug}`}
-                className="group flex flex-col rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-              >
-                <h3 className="font-display text-lg text-ink">
-                  {c.title}
-                </h3>
-                <p className="mt-1.5 text-sm text-ink-soft line-clamp-2">
-                  {c.blurb}
-                </p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-1 text-sm font-semibold text-forest">
-                  Open <IconArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Optional extra content (e.g. programmatic-SEO internal links) -
+          full width below the two-column block. */}
+      {extra ? <section className="mt-16 mb-16">{extra}</section> : <div className="mb-16" />}
     </div>
   );
 }
