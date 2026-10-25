@@ -43,6 +43,7 @@ const HUB_LINKS: Record<string, { label: string; href: string }> = {
   "hra": HUB_INCOME_TAX,
   "gst": HUB_INCOME_TAX,
   "take-home-salary": HUB_INCOME_TAX,
+  "8th-pay-commission": HUB_INCOME_TAX,
   "sales-tax": HUB_INCOME_TAX,
   "hourly-to-salary": HUB_INCOME_TAX,
   "crypto-tax": HUB_INCOME_TAX,
