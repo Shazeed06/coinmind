@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ArticleMarkdown from "@/components/ArticleMarkdown";
 import { breadcrumb, faqPage, graph } from "@/lib/ld";
+import { IconArrow } from "@/components/icons";
 
 type HubLink = { title: string; href: string; desc: string };
 
@@ -12,6 +13,17 @@ type HubSectionDef = {
   columns?: 2 | 3 | 4;
 };
 
+// Section heading with a small colour accent bar, so each group reads as a
+// titled block rather than a loose line of text above some boxes.
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="font-display text-xl sm:text-2xl text-ink mb-5 flex items-center gap-2.5">
+      <span className="h-5 w-1.5 rounded-full bg-gradient-to-b from-forest to-brand" />
+      {children}
+    </h2>
+  );
+}
+
 export function HubSection({ title, links, columns = 3 }: HubSectionDef) {
   const gridCols = {
     2: "sm:grid-cols-2",
@@ -19,24 +31,22 @@ export function HubSection({ title, links, columns = 3 }: HubSectionDef) {
     4: "sm:grid-cols-2 lg:grid-cols-4",
   };
   return (
-    // 56px between link groups, up from 40/48. These sections have no
-    // background change to separate them, so the gap is the only thing telling
-    // the reader where one group ends, and it has to beat the 20px gap between
-    // a group heading and its own cards by a clear margin.
     <section className="mb-12 sm:mb-14">
-      <h2 className="font-display text-xl sm:text-2xl text-ink mb-5">{title}</h2>
-      {/* gap-4, and cards laid out as columns: a link whose desc is empty or
-          short no longer leaves its title floating against the top of a card
-          stretched to match a two-line neighbour. */}
+      <SectionHeading>{title}</SectionHeading>
       <div className={`grid gap-4 ${gridCols[columns]}`}>
         {links.map((l) => (
           <Link
             key={l.href}
             href={l.href}
-            className="flex flex-col rounded-xl border border-line p-4 hover:border-forest/40 hover:bg-forest-soft/30 transition-colors"
+            className="group relative flex flex-col rounded-2xl border border-line bg-card p-5 shadow-sm transition-all duration-200 hover:border-forest/50 hover:shadow-md hover:-translate-y-0.5"
           >
-            <h3 className="font-semibold text-ink leading-snug">{l.title}</h3>
-            {l.desc && <p className="mt-1.5 text-sm text-ink-soft line-clamp-2">{l.desc}</p>}
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="font-semibold text-ink leading-snug group-hover:text-forest transition-colors">
+                {l.title}
+              </h3>
+              <IconArrow className="mt-0.5 h-4 w-4 shrink-0 text-ink-faint transition-all group-hover:text-forest group-hover:translate-x-0.5" />
+            </div>
+            {l.desc && <p className="mt-2 text-sm text-ink-soft line-clamp-2">{l.desc}</p>}
           </Link>
         ))}
       </div>
@@ -104,87 +114,85 @@ export default function HubPage({
   ]);
 
   return (
-    <div className="container-main py-10 sm:py-14">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
       />
-      {/* 64px below the header, matching the gap this page uses between its
-          other major blocks. The two lead paragraphs are capped at 600px (~75
-          characters) instead of running the full 768px column, which read as
-          ~98 characters per line on a desktop screen. */}
-      <header className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          {badge}
-        </span>
-        <h1 className="mt-4 text-3xl sm:text-5xl text-ink leading-[1.05]">
-          {title}
-        </h1>
-        <p className="mt-4 max-w-[640px] mx-auto text-base sm:text-lg text-ink-soft leading-relaxed">
-          {description}
-        </p>
-        {intro && (
-          <p className="mt-4 max-w-[640px] mx-auto text-sm sm:text-base text-ink-soft leading-relaxed">
-            {intro}
+
+      {/* Hero band: a soft brand-tinted gradient with a blurred glow gives the
+          top of every hub real presence instead of plain text on white. */}
+      <section className="relative overflow-hidden border-b border-line/70 bg-gradient-to-b from-forest-soft/50 via-forest-soft/10 to-transparent">
+        <div className="pointer-events-none absolute -top-28 left-1/2 h-72 w-[46rem] max-w-[90vw] -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
+        <div className="relative container-main py-14 text-center sm:py-20">
+          <span className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-card/80 px-3.5 py-1.5 text-xs font-semibold text-forest shadow-sm backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-forest" />
+            {badge}
+          </span>
+          <h1 className="mx-auto mt-5 max-w-3xl text-3xl text-ink leading-[1.07] sm:text-5xl">
+            {title}
+          </h1>
+          <p className="mx-auto mt-5 max-w-[640px] text-base text-ink-soft leading-relaxed sm:text-lg">
+            {description}
           </p>
+          {intro && (
+            <p className="mx-auto mt-4 max-w-[640px] text-sm text-ink-soft leading-relaxed sm:text-base">
+              {intro}
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Body */}
+      <div className="container-main py-12 sm:py-16">
+        {sections.map((s) => (
+          <HubSection key={s.title} {...s} />
+        ))}
+
+        {bodyMarkdown && (
+          <section className="mt-4 border-t border-line pt-10">
+            <div className={`max-w-3xl mx-auto ${bodyProse}`}>
+              <ArticleMarkdown markdown={bodyMarkdown} />
+            </div>
+          </section>
         )}
-      </header>
 
-      {sections.map((s) => (
-        <HubSection key={s.title} {...s} />
-      ))}
-
-      {/* The three trailing blocks each open with a rule, but they used to set
-          their own space around it: mt-2/pt-8, pt-8 with no top margin, and
-          mt-8/pt-8. Rules landed at three different distances from the content
-          above them. They now share one measure, 48px of air above the rule and
-          40px below it, so the page closes on a steady beat. */}
-      {bodyMarkdown && (
-        <section className="mt-12 border-t border-line pt-10">
-          <div className={`max-w-3xl mx-auto ${bodyProse}`}>
-            <ArticleMarkdown markdown={bodyMarkdown} />
-          </div>
-        </section>
-      )}
-
-      {faqs && faqs.length > 0 && (
-        <section className="mt-12 border-t border-line pt-10">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-xl sm:text-2xl text-ink mb-5">
-              Frequently Asked Questions
-            </h2>
-            {/* gap-4 and a 600px answer measure: at gap-3 the stacked cards read
-                as one block rather than as separate questions. */}
-            <div className="grid gap-4">
-              {faqs.map((f) => (
-                <div key={f.q} className="rounded-xl border border-line bg-card p-4 sm:p-5">
-                  <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
-                  <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
-                </div>
-              ))}
+        {faqs && faqs.length > 0 && (
+          <section className="mt-12 border-t border-line pt-10">
+            <div className="max-w-3xl mx-auto">
+              <SectionHeading>Frequently Asked Questions</SectionHeading>
+              <div className="grid gap-4">
+                {faqs.map((f) => (
+                  <div key={f.q} className="rounded-2xl border border-line bg-card p-4 shadow-sm sm:p-5">
+                    <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
+                    <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
 
-      {relatedHubs && relatedHubs.length > 0 && (
-        <section className="mt-12 border-t border-line pt-10">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
-            <div className="flex flex-wrap gap-3">
-              {relatedHubs.map((r) => (
-                <Link
-                  key={r.href}
-                  href={r.href}
-                  className="rounded-full bg-paper-2 px-4 py-2 text-sm font-medium text-ink-soft hover:text-ink hover:bg-line transition-colors"
-                >
-                  {r.title}
-                </Link>
-              ))}
+        {relatedHubs && relatedHubs.length > 0 && (
+          <section className="mt-12 border-t border-line pt-10">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
+              <div className="flex flex-wrap gap-3">
+                {relatedHubs.map((r) => (
+                  <Link
+                    key={r.href}
+                    href={r.href}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink-soft shadow-sm hover:border-forest hover:text-forest transition-colors"
+                  >
+                    {r.title}
+                    <IconArrow className="h-3.5 w-3.5" />
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
+      </div>
     </div>
   );
 }
