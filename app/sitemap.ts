@@ -65,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ipos/reliance-jio-ipo", "/ipos/jio-ipo-gmp-today",
     "/ipos/jio-ipo-allotment-status", "/ipos/zepto-ipo", "/ipos/ss-retail-ipo",
     "/ipos/oyo-ipo", "/ipos/hero-fincorp-ipo", "/ipos/phonepe-ipo",
+    "/ipos/eaaa-india-alternatives-ipo", "/ipos/sfc-environmental-technologies-ipo",
     // IPO hub pages (evergreen)
     "/ipos/ipo-gmp-today", "/ipos/upcoming-ipo", "/ipos/best-upcoming-ipos-2026",
     "/ipos/sme-ipo", "/ipos/mainboard-vs-sme-ipo", "/ipos/ipo-allotment-status",
@@ -165,7 +166,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const lastModified = entry.lastmod
       ? new Date(entry.lastmod)
       : p === "" || p.startsWith("/ipos")
-        ? new Date("2026-10-20")
+        ? new Date("2026-10-25")
         : undefined;
     return {
       url: `${site.url}${p}`,
