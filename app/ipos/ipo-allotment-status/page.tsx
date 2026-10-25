@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const LAST_UPDATED = "18 October 2026";
 
 const BSE_STEPS = [
-  "Go to the BSE allotment page: bseindia.com â†’ Investors â†’ Status of Issue Application (or search \"BSE IPO allotment\").",
+  "Go to the BSE allotment page: bseindia.com → Investors → Status of Issue Application (or search \"BSE IPO allotment\").",
   "Under Issue Type, select \"Equity\" (or \"Equity SME\" for an SME IPO).",
   "In the Issue Name dropdown, select the company's IPO (it appears only after the basis of allotment is finalised).",
   "Enter your Application Number, or your PAN.",
@@ -68,7 +68,7 @@ const REGISTRARS = [
 const FAQS = [
   {
     q: "How do I check my IPO allotment status?",
-    a: "You can check in three ways: on the BSE website (Investors â†’ Status of Issue Application), on the IPO's registrar website (such as MUFG Intime/Link Intime or KFintech), or inside your broker app. On BSE and the registrar you search using your PAN, application number, or demat/client ID. The status only appears once the basis of allotment is finalised, usually a day or two after the IPO closes.",
+    a: "You can check in three ways: on the BSE website (Investors → Status of Issue Application), on the IPO's registrar website (such as MUFG Intime/Link Intime or KFintech), or inside your broker app. On BSE and the registrar you search using your PAN, application number, or demat/client ID. The status only appears once the basis of allotment is finalised, usually a day or two after the IPO closes.",
   },
   {
     q: "What are the IPO registrars in India?",
@@ -150,9 +150,9 @@ export default function IpoAllotmentStatusPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>â€º</span>
+            <span>›</span>
             <span>IPO Allotment Status</span>
           </nav>
 
@@ -172,7 +172,7 @@ export default function IpoAllotmentStatusPage() {
           {/* Quick answer */}
           <div className="rounded-2xl border border-border bg-surface p-5">
             <p className="text-text font-bold leading-relaxed">
-              To check IPO allotment status: go to the BSE allotment page (Investors â†’ Status of Issue Application), pick the IPO and enter your PAN or application number. You can also check on the registrar&apos;s site (MUFG Intime/Link Intime or KFintech) or inside your broker app. The status goes live only after the basis of allotment is finalised, usually a day or two after the IPO closes.
+              To check IPO allotment status: go to the BSE allotment page (Investors → Status of Issue Application), pick the IPO and enter your PAN or application number. You can also check on the registrar&apos;s site (MUFG Intime/Link Intime or KFintech) or inside your broker app. The status goes live only after the basis of allotment is finalised, usually a day or two after the IPO closes.
             </p>
           </div>
 
@@ -264,19 +264,19 @@ export default function IpoAllotmentStatusPage() {
           {/* Allotted vs not */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h2 className="font-bold text-emerald-800 mb-2">âœ… If you are allotted</h2>
+              <h2 className="font-bold text-emerald-800 mb-2">✅ If you are allotted</h2>
               <ul className="space-y-1.5 text-sm text-emerald-800">
-                <li className="flex gap-2"><span>â€¢</span>The blocked amount is debited only for the shares allotted to you.</li>
-                <li className="flex gap-2"><span>â€¢</span>Shares are credited to your demat a day before listing.</li>
-                <li className="flex gap-2"><span>â€¢</span>On listing day you can hold for the long term or sell at the listing price.</li>
+                <li className="flex gap-2"><span>•</span>The blocked amount is debited only for the shares allotted to you.</li>
+                <li className="flex gap-2"><span>•</span>Shares are credited to your demat a day before listing.</li>
+                <li className="flex gap-2"><span>•</span>On listing day you can hold for the long term or sell at the listing price.</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-              <h2 className="font-bold text-red-800 mb-2">âŒ If you are not allotted</h2>
+              <h2 className="font-bold text-red-800 mb-2">❌ If you are not allotted</h2>
               <ul className="space-y-1.5 text-sm text-red-800">
-                <li className="flex gap-2"><span>â€¢</span>Your ASBA blocked amount is released/unblocked automatically.</li>
-                <li className="flex gap-2"><span>â€¢</span>For UPI applications, the mandate is revoked - no money is debited.</li>
-                <li className="flex gap-2"><span>â€¢</span>You can still buy the shares from the open market after listing.</li>
+                <li className="flex gap-2"><span>•</span>Your ASBA blocked amount is released/unblocked automatically.</li>
+                <li className="flex gap-2"><span>•</span>For UPI applications, the mandate is revoked - no money is debited.</li>
+                <li className="flex gap-2"><span>•</span>You can still buy the shares from the open market after listing.</li>
               </ul>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function IpoAllotmentStatusPage() {
             <div className="flex flex-wrap gap-2 text-sm">
               <Link href="/ipos/jio-ipo-allotment-status" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Jio IPO Allotment Status</Link>
               <Link href="/ipos/upcoming-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Upcoming IPOs</Link>
-              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs â†’</Link>
+              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs →</Link>
             </div>
           </div>
 
@@ -313,7 +313,7 @@ export default function IpoAllotmentStatusPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              â† View all IPOs on the CoinMind IPO Calendar
+              ← View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

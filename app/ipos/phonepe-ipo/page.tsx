@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "PhonePe IPO 2026: Postponed, Expected Date, Price & Review | CoinMind",
   description:
-    "PhonePe IPO 2026 guide: UDRHP filed Jan 2026, postponed Mar 2026. 100% OFS ~â‚¹12,000 Cr, valuation $12-15B. Latest updates, expected date & should you wait?",
+    "PhonePe IPO 2026 guide: UDRHP filed Jan 2026, postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest updates, expected date & should you wait?",
   keywords: [
     "PhonePe IPO",
     "PhonePe IPO 2026",
@@ -25,20 +25,20 @@ export const metadata: Metadata = {
     locale: "en_IN",
     title: "PhonePe IPO 2026: Status, Expected Price, GMP & Full Review",
     description:
-      "PhonePe IPO postponed Mar 2026. 100% OFS ~â‚¹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
+      "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
     url: `${site.url}/ipos/phonepe-ipo`,
   },
   twitter: {
     card: "summary_large_image",
     title: "PhonePe IPO 2026: Status, Expected Price, GMP & Full Review",
     description:
-      "PhonePe IPO postponed Mar 2026. 100% OFS ~â‚¹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
+      "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
   },
 };
 
 const IPO_DETAILS = [
   { label: "Issue Type", value: "100% Offer for Sale (OFS) - no fresh capital to company" },
-  { label: "Total OFS Size", value: "~â‚¹12,000 crore" },
+  { label: "Total OFS Size", value: "~₹12,000 crore" },
   { label: "Selling Shareholders", value: "Walmart (majority), early investors" },
   { label: "Expected Price Band", value: "Not announced (IPO postponed)" },
   { label: "Expected Valuation", value: "$12-$15 billion" },
@@ -80,7 +80,7 @@ const FAQS = [
   },
   {
     q: "What is PhonePe IPO price band?",
-    a: "No price band has been announced. At a targeted valuation of $12-15 billion, the price per share will depend on the total equity base. Analysts estimate the issue price could range from â‚¹800-â‚¹1,200 per share, but this is speculative.",
+    a: "No price band has been announced. At a targeted valuation of $12-15 billion, the price per share will depend on the total equity base. Analysts estimate the issue price could range from ₹800-₹1,200 per share, but this is speculative.",
   },
   {
     q: "Why is PhonePe IPO 100% OFS?",
@@ -102,7 +102,7 @@ export default function PhonePeIpoPage() {
     "@type": "Article",
     headline: "PhonePe IPO 2026: Postponed - Latest Status, Expected Date & Review",
     description:
-      "PhonePe IPO postponed March 2026. UDRHP filed Jan 2026. 100% OFS ~â‚¹12,000 Cr, valuation $12-15B. Latest update and review.",
+      "PhonePe IPO postponed March 2026. UDRHP filed Jan 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update and review.",
     url: `${site.url}/ipos/phonepe-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -141,11 +141,11 @@ export default function PhonePeIpoPage() {
         <div className="container-main">
           <div className="mb-4">
             <Link href="/ipos" className="text-sm text-white/50 hover:text-white/80 transition-colors">
-              â† IPO Calendar
+              ← IPO Calendar
             </Link>
           </div>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-400/10 px-3 py-1 text-xs font-semibold text-red-300">
-            IPO POSTPONED Â· DATE UNCONFIRMED
+            IPO POSTPONED · DATE UNCONFIRMED
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             PhonePe IPO 2026
@@ -154,7 +154,7 @@ export default function PhonePeIpoPage() {
             India's #1 UPI app with 550M+ users - IPO postponed in March 2026.
             UDRHP filed, awaiting favourable market conditions.
           </p>
-          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 Â· Dates and figures are unconfirmed until the RHP is filed.</p>
+          <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Dates and figures are unconfirmed until the RHP is filed.</p>
 
           {/* Status alert */}
           <div className="mt-6 rounded-xl bg-red-500/10 border border-red-400/20 p-4">
@@ -167,7 +167,7 @@ export default function PhonePeIpoPage() {
           <div className="mt-4 flex flex-wrap gap-4">
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Issue Size</p>
-              <p className="text-xl font-bold text-white">~â‚¹12,000 Cr</p>
+              <p className="text-xl font-bold text-white">~₹12,000 Cr</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Issue Type</p>
@@ -218,21 +218,21 @@ export default function PhonePeIpoPage() {
           <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Wait?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
-              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">âœ“ Strengths</h3>
+              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
                   <li key={i} className="text-sm text-green-800 dark:text-green-300 flex gap-2">
-                    <span className="shrink-0 mt-0.5">â€¢</span>{p}
+                    <span className="shrink-0 mt-0.5">•</span>{p}
                   </li>
                 ))}
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
-              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">âœ- Risks</h3>
+              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">✗ Risks</h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
                   <li key={i} className="text-sm text-red-800 dark:text-red-300 flex gap-2">
-                    <span className="shrink-0 mt-0.5">â€¢</span>{c}
+                    <span className="shrink-0 mt-0.5">•</span>{c}
                   </li>
                 ))}
               </ul>
@@ -260,7 +260,7 @@ export default function PhonePeIpoPage() {
 
         <div className="text-center">
           <Link href="/ipos" className="inline-flex items-center gap-2 text-brand hover:underline font-medium text-sm">
-            â† View all IPOs on the CoinMind IPO Calendar
+            ← View all IPOs on the CoinMind IPO Calendar
           </Link>
         </div>
       </div>

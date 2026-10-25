@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Jio IPO GMP Today: Live Grey Market Premium | CoinMind" },
   description:
-    "Jio Platforms IPO GMP today is ~â‚¹250 (+22% over â‚¹1,119). Track the day-wise grey market premium, implied listing price, price band â‚¹1,065-1,119 and dates (21-23 Oct, listing 28 Oct).",
+    "Jio Platforms IPO GMP today is ~₹250 (+22% over ₹1,119). Track the day-wise grey market premium, implied listing price, price band ₹1,065-1,119 and dates (21-23 Oct, listing 28 Oct).",
   keywords: [
     "Jio IPO GMP today",
     "Jio IPO GMP",
@@ -19,16 +19,16 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/ipos/jio-ipo-gmp-today` },
   openGraph: {
     locale: "en_IN",
-    title: "Jio IPO GMP Today: â‚¹250 (+22%) - Live Grey Market Premium",
+    title: "Jio IPO GMP Today: ₹250 (+22%) - Live Grey Market Premium",
     description:
-      "Latest Jio Platforms IPO grey market premium, day-wise trend, and implied listing price. Price band â‚¹1,065-1,119, opens 21 Oct 2026.",
+      "Latest Jio Platforms IPO grey market premium, day-wise trend, and implied listing price. Price band ₹1,065-1,119, opens 21 Oct 2026.",
     url: `${site.url}/ipos/jio-ipo-gmp-today`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jio IPO GMP Today: â‚¹250 (+22%) - Live Grey Market Premium",
+    title: "Jio IPO GMP Today: ₹250 (+22%) - Live Grey Market Premium",
     description:
-      "Latest Jio Platforms IPO grey market premium, day-wise trend and implied listing price. Opens 21 Oct 2026, band â‚¹1,065-1,119.",
+      "Latest Jio Platforms IPO grey market premium, day-wise trend and implied listing price. Opens 21 Oct 2026, band ₹1,065-1,119.",
   },
 };
 
@@ -51,11 +51,11 @@ const GMP_TREND = [
 const FAQS = [
   {
     q: "What is the Jio IPO GMP today?",
-    a: `As of ${LAST_UPDATED}, the Jio Platforms IPO grey market premium (GMP) is around â‚¹${GMP}, about ${Math.round((GMP / UPPER_BAND) * 100)}% over the â‚¹${UPPER_BAND} upper price band. This implies an indicative listing price of roughly â‚¹${UPPER_BAND + GMP}. GMP is unofficial and changes daily.`,
+    a: `As of ${LAST_UPDATED}, the Jio Platforms IPO grey market premium (GMP) is around ₹${GMP}, about ${Math.round((GMP / UPPER_BAND) * 100)}% over the ₹${UPPER_BAND} upper price band. This implies an indicative listing price of roughly ₹${UPPER_BAND + GMP}. GMP is unofficial and changes daily.`,
   },
   {
     q: "What is the expected listing price of Jio IPO?",
-    a: `Based on the current GMP of â‚¹${GMP} and the â‚¹${UPPER_BAND} upper band, the indicative listing price is about â‚¹${UPPER_BAND + GMP}. This is only a grey-market estimate, not a guarantee - the actual listing price on 28 October 2026 depends on demand and market conditions on listing day.`,
+    a: `Based on the current GMP of ₹${GMP} and the ₹${UPPER_BAND} upper band, the indicative listing price is about ₹${UPPER_BAND + GMP}. This is only a grey-market estimate, not a guarantee - the actual listing price on 28 October 2026 depends on demand and market conditions on listing day.`,
   },
   {
     q: "Is GMP a reliable indicator for Jio IPO?",
@@ -63,7 +63,7 @@ const FAQS = [
   },
   {
     q: "What is the Jio IPO price band and lot size?",
-    a: "The price band is â‚¹1,065-â‚¹1,119 per share and the lot size is 12 shares, so the minimum retail application at the upper band is â‚¹13,428.",
+    a: "The price band is ₹1,065-₹1,119 per share and the lot size is 12 shares, so the minimum retail application at the upper band is ₹13,428.",
   },
 ];
 
@@ -107,11 +107,11 @@ export default function JioIpoGmpTodayPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos/reliance-jio-ipo" className="hover:text-brand">Jio IPO</Link>
-            <span>â€º</span>
+            <span>›</span>
             <span>GMP Today</span>
           </nav>
 
@@ -119,9 +119,9 @@ export default function JioIpoGmpTodayPage() {
             Jio IPO GMP Today
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            Live grey market premium (GMP) tracker for the Reliance Jio Platforms IPO. The IPO opens 21 October 2026 at a price band of â‚¹1,065-â‚¹1,119 and lists on 28 October 2026.
+            Live grey market premium (GMP) tracker for the Reliance Jio Platforms IPO. The IPO opens 21 October 2026 at a price band of ₹1,065-₹1,119 and lists on 28 October 2026.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} Â· <span className="text-amber-600">GMP is unofficial, unregulated and indicative only.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">GMP is unofficial, unregulated and indicative only.</span></p>
         </div>
       </section>
 
@@ -132,21 +132,21 @@ export default function JioIpoGmpTodayPage() {
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
             <p className="text-xs text-emerald-700 font-semibold uppercase tracking-wide">Jio IPO GMP (as of 18 Oct 2026)</p>
             <div className="mt-1 flex flex-wrap items-end gap-x-4 gap-y-1">
-              <p className="text-4xl font-extrabold text-emerald-700">â‚¹{GMP}</p>
+              <p className="text-4xl font-extrabold text-emerald-700">₹{GMP}</p>
               <p className="text-xl font-bold text-emerald-700">(+{gmpPct}%)</p>
             </div>
             <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
               <div className="rounded-lg bg-white border border-emerald-100 p-3">
                 <p className="text-xs text-text-muted">Upper Band</p>
-                <p className="text-lg font-bold text-text">â‚¹{UPPER_BAND}</p>
+                <p className="text-lg font-bold text-text">₹{UPPER_BAND}</p>
               </div>
               <div className="rounded-lg bg-white border border-emerald-100 p-3">
                 <p className="text-xs text-text-muted">GMP</p>
-                <p className="text-lg font-bold text-emerald-700">+â‚¹{GMP}</p>
+                <p className="text-lg font-bold text-emerald-700">+₹{GMP}</p>
               </div>
               <div className="rounded-lg bg-white border border-emerald-100 p-3">
                 <p className="text-xs text-text-muted">Implied Listing</p>
-                <p className="text-lg font-bold text-text">â‚¹{impliedListing}</p>
+                <p className="text-lg font-bold text-text">₹{impliedListing}</p>
               </div>
               <div className="rounded-lg bg-white border border-emerald-100 p-3">
                 <p className="text-xs text-text-muted">Est. Gain</p>
@@ -154,7 +154,7 @@ export default function JioIpoGmpTodayPage() {
               </div>
             </div>
             <p className="text-[11px] text-emerald-700 mt-3">
-              Implied listing = upper band (â‚¹{UPPER_BAND}) + GMP (â‚¹{GMP}) = â‚¹{impliedListing}. This is a grey-market estimate, not the actual listing price.
+              Implied listing = upper band (₹{UPPER_BAND}) + GMP (₹{GMP}) = ₹{impliedListing}. This is a grey-market estimate, not the actual listing price.
             </p>
           </div>
 
@@ -170,7 +170,7 @@ export default function JioIpoGmpTodayPage() {
                       className="h-full rounded bg-emerald-500/80 flex items-center justify-end pr-2"
                       style={{ width: `${(d.gmp / maxGmp) * 100}%` }}
                     >
-                      <span className="text-[10px] font-semibold text-white">â‚¹{d.gmp}</span>
+                      <span className="text-[10px] font-semibold text-white">₹{d.gmp}</span>
                     </div>
                   </div>
                 </div>
@@ -186,12 +186,12 @@ export default function JioIpoGmpTodayPage() {
             <h2 className="font-bold text-text mb-3">Jio IPO - Key Dates &amp; Price</h2>
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
               {[
-                ["Price Band", "â‚¹1,065 - â‚¹1,119"],
-                ["Lot Size", "12 shares (â‚¹13,428 min)"],
+                ["Price Band", "₹1,065 - ₹1,119"],
+                ["Lot Size", "12 shares (₹13,428 min)"],
                 ["Open - Close", "21 - 23 Oct 2026"],
                 ["Allotment", "26 Oct 2026"],
                 ["Listing", "28 Oct 2026 (BSE + NSE)"],
-                ["Issue Size", "~â‚¹30,000 cr (fresh issue)"],
+                ["Issue Size", "~₹30,000 cr (fresh issue)"],
               ].map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 border-b border-border py-2">
                   <span className="text-text-muted">{k}</span>
@@ -200,8 +200,8 @@ export default function JioIpoGmpTodayPage() {
               ))}
             </div>
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
-              <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Full Jio IPO Review â†’</Link>
-              <Link href="/ipos/jio-ipo-allotment-status" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Jio IPO Allotment Status â†’</Link>
+              <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Full Jio IPO Review →</Link>
+              <Link href="/ipos/jio-ipo-allotment-status" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Jio IPO Allotment Status →</Link>
             </div>
           </div>
 
@@ -209,7 +209,7 @@ export default function JioIpoGmpTodayPage() {
           <div className="rounded-2xl bg-blue-50 border border-blue-200 p-5">
             <h2 className="font-bold text-blue-800 mb-2">What is GMP (Grey Market Premium)?</h2>
             <p className="text-sm text-blue-700 leading-relaxed">
-              GMP is the extra amount (over the issue price) at which IPO shares are informally bought and sold in the unofficial grey market before listing. A GMP of â‚¹{GMP} means grey-market participants expect Jio to list around â‚¹{impliedListing}. It is <strong>not quoted on BSE/NSE</strong>, is <strong>not regulated by SEBI</strong>, and changes every day - treat it as rough sentiment, never as a promise of listing gains.
+              GMP is the extra amount (over the issue price) at which IPO shares are informally bought and sold in the unofficial grey market before listing. A GMP of ₹{GMP} means grey-market participants expect Jio to list around ₹{impliedListing}. It is <strong>not quoted on BSE/NSE</strong>, is <strong>not regulated by SEBI</strong>, and changes every day - treat it as rough sentiment, never as a promise of listing gains.
             </p>
           </div>
 
@@ -235,7 +235,7 @@ export default function JioIpoGmpTodayPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              â† View all IPOs on the CoinMind IPO Calendar
+              ← View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

@@ -4,7 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Rotate PDF - Turn PDF Pages 90Â°, 180Â° Free" },
+  title: { absolute: "Rotate PDF - Turn PDF Pages 90°, 180° Free" },
   description:
     "Free rotate PDF tool. Turn every page or a single page 90, 180 or 270 degrees, entirely in your browser. No upload, no sign-up, fully private.",
   alternates: { canonical: "/tools/rotate-pdf" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://coinmind.in/tools/rotate-pdf",
     siteName: site.name,
     locale: "en_IN",
-    title: "Rotate PDF - Turn PDF Pages 90Â°, 180Â° Free",
+    title: "Rotate PDF - Turn PDF Pages 90°, 180° Free",
     description:
       "Rotate every page or just one by 90, 180 or 270 degrees, entirely in your browser. No upload, no sign-up.",
     images: [

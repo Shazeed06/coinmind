@@ -34,13 +34,13 @@ const CURRENT_RATES = {
   ],
   epf: { rate: "8.25%", year: "2024-25" },
   taxNew: [
-    { range: "Up to â‚¹4L", rate: "Nil" },
-    { range: "â‚¹4L - â‚¹8L", rate: "5%" },
-    { range: "â‚¹8L - â‚¹12L", rate: "10%" },
-    { range: "â‚¹12L - â‚¹16L", rate: "15%" },
-    { range: "â‚¹16L - â‚¹20L", rate: "20%" },
-    { range: "â‚¹20L - â‚¹24L", rate: "25%" },
-    { range: "Above â‚¹24L", rate: "30%" },
+    { range: "Up to ₹4L", rate: "Nil" },
+    { range: "₹4L - ₹8L", rate: "5%" },
+    { range: "₹8L - ₹12L", rate: "10%" },
+    { range: "₹12L - ₹16L", rate: "15%" },
+    { range: "₹16L - ₹20L", rate: "20%" },
+    { range: "₹20L - ₹24L", rate: "25%" },
+    { range: "Above ₹24L", rate: "30%" },
   ],
   bankFD: [
     { bank: "SBI", rate1yr: "6.80%", rate3yr: "6.75%", rate5yr: "6.50%" },
@@ -60,7 +60,7 @@ export default function FinanceTodayPage() {
       </div>
       <h1 className="font-display text-3xl sm:text-4xl text-ink">Finance Today</h1>
       <p className="mt-2 text-ink-soft">All current Indian finance rates in one place - updated from official sources.</p>
-      <p className="mt-1 text-xs text-ink-faint">Last updated: {CURRENT_RATES.lastUpdated} Â· Sources: RBI, EPFO, Ministry of Finance, NSI</p>
+      <p className="mt-1 text-xs text-ink-faint">Last updated: {CURRENT_RATES.lastUpdated} · Sources: RBI, EPFO, Ministry of Finance, NSI</p>
 
       {/* RBI Policy Rates */}
       <section className="mt-10">
@@ -80,7 +80,7 @@ export default function FinanceTodayPage() {
           ))}
         </div>
         <Link href="/research/rbi-repo-rate-history" className="mt-2 inline-block text-xs text-forest hover:underline">
-          View full RBI repo rate history â†’
+          View full RBI repo rate history →
         </Link>
       </section>
 
@@ -103,7 +103,7 @@ export default function FinanceTodayPage() {
                   <td className="px-4 py-3 text-right font-display text-lg font-600 text-forest">{s.rate}</td>
                   <td className="px-4 py-3 text-right hidden sm:table-cell">
                     {s.calc ? (
-                      <Link href={s.calc} className="text-xs text-forest hover:underline">Calculate â†’</Link>
+                      <Link href={s.calc} className="text-xs text-forest hover:underline">Calculate →</Link>
                     ) : (
                       <span className="text-xs text-ink-faint"> - </span>
                     )}
@@ -114,7 +114,7 @@ export default function FinanceTodayPage() {
           </table>
         </div>
         <div className="mt-2 flex gap-3">
-          <Link href="/research/ppf-rate-history" className="text-xs text-forest hover:underline">PPF rate history â†’</Link>
+          <Link href="/research/ppf-rate-history" className="text-xs text-forest hover:underline">PPF rate history →</Link>
         </div>
       </section>
 
@@ -124,15 +124,15 @@ export default function FinanceTodayPage() {
         <div className="rounded-xl border border-line bg-card p-5 flex items-center justify-between">
           <div>
             <p className="text-sm text-ink-soft">Employee Provident Fund (EPFO)</p>
-            <p className="mt-1 text-xs text-ink-faint">FY {CURRENT_RATES.epf.year} Â· Declared by EPFO Central Board of Trustees</p>
+            <p className="mt-1 text-xs text-ink-faint">FY {CURRENT_RATES.epf.year} · Declared by EPFO Central Board of Trustees</p>
           </div>
           <div className="text-right">
             <p className="font-display text-3xl font-600 text-forest">{CURRENT_RATES.epf.rate}</p>
-            <Link href="/calculators/epf" className="text-xs text-forest hover:underline">Calculate â†’</Link>
+            <Link href="/calculators/epf" className="text-xs text-forest hover:underline">Calculate →</Link>
           </div>
         </div>
         <Link href="/research/epf-rate-history" className="mt-2 inline-block text-xs text-forest hover:underline">
-          EPF rate history â†’
+          EPF rate history →
         </Link>
       </section>
 
@@ -156,19 +156,19 @@ export default function FinanceTodayPage() {
           <div className="rounded-xl border border-line bg-card p-4 text-sm space-y-2">
             <p className="font-semibold text-ink">Key tax facts FY 2026-27</p>
             <ul className="space-y-1.5 text-ink-soft text-xs">
-              <li>âœ“ Standard deduction: <strong>â‚¹75,000</strong> (salaried/pensioners)</li>
-              <li>âœ“ 87A rebate: <strong>â‚¹60,000</strong> - zero tax up to â‚¹12L income</li>
-              <li>âœ“ Surcharge: 10% above â‚¹50L, 15% above â‚¹1Cr</li>
-              <li>âœ“ Cess: 4% on all tax + surcharge</li>
-              <li>âœ“ NPS employer contribution (80CCD-2): deductible in new regime</li>
+              <li>✓ Standard deduction: <strong>₹75,000</strong> (salaried/pensioners)</li>
+              <li>✓ 87A rebate: <strong>₹60,000</strong> - zero tax up to ₹12L income</li>
+              <li>✓ Surcharge: 10% above ₹50L, 15% above ₹1Cr</li>
+              <li>✓ Cess: 4% on all tax + surcharge</li>
+              <li>✓ NPS employer contribution (80CCD-2): deductible in new regime</li>
             </ul>
             <Link href="/calculators/income-tax" className="mt-2 inline-block text-xs font-semibold text-forest hover:underline">
-              Calculate your exact tax â†’
+              Calculate your exact tax →
             </Link>
           </div>
         </div>
         <Link href="/research/income-tax-slabs-history" className="mt-2 inline-block text-xs text-forest hover:underline">
-          Full income tax slab history â†’
+          Full income tax slab history →
         </Link>
       </section>
 
@@ -198,7 +198,7 @@ export default function FinanceTodayPage() {
           </table>
         </div>
         <p className="mt-2 text-xs text-ink-faint">FD rates change frequently. Verify with your bank before investing. Senior citizens typically get +0.25-0.5% extra.</p>
-        <Link href="/calculators/fd" className="mt-1 inline-block text-xs text-forest hover:underline">FD Calculator â†’</Link>
+        <Link href="/calculators/fd" className="mt-1 inline-block text-xs text-forest hover:underline">FD Calculator →</Link>
       </section>
 
       {/* Quick links */}

@@ -52,9 +52,9 @@ const SHORTLIST: ShortlistItem[] = [
     name: "Reliance Jio Platforms",
     sector: "Telecom & Digital Services",
     does: "India's largest telecom and digital-services platform, with 524+ million subscribers and roughly 60% of the country's wireless data traffic, spanning Jio 5G, JioFiber, JioAirFiber and enterprise services.",
-    issueSize: "~â‚¹30,213 cr (100% fresh issue)",
+    issueSize: "~₹30,213 cr (100% fresh issue)",
     notable: "India's biggest-ever IPO and the only name on this list with confirmed dates (subscription 21-23 Oct 2026) - it is already live in the grey market.",
-    sentiment: "GMP around â‚¹250 (+22% over the â‚¹1,119 upper band) as of 18 Oct 2026 - unofficial and indicative only.",
+    sentiment: "GMP around ₹250 (+22% over the ₹1,119 upper band) as of 18 Oct 2026 - unofficial and indicative only.",
     trading: true,
     risk: "Rich reported valuation ($114-146 billion) leaves little margin of safety, and the huge issue size means heavy retail competition and possibly thin allotment odds.",
   },
@@ -63,7 +63,7 @@ const SHORTLIST: ShortlistItem[] = [
     name: "PhonePe",
     sector: "Fintech / Payments",
     does: "India's largest UPI payments app by transaction volume, expanding into lending distribution, insurance, a payment gateway and stockbroking (Share.Market).",
-    issueSize: "Estimated â‚¹12,000-15,000 cr (unconfirmed)",
+    issueSize: "Estimated ₹12,000-15,000 cr (unconfirmed)",
     notable: "One of India's most-watched fintech listings, with a dominant share of UPI payments and a large merchant and consumer base.",
     sentiment: "No price band announced yet, so there is no grey market price or GMP to track.",
     trading: false,
@@ -74,7 +74,7 @@ const SHORTLIST: ShortlistItem[] = [
     name: "Razorpay",
     sector: "Fintech / Payments",
     does: "A full-stack payments and business-banking platform for merchants - payment gateway, RazorpayX neobanking, payroll and merchant lending.",
-    issueSize: "~â‚¹5,000 cr (confidential filing, targeting late 2026)",
+    issueSize: "~₹5,000 cr (confidential filing, targeting late 2026)",
     notable: "Redomiciled to India ahead of a listing, with a strong small-business and enterprise payments franchise and a maturing revenue model.",
     sentiment: "No price band announced yet, so there is no grey market price or GMP to track.",
     trading: false,
@@ -85,7 +85,7 @@ const SHORTLIST: ShortlistItem[] = [
     name: "Zepto",
     sector: "Quick Commerce",
     does: "A quick-commerce platform delivering groceries and daily essentials in minutes through a network of dark stores across major cities.",
-    issueSize: "~â‚¹8,010 cr (fresh + OFS; U-DRHP filed, timeline pushed back)",
+    issueSize: "~₹8,010 cr (fresh + OFS; U-DRHP filed, timeline pushed back)",
     notable: "The fastest-scaling quick-commerce challenger to Blinkit and Instamart, with rapid revenue growth and expanding city coverage.",
     sentiment: "No price band announced yet, so there is no grey market price or GMP to track.",
     trading: false,
@@ -96,7 +96,7 @@ const SHORTLIST: ShortlistItem[] = [
     name: "OYO (Oravel Stays)",
     sector: "Hospitality Tech",
     does: "A travel-tech and budget-hospitality platform that franchises hotels and homes in India and overseas on an asset-light model.",
-    issueSize: "~â‚¹6,650 cr fresh (SEBI observations in)",
+    issueSize: "~₹6,650 cr fresh (SEBI observations in)",
     notable: "A second IPO attempt after earlier plans were shelved, this time backed by a return to reported profitability.",
     sentiment: "No price band announced yet, so there is no grey market price or GMP to track.",
     trading: false,
@@ -107,7 +107,7 @@ const SHORTLIST: ShortlistItem[] = [
     name: "Hero FinCorp",
     sector: "NBFC / Lending",
     does: "A diversified non-banking financial company linked to the Hero group, lending across two-wheeler finance, consumer loans, SME finance and loans against property.",
-    issueSize: "â‚¹3,668 cr (fresh + OFS; DRHP filed)",
+    issueSize: "₹3,668 cr (fresh + OFS; DRHP filed)",
     notable: "An established NBFC with a recognised brand parent and a broad retail lending book across India.",
     sentiment: "No price band announced yet, so there is no grey market price or GMP to track.",
     trading: false,
@@ -118,7 +118,7 @@ const SHORTLIST: ShortlistItem[] = [
     name: "boAt (Imagine Marketing)",
     sector: "Consumer Electronics",
     does: "A consumer-electronics brand best known for audio products - earbuds, headphones and speakers - alongside a growing smartwatch range.",
-    issueSize: "~â‚¹1,500 cr (cut from earlier plans; updated DRHP)",
+    issueSize: "~₹1,500 cr (cut from earlier plans; updated DRHP)",
     notable: "A leading Indian audio brand making a second attempt at listing after shelving its 2022 plans.",
     sentiment: "No price band announced yet, so there is no grey market price or GMP to track.",
     trading: false,
@@ -127,23 +127,23 @@ const SHORTLIST: ShortlistItem[] = [
 ];
 
 const BIGGEST_BY_SIZE = [
-  { name: "Reliance Jio Platforms", size: "~â‚¹30,213 cr", note: "100% fresh issue Â· dates confirmed" },
-  { name: "PhonePe", size: "Est. â‚¹12,000-15,000 cr", note: "Estimate Â· unconfirmed" },
-  { name: "Zepto", size: "~â‚¹8,010 cr", note: "Fresh + OFS Â· U-DRHP filed" },
-  { name: "OYO (Oravel Stays)", size: "~â‚¹6,650 cr", note: "Fresh Â· SEBI observations in" },
-  { name: "Razorpay", size: "~â‚¹5,000 cr", note: "Estimate Â· confidential filing" },
-  { name: "Hero FinCorp", size: "â‚¹3,668 cr", note: "Fresh + OFS Â· DRHP filed" },
-  { name: "boAt (Imagine Marketing)", size: "~â‚¹1,500 cr", note: "Updated DRHP" },
+  { name: "Reliance Jio Platforms", size: "~₹30,213 cr", note: "100% fresh issue · dates confirmed" },
+  { name: "PhonePe", size: "Est. ₹12,000-15,000 cr", note: "Estimate · unconfirmed" },
+  { name: "Zepto", size: "~₹8,010 cr", note: "Fresh + OFS · U-DRHP filed" },
+  { name: "OYO (Oravel Stays)", size: "~₹6,650 cr", note: "Fresh · SEBI observations in" },
+  { name: "Razorpay", size: "~₹5,000 cr", note: "Estimate · confidential filing" },
+  { name: "Hero FinCorp", size: "₹3,668 cr", note: "Fresh + OFS · DRHP filed" },
+  { name: "boAt (Imagine Marketing)", size: "~₹1,500 cr", note: "Updated DRHP" },
 ];
 
 const FAQS = [
   {
     q: "Which upcoming IPO has the highest GMP?",
-    a: "Among the big upcoming IPOs, only Reliance Jio is actually trading in the grey market right now, with a GMP of about â‚¹250 (+22% over the â‚¹1,119 upper band) as of 18 Oct 2026 - unofficial and indicative. PhonePe, Razorpay, Zepto, OYO, Hero FinCorp and boAt have no price band yet, so no GMP exists for them; any figure quoted for those is speculation.",
+    a: "Among the big upcoming IPOs, only Reliance Jio is actually trading in the grey market right now, with a GMP of about ₹250 (+22% over the ₹1,119 upper band) as of 18 Oct 2026 - unofficial and indicative. PhonePe, Razorpay, Zepto, OYO, Hero FinCorp and boAt have no price band yet, so no GMP exists for them; any figure quoted for those is speculation.",
   },
   {
     q: "Which is the biggest upcoming IPO in India?",
-    a: "Reliance Jio Platforms is the biggest, at roughly â‚¹30,213 crore in a 100% fresh issue - India's largest-ever public offering. PhonePe would be the next largest if it lists at its estimated â‚¹12,000-15,000 crore, followed by Zepto (~â‚¹8,010 cr) and OYO (~â‚¹6,650 cr). Sizes for every name except Jio are unconfirmed estimates.",
+    a: "Reliance Jio Platforms is the biggest, at roughly ₹30,213 crore in a 100% fresh issue - India's largest-ever public offering. PhonePe would be the next largest if it lists at its estimated ₹12,000-15,000 crore, followed by Zepto (~₹8,010 cr) and OYO (~₹6,650 cr). Sizes for every name except Jio are unconfirmed estimates.",
   },
   {
     q: "Should I apply to an IPO just for listing gains?",
@@ -205,9 +205,9 @@ export default function BestUpcomingIposPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>â€º</span>
+            <span>›</span>
             <span>Best Upcoming IPOs 2026</span>
           </nav>
 
@@ -217,7 +217,7 @@ export default function BestUpcomingIposPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             A ranked editorial shortlist of the most notable upcoming IPOs in India for 2026 - what each company does, how big the issue is, why it stands out and the key risk to weigh. This is our analysis, not a recommendation to buy.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} Â· <span className="text-amber-600">Ranking is editorial opinion; GMP is unofficial and indicative only.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">Ranking is editorial opinion; GMP is unofficial and indicative only.</span></p>
         </div>
       </section>
 
@@ -277,10 +277,10 @@ export default function BestUpcomingIposPage() {
                     {item.rank === 1 && (
                       <div className="mt-3 flex flex-wrap gap-2 text-xs">
                         <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">
-                          â†’ Full Reliance Jio IPO review
+                          → Full Reliance Jio IPO review
                         </Link>
                         <Link href="/ipos/ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">
-                          â†’ Live IPO GMP today
+                          → Live IPO GMP today
                         </Link>
                       </div>
                     )}
@@ -363,7 +363,7 @@ export default function BestUpcomingIposPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              â† View all IPOs on the CoinMind IPO Calendar
+              ← View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "SME IPO: Meaning, Risks & How to Apply | CoinMind" },
   description:
-    "What an SME IPO is, where it lists (NSE Emerge / BSE SME), how it differs from a mainboard IPO, the minimum â‚¹1 lakh+ lot, the key risks and how to apply step by step - a plain-English guide for Indian investors.",
+    "What an SME IPO is, where it lists (NSE Emerge / BSE SME), how it differs from a mainboard IPO, the minimum ₹1 lakh+ lot, the key risks and how to apply step by step - a plain-English guide for Indian investors.",
   keywords: [
     "SME IPO",
     "SME IPO this week",
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     title: "SME IPO Explained: Meaning, Risks & How to Apply (India)",
     description:
-      "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the â‚¹1 lakh+ lot, risks and the application process.",
+      "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
     url: `${site.url}/ipos/sme-ipo`,
   },
   twitter: {
     card: "summary_large_image",
     title: "SME IPO Explained: Meaning, Risks & How to Apply (India)",
     description:
-      "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the â‚¹1 lakh+ lot, risks and the application process.",
+      "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
   },
 };
 
@@ -37,7 +37,7 @@ const LAST_UPDATED = "18 October 2026";
 const DIFFERENCES = [
   { feature: "Listing platform", sme: "NSE Emerge or BSE SME", main: "NSE and BSE main board" },
   { feature: "Company size", sme: "Small & medium enterprises (smaller post-issue capital)", main: "Larger, established companies" },
-  { feature: "Minimum application", sme: "~â‚¹1-1.5 lakh for one lot", main: "~â‚¹14,000-15,000 for one lot" },
+  { feature: "Minimum application", sme: "~₹1-1.5 lakh for one lot", main: "~₹14,000-15,000 for one lot" },
   { feature: "Minimum allottees required", sme: "50 investors", main: "1,000 investors" },
   { feature: "Offer document review", sme: "Primarily reviewed by the exchange", main: "Reviewed by SEBI" },
   { feature: "Market making", sme: "Mandatory market maker for an initial period", main: "Not required" },
@@ -48,7 +48,7 @@ const DIFFERENCES = [
 const RISKS = [
   {
     title: "High minimum ticket size",
-    body: "One SME lot typically costs â‚¹1 lakh or more, so a single application ties up a large amount and makes it hard to diversify across issues.",
+    body: "One SME lot typically costs ₹1 lakh or more, so a single application ties up a large amount and makes it hard to diversify across issues.",
   },
   {
     title: "Low liquidity",
@@ -70,7 +70,7 @@ const RISKS = [
 
 const HOW_TO_APPLY = [
   { step: "1", title: "Use a demat + trading account", body: "Apply through any broker that supports SME IPOs (Zerodha, Groww, Angel One, Upstox and others). The same demat account you use for mainboard IPOs works." },
-  { step: "2", title: "Check you can fund one full lot", body: "SME lots are large - often â‚¹1 lakh or more - so confirm your bank account can block the full minimum application amount via UPI or ASBA." },
+  { step: "2", title: "Check you can fund one full lot", body: "SME lots are large - often ₹1 lakh or more - so confirm your bank account can block the full minimum application amount via UPI or ASBA." },
   { step: "3", title: "Apply in the retail or HNI category", body: "Pick the SME issue in your broker's IPO section, choose the number of lots (minimum one) and bid at the cut-off price within the subscription window." },
   { step: "4", title: "Amount is blocked, not debited", body: "As with mainboard IPOs, ASBA/UPI blocks the money in your bank account and debits it only if you are allotted shares; otherwise it is released." },
   { step: "5", title: "Allotment and listing", body: "SME allotment also uses a lottery when oversubscribed. If allotted, shares are credited to your demat before listing on NSE Emerge or BSE SME." },
@@ -83,11 +83,11 @@ const FAQS = [
   },
   {
     q: "What is the minimum investment in an SME IPO?",
-    a: "SME IPOs have a much larger lot size than mainboard issues, so one lot typically costs around â‚¹1 lakh to â‚¹1.5 lakh - the minimum you can apply for. That high ticket size is set deliberately so that mainly informed, higher-net-worth investors participate. Exact lot values vary by issue and are stated in the prospectus.",
+    a: "SME IPOs have a much larger lot size than mainboard issues, so one lot typically costs around ₹1 lakh to ₹1.5 lakh - the minimum you can apply for. That high ticket size is set deliberately so that mainly informed, higher-net-worth investors participate. Exact lot values vary by issue and are stated in the prospectus.",
   },
   {
     q: "Are SME IPOs risky?",
-    a: "Yes - SME IPOs carry higher risk than mainboard IPOs. The companies are smaller with shorter track records, the shares trade with low liquidity and high volatility, and the â‚¹1 lakh+ minimum makes it hard to diversify. They can deliver strong gains, but the downside can be severe, so size any exposure carefully and read the prospectus in full.",
+    a: "Yes - SME IPOs carry higher risk than mainboard IPOs. The companies are smaller with shorter track records, the shares trade with low liquidity and high volatility, and the ₹1 lakh+ minimum makes it hard to diversify. They can deliver strong gains, but the downside can be severe, so size any exposure carefully and read the prospectus in full.",
   },
   {
     q: "Where do SME IPOs list?",
@@ -149,9 +149,9 @@ export default function SmeIpoPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>â€º</span>
+            <span>›</span>
             <span>SME IPO</span>
           </nav>
 
@@ -159,9 +159,9 @@ export default function SmeIpoPage() {
             SME IPO - Meaning, Risks &amp; How to Apply
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            A plain-English guide to SME IPOs in India - what they are, where they list, how they differ from mainboard IPOs, the â‚¹1 lakh+ minimum lot, the risks to weigh and the step-by-step application process.
+            A plain-English guide to SME IPOs in India - what they are, where they list, how they differ from mainboard IPOs, the ₹1 lakh+ minimum lot, the risks to weigh and the step-by-step application process.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} Â· <span className="text-amber-600">Educational guide, not investment advice.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">Educational guide, not investment advice.</span></p>
         </div>
       </section>
 
@@ -172,7 +172,7 @@ export default function SmeIpoPage() {
           <div className="rounded-2xl border border-border bg-surface p-5">
             <h2 className="text-base font-bold text-text mb-2">What is an SME IPO, in short</h2>
             <p className="text-sm text-text leading-relaxed font-semibold">
-              An <strong className="text-brand">SME IPO</strong> is a public issue by a small or medium-sized enterprise that lists on a dedicated platform - <strong className="text-brand">NSE Emerge</strong> or <strong className="text-brand">BSE SME</strong> - rather than the main board. It uses a lighter listing process, carries a much larger minimum lot (often â‚¹1 lakh or more) and has lower liquidity and higher volatility than a mainboard IPO.
+              An <strong className="text-brand">SME IPO</strong> is a public issue by a small or medium-sized enterprise that lists on a dedicated platform - <strong className="text-brand">NSE Emerge</strong> or <strong className="text-brand">BSE SME</strong> - rather than the main board. It uses a lighter listing process, carries a much larger minimum lot (often ₹1 lakh or more) and has lower liquidity and higher volatility than a mainboard IPO.
             </p>
           </div>
 
@@ -207,7 +207,7 @@ export default function SmeIpoPage() {
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
               <Link href="/ipos/mainboard-vs-sme-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">
-                â†’ Mainboard vs SME IPO - full comparison
+                → Mainboard vs SME IPO - full comparison
               </Link>
             </div>
           </div>
@@ -259,8 +259,8 @@ export default function SmeIpoPage() {
               The SME IPO calendar turns over quickly, so we keep the current, dated list on our main IPO tracker rather than here. A reminder: the mainboard IPOs open this week - Tonbo Imaging, Bonfiglioli, Sahajanand Medical and Zetwerk - are <strong>not</strong> SME issues; they list on the main board of NSE and BSE, not on NSE Emerge or BSE SME. If you see a grey market premium quoted for an SME issue, remember it is unofficial and indicative only.
             </p>
             <div className="mt-4 flex flex-wrap gap-2 text-sm">
-              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">â†’ Live IPO tracker &amp; calendar</Link>
-              <Link href="/ipos/ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">â†’ IPO GMP today</Link>
+              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">→ Live IPO tracker &amp; calendar</Link>
+              <Link href="/ipos/ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">→ IPO GMP today</Link>
             </div>
           </div>
 
@@ -286,7 +286,7 @@ export default function SmeIpoPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              â† View all IPOs on the CoinMind IPO Calendar
+              ← View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 

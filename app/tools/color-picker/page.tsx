@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: "What is the difference between HEX, RGB and HSL?",
-    a: "They describe the same color in different ways. HEX is a six-digit code used in HTML and CSS (#RRGGBB). RGB lists the red, green and blue channels from 0 to 255. HSL uses hue (0-360Â°), saturation and lightness, which makes it easy to create lighter or darker versions of a color by adjusting one number.",
+    a: "They describe the same color in different ways. HEX is a six-digit code used in HTML and CSS (#RRGGBB). RGB lists the red, green and blue channels from 0 to 255. HSL uses hue (0-360°), saturation and lightness, which makes it easy to create lighter or darker versions of a color by adjusting one number.",
   },
   {
     q: "What are tints and shades?",

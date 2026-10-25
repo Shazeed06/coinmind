@@ -44,12 +44,12 @@ const FAQS = [
   { q: "How accurate is the SIP calculator?", a: "The calculator is mathematically accurate. However, mutual fund returns vary with market conditions. We recommend using 10-12% for large-cap equity funds and running multiple scenarios." },
   { q: "What return rate should I use for SIP calculations?", a: "For long-term planning with diversified equity mutual funds in India, use 10-12% as your base case. For debt funds, use 6-8%." },
   { q: "What is the difference between a flat SIP and a step-up SIP?", a: "A flat SIP invests the same amount every month. A step-up SIP increases your monthly investment by a fixed percentage each year, typically 10%." },
-  { q: "How does LTCG tax affect my SIP returns?", a: "For equity funds held over 12 months, LTCG above â‚¹1.25 lakh per year is taxed at 12.5%. Each SIP instalment has its own holding period (FIFO)." },
-  { q: "What is the minimum amount to start a SIP in India?", a: "Most mutual funds in India allow you to start a SIP with as little as â‚¹500 per month." },
-  { q: "How much do I need to invest monthly to reach â‚¹1 crore?", a: "At 12% returns: â‚¹2,850/month for 30 years, â‚¹10,000/month for 20 years, or â‚¹43,000/month for 10 years." },
+  { q: "How does LTCG tax affect my SIP returns?", a: "For equity funds held over 12 months, LTCG above ₹1.25 lakh per year is taxed at 12.5%. Each SIP instalment has its own holding period (FIFO)." },
+  { q: "What is the minimum amount to start a SIP in India?", a: "Most mutual funds in India allow you to start a SIP with as little as ₹500 per month." },
+  { q: "How much do I need to invest monthly to reach ₹1 crore?", a: "At 12% returns: ₹2,850/month for 30 years, ₹10,000/month for 20 years, or ₹43,000/month for 10 years." },
   { q: "Is SIP better than a fixed deposit?", a: "Over 10+ years, SIP in equity funds typically outperforms FDs. However, FD returns are guaranteed. SIP suits long-term goals (10+ years)." },
   { q: "Can I lose money in a SIP?", a: "Yes, if the market declines and you redeem before recovery. However, staying invested through cycles historically delivers positive returns over 7+ years." },
-  { q: "How does inflation affect my SIP corpus?", a: "India's long-term average inflation is ~6%. A â‚¹1 crore corpus in 20 years is worth ~â‚¹28 lakhs in today's purchasing power." },
+  { q: "How does inflation affect my SIP corpus?", a: "India's long-term average inflation is ~6%. A ₹1 crore corpus in 20 years is worth ~₹28 lakhs in today's purchasing power." },
   { q: "Can I use this as an SBI SIP calculator?", a: "Yes. This is a universal SIP calculator - enter any fund house's expected return rate and it works the same way. For SBI Mutual Fund SIPs, use 10-12% for equity funds or 7-8% for debt funds. The results are identical to SBI's own tool, plus you also get LTCG tax impact and inflation-adjusted corpus." },
 ];
 
@@ -94,8 +94,8 @@ const CRORE = 10000000;
 /** Rs 1,23,45,678 becomes "Rs 1.23 Crore"; smaller sums render in lakh. */
 function corpusLabel(value: number): string {
   return value >= CRORE
-    ? `â‚¹${(value / CRORE).toFixed(2)} Crore`
-    : `â‚¹${(value / LAKH).toFixed(1)} Lakh`;
+    ? `₹${(value / CRORE).toFixed(2)} Crore`
+    : `₹${(value / LAKH).toFixed(1)} Lakh`;
 }
 
 // Computed from the same formula as the milestone table, not written by hand.
@@ -134,7 +134,7 @@ const SCHEMA_GRAPH = graph([
   ]),
   webApp(CALC.title, "calculators/sip", CAT, `Free ${CALC.title}: instant, private, no sign-up.`),
   howTo("How to Use the SIP Calculator", "Step-by-step guide to calculating your mutual fund SIP returns on CoinMind.", [
-    { name: "Enter monthly SIP amount", text: "Type your planned monthly investment (e.g. â‚¹5,000 or â‚¹10,000). Most mutual funds in India accept SIPs starting at â‚¹500." },
+    { name: "Enter monthly SIP amount", text: "Type your planned monthly investment (e.g. ₹5,000 or ₹10,000). Most mutual funds in India accept SIPs starting at ₹500." },
     { name: "Set expected return rate", text: "Choose an annual return rate. Use 10-12% for diversified equity funds or 6-8% for debt funds as a realistic estimate." },
     { name: "Choose investment duration", text: "Select how many years you plan to invest. Longer durations benefit from compounding - even 5 extra years can double your corpus." },
     { name: "Enable step-up SIP (optional)", text: "Toggle step-up to increase your SIP by a fixed percentage each year (e.g. 10%), which significantly boosts long-term wealth." },
@@ -229,7 +229,7 @@ export default function Page() {
             <section id="formula" style={{ scrollMarginTop: "6rem" }}>
               <h2>The Formula</h2>
               <div className="not-prose p-4 rounded-card bg-bg-alt border-l-4 border-brand font-mono text-sm my-4">
-                FV = P Ã- [((1 + r)<sup>n</sup> âˆ’ 1) / r] Ã- (1 + r)
+                FV = P × [((1 + r)<sup>n</sup> − 1) / r] × (1 + r)
                 <br /><br />
                 Where: P = Monthly SIP amount, r = Monthly return rate (annual/12), n = Total months
               </div>
@@ -242,7 +242,7 @@ export default function Page() {
                   <div key={ex.title} className="card p-4">
                     <p className="eyebrow text-brand">{ex.title}</p>
                     <div className="mt-3 space-y-1">
-                      <p className="text-sm text-text-muted">SIP: <span className="font-semibold text-text">â‚¹{ex.monthly.toLocaleString("en-IN")}/mo</span></p>
+                      <p className="text-sm text-text-muted">SIP: <span className="font-semibold text-text">₹{ex.monthly.toLocaleString("en-IN")}/mo</span></p>
                       <p className="text-sm text-text-muted">Tenure: <span className="font-semibold text-text">{ex.years} yrs</span></p>
                       <p className="text-sm text-text-muted">Corpus: <span className="text-accent font-bold">{ex.corpus}</span></p>
                     </div>
@@ -253,7 +253,7 @@ export default function Page() {
 
             <section id="growth-milestones" style={{ scrollMarginTop: "6rem" }}>
               <h2>Growth Milestones</h2>
-              <p>How a â‚¹10,000/month SIP at 12% grows over time:</p>
+              <p>How a ₹10,000/month SIP at 12% grows over time:</p>
               <DataTable>
                 <table>
                   <thead>
@@ -268,9 +268,9 @@ export default function Page() {
                     {GROWTH_ROWS.map((row) => (
                       <tr key={row.year}>
                         <td className="font-semibold text-text">{row.year}</td>
-                        <td>â‚¹{row.invested.toFixed(1)}L</td>
-                        <td className="font-semibold text-text">â‚¹{row.corpus.toFixed(1)}L</td>
-                        <td className="text-accent">â‚¹{row.returns.toFixed(1)}L</td>
+                        <td>₹{row.invested.toFixed(1)}L</td>
+                        <td className="font-semibold text-text">₹{row.corpus.toFixed(1)}L</td>
+                        <td className="text-accent">₹{row.returns.toFixed(1)}L</td>
                       </tr>
                     ))}
                   </tbody>
@@ -285,7 +285,7 @@ export default function Page() {
                   "Rupee cost averaging reduces timing risk",
                   "Power of compounding over long periods",
                   "Disciplined investing habit",
-                  "Start with as little as â‚¹500/month",
+                  "Start with as little as ₹500/month",
                   "No lock-in for open-ended funds",
                   "Step-up option aligns with income growth",
                 ].map((b) => (
@@ -340,7 +340,7 @@ export default function Page() {
                 {[
                   "Use 10-12% for equity funds, 6-8% for debt funds in your projections",
                   "Enable step-up SIP at 10% annual increase to 2-3x your final corpus",
-                  "Tax-harvest by redeeming up to â‚¹1.25L in LTCG gains each year",
+                  "Tax-harvest by redeeming up to ₹1.25L in LTCG gains each year",
                   "Hold SIPs for at least 7 years, ideally 10-20 years, for best results",
                   "Use direct plans (lower expense ratio) instead of regular plans",
                 ].map((tip, i) => (
@@ -415,7 +415,7 @@ export default function Page() {
               <p className="text-sm text-text-muted mt-3">
                 Want the full definition?{" "}
                 <Link href="/glossary/sip-full-form" className="text-brand hover:underline underline-offset-2">
-                  SIP full form and meaning â†’
+                  SIP full form and meaning →
                 </Link>
               </p>
             </section>
@@ -480,7 +480,7 @@ export default function Page() {
         <div className="container-main">
           <Prose>
             <p className="text-xs text-text-muted">
-              Sources: SEBI Mutual Fund data Â· AMFI SIP statistics Â· Income Tax Department capital gains rules Â· RBI inflation data.
+              Sources: SEBI Mutual Fund data · AMFI SIP statistics · Income Tax Department capital gains rules · RBI inflation data.
               Always consult a qualified financial advisor before making investment decisions.
             </p>
           </Prose>

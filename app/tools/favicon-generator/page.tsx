@@ -35,11 +35,11 @@ const faqs = [
   },
   {
     q: "What image should I upload?",
-    a: "A square image works best, ideally at least 512Ã-512 pixels so the largest favicon stays crisp. A PNG with a transparent background is ideal for logos. If your image isn't square, it's scaled to fit inside the square and centred, so nothing gets cropped.",
+    a: "A square image works best, ideally at least 512×512 pixels so the largest favicon stays crisp. A PNG with a transparent background is ideal for logos. If your image isn't square, it's scaled to fit inside the square and centred, so nothing gets cropped.",
   },
   {
     q: "Which favicon sizes do I actually need?",
-    a: "16Ã-16 and 32Ã-32 cover classic browser tabs, 48Ã-48 is used by Windows, 180Ã-180 is the Apple touch icon for iPhones and iPads, and 192Ã-192 plus 512Ã-512 are used by Android and installable web apps (PWAs). Generating all of them means every device shows a sharp icon.",
+    a: "16×16 and 32×32 cover classic browser tabs, 48×48 is used by Windows, 180×180 is the Apple touch icon for iPhones and iPads, and 192×192 plus 512×512 are used by Android and installable web apps (PWAs). Generating all of them means every device shows a sharp icon.",
   },
   {
     q: "How do I add the favicon to my website?",

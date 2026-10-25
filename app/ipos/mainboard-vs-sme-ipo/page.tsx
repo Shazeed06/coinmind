@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Mainboard vs SME IPO: Key Differences | CoinMind" },
   description:
-    "Mainboard vs SME IPO explained: listing platform (NSE/BSE vs NSE Emerge/BSE SME), minimum investment (~â‚¹15k vs ~â‚¹1-1.5 lakh), lot size, risk, liquidity and who each type suits.",
+    "Mainboard vs SME IPO explained: listing platform (NSE/BSE vs NSE Emerge/BSE SME), minimum investment (~₹15k vs ~₹1-1.5 lakh), lot size, risk, liquidity and who each type suits.",
   keywords: [
     "mainboard vs SME IPO",
     "difference between mainboard and SME IPO",
@@ -49,13 +49,13 @@ const COMPARISON: Row[] = [
   },
   {
     feature: "Minimum investment (1 lot)",
-    mainboard: "~â‚¹14,000-â‚¹15,000",
-    sme: "~â‚¹1,00,000-â‚¹1,50,000",
+    mainboard: "~₹14,000-₹15,000",
+    sme: "~₹1,00,000-₹1,50,000",
   },
   {
     feature: "Lot size",
-    mainboard: "Small (sized to ~â‚¹15k at cut-off)",
-    sme: "Large (sized to ~â‚¹1 lakh+ at cut-off)",
+    mainboard: "Small (sized to ~₹15k at cut-off)",
+    sme: "Large (sized to ~₹1 lakh+ at cut-off)",
   },
   {
     feature: "Disclosure & compliance",
@@ -87,7 +87,7 @@ const COMPARISON: Row[] = [
 const FAQS = [
   {
     q: "What is the main difference between mainboard and SME IPO?",
-    a: "A mainboard IPO lists directly on the main board of the NSE and/or BSE and is open to all investors with a small minimum application (about â‚¹14,000-â‚¹15,000). An SME IPO lists on a dedicated platform (NSE Emerge or BSE SME), carries lighter disclosure requirements, and has a much larger minimum application - typically â‚¹1-1.5 lakh - because the lot size is deliberately bigger.",
+    a: "A mainboard IPO lists directly on the main board of the NSE and/or BSE and is open to all investors with a small minimum application (about ₹14,000-₹15,000). An SME IPO lists on a dedicated platform (NSE Emerge or BSE SME), carries lighter disclosure requirements, and has a much larger minimum application - typically ₹1-1.5 lakh - because the lot size is deliberately bigger.",
   },
   {
     q: "Is an SME IPO riskier than a mainboard IPO?",
@@ -95,7 +95,7 @@ const FAQS = [
   },
   {
     q: "Can retail investors apply for both mainboard and SME IPOs?",
-    a: "Yes. Retail investors can apply for both through the same demat and ASBA/UPI process. The practical gate is the ticket size: a mainboard lot costs around â‚¹15,000, while a single SME lot usually runs â‚¹1 lakh or more, so SME IPOs require a larger upfront commitment per application.",
+    a: "Yes. Retail investors can apply for both through the same demat and ASBA/UPI process. The practical gate is the ticket size: a mainboard lot costs around ₹15,000, while a single SME lot usually runs ₹1 lakh or more, so SME IPOs require a larger upfront commitment per application.",
   },
   {
     q: "Why is the SME IPO lot size so high?",
@@ -157,9 +157,9 @@ export default function MainboardVsSmeIpoPage() {
         <div className="container-main max-w-[900px]">
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
-            <span>â€º</span>
+            <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
-            <span>â€º</span>
+            <span>›</span>
             <span>Mainboard vs SME IPO</span>
           </nav>
 
@@ -179,7 +179,7 @@ export default function MainboardVsSmeIpoPage() {
           {/* Quick answer */}
           <div className="rounded-2xl border border-border bg-surface p-5">
             <p className="text-text font-bold leading-relaxed">
-              The core difference: a mainboard IPO lists a large, fully-scrutinised company on the NSE/BSE main board with a small ~â‚¹15,000 minimum application, while an SME IPO lists a smaller company on NSE Emerge or the BSE SME platform with lighter disclosure and a much bigger minimum of roughly â‚¹1-1.5 lakh - making SME IPOs higher-risk and aimed at informed investors.
+              The core difference: a mainboard IPO lists a large, fully-scrutinised company on the NSE/BSE main board with a small ~₹15,000 minimum application, while an SME IPO lists a smaller company on NSE Emerge or the BSE SME platform with lighter disclosure and a much bigger minimum of roughly ₹1-1.5 lakh - making SME IPOs higher-risk and aimed at informed investors.
             </p>
           </div>
 
@@ -216,7 +216,7 @@ export default function MainboardVsSmeIpoPage() {
               A mainboard IPO is a public offer by a larger, established company that lists directly on the main board of the National Stock Exchange (NSE) and/or the Bombay Stock Exchange (BSE). These are the IPOs you hear about most - banks, manufacturers, consumer brands and large new-age companies. To qualify, issuers must meet stricter size, track-record and public-shareholding thresholds, and the offer document (the RHP) carries full, detailed disclosures that the exchanges review.
             </p>
             <p className="text-sm text-text-muted leading-relaxed mt-3">
-              Because the public float is large, a mainboard stock usually trades actively from day one with tight bid-ask spreads, so entering and exiting is easy. The minimum application is kept small - typically in the â‚¹14,000-â‚¹15,000 range - so ordinary retail investors can participate with one lot. Mainboard issues also attract analyst coverage, anchor investors and institutional demand, which adds a layer of scrutiny to the pricing.
+              Because the public float is large, a mainboard stock usually trades actively from day one with tight bid-ask spreads, so entering and exiting is easy. The minimum application is kept small - typically in the ₹14,000-₹15,000 range - so ordinary retail investors can participate with one lot. Mainboard issues also attract analyst coverage, anchor investors and institutional demand, which adds a layer of scrutiny to the pricing.
             </p>
           </div>
 
@@ -227,7 +227,7 @@ export default function MainboardVsSmeIpoPage() {
               An SME IPO is a public offer by a small or medium enterprise that lists on a dedicated exchange platform - <strong className="text-text">NSE Emerge</strong> or the <strong className="text-text">BSE SME</strong> platform - rather than the main board. These platforms exist to give smaller, growing businesses access to public capital without the full weight of mainboard requirements. Disclosure and compliance obligations are lighter, and a merchant banker is typically required to act as a market maker for a defined period after listing to support some liquidity.
             </p>
             <p className="text-sm text-text-muted leading-relaxed mt-3">
-              The defining feature for investors is the ticket size. Lot sizes on SME platforms are set so that a single application usually costs around â‚¹1 lakh or more. That is deliberate: it steers participation toward investors who can take on higher risk and are expected to research the company themselves. Post-listing, SME stocks tend to trade thinly, so prices can swing hard and selling a position can take time or move the price against you.
+              The defining feature for investors is the ticket size. Lot sizes on SME platforms are set so that a single application usually costs around ₹1 lakh or more. That is deliberate: it steers participation toward investors who can take on higher risk and are expected to research the company themselves. Post-listing, SME stocks tend to trade thinly, so prices can swing hard and selling a position can take time or move the price against you.
             </p>
           </div>
 
@@ -239,21 +239,21 @@ export default function MainboardVsSmeIpoPage() {
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mt-4">
               <div className="rounded-xl border border-border bg-bg-alt p-4">
-                <p className="font-semibold text-text text-sm mb-2">A mainboard IPO fits you ifâ€¦</p>
+                <p className="font-semibold text-text text-sm mb-2">A mainboard IPO fits you if…</p>
                 <ul className="space-y-1.5 text-sm text-text-muted">
-                  <li className="flex gap-2"><span>â€¢</span>You want a smaller, ~â‚¹15,000 entry ticket.</li>
-                  <li className="flex gap-2"><span>â€¢</span>You value liquidity and the ability to exit easily.</li>
-                  <li className="flex gap-2"><span>â€¢</span>You prefer larger firms with analyst coverage and fuller disclosure.</li>
-                  <li className="flex gap-2"><span>â€¢</span>You are a first-time or long-term investor.</li>
+                  <li className="flex gap-2"><span>•</span>You want a smaller, ~₹15,000 entry ticket.</li>
+                  <li className="flex gap-2"><span>•</span>You value liquidity and the ability to exit easily.</li>
+                  <li className="flex gap-2"><span>•</span>You prefer larger firms with analyst coverage and fuller disclosure.</li>
+                  <li className="flex gap-2"><span>•</span>You are a first-time or long-term investor.</li>
                 </ul>
               </div>
               <div className="rounded-xl border border-border bg-bg-alt p-4">
-                <p className="font-semibold text-text text-sm mb-2">An SME IPO fits you ifâ€¦</p>
+                <p className="font-semibold text-text text-sm mb-2">An SME IPO fits you if…</p>
                 <ul className="space-y-1.5 text-sm text-text-muted">
-                  <li className="flex gap-2"><span>â€¢</span>You can commit â‚¹1 lakh+ per application.</li>
-                  <li className="flex gap-2"><span>â€¢</span>You accept higher risk and thin post-listing liquidity.</li>
-                  <li className="flex gap-2"><span>â€¢</span>You can read financials and judge a small business yourself.</li>
-                  <li className="flex gap-2"><span>â€¢</span>You understand you may not be able to sell quickly.</li>
+                  <li className="flex gap-2"><span>•</span>You can commit ₹1 lakh+ per application.</li>
+                  <li className="flex gap-2"><span>•</span>You accept higher risk and thin post-listing liquidity.</li>
+                  <li className="flex gap-2"><span>•</span>You can read financials and judge a small business yourself.</li>
+                  <li className="flex gap-2"><span>•</span>You understand you may not be able to sell quickly.</li>
                 </ul>
               </div>
             </div>
@@ -290,7 +290,7 @@ export default function MainboardVsSmeIpoPage() {
               <Link href="/ipos/sme-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">SME IPO Guide</Link>
               <Link href="/ipos/upcoming-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Upcoming IPOs</Link>
               <Link href="/glossary" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Finance Glossary</Link>
-              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs â†’</Link>
+              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs →</Link>
             </div>
           </div>
 
@@ -303,7 +303,7 @@ export default function MainboardVsSmeIpoPage() {
 
           <div className="text-center">
             <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              â† View all IPOs on the CoinMind IPO Calendar
+              ← View all IPOs on the CoinMind IPO Calendar
             </Link>
           </div>
 
