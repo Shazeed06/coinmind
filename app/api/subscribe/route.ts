@@ -28,8 +28,11 @@ export async function POST(request: Request) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
-  if (!apiKey || !audienceId) {
+  // The audience id is not a secret, so it defaults to the CoinMind "General"
+  // audience and only needs an env override to point at a different list.
+  const audienceId =
+    process.env.RESEND_AUDIENCE_ID || "5fd941a2-2e8a-4d9b-a06b-060dfd57eff6";
+  if (!apiKey) {
     return Response.json(
       { error: "Newsletter signup is not available right now." },
       { status: 503 },
