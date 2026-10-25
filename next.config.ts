@@ -104,6 +104,12 @@ const nextConfig: NextConfig = {
       { source: "/blog/how-to-save-income-tax-india-2025-guide", destination: "/income-tax", permanent: true },
       { source: "/blog/emergency-fund-how-much-need-india", destination: "/calculators/goal-emergency-fund", permanent: true },
       { source: "/blog/mutual-funds-sahi-hai-best-mutual-funds-india-2025", destination: "/investing", permanent: true },
+      // Keyword-cannibalisation consolidation: this post was a near-verbatim
+      // duplicate of /blog/cibil-score-check-improve-guide (same "check +
+      // improve CIBIL, 600 to 750" intent and keywords), so the two competed
+      // for the same queries and neither ranked. Removed from the post data and
+      // 301'd into the stronger, more complete guide.
+      { source: "/blog/how-to-check-improve-cibil-score", destination: "/blog/cibil-score-check-improve-guide", permanent: true },
       // Research sub-pages linked from /research hub but not yet built
       { source: "/research/old-regime-slabs-history", destination: "/research", permanent: true },
       { source: "/research/80c-limit-history", destination: "/research", permanent: true },
