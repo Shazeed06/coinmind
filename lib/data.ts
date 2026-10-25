@@ -169,6 +169,24 @@ export const calculators: Calculator[] = [
     keywords: ["take home salary calculator", "ctc to in hand", "in hand salary calculator india"],
   },
   {
+    slug: "8th-pay-commission",
+    title: "8th Pay Commission Calculator",
+    short: "Estimate your revised pay",
+    blurb:
+      "Estimate your revised basic pay, HRA and salary hike under the 8th Pay Commission using the expected fitment factor.",
+    category: "Tax",
+    region: "IN",
+    live: true,
+    keywords: [
+      "8th pay commission calculator",
+      "8th pay commission salary calculator",
+      "8th pay commission fitment factor",
+      "8th pay commission salary hike",
+      "central government salary 2026",
+      "8th pay commission pay matrix",
+    ],
+  },
+  {
     slug: "currency-converter",
     title: "Currency Converter",
     short: "Live exchange rates",

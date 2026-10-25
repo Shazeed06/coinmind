@@ -42,6 +42,7 @@ const PHOTO: Record<string, string> = {
   "income-tax": "1554224155-8d04cb21cd6c", gst: "1554224154-26032ffc0d07",
   tds: "1554224155-6726b3ff858f", "capital-gains": "1611974789855-9c2a0a7236a3",
   hra: "1560518883-ce09059eeffa", "take-home-salary": "1434030216411-0b793f4b4173",
+  "8th-pay-commission": "1554224155-8d04cb21cd6c",
   "crypto-tax": "1518770660439-4636190af475", "sales-tax": "1556742049-0a67c5574f73",
   fd: "1567427017947-545c5f8d16ad", rd: "1567427017947-545c5f8d16ad",
   ppf: "1579621970795-87facc2f976d", nsc: "1526304640581-d334cdbbf45e",
