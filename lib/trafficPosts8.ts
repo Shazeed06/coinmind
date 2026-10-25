@@ -19,9 +19,9 @@ export const trafficPosts8: Post[] = [
     art: { variant: "chart", palette: "forest" },
     bodyMarkdown: `Choosing the right investment app is one of the most impactful financial decisions you will make this decade. The platform you pick determines what you pay in brokerage, how smooth your trading experience is, what products you can access, and how quickly support responds when something goes wrong.
 
-In India's discount broking space, three names dominate the conversation in 2026: Groww, Zerodha and Angel One. Together, they account for the majority of new demat accounts opened each quarter. But each platform has a distinct philosophy, fee structure and target audience.
+In India's discount broking space, three names dominate the conversation in 2026: Groww, Zerodha and Angel One. Together, they account for the majority of new [demat accounts](/glossary/demat-account) opened each quarter. But each platform has a distinct philosophy, fee structure and target audience.
 
-This guide compares all three across the parameters that actually matter (charges, usability, product range, research tools, customer support and safety), so you can decide which one fits your investing style.
+This guide compares all three across the parameters that actually matter (charges, usability, product range, research tools, customer support and safety), so you can decide which one fits your investing style. To use any of them you open a [demat account](/glossary/demat-account), which holds your shares, alongside a [trading account](/glossary/trading-account), which places the buy and sell orders on the exchange.
 
 ## Company background and scale
 

@@ -30,7 +30,7 @@ export default function NewsletterCard() {
         Get Personal Finance Tips in Your Inbox
       </p>
       <p className="mt-1 text-xs text-white/70">
-        Join 50,000+ readers and get the latest guides, calculator updates and investment insights.
+        Get the latest guides, calculator updates and investment insights, straight to your inbox.
       </p>
 
       {done ? (
