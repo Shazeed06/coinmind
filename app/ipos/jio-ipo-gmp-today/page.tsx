@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -225,6 +226,8 @@ export default function JioIpoGmpTodayPage() {
               ))}
             </div>
           </div>
+
+          <IpoDematCta />
 
           {/* Disclaimer */}
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">

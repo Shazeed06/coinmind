@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -355,6 +356,8 @@ export default function NseIpoPage() {
               <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">All IPOs →</Link>
             </div>
           </div>
+
+          <IpoDematCta />
 
           {/* Disclaimer */}
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">

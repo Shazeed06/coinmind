@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -255,6 +256,8 @@ export default function ZeptoIpoPage() {
             ))}
           </div>
         </section>
+
+        <IpoDematCta />
 
         {/* Disclaimer */}
         <section className="rounded-xl bg-surface border border-border p-4">
