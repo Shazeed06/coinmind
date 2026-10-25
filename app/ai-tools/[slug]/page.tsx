@@ -159,8 +159,13 @@ export default async function Page({
         </div>
       </header>
 
+      {/* Two-column body: the review reads at a comfortable width in the main
+          column while a sticky sidebar carries the visit CTA, rating/pricing
+          and related tools, so the page uses one full container width. */}
+      <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-8 min-w-0">
       {/* Overview */}
-      <section className="mt-12">
+      <section>
         <h2 className="font-display text-2xl text-ink">What is {tool.name}?</h2>
         <p className="mt-3 text-ink-soft leading-relaxed text-[1.05rem]">
           {detail.overview}
@@ -305,36 +310,59 @@ export default async function Page({
         </div>
       </section>
 
-      <div className="mt-8 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
-        <strong className="text-ink">Note:</strong> {site.name} reviews are based
-        on hands-on research and publicly available information. We may add
-        affiliate links in future; if we do, they will never affect our ratings.
-      </div>
-
-      {/* Related */}
-      <section className="mt-14">
-        <h2 className="font-display text-2xl text-ink">More {tool.region} tools</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          {related.map((t) => {
-            const d = detailByName(t.name);
-            return (
-              <Link
-                key={t.name}
-                href={d ? `/ai-tools/${d.slug}` : "/ai-tools"}
-                className="group rounded-2xl border border-line bg-card p-5 hover:border-forest transition-colors"
-              >
-                <h3 className="font-display text-base text-ink group-hover:text-forest transition-colors">
-                  {t.name}
-                </h3>
-                <p className="mt-1 text-xs text-ink-faint">{t.category}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-forest">
-                  Read <IconArrow className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            );
-          })}
+          <div className="mt-8 rounded-2xl border border-line bg-paper-2 p-6 text-sm text-ink-soft">
+            <strong className="text-ink">Note:</strong> {site.name} reviews are based
+            on hands-on research and publicly available information. We may add
+            affiliate links in future; if we do, they will never affect our ratings.
+          </div>
         </div>
-      </section>
+
+        <aside className="lg:col-span-4">
+          <div className="sticky top-24 space-y-6">
+            {/* Visit + rating + pricing */}
+            <div className="rounded-2xl border border-forest/25 bg-forest-soft p-5">
+              <span className="inline-flex items-center gap-1 rounded-full bg-card px-2.5 py-1 text-xs font-semibold text-ink shadow-sm">
+                <IconStar className="h-3.5 w-3.5 text-brass" /> {tool.rating.toFixed(1)} / 5
+              </span>
+              <p className="mt-3 text-sm font-semibold text-ink">Try {tool.name}</p>
+              <p className="mt-1 text-xs text-ink-soft">Pricing: {tool.pricing}</p>
+              <a
+                href={detail.website}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="mt-3 inline-flex items-center gap-2 rounded-full bg-forest px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-forest-deep"
+              >
+                Visit {tool.name} <IconArrow className="h-4 w-4" />
+              </a>
+            </div>
+
+            {/* Related tools */}
+            {related.length > 0 && (
+              <div className="rounded-2xl border border-line bg-card p-5 shadow-sm">
+                <h2 className="font-display text-base text-ink">More {tool.region} tools</h2>
+                <div className="mt-3 flex flex-col">
+                  {related.map((t) => {
+                    const d = detailByName(t.name);
+                    return (
+                      <Link
+                        key={t.name}
+                        href={d ? `/ai-tools/${d.slug}` : "/ai-tools"}
+                        className="group -mx-2 flex items-center justify-between gap-2 rounded-lg px-2 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-forest-soft/40 hover:text-forest"
+                      >
+                        <span>
+                          {t.name}
+                          <span className="block text-xs text-ink-faint">{t.category}</span>
+                        </span>
+                        <IconArrow className="h-3.5 w-3.5 shrink-0 opacity-60 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }
