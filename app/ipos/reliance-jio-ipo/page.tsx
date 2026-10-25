@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import IpoDematCta from "@/components/IpoDematCta";
 
 export const metadata: Metadata = {
   title: { absolute: "Reliance Jio IPO 2026: GMP, Price Band & Date | CoinMind" },
@@ -289,6 +290,8 @@ export default function RelianceJioIpoPage() {
             ))}
           </div>
         </section>
+
+        <IpoDematCta />
 
         {/* Disclaimer */}
         <section className="rounded-xl bg-surface border border-border p-4">

@@ -113,18 +113,18 @@ export default function HubPage({
           other major blocks. The two lead paragraphs are capped at 600px (~75
           characters) instead of running the full 768px column, which read as
           ~98 characters per line on a desktop screen. */}
-      <header className="max-w-3xl mb-16">
+      <header className="max-w-3xl mx-auto text-center mb-14 sm:mb-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           {badge}
         </span>
         <h1 className="mt-4 text-3xl sm:text-5xl text-ink leading-[1.05]">
           {title}
         </h1>
-        <p className="mt-4 max-w-[600px] text-base sm:text-lg text-ink-soft leading-relaxed">
+        <p className="mt-4 max-w-[640px] mx-auto text-base sm:text-lg text-ink-soft leading-relaxed">
           {description}
         </p>
         {intro && (
-          <p className="mt-4 max-w-[600px] text-sm sm:text-base text-ink-soft leading-relaxed">
+          <p className="mt-4 max-w-[640px] mx-auto text-sm sm:text-base text-ink-soft leading-relaxed">
             {intro}
           </p>
         )}
@@ -141,7 +141,7 @@ export default function HubPage({
           40px below it, so the page closes on a steady beat. */}
       {bodyMarkdown && (
         <section className="mt-12 border-t border-line pt-10">
-          <div className={`max-w-3xl ${bodyProse}`}>
+          <div className={`max-w-3xl mx-auto ${bodyProse}`}>
             <ArticleMarkdown markdown={bodyMarkdown} />
           </div>
         </section>
@@ -149,35 +149,39 @@ export default function HubPage({
 
       {faqs && faqs.length > 0 && (
         <section className="mt-12 border-t border-line pt-10">
-          <h2 className="font-display text-xl sm:text-2xl text-ink mb-5">
-            Frequently Asked Questions
-          </h2>
-          {/* gap-4 and a 600px answer measure: at gap-3 the stacked cards read
-              as one block rather than as separate questions. */}
-          <div className="grid gap-4 max-w-3xl">
-            {faqs.map((f) => (
-              <div key={f.q} className="rounded-xl border border-line bg-card p-4 sm:p-5">
-                <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
-                <p className="mt-2 max-w-[600px] text-sm text-ink-soft leading-relaxed">{f.a}</p>
-              </div>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-xl sm:text-2xl text-ink mb-5">
+              Frequently Asked Questions
+            </h2>
+            {/* gap-4 and a 600px answer measure: at gap-3 the stacked cards read
+                as one block rather than as separate questions. */}
+            <div className="grid gap-4">
+              {faqs.map((f) => (
+                <div key={f.q} className="rounded-xl border border-line bg-card p-4 sm:p-5">
+                  <h3 className="font-semibold text-ink leading-snug">{f.q}</h3>
+                  <p className="mt-2 text-sm text-ink-soft leading-relaxed">{f.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
       {relatedHubs && relatedHubs.length > 0 && (
         <section className="mt-12 border-t border-line pt-10">
-          <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
-          <div className="flex flex-wrap gap-3">
-            {relatedHubs.map((r) => (
-              <Link
-                key={r.href}
-                href={r.href}
-                className="rounded-full bg-paper-2 px-4 py-2 text-sm font-medium text-ink-soft hover:text-ink hover:bg-line transition-colors"
-              >
-                {r.title}
-              </Link>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
+            <div className="flex flex-wrap gap-3">
+              {relatedHubs.map((r) => (
+                <Link
+                  key={r.href}
+                  href={r.href}
+                  className="rounded-full bg-paper-2 px-4 py-2 text-sm font-medium text-ink-soft hover:text-ink hover:bg-line transition-colors"
+                >
+                  {r.title}
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
       )}
