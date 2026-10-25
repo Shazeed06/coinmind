@@ -269,6 +269,10 @@ PPF is excellent for the safe, long-horizon part of a portfolio: retirement mone
 It is a poor fit for an [emergency fund](/glossary/emergency-fund), because the money is not reachable. And relying on it alone for a 25 year goal is risky in a different way: a roughly 7% return is only a couple of points above typical [inflation](/glossary/inflation), so real growth is slow. Most people are better served pairing PPF with equity through [ELSS](/glossary/elss) or an index [SIP](/glossary/sip). See how it compares against fixed deposits and pension products in our [PPF vs FD vs NPS guide](/blog/ppf-vs-fd-vs-nps).`,
     faq: [
       {
+        q: "What is the full form of PPF?",
+        a: "PPF stands for Public Provident Fund. It is a government-backed long-term savings scheme with a 15-year lock-in, tax-free interest and Section 80C deductions, opened at a post office or an authorised bank.",
+      },
+      {
         q: "Is PPF interest tax free in India?",
         a: "Yes. PPF interest is exempt from income tax and does not need to be added to your taxable income, and the maturity amount is tax-free too. Combined with the deduction on contributions under the old regime, this gives PPF its Exempt-Exempt-Exempt status, which very few Indian instruments have.",
       },
@@ -355,6 +359,10 @@ They overlap but are not substitutes. [EPF](/glossary/epf) is automatic for most
 
 A common sequence is: EPF happens on its own, PPF or ELSS fills the Section 80C space, and NPS is used specifically to claim the additional 80CCD(1B) room. Our [PPF vs FD vs NPS guide](/blog/ppf-vs-fd-vs-nps) works through the comparison in detail.`,
     faq: [
+      {
+        q: "What is the full form of NPS?",
+        a: "NPS stands for National Pension System. It is a voluntary, PFRDA-regulated retirement scheme where you invest through your working years to build a pension corpus, with an extra Rs 50,000 tax deduction under Section 80CCD(1B).",
+      },
       {
         q: "Is NPS better than PPF for retirement?",
         a: "NPS offers equity exposure and an extra Rs 50,000 deduction that PPF does not, so its long-run return potential is higher. PPF is fully guaranteed and completely tax-free at maturity, while NPS forces part of your corpus into a taxable annuity. Many people use both rather than picking one.",
@@ -443,6 +451,10 @@ If you want to save more in the same wrapper, the **Voluntary Provident Fund** l
 
 EPF sits alongside [gratuity](/glossary/gratuity) and [NPS](/glossary/nps) as the corpus you build simply by staying employed. Estimate yours with the [EPF calculator](/calculators/epf).`,
     faq: [
+      {
+        q: "What is the full form of EPF?",
+        a: "EPF stands for Employees' Provident Fund. It is a mandatory retirement scheme for salaried employees in India where you and your employer each contribute 12% of basic salary every month, managed by the EPFO.",
+      },
       {
         q: "What is the current EPF interest rate?",
         a: "The EPFO recommends a rate each financial year and the government notifies it. It has been around 8.25% in recent years, which is higher than PPF and most bank fixed deposits. The rate is declared annually rather than guaranteed in advance, so check the latest EPFO notification before planning around it.",
@@ -616,6 +628,10 @@ In the growth option, gains stay inside the fund and the NAV compounds upward. I
 Use it for two things only: to work out how many units you hold, and to track the percentage change in your investment. Judge a fund by its returns over full market cycles, its consistency, its expense ratio and its mandate. Never by the absolute size of its NAV.`,
     faq: [
       {
+        q: "What is the full form of NAV?",
+        a: "NAV stands for Net Asset Value. It is the per-unit price of a mutual fund, worked out as the fund's total assets minus its liabilities, divided by the number of units outstanding.",
+      },
+      {
         q: "Is a lower NAV better when buying a mutual fund?",
         a: "No. A low NAV simply means the fund is newer or has issued more units. You get more units at a proportionally lower price, so the value of your investment is identical. Returns depend on the percentage change in NAV, not on whether the number starts at Rs 10 or Rs 800.",
       },
@@ -688,6 +704,10 @@ If you are investing a fixed amount every month and want it hands-off, the index
 
 Either way you get instant [diversification](/glossary/diversification) at a low cost, which is the substance of the decision. The wrapper is a detail.`,
     faq: [
+      {
+        q: "What is the full form of ETF?",
+        a: "ETF stands for Exchange-Traded Fund. It is a basket of securities, usually tracking an index, that trades on a stock exchange like a single share, and you buy and sell it through a demat and trading account.",
+      },
       {
         q: "Do I need a demat account to buy an ETF in India?",
         a: "Yes. ETFs are listed securities, so you need both a demat account to hold the units and a trading account to place orders. This is the main practical difference from an index fund, which needs only a PAN, a bank account and completed KYC.",
@@ -8175,7 +8195,69 @@ Once your account is active you can start a [SIP](/calculators/sip), buy ETFs, o
         a: "Yes. Almost every broker in India offers fully online, paperless demat account opening using Aadhaar-based e-KYC and video verification, so you can open one from home without visiting a branch.",
       },
     ],
-    related: ["mutual-fund", "ipo", "etf", "nav", "sip"],
+    related: ["trading-account", "mutual-fund", "ipo", "etf", "nav"],
+    relatedHref: "/investing",
+    relatedLabel: "Investing Hub",
+  },
+  {
+    slug: "trading-account",
+    term: "Trading Account",
+    category: "Banking",
+    short:
+      "A trading account is the account you use to place buy and sell orders for shares on a stock exchange - it works alongside a demat account, which stores what you own.",
+    bodyMarkdown: `## What is a trading account?
+
+A **trading account** is the account that lets you **place buy and sell orders** for [shares](/glossary/ipo), [ETFs](/glossary/etf) and other securities on a stock exchange like the NSE or BSE. It is the transacting layer of investing: when you tap "Buy" in a broker app, the order goes to the exchange through your trading account.
+
+It almost always works together with a [demat account](/glossary/demat-account). The two are opened at the same time with a SEBI-registered broker but do different jobs.
+
+## Trading account vs demat account
+
+| Account | What it does |
+|---|---|
+| Trading account | **Places** buy and sell orders on the exchange |
+| Demat account | **Stores** the shares and securities you own, like a locker |
+
+So money and orders flow through the trading account, while the units you buy sit in the demat account.
+
+## How to open a trading account
+
+1. Pick a SEBI-registered broker. Most offer a combined demat + trading account.
+2. Fill the online form with your PAN, Aadhaar and bank details.
+3. Complete KYC and in-person verification (IPV), usually a short video.
+4. E-sign with an Aadhaar OTP.
+5. The account is usually active in one to two working days.
+
+## Charges to check
+
+- **Account opening:** often free, but confirm.
+- **Brokerage:** a fee per trade, either flat (for example ₹20 per order) or a percentage.
+- **Statutory charges:** STT, exchange fees, GST and stamp duty apply on each trade.
+
+Once active, you can buy shares, invest in ETFs, apply for an [IPO](/glossary/ipo) or start a [SIP](/calculators/sip). See the [Investing Hub](/investing) to plan what to buy.`,
+    faq: [
+      {
+        q: "What is a trading account?",
+        a: "A trading account is the account you use to place buy and sell orders for shares and other securities on a stock exchange. It is the transacting part of investing and works alongside a demat account that holds what you own.",
+      },
+      {
+        q: "What is the difference between a trading account and a demat account?",
+        a: "A trading account places buy and sell orders on the exchange, while a demat account stores the securities you own in electronic form. You generally open both together with a broker to invest in shares.",
+      },
+      {
+        q: "Can I have a trading account without a demat account?",
+        a: "For buying and selling shares you need both: the trading account to place the order and the demat account to hold the delivered shares. You can trade some segments like futures and options with only a trading account, but equity delivery needs a demat account too.",
+      },
+      {
+        q: "How do I open a trading account in India?",
+        a: "Choose a SEBI-registered broker, fill the online form with your PAN, Aadhaar and bank details, complete video KYC and in-person verification, then e-sign with an Aadhaar OTP. Most brokers open a combined demat and trading account online in one to two working days.",
+      },
+      {
+        q: "What are the charges on a trading account?",
+        a: "Account opening is often free, but you pay brokerage on each trade (flat per order or a percentage), plus statutory charges such as STT, exchange fees, GST and stamp duty. Compare brokers' brokerage plans before opening one.",
+      },
+    ],
+    related: ["demat-account", "ipo", "etf", "mutual-fund", "nav"],
     relatedHref: "/investing",
     relatedLabel: "Investing Hub",
   },
