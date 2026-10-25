@@ -38,15 +38,15 @@ export function HubSection({ title, links, columns = 3 }: HubSectionDef) {
           <Link
             key={l.href}
             href={l.href}
-            className="group relative flex flex-col rounded-2xl border border-line bg-card p-5 shadow-sm transition-all duration-200 hover:border-forest/50 hover:shadow-md hover:-translate-y-0.5"
+            className="group relative flex flex-col rounded-xl border border-line bg-card p-4 shadow-sm transition-all duration-200 hover:border-forest/50 hover:shadow-md hover:-translate-y-0.5"
           >
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-semibold text-ink leading-snug group-hover:text-forest transition-colors">
+              <h3 className="text-sm font-semibold text-ink leading-snug group-hover:text-forest transition-colors sm:text-base">
                 {l.title}
               </h3>
-              <IconArrow className="mt-0.5 h-4 w-4 shrink-0 text-ink-faint transition-all group-hover:text-forest group-hover:translate-x-0.5" />
+              <IconArrow className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-faint transition-all group-hover:text-forest group-hover:translate-x-0.5" />
             </div>
-            {l.desc && <p className="mt-2 text-sm text-ink-soft line-clamp-2">{l.desc}</p>}
+            {l.desc && <p className="mt-1.5 text-xs text-ink-soft line-clamp-2 sm:text-sm">{l.desc}</p>}
           </Link>
         ))}
       </div>
@@ -124,22 +124,24 @@ export default function HubPage({
           top of every hub real presence instead of plain text on white. */}
       <section className="relative overflow-hidden border-b border-line/70 bg-gradient-to-b from-forest-soft/50 via-forest-soft/10 to-transparent">
         <div className="pointer-events-none absolute -top-28 left-1/2 h-72 w-[46rem] max-w-[90vw] -translate-x-1/2 rounded-full bg-brand/10 blur-3xl" />
-        <div className="relative container-main py-14 text-center sm:py-20">
-          <span className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-card/80 px-3.5 py-1.5 text-xs font-semibold text-forest shadow-sm backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-forest" />
-            {badge}
-          </span>
-          <h1 className="mx-auto mt-5 max-w-3xl text-3xl text-ink leading-[1.07] sm:text-5xl">
-            {title}
-          </h1>
-          <p className="mx-auto mt-5 max-w-[640px] text-base text-ink-soft leading-relaxed sm:text-lg">
-            {description}
-          </p>
-          {intro && (
-            <p className="mx-auto mt-4 max-w-[640px] text-sm text-ink-soft leading-relaxed sm:text-base">
-              {intro}
+        <div className="relative container-main py-12 sm:py-16">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-card/80 px-3.5 py-1.5 text-xs font-semibold text-forest shadow-sm backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-forest" />
+              {badge}
+            </span>
+            <h1 className="mt-5 text-3xl text-ink leading-[1.07] sm:text-5xl">
+              {title}
+            </h1>
+            <p className="mt-5 max-w-[640px] text-base text-ink-soft leading-relaxed sm:text-lg">
+              {description}
             </p>
-          )}
+            {intro && (
+              <p className="mt-4 max-w-[680px] text-sm text-ink-soft leading-relaxed sm:text-base">
+                {intro}
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
@@ -151,7 +153,7 @@ export default function HubPage({
 
         {bodyMarkdown && (
           <section className="mt-4 border-t border-line pt-10">
-            <div className={`max-w-3xl mx-auto ${bodyProse}`}>
+            <div className={`max-w-3xl ${bodyProse}`}>
               <ArticleMarkdown markdown={bodyMarkdown} />
             </div>
           </section>
@@ -159,7 +161,7 @@ export default function HubPage({
 
         {faqs && faqs.length > 0 && (
           <section className="mt-12 border-t border-line pt-10">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl">
               <SectionHeading>Frequently Asked Questions</SectionHeading>
               <div className="grid gap-4">
                 {faqs.map((f) => (
@@ -175,7 +177,7 @@ export default function HubPage({
 
         {relatedHubs && relatedHubs.length > 0 && (
           <section className="mt-12 border-t border-line pt-10">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl">
               <h2 className="font-display text-xl text-ink mb-5">Related Topics</h2>
               <div className="flex flex-wrap gap-3">
                 {relatedHubs.map((r) => (
