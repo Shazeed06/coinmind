@@ -3,22 +3,47 @@
 import { useState } from "react";
 import { Mail } from "lucide-react";
 
-// Sidebar newsletter signup. There is no mailing-list backend wired yet, so the
-// form validates and shows a confirmation state client-side; swap the submit
-// handler for a real endpoint when one exists.
+// Sidebar newsletter signup. Submits to /api/subscribe, which adds the email to
+// the Resend audience (configured via RESEND_API_KEY / RESEND_AUDIENCE_ID env
+// vars). Fires a GA4 "newsletter_signup" event on success so demand is
+// measurable.
+type GtagWindow = Window & { gtag?: (...args: unknown[]) => void };
+
 export default function NewsletterCard() {
   const [email, setEmail] = useState("");
-  const [done, setDone] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
   const [error, setError] = useState("");
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       setError("Enter a valid email address.");
       return;
     }
     setError("");
-    setDone(true);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus("idle");
+        setError(data?.error ?? "Could not subscribe. Please try again.");
+        return;
+      }
+      if (typeof window !== "undefined") {
+        (window as GtagWindow).gtag?.("event", "newsletter_signup", {
+          method: "sidebar",
+        });
+      }
+      setStatus("done");
+    } catch {
+      setStatus("idle");
+      setError("Could not subscribe. Please try again.");
+    }
   };
 
   return (
@@ -33,7 +58,7 @@ export default function NewsletterCard() {
         Get the latest guides, calculator updates and investment insights, straight to your inbox.
       </p>
 
-      {done ? (
+      {status === "done" ? (
         <p className="mt-4 rounded-input bg-white/10 px-3 py-2.5 text-sm text-white">
           You&apos;re subscribed. Check your inbox to confirm.
         </p>
@@ -49,13 +74,15 @@ export default function NewsletterCard() {
               }}
               placeholder="Enter your email"
               aria-label="Email address"
-              className="min-w-0 flex-1 rounded-input bg-white px-3 py-2.5 text-sm text-text placeholder:text-text-muted outline-none focus:ring-2 focus:ring-white/40"
+              disabled={status === "loading"}
+              className="min-w-0 flex-1 rounded-input bg-white px-3 py-2.5 text-sm text-text placeholder:text-text-muted outline-none focus:ring-2 focus:ring-white/40 disabled:opacity-60"
             />
             <button
               type="submit"
-              className="shrink-0 rounded-input bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-forest-deep transition-colors"
+              disabled={status === "loading"}
+              className="shrink-0 rounded-input bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-forest-deep transition-colors disabled:opacity-60"
             >
-              Subscribe
+              {status === "loading" ? "..." : "Subscribe"}
             </button>
           </div>
           {error && <p className="mt-2 text-xs text-berry-soft">{error}</p>}
