@@ -71,6 +71,34 @@ export default function Page() {
           a: "This calculator uses a fixed monthly SIP. For a step-up SIP (where you increase the amount each year), use our Step-Up SIP Calculator - the required starting SIP amount will be lower.",
         },
       ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink">Monthly SIP needed for common goal amounts</h2>
+          <p className="mt-4 text-ink-soft leading-relaxed">
+            These are the monthly SIP amounts needed to reach a target at a 12% annualised return (the long-run average for diversified equity funds), before inflation. The calculator above adds inflation and your existing savings; this table is a quick reference for how much the time horizon matters.
+          </p>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-y border-line bg-paper-2 text-left text-ink">
+                  <th className="px-3 py-2.5 font-semibold">Target corpus</th>
+                  <th className="px-3 py-2.5 font-semibold">In 10 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 15 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 20 years</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹25 lakh</td><td className="px-3 py-2.5">₹10,760</td><td className="px-3 py-2.5">₹4,954</td><td className="px-3 py-2.5">₹2,502</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹50 lakh</td><td className="px-3 py-2.5">₹21,520</td><td className="px-3 py-2.5">₹9,909</td><td className="px-3 py-2.5">₹5,004</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹1 crore</td><td className="px-3 py-2.5">₹43,041</td><td className="px-3 py-2.5">₹19,819</td><td className="px-3 py-2.5">₹10,009</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-ink-faint">
+            Notice how time does the heavy lifting: reaching ₹1 crore needs about ₹43,000 a month over 10 years but only ₹10,000 a month over 20 years — roughly a quarter as much — because compounding has longer to work. Figures assume investing at the start of each month; equity returns are not guaranteed, so treat 12% as a planning assumption, not a promise.
+          </p>
+        </div>
+      }
     />
   );
 }

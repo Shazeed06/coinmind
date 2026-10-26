@@ -58,6 +58,34 @@ export default function Page() {
           a: "Gold is a separate consideration. Sovereign Gold Bonds (SGBs) earn 2.5% p.a. interest + gold price appreciation and are tax-free on maturity - a better vehicle than physical gold purchases if you are buying gold specifically for a future wedding.",
         },
       ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink">How much to invest every month for a wedding</h2>
+          <p className="mt-4 text-ink-soft leading-relaxed">
+            These are the monthly SIP amounts needed to reach a wedding budget at a 10% expected return (balanced or hybrid funds, appropriate for a 5-10 year goal), before inflation. Use the calculator above for your exact figure with inflation built in.
+          </p>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-y border-line bg-paper-2 text-left text-ink">
+                  <th className="px-3 py-2.5 font-semibold">Wedding budget</th>
+                  <th className="px-3 py-2.5 font-semibold">In 5 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 7 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 10 years</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹15 lakh</td><td className="px-3 py-2.5">₹19,210</td><td className="px-3 py-2.5">₹12,299</td><td className="px-3 py-2.5">₹7,262</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹25 lakh</td><td className="px-3 py-2.5">₹32,017</td><td className="px-3 py-2.5">₹20,499</td><td className="px-3 py-2.5">₹12,103</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹50 lakh</td><td className="px-3 py-2.5">₹64,035</td><td className="px-3 py-2.5">₹40,998</td><td className="px-3 py-2.5">₹24,207</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-ink-faint">
+            Starting earlier is far cheaper than saving harder: a ₹25 lakh wedding needs about ₹32,000 a month over 5 years but only ₹12,000 a month if you begin 10 years out. If both families are contributing, each side can run a separate SIP towards its share. Figures assume a 10% return and start-of-month investing; returns are not guaranteed.
+          </p>
+        </div>
+      }
     />
   );
 }

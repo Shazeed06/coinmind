@@ -68,6 +68,34 @@ export default function Page() {
           a: "Best option: split between a sweep-in FD linked to your savings account (instant liquidation, ~7% return) + a liquid mutual fund (T+1 redemption). Avoid keeping the entire amount in a 0-notice savings account earning 3% - the return is too low for money sitting idle for years.",
         },
       ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink">Emergency fund size and how fast to build it</h2>
+          <p className="mt-4 text-ink-soft leading-relaxed">
+            Your target is simply your total monthly outgo (expenses plus every EMI) multiplied by the months of cover you want. The last column shows the monthly saving needed to reach a 6-month fund within a year, parked in a liquid fund or sweep-in FD at about 6%.
+          </p>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-y border-line bg-paper-2 text-left text-ink">
+                  <th className="px-3 py-2.5 font-semibold">Monthly expenses</th>
+                  <th className="px-3 py-2.5 font-semibold">3-month fund</th>
+                  <th className="px-3 py-2.5 font-semibold">6-month fund</th>
+                  <th className="px-3 py-2.5 font-semibold">Save/month (6-mo in 1 year)</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹30,000</td><td className="px-3 py-2.5">₹90,000</td><td className="px-3 py-2.5">₹1,80,000</td><td className="px-3 py-2.5">₹14,519</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹50,000</td><td className="px-3 py-2.5">₹1,50,000</td><td className="px-3 py-2.5">₹3,00,000</td><td className="px-3 py-2.5">₹24,199</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹80,000</td><td className="px-3 py-2.5">₹2,40,000</td><td className="px-3 py-2.5">₹4,80,000</td><td className="px-3 py-2.5">₹38,718</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-ink-faint">
+            Aim for 3 months of cover if your income is stable (government or large-company job, working spouse) and 6 months or more if you are self-employed, freelance or the sole earner. If a year feels too aggressive, halve the monthly saving and take two years — the point is that the money exists before you need it, not the exact speed. Keep it in a liquid fund or sweep-in FD, never equity.
+          </p>
+        </div>
+      }
     />
   );
 }

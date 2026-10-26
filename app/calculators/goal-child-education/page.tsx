@@ -64,6 +64,34 @@ export default function Page() {
           a: "SSY is specifically designed for a girl child and allows partial withdrawal (up to 50%) after the child turns 18, which can be used for education. It currently offers 8.2% tax-free returns - comparable to debt funds but fully government-guaranteed. For a daughter's education goal, SSY + equity SIP together is a strong combination.",
         },
       ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink">Monthly SIP to fund your child&apos;s education</h2>
+          <p className="mt-4 text-ink-soft leading-relaxed">
+            These are the monthly SIP amounts needed to reach an education corpus at a 12% return (diversified equity, reasonable over a 10-18 year horizon), before education inflation. Because fees have historically risen 8-10% a year, use the calculator above with inflation on to size the real target.
+          </p>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-y border-line bg-paper-2 text-left text-ink">
+                  <th className="px-3 py-2.5 font-semibold">Education corpus</th>
+                  <th className="px-3 py-2.5 font-semibold">In 10 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 15 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 18 years</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹30 lakh</td><td className="px-3 py-2.5">₹12,912</td><td className="px-3 py-2.5">₹5,946</td><td className="px-3 py-2.5">₹3,919</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹50 lakh</td><td className="px-3 py-2.5">₹21,520</td><td className="px-3 py-2.5">₹9,909</td><td className="px-3 py-2.5">₹6,532</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹80 lakh</td><td className="px-3 py-2.5">₹34,432</td><td className="px-3 py-2.5">₹15,855</td><td className="px-3 py-2.5">₹10,452</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-ink-faint">
+            Starting at your child&apos;s birth rather than at age 8 roughly halves the monthly outgo for the same corpus. For a daughter, pairing an equity SIP with the Sukanya Samriddhi Yojana (currently ~8.2% tax-free) gives growth plus a guaranteed floor. Figures assume a 12% return and start-of-month investing; shift to debt in the final 2-3 years.
+          </p>
+        </div>
+      }
     />
   );
 }

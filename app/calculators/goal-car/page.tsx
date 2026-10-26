@@ -58,6 +58,34 @@ export default function Page() {
           a: "Yes - an RD at a bank or post office is completely safe and gives ~6.5-7% returns. The downside: RD interest is taxable as per your income slab. A liquid mutual fund (which also targets ~7%) is more tax-efficient if you are in the 30% bracket, since you control when you redeem.",
         },
       ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink">Monthly savings to buy a car without a loan</h2>
+          <p className="mt-4 text-ink-soft leading-relaxed">
+            These are the monthly amounts needed to reach a car budget at a conservative 7% return (liquid or ultra-short-term debt funds, which won&apos;t lose value in a short-term dip), before price inflation. Save the on-road price, not just the ex-showroom sticker — it runs 15-20% higher.
+          </p>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-y border-line bg-paper-2 text-left text-ink">
+                  <th className="px-3 py-2.5 font-semibold">Car budget</th>
+                  <th className="px-3 py-2.5 font-semibold">In 2 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 3 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 5 years</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹8 lakh</td><td className="px-3 py-2.5">₹30,971</td><td className="px-3 py-2.5">₹19,919</td><td className="px-3 py-2.5">₹11,109</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹12 lakh</td><td className="px-3 py-2.5">₹46,456</td><td className="px-3 py-2.5">₹29,878</td><td className="px-3 py-2.5">₹16,664</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹20 lakh</td><td className="px-3 py-2.5">₹77,427</td><td className="px-3 py-2.5">₹49,797</td><td className="px-3 py-2.5">₹27,774</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-ink-faint">
+            Compare this with a loan: a ₹12 lakh car financed at 10% over 5 years costs roughly ₹3.3 lakh in interest. Saving ₹16,664 a month for 5 years instead buys the same car outright with zero interest. Figures assume a 7% return and start-of-month investing.
+          </p>
+        </div>
+      }
     />
   );
 }
