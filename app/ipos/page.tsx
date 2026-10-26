@@ -229,13 +229,23 @@ function IpoTable({ ipos, title, note }: { ipos: IPO[]; title: string; note?: st
 }
 
 export default function IpoPage() {
+  // The ItemList carried numberOfItems but no itemListElement, so the markup was
+  // incomplete (Semrush flagged the missing field). Build the list from the
+  // actual IPOs; each entry links to its detail page where one exists.
+  const ipoList = [...OPEN, ...CLOSED, ...LISTED];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Open & Upcoming IPOs in India 2026",
     description: "Live list of open and upcoming IPOs in India for October 2026",
     url: `${site.url}/ipos`,
-    numberOfItems: OPEN.length + CLOSED.length + LISTED.length,
+    numberOfItems: ipoList.length,
+    itemListElement: ipoList.map((ipo, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: ipo.name,
+      ...(ipo.slug ? { url: `${site.url}/ipos/${ipo.slug}` } : {}),
+    })),
   };
 
   const faqJsonLd = {
