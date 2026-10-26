@@ -22,38 +22,44 @@
      --color-*-faint     #64748b    4.8:1 on white   metadata, fine print
 --------------------------------------------------------------------------- */
 @theme {
+  /* Palette rebranded to the PixVibe look: near-black indigo (#18172D) as the
+     one primary/interactive colour, soft lavender (#CDBDF8) as the accent, on a
+     white base with slate-grey secondary text. All token NAMES are unchanged so
+     the ~1500 call sites keep resolving; only the values moved. "brand", "accent",
+     "forest" and "blue" now all point at the indigo, and every "-soft" fill is a
+     pale lavender tint, which is what gives the site its single cohesive accent. */
   --color-bg: #ffffff;
-  --color-bg-alt: #f7f9fc;
-  --color-bg-invert: #1b2a4e;
-  --color-bg-invert-end: #2f5bea;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-border: #e6eaf2;
-  --color-brand: #2f5bea;
-  --color-accent: #15803d;
+  --color-bg-alt: #f6f5fb;
+  --color-bg-invert: #18172d;
+  --color-bg-invert-end: #2e2b56;
+  --color-text: #18172d;
+  --color-text-muted: #5b6075;
+  --color-border: #e8e6f3;
+  --color-brand: #18172d;
+  --color-accent: #18172d;
 
   /* Aliases of the five above. Same values, second naming system. */
-  --color-ink: #0f172a;          /* = --color-text */
-  --color-ink-soft: #475569;     /* = --color-text-muted */
-  --color-ink-faint: #64748b;
-  --color-ink-muted: #475569;    /* = --color-text-muted */
-  --color-line: #e6eaf2;         /* = --color-border */
-  --color-line-strong: #cbd5e1;
+  --color-ink: #18172d;          /* = --color-text */
+  --color-ink-soft: #5b6075;     /* = --color-text-muted */
+  --color-ink-faint: #797c8c;
+  --color-ink-muted: #5b6075;    /* = --color-text-muted */
+  --color-line: #e8e6f3;         /* = --color-border */
+  --color-line-strong: #cdbdf8;  /* lavender hairline (PixVibe secondary border) */
   --color-card: #ffffff;         /* = --color-bg */
-  --color-paper-2: #f7f9fc;      /* = --color-bg-alt */
-  --color-forest: #15803d;       /* = --color-accent */
-  --color-forest-soft: #f0fdf4;
-  --color-forest-deep: #14672f;
-  --color-brass: #d97706;
-  --color-brass-soft: #fffbeb;
-  --color-blue: #2f5bea;         /* = --color-brand */
-  --color-blue-soft: #eff6ff;
-  --color-amber: #d97706;
-  --color-amber-soft: #fffbeb;
-  --color-purple: #7c3aed;
-  --color-purple-soft: #f5f3ff;
-  --color-sky: #0284c7;
-  --color-sky-soft: #f0f9ff;
+  --color-paper-2: #f6f5fb;      /* = --color-bg-alt */
+  --color-forest: #18172d;       /* = --color-accent (brand indigo) */
+  --color-forest-soft: #f2f0fd;  /* pale lavender badge fill */
+  --color-forest-deep: #0f0e20;  /* darker indigo for button hover */
+  --color-brass: #b78327;
+  --color-brass-soft: #faf6ee;
+  --color-blue: #18172d;         /* = --color-brand */
+  --color-blue-soft: #f2f0fd;
+  --color-amber: #b78327;
+  --color-amber-soft: #faf6ee;
+  --color-purple: #6d5ef0;
+  --color-purple-soft: #f2f0fd;
+  --color-sky: #5b6075;
+  --color-sky-soft: #f2f0fd;
   --color-paper: #ffffff;        /* = --color-bg */
   --color-berry: #e11d48;
   --color-berry-soft: #fff1f2;
@@ -263,7 +269,7 @@ h4 {
 .underline-stroke { position: relative; display: inline-block; }
 .underline-stroke::after {
   content: ""; position: absolute; bottom: -4px; left: 0; width: 100%; height: 10px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%232F5BEA' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%23CDBDF8' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
   background-size: 100% 100%;
 }
 
@@ -370,7 +376,7 @@ h4 {
 }
 
 input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--color-border); outline: none; }
-input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(47, 91, 234, 0.4); cursor: pointer; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(24, 23, 45, 0.4); cursor: pointer; }
 input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; cursor: pointer; }
 
 ::selection { background: var(--color-brand); color: #fff; }
