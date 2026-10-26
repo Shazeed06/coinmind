@@ -68,6 +68,21 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Canonical host. www.coinmind.in was serving the full app with a 200
+      // instead of redirecting, so every page existed under both hosts. The
+      // pages' canonical tags already point at the apex, but Search Console was
+      // still reporting "Duplicate, Google chose a different canonical", so this
+      // forces a permanent redirect of every www request to the apex. It is
+      // host-based with an absolute destination; apex requests (host
+      // coinmind.in) never match it, so there is no redirect loop. Kept first so
+      // it wins before any path-specific rule below.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.coinmind.in" }],
+        destination: "https://coinmind.in/:path*",
+        permanent: true,
+      },
+
       // Legacy /calc/* and /tool/* prefixes for pages that were later removed.
       // These exact rules must stay ABOVE the generic prefix rules below:
       // first match wins, so without them /calc/bmi would rewrite to

@@ -63,6 +63,34 @@ export default function Page() {
           a: "Yes - EPFO allows withdrawal of up to 90% of your EPF balance after 5 years of membership for purchase or construction of a house. However, EPF withdrawal reduces your retirement corpus. Use it only as a top-up, not as the primary source of your down payment.",
         },
       ]}
+      extra={
+        <div className="max-w-3xl">
+          <h2 className="font-display text-2xl text-ink">Monthly SIP to build a home down payment</h2>
+          <p className="mt-4 text-ink-soft leading-relaxed">
+            These are the monthly SIP amounts needed to reach a down-payment target at a 9% return (a balanced 60/40 equity-debt mix over 3-7 years), before property inflation. Remember the target is more than 20% of the flat price — add stamp duty (4-7%), registration and a small buffer.
+          </p>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-sm">
+              <thead>
+                <tr className="border-y border-line bg-paper-2 text-left text-ink">
+                  <th className="px-3 py-2.5 font-semibold">Down payment + costs</th>
+                  <th className="px-3 py-2.5 font-semibold">In 3 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 5 years</th>
+                  <th className="px-3 py-2.5 font-semibold">In 7 years</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹15 lakh</td><td className="px-3 py-2.5">₹36,178</td><td className="px-3 py-2.5">₹19,739</td><td className="px-3 py-2.5">₹12,788</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹20 lakh</td><td className="px-3 py-2.5">₹48,238</td><td className="px-3 py-2.5">₹26,319</td><td className="px-3 py-2.5">₹17,050</td></tr>
+                <tr className="border-b border-line"><td className="px-3 py-2.5 font-medium text-ink">₹30 lakh</td><td className="px-3 py-2.5">₹72,357</td><td className="px-3 py-2.5">₹39,479</td><td className="px-3 py-2.5">₹25,575</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-ink-faint">
+            As the purchase nears, shift the corpus from equity to debt — a market fall in year 4 of a 5-year plan can delay your purchase. A common rule: move to pure debt or FDs 12-18 months before you intend to buy. Figures assume a 9% return and start-of-month investing.
+          </p>
+        </div>
+      }
     />
   );
 }
