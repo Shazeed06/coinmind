@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { calculators, type Calculator as CalcType } from "@/lib/data";
-import { resolveCoverImageUrl } from "@/components/CoverArt";
 import {
   Search, ArrowRight, Zap, ShieldCheck, Flag, BadgeCheck, Sparkles,
-  TrendingUp, Home, Receipt, PiggyBank, LayoutGrid, type LucideIcon,
+  TrendingUp, Home, Receipt, PiggyBank, LayoutGrid,
+  Coins, Umbrella, Target, HandCoins, Landmark, BarChart3, LineChart,
+  GraduationCap, Gift, Repeat, Flame, Car, Wallet, Banknote, Clock,
+  Percent, Briefcase, Baby, CalendarDays, Scale, HeartPulse, Calculator,
+  type LucideIcon,
 } from "lucide-react";
 
 const LIVE = calculators.filter((c) => c.live);
@@ -22,63 +25,65 @@ const CAT_META: { key: string; label: string; Icon: LucideIcon; color: string; s
 const CATS = CAT_META.filter((c) => LIVE.some((x) => x.category === c.key));
 const colorOf = (cat: string) => CAT_META.find((c) => c.key === cat)?.color ?? "#2f5bea";
 
-// Hand-picked, topic-relevant cover photo per calculator so each card shows an
-// image that actually matches the tool. Unmapped calculators fall back to the
-// category-based picker.
-const PHOTO: Record<string, string> = {
-  sip: "1579621970563-ebec7560ff3e", lumpsum: "1611974789855-9c2a0a7236a3",
-  "mutual-fund-returns": "1611974789855-9c2a0a7236a3", "goal-sip": "1579621970563-ebec7560ff3e",
-  "step-up-sip": "1590283603385-17ffb3a7f29f", swp: "1526304640581-d334cdbbf45e",
-  cagr: "1642543492481-44e81e3914a7", "what-if-simulator": "1590283603385-17ffb3a7f29f",
-  goal: "1579546929518-9e396f3cc809", "goal-child-education": "1507679799987-c73779587ccf",
-  "goal-marriage": "1519741497674-611481863552",
-  retirement: "1516726817505-f5ed825624d8", fire: "1476703993599-0035a21b17a9",
-  nps: "1534528741775-53994a69daeb", epf: "1534528741775-53994a69daeb",
-  emi: "1560518883-ce09059eeffa", "home-loan-eligibility": "1570129477492-45c003edd2be",
-  mortgage: "1560518883-ce09059eeffa", "rent-vs-buy": "1564013799919-ab600027ffc6",
-  "goal-house-down-payment": "1570129477492-45c003edd2be",
-  "car-loan-emi": "1503376780353-7e6692767b70", "goal-car": "1503376780353-7e6692767b70",
-  "personal-loan-emi": "1526304640581-d334cdbbf45e", "education-loan-emi": "1434030216411-0b793f4b4173",
-  "income-tax": "1554224155-8d04cb21cd6c", gst: "1554224154-26032ffc0d07",
-  tds: "1554224155-6726b3ff858f", "capital-gains": "1611974789855-9c2a0a7236a3",
-  hra: "1560518883-ce09059eeffa", "take-home-salary": "1434030216411-0b793f4b4173",
-  "8th-pay-commission": "1554224155-8d04cb21cd6c",
-  "crypto-tax": "1518770660439-4636190af475", "sales-tax": "1556742049-0a67c5574f73",
-  fd: "1567427017947-545c5f8d16ad", rd: "1567427017947-545c5f8d16ad",
-  ppf: "1579621970795-87facc2f976d", nsc: "1526304640581-d334cdbbf45e",
-  scss: "1516726817505-f5ed825624d8", "post-office-mis": "1526304640581-d334cdbbf45e",
-  "compound-interest": "1579621970563-ebec7560ff3e", "simple-interest": "1554224155-8d04cb21cd6c",
-  inflation: "1554224154-26032ffc0d07", gratuity: "1497215728101-856f4ea42174",
-  sukanya: "1519741497674-611481863552", "goal-emergency-fund": "1434030216411-0b793f4b4173",
-  "currency-converter": "1526304640581-d334cdbbf45e", "age-calculator": "1454165804606-c3d57bc86b40",
-  "date-difference-calculator": "1454165804606-c3d57bc86b40", "percentage-calculator": "1556742049-0a67c5574f73",
-  "tip-calculator": "1554224155-6726b3ff858f", discount: "1556742049-0a67c5574f73",
-  "hourly-to-salary": "1497215728101-856f4ea42174", "net-worth": "1590283603385-17ffb3a7f29f",
-  "financial-health": "1590283603385-17ffb3a7f29f",
+// Each calculator gets a topic-matched icon. Hand-mapping the icon (rather than
+// a stock photo keyed by slug) guarantees the visual always fits the tool — the
+// old photo map produced mismatches like a portrait on the retirement card.
+// Anything unmapped falls back to its category icon, so a new calculator still
+// shows a sensible glyph.
+const ICON: Record<string, LucideIcon> = {
+  // Investing
+  sip: LineChart, lumpsum: Coins, "mutual-fund-returns": BarChart3, "goal-sip": Target,
+  "step-up-sip": TrendingUp, swp: HandCoins, cagr: TrendingUp, "what-if-simulator": Repeat,
+  goal: Target, "goal-child-education": GraduationCap, "goal-marriage": Gift,
+  retirement: Umbrella, fire: Flame, nps: Landmark,
+  // Loans
+  emi: Home, "home-loan-eligibility": Home, mortgage: Home, "rent-vs-buy": Home,
+  "goal-house-down-payment": Home, "car-loan-emi": Car, "goal-car": Car,
+  "personal-loan-emi": Wallet, "education-loan-emi": GraduationCap,
+  // Tax
+  "income-tax": Receipt, gst: Receipt, tds: Receipt, "sales-tax": Receipt, "tip-calculator": Receipt,
+  "capital-gains": TrendingUp, hra: Home, "take-home-salary": Wallet, "8th-pay-commission": Banknote,
+  "hourly-to-salary": Clock, "crypto-tax": Coins,
+  // Savings
+  fd: Landmark, rd: PiggyBank, ppf: PiggyBank, "sukanya-samriddhi": Baby, nsc: Landmark,
+  scss: Umbrella, "post-office-mis": Landmark, "compound-interest": TrendingUp,
+  "simple-interest": Percent, inflation: TrendingUp, gratuity: Briefcase, epf: Landmark,
+  "goal-emergency-fund": ShieldCheck,
+  // Utility
+  "currency-converter": Repeat, "age-calculator": CalendarDays, "percentage-calculator": Percent,
+  "date-difference-calculator": CalendarDays, discount: Percent, "net-worth": Scale,
+  "financial-health": HeartPulse,
 };
-function imgFor(c: CalcType) {
-  const id = PHOTO[c.slug];
-  return id
-    ? `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=800&h=500&q=80`
-    : resolveCoverImageUrl(c.slug, c.category);
+const CAT_ICON: Record<string, LucideIcon> = {
+  Investing: TrendingUp, Loans: Home, Tax: Receipt, Savings: PiggyBank, Utility: Calculator,
+};
+function iconFor(c: CalcType): LucideIcon {
+  return ICON[c.slug] ?? CAT_ICON[c.category] ?? Calculator;
 }
 
 function CalcCard({ c }: { c: CalcType }) {
   const color = colorOf(c.category);
+  const Icon = iconFor(c);
   return (
     <Link
       href={`/calculators/${c.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-bg shadow-card transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card-lift"
     >
-      <div className="relative aspect-[16/10] w-full overflow-hidden" style={{ backgroundColor: `${color}12` }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={imgFor(c)}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      <div
+        className="relative grid aspect-[16/10] w-full place-items-center overflow-hidden"
+        style={{ background: `linear-gradient(135deg, ${color}1f 0%, ${color}0a 55%, transparent 100%)` }}
+      >
+        {/* soft glow behind the icon */}
+        <span
+          className="pointer-events-none absolute h-24 w-24 rounded-full blur-2xl opacity-40 transition-opacity group-hover:opacity-60"
+          style={{ backgroundColor: color }}
         />
+        <span
+          className="relative grid h-14 w-14 place-items-center rounded-2xl shadow-sm ring-1 ring-black/5 transition-transform duration-300 group-hover:scale-110"
+          style={{ backgroundColor: "#ffffff", color }}
+        >
+          <Icon className="h-7 w-7" strokeWidth={1.75} />
+        </span>
         <span className="absolute left-2.5 top-2.5 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-text shadow-sm backdrop-blur">
           {c.region === "IN" ? "India" : "Global"}
         </span>
@@ -124,88 +129,68 @@ export default function Page() {
 
   return (
     <div>
-      {/* ---------- Hero ---------- */}
-      <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-[#eef4ff] via-[#f3f8ff] to-bg">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[#2f5bea]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-[300px] w-[300px] rounded-full bg-[#16a34a]/8 blur-3xl" />
-        <div className="relative container-main grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.2fr_1fr]">
-          <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#16a34a]/25 bg-[#16a34a]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[#15803d]">
+      {/* ---------- Hero: photo background with a dark overlay and text on top ---------- */}
+      <section className="relative overflow-hidden border-b border-border">
+        {/* Background image + overlay. A dark base colour sits under the photo so
+            the hero still looks intentional if the image is slow or blocked. */}
+        <div className="absolute inset-0 bg-[#0a1324]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1920&q=70"
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover opacity-60"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#070e1c]/95 via-[#0a1324]/88 to-[#0a1324]/70" />
+          <div className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[#16a34a]/20 blur-3xl" />
+        </div>
+
+        <div className="relative container-main py-16 sm:py-20 lg:py-24">
+          <div className="max-w-[640px]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-300 backdrop-blur">
               <Zap className="h-3 w-3" /> India&apos;s Free Financial Calculators
             </span>
-            <h1 className="mt-4 text-3xl font-extrabold leading-[1.08] tracking-tight text-text sm:text-4xl lg:text-5xl">
+            {/* Inline colour: a global `h1 { color: var(--color-text) }` rule
+                beats the text-white utility, so on this dark hero the heading
+                would render near-invisible without forcing white here. */}
+            <h1 style={{ color: "#ffffff" }} className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               Plan Smarter.<br />
-              Build a <span className="text-[#16a34a]">Brighter Future.</span>
+              Build a <span style={{ color: "#34d399" }}>Brighter Future.</span>
             </h1>
-            <p className="mt-4 max-w-[520px] text-[15px] leading-relaxed text-text-muted">
-              Explore {LIVE.length}+ free calculators to plan your investments, loans, taxes, savings and more. Make informed financial decisions with easy-to-use tools.
+            <p className="mt-5 max-w-[540px] text-[15px] leading-relaxed text-slate-300">
+              Explore {LIVE.length}+ free calculators to plan your investments, loans, taxes and savings. Accurate, private, and made for India — no sign-up.
             </p>
 
-            <div className="relative mt-6 max-w-[520px]">
-              <Search className="absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-text-muted" />
+            <div className="relative mt-7 max-w-[540px]">
+              <Search className="absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-text-muted" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search calculators… (e.g. SIP, home loan, tax, FD)"
                 aria-label="Search calculators"
-                className="h-13 w-full rounded-xl border border-border bg-white py-3.5 pl-11 pr-4 text-sm shadow-sm outline-none transition-colors focus:border-brand focus:ring-2 focus:ring-brand/15"
+                className="h-13 w-full rounded-xl border border-white/10 bg-white py-3.5 pl-11 pr-4 text-sm text-text shadow-lg outline-none transition-colors focus:ring-2 focus:ring-emerald-400/40"
               />
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 sm:flex sm:flex-wrap">
+            <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-3.5 sm:flex sm:flex-wrap sm:gap-x-7">
               {[
-                { Icon: ShieldCheck, title: `${LIVE.length}+ Calculators`, sub: "100% Free", color: "#2f5bea" },
-                { Icon: Flag, title: "Made for India", sub: "Indian context", color: "#d97706" },
-                { Icon: BadgeCheck, title: "No Signup", sub: "Use instantly", color: "#16a34a" },
-                { Icon: Sparkles, title: "Trusted & Accurate", sub: "Updated regularly", color: "#7c3aed" },
+                { Icon: ShieldCheck, title: `${LIVE.length}+ Calculators`, sub: "100% Free", color: "#34d399" },
+                { Icon: Flag, title: "Made for India", sub: "Indian context", color: "#fbbf24" },
+                { Icon: BadgeCheck, title: "No Signup", sub: "Use instantly", color: "#60a5fa" },
+                { Icon: Sparkles, title: "Trusted & Accurate", sub: "Updated regularly", color: "#c084fc" },
               ].map(({ Icon, title, sub, color }) => (
                 <div key={title} className="flex items-center gap-2.5">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg" style={{ backgroundColor: `${color}18`, color }}>
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg ring-1 ring-white/10" style={{ backgroundColor: `${color}22`, color }}>
                     <Icon className="h-[18px] w-[18px]" />
                   </span>
                   <div className="leading-tight">
-                    <p className="text-[13px] font-semibold text-text">{title}</p>
-                    <p className="text-[11px] text-text-muted">{sub}</p>
+                    <p className="text-[13px] font-semibold text-white">{title}</p>
+                    <p className="text-[11px] text-slate-400">{sub}</p>
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Hero visual */}
-          <div className="hidden lg:block">
-            <div className="relative rounded-3xl border border-border bg-gradient-to-br from-[#0c1628] to-[#13203c] p-6 text-white shadow-[0_30px_80px_-30px_rgba(15,23,42,0.6)]">
-              <p className="text-sm font-semibold text-slate-300">Smarter Financial Decisions</p>
-              <div className="mt-4 rounded-2xl bg-white/95 p-4 text-text shadow-lg">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-medium text-text-muted">Portfolio Growth</span>
-                  <span className="rounded-full bg-[#dcfce7] px-2 py-0.5 text-[10px] font-bold text-[#15803d]">+12.4%</span>
-                </div>
-                <p className="mt-0.5 text-2xl font-extrabold tracking-tight" style={{ fontVariantNumeric: "tabular-nums" }}>₹24,50,000</p>
-                <svg viewBox="0 0 240 70" className="mt-2 h-16 w-full" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="calcfill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0" stopColor="#16a34a" stopOpacity="0.28" />
-                      <stop offset="1" stopColor="#16a34a" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M2 56 L40 48 L78 52 L116 32 L154 38 L192 18 L238 8 L238 70 L2 70 Z" fill="url(#calcfill)" />
-                  <path d="M2 56 L40 48 L78 52 L116 32 L154 38 L192 18 L238 8" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <div className="mt-4 grid grid-cols-2 gap-2.5">
-                {[
-                  { Icon: TrendingUp, label: "Invest Smarter" },
-                  { Icon: PiggyBank, label: "Save More" },
-                  { Icon: Receipt, label: "Plan Better" },
-                  { Icon: ShieldCheck, label: "Live Securely" },
-                ].map(({ Icon, label }) => (
-                  <div key={label} className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-[12.5px] font-medium">
-                    <Icon className="h-4 w-4 text-[#4ade80]" /> {label}
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
