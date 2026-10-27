@@ -1,65 +1,45 @@
 import Link from "next/link";
 import { Section } from "@/components/ui";
 import SectionIntro from "./SectionIntro";
-import { calculators } from "@/lib/data";
-import { Calculator, TrendingUp, Landmark, Receipt, PiggyBank, Wrench } from "lucide-react";
+import {
+  ArrowRight, TrendingUp, Receipt, Home, PiggyBank, Umbrella, Gauge,
+  type LucideIcon,
+} from "lucide-react";
 
-const HUBS = [
-  { label: "Investing", href: "/investing" },
-  { label: "SIP & Mutual Funds", href: "/sip" },
-  { label: "Loans", href: "/loans" },
-  { label: "Savings", href: "/savings" },
-  { label: "Retirement", href: "/retirement" },
-  { label: "Income Tax", href: "/income-tax" },
-  { label: "Budgeting", href: "/budgeting" },
-  { label: "Credit Score", href: "/credit-score" },
-  { label: "Gold", href: "/gold" },
+const TOPICS: { label: string; href: string; desc: string; Icon: LucideIcon }[] = [
+  { label: "Investing", href: "/investing", desc: "Mutual funds, stocks, gold and SIP planning.", Icon: TrendingUp },
+  { label: "Income Tax", href: "/income-tax", desc: "New vs old regime, deductions and ITR filing.", Icon: Receipt },
+  { label: "Loans", href: "/loans", desc: "Home, car and personal loan EMIs and eligibility.", Icon: Home },
+  { label: "Savings", href: "/savings", desc: "FD, PPF, RD and government small-savings schemes.", Icon: PiggyBank },
+  { label: "Retirement", href: "/retirement", desc: "NPS, EPF, pension and early-retirement (FIRE).", Icon: Umbrella },
+  { label: "Credit Score", href: "/credit-score", desc: "Understand, improve and track your CIBIL score.", Icon: Gauge },
 ];
-
-const CAT_ICONS: Record<string, typeof Calculator> = {
-  Investing: TrendingUp, Loans: Landmark, Tax: Receipt, Savings: PiggyBank, Utility: Wrench, Health: Calculator,
-};
-
-const cats = (["Investing", "Loans", "Tax", "Savings", "Utility"] as const)
-  .map((cat) => ({ cat, items: calculators.filter((c) => c.category === cat && c.live).slice(0, 2) }))
-  .filter(({ items }) => items.length);
 
 export default function FinanceCategories() {
   return (
     <Section variant="alt">
       <SectionIntro
-        eyebrow="Explore"
-        title="Explore Every Aspect of Personal Finance"
-        subline="8 categories covering everything from investments to taxes."
+        eyebrow="Browse by topic"
+        title="Explore every part of your money"
+        subline="Pick an area and find the calculators and guides that fit your goal."
       />
-      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
-        From SIP and FD calculators to income tax and loan EMI estimators - browse by category to find the tool that fits your financial goal.
-      </p>
-      {/* Five categories x two calculators = ten cards. At lg:grid-cols-4 that
-          left two orphans stranded on a third row; five columns lands them as
-          two clean rows and makes this the one tighter, wider grid on the page
-          instead of a fourth repeat of the same 4-up card layout. */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        {cats.flatMap(({ cat, items }) => {
-          const Icon = CAT_ICONS[cat] || Calculator;
-          return items.map((c) => (
-            <Link key={c.slug} href={`/calculators/${c.slug}`} className="card card-h-full p-4 group">
-              <Icon className="h-8 w-8 text-brand mx-auto sm:mx-0" />
-              <p className="text-sm font-semibold text-text mt-2 text-center sm:text-left">{c.title}</p>
-              <p className="text-xs text-text-muted mt-0.5 text-center sm:text-left">{c.short}</p>
-            </Link>
-          ));
-        })}
-      </div>
-      <div className="mt-8 flex flex-wrap gap-2 justify-center">
-        <span className="text-xs text-text-muted self-center">Explore topics:</span>
-        {HUBS.map((h) => (
+      <div className="mx-auto mt-12 grid max-w-[1000px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {TOPICS.map(({ label, href, desc, Icon }) => (
           <Link
-            key={h.href}
-            href={h.href}
-            className="inline-flex items-center rounded-full border border-border bg-bg px-3 py-1 text-xs font-medium text-text-muted hover:border-brand hover:text-brand transition-colors"
+            key={href}
+            href={href}
+            className="group flex items-start gap-4 rounded-2xl border border-border bg-bg p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card-lift"
           >
-            {h.label}
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <Icon className="h-5 w-5" strokeWidth={1.75} />
+            </span>
+            <span className="min-w-0">
+              <span className="flex items-center gap-1.5 text-base font-bold text-text">
+                {label}
+                <ArrowRight className="h-4 w-4 text-brand opacity-0 transition-opacity group-hover:opacity-100" />
+              </span>
+              <span className="mt-1 block text-sm leading-relaxed text-text-muted">{desc}</span>
+            </span>
           </Link>
         ))}
       </div>
