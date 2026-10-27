@@ -1,48 +1,57 @@
 import Link from "next/link";
-import { Section, Card, CardBody, CardFooter, CardBadge } from "@/components/ui";
+import { Section } from "@/components/ui";
 import SectionIntro from "./SectionIntro";
 import { calculators } from "@/lib/data";
-import { Calculator, ArrowRight } from "lucide-react";
+import {
+  ArrowRight, LineChart, Receipt, Home, Landmark, PiggyBank, Umbrella,
+  type LucideIcon,
+} from "lucide-react";
 
-const liveCalcs = calculators.filter((c) => c.live);
-const featured = liveCalcs.slice(0, 6);
+const liveCount = calculators.filter((c) => c.live).length;
+
+// A hand-picked set of the highest-intent calculators, each with a topic-matched
+// icon rather than one generic glyph, so the grid reads as distinct tools.
+const FEATURED: { slug: string; title: string; blurb: string; Icon: LucideIcon }[] = [
+  { slug: "sip", title: "SIP Calculator", blurb: "Project mutual fund SIP returns with step-up and inflation.", Icon: LineChart },
+  { slug: "income-tax", title: "Income Tax Calculator", blurb: "Compare the new vs old regime for FY 2026-27.", Icon: Receipt },
+  { slug: "emi", title: "EMI Calculator", blurb: "Monthly payment for home, car and personal loans.", Icon: Home },
+  { slug: "fd", title: "FD Calculator", blurb: "Fixed deposit maturity and interest, any bank.", Icon: Landmark },
+  { slug: "ppf", title: "PPF Calculator", blurb: "Tax-free PPF corpus over the 15-year lock-in.", Icon: PiggyBank },
+  { slug: "retirement", title: "Retirement Calculator", blurb: "The corpus you need to retire comfortably.", Icon: Umbrella },
+];
 
 export default function FeaturedCalculators() {
   return (
     <Section variant="white">
       <SectionIntro
         eyebrow="Calculators"
-        title={`${liveCalcs.length} Free Financial Calculators`}
-        subline="Plan investments, size a loan, or estimate your tax, instantly and privately."
+        title="Start with the most popular"
+        subline="The tools Indians reach for most — accurate, private and instant, with no sign-up."
       />
-      <p className="body text-text-muted text-center max-w-[720px] mx-auto mb-10">
-        Each tool uses official formulas from SEBI, RBI, and the Income Tax Department. Enter your numbers and get instant results with charts, year-wise tables, and inflation-adjusted projections - no sign-up required.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {featured.map((c) => (
-          <Card key={c.slug} href={`/calculators/${c.slug}`}>
-            <div className="flex items-start justify-between">
-              <CardBadge>{c.region === "IN" ? "India" : "Global"}</CardBadge>
-              <Calculator className="h-10 w-10 text-brand" />
-            </div>
-            <CardBody>
-              <h3 className="h3 mt-3 text-text">{c.title}</h3>
-              <p className="text-sm text-text-muted line-clamp-2 mt-1">{c.blurb}</p>
-            </CardBody>
-            <CardFooter>
-              <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand">
-                Calculate <ArrowRight className="h-4 w-4" />
-              </span>
-            </CardFooter>
-          </Card>
+      <div className="mx-auto mt-12 grid max-w-[1000px] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {FEATURED.map(({ slug, title, blurb, Icon }) => (
+          <Link
+            key={slug}
+            href={`/calculators/${slug}`}
+            className="group flex flex-col rounded-2xl border border-border bg-bg p-6 transition-all hover:-translate-y-1 hover:border-brand/40 hover:shadow-card-lift"
+          >
+            <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand/10 text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+              <Icon className="h-6 w-6" strokeWidth={1.75} />
+            </span>
+            <h3 className="mt-5 text-lg font-bold text-text">{title}</h3>
+            <p className="mt-1.5 flex-1 text-sm leading-relaxed text-text-muted">{blurb}</p>
+            <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-all group-hover:gap-2.5">
+              Open calculator <ArrowRight className="h-4 w-4" />
+            </span>
+          </Link>
         ))}
       </div>
       <div className="mt-12 text-center">
         <Link
           href="/calculators"
-          className="inline-flex items-center gap-2 rounded-pill border border-border px-6 py-3 text-sm font-medium text-text hover:border-brand hover:text-brand transition-colors"
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-semibold text-text transition-colors hover:border-brand hover:text-brand"
         >
-          Browse All {liveCalcs.length} Calculators <ArrowRight className="h-4 w-4" />
+          Browse all {liveCount} calculators <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </Section>
