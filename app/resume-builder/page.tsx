@@ -120,6 +120,8 @@ export default function Page() {
           { label: "Unit Converter", href: "/tools/unit-converter" },
         ]}
         disclaimerType="general"
+        wideChildren
+        hideDisclaimer
       >
         <ResumeBuilder />
       </ToolPageLayout>

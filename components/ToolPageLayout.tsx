@@ -15,6 +15,12 @@ type ToolPageLayoutProps = {
   faqs?: { q: string; a: string }[];
   relatedTools?: { label: string; href: string }[];
   disclaimerType?: "tax" | "investment" | "general";
+  /** Let the tool itself use the full container width (not the 720px reading
+      measure). Needed by wide, two-pane tools like the resume builder. */
+  wideChildren?: boolean;
+  /** Suppress the financial disclaimer for tools where it doesn't apply
+      (e.g. the resume builder is not financial advice). */
+  hideDisclaimer?: boolean;
 };
 
 export function ToolPageLayout({
@@ -28,6 +34,8 @@ export function ToolPageLayout({
   faqs,
   relatedTools,
   disclaimerType = "general",
+  wideChildren = false,
+  hideDisclaimer = false,
 }: ToolPageLayoutProps) {
   // Tool pages already emit their own BreadcrumbList and FAQPage, so the only
   // node missing once GlobalSeo went away is the entity for the tool itself.
@@ -61,17 +69,19 @@ export function ToolPageLayout({
           in the middle of the white band. It is a spacer between two blocks of
           the same colour, not its own band, so it now only holds its own gap
           and lets the tool section own the padding below. */}
-      <section className="pt-8 bg-white">
-        <div className="container-main">
-          <div className="max-w-[720px] mx-auto">
-            <FinancialDisclaimer type={disclaimerType} />
+      {!hideDisclaimer && (
+        <section className="pt-8 bg-white">
+          <div className="container-main">
+            <div className="max-w-[720px] mx-auto">
+              <FinancialDisclaimer type={disclaimerType} />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="section-pad pt-8 bg-white">
         <div className="container-main">
-          <div className="max-w-[720px] mx-auto">{children}</div>
+          <div className={wideChildren ? "" : "max-w-[720px] mx-auto"}>{children}</div>
         </div>
       </section>
 
