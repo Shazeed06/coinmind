@@ -9,7 +9,7 @@ const STEPS = [
 
 export default function HowCalculatorsWork() {
   return (
-    <Section variant="alt">
+    <Section variant="white">
       <SectionIntro
         eyebrow="How it works"
         title="Three steps to an answer"
