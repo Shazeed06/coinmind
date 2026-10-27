@@ -482,3 +482,62 @@ input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius
     display: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Bleep-style blog article
+   ---------------------------------------------------------------------------
+   Every blog post (app/blog/[slug]) renders inside .bleep-article. It mirrors
+   the bleepsleep.com article look the site owner asked for: a pale-blue page,
+   one wide centred reading column (no sidebar), a big medium-weight centred
+   title, left-aligned near-black body copy and black underlined links. These
+   rules out-specify the generic <Prose> utility string (two classes beat one),
+   so the Prose component itself stays untouched for its other callers.
+   -------------------------------------------------------------------------- */
+.bleep-article {
+  background: #eef6f9; /* Bleep pale-blue page */
+}
+/* Hero title: medium weight + black, the airy Bleep headline. The site's global
+   h1 is an unlayered element rule (weight 800), which out-ranks Tailwind
+   utilities, so the Bleep look is set here with a more specific (and still
+   unlayered) selector rather than classes on the element. */
+.bleep-article h1 {
+  color: #111111;
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+/* Section headings sit a touch lighter than the global 700/600 for the Bleep feel. */
+.bleep-article h2,
+.bleep-article h3 {
+  font-weight: 600;
+}
+/* Body copy: near-black, left-aligned (the global default justifies). */
+.bleep-article .prose-container p,
+.bleep-article .prose-container li {
+  color: #1b1b1b;
+  text-align: left;
+}
+/* Section headings: black, left, slightly tighter — the Bleep DM Sans feel. */
+.bleep-article .prose-container h2,
+.bleep-article .prose-container h3 {
+  color: #111111;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+/* Links: black + black underline, exactly like the reference article. */
+.bleep-article .prose-container a {
+  color: #111111;
+  text-decoration-color: #111111;
+}
+.bleep-article .prose-container a:hover {
+  color: #000000;
+  text-decoration-color: #000000;
+}
+/* The Key Takeaways callout fill (forest-soft) equals the page tint, so it
+   would vanish — give it a white sheet that pops on the pale-blue page. */
+.bleep-article .not-prose {
+  background: #ffffff;
+  border-color: #d7e7f0;
+}
+/* end bleep-article */
