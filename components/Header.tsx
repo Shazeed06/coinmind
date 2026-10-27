@@ -21,14 +21,14 @@ const ICONS: Record<string, LucideIcon> = {
   image: ImageIcon, budget: Wallet, star: Star, bot: Bot, sparkles: Sparkles,
 };
 const COLORS: Record<string, string> = {
-  invest: "#18172d", loan: "#d97706", tax: "#16a34a", savings: "#16a34a",
-  ppf: "#16a34a", retire: "#7c3aed", book: "#18172d", credit: "#e11d48",
-  live: "#16a34a", flame: "#e11d48", rocket: "#18172d", chart: "#18172d",
-  target: "#0284c7", compare: "#7c3aed", resume: "#18172d", fileText: "#e11d48",
-  image: "#7c3aed", budget: "#16a34a", star: "#d97706", bot: "#7c3aed", sparkles: "#7c3aed",
+  invest: "#2aa7de", loan: "#2aa7de", tax: "#2aa7de", savings: "#2aa7de",
+  ppf: "#2aa7de", retire: "#2aa7de", book: "#2aa7de", credit: "#2aa7de",
+  live: "#2aa7de", flame: "#2aa7de", rocket: "#2aa7de", chart: "#2aa7de",
+  target: "#2aa7de", compare: "#2aa7de", resume: "#2aa7de", fileText: "#2aa7de",
+  image: "#2aa7de", budget: "#2aa7de", star: "#2aa7de", bot: "#2aa7de", sparkles: "#2aa7de",
 };
 function iconMeta(key?: string): { Icon: LucideIcon; color: string } {
-  if (key && ICONS[key]) return { Icon: ICONS[key], color: COLORS[key] ?? "#18172d" };
+  if (key && ICONS[key]) return { Icon: ICONS[key], color: COLORS[key] ?? "#2aa7de" };
   return { Icon: BarChart3, color: "#64748b" };
 }
 
@@ -95,8 +95,8 @@ export default function Header() {
             <span className="inline-flex items-center gap-2.5">
               <LogoMark className="h-8 w-8 shrink-0" />
               <span className="text-[1.3rem] font-extrabold lowercase leading-none tracking-tight">
-                <span className="text-[#18172d]">coin</span>
-                <span className="text-[#6d5ef0]">mind</span>
+                <span className="text-[#2aa7de]">coin</span>
+                <span className="text-[#2aa7de]">mind</span>{/* blue + rust wordmark */}
               </span>
             </span>
           </Link>
@@ -115,7 +115,7 @@ export default function Header() {
                     onFocus={() => openNow(m.label)}
                     data-nav-trigger={m.label}
                     className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors ${
-                      active || open ? "bg-[#f2f0fd] text-[#18172d]" : "text-[#475569] hover:bg-[#f4f7fb] hover:text-[#18172d]"
+                      active || open ? "bg-[#eef6f9] text-[#2aa7de]" : "text-[#475569] hover:bg-[#f4f7fb] hover:text-[#2aa7de]"
                     }`}
                   >
                     {m.label}
@@ -140,7 +140,7 @@ export default function Header() {
             </button>
             <Link
               href="/calculators"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#18172d] to-[#0f0e20] px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(24,23,45,0.6)] transition-all hover:from-[#3d68f5] hover:to-[#2558e8]"
+              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#2aa7de] to-[#0f0e20] px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(24,23,45,0.6)] transition-all hover:from-[#3d68f5] hover:to-[#2558e8]"
             >
               <Zap className="h-3.5 w-3.5" />
               Free Calculators
@@ -149,7 +149,7 @@ export default function Header() {
 
           {/* Mobile right */}
           <div className="ml-auto flex items-center gap-1 md:hidden">
-            <button type="button" onClick={() => setSearchOpen(true)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#475569] hover:bg-[#f4f7fb] hover:text-[#18172d]" aria-label="Open search">
+            <button type="button" onClick={() => setSearchOpen(true)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#475569] hover:bg-[#f4f7fb] hover:text-[#2aa7de]" aria-label="Open search">
               <Search className="h-5 w-5" />
             </button>
             <button type="button" onClick={() => setMenuOpen((v) => !v)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#334155] hover:bg-[#f4f7fb]" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
@@ -167,9 +167,9 @@ export default function Header() {
               const expanded = mobileSection === m.label;
               const active = menuIsActive(m);
               return (
-                <div key={m.label} className={`overflow-hidden rounded-xl border ${active ? "border-[#18172d]/40 bg-[#f2f0fd]/40" : "border-[#e6eaf2]"}`}>
+                <div key={m.label} className={`overflow-hidden rounded-xl border ${active ? "border-[#2aa7de]/40 bg-[#eef6f9]/40" : "border-[#e6eaf2]"}`}>
                   <button onClick={() => setMobileSection(expanded ? null : m.label)} aria-expanded={expanded} className="flex w-full items-center justify-between px-4 py-4 text-left">
-                    <span className={`text-[15px] font-semibold ${active ? "text-[#18172d]" : "text-[#334155]"}`}>{m.label}</span>
+                    <span className={`text-[15px] font-semibold ${active ? "text-[#2aa7de]" : "text-[#334155]"}`}>{m.label}</span>
                     <ChevronDown className={`h-4 w-4 text-[#94a3b8] transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden="true" />
                   </button>
                   {expanded && (
@@ -191,7 +191,7 @@ export default function Header() {
                           </div>
                         );
                       })}
-                      <Link href={m.href} className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#18172d]">
+                      <Link href={m.href} className="flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-semibold text-[#2aa7de]">
                         View all <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
@@ -199,7 +199,7 @@ export default function Header() {
                 </div>
               );
             })}
-            <Link href="/calculators" className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#18172d] to-[#0f0e20] px-4 py-4 font-semibold text-white">
+            <Link href="/calculators" className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#2aa7de] to-[#0f0e20] px-4 py-4 font-semibold text-white">
               <Zap className="h-4 w-4" /> Free Calculators
             </Link>
           </nav>
@@ -269,7 +269,7 @@ function MenuPanel({
         <div className="p-3">
           <div className="mb-1.5 flex items-center justify-between px-2.5 py-1">
             <p className="text-[12px] font-bold uppercase tracking-wider text-[#94a3b8]">{menu.label}</p>
-            <Link href={menu.href} className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-[#18172d] hover:underline">
+            <Link href={menu.href} className="inline-flex items-center gap-1 text-[12.5px] font-semibold text-[#2aa7de] hover:underline">
               View all <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -288,13 +288,13 @@ function MenuPanel({
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`group flex items-start gap-3 rounded-xl px-2.5 py-2.5 transition-colors ${active ? "bg-[#f2f0fd]" : "hover:bg-[#f4f7fb]"}`}
+                      className={`group flex items-start gap-3 rounded-xl px-2.5 py-2.5 transition-colors ${active ? "bg-[#eef6f9]" : "hover:bg-[#f4f7fb]"}`}
                     >
                       <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg" style={{ backgroundColor: `${color}14`, color }}>
                         <Icon className="h-[18px] w-[18px]" />
                       </span>
                       <span className="min-w-0">
-                        <span className={`block truncate text-[13.5px] font-semibold ${active ? "text-[#18172d]" : "text-[#18172d]"}`}>{item.label}</span>
+                        <span className={`block truncate text-[13.5px] font-semibold ${active ? "text-[#2aa7de]" : "text-[#2aa7de]"}`}>{item.label}</span>
                         {item.desc && <span className="block truncate text-[12px] text-[#64748b]">{item.desc}</span>}
                       </span>
                     </Link>
@@ -366,7 +366,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
   };
 
   const catColor = (cat: string) =>
-    cat === "Calculator" ? "text-[#18172d]" : cat === "Guide" ? "text-[#16a34a]" : "text-[#64748b]";
+    cat === "Calculator" ? "text-[#2aa7de]" : cat === "Guide" ? "text-[#2aa7de]" : "text-[#64748b]";
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 pt-[8vh] backdrop-blur-sm sm:pt-[12vh]" onClick={onClose}>
@@ -379,7 +379,7 @@ function SearchModal({ onClose }: { onClose: () => void }) {
             onKeyDown={onKey}
             placeholder="Search calculators, guides, tools…"
             aria-label="Search CoinMind"
-            className="h-14 flex-1 bg-transparent text-sm text-[#18172d] outline-none placeholder:text-[#94a3b8]"
+            className="h-14 flex-1 bg-transparent text-sm text-[#2aa7de] outline-none placeholder:text-[#94a3b8]"
             autoFocus
           />
           <button type="button" onClick={onClose} className="rounded-lg border border-[#e6eaf2] px-2 py-1 text-xs text-[#94a3b8] transition-colors hover:text-[#475569]">Esc</button>

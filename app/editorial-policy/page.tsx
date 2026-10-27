@@ -36,7 +36,7 @@ export default function EditorialPolicyPage() {
         title="Editorial Policy"
         subtitle={`How ${site.name} researches, writes, reviews and updates every calculator and guide. Every formula is documented; every source is cited.`}
         lastUpdated="September 2026"
-        icon={<BookOpen className="h-6 w-6 text-[#4ade80]" />}
+        icon={<BookOpen className="h-6 w-6 text-[#5bbce8]" />}
       >
         <div className="space-y-10">
           <section>

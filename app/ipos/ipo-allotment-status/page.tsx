@@ -263,9 +263,9 @@ export default function IpoAllotmentStatusPage() {
 
           {/* Allotted vs not */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h2 className="font-bold text-emerald-800 mb-2">✅ If you are allotted</h2>
-              <ul className="space-y-1.5 text-sm text-emerald-800">
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+              <h2 className="font-bold text-sky-800 mb-2">✅ If you are allotted</h2>
+              <ul className="space-y-1.5 text-sm text-sky-800">
                 <li className="flex gap-2"><span>•</span>The blocked amount is debited only for the shares allotted to you.</li>
                 <li className="flex gap-2"><span>•</span>Shares are credited to your demat a day before listing.</li>
                 <li className="flex gap-2"><span>•</span>On listing day you can hold for the long term or sell at the listing price.</li>

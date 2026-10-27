@@ -22,47 +22,46 @@
      --color-*-faint     #64748b    4.8:1 on white   metadata, fine print
 --------------------------------------------------------------------------- */
 @theme {
-  /* Palette rebranded to the PixVibe look: near-black indigo (#18172D) as the
-     one primary/interactive colour, soft lavender (#CDBDF8) as the accent, on a
-     white base with slate-grey secondary text. All token NAMES are unchanged so
-     the ~1500 call sites keep resolving; only the values moved. "brand", "accent",
-     "forest" and "blue" now all point at the indigo, and every "-soft" fill is a
-     pale lavender tint, which is what gives the site its single cohesive accent. */
+  /* Palette: sky blue (#2AA7DE) as the primary/interactive colour and rust
+     (#2aa7de) as the single accent, on a white base with charcoal (#333333)
+     text. No green. All token NAMES are unchanged so the ~1500 call sites keep
+     resolving; only the values moved. "brand"/"blue"/"sky"/"purple" map to the
+     blue, and "accent"/"forest"/"berry"/"brass"/"amber" all map to the rust. */
   --color-bg: #ffffff;
-  --color-bg-alt: #f6f5fb;
-  --color-bg-invert: #18172d;
-  --color-bg-invert-end: #2e2b56;
-  --color-text: #18172d;
-  --color-text-muted: #5b6075;
-  --color-border: #e8e6f3;
-  --color-brand: #18172d;
-  --color-accent: #18172d;
+  --color-bg-alt: #f4f7f9;
+  --color-bg-invert: #0f3a5a;
+  --color-bg-invert-end: #16517d;
+  --color-text: #333333;
+  --color-text-muted: #5a5f66;
+  --color-border: #e6e6e6;
+  --color-brand: #2aa7de;
+  --color-accent: #2aa7de;
 
   /* Aliases of the five above. Same values, second naming system. */
-  --color-ink: #18172d;          /* = --color-text */
-  --color-ink-soft: #5b6075;     /* = --color-text-muted */
-  --color-ink-faint: #797c8c;
-  --color-ink-muted: #5b6075;    /* = --color-text-muted */
-  --color-line: #e8e6f3;         /* = --color-border */
-  --color-line-strong: #cdbdf8;  /* lavender hairline (PixVibe secondary border) */
+  --color-ink: #333333;          /* = --color-text */
+  --color-ink-soft: #5a5f66;     /* = --color-text-muted */
+  --color-ink-faint: #6f757d;
+  --color-ink-muted: #5a5f66;    /* = --color-text-muted */
+  --color-line: #e6e6e6;         /* = --color-border */
+  --color-line-strong: #cfd4d9;
   --color-card: #ffffff;         /* = --color-bg */
-  --color-paper-2: #f6f5fb;      /* = --color-bg-alt */
-  --color-forest: #18172d;       /* = --color-accent (brand indigo) */
-  --color-forest-soft: #f2f0fd;  /* pale lavender badge fill */
-  --color-forest-deep: #0f0e20;  /* darker indigo for button hover */
-  --color-brass: #b78327;
-  --color-brass-soft: #faf6ee;
-  --color-blue: #18172d;         /* = --color-brand */
-  --color-blue-soft: #f2f0fd;
-  --color-amber: #b78327;
-  --color-amber-soft: #faf6ee;
-  --color-purple: #6d5ef0;
-  --color-purple-soft: #f2f0fd;
-  --color-sky: #5b6075;
-  --color-sky-soft: #f2f0fd;
+  --color-paper-2: #f4f7f9;      /* = --color-bg-alt */
+  --color-forest: #2aa7de;       /* = --color-accent (rust) */
+  --color-forest-soft: #eef6f9;  /* pale rust badge fill */
+  --color-forest-deep: #1f87b5;  /* darker rust for button hover */
+  --color-brass: #2aa7de;
+  --color-brass-soft: #eef6f9;
+  --color-blue: #2aa7de;         /* = --color-brand */
+  --color-blue-soft: #eef6f9;
+  --color-amber: #2aa7de;
+  --color-amber-soft: #eef6f9;
+  --color-purple: #2aa7de;       /* mapped to the blue (no 3rd hue) */
+  --color-purple-soft: #eef6f9;
+  --color-sky: #2aa7de;          /* = --color-brand */
+  --color-sky-soft: #eef6f9;
   --color-paper: #ffffff;        /* = --color-bg */
-  --color-berry: #e11d48;
-  --color-berry-soft: #fff1f2;
+  --color-berry: #2aa7de;        /* rust for alerts/highlights */
+  --color-berry-soft: #eef6f9;
 
   --font-weight-600: 600;
 
@@ -269,7 +268,7 @@ h4 {
 .underline-stroke { position: relative; display: inline-block; }
 .underline-stroke::after {
   content: ""; position: absolute; bottom: -4px; left: 0; width: 100%; height: 10px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%23CDBDF8' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%232AA7DE' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
   background-size: 100% 100%;
 }
 
@@ -376,7 +375,7 @@ h4 {
 }
 
 input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--color-border); outline: none; }
-input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(24, 23, 45, 0.4); cursor: pointer; }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; box-shadow: 0 1px 4px rgba(42, 167, 222, 0.4); cursor: pointer; }
 input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--color-brand); border: 3px solid #fff; cursor: pointer; }
 
 ::selection { background: var(--color-brand); color: #fff; }

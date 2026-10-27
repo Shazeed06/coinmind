@@ -156,7 +156,7 @@ export default function SsRetailIpoPage() {
               ← IPO Calendar
             </Link>
           </div>
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-semibold text-green-300">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-semibold text-sky-300">
             ● LISTED · 23 SEP 2026 · STRONG DEBUT
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
@@ -169,11 +169,11 @@ export default function SsRetailIpoPage() {
           <p className="mt-4 text-xs text-white/40">Last updated: 18 October 2026 · Listing figures are per public trackers; verify on the exchange.</p>
 
           {/* GMP Banner */}
-          <div className="mt-6 rounded-xl bg-green-500/10 border border-green-400/20 px-5 py-4 flex items-center gap-4">
+          <div className="mt-6 rounded-xl bg-sky-500/10 border border-sky-400/20 px-5 py-4 flex items-center gap-4">
             <div>
-              <p className="text-xs text-green-300/70 mb-1">Listed (23 Sep 2026)</p>
-              <p className="text-3xl font-bold text-green-400">~+50%</p>
-              <p className="text-sm text-green-300/80">strong debut over ₹424 issue</p>
+              <p className="text-xs text-sky-300/70 mb-1">Listed (23 Sep 2026)</p>
+              <p className="text-3xl font-bold text-sky-400">~+50%</p>
+              <p className="text-sm text-sky-300/80">strong debut over ₹424 issue</p>
             </div>
             <div className="ml-auto text-right">
               <p className="text-xs text-white/50 mb-1">Issue Price</p>
@@ -273,11 +273,11 @@ export default function SsRetailIpoPage() {
         <section>
           <h2 className="text-xl font-bold text-text mb-4">Pros & Cons</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
-              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Positives</h3>
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 dark:bg-sky-900/10 dark:border-sky-800 p-4">
+              <h3 className="text-sm font-bold text-sky-700 dark:text-sky-400 mb-3">✓ Positives</h3>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
-                  <li key={i} className="text-sm text-green-800 dark:text-green-300 flex gap-2">
+                  <li key={i} className="text-sm text-sky-800 dark:text-sky-300 flex gap-2">
                     <span className="shrink-0 mt-0.5">•</span>{p}
                   </li>
                 ))}

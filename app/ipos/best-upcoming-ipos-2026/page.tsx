@@ -267,7 +267,7 @@ export default function BestUpcomingIposPage() {
                       </div>
                       <div className="sm:flex sm:gap-2">
                         <dt className="text-text-muted font-medium sm:w-32 sm:shrink-0">GMP / sentiment</dt>
-                        <dd className={item.trading ? "text-emerald-700 font-medium" : "text-text-muted"}>{item.sentiment}</dd>
+                        <dd className={item.trading ? "text-sky-700 font-medium" : "text-text-muted"}>{item.sentiment}</dd>
                       </div>
                       <div className="sm:flex sm:gap-2">
                         <dt className="text-text-muted font-medium sm:w-32 sm:shrink-0">Key risk</dt>

@@ -189,7 +189,7 @@ export default function UpcomingIpoPage() {
                       </td>
                       <td className="px-4 py-3 font-medium text-text whitespace-nowrap">{ipo.band}</td>
                       <td className="px-4 py-3 text-text-muted whitespace-nowrap">{ipo.lot}</td>
-                      <td className="px-4 py-3 whitespace-nowrap"><span className="text-emerald-600 font-semibold">{ipo.gmp} ({ipo.gmpPct})</span></td>
+                      <td className="px-4 py-3 whitespace-nowrap"><span className="text-sky-600 font-semibold">{ipo.gmp} ({ipo.gmpPct})</span></td>
                       <td className="px-4 py-3 text-text-muted whitespace-nowrap">{ipo.issueSize}</td>
                     </tr>
                   ))}
@@ -219,7 +219,7 @@ export default function UpcomingIpoPage() {
                       <td className="px-4 py-3 font-medium text-text">{ipo.name}</td>
                       <td className="px-4 py-3 font-medium text-text whitespace-nowrap">{ipo.band}</td>
                       <td className="px-4 py-3 text-text-muted whitespace-nowrap">{ipo.lot}</td>
-                      <td className="px-4 py-3 whitespace-nowrap"><span className="text-emerald-600 font-semibold">{ipo.gmp} ({ipo.gmpPct})</span></td>
+                      <td className="px-4 py-3 whitespace-nowrap"><span className="text-sky-600 font-semibold">{ipo.gmp} ({ipo.gmpPct})</span></td>
                       <td className="px-4 py-3 text-text-muted whitespace-nowrap">{ipo.issueSize}</td>
                     </tr>
                   ))}

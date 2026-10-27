@@ -16,14 +16,14 @@ const LIVE = calculators.filter((c) => c.live);
 
 // Category order + visual identity, matching the section headers.
 const CAT_META: { key: string; label: string; Icon: LucideIcon; color: string; sub: string }[] = [
-  { key: "Investing", label: "Investing", Icon: TrendingUp, color: "#2f5bea", sub: "Grow your wealth with smart investment planning tools." },
-  { key: "Loans", label: "Loans", Icon: Home, color: "#ea580c", sub: "Plan your loans and EMIs before you commit." },
-  { key: "Tax", label: "Tax", Icon: Receipt, color: "#16a34a", sub: "Simplify your tax planning and stay compliant." },
-  { key: "Savings", label: "Savings", Icon: PiggyBank, color: "#db2777", sub: "Build a secure future with better savings planning." },
-  { key: "Utility", label: "Utility", Icon: LayoutGrid, color: "#7c3aed", sub: "Helpful financial tools for everyday needs." },
+  { key: "Investing", label: "Investing", Icon: TrendingUp, color: "#2aa7de", sub: "Grow your wealth with smart investment planning tools." },
+  { key: "Loans", label: "Loans", Icon: Home, color: "#2aa7de", sub: "Plan your loans and EMIs before you commit." },
+  { key: "Tax", label: "Tax", Icon: Receipt, color: "#2aa7de", sub: "Simplify your tax planning and stay compliant." },
+  { key: "Savings", label: "Savings", Icon: PiggyBank, color: "#16517d", sub: "Build a secure future with better savings planning." },
+  { key: "Utility", label: "Utility", Icon: LayoutGrid, color: "#6f757d", sub: "Helpful financial tools for everyday needs." },
 ];
 const CATS = CAT_META.filter((c) => LIVE.some((x) => x.category === c.key));
-const colorOf = (cat: string) => CAT_META.find((c) => c.key === cat)?.color ?? "#2f5bea";
+const colorOf = (cat: string) => CAT_META.find((c) => c.key === cat)?.color ?? "#2aa7de";
 
 // Each calculator gets a topic-matched icon. Hand-mapping the icon (rather than
 // a stock photo keyed by slug) guarantees the visual always fits the tool — the
@@ -143,12 +143,12 @@ export default function Page() {
             fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#070e1c]/95 via-[#0a1324]/88 to-[#0a1324]/70" />
-          <div className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[#16a34a]/20 blur-3xl" />
+          <div className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[#2aa7de]/20 blur-3xl" />
         </div>
 
         <div className="relative container-main py-16 sm:py-20 lg:py-24">
           <div className="max-w-[640px]">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-300 backdrop-blur">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-sky-300 backdrop-blur">
               <Zap className="h-3 w-3" /> India&apos;s Free Financial Calculators
             </span>
             {/* Inline colour: a global `h1 { color: var(--color-text) }` rule
@@ -156,7 +156,7 @@ export default function Page() {
                 would render near-invisible without forcing white here. */}
             <h1 style={{ color: "#ffffff" }} className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
               Plan Smarter.<br />
-              Build a <span style={{ color: "#34d399" }}>Brighter Future.</span>
+              Build a <span style={{ color: "#5bbce8" }}>Brighter Future.</span>
             </h1>
             <p className="mt-5 max-w-[540px] text-[15px] leading-relaxed text-slate-300">
               Explore {LIVE.length}+ free calculators to plan your investments, loans, taxes and savings. Accurate, private, and made for India — no sign-up.
@@ -170,16 +170,16 @@ export default function Page() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search calculators… (e.g. SIP, home loan, tax, FD)"
                 aria-label="Search calculators"
-                className="h-13 w-full rounded-xl border border-white/10 bg-white py-3.5 pl-11 pr-4 text-sm text-text shadow-lg outline-none transition-colors focus:ring-2 focus:ring-emerald-400/40"
+                className="h-13 w-full rounded-xl border border-white/10 bg-white py-3.5 pl-11 pr-4 text-sm text-text shadow-lg outline-none transition-colors focus:ring-2 focus:ring-sky-400/40"
               />
             </div>
 
             <div className="mt-7 grid grid-cols-2 gap-x-6 gap-y-3.5 sm:flex sm:flex-wrap sm:gap-x-7">
               {[
-                { Icon: ShieldCheck, title: `${LIVE.length}+ Calculators`, sub: "100% Free", color: "#34d399" },
-                { Icon: Flag, title: "Made for India", sub: "Indian context", color: "#fbbf24" },
+                { Icon: ShieldCheck, title: `${LIVE.length}+ Calculators`, sub: "100% Free", color: "#5bbce8" },
+                { Icon: Flag, title: "Made for India", sub: "Indian context", color: "#2aa7de" },
                 { Icon: BadgeCheck, title: "No Signup", sub: "Use instantly", color: "#60a5fa" },
-                { Icon: Sparkles, title: "Trusted & Accurate", sub: "Updated regularly", color: "#c084fc" },
+                { Icon: Sparkles, title: "Trusted & Accurate", sub: "Updated regularly", color: "#8fd3f0" },
               ].map(({ Icon, title, sub, color }) => (
                 <div key={title} className="flex items-center gap-2.5">
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg ring-1 ring-white/10" style={{ backgroundColor: `${color}22`, color }}>
@@ -289,7 +289,7 @@ export default function Page() {
             <p className="mt-1.5 text-sm text-slate-400">Browse all calculators or explore our guides to find the right tool for your needs.</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <button onClick={() => { setActiveCat("All"); setSearch(""); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="inline-flex items-center gap-1.5 rounded-xl bg-[#16a34a] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15803d]">
+            <button onClick={() => { setActiveCat("All"); setSearch(""); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="inline-flex items-center gap-1.5 rounded-xl bg-[#2aa7de] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1f87b5]">
               Explore All Calculators <ArrowRight className="h-4 w-4" />
             </button>
             <Link href="/blog" className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5">

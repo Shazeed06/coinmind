@@ -35,7 +35,7 @@ export default function PrivacyPage() {
         title="Privacy Policy"
         subtitle="Your calculator inputs stay in your browser - we never upload the numbers you enter. Here's exactly what we do and don't collect."
         lastUpdated="September 2026"
-        icon={<Shield className="h-6 w-6 text-[#4ade80]" />}
+        icon={<Shield className="h-6 w-6 text-[#5bbce8]" />}
       >
         <div className="space-y-10">
           <section>

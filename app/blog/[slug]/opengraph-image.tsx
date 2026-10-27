@@ -35,10 +35,10 @@ export default async function OgImage({
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <svg width="44" height="44" viewBox="0 0 40 40" fill="none">
             <circle cx="20" cy="20" r="15" fill="none" stroke="#2563eb" strokeWidth="4.6" strokeLinecap="round" strokeDasharray="72 22.2" transform="rotate(-4 20 20)" />
-            <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="#16a34a" />
-            <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="#16a34a" />
-            <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="#16a34a" />
-            <circle cx="25.7" cy="8.6" r="2.7" fill="#16a34a" />
+            <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="#2aa7de" />
+            <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="#2aa7de" />
+            <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="#2aa7de" />
+            <circle cx="25.7" cy="8.6" r="2.7" fill="#2aa7de" />
           </svg>
           <span style={{ fontSize: 28, fontWeight: 700, color: "#2563eb" }}>coinmind.in</span>
         </div>
@@ -66,7 +66,7 @@ export default async function OgImage({
         {/* Footer */}
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ height: 8, width: 64, background: "#2563eb", borderRadius: 999 }} />
-          <div style={{ height: 8, width: 32, background: "#16a34a", borderRadius: 999 }} />
+          <div style={{ height: 8, width: 32, background: "#2aa7de", borderRadius: 999 }} />
         </div>
       </div>
     ),

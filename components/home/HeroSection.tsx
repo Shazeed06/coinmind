@@ -1,146 +1,124 @@
 import Link from "next/link";
-import { ArrowRight, Search, TrendingUp } from "lucide-react";
+import { ArrowRight, Search, ShieldCheck } from "lucide-react";
 import { calculators, posts } from "@/lib/data";
 
-// Derived, not hand-written. The previous literals claimed 46 calculators and
-// 44 tools; only 42 calculators are live and 24 tools are indexable, and the
-// same overstated pair had already leaked onto the shared social card.
 const CALC_COUNT = calculators.filter((c) => c.live).length;
 const GUIDE_COUNT = posts.length;
-const TOOL_COUNT = 24;
 
+// A handful of the highest-intent calculators, surfaced as quick jumps right
+// under the search box so the hero works as a launcher, not just a banner.
+const QUICK = [
+  { label: "SIP", href: "/calculators/sip" },
+  { label: "Income Tax", href: "/calculators/income-tax" },
+  { label: "EMI", href: "/calculators/emi" },
+  { label: "FD", href: "/calculators/fd" },
+  { label: "PPF", href: "/calculators/ppf" },
+  { label: "Retirement", href: "/calculators/retirement" },
+];
+
+const STATS = [
+  { n: `${CALC_COUNT}+`, l: "Free calculators" },
+  { n: `${GUIDE_COUNT}+`, l: "In-depth guides" },
+  { n: "RBI · SEBI", l: "Verified formulas" },
+];
+
+// A clean, centred, search-first hero. Generous whitespace, one soft blue wash
+// in the background, a big headline, and the search + quick jumps as the single
+// focal point — the page leads with "find your calculator", not a product shot.
 export default function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden bg-gradient-to-b from-[#f3f1fe] via-[#faf9ff] to-white">
-      {/* Soft lavender glows give the hero the PixVibe gradient wash without a
-          background image. */}
-      <div className="pointer-events-none absolute -top-32 right-0 h-[520px] w-[520px] rounded-full bg-[#cdbdf8]/45 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -left-24 top-1/3 h-[360px] w-[360px] rounded-full bg-[#6d5ef0]/10 blur-3xl" aria-hidden="true" />
-      <div className="relative container-main w-full py-12 sm:py-16">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
-            <div className="inline-flex max-w-full items-center gap-1.5 rounded-pill border border-border bg-bg-alt px-4 py-1.5 text-xs sm:text-sm text-text-muted">
-              <span>100% Free · No Signup Required</span>
-            </div>
+    <section className="relative isolate overflow-hidden bg-gradient-to-b from-[#eef6fb] via-[#f7fbfd] to-white">
+      <div
+        className="pointer-events-none absolute -top-44 left-1/2 h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-[#2aa7de]/15 blur-3xl"
+        aria-hidden="true"
+      />
 
-            {/* Carries the head term the page actually targets. The previous
-                "India's Smartest Personal Finance Platform" contained neither
-                "free" nor "calculators", and led with a superlative the site's
-                own corrections log says it stopped making. */}
-            <h1 className="display text-text">
-              Free{" "}
-              <span className="underline-stroke">Personal Finance</span>{" "}
-              Calculators for India
-            </h1>
+      <div className="relative container-main flex flex-col items-center py-20 text-center sm:py-28 lg:py-32">
+        <span className="inline-flex items-center gap-2 rounded-pill border border-[#d4e7f3] bg-white/80 px-4 py-1.5 text-xs font-medium text-text-muted shadow-sm backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+          100% Free · No sign-up · Made for India
+        </span>
 
-            <p className="text-base sm:text-lg text-text-muted max-w-[480px] leading-relaxed mx-auto lg:mx-0">
-              Free financial calculators, tools and guides to plan investments, manage loans and save taxes. All in one place, with no sign-up required. Plan your SIP returns, estimate your income tax under both regimes, calculate EMI for a home loan, or project your retirement corpus. Every calculation runs in your browser, is verified against official RBI and SEBI formulas, and is updated after every Union Budget.
-            </p>
+        <h1 className="mt-7 max-w-[840px] text-[2.5rem] font-extrabold leading-[1.04] tracking-tight text-text sm:text-[3.5rem] lg:text-[4rem]">
+          Free Personal Finance{" "}
+          <span className="text-brand">Calculators</span> for India
+        </h1>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3">
-              <Link
-                href="/calculators"
-                className="inline-flex items-center justify-center gap-2 h-[52px] w-full sm:w-auto rounded-pill bg-brand px-6 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
-              >
-                Explore Calculators <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/blog"
-                className="inline-flex items-center justify-center gap-2 h-[52px] w-full sm:w-auto rounded-pill border border-border px-6 text-sm font-medium text-text hover:border-brand hover:text-brand transition-colors"
-              >
-                Learn Finance
-              </Link>
-            </div>
+        <p className="mt-6 max-w-[560px] text-base leading-relaxed text-text-muted sm:text-lg">
+          Plan your SIP, income tax, EMI, FD and retirement in seconds — accurate, private and instant. Every tool runs in your browser, with no sign-up.
+        </p>
 
-            {/* A plain GET form, so this works with no client JavaScript and
-                keeps the section a server component. It was previously a bare
-                input with no state, no handler and no form: typing and pressing
-                Enter did nothing at all. /search reads the q parameter. */}
-            <form
-              action="/search"
-              method="GET"
-              role="search"
-              className="relative max-w-[520px] mx-auto lg:mx-0"
+        {/* Search is the hero's focal point. A plain GET form, so it needs no
+            client JavaScript and the section stays a server component. */}
+        <form
+          action="/search"
+          method="GET"
+          role="search"
+          className="relative mt-10 w-full max-w-[600px]"
+        >
+          <label htmlFor="hero-search" className="sr-only">
+            Search calculators, guides and tools
+          </label>
+          <Search
+            className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-text-muted"
+            aria-hidden="true"
+          />
+          <input
+            id="hero-search"
+            name="q"
+            type="search"
+            placeholder="Search calculators… SIP, home loan, income tax"
+            className="h-14 w-full rounded-full border border-border bg-white pl-[52px] pr-[112px] text-sm text-text shadow-[0_12px_40px_-16px_rgba(42,167,222,0.45)] outline-none transition-colors focus:border-brand focus:ring-2 focus:ring-brand/20"
+          />
+          <button
+            type="submit"
+            className="absolute right-2 top-1/2 inline-flex h-10 -translate-y-1/2 items-center gap-1.5 rounded-full bg-brand px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            Search
+          </button>
+        </form>
+
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+          <span className="text-xs font-medium text-text-muted">Popular:</span>
+          {QUICK.map((q) => (
+            <Link
+              key={q.label}
+              href={q.href}
+              className="rounded-full border border-border bg-white px-3 py-1.5 text-xs font-medium text-text-muted transition-colors hover:border-brand hover:text-brand"
             >
-              <label htmlFor="hero-search" className="sr-only">
-                Search calculators, guides and tools
-              </label>
-              <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-text-muted pointer-events-none"
-                aria-hidden="true"
-              />
-              <input
-                id="hero-search"
-                name="q"
-                type="search"
-                placeholder="Search calculators, guides, comparisons..."
-                className="w-full h-12 pl-12 pr-4 rounded-input border border-border bg-bg text-sm focus:border-brand"
-              />
-            </form>
-
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
-              {["SIP", "EMI", "Income Tax", "FD"].map((item) => (
-                <Link
-                  key={item}
-                  href={`/calculators/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="rounded-pill border border-border px-3 py-1.5 text-sm text-text-muted hover:text-brand hover:border-brand transition-colors"
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
-
-            <div className="border-t border-border pt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 text-center">
-              {[
-                { n: `${CALC_COUNT}+`, l: "Calculators" },
-                { n: `${GUIDE_COUNT}+`, l: "In-Depth Guides" },
-                { n: `${TOOL_COUNT}+`, l: "Productivity Tools" },
-                { n: "Oct 2026", l: "Last Updated" },
-              ].map(({ n, l }) => (
-                <div key={l}>
-                  <p className="text-2xl sm:text-[28px] font-bold text-text leading-none">{n}</p>
-                  <p className="text-xs sm:text-sm text-text-muted mt-1">{l}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 flex justify-center mt-8 lg:mt-0">
-            <div className="relative w-full max-w-[380px]">
-              <div className="absolute inset-0 mx-auto aspect-square max-w-[320px] sm:max-w-[400px] bg-brand/10 rounded-full blur-3xl" />
-              <div className="relative animate-float bg-white border border-border rounded-2xl shadow-card p-6 sm:p-8">
-                <p className="eyebrow text-brand">SIP Calculator</p>
-                <p className="h3 mt-2 text-text">Monthly Investment</p>
-                <div className="mt-6 space-y-5">
-                  <div>
-                    <p className="small text-text-muted mb-1.5">Monthly SIP Amount</p>
-                    <div className="h-11 rounded-input border border-border flex items-center px-3 text-sm text-text">₹10,000</div>
-                  </div>
-                  <div>
-                    <p className="small text-text-muted mb-1.5">Expected Return (p.a.)</p>
-                    <div className="h-11 rounded-input border border-border flex items-center px-3 text-sm text-text">12%</div>
-                  </div>
-                  <div>
-                    <p className="small text-text-muted mb-1.5">Investment Period</p>
-                    <div className="h-11 rounded-input border border-border flex items-center px-3 text-sm text-text">15 years</div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-border">
-                  <p className="small text-text-muted">Projected Corpus</p>
-                  <p className="text-[28px] sm:text-[32px] font-bold text-accent leading-tight mt-1">₹50.4 Lakh</p>
-                  <div className="flex justify-between text-xs sm:text-sm text-text-muted mt-2">
-                    <span>Invested: ₹18 Lakh</span>
-                    <span>Returns: ₹32.4 Lakh</span>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-1.5 text-sm text-text-muted">
-                  <TrendingUp className="h-4 w-4 text-accent" />
-                  <span>12% CAGR · 15 years</span>
-                </div>
-              </div>
-            </div>
-          </div>
+              {q.label}
+            </Link>
+          ))}
         </div>
+
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
+          <Link
+            href="/calculators"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand px-7 text-sm font-semibold text-white shadow-[0_12px_30px_-10px_rgba(42,167,222,0.6)] transition-opacity hover:opacity-90"
+          >
+            Explore all calculators <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-white px-7 text-sm font-semibold text-text transition-colors hover:border-brand hover:text-brand"
+          >
+            Read guides
+          </Link>
+        </div>
+
+        <div className="mt-16 grid w-full max-w-[600px] grid-cols-3 gap-4 border-t border-border pt-8">
+          {STATS.map(({ n, l }) => (
+            <div key={l}>
+              <p className="text-2xl font-extrabold leading-none text-text sm:text-[28px]">{n}</p>
+              <p className="mt-1.5 text-xs text-text-muted sm:text-sm">{l}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-8 inline-flex items-center gap-1.5 text-xs text-text-muted">
+          <ShieldCheck className="h-3.5 w-3.5 text-brand" aria-hidden="true" />
+          Private by design — every calculation stays in your browser.
+        </p>
       </div>
     </section>
   );

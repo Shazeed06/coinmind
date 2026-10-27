@@ -16,7 +16,7 @@ export function LegalPage({ pill, title, subtitle, lastUpdated, icon, children }
     <div>
       {/* Dark hero - matches header/footer */}
       <section className="relative bg-[#0c1628] overflow-hidden">
-        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
+        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#2aa7de] to-[#2f5bea]" />
         {/* Subtle background glow */}
         <div className="pointer-events-none absolute top-0 right-0 h-[300px] w-[400px] rounded-full bg-[#2f5bea]/6 blur-3xl" />
         <div className="relative container-main py-12 sm:py-16">
@@ -29,12 +29,12 @@ export function LegalPage({ pill, title, subtitle, lastUpdated, icon, children }
 
           <div className="flex items-start gap-4 max-w-[760px]">
             {icon && (
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#2f5bea]/30 to-[#16a34a]/20 border border-[#1e3a5f] flex items-center justify-center shrink-0 mt-1">
+              <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#2f5bea]/30 to-[#2aa7de]/20 border border-[#1e3a5f] flex items-center justify-center shrink-0 mt-1">
                 {icon}
               </div>
             )}
             <div>
-              <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-full px-3 py-1 mb-3">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#5bbce8] bg-[#2aa7de]/10 border border-[#2aa7de]/30 rounded-full px-3 py-1 mb-3">
                 {pill}
               </span>
               {/* inline color: global h1 { color: var(--color-text) } overrides text-white utility */}

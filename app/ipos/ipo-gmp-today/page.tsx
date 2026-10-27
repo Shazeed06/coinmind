@@ -190,11 +190,11 @@ export default function IpoGmpTodayPage() {
                       <td className="px-4 py-3 font-medium text-text whitespace-nowrap">{r.band}</td>
                       <td className="px-4 py-3 whitespace-nowrap">
                         {r.gmpSlug ? (
-                          <Link href={`/ipos/${r.gmpSlug}`} className="text-emerald-600 font-semibold hover:underline underline-offset-2">
+                          <Link href={`/ipos/${r.gmpSlug}`} className="text-sky-600 font-semibold hover:underline underline-offset-2">
                             ₹{r.gmp} ({r.gmpPct})
                           </Link>
                         ) : (
-                          <span className="text-emerald-600 font-semibold">₹{r.gmp} ({r.gmpPct})</span>
+                          <span className="text-sky-600 font-semibold">₹{r.gmp} ({r.gmpPct})</span>
                         )}
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap text-text">₹{(r.upper + r.gmp).toLocaleString("en-IN")}</td>
