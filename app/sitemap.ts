@@ -53,7 +53,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPaths = [
     "", "/calculators", "/tools", "/glossary", "/resume-builder", "/ai-assistant",
-    "/ai-tools", "/news", "/blog", "/sip", "/income-tax", "/investing",
+    "/ai-tools", "/ai-tools/claude-for-finance", "/ai-tools/what-is-mcp", "/ai-tools/mcp-use-cases",
+    "/news", "/blog", "/sip", "/income-tax", "/investing",
     "/loans", "/savings", "/retirement", "/budgeting", "/credit-score", "/gold",
     "/about", "/widgets", "/tax-regime-break-even", "/editorial-standards",
     "/affiliate-disclosure", "/contact", "/privacy", "/disclaimer", "/terms",
