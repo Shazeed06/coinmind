@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { calculators, posts, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
+import { FINANCE_PROMPTS } from "@/lib/financePrompts";
 import { GLOSSARY } from "@/lib/glossary";
 
 // GET /api/indexnow: submits every public URL to IndexNow (Bing, Yandex, Naver,
@@ -43,6 +44,9 @@ function allUrls(): string[] {
     "/tools/gpa-calculator",
     "/ai-assistant",
     "/ai-tools",
+    "/ai-tools/claude-for-finance",
+    "/ai-tools/what-is-mcp",
+    "/ai-tools/mcp-use-cases",
     "/glossary",
     "/news",
     "/blog",
@@ -60,6 +64,8 @@ function allUrls(): string[] {
     ...calculators.filter((c) => c.live).map((c) => `/calculators/${c.slug}`),
     ...posts.filter((p) => !NOINDEX_POST_SLUGS.has(p.slug)).map((p) => `/blog/${p.slug}`),
     ...aiToolDetails.map((d) => `/ai-tools/${d.slug}`),
+    "/finance-prompts",
+    ...FINANCE_PROMPTS.map((p) => `/finance-prompts/${p.slug}`),
     // income-tax, currency and in-hand-salary [slug] clusters are noindexed
     // (templated programmatic pages), so they are intentionally not submitted.
     ...GLOSSARY.map((g) => `/glossary/${g.slug}`),
