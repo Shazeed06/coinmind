@@ -13,10 +13,7 @@ import ArticleShareBar from "@/components/ArticleShareBar";
 import ArticleCalcWidget, { type CalcWidgetType } from "@/components/ArticleCalcWidget";
 import RelatedArticles from "@/components/RelatedArticles";
 import NewsletterCard from "@/components/NewsletterCard";
-import TrustBadges from "@/components/TrustBadges";
-import ArticleTOC from "@/components/ArticleTOC";
-import { Pill, Prose } from "@/components/ui";
-import { tocFromMarkdown } from "@/lib/toc";
+import { Prose } from "@/components/ui";
 import { getKeyTakeaways } from "@/lib/takeaways";
 
 export const dynamicParams = false;
@@ -651,7 +648,6 @@ export default async function Page({
   const { items: faqItems, bodyHasFaqSection } = faqToRender(post);
   const related = getRelatedResources(post.category, post.slug);
   const calcType = calcTypeFor(related.calc.href);
-  const toc = tocFromMarkdown(post.bodyMarkdown);
   const keyTakeaways = getKeyTakeaways(post);
   const articleUrl = `${site.url}/blog/${post.slug}`;
 
@@ -703,62 +699,54 @@ export default async function Page({
   const articleJson = { "@context": "https://schema.org", "@graph": graph };
 
   return (
-    <div>
+    <div className="bleep-article">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJson) }} />
 
-      {/* Uplifted Editorial Hero Section */}
-      <section className="bg-white border-b border-border/60 pt-6 sm:pt-10 pb-8 sm:pb-12">
-        <div className="container-main">
-          {/* Breadcrumb Navigation */}
-          <nav className="flex items-center gap-1.5 text-xs sm:text-sm text-text-muted mb-4" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-brand transition-colors">Home</Link>
+      {/* Hero — Bleep style: centred, airy, on the pale-blue page. */}
+      <section className="pt-8 sm:pt-12 pb-2">
+        <div className="mx-auto max-w-[900px] px-4 sm:px-6 text-center">
+          {/* Breadcrumb — minimal, centred */}
+          <nav className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-ink-soft" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-ink transition-colors">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/blog" className="hover:text-brand transition-colors">Guides</Link>
+            <Link href="/blog" className="hover:text-ink transition-colors">Guides</Link>
             <ChevronRight className="h-3.5 w-3.5 shrink-0" />
-            <span className="text-text truncate">{post.title}</span>
+            <span className="text-ink truncate max-w-[220px] sm:max-w-none">{post.category}</span>
           </nav>
 
-          {/* Meta Tags */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-3">
-            <Pill>{post.category}</Pill>
-            <span className="text-xs text-text-muted font-medium">{post.readMinutes} min read</span>
-            <span className="text-xs text-text-muted">·</span>
-            <span className="text-xs text-text-muted">{post.date}</span>
-          </div>
-
-          {/* Article Title */}
-          <h1 className="h1-article text-text mt-2 max-w-4xl tracking-tight leading-[1.14]">
+          {/* Big, medium-weight, centred title */}
+          <h1 className="mx-auto mt-5 max-w-[820px] font-display text-[2rem] font-medium leading-[1.12] tracking-tight text-[#111] sm:text-[2.5rem] md:text-[2.85rem]">
             {post.title}
           </h1>
 
-          {/* Lead Excerpt */}
-          <p className="mt-4 text-lg sm:text-xl text-text-muted max-w-3xl leading-relaxed">
+          {/* Lead excerpt */}
+          <p className="mx-auto mt-5 max-w-[640px] text-base leading-relaxed text-ink-soft sm:text-lg">
             {post.excerpt}
           </p>
 
-          {/* Author Byline Bar */}
-          <div className="mt-6 flex items-center justify-between gap-4 border-t border-border pt-5">
+          {/* Author + meta + share, centred */}
+          <div className="mt-7 flex flex-col items-center gap-4">
             <div className="flex items-center gap-3">
               <Link href={`/authors/${site.author.slug}`}>
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-brand text-white text-sm font-semibold hover:opacity-90 transition-opacity">
                   {site.author.fullName.charAt(0)}
                 </span>
               </Link>
-              <div className="text-sm">
-                <p className="font-semibold text-text">
-                  <Link href={`/authors/${site.author.slug}`} className="hover:text-brand hover:underline">
+              <div className="text-left text-sm">
+                <p className="font-semibold text-ink">
+                  <Link href={`/authors/${site.author.slug}`} className="hover:underline">
                     {site.author.fullName}
                   </Link>
-                  <span className="font-normal text-text-muted"> · {site.author.credential}</span>
+                  <span className="font-normal text-ink-soft"> · {site.author.credential}</span>
                 </p>
-                <p className="text-xs text-text-muted">{post.date} · {post.readMinutes} min read · Reviewed for accuracy</p>
+                <p className="text-xs text-ink-faint">{post.date} · {post.readMinutes} min read · Reviewed for accuracy</p>
               </div>
             </div>
             <ArticleShareBar url={articleUrl} title={post.title} />
           </div>
 
-          {/* Featured Hero Image - PROMINENTLY VISIBLE ABOVE THE FOLD */}
-          <div className="mt-8 aspect-[16/9] sm:aspect-[21/9] max-h-[460px] w-full rounded-2xl border border-border overflow-hidden shadow-sm bg-slate-900">
+          {/* Featured hero image */}
+          <div className="mt-9 aspect-[16/9] sm:aspect-[2/1] max-h-[480px] w-full overflow-hidden rounded-3xl bg-slate-900 shadow-sm">
             <CoverArt
               seed={post.slug}
               variant={post.art.variant}
@@ -770,83 +758,56 @@ export default async function Page({
         </div>
       </section>
 
-      {/* Main Reading Content Area with generous width */}
-      <div className="container-main py-10 sm:py-14">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Main Article Column: 8 of 12 columns for generous, comfortable reading width */}
-          <article id={`post-${post.slug}`} className="lg:col-span-8 scroll-mt-24">
-            {keyTakeaways.length ? <KeyTakeaways items={keyTakeaways} /> : null}
-            <Prose>
-              {body}
-            </Prose>
+      {/* Article body — one centred reading column, no sidebar. */}
+      <div className="mx-auto max-w-[900px] px-4 sm:px-6 pb-14 pt-10 sm:pt-12">
+        <article id={`post-${post.slug}`} className="scroll-mt-24">
+          {keyTakeaways.length ? <KeyTakeaways items={keyTakeaways} /> : null}
+          <Prose>{body}</Prose>
 
-            {faqItems.length > 0 && (
-              <section className="mt-12 border-t border-border pt-8 scroll-mt-24" id="faq">
-                <h2 className="h3 text-text">
-                  {bodyHasFaqSection
-                    ? "More frequently asked questions"
-                    : "Frequently asked questions"}
-                </h2>
-                <div className="mt-5 space-y-4">
-                  {faqItems.map((f, i) => (
-                    <details
-                      key={i}
-                      className="group rounded-card border border-border bg-bg-alt p-4"
-                    >
-                      <summary className="cursor-pointer list-none text-sm font-semibold text-text marker:hidden">
-                        {f.q}
-                      </summary>
-                      <p className="mt-2 text-sm text-text-muted leading-relaxed">{f.a}</p>
-                    </details>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            <div className="mt-12 border-t border-border pt-8">
-              <AuthorReviewBox />
-            </div>
-
-            <div className="mt-6 p-5 rounded-card bg-bg-alt border border-border text-sm text-text-muted">
-              <strong className="text-text">A note on trust:</strong> this guide is for education, not personalised financial advice.
-              Figures are illustrative. Confirm anything that affects a real decision.
-            </div>
-          </article>
-
-          {/* Sidebar: 4 of 12 columns. Topic-matched live calculator, TOC,
-              related articles and newsletter - consistent across every post. */}
-          <aside className="lg:col-span-4">
-            <div className="space-y-6 article-sidebar">
-              {/* Live, topic-matched calculator (falls back to a CTA card) */}
-              <ArticleCalcWidget
-                type={calcType}
-                href={related.calc.href}
-                label={related.calc.label}
-                desc={related.calc.desc}
-              />
-
-              {/* On this page */}
-              {toc.length >= 3 && <ArticleTOC items={toc} />}
-
-              {/* Topic Hub Crosslink */}
-              <div className="p-4 rounded-card border border-border bg-bg-alt">
-                <p className="eyebrow text-text-muted">Explore Section</p>
-                <Link href={related.hub.href} className="mt-1 block text-sm font-semibold text-text hover:text-brand transition-colors">
-                  {related.hub.label} &rarr;
-                </Link>
+          {faqItems.length > 0 && (
+            <section className="mt-14 border-t border-[#d7e7f0] pt-8 scroll-mt-24" id="faq">
+              <h2 className="font-display text-2xl font-medium text-[#111]">
+                {bodyHasFaqSection
+                  ? "More frequently asked questions"
+                  : "Frequently asked questions"}
+              </h2>
+              <div className="mt-5 space-y-3.5">
+                {faqItems.map((f, i) => (
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-[#d7e7f0] bg-white p-4"
+                  >
+                    <summary className="cursor-pointer list-none text-[15px] font-semibold text-ink marker:hidden">
+                      {f.q}
+                    </summary>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{f.a}</p>
+                  </details>
+                ))}
               </div>
+            </section>
+          )}
 
-              {/* Related articles with thumbnails */}
-              <RelatedArticles posts={more} />
+          <div className="mt-14 border-t border-[#d7e7f0] pt-8">
+            <AuthorReviewBox />
+          </div>
 
-              {/* Newsletter signup */}
-              <NewsletterCard />
-            </div>
-          </aside>
-        </div>
+          <div className="mt-6 rounded-2xl border border-[#d7e7f0] bg-white p-5 text-sm text-ink-soft">
+            <strong className="text-ink">A note on trust:</strong> this guide is for education, not personalised financial advice.
+            Figures are illustrative. Confirm anything that affects a real decision.
+          </div>
 
-        {/* Trust strip - full width below the article, same on every post */}
-        <TrustBadges />
+          {/* End-of-article resources, stacked in the single column. */}
+          <div className="mt-12 space-y-6">
+            <ArticleCalcWidget
+              type={calcType}
+              href={related.calc.href}
+              label={related.calc.label}
+              desc={related.calc.desc}
+            />
+            <RelatedArticles posts={more} />
+            <NewsletterCard />
+          </div>
+        </article>
       </div>
     </div>
   );
