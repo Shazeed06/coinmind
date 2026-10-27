@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { calculators, posts, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
+import { FINANCE_PROMPTS } from "@/lib/financePrompts";
 import { newsArticles } from "@/lib/newsArticles";
 import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
@@ -54,6 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "", "/calculators", "/tools", "/glossary", "/resume-builder", "/ai-assistant",
     "/ai-tools", "/ai-tools/claude-for-finance", "/ai-tools/what-is-mcp", "/ai-tools/mcp-use-cases",
+    "/finance-prompts",
     "/news", "/blog", "/sip", "/income-tax", "/investing",
     "/loans", "/savings", "/retirement", "/budgeting", "/credit-score", "/gold",
     "/about", "/widgets", "/tax-regime-break-even", "/editorial-standards",
@@ -104,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // AI tool details
   aiToolDetails.forEach((d) => entries.push({ path: `/ai-tools/${d.slug}` }));
+  FINANCE_PROMPTS.forEach((p) => entries.push({ path: `/finance-prompts/${p.slug}` }));
 
   // Keeper tool pages (excluding deleted + noindex)
   const keeperTools = [

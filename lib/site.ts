@@ -135,6 +135,7 @@ export const navMenus: NavMenu[] = [
       { label: "Claude", href: "/ai-tools/claude", desc: "Best for writing & analysis", icon: "sparkles", group: "AI tools" },
       { label: "Gemini", href: "/ai-tools/gemini", desc: "Best Indic language support", icon: "sparkles", group: "AI tools" },
       { label: "DeepSeek", href: "/ai-tools/deepseek", desc: "Frontier quality, free", icon: "sparkles", group: "AI tools" },
+      { label: "Finance Prompts", href: "/finance-prompts", desc: "20 premium AI prompts", icon: "sparkles", group: "Guides" },
       { label: "Claude for Finance", href: "/ai-tools/claude-for-finance", desc: "5 ways + ready prompts", icon: "sparkles", group: "Guides" },
       { label: "What is MCP?", href: "/ai-tools/what-is-mcp", desc: "Model Context Protocol explained", icon: "book", group: "Guides" },
       { label: "What MCP Can Do", href: "/ai-tools/mcp-use-cases", desc: "Use cases, servers & setup", icon: "book", group: "Guides" },
