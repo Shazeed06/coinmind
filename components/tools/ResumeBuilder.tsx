@@ -308,10 +308,21 @@ export default function ResumeBuilder() {
 
   return (
     <div className="resume-builder">
-      {/* Print rules: only the preview is visible when printing. */}
+      {/* A4 paper sizing (screen) + print rules (only the preview prints). */}
       <style>{`
+        .resume-paper {
+          width: 100%;
+          max-width: 794px;         /* 210mm @ 96dpi — true A4 width */
+          aspect-ratio: 210 / 297;  /* true A4 shape; grows taller if the
+                                       content runs past one page */
+          margin-inline: auto;
+          padding: 48px 56px;       /* ~13–15mm reading margins */
+        }
+        @media (max-width: 480px) {
+          .resume-paper { padding: 28px 24px; aspect-ratio: auto; }
+        }
         @media print {
-          @page { margin: 14mm; }
+          @page { size: A4; margin: 0; }
           html, body { background: #ffffff !important; }
           body * { visibility: hidden !important; }
           #resume-preview, #resume-preview * { visibility: visible !important; }
@@ -319,9 +330,11 @@ export default function ResumeBuilder() {
             position: absolute;
             left: 0;
             top: 0;
-            width: 100%;
+            width: 210mm;
+            min-height: 297mm;
+            max-width: none;
             margin: 0;
-            padding: 0;
+            padding: 14mm 15mm;      /* page margins live here, not on @page */
             border: none !important;
             box-shadow: none !important;
             border-radius: 0 !important;
@@ -352,7 +365,7 @@ export default function ResumeBuilder() {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid gap-8 lg:grid-cols-[minmax(340px,400px)_minmax(0,1fr)] lg:items-start">
         {/* ---------------------------------------------------------------- */}
         {/* LEFT: the form                                                  */}
         {/* ---------------------------------------------------------------- */}
@@ -689,10 +702,10 @@ export default function ResumeBuilder() {
         {/* ---------------------------------------------------------------- */}
         {/* RIGHT: live preview                                             */}
         {/* ---------------------------------------------------------------- */}
-        <div className="lg:sticky lg:top-6 self-start">
+        <div className="w-full">
           <div
             id="resume-preview"
-            className="resume-paper rounded-2xl border border-line bg-white p-8 sm:p-10 shadow-sm"
+            className="resume-paper rounded-lg border border-line bg-white shadow-md"
           >
             {/* Header */}
             <header className="border-b border-[#e5e7f2] pb-5">
