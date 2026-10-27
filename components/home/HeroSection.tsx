@@ -11,11 +11,11 @@ const TOOL_COUNT = 24;
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden bg-gradient-to-b from-[#f3f1fe] via-[#faf9ff] to-white">
-      {/* Soft lavender glows give the hero the PixVibe gradient wash without a
+    <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden bg-gradient-to-b from-[#eef6f9] via-[#f6fbfd] to-white">
+      {/* Soft sky-blue / rust glows give the hero a gradient wash without a
           background image. */}
-      <div className="pointer-events-none absolute -top-32 right-0 h-[520px] w-[520px] rounded-full bg-[#cdbdf8]/45 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none absolute -left-24 top-1/3 h-[360px] w-[360px] rounded-full bg-[#6d5ef0]/10 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -top-32 right-0 h-[520px] w-[520px] rounded-full bg-[#2aa7de]/25 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-24 top-1/3 h-[360px] w-[360px] rounded-full bg-[#2aa7de]/10 blur-3xl" aria-hidden="true" />
       <div className="relative container-main w-full py-12 sm:py-16">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-6 space-y-6 text-center lg:text-left">

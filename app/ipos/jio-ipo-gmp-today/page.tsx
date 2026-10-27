@@ -130,31 +130,31 @@ export default function JioIpoGmpTodayPage() {
         <div className="container-main max-w-[900px] py-10 sm:py-14 space-y-8">
 
           {/* GMP headline card */}
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-            <p className="text-xs text-emerald-700 font-semibold uppercase tracking-wide">Jio IPO GMP (as of 18 Oct 2026)</p>
+          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+            <p className="text-xs text-sky-700 font-semibold uppercase tracking-wide">Jio IPO GMP (as of 18 Oct 2026)</p>
             <div className="mt-1 flex flex-wrap items-end gap-x-4 gap-y-1">
-              <p className="text-4xl font-extrabold text-emerald-700">₹{GMP}</p>
-              <p className="text-xl font-bold text-emerald-700">(+{gmpPct}%)</p>
+              <p className="text-4xl font-extrabold text-sky-700">₹{GMP}</p>
+              <p className="text-xl font-bold text-sky-700">(+{gmpPct}%)</p>
             </div>
             <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="rounded-lg bg-white border border-emerald-100 p-3">
+              <div className="rounded-lg bg-white border border-sky-100 p-3">
                 <p className="text-xs text-text-muted">Upper Band</p>
                 <p className="text-lg font-bold text-text">₹{UPPER_BAND}</p>
               </div>
-              <div className="rounded-lg bg-white border border-emerald-100 p-3">
+              <div className="rounded-lg bg-white border border-sky-100 p-3">
                 <p className="text-xs text-text-muted">GMP</p>
-                <p className="text-lg font-bold text-emerald-700">+₹{GMP}</p>
+                <p className="text-lg font-bold text-sky-700">+₹{GMP}</p>
               </div>
-              <div className="rounded-lg bg-white border border-emerald-100 p-3">
+              <div className="rounded-lg bg-white border border-sky-100 p-3">
                 <p className="text-xs text-text-muted">Implied Listing</p>
                 <p className="text-lg font-bold text-text">₹{impliedListing}</p>
               </div>
-              <div className="rounded-lg bg-white border border-emerald-100 p-3">
+              <div className="rounded-lg bg-white border border-sky-100 p-3">
                 <p className="text-xs text-text-muted">Est. Gain</p>
-                <p className="text-lg font-bold text-emerald-700">+{gmpPct}%</p>
+                <p className="text-lg font-bold text-sky-700">+{gmpPct}%</p>
               </div>
             </div>
-            <p className="text-[11px] text-emerald-700 mt-3">
+            <p className="text-[11px] text-sky-700 mt-3">
               Implied listing = upper band (₹{UPPER_BAND}) + GMP (₹{GMP}) = ₹{impliedListing}. This is a grey-market estimate, not the actual listing price.
             </p>
           </div>
@@ -168,7 +168,7 @@ export default function JioIpoGmpTodayPage() {
                   <span className="text-xs text-text-muted w-24 shrink-0">{d.date}</span>
                   <div className="flex-1 h-5 rounded bg-bg-alt overflow-hidden">
                     <div
-                      className="h-full rounded bg-emerald-500/80 flex items-center justify-end pr-2"
+                      className="h-full rounded bg-sky-500/80 flex items-center justify-end pr-2"
                       style={{ width: `${(d.gmp / maxGmp) * 100}%` }}
                     >
                       <span className="text-[10px] font-semibold text-white">₹{d.gmp}</span>

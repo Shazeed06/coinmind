@@ -161,7 +161,7 @@ export default function NseIpoPage() {
           <div className="flex flex-wrap items-center gap-2 mb-3">
             <span className="text-[10px] font-bold uppercase tracking-widest text-brand bg-brand/10 border border-brand/20 rounded-full px-3 py-1">Mainboard IPO</span>
             <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-3 py-1">● Listed 24 Sep 2026</span>
-            <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">Debut +0.84%</span>
+            <span className="text-[10px] font-semibold text-sky-700 bg-sky-50 border border-sky-200 rounded-full px-3 py-1">Debut +0.84%</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">
@@ -186,7 +186,7 @@ export default function NseIpoPage() {
             <div className="h-10 w-px bg-border hidden sm:block" />
             <div>
               <p className="text-xs text-text-muted font-semibold uppercase tracking-wide">Listed At</p>
-              <p className="text-2xl font-extrabold text-emerald-700">₹1,800 <span className="text-base font-semibold">(+0.84%)</span></p>
+              <p className="text-2xl font-extrabold text-sky-700">₹1,800 <span className="text-base font-semibold">(+0.84%)</span></p>
             </div>
             <div className="h-10 w-px bg-border hidden sm:block" />
             <div>
@@ -265,11 +265,11 @@ export default function NseIpoPage() {
 
           {/* Pros & Cons */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h2 className="font-bold text-emerald-800 mb-3">✅ Long-term Strengths</h2>
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+              <h2 className="font-bold text-sky-800 mb-3">✅ Long-term Strengths</h2>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
-                  <li key={i} className="flex gap-2 text-sm text-emerald-800">
+                  <li key={i} className="flex gap-2 text-sm text-sky-800">
                     <span className="mt-0.5 shrink-0">•</span>
                     <span>{p}</span>
                   </li>

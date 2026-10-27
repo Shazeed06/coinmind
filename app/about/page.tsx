@@ -26,14 +26,14 @@ export default function Page() {
 
       {/* Dark hero */}
       <section className="relative bg-[#0c1628] overflow-hidden">
-        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
+        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#2aa7de] to-[#2f5bea]" />
         {/* Background glows */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute -top-24 right-0 h-[400px] w-[400px] rounded-full bg-[#2f5bea]/8 blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 h-[250px] w-[350px] rounded-full bg-[#16a34a]/6 blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 h-[250px] w-[350px] rounded-full bg-[#2aa7de]/6 blur-3xl" />
         </div>
         <div className="relative container-main py-14 sm:py-18">
-          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#4ade80] bg-[#16a34a]/10 border border-[#16a34a]/30 rounded-full px-3 py-1 mb-5">
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#5bbce8] bg-[#2aa7de]/10 border border-[#2aa7de]/30 rounded-full px-3 py-1 mb-5">
             About CoinMind
           </span>
           {/* inline color: global h1 { color: var(--color-text) } overrides text-white utility */}

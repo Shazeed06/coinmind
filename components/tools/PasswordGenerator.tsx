@@ -90,7 +90,7 @@ const STRENGTH = [
   { label: "Weak", color: "#db2777" }, // berry
   { label: "Fair", color: "#d97706" }, // amber (status)
   { label: "Strong", color: "#2563eb" }, // forest
-  { label: "Very strong", color: "#16a34a" }, // brass
+  { label: "Very strong", color: "#2aa7de" }, // brass
 ] as const;
 
 function strengthFor(length: number, poolSize: number) {

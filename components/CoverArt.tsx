@@ -297,7 +297,7 @@ export default function CoverArt({
       {displayLabel && (
         <div className="absolute bottom-4 left-4 z-10">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
             {displayLabel}
           </span>
         </div>

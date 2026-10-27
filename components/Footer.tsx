@@ -7,7 +7,7 @@ import { ArrowUp, Send, ShieldCheck, Lock, Users } from "lucide-react";
 import { LogoMark } from "./Logo";
 
 const TRUST = [
-  { Icon: ShieldCheck, color: "#4ade80", title: "100% Free", sub: "Always free for everyone" },
+  { Icon: ShieldCheck, color: "#5bbce8", title: "100% Free", sub: "Always free for everyone" },
   { Icon: Lock, color: "#6b9cff", title: "No Sign-Up", sub: "Start using instantly" },
   { Icon: Users, color: "#2dd4bf", title: "Trusted by Thousands", sub: "Used across India" },
 ];
@@ -29,7 +29,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0a1220] text-white">
-      <div className="h-[3px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
+      <div className="h-[3px] bg-gradient-to-r from-[#2f5bea] via-[#2aa7de] to-[#2f5bea]" />
 
       <div className="container-main py-11 lg:py-14">
         <div className="grid gap-x-8 gap-y-10 lg:grid-cols-12">
@@ -39,7 +39,7 @@ export default function Footer() {
               <LogoMark className="h-9 w-9 shrink-0" />
               <span className="text-[1.4rem] font-700 lowercase leading-none tracking-tight">
                 <span className="text-[#6b9cff]">coin</span>
-                <span className="text-[#4ade80]">mind</span>
+                <span className="text-[#5bbce8]">mind</span>
               </span>
             </span>
             <p className="max-w-[320px] text-sm leading-relaxed text-slate-400">
@@ -85,7 +85,7 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="lg:col-span-3">
             <div className="rounded-2xl border border-[#1e2a44] bg-[#0e1830] p-6">
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#16a34a] text-white shadow-[0_8px_24px_-6px_rgba(22,163,74,0.7)]">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#2aa7de] text-white shadow-[0_8px_24px_-6px_rgba(22,163,74,0.7)]">
                 <Send className="h-5 w-5" />
               </span>
               <p className="mt-4 text-[1.15rem] font-700 leading-snug text-white">
@@ -107,11 +107,11 @@ export default function Footer() {
                     onChange={(e) => { setEmail(e.target.value); if (error) setError(""); }}
                     placeholder="Enter your email address"
                     aria-label="Email address"
-                    className="w-full rounded-xl border border-[#1e2a44] bg-[#0a1220] px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-[#16a34a]"
+                    className="w-full rounded-xl border border-[#1e2a44] bg-[#0a1220] px-4 py-3 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-[#2aa7de]"
                   />
                   <button
                     type="submit"
-                    className="mt-2.5 flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#16a34a] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#15803d]"
+                    className="mt-2.5 flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#2aa7de] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1f87b5]"
                   >
                     Subscribe Now <ArrowUp className="h-4 w-4 rotate-45" />
                   </button>

@@ -148,7 +148,7 @@ const BIG_UPCOMING = [
 ];
 
 const STATUS_STYLE: Record<string, string> = {
-  "Open": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
+  "Open": "bg-sky-100 text-sky-800 dark:bg-sky-900/30 dark:text-sky-300",
   "Upcoming": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
   "Listing Soon": "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
   "Allotment": "bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300",
@@ -160,7 +160,7 @@ function GmpBadge({ gmp, gmpPct }: { gmp?: string; gmpPct?: string }) {
   const positive = gmpPct && gmpPct.startsWith("+") && gmpPct !== "+0%";
   const zero = gmpPct === "0%" || gmp === "₹0";
   return (
-    <span className={`text-xs font-semibold ${positive ? "text-emerald-600" : zero ? "text-slate-400" : "text-red-500"}`}>
+    <span className={`text-xs font-semibold ${positive ? "text-sky-600" : zero ? "text-slate-400" : "text-red-500"}`}>
       {gmp} {gmpPct ? `(${gmpPct})` : ""}
     </span>
   );
@@ -196,7 +196,7 @@ function IpoTable({ ipos, title, note }: { ipos: IPO[]; title: string; note?: st
                     <span className="block text-xs text-text-muted mt-0.5">{ipo.issueSize}</span>
                   )}
                   {ipo.result && (
-                    <span className="block text-xs text-emerald-600 mt-0.5">{ipo.result}</span>
+                    <span className="block text-xs text-sky-600 mt-0.5">{ipo.result}</span>
                   )}
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap">
@@ -297,7 +297,7 @@ export default function IpoPage() {
           <div className="mb-10 rounded-2xl border border-brand/20 bg-gradient-to-br from-brand/5 to-transparent p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-brand rounded-full px-3 py-1">Spotlight</span>
-              <span className="text-xs font-semibold text-emerald-700">Subscribed ~21.4x · Lists 28 Oct · GMP ~₹248 (+22%)</span>
+              <span className="text-xs font-semibold text-sky-700">Subscribed ~21.4x · Lists 28 Oct · GMP ~₹248 (+22%)</span>
             </div>
             <h2 className="text-xl font-bold text-text">Reliance Jio Platforms IPO - India&apos;s Biggest-Ever IPO</h2>
             <p className="mt-2 text-sm text-text-muted max-w-2xl">

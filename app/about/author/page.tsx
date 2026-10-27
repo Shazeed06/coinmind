@@ -57,7 +57,7 @@ export default function AuthorPage() {
 
       {/* Hero - dark gradient */}
       <section className="bg-[#0c1628] text-white">
-        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#16a34a] to-[#2f5bea]" />
+        <div className="h-[2px] bg-gradient-to-r from-[#2f5bea] via-[#2aa7de] to-[#2f5bea]" />
         <div className="container-main py-16 sm:py-20">
           <nav className="flex items-center gap-1.5 text-sm text-slate-500 mb-10">
             <Link href="/about" className="hover:text-slate-300 transition-colors">About</Link>
@@ -68,10 +68,10 @@ export default function AuthorPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             {/* Avatar */}
             <div className="relative shrink-0">
-              <div className="h-20 w-20 rounded-2xl bg-gradient-to-br from-[#2f5bea] to-[#16a34a] flex items-center justify-center text-3xl font-bold text-white shadow-[0_0_32px_rgba(47,91,234,0.4)]">
+              <div className="h-20 w-20 rounded-2xl bg-gradient-to-br from-[#2f5bea] to-[#2aa7de] flex items-center justify-center text-3xl font-bold text-white shadow-[0_0_32px_rgba(47,91,234,0.4)]">
                 {site.author.fullName.charAt(0)}
               </div>
-              <span className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full bg-[#16a34a] border-2 border-[#0c1628] flex items-center justify-center">
+              <span className="absolute -bottom-1 -right-1 h-5 w-5 rounded-full bg-[#2aa7de] border-2 border-[#0c1628] flex items-center justify-center">
                 <CheckCircle className="h-3 w-3 text-white" />
               </span>
             </div>
@@ -85,7 +85,7 @@ export default function AuthorPage() {
               <p className="text-[#6b9cff] font-semibold mt-2 text-lg">{site.author.role}, CoinMind</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1e3a5f] bg-[#0f2040] px-3 py-1 text-xs text-slate-400">
-                  <Shield className="h-3 w-3 text-[#4ade80]" />
+                  <Shield className="h-3 w-3 text-[#5bbce8]" />
                   CA Final - ICAI
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1e3a5f] bg-[#0f2040] px-3 py-1 text-xs text-slate-400">

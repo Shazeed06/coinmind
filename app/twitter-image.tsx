@@ -15,7 +15,7 @@ export default function TwitterImage() {
           alignItems: "flex-start",
           justifyContent: "center",
           padding: "60px 80px",
-          background: "linear-gradient(135deg, #0b1e33 0%, #153e6b 40%, #166534 100%)",
+          background: "linear-gradient(135deg, #0b1e33 0%, #153e6b 40%, #16517d 100%)",
           fontFamily: "system-ui, sans-serif",
         }}
       >
@@ -27,7 +27,7 @@ export default function TwitterImage() {
             marginBottom: 24,
           }}
         >
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="#10b981">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="#2aa7de">
             <circle cx="12" cy="12" r="10" />
             <path d="M12 6v6l4 2" stroke="#fff" strokeWidth="2" fill="none" />
           </svg>

@@ -146,7 +146,7 @@ export default function RelianceJioIpoPage() {
               ← IPO Calendar
             </Link>
           </div>
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-semibold text-sky-300">
             CLOSED · SUBSCRIBED ~21.4x · LISTS 28 OCT 2026
           </div>
           <h1 style={{ color: "#ffffff" }} className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
@@ -170,7 +170,7 @@ export default function RelianceJioIpoPage() {
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">GMP (25 Oct)</p>
-              <p className="text-xl font-bold text-emerald-300">~₹248 (+22%)</p>
+              <p className="text-xl font-bold text-sky-300">~₹248 (+22%)</p>
             </div>
             <div className="rounded-xl bg-white/10 border border-white/10 px-5 py-3 text-center">
               <p className="text-xs text-white/50 mb-1">Listing</p>
@@ -245,13 +245,13 @@ export default function RelianceJioIpoPage() {
         <section>
           <h2 className="text-xl font-bold text-text mb-4">Pros &amp; Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
-              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3 flex items-center gap-2">
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 dark:bg-sky-900/10 dark:border-sky-800 p-4">
+              <h3 className="text-sm font-bold text-sky-700 dark:text-sky-400 mb-3 flex items-center gap-2">
                 <span className="text-base">✓</span> Strengths
               </h3>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
-                  <li key={i} className="text-sm text-green-800 dark:text-green-300 flex gap-2">
+                  <li key={i} className="text-sm text-sky-800 dark:text-sky-300 flex gap-2">
                     <span className="shrink-0 mt-0.5">•</span>{p}
                   </li>
                 ))}

@@ -15,7 +15,7 @@ interface Section {
 
 function gradeColor(pct: number) {
   if (pct >= 80) return { text: "text-forest", bg: "bg-forest", label: "A", desc: "Excellent" };
-  if (pct >= 60) return { text: "text-lime-600", bg: "bg-lime-500", label: "B", desc: "Good" };
+  if (pct >= 60) return { text: "text-sky-600", bg: "bg-sky-500", label: "B", desc: "Good" };
   if (pct >= 40) return { text: "text-brass", bg: "bg-brass", label: "C", desc: "Fair" };
   return { text: "text-red-500", bg: "bg-red-500", label: "D", desc: "Needs work" };
 }

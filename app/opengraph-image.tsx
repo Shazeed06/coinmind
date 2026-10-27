@@ -35,14 +35,14 @@ export default function OgImage() {
               strokeDasharray="72 22.2"
               transform="rotate(-4 20 20)"
             />
-            <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="#16a34a" />
-            <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="#16a34a" />
-            <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="#16a34a" />
-            <circle cx="25.7" cy="8.6" r="2.7" fill="#16a34a" />
+            <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="#2aa7de" />
+            <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="#2aa7de" />
+            <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="#2aa7de" />
+            <circle cx="25.7" cy="8.6" r="2.7" fill="#2aa7de" />
           </svg>
           <div style={{ display: "flex", fontSize: 40, fontWeight: 700 }}>
             <span style={{ color: "#2563eb" }}>coin</span>
-            <span style={{ color: "#16a34a" }}>mind</span>
+            <span style={{ color: "#2aa7de" }}>mind</span>
           </div>
         </div>
 
@@ -67,7 +67,7 @@ export default function OgImage() {
         {/* Footer bar */}
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ height: 8, width: 64, background: "#2563eb", borderRadius: 999 }} />
-          <div style={{ height: 8, width: 32, background: "#16a34a", borderRadius: 999 }} />
+          <div style={{ height: 8, width: 32, background: "#2aa7de", borderRadius: 999 }} />
           <div style={{ fontSize: 26, color: "#6b7288", marginLeft: 8 }}>coinmind.in</div>
         </div>
       </div>

@@ -217,11 +217,11 @@ export default function PhonePeIpoPage() {
         <section>
           <h2 className="text-xl font-bold text-text mb-4">Pros & Cons - Should You Wait?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-green-200 bg-green-50 dark:bg-green-900/10 dark:border-green-800 p-4">
-              <h3 className="text-sm font-bold text-green-700 dark:text-green-400 mb-3">✓ Strengths</h3>
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 dark:bg-sky-900/10 dark:border-sky-800 p-4">
+              <h3 className="text-sm font-bold text-sky-700 dark:text-sky-400 mb-3">✓ Strengths</h3>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
-                  <li key={i} className="text-sm text-green-800 dark:text-green-300 flex gap-2">
+                  <li key={i} className="text-sm text-sky-800 dark:text-sky-300 flex gap-2">
                     <span className="shrink-0 mt-0.5">•</span>{p}
                   </li>
                 ))}

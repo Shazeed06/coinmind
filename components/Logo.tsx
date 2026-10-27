@@ -4,7 +4,7 @@ export default function Logo({ className = "" }: { className?: string }) {
       <LogoMark className="h-9 w-9 shrink-0" />
       <span className="text-[1.4rem] font-700 tracking-tight lowercase leading-none">
         <span className="text-brand">coin</span>
-        <span className="text-purple">mind</span>
+        <span className="text-accent">mind</span>
       </span>
     </span>
   );
@@ -13,11 +13,11 @@ export default function Logo({ className = "" }: { className?: string }) {
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={className} aria-hidden="true" fill="none">
-      <circle cx="20" cy="20" r="15" fill="none" stroke="#18172D" strokeWidth="4.4" strokeLinecap="round" strokeDasharray="72 22.2" transform="rotate(-4 20 20)" />
-      <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="#18172D" />
-      <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="#18172D" />
-      <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="#18172D" />
-      <circle cx="25.7" cy="8.6" r="2.7" fill="#6D5EF0" />
+      <circle cx="20" cy="20" r="15" fill="none" stroke="#2AA7DE" strokeWidth="4.4" strokeLinecap="round" strokeDasharray="72 22.2" transform="rotate(-4 20 20)" />
+      <rect x="12.5" y="22" width="3.6" height="8.5" rx="1.6" fill="#2AA7DE" />
+      <rect x="18.2" y="18" width="3.6" height="12.5" rx="1.6" fill="#2AA7DE" />
+      <rect x="23.9" y="13.5" width="3.6" height="17" rx="1.6" fill="#2AA7DE" />
+      <circle cx="25.7" cy="8.6" r="2.7" fill="#16517d" />
     </svg>
   );
 }
