@@ -146,6 +146,14 @@ The second is chasing last year's best-performing fund each year, which reliably
         q: "What happens if my SIP debit fails?",
         a: "One failed debit is not a default. The instalment is simply missed, your bank may levy a mandate bounce charge, and the SIP continues next month. Most fund houses cancel the SIP only after three or so consecutive failures, and you can restart it at any time.",
       },
+      {
+        q: "What is the full form of SIP?",
+        a: "SIP stands for Systematic Investment Plan. It is a way of investing a fixed amount in a mutual fund at regular intervals, usually monthly, instead of a lump sum. The amount is auto-debited from your bank account on a set date and buys fund units at that day's NAV, so investing becomes automatic.",
+      },
+      {
+        q: "How does a SIP work?",
+        a: "You choose a mutual fund, an amount and a date, and set up a bank mandate. On that date each month the money is debited automatically and buys units at the prevailing NAV. When prices are low the same amount buys more units and when high it buys fewer, which averages out your cost over time.",
+      },
     ],
     related: ["mutual-fund", "rupee-cost-averaging", "lumpsum", "compound-interest"],
     relatedHref: "/calculators/sip",
@@ -237,6 +245,14 @@ You can invest through a [SIP](/glossary/sip) for regular monthly amounts or a o
         q: "Do mutual funds pay dividends in India?",
         a: "Some schemes offer an IDCW option, formerly called the dividend option, which pays out part of the gains. The payout is not extra money: the NAV falls by the same amount, and the receipt is taxed at your slab rate. The growth option is usually the more tax-efficient default.",
       },
+      {
+        q: "What does mutual fund mean?",
+        a: "A mutual fund is an investment vehicle that pools money from many investors and has a professional manager invest it across stocks, bonds or other assets. You do not own the underlying securities directly; you own units, and each unit's value, called the NAV, rises and falls with whatever the fund holds.",
+      },
+      {
+        q: "How does a mutual fund work?",
+        a: "Your money is combined with other investors' into one portfolio run by an asset management company registered with SEBI. The manager buys securities according to the scheme's mandate, and you are allotted units at the day's NAV. Any gain stays in the unit price until you redeem, when it becomes a taxable capital gain.",
+      },
     ],
     related: ["sip", "nav", "etf", "index-fund", "demat-account"],
     relatedHref: "/calculators/sip",
@@ -325,6 +341,10 @@ It is a poor fit for an [emergency fund](/glossary/emergency-fund), because the 
       {
         q: "Which is better, PPF or ELSS?",
         a: "They serve different roles. PPF gives a guaranteed, tax-free return with a 15 year lock-in. ELSS invests in equity, has only a three year lock-in per instalment, and has historically returned more over long periods, but with real volatility and taxable gains. Many investors hold both rather than choosing.",
+      },
+      {
+        q: "How does a PPF account work?",
+        a: "You open a PPF account at a post office or bank and deposit between Rs 500 and Rs 1.5 lakh in a financial year for a 15 year term. The government sets the interest rate each quarter and it compounds annually. The contribution, the interest and the maturity amount are all tax-free under the old regime.",
       },
     ],
     related: ["epf", "nps", "elss", "section-80c", "fixed-deposit"],
@@ -416,6 +436,10 @@ A common sequence is: EPF happens on its own, PPF or ELSS fills the Section 80C 
       {
         q: "Can I change my NPS fund manager or asset allocation?",
         a: "Yes. PFRDA allows you to switch your pension fund manager and to change your allocation between active and auto choice, with a limited number of free changes each financial year. The switch happens within the same account, so it does not trigger a withdrawal or a tax event.",
+      },
+      {
+        q: "How does the NPS work?",
+        a: "You contribute to a Tier I pension account through your working years, and professional fund managers invest it across equity, corporate bonds and government securities. At 60, under current rules up to 60% of the corpus can be withdrawn tax-free and at least 40% must buy an annuity that pays a monthly pension for life.",
       },
     ],
     related: ["epf", "ppf", "section-80c", "compound-interest"],
@@ -509,6 +533,10 @@ EPF sits alongside [gratuity](/glossary/gratuity) and [NPS](/glossary/nps) as th
         q: "What is VPF and is it worth it?",
         a: "Voluntary Provident Fund lets you contribute more than the mandatory 12% into the same account at the same interest rate, with no employer matching. For a conservative saver who has already used the Rs 1.5 lakh PPF cap, it is usually the best fixed-income option available, subject to the taxable-interest threshold on large contributions.",
       },
+      {
+        q: "How does EPF work?",
+        a: "For covered salaried employees, 12% of basic salary plus dearness allowance is deducted each month and the employer adds a matching 12%. Of the employer's share, 3.67% goes into your EPF balance and 8.33% to the pension scheme. The balance earns an annually declared rate and is tracked through your UAN across jobs.",
+      },
     ],
     related: ["ppf", "nps", "gratuity", "section-80c"],
     relatedHref: "/calculators/epf",
@@ -519,7 +547,7 @@ EPF sits alongside [gratuity](/glossary/gratuity) and [NPS](/glossary/nps) as th
     term: "ELSS",
     category: "Investing",
     short:
-      "An ELSS is a tax-saving equity mutual fund that qualifies for Section 80C and has just a three-year lock-in, the shortest of any 80C option.",
+      "An ELSS (Equity Linked Savings Scheme) is a tax-saving equity mutual fund that qualifies for Section 80C, with a three-year lock-in, the shortest 80C option.",
     bodyMarkdown: `An Equity Linked Savings Scheme is an ordinary equity [mutual fund](/glossary/mutual-fund) with one extra feature: money you put into it qualifies for a deduction under [Section 80C](/glossary/section-80c), and in exchange each investment is locked for three years. SEBI requires an ELSS to keep at least 65% of its portfolio in equity, so it behaves like a diversified equity fund, not a safe savings product.
 
 It is the only Section 80C option that gives you meaningful stock market exposure, and it has the shortest lock-in of the lot.
@@ -596,6 +624,14 @@ The three way trade is straightforward. ELSS offers the highest long-run potenti
       {
         q: "Should I sell my ELSS as soon as the lock-in ends?",
         a: "Not automatically. Once the three years pass, an ELSS behaves like any other equity fund with no restrictions. If the scheme is performing reasonably and you do not need the money, staying invested lets compounding continue. Sell only if the fund is genuinely underperforming or you have a real use for the money.",
+      },
+      {
+        q: "What is the full form of ELSS?",
+        a: "ELSS stands for Equity Linked Savings Scheme. It is a tax-saving equity mutual fund that qualifies for a Section 80C deduction under the old regime and, by SEBI rules, keeps at least 65% in equity. Each investment is locked for three years, the shortest lock-in of any Section 80C option.",
+      },
+      {
+        q: "How does an ELSS work?",
+        a: "You invest in an ELSS as a lump sum or through a SIP, and the amount, up to Rs 1.5 lakh a year, reduces your taxable income under Section 80C in the old regime. The money is locked for three years from each purchase date, after which it behaves like a normal equity fund you can redeem anytime.",
       },
     ],
     related: ["mutual-fund", "section-80c", "ppf", "sip", "capital-gains"],
@@ -685,6 +721,10 @@ Use it for two things only: to work out how many units you hold, and to track th
         q: "Can a mutual fund NAV become zero?",
         a: "Effectively no for a diversified fund, because it would require every holding to become worthless simultaneously. NAV can fall sharply in a market crash or, for a debt fund, if a large issuer defaults and the holding is written down. Falling significantly is possible; going to zero is not realistic.",
       },
+      {
+        q: "How is a mutual fund's NAV calculated?",
+        a: "The fund adds up the market value of everything it holds, subtracts its liabilities and expenses, and divides by the total number of units outstanding. Indian funds do this once a day after markets close and publish a single NAV, which is the per-unit price at which you buy and redeem units.",
+      },
     ],
     related: ["mutual-fund", "etf", "index-fund", "expense-ratio"],
   },
@@ -761,6 +801,10 @@ Either way you get instant [diversification](/glossary/diversification) at a low
       {
         q: "Why is an ETF cheaper than an actively managed fund?",
         a: "Because it is passive. It mirrors an index rather than paying a research team to select stocks, so there is no research budget to recover. Large Indian index ETFs often charge a small fraction of what an active fund charges, and that gap compounds substantially across a working lifetime.",
+      },
+      {
+        q: "How does an ETF work?",
+        a: "An ETF holds a basket of securities, usually mirroring an index, and its units are listed on a stock exchange. You buy and sell them through a demat and trading account at live market prices during the session, transacting with other investors rather than the fund house, which is why the price moves through the day.",
       },
     ],
     related: ["index-fund", "mutual-fund", "nav", "demat-account", "diversification"],
@@ -853,6 +897,10 @@ It also does not remove the need for a horizon. Index investing works because it
       {
         q: "What is tracking error and why does it matter?",
         a: "Tracking error is how far a fund's return drifts from its index. It comes from expenses, cash holdings and rebalancing costs. Since two funds tracking the same index hold identical stocks, tracking error and expense ratio are effectively the only things that distinguish them, so compare those rather than past returns.",
+      },
+      {
+        q: "How does an index fund work?",
+        a: "An index fund buys every stock in a chosen index, such as the Nifty 50, in the same weights the index uses, and changes its holdings only when the index itself changes. There is no stock-picking or manager judgement. It aims to match the index's return minus a small fee, with the gap measured as tracking error.",
       },
     ],
     related: ["etf", "mutual-fund", "expense-ratio", "sip", "diversification"],
@@ -1143,6 +1191,14 @@ Work out the CAGR on your own investments with our [CAGR calculator](/calculator
       {
         q: "Why can two funds with the same CAGR be very different?",
         a: "Because CAGR describes only the start and end points, not the path. One fund may have moved steadily while another swung between a 38% loss and a 61% gain. The volatile one is far harder to hold, and investors who sell during a sharp fall never actually receive the headline CAGR.",
+      },
+      {
+        q: "What is the full form of CAGR?",
+        a: "CAGR stands for Compound Annual Growth Rate. It is the single steady annual rate at which an investment would have grown from its starting value to its ending value over a period, smoothing the real year-to-year ups and downs into one number you can compare against other investments.",
+      },
+      {
+        q: "How is CAGR calculated?",
+        a: "Divide the ending value by the starting value, raise the result to the power of one divided by the number of years, then subtract one. For Rs 1 lakh growing to Rs 2 lakh over six years, the ratio is 2, its sixth root is about 1.122, so the CAGR is roughly 12.2% a year.",
       },
     ],
     related: ["xirr", "compound-interest", "inflation", "mutual-fund"],
@@ -1495,6 +1551,10 @@ Check the current ratio on the scheme's factsheet or the AMFI website rather tha
       {
         q: "Does the expense ratio include exit load and taxes?",
         a: "No. Exit load, charged if you redeem within a specified period, is separate. So are brokerage on ETF trades, securities transaction tax, and your own capital gains tax on redemption. The true cost of owning a fund is therefore somewhat higher than the headline expense ratio suggests.",
+      },
+      {
+        q: "How does a mutual fund expense ratio work?",
+        a: "The expense ratio is a fund's annual running cost expressed as a percentage of the assets it manages. It is accrued daily and deducted from the fund's assets before the NAV is published, so you never get a separate bill. A higher ratio quietly lowers your returns every year the money stays invested.",
       },
     ],
     related: ["index-fund", "etf", "mutual-fund", "nav"],
@@ -2156,6 +2216,14 @@ Thresholds, return formats and due dates have changed frequently since 2017. A s
         q: "How do I calculate GST on an inclusive price?",
         a: "Divide the inclusive amount by one plus the rate as a decimal to get the base price, then subtract to find the GST. For Rs 1,180 at 18%, divide by 1.18 to get Rs 1,000, so the GST is Rs 180. A GST calculator handles both inclusive and exclusive directions.",
       },
+      {
+        q: "What is the full form of GST?",
+        a: "GST stands for Goods and Services Tax. It is a single indirect tax on the supply of most goods and services in India, introduced on 1 July 2017 to replace older levies such as VAT, service tax and excise. It is collected by businesses but ultimately borne by the final consumer.",
+      },
+      {
+        q: "How does GST work?",
+        a: "Tax is charged at each stage of the supply chain, but a registered business can claim credit for the GST it paid on its own purchases and offset it against the GST it collects on sales. So tax effectively falls only on the value added at each stage, and the final consumer bears the full amount.",
+      },
     ],
     related: ["tds", "capital-gains", "hra", "section-80c"],
     relatedHref: "/calculators/gst",
@@ -2713,6 +2781,14 @@ For goals a decade away, a [SIP](/glossary/sip) into equity has historically don
         q: "Which is better, a cumulative or non-cumulative FD?",
         a: "A cumulative FD reinvests interest so the whole sum compounds until maturity, producing a higher total return. A non-cumulative FD pays interest out monthly or quarterly, giving regular income at a slightly lower total. Choose cumulative if you do not need the money meanwhile, non-cumulative if you need the income.",
       },
+      {
+        q: "What is the full form of FD?",
+        a: "FD stands for fixed deposit. It is a banking product where you place a lump sum with a bank for a fixed term, anywhere from 7 days to 10 years, at an interest rate locked on the day you invest. The bank pays that rate for the whole term regardless of how rates move afterwards.",
+      },
+      {
+        q: "How does a fixed deposit work?",
+        a: "You deposit a lump sum for a chosen tenure at a fixed rate. Most bank FDs compound quarterly, and in a cumulative FD the interest is reinvested and paid with the principal at maturity. Breaking it early brings a penalty and a lower recalculated rate, so match the term to when you will need the money.",
+      },
     ],
     related: ["recurring-deposit", "ppf", "tds", "compound-interest"],
     relatedHref: "/calculators/fd",
@@ -2789,6 +2865,14 @@ Compare rates across banks, since the spread is wider than people assume, and ch
       {
         q: "Is a recurring deposit covered by deposit insurance?",
         a: "Yes. The DICGC cover of Rs 5 lakh per depositor per bank applies to recurring deposits alongside fixed deposits, savings and current accounts, all counted together across your accounts at that bank. This matters most with small finance and co-operative banks, which often advertise the highest rates.",
+      },
+      {
+        q: "What is the full form of RD?",
+        a: "RD stands for recurring deposit. It is a banking product where you deposit a fixed amount every month for a set term, usually six months to ten years, at an interest rate locked when you open it. It gives fixed-deposit-style safety to people saving from monthly income rather than a lump sum.",
+      },
+      {
+        q: "How does a recurring deposit work?",
+        a: "You commit to a fixed monthly deposit and the bank pays a fixed rate on the growing balance. Each instalment earns interest only for the months remaining until maturity, so the first earns for the full term and the last for about a month. The principal and interest are paid together at maturity.",
       },
     ],
     related: ["fixed-deposit", "ppf", "sip", "tds"],
@@ -7510,7 +7594,7 @@ For most people, the simpler approach of [term insurance](/glossary/term-insuran
   },
   {
     slug: "nsc",
-    term: "National Savings Certificate",
+    term: "NSC",
     category: "Investing",
     short:
       "A National Savings Certificate (NSC) is a fixed-income government savings instrument with a 5-year lock-in, guaranteed returns and Section 80C tax benefits.",
@@ -7580,6 +7664,14 @@ Compare growth projections with our [FD calculator](/calculators/fd) and [PPF ca
       {
         q: "Is NSC better than a tax-saver fixed deposit?",
         a: "NSC typically offers a slightly higher interest rate than most 5-year tax-saver FDs and carries a government guarantee. However, a tax-saver FD at a bank offers deposit insurance up to Rs 5 lakh. NSC also has the reinvestment 80C angle on accrued interest. Both have the same 5-year lock-in.",
+      },
+      {
+        q: "What is the full form of NSC?",
+        a: "NSC stands for National Savings Certificate. It is a fixed-income savings bond issued by the Government of India and sold at post offices, carrying a five-year lock-in, a government-notified interest rate and a Section 80C tax deduction under the old regime.",
+      },
+      {
+        q: "How does NSC work?",
+        a: "You buy a certificate at a post office for any amount from Rs 1,000 upwards. It earns a fixed, government-notified rate compounded annually, but the interest is not paid out each year: it accumulates and is paid with the principal at the end of the five-year term, so there is no cash flow in between.",
       },
     ],
     related: ["ppf", "fixed-deposit", "section-80c", "recurring-deposit", "senior-citizen-savings"],
