@@ -1,11 +1,9 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import Link from "next/link";
 import EpfCalculator from "@/components/calc/EpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "epf")!;
-export const metadata = calcMeta("epf", CALC.title + " - PF Balance & Maturity Value", CALC.blurb);
+export const metadata = calcMeta("epf", "EPF Calculator 2026 - Interest & PF Balance", "Free EPF calculator 2026. Project your PF corpus from your salary, current EPF balance, contribution rate and the EPF interest rate.");
 
 export default function Page() {
   return (

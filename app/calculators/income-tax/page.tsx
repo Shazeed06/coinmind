@@ -1,13 +1,11 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import IncomeTaxCalculator from "@/components/calc/IncomeTaxCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "income-tax")!;
 export const metadata = calcMeta(
   "income-tax",
   "Income Tax Calculator India FY 2026-27 - New vs Old Regime",
-  CALC.blurb
+  "Free income tax calculator for India, FY 2026-27. Compare the new regime vs old regime instantly and see which saves you more tax."
 );
 
 export default function Page() {

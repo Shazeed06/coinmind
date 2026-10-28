@@ -1,10 +1,8 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import CagrCalculator from "@/components/calc/CagrCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "cagr")!;
-export const metadata = calcMeta("cagr", CALC.title + " - Compound Annual Growth Rate", CALC.blurb);
+export const metadata = calcMeta("cagr", "CAGR Calculator 2026 - Compound Annual Growth Rate", "Free CAGR calculator for 2026. Turn an investment's start and end value into a smoothed annual growth rate, absolute return and total gain.");
 
 export default function Page() {
   return (

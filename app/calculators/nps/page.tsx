@@ -1,10 +1,8 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import NpsCalculator from "@/components/calc/NpsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "nps")!;
-export const metadata = calcMeta("nps", CALC.title + " - Pension & Corpus Estimate", CALC.blurb);
+export const metadata = calcMeta("nps", "NPS Calculator 2026 - National Pension System Corpus", "Free NPS calculator 2026. Project your National Pension System corpus, tax-free lump sum and the monthly pension your annuity buys at 60.");
 
 export default function Page() {
   return (
