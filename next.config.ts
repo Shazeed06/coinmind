@@ -89,6 +89,12 @@ const nextConfig: NextConfig = {
       // /calculators/bmi and then take a second 301 to /calculators. Sending
       // them straight to the section index keeps every old link to a single
       // hop. Kept in sync with the removal rules further down.
+      // Author page consolidation: /about/author and /authors/sahil were two
+      // profile pages for the same person, which Google flagged as duplicates
+      // ("Google chose a different canonical"). /authors/sahil is the richer,
+      // schema-complete hub (bio, credentials, recent articles), so the older
+      // /about/author now 301s into it to consolidate the signals.
+      { source: "/about/author", destination: "/authors/sahil", permanent: true },
       { source: "/calc/bmi", destination: "/calculators", permanent: true },
       { source: "/calc/calorie", destination: "/calculators", permanent: true },
       { source: "/calc/ideal-weight", destination: "/calculators", permanent: true },

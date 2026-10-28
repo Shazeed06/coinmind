@@ -72,8 +72,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // IPO hub pages (evergreen)
     "/ipos/ipo-gmp-today", "/ipos/upcoming-ipo", "/ipos/best-upcoming-ipos-2026",
     "/ipos/sme-ipo", "/ipos/mainboard-vs-sme-ipo", "/ipos/ipo-allotment-status",
-    // Trust & Transparency pages
-    "/about/author", "/editorial-policy", "/financial-review-process", "/sources",
+    // Trust & Transparency pages ( /about/author 301s to /authors/sahil, so it
+    // is intentionally not listed here )
+    "/editorial-policy", "/financial-review-process", "/sources",
     // Research data pages
     "/research/ppf-rate-history", "/research/epf-rate-history",
     "/research/income-tax-slabs-history", "/research/rbi-repo-rate-history",

@@ -47,7 +47,7 @@ export default function Page() {
             Free calculators, guides and tools for every Indian financial decision. Every formula is documented, every source is cited, no login required.
           </p>
           <div className="flex flex-wrap gap-3 mt-6">
-            <Link href="/about/author" className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-4 py-2 text-sm text-slate-300 hover:text-white hover:border-slate-500 transition-all">
+            <Link href="/authors/sahil" className="inline-flex items-center gap-1.5 rounded-lg border border-[#1e3a5f] bg-[#0f2040] px-4 py-2 text-sm text-slate-300 hover:text-white hover:border-slate-500 transition-all">
               <Users className="h-3.5 w-3.5" /> Meet the author
             </Link>
             <Link href="/calculators" className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-[#2f5bea] to-[#1d4ed8] px-4 py-2 text-sm font-semibold text-white shadow-[0_0_20px_rgba(47,91,234,0.4)]">
@@ -72,7 +72,7 @@ export default function Page() {
               </div>
               <p className="text-text-muted leading-relaxed">
                 {site.name} is founded and edited by{" "}
-                <Link href={`/about/author`} className="text-brand font-medium hover:underline underline-offset-2">
+                <Link href={`/authors/sahil`} className="text-brand font-medium hover:underline underline-offset-2">
                   {site.author.fullName}
                 </Link>
                 , who is pursuing the Chartered Accountancy (CA) Final. Every calculator, guide and comparison is researched, written and fact-checked by a human - AI is a research and drafting aid only and never publishes content unedited.
@@ -80,7 +80,7 @@ export default function Page() {
               <p className="text-text-muted leading-relaxed mt-3">
                 Based in {site.author.location}. Self-funded, independent. We take no investment, sponsorship or paid placement from any financial product or company.
               </p>
-              <Link href="/about/author" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline underline-offset-2">
+              <Link href="/authors/sahil" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline underline-offset-2">
                 Full author profile <ExternalLink className="h-3.5 w-3.5" />
               </Link>
             </div>

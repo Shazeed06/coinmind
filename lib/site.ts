@@ -191,7 +191,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
   {
     title: "Trust & Transparency",
     items: [
-      { label: "About the Author", href: "/about/author" },
+      { label: "About the Author", href: "/authors/sahil" },
       { label: "Editorial Policy", href: "/editorial-policy" },
       { label: "Financial Review Process", href: "/financial-review-process" },
       { label: "Official Sources", href: "/sources" },
