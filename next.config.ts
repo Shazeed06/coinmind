@@ -39,7 +39,9 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        // Everything EXCEPT the embeddable widget routes keeps the strict
+        // security headers (including SAMEORIGIN framing).
+        source: "/((?!widgets/).*)",
         headers: [
           { key: "Content-Security-Policy", value: csp },
           { key: "X-Content-Type-Options", value: "nosniff" },
@@ -51,6 +53,18 @@ const nextConfig: NextConfig = {
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
           { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
           { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
+        ],
+      },
+      {
+        // Embeddable widgets must be frameable from any site, so they drop
+        // X-Frame-Options and use a permissive frame-ancestors policy. This is
+        // the whole point of the widget: publishers iframe it and link back.
+        source: "/widgets/:slug+",
+        headers: [
+          { key: "Content-Security-Policy", value: "frame-ancestors *;" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
         ],
       },
       { source: "/fonts/(.*)", headers: [{ key: "Cache-Control", value: assetCache }] },

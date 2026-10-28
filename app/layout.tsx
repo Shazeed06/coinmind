@@ -9,6 +9,7 @@ import Analytics from "@/components/Analytics";
 import AdSense from "@/components/AdSense";
 import { GtmScript, GtmNoScript } from "@/components/Gtm";
 import SiteJsonLd from "@/components/SiteJsonLd";
+import ChromeGate from "@/components/ChromeGate";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -124,12 +125,12 @@ export default function RootLayout({
         </a>
         <GtmNoScript id={site.gtmId} />
         <SiteJsonLd />
-        <Header />
+        <ChromeGate><Header /></ChromeGate>
         <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
-        <CookieConsent />
+        <ChromeGate><Footer /></ChromeGate>
+        <ChromeGate><CookieConsent /></ChromeGate>
         <Analytics gaId={site.gaId} />
-        <AdSense clientId={site.adsenseClientId} />
+        <ChromeGate><AdSense clientId={site.adsenseClientId} /></ChromeGate>
         <GtmScript id={site.gtmId} />
       </body>
     </html>
