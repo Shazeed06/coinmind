@@ -36,8 +36,8 @@ export async function generateMetadata({
   const { monthly, netAnnual } = computeInHand(lpa);
   const monthlyStr = formatCurrency(monthly);
 
-  const title = `${label} In-Hand Salary Per Month (2026)`;
-  const description = `A ₹${label} CTC works out to about ${monthlyStr} per month in hand, ${formatCurrency(netAnnual)} a year. Full deduction breakdown, with every assumption shown.`;
+  const title = `₹${label} In-Hand Salary Per Month (2026)`;
+  const description = `₹${label} in hand salary is about ${monthlyStr} per month (${formatCurrency(netAnnual)} a year). Full monthly take-home breakdown for 2026, every assumption shown.`;
 
   return {
     title: { absolute: title },
@@ -128,6 +128,10 @@ export default async function Page({
       a: `Approximately ${monthlyStr} per month, or ${formatCurrency(r.netAnnual)} per year. This assumes basic salary is 50% of CTC, employer PF at 12% of basic, a gratuity provision of 4.81% of basic, your own PF at 12% of basic, professional tax of ₹2,400 a year, and income tax under the new regime for FY 2026-27.`,
     },
     {
+      q: `₹${label} means how much monthly salary?`,
+      a: `In hand, about ${monthlyStr} a month. It is tempting to divide ₹${label} by twelve and expect ${formatCurrency(r.ctc / 12)} a month, but that is your CTC spread over the year, not your salary: it still includes employer PF, gratuity and the deductions taken from your gross. Your real monthly salary after all of them is ${monthlyStr}.`,
+    },
+    {
       q: `How much tax do I pay on a ₹${label} salary?`,
       a:
         r.tax > 0
@@ -177,7 +181,7 @@ export default async function Page({
     "@graph": [
       {
         "@type": "Article",
-        headline: `${label} In-Hand Salary Per Month (2026)`,
+        headline: `₹${label} In-Hand Salary Per Month (2026)`,
         description: quickAnswer,
         image: [`${site.url}/opengraph-image`],
         author: {
@@ -252,8 +256,9 @@ export default async function Page({
           ₹{label} In-Hand Salary Per Month
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
-          What a ₹{label} CTC actually pays into your bank account each month,
-          with every deduction and every assumption shown.
+          A ₹{label} CTC is roughly {monthlyStr} a month in hand &mdash; your
+          real monthly salary. Here is exactly what that CTC pays into your bank
+          account each month, with every deduction and every assumption shown.
         </p>
       </header>
 

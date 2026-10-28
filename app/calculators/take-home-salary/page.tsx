@@ -6,16 +6,20 @@ import CalcPage from "@/components/calc/CalcPage";
 import { INHAND_LPA, lpaSlug, lpaLabel } from "@/lib/pseo-inhand";
 
 const CALC = calculators.find((c) => c.slug === "take-home-salary")!;
-export const metadata = calcMeta("take-home-salary", CALC.title + ": CTC to In-Hand", CALC.blurb);
+export const metadata = calcMeta(
+  "take-home-salary",
+  "CTC to In-Hand Salary Calculator (India, 2026)",
+  "Free CTC to in-hand salary calculator for India, 2026. Turn your annual CTC into real monthly take-home pay: PF, professional tax and income tax shown."
+);
 
 export default function Page() {
   return (
     <CalcPage
       slug="take-home-salary"
       title="Take-Home Salary Calculator"
-      subtitle="Turn your annual CTC into a real monthly in-hand figure in seconds."
+      subtitle="A free CTC to in-hand salary calculator for India - turn your annual CTC into a real monthly take-home figure in seconds."
       calculator={<TakeHomeSalaryCalculator />}
-      intro="Your CTC is what a company spends on you, not what lands in your bank account. The gap between CTC vs in-hand salary trips up even experienced professionals every time they switch jobs. Between employer PF, gratuity, your own PF contribution, professional tax and income tax, the take-home is always lower than the headline number on your offer letter. This free take home calculator is built for India: it breaks down every deduction so you know your actual monthly in-hand salary before you accept an offer. If you have been trying to understand how in-hand salary vs CTC in India really works, this is the full breakdown, plus a tool that does the math for you."
+      intro="Your CTC is what a company spends on you, not what lands in your bank account. The gap between CTC vs in-hand salary trips up even experienced professionals every time they switch jobs. Between employer PF, gratuity, your own PF contribution, professional tax and income tax, the take-home is always lower than the headline number on your offer letter. This free take-home salary calculator is a CTC to in-hand salary calculator built for India: it breaks down every deduction so you know your actual monthly in-hand salary before you accept an offer. If you have been trying to understand how in-hand salary vs CTC in India really works, this is the full breakdown, plus a tool that does the math for you."
       how={{
         heading: "How your in-hand salary is calculated",
         body: (
