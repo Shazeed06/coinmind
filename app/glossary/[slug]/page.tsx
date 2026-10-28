@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import {
   GLOSSARY,
   GLOSSARY_SLUGS,
+  FULL_FORMS,
   getGlossaryTerm,
   type GlossaryTerm,
 } from "@/lib/glossary";
@@ -27,7 +28,10 @@ export async function generateMetadata({
   const term = getGlossaryTerm(slug);
   if (!term) return {};
 
-  const title = `What Is ${term.term}? Meaning & Definition`;
+  const fullForm = FULL_FORMS[slug];
+  const title = fullForm
+    ? `${term.term} Full Form & Meaning: ${fullForm}`
+    : `What Is ${term.term}? Meaning & Definition`;
   return {
     title: { absolute: title },
     description: term.short,
@@ -65,6 +69,8 @@ export default async function Page({
   const { slug } = await params;
   const term = getGlossaryTerm(slug);
   if (!term) notFound();
+
+  const fullForm = FULL_FORMS[slug];
 
   const relatedTerms = term.related
     .map((s) => getGlossaryTerm(s))
@@ -140,14 +146,27 @@ export default async function Page({
         <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
           {term.category} term
         </span>
-        {/* The H1 mirrors the query ("what is X") rather than the bare term.
-            These pages exist to answer a definition search, not to label one. */}
+        {/* The H1 mirrors the query. For acronyms that is "<X> Full Form &
+            Meaning" ("sip full form" etc. are huge in India); otherwise the
+            classic "What is X?" definition shape. */}
         <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
-          What Is {term.term}? Meaning &amp; Example
+          {fullForm
+            ? <>{term.term} Full Form &amp; Meaning</>
+            : <>What Is {term.term}? Meaning &amp; Example</>}
         </h1>
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
-          A plain-English definition of {term.term}: what it means, how it
-          works, and a simple example.
+          {fullForm ? (
+            <>
+              <strong className="text-ink">{term.term}</strong> stands for{" "}
+              <strong className="text-ink">{fullForm}</strong>. Here&apos;s what it
+              means, how it works, and a simple example.
+            </>
+          ) : (
+            <>
+              A plain-English definition of {term.term}: what it means, how it
+              works, and a simple example.
+            </>
+          )}
         </p>
       </header>
 
@@ -157,6 +176,11 @@ export default async function Page({
           Quick answer
         </p>
         <p className="mt-2 text-[1.05rem] leading-relaxed text-ink">
+          {fullForm && (
+            <>
+              <strong>{term.term}</strong> stands for <strong>{fullForm}</strong>.{" "}
+            </>
+          )}
           {term.short}
         </p>
       </section>

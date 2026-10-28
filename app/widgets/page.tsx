@@ -13,32 +13,28 @@ export const metadata: Metadata = {
   },
 };
 
-const WIDGETS = [
-  {
-    slug: "sip",
-    title: "SIP Calculator Widget",
-    desc: "Let your readers calculate SIP returns without leaving your page.",
-    embed: `<iframe src="${site.url}/widgets/sip" width="100%" height="500" frameborder="0" style="border-radius:12px;"></iframe>`,
-  },
-  {
-    slug: "emi",
-    title: "EMI Calculator Widget",
-    desc: "Home loan, car loan and personal loan EMI - all in one embeddable widget.",
-    embed: `<iframe src="${site.url}/widgets/emi" width="100%" height="500" frameborder="0" style="border-radius:12px;"></iframe>`,
-  },
-  {
-    slug: "fd",
-    title: "FD Calculator Widget",
-    desc: "Fixed deposit maturity and interest calculator for your readers.",
-    embed: `<iframe src="${site.url}/widgets/fd" width="100%" height="460" frameborder="0" style="border-radius:12px;"></iframe>`,
-  },
-  {
-    slug: "income-tax",
-    title: "Income Tax Calculator Widget",
-    desc: "New vs old regime comparison - the most-searched finance tool in India.",
-    embed: `<iframe src="${site.url}/widgets/income-tax" width="100%" height="560" frameborder="0" style="border-radius:12px;"></iframe>`,
-  },
+type WidgetDef = { slug: string; title: string; desc: string; href: string; height: number };
+
+const WIDGETS: WidgetDef[] = [
+  { slug: "sip", title: "SIP Calculator Widget", desc: "Let your readers calculate SIP returns without leaving your page.", href: "/calculators/sip", height: 500 },
+  { slug: "emi", title: "EMI Calculator Widget", desc: "Home loan, car loan and personal loan EMI - all in one embeddable widget.", href: "/calculators/emi", height: 500 },
+  { slug: "fd", title: "FD Calculator Widget", desc: "Fixed deposit maturity and interest calculator for your readers.", href: "/calculators/fd", height: 460 },
+  { slug: "income-tax", title: "Income Tax Calculator Widget", desc: "New vs old regime comparison - the most-searched finance tool in India.", href: "/calculators/income-tax", height: 560 },
+  { slug: "ppf", title: "PPF Calculator Widget", desc: "Public Provident Fund maturity and tax-free interest for your readers.", href: "/calculators/ppf", height: 500 },
+  { slug: "nps", title: "NPS Calculator Widget", desc: "National Pension System corpus and annuity projection.", href: "/calculators/nps", height: 520 },
+  { slug: "lumpsum", title: "Lumpsum Calculator Widget", desc: "One-time mutual fund investment growth with compounding.", href: "/calculators/lumpsum", height: 480 },
+  { slug: "retirement", title: "Retirement Calculator Widget", desc: "How much to invest now for the retirement corpus your readers need.", href: "/calculators/retirement", height: 540 },
 ];
+
+// The embed snippet is an iframe PLUS a real <a> link that lands in the host
+// page's own HTML. The iframe alone is not a backlink — Google doesn't count an
+// iframe src as a link — so the attribution anchor below the iframe is what
+// actually earns the backlink when a publisher pastes this code.
+function buildEmbed(w: WidgetDef) {
+  const name = w.title.replace(/ Widget$/, "");
+  return `<iframe src="${site.url}/widgets/${w.slug}" width="100%" height="${w.height}" frameborder="0" loading="lazy" style="border:0;border-radius:12px;max-width:680px;"></iframe>
+<p style="font:13px/1.5 system-ui,sans-serif;text-align:center;margin:6px 0;">Free <a href="${site.url}${w.href}" target="_blank" rel="noopener">${name}</a> by CoinMind</p>`;
+}
 
 export default function WidgetsPage() {
   return (
@@ -76,11 +72,11 @@ export default function WidgetsPage() {
             <div className="rounded-xl bg-paper-2 border border-line p-4">
               <p className="text-xs font-semibold text-ink-faint uppercase tracking-wider mb-2">Embed code</p>
               <code className="block text-xs text-ink font-mono break-all whitespace-pre-wrap bg-bg rounded-lg p-3">
-                {w.embed}
+                {buildEmbed(w)}
               </code>
             </div>
             <p className="mt-3 text-xs text-ink-faint">
-              The widget updates automatically when rates change. Attribution to CoinMind is included in the widget footer.
+              Paste the whole snippet — the small credit line below the calculator is a normal link that keeps the widget free. The calculator updates automatically when rates change.
             </p>
           </section>
         ))}

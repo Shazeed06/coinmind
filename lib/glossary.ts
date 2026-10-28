@@ -34,6 +34,36 @@ export type GlossaryTerm = {
   relatedLabel?: string;
 };
 
+/**
+ * Acronym expansions. GSC shows "<term> full form" is one of the highest-volume
+ * query shapes in India (e.g. "sip full form" ~228 impressions, "etf full form"
+ * ~216). The glossary page uses these to put "Full Form" + the expansion in the
+ * title, H1 and quick answer for any term whose slug is listed here, which
+ * targets the "full form" and "meaning" queries together. Keyed by slug; a slug
+ * not present simply keeps the generic "What is X?" treatment.
+ */
+export const FULL_FORMS: Record<string, string> = {
+  sip: "Systematic Investment Plan",
+  etf: "Exchange-Traded Fund",
+  nav: "Net Asset Value",
+  ppf: "Public Provident Fund",
+  epf: "Employees' Provident Fund",
+  nps: "National Pension System",
+  fd: "Fixed Deposit",
+  rd: "Recurring Deposit",
+  elss: "Equity Linked Savings Scheme",
+  nsc: "National Savings Certificate",
+  scss: "Senior Citizens' Savings Scheme",
+  cagr: "Compound Annual Growth Rate",
+  xirr: "Extended Internal Rate of Return",
+  emi: "Equated Monthly Instalment",
+  gst: "Goods and Services Tax",
+  tds: "Tax Deducted at Source",
+  hra: "House Rent Allowance",
+  ulip: "Unit Linked Insurance Plan",
+  swp: "Systematic Withdrawal Plan",
+};
+
 /** Display order for the index page and category grouping. */
 export const GLOSSARY_CATEGORIES: GlossaryCategory[] = [
   "Investing",
