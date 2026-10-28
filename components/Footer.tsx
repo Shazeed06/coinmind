@@ -21,7 +21,7 @@ const QUICK_LINKS = [
 
 const COMPANY_LINKS = [
   { label: "About", href: "/about" },
-  { label: "About the Author", href: "/about/author" },
+  { label: "About the Author", href: "/authors/sahil" },
   { label: "Methodology", href: "/methodology" },
   { label: "Editorial Policy", href: "/editorial-policy" },
   { label: "Corrections", href: "/corrections" },
