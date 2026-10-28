@@ -1,16 +1,14 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import PpfCalculator from "@/components/calc/PpfCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "ppf")!;
-export const metadata = calcMeta("ppf", CALC.title + " - Public Provident Fund Maturity", CALC.blurb);
+export const metadata = calcMeta("ppf", "PPF Maturity Calculator 2026 - Public Provident Fund", "Free PPF maturity calculator 2026. Estimate your tax-free PPF maturity amount from yearly contributions and the government-set PPF rate.");
 
 export default function Page() {
   return (
     <CalcPage
       slug="ppf"
-      title="PPF Calculator"
+      title="PPF Maturity Calculator"
       subtitle="Estimate the tax-free corpus you'll build with a Public Provident Fund."
       calculator={<PpfCalculator />}
       sources={[

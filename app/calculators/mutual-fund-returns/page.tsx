@@ -1,10 +1,8 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import MutualFundReturnsCalculator from "@/components/calc/MutualFundReturnsCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "mutual-fund-returns")!;
-export const metadata = calcMeta("mutual-fund-returns", CALC.title + " - Growth & CAGR", CALC.blurb);
+export const metadata = calcMeta("mutual-fund-returns", "Mutual Fund Return Calculator 2026 - Growth & CAGR", "Free mutual fund return calculator for 2026. Project lumpsum growth, total return and CAGR, with mutual fund tax rules explained.");
 
 export default function Page() {
   return (

@@ -1,13 +1,11 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import RetirementCalculator from "@/components/calc/RetirementCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
-const CALC = calculators.find((c) => c.slug === "retirement")!;
 export const metadata = calcMeta(
   "retirement",
-  "Retirement Calculator India - How Much You Need to Retire",
-  CALC.blurb
+  "Retirement Calculator India 2026 - How Much You Need",
+  "Free retirement calculator for India. Calculate the retirement amount and corpus you need, plus the monthly SIP to get there in time."
 );
 
 export default function Page() {

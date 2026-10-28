@@ -1,12 +1,10 @@
 import { calcMeta } from "@/lib/seo";
-import { calculators } from "@/lib/data";
 import Link from "next/link";
 import FdCalculator from "@/components/calc/FdCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 import { FD_AMOUNTS, fdSlug, fdLabel } from "@/lib/pseo-fd";
 
-const CALC = calculators.find((c) => c.slug === "fd")!;
-export const metadata = calcMeta("fd", CALC.title + " - Fixed Deposit Maturity & Interest", CALC.blurb);
+export const metadata = calcMeta("fd", "FD Maturity Calculator 2026 - Fixed Deposit Interest", "Free FD maturity calculator for 2026. Get your fixed deposit maturity value and compound interest with quarterly compounding, instantly.");
 
 // Internal links to the "FD on Rs X" programmatic pages. Without these the 15
 // amount pages have no inbound links anywhere on the site, so they receive no
@@ -45,7 +43,7 @@ export default function Page() {
     <CalcPage
       extra={<FdByAmount />}
       slug="fd"
-      title="FD Calculator"
+      title="FD Maturity Calculator"
       subtitle="Find out exactly what your fixed deposit will be worth at maturity."
       calculator={<FdCalculator />}
       sources={[{ label: "Reserve Bank of India", href: "https://www.rbi.org.in" }]}
