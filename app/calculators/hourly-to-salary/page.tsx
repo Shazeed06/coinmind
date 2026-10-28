@@ -4,14 +4,18 @@ import HourlyToSalaryCalculator from "@/components/calc/HourlyToSalaryCalculator
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "hourly-to-salary")!;
-export const metadata = calcMeta("hourly-to-salary", CALC.title + " - Annual Pay", CALC.blurb);
+export const metadata = calcMeta(
+  "hourly-to-salary",
+  "Hourly to Salary Calculator - Annual & Monthly Pay",
+  "Free hourly to salary calculator: convert an hourly wage into annual, monthly, weekly and daily pay from your hours and weeks worked."
+);
 
 export default function Page() {
   return (
     <CalcPage
       slug="hourly-to-salary"
       title="Hourly to Salary Calculator"
-      subtitle="Turn an hourly wage into annual, monthly, weekly and daily pay in seconds."
+      subtitle="This free hourly to salary calculator turns an hourly wage into annual, monthly, weekly and daily pay in seconds."
       calculator={<HourlyToSalaryCalculator />}
       intro="An hourly to salary calculator converts an hourly wage into a full-year salary and everything in between. Enter your hourly rate, the hours you work each week, and the number of weeks you work per year, and it shows your annual, monthly, weekly and daily pay. It is the fast way to compare an hourly job offer against a salaried one, size up a contract or freelance rate, or check how a pay rise flows through to your yearly income."
       how={{
