@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "RBI Repo Rate History 2010-2026 - All MPC Decisions | CoinMind",
+  title: "RBI Repo Rate History 2010-2026 - All MPC Decisions",
   description: "Complete RBI repo rate history from 2010 to 2026. All Monetary Policy Committee (MPC) rate decisions, dates and reasons. Official data from RBI.",
   alternates: { canonical: `${site.url}/research/rbi-repo-rate-history` },
 };

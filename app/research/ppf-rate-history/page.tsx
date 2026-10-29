@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PPF Interest Rate History 2000-2026 - All Rates Since Launch | CoinMind",
+  title: "PPF Interest Rate History 2000-2026 - All Rates Since Launch",
   description: "Complete PPF interest rate history from 2000 to 2026. All government-declared Public Provident Fund rates, year by year, sourced from official notifications.",
   alternates: { canonical: `${site.url}/research/ppf-rate-history` },
 };

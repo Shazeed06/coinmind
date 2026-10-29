@@ -2,7 +2,7 @@
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Free Embeddable Financial Widgets for India - SIP, EMI, FD Calculators | CoinMind",
+  title: "Free Embeddable Financial Widgets for India - SIP, EMI, FD Calculators",
   description: "Embed free financial calculators on your website. SIP calculator widget, EMI calculator widget, FD calculator widget - free for bloggers, advisors and publishers.",
   alternates: { canonical: `${site.url}/widgets` },
   openGraph: {

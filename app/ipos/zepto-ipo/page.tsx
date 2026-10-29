@@ -4,7 +4,7 @@ import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Zepto IPO 2026: Expected Date, Price Band ₹300-350, GMP & Review | CoinMind",
+  title: "Zepto IPO 2026: Expected Date, Price Band ₹300-350, GMP & Review",
   description:
     "Zepto IPO 2026 full review: ₹8,010 crore fresh issue, SEBI approved May 2026. Expected price ₹300-₹350, valuation $5.6B. Latest GMP, dates & should you apply?",
   keywords: [

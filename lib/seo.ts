@@ -103,10 +103,12 @@ export const GLOSSARY = mk("/glossary", {
   keywords: ["finance glossary", "AI glossary", "finance terms", "SIP meaning", "EMI meaning", "CAGR explained", "AI terms"],
 });
 
+// "best free ai tools directory" is one of this page's highest-impression
+// queries in GSC, so the title says both "free" and "directory" outright.
 export const AI_TOOLS = mk("/ai-tools", {
-  title: "Best AI Tools 2026 - USA, China & India Compared",
-  desc: "Up-to-date directory of 20+ AI tools from the USA, China, and India. Compare ChatGPT, Claude, Gemini, DeepSeek, and more with real pricing and ratings.",
-  keywords: ["best AI tools", "AI tools 2026", "ChatGPT vs Claude", "DeepSeek", "AI tools India", "AI tool comparison", "free AI tools"],
+  title: "Best Free AI Tools 2026 - Directory, Pricing & Reviews",
+  desc: "Free directory of 20+ AI tools from the USA, China and India. Compare ChatGPT, Claude, Gemini and DeepSeek on real pricing, strengths and what each is best for.",
+  keywords: ["best AI tools", "best free AI tools directory", "AI tools 2026", "AI tools", "ChatGPT vs Claude", "DeepSeek", "AI tools India", "AI tool comparison", "free AI tools"],
 });
 
 export const TOOLS = mk("/tools", {
@@ -115,10 +117,12 @@ export const TOOLS = mk("/tools", {
   keywords: ["free online tools", "resume builder", "PDF tools", "image compressor", "free utilities", "browser tools"],
 });
 
+// "free cv maker no sign up" is a top query here, so the no-sign-up promise
+// moves into the title rather than sitting only in the description.
 export const RESUME = mk("/resume-builder", {
-  title: "Free Resume Builder - Professional CV & BioData Maker",
-  desc: "Create an ATS-friendly resume in minutes with CoinMind's free resume builder. Live preview, one-click PDF download, professional templates. No sign-up.",
-  keywords: ["free resume builder", "CV maker", "resume template", "ATS resume", "biodata maker", "resume PDF", "online resume creator"],
+  title: "Free Resume Builder - ATS CV Maker, No Sign-Up",
+  desc: "Build an ATS-friendly resume in minutes, free. Live A4 preview, one-click PDF download, no sign-up and no watermark. Works entirely in your browser.",
+  keywords: ["free resume builder", "free CV maker no sign up", "CV maker", "resume template", "ATS resume", "biodata maker", "resume PDF", "online resume creator"],
 });
 
 export const NOT_FOUND: Metadata = {

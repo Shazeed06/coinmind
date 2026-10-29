@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Family Floater vs Individual Health Insurance - Which is Better? | CoinMind",
+  title: "Family Floater vs Individual Health Insurance - Which is Better?",
   description: "Family floater vs individual health insurance: premium comparison, coverage gaps and which to buy for yourself, parents and kids in India.",
   alternates: { canonical: `${site.url}/comparisons/floater-vs-individual-health-insurance` },
 };

@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SIP vs Lumpsum Investment - Which Strategy is Better? | CoinMind",
+  title: "SIP vs Lumpsum Investment - Which Strategy is Better?",
   description: "SIP vs lumpsum investment comparison: which strategy gives better returns, lower risk and suits your situation. With real number examples for Indian investors.",
   alternates: { canonical: `${site.url}/comparisons/sip-vs-lumpsum` },
 };

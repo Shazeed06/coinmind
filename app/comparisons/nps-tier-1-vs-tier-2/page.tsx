@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "NPS Tier 1 vs Tier 2 - Difference, Tax & Which to Use | CoinMind",
+  title: "NPS Tier 1 vs Tier 2 - Difference, Tax & Which to Use",
   description: "NPS Tier 1 vs Tier 2: key differences in lock-in, tax benefits, withdrawal rules and when to use each account. Complete guide for Indian investors.",
   alternates: { canonical: `${site.url}/comparisons/nps-tier-1-vs-tier-2` },
 };

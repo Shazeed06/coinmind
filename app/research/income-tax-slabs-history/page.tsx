@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Income Tax Slab History India - New & Old Regime Since 2014 | CoinMind",
+  title: "Income Tax Slab History India - New & Old Regime Since 2014",
   description: "Complete income tax slab history for India: new regime slabs for every year since FY 2020-21, and old regime history since FY 2014-15. Official data.",
   alternates: { canonical: `${site.url}/research/income-tax-slabs-history` },
 };
