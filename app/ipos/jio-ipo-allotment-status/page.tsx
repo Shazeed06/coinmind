@@ -4,44 +4,49 @@ import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Jio IPO Allotment Status 2026: How to Check | CoinMind" },
+  title: { absolute: "Jio IPO Allotment Status: Check on KFintech, BSE & NSE" },
   description:
-    "Check Jio Platforms IPO allotment status online. Allotment expected 26 Oct 2026. Step-by-step guide via BSE and the registrar using PAN, application number or demat - plus listing on 28 Oct.",
+    "Jio Platforms IPO allotment is finalised (26 Oct 2026). Check your status on KFin Technologies, BSE or NSE using your PAN or application number.",
   keywords: [
     "Jio IPO allotment status",
     "Jio IPO allotment date",
-    "Jio Platforms IPO allotment",
+    "Jio Platforms IPO allotment status",
     "Jio IPO allotment check online",
     "how to check Jio IPO allotment",
     "Jio IPO allotment status BSE",
+    "Jio IPO NSE allotment status",
+    "Jio IPO allotment status KFintech",
     "Reliance Jio IPO allotment",
     "Jio IPO listing date",
   ],
   alternates: { canonical: `${site.url}/ipos/jio-ipo-allotment-status` },
   openGraph: {
     locale: "en_IN",
-    title: "Jio IPO Allotment Status 2026: How to Check Online (26 Oct)",
+    title: "Jio IPO Allotment Status - Check on KFintech, BSE or NSE",
     description:
-      "Step-by-step guide to check Jio Platforms IPO allotment status on BSE and the registrar. Allotment 26 Oct, listing 28 Oct 2026.",
+      "Allotment finalised 26 Oct 2026; Jio Platforms listed on 28 Oct. Check your allotment on KFin Technologies, BSE or NSE with your PAN.",
     url: `${site.url}/ipos/jio-ipo-allotment-status`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jio IPO Allotment Status 2026: How to Check Online (26 Oct)",
+    title: "Jio IPO Allotment Status - Check on KFintech, BSE or NSE",
     description:
-      "Step-by-step guide to check Jio Platforms IPO allotment status on BSE and the registrar. Allotment 26 Oct, listing 28 Oct 2026.",
+      "Allotment finalised 26 Oct 2026; Jio Platforms listed on 28 Oct. Check your allotment on KFin Technologies, BSE or NSE with your PAN.",
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+const LAST_UPDATED = "29 October 2026";
 
+// `done` drives the completed state in the timeline below. The Jio Platforms
+// issue has now run its full course: allotment was finalised on 26 Oct 2026 and
+// the stock listed on BSE and NSE on 28 Oct 2026.
 const TIMELINE = [
-  { label: "IPO Opens", date: "21 Oct 2026", done: false },
-  { label: "IPO Closes", date: "23 Oct 2026", done: false },
-  { label: "Allotment Finalised", date: "26 Oct 2026", done: false },
-  { label: "Refunds / Unblock ASBA", date: "27 Oct 2026", done: false },
-  { label: "Shares Credited to Demat", date: "27 Oct 2026", done: false },
-  { label: "Listing (BSE + NSE)", date: "28 Oct 2026", done: false },
+  { label: "IPO Opens", date: "21 Oct 2026", done: true },
+  { label: "IPO Closes", date: "23 Oct 2026", done: true },
+  { label: "Allotment Finalised", date: "26 Oct 2026", done: true },
+  { label: "Refunds / Unblock ASBA", date: "27 Oct 2026", done: true },
+  { label: "Shares Credited to Demat", date: "27 Oct 2026", done: true },
+  { label: "Listing (BSE + NSE)", date: "28 Oct 2026", done: true },
 ];
 
 const BSE_STEPS = [
@@ -53,32 +58,43 @@ const BSE_STEPS = [
 ];
 
 const REGISTRAR_STEPS = [
-  "Open the official registrar's IPO allotment page (the registrar is named in the Jio RHP and on the BSE issue page).",
-  "Select the Jio Platforms IPO from the company dropdown.",
-  "Choose to search by PAN, Application Number, or Demat/Client ID.",
-  "Enter your details and submit to view your allotment status.",
+  "Open the IPO allotment status page of KFin Technologies, the registrar for the Jio Platforms issue.",
+  "Select \"Jio Platforms\" from the Select IPO dropdown.",
+  "Choose to search by PAN, Demat Account Number, or Application Number.",
+  "Complete the captcha and click Submit to view your allotment status.",
+];
+
+const NSE_STEPS = [
+  "Go to the NSE website's IPO bid verification / allotment page.",
+  "First-time users must register once using the \"Click here to sign up\" link and their PAN.",
+  "Sign in, then select the Jio Platforms issue.",
+  "Enter your PAN or application number to see the status of applications linked to that PAN.",
 ];
 
 const FAQS = [
   {
+    q: "Is the Jio IPO allotment done yet?",
+    a: "Yes. The basis of allotment for the Jio Platforms IPO was finalised on 26 October 2026, after bidding closed on 23 October. Refunds and ASBA unblocking happened on 27 October, shares were credited the same day, and the stock listed on BSE and NSE on 28 October 2026.",
+  },
+  {
     q: "What is the Jio IPO allotment date?",
-    a: "The Jio Platforms IPO allotment is expected to be finalised on 26 October 2026, after the subscription window closes on 23 October. Shares are credited to demat accounts around 27 October and the stock lists on 28 October 2026.",
+    a: "Allotment was finalised on 26 October 2026. The subscription window ran from 21 to 23 October 2026, refunds and share credit followed on 27 October, and listing took place on 28 October 2026 on both BSE and NSE.",
   },
   {
     q: "How can I check my Jio IPO allotment status?",
-    a: "You can check on the BSE website (Investors → Status of Issue Application) or on the official registrar's IPO page, using your PAN, application number, or demat/client ID. The Jio issue appears in the dropdown only after allotment is finalised on 26 Oct.",
+    a: "There are three official routes: the registrar KFin Technologies, the BSE application-status page, and NSE (which needs a one-time PAN sign-up). All three let you search by PAN or application number; KFin and BSE also accept your demat/client ID. Your broker app shows the result too.",
   },
   {
-    q: "What happens if I don't get the Jio IPO allotment?",
-    a: "If you are not allotted shares, the blocked amount (ASBA) in your bank account is released/unblocked automatically, usually within a day of allotment. For UPI applications, the mandate is revoked.",
+    q: "Who is the registrar for the Jio Platforms IPO?",
+    a: "KFin Technologies is the registrar for the Jio Platforms IPO. The registrar processes applications and runs the basis of allotment, which makes its allotment-status page the most authoritative place to check. Always use the official KFin site rather than a third-party lookup.",
   },
   {
-    q: "When will Jio IPO shares be credited and listed?",
-    a: "Allotted shares are typically credited to your demat account one day before listing (around 27 October 2026). Jio Platforms is expected to list on both BSE and NSE on 28 October 2026.",
+    q: "What happens if I didn't get the Jio IPO allotment?",
+    a: "If you were not allotted shares, the blocked amount (ASBA) in your bank account is released automatically, usually within a day of allotment. For UPI applications the mandate is revoked and no money is debited. You can still buy the shares on the open market now that they are listed.",
   },
   {
-    q: "How is Jio IPO allotment decided if oversubscribed?",
-    a: "For an oversubscribed retail category, allotment is done by a computerised lottery - every valid applicant has an equal chance of getting the minimum one lot, regardless of how many lots were applied for. Applying from multiple different PANs (e.g. family members) increases overall chances.",
+    q: "How was the Jio IPO subscribed, and how is allotment decided?",
+    a: "The issue was subscribed roughly 22 times overall, with the QIB portion around 70.55 times and retail around 2.72 times. When the retail category is oversubscribed, allotment is done by a computerised lottery, so every valid applicant has an equal chance at the minimum one lot regardless of how many lots were applied for.",
   },
 ];
 
@@ -86,14 +102,14 @@ export default function JioIpoAllotmentStatusPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Jio IPO Allotment Status 2026 - How to Check Online",
+    headline: "Jio IPO Allotment Status - Check on KFintech, BSE or NSE",
     description:
-      "Step-by-step guide to check Jio Platforms IPO allotment status on BSE and the registrar. Allotment 26 Oct 2026, listing 28 Oct 2026.",
+      "Jio Platforms IPO allotment was finalised on 26 Oct 2026 and the stock listed on 28 Oct. How to check your status on KFin Technologies, BSE or NSE.",
     url: `${site.url}/ipos/jio-ipo-allotment-status`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: "2026-10-18",
-    dateModified: "2026-10-18",
+    dateModified: "2026-10-29",
     mainEntityOfPage: `${site.url}/ipos/jio-ipo-allotment-status`,
   };
 
@@ -138,10 +154,10 @@ export default function JioIpoAllotmentStatusPage() {
           </nav>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">
-            Jio IPO Allotment Status 2026
+            Jio IPO Allotment Status
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            The Reliance Jio Platforms IPO allotment is expected to be finalised on <strong className="text-text">26 October 2026</strong>. Here&apos;s exactly how to check your allotment online via BSE and the registrar, plus the full timeline to listing on 28 Oct.
+            The Jio Platforms IPO allotment was finalised on <strong className="text-text">26 October 2026</strong> and the stock listed on BSE and NSE on <strong className="text-text">28 October</strong>. Here&apos;s exactly how to check your allotment on KFin Technologies, BSE or NSE - and what to do if you weren&apos;t allotted.
           </p>
           <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED}</p>
         </div>
@@ -151,9 +167,9 @@ export default function JioIpoAllotmentStatusPage() {
         <div className="container-main max-w-[900px] py-10 sm:py-14 space-y-8">
 
           {/* Status banner */}
-          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-            <p className="text-sm text-amber-800">
-              <strong>Status:</strong> The IPO opens on 21 Oct and closes 23 Oct 2026. Allotment status is <strong>not available yet</strong> - it goes live after the basis of allotment is finalised on <strong>26 October 2026</strong>. Bookmark this page and check back then.
+          <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+            <p className="text-sm text-sky-900">
+              <strong>Status:</strong> Allotment is <strong>finalised</strong> (26 Oct 2026) and status is <strong>live now</strong> on KFin Technologies, BSE and NSE. Jio Platforms listed on 28 October 2026. The issue was subscribed roughly 22 times overall.
             </p>
           </div>
 
@@ -163,15 +179,20 @@ export default function JioIpoAllotmentStatusPage() {
             <ol className="relative border-l border-border ml-2">
               {TIMELINE.map((t) => (
                 <li key={t.label} className="ml-4 pb-5 last:pb-0">
-                  <span className="absolute -left-1.5 h-3 w-3 rounded-full bg-brand border-2 border-white" />
+                  <span
+                    className={`absolute -left-1.5 h-3 w-3 rounded-full border-2 border-white ${t.done ? "bg-brand" : "bg-border"}`}
+                  />
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                    <p className="text-sm font-medium text-text">{t.label}</p>
+                    <p className="text-sm font-medium text-text">
+                      {t.label}
+                      {t.done && <span className="ml-2 text-xs font-semibold text-brand">Done</span>}
+                    </p>
                     <p className="text-sm text-text-muted">{t.date}</p>
                   </div>
                 </li>
               ))}
             </ol>
-            <p className="text-xs text-text-muted mt-2">Dates are tentative and may change per the final RHP / exchange schedule.</p>
+            <p className="text-xs text-text-muted mt-2">Every stage of this issue is complete - allotment was finalised on 26 Oct and the shares listed on 28 Oct 2026.</p>
           </div>
 
           {/* Method 1: BSE */}
@@ -189,7 +210,7 @@ export default function JioIpoAllotmentStatusPage() {
 
           {/* Method 2: Registrar */}
           <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-3">Method 2: Check on the Registrar&apos;s Website</h2>
+            <h2 className="font-bold text-text mb-3">Method 2: Check on KFin Technologies (the Registrar)</h2>
             <ol className="space-y-2">
               {REGISTRAR_STEPS.map((step, i) => (
                 <li key={i} className="flex gap-3 text-sm text-text-muted">
@@ -198,12 +219,26 @@ export default function JioIpoAllotmentStatusPage() {
                 </li>
               ))}
             </ol>
-            <p className="text-xs text-text-muted mt-3">The registrar handles IPO applications and allotment. The official registrar for the Jio IPO is named in the RHP and on the BSE issue page - always use that official link rather than any third-party site.</p>
+            <p className="text-xs text-text-muted mt-3">The registrar processes IPO applications and runs the basis of allotment, which makes KFin Technologies the most authoritative source for the Jio Platforms issue. Always use the official KFin site rather than any third-party lookup.</p>
           </div>
 
-          {/* Method 3: Broker */}
+          {/* Method 3: NSE */}
           <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-3">Method 3: Check in Your Broker App</h2>
+            <h2 className="font-bold text-text mb-3">Method 3: Check on the NSE Website</h2>
+            <ol className="space-y-2">
+              {NSE_STEPS.map((step, i) => (
+                <li key={i} className="flex gap-3 text-sm text-text-muted">
+                  <span className="h-5 w-5 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="text-xs text-text-muted mt-3">NSE requires a one-time free registration with your PAN before you can look up an application.</p>
+          </div>
+
+          {/* Method 4: Broker */}
+          <div className="rounded-2xl border border-border bg-white p-5">
+            <h2 className="font-bold text-text mb-3">Method 4: Check in Your Broker App</h2>
             <p className="text-sm text-text-muted">
               Most brokers (Zerodha, Groww, Angel One, Upstox, etc.) show your IPO application and allotment result in their IPO/Orders section once allotment is finalised. You will also receive an SMS/email from CDSL/NSDL when shares are credited to your demat account.
             </p>
@@ -212,19 +247,19 @@ export default function JioIpoAllotmentStatusPage() {
           {/* What next */}
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5">
-              <h2 className="font-bold text-sky-800 mb-2">✅ If you are allotted</h2>
+              <h2 className="font-bold text-sky-800 mb-2">✅ If you were allotted</h2>
               <ul className="space-y-1.5 text-sm text-sky-800">
-                <li className="flex gap-2"><span>•</span>Shares are credited to your demat ~27 Oct (one day before listing).</li>
-                <li className="flex gap-2"><span>•</span>The blocked amount is debited for the allotted shares only.</li>
-                <li className="flex gap-2"><span>•</span>You can hold or sell on listing day (28 Oct) based on the listing price.</li>
+                <li className="flex gap-2"><span>•</span>Shares were credited to your demat on 27 Oct, a day before listing.</li>
+                <li className="flex gap-2"><span>•</span>The blocked amount was debited for the allotted shares only.</li>
+                <li className="flex gap-2"><span>•</span>The stock listed on 28 Oct, so you can now hold or sell at the market price.</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
-              <h2 className="font-bold text-red-800 mb-2">❌ If you are not allotted</h2>
+              <h2 className="font-bold text-red-800 mb-2">❌ If you were not allotted</h2>
               <ul className="space-y-1.5 text-sm text-red-800">
-                <li className="flex gap-2"><span>•</span>Your ASBA blocked amount is released/unblocked automatically.</li>
-                <li className="flex gap-2"><span>•</span>For UPI applications, the mandate is revoked - no money is debited.</li>
-                <li className="flex gap-2"><span>•</span>You can still buy Jio shares from the open market after listing.</li>
+                <li className="flex gap-2"><span>•</span>Your ASBA blocked amount was released automatically on 27 Oct.</li>
+                <li className="flex gap-2"><span>•</span>For UPI applications the mandate was revoked - no money was debited.</li>
+                <li className="flex gap-2"><span>•</span>Jio Platforms is now listed, so you can buy it on the open market.</li>
               </ul>
             </div>
           </div>
