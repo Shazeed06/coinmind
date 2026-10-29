@@ -4,9 +4,9 @@ import { site } from "@/lib/site";
 import IpoDematCta from "@/components/IpoDematCta";
 
 export const metadata: Metadata = {
-  title: { absolute: "Reliance Jio IPO 2026: GMP, Price Band & Date | CoinMind" },
+  title: { absolute: "Jio IPO: Listing Price, Allotment & Full Review | CoinMind" },
   description:
-    "Reliance Jio IPO opens 21-23 Oct 2026. Price band ₹1,065-₹1,119, lot 12 shares (₹13,428), ~₹30,000 cr fresh issue. Latest GMP, allotment (26 Oct), listing (28 Oct) & should you apply.",
+    "Jio Platforms listed on 28 Oct 2026 at ₹1,358, a 21.4% premium over the ₹1,119 issue price, and closed day one at ₹1,417.50. Full review, subscription and allotment details.",
   keywords: [
     "Reliance Jio IPO",
     "Jio IPO 2026",
@@ -25,44 +25,45 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/ipos/reliance-jio-ipo` },
   openGraph: {
     locale: "en_IN",
-    title: "Reliance Jio IPO 2026: GMP, Price Band ₹1,065-1,119, Date & Review",
+    title: "Jio IPO: Listed at ₹1,358 (+21.4%) - Allotment & Full Review",
     description:
-      "India's biggest-ever IPO. Jio Platforms opens 21-23 Oct 2026 at ₹1,065-₹1,119. Latest GMP, lot size, allotment & listing dates, expert review.",
+      "India's biggest-ever IPO. Jio Platforms listed 28 Oct 2026 at ₹1,358 (+21.4%) and closed day one at ₹1,417.50. Subscription, allotment and review.",
     url: `${site.url}/ipos/reliance-jio-ipo`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reliance Jio IPO 2026: GMP, Price Band ₹1,065-1,119, Date & Review",
+    title: "Jio IPO: Listed at ₹1,358 (+21.4%) - Allotment & Full Review",
     description:
-      "India's biggest-ever IPO. Jio Platforms opens 21-23 Oct 2026 at ₹1,065-₹1,119. Latest GMP, lot size, allotment & listing dates, expert review.",
+      "India's biggest-ever IPO. Jio Platforms listed 28 Oct 2026 at ₹1,358 (+21.4%) and closed day one at ₹1,417.50. Subscription, allotment and review.",
   },
 };
 
-const LAST_UPDATED = "25 October 2026";
+const LAST_UPDATED = "29 October 2026";
 
 const IPO_DETAILS = [
   { label: "Price Band", value: "₹1,065 - ₹1,119 per share" },
+  { label: "Issue Price (final)", value: "₹1,119 per share (upper band)" },
   { label: "Lot Size", value: "12 shares (1 lot)" },
   { label: "Min. Investment (retail)", value: "₹13,428 (12 × ₹1,119)" },
-  { label: "Issue Size", value: "~₹30,000 crore (fresh issue)" },
+  { label: "Issue Size", value: "₹30,213 crore (fresh issue)" },
   { label: "Issue Type", value: "100% Fresh Issue (No OFS)" },
-  { label: "Shares Offered", value: "~27 crore equity shares" },
   { label: "Face Value", value: "₹10 per share" },
   { label: "IPO Open Date", value: "21 October 2026" },
   { label: "IPO Close Date", value: "23 October 2026" },
-  { label: "Subscription", value: "Closed - subscribed ~21.4x overall" },
-  { label: "Allotment Date", value: "26 October 2026" },
-  { label: "Listing Date", value: "28 October 2026 (expected)" },
+  { label: "Subscription", value: "Closed - subscribed ~22x (QIB ~70.6x, retail ~2.7x)" },
+  { label: "Allotment Date", value: "26 October 2026 (finalised)" },
+  { label: "Listing Date", value: "28 October 2026 (listed)" },
+  { label: "Listing Price", value: "₹1,358 on BSE & NSE (+21.4%)" },
+  { label: "Day-1 Close (NSE)", value: "₹1,417.50 (+26.7% over issue price)" },
   { label: "Exchanges", value: "BSE + NSE" },
   { label: "Registrar", value: "KFin Technologies" },
   { label: "Category", value: "Mainboard IPO" },
-  { label: "GMP (indicative)", value: "~₹248 (+22%) as of 25 Oct 2026" },
 ];
 
 const PROS = [
   "India's largest telecom - 524+ million subscribers as of Mar 2026, carrying ~60% of India's wireless data traffic",
   "100% fresh issue - all proceeds go to the company, no promoter or PE exit",
-  "Strong listing-day sentiment: grey market premium indicating ~20-22% over the issue price (unofficial)",
+  "Delivered on listing day: the stock opened at ₹1,358 (+21.4%) and closed day one at ₹1,417.50 on the NSE (+26.7% over the issue price)",
   "Massive growth runway in 5G, JioFiber, JioAirFiber, and enterprise/AI services",
   "Backed by Reliance Industries' balance sheet; marquee global investors (Google, Meta, KKR, Silver Lake, PIF) already on the cap table",
   "Pan-India 5G rollout largely complete - infrastructure advantage over peers",
@@ -73,8 +74,8 @@ const CONS = [
   "Regulatory risk: DoT/TRAI spectrum pricing and tariff rules can compress margins",
   "ARPU (average revenue per user) still among Asia's lowest - monetisation pace uncertain",
   "Reliance Group complexity - related-party-transaction scrutiny is likely",
-  "Huge issue size (~₹30,000 cr) means heavy retail competition and possible muted allotment odds",
-  "GMP is unofficial and can swing sharply before listing - not a guarantee of listing gains",
+  "Huge issue size (₹30,213 cr) meant heavy retail competition - the retail book was subscribed ~2.7x, so many applicants got nothing",
+  "The listing pop is already in the price: anyone buying now pays well above the ₹1,119 issue price, without the IPO discount",
 ];
 
 const FAQS = [
@@ -83,28 +84,28 @@ const FAQS = [
     a: "The Jio Platforms IPO price band is ₹1,065 to ₹1,119 per share. At the upper band of ₹1,119, one lot of 12 shares needs a minimum retail application of ₹13,428.",
   },
   {
-    q: "When does the Jio IPO open and close?",
-    a: "The Reliance Jio (Jio Platforms) IPO is scheduled to open for subscription on 21 October 2026 and close on 23 October 2026. Anchor investor bidding typically happens one working day before the retail open.",
+    q: "When did the Jio IPO open and close?",
+    a: "The Jio Platforms IPO was open for subscription from 21 to 23 October 2026. Allotment was finalised on 26 October, shares were credited on 27 October, and the stock listed on 28 October 2026. The subscription window is closed - you can now only buy the share on the open market.",
   },
   {
-    q: "What is the Jio IPO GMP today?",
-    a: "As of 25 October 2026, with the issue now closed, the grey market premium (GMP) for the Jio IPO is around ₹248, roughly 22% over the ₹1,119 upper price band, implying an indicative listing price near ₹1,367. GMP is an unofficial, unregulated indicator that changes daily and does not guarantee the actual listing price.",
+    q: "At what price did the Jio IPO list?",
+    a: "Jio Platforms listed on 28 October 2026 at ₹1,358 on both the BSE and NSE, a premium of about 21.4% over the ₹1,119 issue price. It went on to close its first day at ₹1,417.50 on the NSE, roughly 26.7% above the issue price. The grey market premium before listing had indicated a similar range.",
   },
   {
     q: "What is the Jio IPO lot size and minimum investment?",
     a: "The lot size is 12 shares. At the upper price band of ₹1,119, the minimum retail investment for 1 lot is ₹13,428. Retail investors can apply for a maximum of up to roughly ₹2 lakh (about 14 lots).",
   },
   {
-    q: "When is the Jio IPO allotment and listing date?",
-    a: "Allotment is expected on 26 October 2026, and listing on both BSE and NSE is expected on 28 October 2026. You can check allotment status on the registrar's website or the BSE IPO page once allotment is finalised.",
+    q: "What were the Jio IPO allotment and listing dates?",
+    a: "Allotment was finalised on 26 October 2026, refunds and ASBA unblocking happened on 27 October along with the share credit, and Jio Platforms listed on both the BSE and NSE on 28 October 2026. You can still look up your allotment on KFin Technologies, BSE or NSE.",
   },
   {
-    q: "What is the Jio IPO issue size?",
-    a: "Jio Platforms is raising approximately ₹30,000 crore through a 100% fresh issue of about 27 crore equity shares - making it one of India's largest-ever public offerings.",
+    q: "What was the Jio IPO issue size?",
+    a: "Jio Platforms raised ₹30,213 crore through a 100% fresh issue - India's largest-ever public offering. The issue was subscribed roughly 22 times overall, with the QIB portion around 70.6 times and the retail portion around 2.7 times.",
   },
   {
-    q: "Is the Jio IPO a good investment?",
-    a: "Jio has strong fundamentals - 524M+ subscribers, 5G leadership, and diversified digital services - and positive grey-market sentiment. However, the valuation is aggressive and GMP can change before listing. Long-term investors may find value, but listing gains depend on market conditions. This is not investment advice; read the RHP and consult a SEBI-registered adviser.",
+    q: "Should I buy Jio Platforms shares now that it has listed?",
+    a: "That is a different question from applying to the IPO. The IPO discount is gone - the stock closed day one about 26.7% above the ₹1,119 issue price, so you now pay the market price. Jio has real strengths (524M+ subscribers, 5G leadership) but the valuation was already rich at issue. This is not investment advice; read the RHP and speak to a SEBI-registered adviser.",
   },
 ];
 
@@ -112,9 +113,9 @@ export default function RelianceJioIpoPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Reliance Jio IPO 2026: GMP Today, Price Band, Date & Complete Review",
+    headline: "Jio IPO: Listing Price, Allotment, Subscription & Complete Review",
     description:
-      "Jio Platforms IPO opens 21-23 Oct 2026 at a price band of ₹1,065-₹1,119, lot size 12 shares, ~₹30,000 crore fresh issue, listing 28 Oct 2026.",
+      "Jio Platforms' ₹30,213 crore IPO ran 21-23 Oct 2026 at ₹1,065-₹1,119 and listed on 28 Oct 2026 at ₹1,358, a 21.4% premium over the issue price.",
     url: `${site.url}/ipos/reliance-jio-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
@@ -196,7 +197,7 @@ export default function RelianceJioIpoPage() {
           </p>
           <div className="mt-3 flex flex-wrap gap-2 text-xs">
             <Link href="/ipos/jio-ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">
-              → Jio IPO GMP Today (live tracker)
+              → Jio IPO GMP vs actual listing
             </Link>
             <Link href="/ipos/jio-ipo-allotment-status" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">
               → Jio IPO Allotment Status
@@ -277,7 +278,7 @@ export default function RelianceJioIpoPage() {
           <h2 className="text-base font-bold text-blue-800 dark:text-blue-300 mb-2">About GMP (Grey Market Premium)</h2>
           <p className="text-sm text-blue-700 dark:text-blue-400">
             As of 25 October 2026, the Jio IPO GMP is around <strong>₹248</strong>, implying a listing near <strong>₹1,367</strong> (about 22% over the ₹1,119 upper band). GMP is an <strong>unofficial, unregulated indicator</strong> of market sentiment, it moves daily and does not guarantee the listing price. For the latest reading, see our{" "}
-            <Link href="/ipos/jio-ipo-gmp-today" className="underline font-medium">Jio IPO GMP Today tracker</Link>.
+            <Link href="/ipos/jio-ipo-gmp-today" className="underline font-medium">Jio IPO GMP vs listing breakdown</Link>.
           </p>
         </section>
 
