@@ -131,6 +131,19 @@ function Labeled({
   );
 }
 
+// Numbered section heading, so the form reads as a guided sequence rather than
+// five unrelated cards.
+function StepHeading({ n, children }: { n: number; children: React.ReactNode }) {
+  return (
+    <h2 className="flex items-center gap-2.5 font-display text-lg text-ink">
+      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand/10 text-xs font-bold text-brand">
+        {n}
+      </span>
+      {children}
+    </h2>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
@@ -324,6 +337,13 @@ export default function ResumeBuilder() {
         @media print {
           @page { size: A4; margin: 0; }
           html, body { background: #ffffff !important; }
+          /* The sticky, internally-scrolling preview column would otherwise
+             clip the sheet when printing. */
+          .resume-preview-col {
+            position: static !important;
+            max-height: none !important;
+            overflow: visible !important;
+          }
           body * { visibility: hidden !important; }
           #resume-preview, #resume-preview * { visibility: visible !important; }
           #resume-preview {
@@ -372,9 +392,7 @@ export default function ResumeBuilder() {
         <div className="no-print space-y-6">
           {/* Basics */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg text-ink">
-              Your details
-            </h2>
+            <StepHeading n={1}>Your details</StepHeading>
             <div className="mt-5 grid gap-4">
               <Labeled label="Full name">
                 <input
@@ -435,9 +453,7 @@ export default function ResumeBuilder() {
           {/* Summary */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between gap-3">
-              <h2 className="font-display text-lg text-ink">
-                Professional summary
-              </h2>
+              <StepHeading n={2}>Professional summary</StepHeading>
               <button
                 type="button"
                 disabled={aiBusy === "summary"}
@@ -470,9 +486,7 @@ export default function ResumeBuilder() {
           {/* Experience */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between">
-              <h2 className="font-display text-lg text-ink">
-                Work experience
-              </h2>
+              <StepHeading n={3}>Work experience</StepHeading>
               <button
                 type="button"
                 onClick={addExperience}
@@ -613,9 +627,7 @@ export default function ResumeBuilder() {
           {/* Education */}
           <section className="rounded-2xl border border-line bg-card p-6">
             <div className="flex items-center justify-between">
-              <h2 className="font-display text-lg text-ink">
-                Education
-              </h2>
+              <StepHeading n={4}>Education</StepHeading>
               <button
                 type="button"
                 onClick={addEducation}
@@ -685,7 +697,7 @@ export default function ResumeBuilder() {
 
           {/* Skills */}
           <section className="rounded-2xl border border-line bg-card p-6">
-            <h2 className="font-display text-lg text-ink">Skills</h2>
+            <StepHeading n={5}>Skills</StepHeading>
             <p className="mt-1 text-sm text-ink-faint">
               Separate with commas. They show as tidy chips on your resume.
             </p>
@@ -702,7 +714,16 @@ export default function ResumeBuilder() {
         {/* ---------------------------------------------------------------- */}
         {/* RIGHT: live preview                                             */}
         {/* ---------------------------------------------------------------- */}
-        <div className="w-full">
+        {/* The preview sticks while you fill the form on the left. The A4 sheet
+            is taller than most viewports, so the column scrolls internally
+            rather than just pinning the top of a page you can't see the end of. */}
+        <div className="resume-preview-col w-full lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto lg:pr-1">
+          <div className="no-print mb-2 flex items-center justify-between gap-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
+              Live preview — A4
+            </p>
+            <p className="text-xs text-ink-faint">Updates as you type</p>
+          </div>
           <div
             id="resume-preview"
             className="resume-paper rounded-lg border border-line bg-white shadow-md"
@@ -858,8 +879,8 @@ export default function ResumeBuilder() {
             )}
           </div>
 
-          <p className="no-print mt-3 text-center text-xs text-ink-faint">
-            Live preview. This is exactly what your PDF will look like.
+          <p className="no-print mt-3 pb-2 text-center text-xs text-ink-faint">
+            This is exactly what your PDF will look like.
           </p>
         </div>
       </div>

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+const LAST_UPDATED = "29 October 2026";
 
 const BSE_STEPS = [
   "Go to the BSE allotment page: bseindia.com → Investors → Status of Issue Application (or search \"BSE IPO allotment\").",
@@ -68,7 +68,7 @@ const REGISTRARS = [
 const FAQS = [
   {
     q: "How do I check my IPO allotment status?",
-    a: "You can check in three ways: on the BSE website (Investors → Status of Issue Application), on the IPO's registrar website (such as MUFG Intime/Link Intime or KFintech), or inside your broker app. On BSE and the registrar you search using your PAN, application number, or demat/client ID. The status only appears once the basis of allotment is finalised, usually a day or two after the IPO closes.",
+    a: "You can check in four ways: on the BSE website (Investors → Status of Issue Application), on the IPO's registrar website (such as MUFG Intime/Link Intime or KFintech), or inside your broker app. On BSE and the registrar you search using your PAN, application number, or demat/client ID. The status only appears once the basis of allotment is finalised, usually a day or two after the IPO closes.",
   },
   {
     q: "What are the IPO registrars in India?",
@@ -213,9 +213,28 @@ export default function IpoAllotmentStatusPage() {
             </p>
           </div>
 
-          {/* Method 3: Broker */}
+          {/* Method 3: NSE */}
           <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-3">Method 3: Check in Your Broker App</h2>
+            <h2 className="font-bold text-text mb-3">Method 3: Check on the NSE Website</h2>
+            <ol className="space-y-2">
+              {[
+                "Open the NSE IPO bid-verification / allotment page.",
+                "First-time users register once using the \"Click here to sign up\" link and their PAN.",
+                "Sign in and select the IPO you applied to.",
+                "Enter your PAN or application number to see the status of applications linked to that PAN.",
+              ].map((step, i) => (
+                <li key={i} className="flex gap-3 text-sm text-text-muted">
+                  <span className="h-5 w-5 rounded-full bg-brand/10 text-brand font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="text-xs text-text-muted mt-3">NSE needs a one-time free registration with your PAN before you can look up an application - BSE and the registrar do not.</p>
+          </div>
+
+          {/* Method 4: Broker */}
+          <div className="rounded-2xl border border-border bg-white p-5">
+            <h2 className="font-bold text-text mb-3">Method 4: Check in Your Broker App</h2>
             <p className="text-sm text-text-muted">
               Most brokers (Zerodha, Groww, Angel One, Upstox, etc.) show your IPO application and allotment result in their IPO/Orders section once allotment is finalised. You will also get an SMS/email from CDSL or NSDL when shares are credited to your demat account - a reliable confirmation that you were allotted.
             </p>

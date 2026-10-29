@@ -4,9 +4,9 @@ import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Jio IPO GMP Today: Live Grey Market Premium | CoinMind" },
+  title: { absolute: "Jio IPO GMP vs Actual Listing Price: What Happened | CoinMind" },
   description:
-    "Jio Platforms IPO GMP today is ~₹250 (+22% over ₹1,119). Track the day-wise grey market premium, implied listing price, price band ₹1,065-1,119 and dates (21-23 Oct, listing 28 Oct).",
+    "Jio IPO GMP peaked near ₹254 (+23%) and the stock listed at ₹1,358 on 28 Oct 2026, a 21.4% premium. Day-wise GMP trend and how accurate it turned out.",
   keywords: [
     "Jio IPO GMP today",
     "Jio IPO GMP",
@@ -20,22 +20,27 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/ipos/jio-ipo-gmp-today` },
   openGraph: {
     locale: "en_IN",
-    title: "Jio IPO GMP Today: ₹250 (+22%) - Live Grey Market Premium",
+    title: "Jio IPO GMP vs Listing: indicated ~22%, listed at +21.4%",
     description:
-      "Latest Jio Platforms IPO grey market premium, day-wise trend, and implied listing price. Price band ₹1,065-1,119, opens 21 Oct 2026.",
+      "Day-wise Jio Platforms IPO grey market premium and how it compared with the actual ₹1,358 listing on 28 Oct 2026.",
     url: `${site.url}/ipos/jio-ipo-gmp-today`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jio IPO GMP Today: ₹250 (+22%) - Live Grey Market Premium",
+    title: "Jio IPO GMP vs Listing: indicated ~22%, listed at +21.4%",
     description:
-      "Latest Jio Platforms IPO grey market premium, day-wise trend and implied listing price. Opens 21 Oct 2026, band ₹1,065-1,119.",
+      "Day-wise Jio Platforms IPO grey market premium and how it compared with the actual ₹1,358 listing on 28 Oct 2026.",
   },
 };
 
-const LAST_UPDATED = "18 October 2026, 7:30 PM IST";
+const LAST_UPDATED = "29 October 2026";
 const UPPER_BAND = 1119;
-const GMP = 250;
+// Final GMP seen before listing. The issue has now listed, so this is a
+// historical record rather than a live number.
+const GMP = 254;
+// What actually happened on 28 Oct 2026.
+const LISTING_PRICE = 1358;
+const DAY1_CLOSE = 1417.5;
 
 // Day-wise GMP trend from public grey-market trackers. Indicative only.
 const GMP_TREND = [
@@ -47,20 +52,21 @@ const GMP_TREND = [
   { date: "16 Oct 2026", gmp: 225 },
   { date: "17 Oct 2026", gmp: 230 },
   { date: "18 Oct 2026", gmp: 250 },
+  { date: "27 Oct 2026", gmp: 254 },
 ];
 
 const FAQS = [
   {
-    q: "What is the Jio IPO GMP today?",
-    a: `As of ${LAST_UPDATED}, the Jio Platforms IPO grey market premium (GMP) is around ₹${GMP}, about ${Math.round((GMP / UPPER_BAND) * 100)}% over the ₹${UPPER_BAND} upper price band. This implies an indicative listing price of roughly ₹${UPPER_BAND + GMP}. GMP is unofficial and changes daily.`,
+    q: "What was the Jio IPO GMP, and what did the stock actually list at?",
+    a: `The final grey market premium before listing was about ₹${GMP}, roughly ${Math.round((GMP / UPPER_BAND) * 100)}% over the ₹${UPPER_BAND} issue price, implying a listing near ₹${UPPER_BAND + GMP}. Jio Platforms actually listed on 28 October 2026 at ₹${LISTING_PRICE} on both exchanges - a premium of about 21.4%. The grey market was close on this one.`,
   },
   {
-    q: "What is the expected listing price of Jio IPO?",
-    a: `Based on the current GMP of ₹${GMP} and the ₹${UPPER_BAND} upper band, the indicative listing price is about ₹${UPPER_BAND + GMP}. This is only a grey-market estimate, not a guarantee - the actual listing price on 28 October 2026 depends on demand and market conditions on listing day.`,
+    q: "What was the Jio IPO listing price?",
+    a: `Jio Platforms listed at ₹${LISTING_PRICE} on both the BSE and NSE on 28 October 2026, about 21.4% above the ₹${UPPER_BAND} issue price. It touched roughly ₹1,375 intraday and closed its first day at ₹${DAY1_CLOSE} on the NSE, around 26.7% above the issue price.`,
   },
   {
-    q: "Is GMP a reliable indicator for Jio IPO?",
-    a: "GMP reflects informal, unregulated grey-market sentiment. It can signal listing-day direction but is frequently wrong on magnitude and can swing sharply in the final days before listing. Never apply to an IPO based on GMP alone - read the RHP and assess fundamentals and valuation.",
+    q: "Is GMP a reliable indicator?",
+    a: "It was close for the Jio issue - a ~22% indicated premium against a ~21.4% actual listing - but that is one data point, not a rule. GMP is informal, unregulated sentiment: it often signals direction but is frequently wrong on magnitude and can swing sharply in the last days. Never apply to an IPO on GMP alone.",
   },
   {
     q: "What is the Jio IPO price band and lot size?",
@@ -75,7 +81,7 @@ export default function JioIpoGmpTodayPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Jio IPO GMP Today - Live Grey Market Premium & Expected Listing Price",
+    headline: "Jio IPO GMP vs Actual Listing Price - How Accurate Was the Grey Market?",
     description:
       "Latest Jio Platforms IPO grey market premium (GMP), day-wise trend and implied listing price.",
     url: `${site.url}/ipos/jio-ipo-gmp-today`,
@@ -113,14 +119,14 @@ export default function JioIpoGmpTodayPage() {
             <span>›</span>
             <Link href="/ipos/reliance-jio-ipo" className="hover:text-brand">Jio IPO</Link>
             <span>›</span>
-            <span>GMP Today</span>
+            <span>GMP vs Listing</span>
           </nav>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">
-            Jio IPO GMP Today
+            Jio IPO GMP vs Actual Listing
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            Live grey market premium (GMP) tracker for the Reliance Jio Platforms IPO. The IPO opens 21 October 2026 at a price band of ₹1,065-₹1,119 and lists on 28 October 2026.
+            How the grey market premium moved before the Reliance Jio Platforms IPO - and how close it got. The issue was priced at ₹1,119 and the stock listed at ₹1,358 on 28 October 2026, a premium of about 21.4%.
           </p>
           <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">GMP is unofficial, unregulated and indicative only.</span></p>
         </div>
@@ -155,7 +161,7 @@ export default function JioIpoGmpTodayPage() {
               </div>
             </div>
             <p className="text-[11px] text-sky-700 mt-3">
-              Implied listing = upper band (₹{UPPER_BAND}) + GMP (₹{GMP}) = ₹{impliedListing}. This is a grey-market estimate, not the actual listing price.
+              Implied listing = issue price (₹{UPPER_BAND}) + final GMP (₹{GMP}) = ₹{impliedListing}. The stock actually listed at ₹{LISTING_PRICE} and closed day one at ₹{DAY1_CLOSE} on the NSE.
             </p>
           </div>
 
@@ -210,7 +216,7 @@ export default function JioIpoGmpTodayPage() {
           <div className="rounded-2xl bg-blue-50 border border-blue-200 p-5">
             <h2 className="font-bold text-blue-800 mb-2">What is GMP (Grey Market Premium)?</h2>
             <p className="text-sm text-blue-700 leading-relaxed">
-              GMP is the extra amount (over the issue price) at which IPO shares are informally bought and sold in the unofficial grey market before listing. A GMP of ₹{GMP} means grey-market participants expect Jio to list around ₹{impliedListing}. It is <strong>not quoted on BSE/NSE</strong>, is <strong>not regulated by SEBI</strong>, and changes every day - treat it as rough sentiment, never as a promise of listing gains.
+              GMP is the extra amount (over the issue price) at which IPO shares are informally bought and sold in the unofficial grey market before listing. A GMP of ₹{GMP} meant grey-market participants expected Jio to list around ₹{impliedListing}; it actually listed at ₹{LISTING_PRICE}. It is <strong>not quoted on BSE/NSE</strong>, is <strong>not regulated by SEBI</strong>, and changes every day - treat it as rough sentiment, never as a promise of listing gains.
             </p>
           </div>
 
