@@ -62,6 +62,7 @@ export const FULL_FORMS: Record<string, string> = {
   hra: "House Rent Allowance",
   ulip: "Unit Linked Insurance Plan",
   swp: "Systematic Withdrawal Plan",
+  "demat-account": "Dematerialised Account",
 };
 
 /** Display order for the index page and category grouping. */
@@ -2522,7 +2523,7 @@ Expect visible movement in three to six months and a genuine recovery over a yea
     term: "Credit Score",
     category: "Credit",
     short:
-      "A credit score is a number showing how reliably you repay borrowed money; a higher score means lower risk and better loan and card rates.",
+      "A credit score is a three-digit number, 300 to 900 in India, summarising how reliably you repay borrowed money; higher means better loan and card terms.",
     bodyMarkdown: `A credit score condenses your entire borrowing track record into a single figure a lender can read in seconds. In India the CIBIL, Experian, Equifax and CRIF High Mark scores all run from **300 to 900**. Other countries use different scales (FICO in the United States runs 300 to 850), but the logic is identical everywhere: a number standing in for how reliably you repay.
 
 ## India has four bureaus, not one
@@ -2556,6 +2557,26 @@ Many lenders now price risk explicitly this way, publishing different rates for 
 Lending is no longer the only application. Credit-linked checks now appear in some rental agreements, in post-paid telecom and utility connections, and increasingly in insurance underwriting. In parts of the financial sector it is also referenced in hiring for roles involving money handling.
 
 The score has quietly become a general-purpose reliability signal, which is a good argument for maintaining it even in years when you are not borrowing.
+
+## How to improve a credit score, and how fast it can move
+
+There is no legitimate overnight fix. The number is produced from data your lenders report to the bureaus in monthly batches, so nothing you do today can be scored until it has been reported. Realistically, a change you make now starts showing over **one to three billing cycles**, and a genuinely weak file takes a year or more of clean conduct to read as strong. Anyone promising a jump in a week, or offering to delete accurate negative entries, is selling a fraud.
+
+Within that constraint, these are the levers, ordered by how quickly they show up.
+
+**Dispute genuine errors.** The one change that can add points without changing your behaviour, because it removes something that was never true. Pull the full [credit report](/glossary/credit-report), not just the score, and check it line by line.
+
+**Clear every active overdue.** A live default outweighs almost everything else. Nothing else you do will register while one is sitting on the file.
+
+**Cut utilisation before the statement date.** It is the statement balance that gets reported, so paying down a card mid-cycle, or paying twice in a month, lowers the figure the bureau sees. Requesting a higher limit and not using it has the same effect.
+
+**Pay every instalment on time, without exception.** Recent conduct is weighted more heavily than old conduct, which is what makes recovery possible at all.
+
+**Stop applying while you repair.** Each formal application adds a hard enquiry, and a cluster of them reads as distress.
+
+**Keep old, well-handled accounts open.** Their age is working for you.
+
+If you have no history at all, a secured card against a [fixed deposit](/glossary/fixed-deposit) is the standard way to start one. Our guide on [how to improve your credit score](/blog/how-to-improve-credit-score) sets out the full sequence.
 
 ## Common misconceptions
 
@@ -2594,6 +2615,22 @@ For the India-specific bureau and its score bands, see [CIBIL score](/glossary/c
       {
         q: "Do I need to carry a credit card balance to build credit history?",
         a: "No, and this is a costly myth. Using the card and paying the statement in full each month builds history perfectly well and costs nothing in interest. Carrying a balance simply hands the bank interest at roughly 40% annualised while doing nothing extra for your score.",
+      },
+      {
+        q: "How can I improve my credit score fast?",
+        a: "There is no legitimate overnight fix. Lenders report to the bureaus monthly, so nothing counts until it is reported. The quickest honest steps are disputing a genuine error, clearing active overdues and cutting utilisation before the statement date. Expect movement over roughly one to three billing cycles, not days.",
+      },
+      {
+        q: "Can I increase my CIBIL score in one month?",
+        a: "A small rise is possible if a reported error is corrected or your utilisation drops before the statement date, because those change what the bureau sees in the next update. A large jump in one month is not realistic, and a weak file usually needs a year or more of clean repayment.",
+      },
+      {
+        q: "Why has my credit score not improved after paying off a loan?",
+        a: "Usually timing. Your lender reports in monthly batches, so a closure can take a cycle or more to appear, and each bureau updates on its own schedule. Check that the account shows as closed rather than settled, keep the NOC, and dispute it with the bureau if it stays wrong.",
+      },
+      {
+        q: "What is Equifax and is its score different from my CIBIL score?",
+        a: "Equifax is one of four credit bureaus licensed by the RBI, with TransUnion CIBIL, Experian and CRIF High Mark. Each holds its own data and runs its own model, so the scores differ and none is the official one. Before a large loan, check more than one report.",
       },
     ],
     related: ["cibil-score", "emi", "term-insurance", "net-worth"],
@@ -4454,7 +4491,7 @@ Checking your own utilisation or score is a soft enquiry and never damages anyth
     term: "Credit Report",
     category: "Credit",
     short:
-      "A credit report is the full record a bureau holds on you: every loan and card, a month-by-month payment grid, and every enquiry.",
+      "A credit report is the full file a credit bureau keeps on your borrowing: every loan and card, a month-by-month payment record, and every lender enquiry.",
     bodyMarkdown: `A credit report is the underlying file. A [credit score](/glossary/credit-score) is a three-digit summary of that file. Lenders look at both, and when they decline an application that has a decent score, it is almost always because of something in the report rather than the number.
 
 Four bureaus are licensed by the RBI in India: TransUnion CIBIL, Experian, Equifax and CRIF High Mark. Each builds its own report from data that banks, NBFCs and card issuers submit, and each does so on its own schedule. That is why your four reports will not be identical.
@@ -4499,6 +4536,25 @@ File the dispute through the bureau's online dispute portal with supporting docu
 
 Keep the NOC every time you close a loan, then verify a month later that the bureau reflects it. That single habit prevents most of the disputes people end up filing years later.
 
+## How often the report updates
+
+Lenders submit data to the bureaus in batches, commonly monthly, and each lender runs to its own calendar. So a payment you made today, or a loan you closed last week, will not appear immediately: a lag of roughly a month, sometimes longer, is normal, and the four bureaus will not all update in the same week.
+
+This matters for anyone trying to fix a file quickly. The behaviour that will improve your [credit score](/glossary/credit-score) has to be reported before it can count, which is why improvement is measured in billing cycles rather than days. Expect a change you make now to start showing on the report over roughly **one to three statement cycles**, and a weak file to take considerably longer than that to look strong.
+
+## Improving what the report says
+
+There is no legitimate way to rewrite a report overnight, and any service promising to delete accurate negative entries is a fraud. What actually works, in order of how fast it shows up:
+
+- **Correct genuine errors.** The only change that can add points without changing your behaviour, because it removes something that was never true.
+- **Clear every active overdue.** A live default outweighs almost everything else on the file.
+- **Bring [credit utilisation](/glossary/credit-utilization) down** before the statement date, since it is the statement balance that gets reported.
+- **Pay every instalment on time, without exception**, because recent conduct is weighted more heavily than old conduct.
+- **Stop applying** while you repair, so no new hard enquiries land on the file.
+- **Keep old, well-handled accounts open**, since their age is an asset on the report.
+
+Our guide on [how to improve your credit score](/blog/how-to-improve-credit-score) sets out the sequence in more detail.
+
 ## When to check
 
 Pull all four reports at least once a year as a routine, and always **three to six months before a large loan application** so there is time for a dispute to run its 30-day course. Applying with an uncorrected error costs you either the loan or a worse rate, and both are avoidable.`,
@@ -4526,6 +4582,22 @@ Pull all four reports at least once a year as a routine, and always **three to s
       {
         q: "Does checking my own credit report lower my score?",
         a: "No. Checking your own report is a soft enquiry, it is recorded separately from lender enquiries, and it has no effect on the score however often you do it. Only hard enquiries, generated when you formally apply and a lender pulls your file, can reduce it.",
+      },
+      {
+        q: "What does a credit report contain?",
+        a: "Five sections: your identity details as reported by lenders; every loan and card, open or closed, with balances and ownership type; a month-by-month payment grid, usually covering 36 months; every hard enquiry from a lender; and adverse flags such as written-off, settled, suit-filed or wilful defaulter markers.",
+      },
+      {
+        q: "How often is a credit report updated in India?",
+        a: "Lenders report to the bureaus in batches, commonly monthly, each on its own calendar. A payment or a loan closure therefore takes roughly a month, sometimes longer, to appear, and the four bureaus do not update in the same week. This lag is why improvement is counted in billing cycles.",
+      },
+      {
+        q: "What is Equifax and how is it different from CIBIL?",
+        a: "Equifax is one of the four credit bureaus licensed by the RBI, alongside TransUnion CIBIL, Experian and CRIF High Mark. It builds its own report from the data lenders submit to it and runs its own score. Functionally the same product; the difference is whose data it holds and when.",
+      },
+      {
+        q: "How can I improve my credit report quickly?",
+        a: "The fastest legitimate step is disputing a genuine error, since it adds points without changing your behaviour. After that: clear active overdues, cut utilisation before the statement date, pay on time and stop applying. Because lenders report monthly, expect changes over roughly one to three billing cycles, not days.",
       },
     ],
     related: ["credit-score", "cibil-score", "credit-utilization", "loan-default"],
@@ -8250,31 +8322,58 @@ Compare gilt fund suitability with other fixed-income options using our [FD calc
     term: "Demat Account",
     category: "Banking",
     short:
-      "A demat account holds your shares, mutual funds and bonds in electronic form, like a bank account for investments - required to invest in Indian stocks.",
+      "A demat account holds your shares, ETFs and bonds in electronic form - it is the account that stores what you own in the Indian stock market.",
     bodyMarkdown: `## What is a demat account?
 
 A **demat account** (short for *dematerialised account*) holds your shares, [mutual funds](/glossary/mutual-fund), [ETFs](/glossary/etf), bonds and government securities in electronic form, the way a bank account holds your money. Before demat, shares were physical paper certificates that could be lost, torn or forged. Today SEBI requires securities to be held electronically, so you need a demat account to invest in the Indian stock market, buy an [IPO](/glossary/ipo) or hold most ETFs.
 
 ## Demat account vs trading account
 
-People often confuse the two. You usually open both together with a broker, but they do different jobs.
+This is the single most common confusion, and it matters because the two are sold to you together as one product.
 
-| Account | What it does |
-|---|---|
-| Demat account | **Stores** your shares and securities, like a locker |
-| Trading account | **Places** buy and sell orders on the exchange |
+A **demat account** is a holding account. It sits with a depository, either **NSDL** or **CDSL**, and its only job is to record what you own. Nothing happens inside it until securities are credited or debited.
 
-In short: the trading account transacts, the demat account holds what you own.
+A **trading account** is an order account. It sits with your broker, connects to the NSE and BSE, and is what actually sends a buy or sell instruction to the exchange.
 
-## How to open a demat account
+| Compare | Demat account | Trading account |
+|---|---|---|
+| Job | **Holds** the securities you own | **Places** buy and sell orders |
+| Held with | A depository (NSDL or CDSL), through a DP | Your broker |
+| Needed for | Holding shares, receiving IPO allotment | Transacting on the exchange |
+| Identifier | BO ID (demat account number) | Client or trading code |
+| Recurring cost | AMC, plus a DP charge on each debit | Brokerage, plus statutory charges per trade |
+
+Buying a share uses both: the trading account places the order, and the shares are credited to your demat account on settlement. Selling runs the same path in reverse. See [trading account](/glossary/trading-account) for the order side in detail.
+
+## What a demat account number looks like
+
+Your demat account number, also called the **BO (beneficiary owner) ID**, is 16 characters, and its format tells you which depository holds your securities.
+
+- **CDSL:** 16 digits, all numeric.
+- **NSDL:** the letters **IN** followed by 14 digits.
+
+The first half identifies your DP and the second half identifies you. You need this number to transfer shares in from another account, to link an IPO application, and whenever a company's registrar asks where to credit a corporate action.
+
+## Depository, DP and you
+
+Three parties, and the names get used loosely.
+
+- A **depository** is the central electronic registry of securities. India has two, **NSDL** and **CDSL**, both SEBI-regulated.
+- A **depository participant (DP)** is the agent you actually deal with: a broker, bank or other SEBI-registered intermediary that opens and services the account on the depository's behalf.
+- You are the **beneficial owner**. The securities are yours, not the broker's, even though the broker opened the account.
+
+That separation is the point of the structure. If your DP shuts down, your holdings still sit with the depository and can be moved to another DP.
+
+## How to open a demat account online
 
 1. Pick a SEBI-registered broker or depository participant (DP).
 2. Fill the online application with your PAN, Aadhaar and bank details.
 3. Complete KYC and in-person verification (IPV), usually a short video.
-4. E-sign the form with an Aadhaar OTP.
-5. The account opens in one to two working days and you get a BO (beneficiary owner) ID.
+4. Record a nominee, or an explicit opt-out, which SEBI requires one way or the other.
+5. E-sign the form with an Aadhaar OTP.
+6. The account opens in one to two working days and you get a BO ID.
 
-Most brokers now let you open a demat account **online, paperless and often free** in a few minutes.
+Most brokers now let you open a demat account **online, paperless and often free** in a few minutes, without visiting a branch.
 
 ## Documents required
 
@@ -8284,37 +8383,75 @@ Most brokers now let you open a demat account **online, paperless and often free
 - Photograph and signature
 - Income proof (only if you want to trade in futures and options)
 
-## Charges to check
+## The charges that actually recur
 
-- **Account opening:** frequently free, but confirm.
-- **Annual Maintenance Charge (AMC):** roughly ₹0-₹750 a year depending on the broker.
-- **DP / transaction charges:** a small fee each time you sell.
+Opening is usually free. The charges worth comparing are the ones that keep arriving.
+
+**Annual Maintenance Charge (AMC).** A flat fee for keeping the account open, payable whether or not you trade. It varies widely between DPs, from nil to several hundred rupees a year, and some bill it monthly or collect several years upfront.
+
+**DP transaction charge.** A fee every time securities are **debited** from the account, which in practice means every time you sell. It is normally a flat amount per scrip per day rather than a percentage, so selling a tiny holding can cost the same as selling a large one. It is charged on top of brokerage, and part of it goes to the depository and part to your DP.
+
+**Occasional charges.** Converting physical certificates to demat form, rematerialisation, pledging securities, physical statements and courier charges.
+
+Nothing is charged when securities are credited, so buying and holding is cheap, and it is frequent selling of small lots where the charges bite. Rates are set by each DP and revised from time to time, so ask yours for its current tariff sheet rather than trusting a figure quoted elsewhere.
+
+## BSDA: the cheaper account for a small portfolio
+
+If your holdings are small, SEBI's **Basic Services Demat Account (BSDA)** exists so that the AMC does not quietly eat your returns. A BSDA is an ordinary demat account with a nil or reduced AMC, available as long as the value of your holdings stays below a ceiling SEBI prescribes.
+
+The conditions:
+
+- You may hold **only one** demat account across both depositories, and you must be its sole or first holder.
+- AMC is nil below a lower value band and reduced in a higher band, up to the eligibility ceiling.
+- If your portfolio grows past the ceiling, nothing is lost: the account simply converts to a regular demat account and the normal AMC applies.
+
+SEBI has revised these thresholds more than once, so confirm the current value bands and your eligibility with your DP. Many brokers do not apply BSDA automatically even to investors who qualify, so you may have to ask for it.
+
+## Can you hold more than one demat account?
+
+Yes. You can hold accounts with several DPs and there is no limit, though all of them are linked to your PAN. People separate long-term holdings from active trading this way. The costs are an AMC on each account, no BSDA on any of them, and more statements to reconcile at tax time.
 
 Once your account is active you can start a [SIP](/calculators/sip), buy ETFs, or apply for an IPO. See the [Investing Hub](/investing) to decide what to buy first.`,
     faq: [
       {
-        q: "What is the full form of demat account?",
-        a: "Demat is short for dematerialised. A demat account holds your shares, mutual funds, bonds and ETFs in electronic (dematerialised) form instead of physical paper certificates.",
+        q: "What is the full form of demat?",
+        a: "Demat is short for dematerialised. A demat account, in full a dematerialised account, holds your shares, ETFs, bonds and mutual fund units in electronic form instead of as physical paper certificates. Dematerialisation is the process of converting those paper certificates into the electronic holdings the account records.",
       },
       {
-        q: "How do I open a demat account?",
-        a: "Choose a SEBI-registered broker, fill the online form with your PAN, Aadhaar and bank details, complete video KYC and in-person verification, then e-sign with an Aadhaar OTP. Most demat accounts open online in one to two working days.",
-      },
-      {
-        q: "What documents are required to open a demat account?",
-        a: "You need a PAN card (mandatory), Aadhaar for KYC and e-sign, a bank proof such as a cancelled cheque or statement, and a photograph and signature. Income proof is needed only if you plan to trade in futures and options.",
-      },
-      {
-        q: "Is a demat account free?",
-        a: "Many brokers open a demat account for free, but most charge an Annual Maintenance Charge (AMC) of roughly ₹0-₹750 a year, plus small DP charges when you sell. Compare brokers before opening one.",
+        q: "What is a demat account in simple words?",
+        a: "It is a bank account for your investments. Instead of cash, it holds the shares, ETFs and bonds you own, as electronic entries with a depository rather than paper certificates. You cannot buy or hold listed Indian shares without one, because SEBI requires securities to be held electronically.",
       },
       {
         q: "What is the difference between a demat and a trading account?",
-        a: "A demat account stores the securities you own, like a locker. A trading account places buy and sell orders on the exchange. You generally open both together to invest in shares.",
+        a: "A demat account holds the securities you own, with a depository, through your DP. A trading account places buy and sell orders on the NSE or BSE, through your broker. Buying a share uses both: the trading account sends the order, and the demat account receives the shares on settlement.",
       },
       {
-        q: "Can I open a demat account online?",
-        a: "Yes. Almost every broker in India offers fully online, paperless demat account opening using Aadhaar-based e-KYC and video verification, so you can open one from home without visiting a branch.",
+        q: "What is a demat account number?",
+        a: "It is your BO (beneficiary owner) ID, a 16-character code identifying your holding account. A CDSL number is 16 digits, all numeric; an NSDL number is the letters IN followed by 14 digits. You quote it to transfer shares in, to link an IPO application and for corporate actions.",
+      },
+      {
+        q: "How do I open a demat account online?",
+        a: "Choose a SEBI-registered broker or DP, fill the online form with your PAN, Aadhaar and bank details, complete video KYC and in-person verification, record a nominee or an opt-out, then e-sign with an Aadhaar OTP. Most accounts open paperless in one to two working days.",
+      },
+      {
+        q: "What documents are required to open a demat account?",
+        a: "You need a PAN card (mandatory), Aadhaar for KYC and e-sign, a bank proof such as a cancelled cheque or statement, and a photograph and signature. Income proof is needed only if you plan to trade in futures and options. Everything can usually be submitted online.",
+      },
+      {
+        q: "What are the charges on a demat account?",
+        a: "Opening is usually free. Two charges recur: an Annual Maintenance Charge for keeping the account open, and a DP transaction charge each time securities are debited, meaning each time you sell. Nothing is charged when shares are credited. Both vary by DP, so ask for the current tariff sheet.",
+      },
+      {
+        q: "What is a BSDA demat account?",
+        a: "A Basic Services Demat Account is SEBI's low-cost option for small portfolios: a normal demat account with nil or reduced annual maintenance charges while your holdings stay under a prescribed value ceiling. You can hold only one, as sole or first holder. Thresholds have been revised, so confirm current limits with your DP.",
+      },
+      {
+        q: "Do I need a demat account to invest in mutual funds?",
+        a: "No. Regular mutual fund units are held in a statement of account with the registrar, so a PAN, a bank account and completed KYC are enough. You need a demat account only to hold units in demat form, or to buy ETFs and listed shares, which trade on an exchange.",
+      },
+      {
+        q: "What is the difference between NSDL and CDSL?",
+        a: "They are India's two SEBI-regulated depositories, the central registries where electronic securities are recorded. Functionally they do the same job; which one holds your securities depends on your DP. The practical difference you see is the format of your demat account number.",
       },
     ],
     related: ["trading-account", "mutual-fund", "ipo", "etf", "nav"],
