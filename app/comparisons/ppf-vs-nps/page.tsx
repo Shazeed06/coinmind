@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PPF vs NPS - Which is Better for Retirement in 2026? | CoinMind",
+  title: "PPF vs NPS - Which is Better for Retirement in 2026?",
   description: "PPF vs NPS comparison for retirement: returns, tax treatment, lock-in, flexibility and verdict for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-nps` },
 };

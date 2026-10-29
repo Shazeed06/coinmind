@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "OYO IPO 2026 (PRISM): Expected Date, Price ₹55-58, GMP & Review | CoinMind",
+  title: "OYO IPO 2026 (PRISM): Expected Date, Price ₹55-58, GMP & Review",
   description:
     "OYO IPO 2026 (PRISM Hospitality) complete guide: ₹6,650 crore fresh issue, SEBI observation June 2026. Expected price ₹55-₹58, valuation $7-8B. Dates & review.",
   keywords: [

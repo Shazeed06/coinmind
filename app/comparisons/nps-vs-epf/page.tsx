@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "NPS vs EPF - Which is Better for Salaried Indians? | CoinMind",
+  title: "NPS vs EPF - Which is Better for Salaried Indians?",
   description: "NPS vs EPF comparison for salaried Indians: returns, contributions, tax treatment and withdrawal rules for FY 2026-27.",
   alternates: { canonical: `${site.url}/comparisons/nps-vs-epf` },
 };

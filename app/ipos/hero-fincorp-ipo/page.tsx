@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Hero FinCorp IPO 2026: Price Band ₹428, Lot Size, GMP & Review | CoinMind",
+  title: "Hero FinCorp IPO 2026: Price Band ₹428, Lot Size, GMP & Review",
   description:
     "Hero FinCorp IPO 2026 complete guide: ₹3,358 crore issue (₹1,790 Cr fresh + OFS), expected price ~₹428, lot 34 shares. Latest dates, GMP & should you apply?",
   keywords: [

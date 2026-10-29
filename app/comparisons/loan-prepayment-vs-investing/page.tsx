@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Loan Prepayment vs Investing - Which is Better? | CoinMind",
+  title: "Loan Prepayment vs Investing - Which is Better?",
   description: "Should you prepay your home loan or invest the extra money? Data-driven comparison with break-even analysis, tax impact and verdict for Indian borrowers.",
   alternates: { canonical: `${site.url}/comparisons/loan-prepayment-vs-investing` },
 };

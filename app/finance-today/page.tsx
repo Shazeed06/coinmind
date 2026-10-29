@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Finance Today India - Current Interest Rates, Tax & Scheme Rates 2026 | CoinMind",
+  title: "Finance Today India - Current Interest Rates, Tax & Scheme Rates 2026",
   description: "Today's financial rates in India: current RBI repo rate, PPF rate, EPF rate, FD rates, NSC rate, home loan rates and income tax slabs - all in one place.",
   alternates: { canonical: `${site.url}/finance-today` },
   openGraph: {

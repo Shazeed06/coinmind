@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mutual Fund vs Stocks - Which is Better for You? | CoinMind",
+  title: "Mutual Fund vs Stocks - Which is Better for You?",
   description: "Mutual fund vs direct stocks: detailed comparison of returns, risk, time needed, tax and who should choose what. Verdict for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/mutual-fund-vs-stocks` },
 };

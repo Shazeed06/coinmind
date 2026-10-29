@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ELSS vs PPF - Which is Better for 80C Tax Saving? | CoinMind",
+  title: "ELSS vs PPF - Which is Better for 80C Tax Saving?",
   description: "ELSS vs PPF: returns, lock-in, tax treatment and who should choose what for Section 80C tax saving in India. Data-backed comparison for 2026.",
   alternates: { canonical: `${site.url}/comparisons/elss-vs-ppf` },
 };

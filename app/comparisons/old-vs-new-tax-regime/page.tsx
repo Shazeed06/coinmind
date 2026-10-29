@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Old vs New Tax Regime FY 2026-27 - Which is Better for You? | CoinMind",
+  title: "Old vs New Tax Regime FY 2026-27 - Which is Better for You?",
   description: "Old vs new income tax regime comparison for FY 2026-27. Breakeven deductions, slab rates, who should switch - with real examples for ₹8L to ₹50L income.",
   alternates: { canonical: `${site.url}/comparisons/old-vs-new-tax-regime` },
 };

@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "EPF Interest Rate History 2000-2026 - All EPFO Declared Rates | CoinMind",
+  title: "EPF Interest Rate History 2000-2026 - All EPFO Declared Rates",
   description: "Complete EPF interest rate history from 2000 to 2026. All EPFO-declared Employee Provident Fund rates, year by year, with official sources.",
   alternates: { canonical: `${site.url}/research/epf-rate-history` },
 };

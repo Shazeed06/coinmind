@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "FD vs Debt Mutual Fund - Which is Better After Tax? | CoinMind",
+  title: "FD vs Debt Mutual Fund - Which is Better After Tax?",
   description: "FD vs debt mutual fund: returns, tax treatment, liquidity and who should choose what. Post-tax comparison for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/fd-vs-debt-mutual-fund` },
 };
