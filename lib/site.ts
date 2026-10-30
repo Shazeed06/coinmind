@@ -32,6 +32,8 @@ export const site = {
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):
   gaId: "G-1ZQB0YPJCS", // GA4 Measurement ID
   gtmId: "GTM-5MMG4KLC",
+  // Microsoft Clarity project id (heatmaps + session replay).
+  clarityId: "z5x5yha3vs",
   googleVerification: "-S3tJnGDGCsP1TZH2m4Pf22meQCkexKzN-u0LfpyBDY", // GSC HTML-tag token
   // IndexNow key (Bing/Yandex/Naver instant indexing: also feeds ChatGPT Search
   // via Bing's index). The key file lives at /<key>.txt in public/.

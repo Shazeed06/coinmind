@@ -10,6 +10,7 @@ import AdSense from "@/components/AdSense";
 import { GtmScript, GtmNoScript } from "@/components/Gtm";
 import SiteJsonLd from "@/components/SiteJsonLd";
 import ChromeGate from "@/components/ChromeGate";
+import Clarity from "@/components/Clarity";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -130,6 +131,7 @@ export default function RootLayout({
         <ChromeGate><Footer /></ChromeGate>
         <ChromeGate><CookieConsent /></ChromeGate>
         <Analytics gaId={site.gaId} />
+        <ChromeGate><Clarity projectId={site.clarityId} /></ChromeGate>
         <ChromeGate><AdSense clientId={site.adsenseClientId} /></ChromeGate>
         <GtmScript id={site.gtmId} />
       </body>

@@ -43,6 +43,7 @@ export default function PrivacyPage() {
             <ul className="mt-3 space-y-2 text-text-muted body">
               <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> <strong>Your calculator inputs stay in your browser.</strong> We never collect the numbers you enter into any calculator.</li>
               <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We use Google Analytics 4 to understand aggregate traffic. It is anonymised.</li>
+              <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We use Microsoft Clarity for heatmaps and session replay. It records how pages are used, not the numbers you type into calculators.</li>
               <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We use Google AdSense to serve ads. Google sets cookies for this.</li>
               <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> We do not sell your data to anyone.</li>
               <li className="flex items-start gap-2"><span className="text-brand shrink-0">▸</span> You can opt out of analytics cookies at any time.</li>
@@ -60,6 +61,11 @@ export default function PrivacyPage() {
             <h3 className="font-semibold text-text mt-6">Analytics data</h3>
             <p className="body text-text-muted mt-2">
               We use Google Analytics 4 (GA4) to collect aggregate, anonymised data about how the site is used: pages visited, approximate location (country/city), device type, referral source and session duration. IP addresses are anonymised. We do not enable user-level tracking.
+            </p>
+
+            <h3 className="font-semibold text-text mt-6">Heatmaps and session replay</h3>
+            <p className="body text-text-muted mt-2">
+              We use Microsoft Clarity to see how people actually use the site: heatmaps of where visitors click and scroll, and session replays that reconstruct a visit as a sequence of page views, clicks, scrolls and mouse movement. This is behavioural, not personal: Clarity masks text input by default, and the figures you type into a calculator stay in your browser and are never sent to us or to Microsoft. We use it to find layout and usability problems, nothing else.
             </p>
 
             <h3 className="font-semibold text-text mt-6">Contact form</h3>
@@ -105,6 +111,11 @@ export default function PrivacyPage() {
                     <td className="py-2">Aggregate, anonymised usage analytics</td>
                   </tr>
                   <tr>
+                    <td className="py-2 pr-4">_clck, _clsk</td>
+                    <td className="py-2 pr-4">Microsoft Clarity</td>
+                    <td className="py-2">Heatmaps and session replay for usability</td>
+                  </tr>
+                  <tr>
                     <td className="py-2 pr-4">IDE, DSID</td>
                     <td className="py-2 pr-4">Google Ads</td>
                     <td className="py-2">Ad targeting and measurement (AdSense)</td>
@@ -127,6 +138,7 @@ export default function PrivacyPage() {
             <ul className="mt-3 space-y-2 text-text-muted body">
               <li><strong>Google Analytics 4</strong> - <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
               <li><strong>Google AdSense</strong> - <a href="https://policies.google.com/privacy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+              <li><strong>Microsoft Clarity</strong> - <a href="https://privacy.microsoft.com/privacystatement" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a></li>
               <li><strong>Vercel</strong> (hosting) - <a href="https://vercel.com/legal/privacy-policy" className="text-brand underline underline-offset-2" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a></li>
             </ul>
           </section>
