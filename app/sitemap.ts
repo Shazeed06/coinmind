@@ -8,6 +8,8 @@ import { TAX_SLUGS } from "@/lib/pseo-tax";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 import { FD_SLUGS } from "@/lib/pseo-fd";
+import { GOLD_CITY_SLUGS } from "@/lib/gold-data";
+import { FUEL_CITY_SLUGS } from "@/lib/fuel-data";
 import { GLOSSARY } from "@/lib/glossary";
 
 // Noindex by design: programmatic pages (AdSense Phase 3), thin utility tools.
@@ -58,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/finance-prompts",
     "/news", "/blog", "/sip", "/income-tax", "/investing",
     "/loans", "/savings", "/retirement", "/budgeting", "/credit-score", "/gold",
+    "/gold-rate", "/petrol-price", "/diesel-price",
     "/about", "/widgets", "/tax-regime-break-even", "/editorial-standards",
     "/affiliate-disclosure", "/contact", "/privacy", "/disclaimer", "/terms",
     "/methodology", "/corrections", "/authors/sahil",
@@ -129,6 +132,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   PAIR_SLUGS.forEach((s) => entries.push({ path: `/currency/${s}` }));
   INHAND_SLUGS.forEach((s) => entries.push({ path: `/in-hand-salary/${s}` }));
   FD_SLUGS.forEach((s) => entries.push({ path: `/calculators/fd/${s}` }));
+  GOLD_CITY_SLUGS.forEach((s) => entries.push({ path: `/gold-rate/${s}` }));
+  FUEL_CITY_SLUGS.forEach((s) => entries.push({ path: `/petrol-price/${s}` }));
+  FUEL_CITY_SLUGS.forEach((s) => entries.push({ path: `/diesel-price/${s}` }));
   GLOSSARY.forEach((g) => entries.push({ path: `/glossary/${g.slug}` }));
 
   // Filter: only include indexable URLs
