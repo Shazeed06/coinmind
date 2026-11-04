@@ -34,7 +34,7 @@ export default function Page() {
         </div>
         <div className="relative container-main py-14 sm:py-18">
           <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#5bbce8] bg-[#2aa7de]/10 border border-[#2aa7de]/30 rounded-full px-3 py-1 mb-5">
-            About CoinMind
+            About CoinMind • Powered by Cloudflare
           </span>
           {/* inline color: global h1 { color: var(--color-text) } overrides text-white utility */}
           <h1
