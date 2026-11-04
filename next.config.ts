@@ -25,6 +25,7 @@ const isProd = process.env.NODE_ENV === "production";
 const assetCache = isProd ? "public, max-age=31536000, immutable" : "no-store";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   experimental: {
     optimizePackageImports: ["lucide-react", "@radix-ui/react-dialog"],
   },
