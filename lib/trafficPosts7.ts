@@ -459,7 +459,7 @@ The government reports that over 60 percent of beneficiaries have reported an in
   {
     slug: "pm-internship-scheme-2026",
     title:
-      "PM Internship Scheme 2026: Stipend, Companies List, How to Apply",
+      "PM Internship Scheme 2026: ₹5,000 Stipend, Top 500 Companies & How to Apply Online",
     excerpt:
       "Everything about the PM Internship Scheme 2026 - monthly stipend of Rs 5,000, eligible companies, age and education criteria, application process and selection timeline.",
     category: "Government Schemes",

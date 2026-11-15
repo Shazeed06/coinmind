@@ -3,7 +3,7 @@ import type { Post } from "./data";
 export const trafficPosts8: Post[] = [
   {
     slug: "groww-vs-zerodha-vs-angel-one-2026",
-    title: "Groww vs Zerodha vs Angel One 2026: Best Investment App Compared",
+    title: "Groww vs Zerodha vs Angel One (2026): Which is Best for Beginners? [Charges & Review]",
     excerpt:
       "A detailed comparison of Groww, Zerodha and Angel One covering brokerage charges, app usability, mutual fund options, IPO access and customer support to help you pick the right investment platform in 2026.",
     category: "Investing",
