@@ -12,6 +12,12 @@ export function org(): Thing {
     logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
     description: site.description,
     email: site.email,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IN",
+      addressLocality: "New Delhi",
+      addressRegion: "Delhi",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",

@@ -14,19 +14,19 @@ export const site = {
   description:
     "Free personal finance calculators for India: SIP, EMI, income tax, FD, PPF and more. Educational guides, explained clearly. No sign-up.",
   locale: "en",
-  authorName: "Sahil",
+  authorName: "MD Sahil",
   // Named author/editor behind the content: E-E-A-T "Who" for a YMYL finance
   // site. CA (Final) is a genuine, relevant finance credential.
   author: {
-    firstName: "Sahil",
-    lastName: "",
-    fullName: "Sahil",
+    firstName: "MD",
+    lastName: "Sahil",
+    fullName: "MD Sahil",
     slug: "sahil",
     role: "Founder & Lead Analyst",
     credential: "CA (Final) candidate",
-    bio: "Sahil is the founder of CoinMind and a CA (Final) candidate. He builds free, verified personal finance calculators and explainers for Indian taxpayers and retail investors.",
+    bio: "MD Sahil is the founder of CoinMind and a CA (Final) candidate based in New Delhi. He builds free, verified personal finance calculators and explainers for Indian taxpayers and retail investors.",
     education: "CA (Final) candidate",
-    location: "India",
+    location: "New Delhi, India",
     sebiDisclaimer: "Not a SEBI-registered investment adviser. This site is educational.",
   },
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):

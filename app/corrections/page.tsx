@@ -23,37 +23,37 @@ export const metadata: Metadata = {
 const CORRECTIONS = [
   {
     date: "2026-11-05",
-    title: "HRA Exemption Calculator: Updated metro definition & Section 10(13A) limits",
+    title: "HRA Exemption: Updated metro & Section 10(13A) limits",
     detail: "Refined the HRA Exemption Calculator to explicitly separate Delhi, Mumbai, Kolkata, and Chennai (50% of basic) from non-metro areas (40% of basic), and added direct guidance clarifying that HRA exemption is exclusively available under the Old Tax Regime.",
   },
   {
     date: "2026-10-24",
-    title: "SIP Calculator: Alignment of compounding formula for monthly annuity cashflows",
+    title: "SIP Calculator: Compounding formula alignment",
     detail: "Corrected the milestone table on the SIP calculator page to ensure future value projections account for monthly compounding annuity cashflows rather than an annual lumped balance, matching the interactive calculator's exact mathematical output.",
   },
   {
     date: "2026-09-18",
-    title: "Income Tax Calculator: Updated standard deduction to ₹75,000 under New Tax Regime",
+    title: "Income Tax Calculator: New Regime standard deduction",
     detail: "Updated the default salaried deduction in all income tax calculators and take-home salary projections from ₹50,000 to ₹75,000 in accordance with the revised Finance Act provisions for the New Tax Regime.",
   },
   {
     date: "2026-08-12",
-    title: "Capital Gains Tax: Updated equity LTCG rate to 12.5% and ₹1.25 Lakh exemption limit",
+    title: "Capital Gains Tax: Section 112A LTCG rate to 12.5%",
     detail: "Updated capital gains calculations across mutual fund and equity calculators to reflect the revised Section 112A long-term capital gains tax rate of 12.5% with the expanded annual exemption limit of ₹1,25,000.",
   },
   {
     date: "2026-07-28",
-    title: "Homepage stats: replaced '99.9% Accuracy' with 'Updated July 2026'",
+    title: "Homepage stats: replaced '99.9% Accuracy' claim",
     detail: "The claim '99.9% Accuracy' was not verifiable against a specific metric. Replaced with the verifiable fact 'Updated July 2026' reflecting the last content review date.",
   },
   {
     date: "2026-07-28",
-    title: "Homepage stats: 'Expert Guides' changed to 'In-Depth Guides'",
+    title: "Homepage stats: updated 'Expert Guides' copy",
     detail: "'Expert' implies guarantees of specific credentialed review on every article. Changed to 'In-Depth Guides' which accurately describes the content.",
   },
   {
     date: "2026-07-28",
-    title: "Removed medical calculators from finance calculator listing",
+    title: "Scope: removed non-finance medical calculators",
     detail: "BMI, Calorie, Ideal Weight and Pregnancy Due Date calculators were removed from the calculators listing as they are not personal finance tools and dilute the site's topical focus.",
   },
 ];
