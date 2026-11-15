@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const CURRENT_RATES = {
-  lastUpdated: "September 2026",
+  lastUpdated: "November 2026",
   rbi: {
     repo: "5.75%",
     reverseRepo: "5.50%",
@@ -24,16 +24,16 @@ const CURRENT_RATES = {
     slr: "18.0%",
   },
   savingsSchemes: [
-    { name: "Public Provident Fund (PPF)", rate: "7.1%", period: "FY 2025-26", calc: "/calculators/ppf" },
-    { name: "Sukanya Samriddhi Yojana", rate: "8.2%", period: "Q2 FY 2025-26", calc: "/calculators/sukanya-samriddhi" },
-    { name: "Senior Citizen Savings Scheme (SCSS)", rate: "8.2%", period: "Q2 FY 2025-26", calc: "/calculators/scss" },
-    { name: "National Savings Certificate (NSC)", rate: "7.7%", period: "Q2 FY 2025-26", calc: "/calculators/nsc" },
-    { name: "Post Office MIS", rate: "7.4%", period: "Q2 FY 2025-26", calc: "/calculators/post-office-mis" },
-    { name: "Kisan Vikas Patra (KVP)", rate: "7.5%", period: "Q2 FY 2025-26", calc: null },
-    { name: "Post Office Time Deposit (5-yr)", rate: "7.5%", period: "Q2 FY 2025-26", calc: null },
-    { name: "Post Office RD", rate: "6.7%", period: "Q2 FY 2025-26", calc: "/calculators/rd" },
+    { name: "Public Provident Fund (PPF)", rate: "7.1%", period: "FY 2026-27", calc: "/calculators/ppf" },
+    { name: "Sukanya Samriddhi Yojana", rate: "8.2%", period: "Q3 FY 2026-27", calc: "/calculators/sukanya-samriddhi" },
+    { name: "Senior Citizen Savings Scheme (SCSS)", rate: "8.2%", period: "Q3 FY 2026-27", calc: "/calculators/scss" },
+    { name: "National Savings Certificate (NSC)", rate: "7.7%", period: "Q3 FY 2026-27", calc: "/calculators/nsc" },
+    { name: "Post Office MIS", rate: "7.4%", period: "Q3 FY 2026-27", calc: "/calculators/post-office-mis" },
+    { name: "Kisan Vikas Patra (KVP)", rate: "7.5%", period: "Q3 FY 2026-27", calc: null },
+    { name: "Post Office Time Deposit (5-yr)", rate: "7.5%", period: "Q3 FY 2026-27", calc: null },
+    { name: "Post Office RD", rate: "6.7%", period: "Q3 FY 2026-27", calc: "/calculators/rd" },
   ],
-  epf: { rate: "8.25%", year: "2024-25" },
+  epf: { rate: "8.25%", year: "FY 2025-26 / 2026-27" },
   taxNew: [
     { range: "Up to ₹4L", rate: "Nil" },
     { range: "₹4L - ₹8L", rate: "5%" },
@@ -87,7 +87,7 @@ export default function FinanceTodayPage() {
 
       {/* Savings Schemes */}
       <section className="mt-10">
-        <h2 className="font-display text-xl text-ink mb-4">Government Savings Scheme Rates (Q2 FY 2025-26)</h2>
+        <h2 className="font-display text-xl text-ink mb-4">Government Savings Scheme Rates (Q3 FY 2026-27)</h2>
         <div className="rounded-xl border border-line overflow-hidden">
           <table className="w-full text-sm">
             <thead>

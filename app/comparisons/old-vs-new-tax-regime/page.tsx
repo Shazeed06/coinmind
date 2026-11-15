@@ -67,7 +67,7 @@ export default function OldVsNewTaxRegimePage() {
 
       {/* What changed */}
       <section className="mt-10">
-        <h2 className="font-display text-2xl text-ink">What changed in FY 2025-26 (Budget 2025)</h2>
+        <h2 className="font-display text-2xl text-ink">What changed in the New Tax Regime (FY 2026-27)</h2>
         <p className="mt-2 text-sm text-ink-soft">
           Budget 2025 made the new regime even more attractive: the 87A rebate was raised to ₹60,000 (making income up to ₹12 lakh effectively tax-free), new slabs were restructured with lower rates, and the standard deduction was retained at ₹75,000. These changes apply from FY 2025-26 onwards.
         </p>
