@@ -4,6 +4,7 @@ import SectionIntro from "./SectionIntro";
 import { calculators } from "@/lib/data";
 import {
   ArrowRight, LineChart, Receipt, Home, Landmark, PiggyBank, Umbrella,
+  Sparkles, ShieldCheck, Video,
   type LucideIcon,
 } from "lucide-react";
 
@@ -13,7 +14,10 @@ const liveCount = calculators.filter((c) => c.live).length;
 // icon rather than one generic glyph, so the grid reads as distinct tools.
 const FEATURED: { slug: string; title: string; blurb: string; Icon: LucideIcon }[] = [
   { slug: "sip", title: "SIP Calculator", blurb: "Project mutual fund SIP returns with step-up and inflation.", Icon: LineChart },
+  { slug: "crorepati-calculator", title: "Crorepati SIP Calculator", blurb: "Calculate monthly SIP needed to reach ₹1 Crore.", Icon: Sparkles },
+  { slug: "zero-tax-salary", title: "Zero Tax Salary Calculator", blurb: "How to legally pay ₹0 tax on ₹10L - ₹12L salary.", Icon: ShieldCheck },
   { slug: "income-tax", title: "Income Tax Calculator", blurb: "Compare the new vs old regime for FY 2026-27.", Icon: Receipt },
+  { slug: "youtube-earnings", title: "YouTube Earnings Calculator", blurb: "Views to Rupees & AdSense RPM by Indian niche.", Icon: Video },
   { slug: "emi", title: "EMI Calculator", blurb: "Monthly payment for home, car and personal loans.", Icon: Home },
   { slug: "fd", title: "FD Calculator", blurb: "Fixed deposit maturity and interest, any bank.", Icon: Landmark },
   { slug: "ppf", title: "PPF Calculator", blurb: "Tax-free PPF corpus over the 15-year lock-in.", Icon: PiggyBank },

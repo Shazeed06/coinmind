@@ -9,11 +9,14 @@ const GUIDE_COUNT = posts.length;
 // under the search box so the hero works as a launcher, not just a banner.
 const QUICK = [
   { label: "SIP", href: "/calculators/sip" },
+  { label: "₹1 Cr SIP", href: "/calculators/crorepati-calculator" },
+  { label: "Zero Tax Salary", href: "/calculators/zero-tax-salary" },
+  { label: "IPO GMP Today", href: "/ipos/ipo-gmp-today" },
   { label: "Income Tax", href: "/calculators/income-tax" },
+  { label: "YouTube Earnings", href: "/calculators/youtube-earnings" },
   { label: "EMI", href: "/calculators/emi" },
   { label: "FD", href: "/calculators/fd" },
   { label: "PPF", href: "/calculators/ppf" },
-  { label: "Retirement", href: "/calculators/retirement" },
 ];
 
 const STATS = [
