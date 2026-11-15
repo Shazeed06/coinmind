@@ -116,6 +116,13 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="help" type="text/plain" href="/llms.txt" />
+        {site.adsenseClientId ? (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${site.adsenseClientId}`}
+            crossOrigin="anonymous"
+          />
+        ) : null}
       </head>
       <body className="min-h-full flex flex-col">
         <a

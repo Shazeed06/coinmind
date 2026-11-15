@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import IpoGmpTracker from "@/components/IpoGmpTracker";
 
 export const metadata: Metadata = {
   title: { absolute: "IPO 2026 India: Open & Upcoming IPOs + GMP | CoinMind" },
@@ -268,7 +269,11 @@ export default function IpoPage() {
 
       {/* Hero */}
       <section className="section-pad bg-white border-b border-border">
-        <div className="container-main">
+        <div className="container-main space-y-10">
+
+          {/* Live Interactive IPO GMP & Allotment Tracker */}
+          <IpoGmpTracker />
+
           <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6">
             <Link href="/" className="hover:text-brand transition-colors">Home</Link>
             <span>›</span>

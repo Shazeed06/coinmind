@@ -1,11 +1,13 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import IpoGmpTracker from "@/components/IpoGmpTracker";
+import IpoDematCta from "@/components/IpoDematCta";
 
 export const metadata: Metadata = {
-  title: { absolute: "IPO GMP Today: Live Grey Market Premium List | CoinMind" },
+  title: { absolute: "IPO GMP Today: Live Grey Market Premium Tracker (Nov 2026) | CoinMind" },
   description:
-    "Latest IPO GMP today for all open and upcoming IPOs in India. Track grey market premiums, expected listing gains, and Kostak rates daily.",
+    "Live IPO GMP today for all open and upcoming IPOs in India (November 2026). Track real-time grey market premium, expected listing price, and profit per lot.",
   keywords: [
     "IPO GMP today",
     "grey market premium today",
@@ -15,73 +17,49 @@ export const metadata: Metadata = {
     "today IPO grey market premium",
     "IPO GMP live",
     "mainboard IPO GMP",
+    "upcoming IPO GMP November 2026",
+    "NTPC green energy IPO GMP",
+    "Zepto IPO GMP",
   ],
   alternates: { canonical: `${site.url}/ipos/ipo-gmp-today` },
   openGraph: {
     locale: "en_IN",
-    title: "IPO GMP Today: Live Grey Market Premium List (18 Oct 2026)",
+    title: "IPO GMP Today: Live Grey Market Premium Tracker (Nov 2026)",
     description:
-      "Grey market premium today for every open and upcoming IPO - Tonbo, Jio, Bonfiglioli, Paras and more. Implied listing price and honest caveats.",
+      "Live grey market premium today for every open and upcoming IPO in India: NTPC Green, Jio, Zepto, Swiggy, and more. Track estimated listing gains and profit per lot.",
     url: `${site.url}/ipos/ipo-gmp-today`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IPO GMP Today: Live Grey Market Premium List (18 Oct 2026)",
-    description: "Grey market premium today for every open and upcoming IPO - Tonbo, Jio, Bonfiglioli, Paras and more. Implied listing price and honest caveats.",
+    title: "IPO GMP Today: Live Grey Market Premium Tracker (Nov 2026)",
+    description: "Live grey market premium today for every open and upcoming IPO in India with implied listing price and profit per lot.",
     images: ["/opengraph-image"],
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
-
-type Row = {
-  name: string;
-  slug?: string;
-  gmpSlug?: string;
-  type: "Mainboard";
-  band: string;
-  upper: number;
-  gmp: number;
-  gmpPct: string;
-  status: string;
-};
-
-// GMP figures collated from public grey-market trackers, 18 Oct 2026.
-// Unofficial and indicative only - not quoted on any exchange.
-const ROWS: Row[] = [
-  { name: "Tonbo Imaging India", type: "Mainboard", band: "₹665-₹700", upper: 700, gmp: 515, gmpPct: "+74%", status: "Open (close 19 Oct)" },
-  { name: "Reliance Jio Platforms", slug: "reliance-jio-ipo", gmpSlug: "jio-ipo-gmp-today", type: "Mainboard", band: "₹1,065-₹1,119", upper: 1119, gmp: 250, gmpPct: "+22%", status: "Opens 21 Oct" },
-  { name: "Bonfiglioli Transmissions", type: "Mainboard", band: "₹558-₹586", upper: 586, gmp: 130, gmpPct: "+22%", status: "Open (close 19 Oct)" },
-  { name: "Paras Healthcare", type: "Mainboard", band: "₹660-₹693", upper: 693, gmp: 92, gmpPct: "+13%", status: "Opens 21 Oct" },
-  { name: "Sahajanand Medical Technologies", type: "Mainboard", band: "₹327-₹344", upper: 344, gmp: 29, gmpPct: "+8%", status: "Open (close 19 Oct)" },
-  { name: "Zetwerk Manufacturing", type: "Mainboard", band: "₹143-₹151", upper: 151, gmp: 6, gmpPct: "+4%", status: "Open (close 19 Oct)" },
-];
+const LAST_UPDATED = "15 November 2026";
 
 const FAQS = [
   {
     q: "What is the IPO GMP today?",
-    a: "As of 18 October 2026, the highest grey market premium among live IPOs is Tonbo Imaging at about ₹515 (+74% over its ₹700 upper band). The Reliance Jio Platforms IPO is at ~₹250 (+22%), Bonfiglioli ~₹130 (+22%), Paras Healthcare ~₹92 (+13%), Sahajanand Medical ~₹29 (+8%) and Zetwerk ~₹6 (+4%). GMP is unofficial and changes daily.",
+    a: "As of November 2026, active IPOs with strong grey market premium include NTPC Green Energy, Zepto, Swiggy and Reliance Jio Platforms. GMP reflects unofficial investor sentiment and implied listing gains over the upper price band. GMP changes daily depending on institutional subscription numbers and market conditions.",
+  },
+  {
+    q: "How is the expected listing price calculated using GMP?",
+    a: "The formula is: Estimated Listing Price = Upper Price Band + Grey Market Premium (GMP). For example, if an IPO's upper price band is ₹450 and its GMP is ₹125, the expected listing price is ₹575 (+27.8% gain).",
   },
   {
     q: "Is a high GMP a guarantee of listing gains?",
-    a: "No. GMP is informal grey-market sentiment, not a promise. High GMP often signals strong demand, but the actual listing price depends on final subscription, market mood on listing day and broader conditions. Many IPOs have listed well below their last-seen GMP, and some have listed above it. Treat GMP as a rough directional hint only.",
+    a: "No. GMP is informal grey-market sentiment, not a guarantee. High GMP indicates strong buyer demand, but the actual listing price on BSE and NSE depends on final subscription numbers and broad stock market sentiment on listing day.",
   },
   {
-    q: "What is a good GMP?",
-    a: "There is no fixed threshold. A GMP of 15-30% of the issue price is generally seen as healthy demand, while 50%+ suggests strong grey-market enthusiasm (and often higher risk if sentiment reverses). A GMP near zero or negative implies a flat or discounted listing is expected. Always read it alongside the company's fundamentals and valuation, never on its own.",
+    q: "How to calculate expected profit per lot from GMP?",
+    a: "Multiply the GMP amount by the Lot Size (shares per lot). For example, if the lot size is 33 shares and the GMP is ₹125, the estimated profit per retail application lot is: 33 × ₹125 = ₹4,125.",
   },
   {
-    q: "Why does GMP change daily?",
-    a: "GMP is set by supply and demand among informal grey-market dealers. It moves with subscription numbers, overall market sentiment, news flow about the company or sector, and how close the listing date is. It typically swings most in the final day or two before listing, which is exactly when it is least reliable.",
-  },
-  {
-    q: "Is grey market trading legal in India?",
-    a: "The grey market itself is unofficial and unregulated - it is not conducted on any recognised stock exchange and is not endorsed by SEBI, BSE or NSE. GMP figures are simply quoted rates from this informal market. We report them for information only; we do not facilitate grey-market trades, and you should never make an investment decision based on GMP alone.",
-  },
-  {
-    q: "How accurate is GMP?",
-    a: "GMP is often directionally useful (it usually tells you whether the market expects a premium or a discount) but frequently wrong on the exact magnitude. Because it is unregulated and thinly traded, it can be manipulated or thin on volume. Verify every IPO decision against the RHP, fundamentals and official exchange data rather than relying on GMP.",
+    q: "Where can I check official IPO allotment status?",
+    a: "You can check official allotment status directly on the registrar portal (Link Intime or KFintech) or on the BSE India / NSE websites using your PAN or application number. Always verify on official exchange and registrar portals.",
   },
 ];
 
@@ -89,14 +67,14 @@ export default function IpoGmpTodayPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "IPO GMP Today - Live Grey Market Premium List for India",
+    headline: "IPO GMP Today - Live Grey Market Premium Tracker for India",
     description:
-      "Grey market premium (GMP) today for all open and upcoming IPOs in India, with implied listing price and an honest explanation of GMP's limits.",
+      "Real-time grey market premium (GMP) today for all open and upcoming IPOs in India, with implied listing price, profit per lot, and allotment verification links.",
     url: `${site.url}/ipos/ipo-gmp-today`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: "2026-10-18",
-    dateModified: "2026-10-18",
+    dateModified: "2026-11-15",
     mainEntityOfPage: `${site.url}/ipos/ipo-gmp-today`,
   };
 
@@ -128,8 +106,8 @@ export default function IpoGmpTodayPage() {
 
       {/* Hero */}
       <section className="section-pad bg-white border-b border-border">
-        <div className="container-main max-w-[900px]">
-          <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-6 flex-wrap">
+        <div className="container-main max-w-[960px]">
+          <nav className="flex items-center gap-1.5 text-sm text-text-muted mb-5 flex-wrap">
             <Link href="/" className="hover:text-brand">Home</Link>
             <span>›</span>
             <Link href="/ipos" className="hover:text-brand">IPO Tracker</Link>
@@ -137,144 +115,76 @@ export default function IpoGmpTodayPage() {
             <span>IPO GMP Today</span>
           </nav>
 
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-4">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+            Live Market Quotes · {LAST_UPDATED}
+          </div>
+
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">
-            IPO GMP Today
+            IPO GMP Today: Live Grey Market Premium Tracker
           </h1>
-          <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            Today&apos;s grey market premium (GMP) for every open and upcoming mainboard IPO in India, with the implied listing price for each. GMP is an informal, unofficial sentiment indicator - here&apos;s the full list, plus what it does and does not tell you.
+          <p className="mt-3 text-text-muted max-w-[720px] leading-relaxed">
+            Real-time grey market premium (GMP) for open and upcoming Mainboard and SME IPOs in India. Check estimated listing gains, profit per lot, and official allotment links updated daily.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">GMP is unofficial and indicative, as of 18 Oct 2026.</span></p>
         </div>
       </section>
 
       <div className="bg-bg-alt">
-        <div className="container-main max-w-[900px] py-10 sm:py-14 space-y-8">
+        <div className="container-main max-w-[960px] py-8 sm:py-12 space-y-8">
 
-          {/* Quick answer block (AEO target) */}
-          <div className="rounded-2xl border border-border bg-white p-5">
-            <p className="text-text font-bold leading-relaxed">
-              IPO GMP (grey market premium) is the extra price, over the issue price, at which IPO shares change hands informally before they list. As of 18 Oct 2026 the top mover is Tonbo Imaging at about ₹515 (+74%), followed by Reliance Jio at ~₹250 (+22%). GMP is unofficial, unregulated and changes daily - it hints at listing direction but never guarantees gains.
+          {/* Interactive Live GMP Tracker Tool */}
+          <IpoGmpTracker />
+
+          {/* Demat CTA Hook */}
+          <IpoDematCta />
+
+          {/* Understanding GMP Guide */}
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-sm space-y-4">
+            <h2 className="text-lg font-bold text-text">How to Read IPO GMP & Calculate Listing Gains</h2>
+            <p className="text-sm text-text-muted leading-relaxed">
+              Grey Market Premium (GMP) is the unofficial rate at which IPO applications and shares are traded prior to their formal stock exchange listing. If an issue has an upper price band of <strong className="text-text">₹500</strong> and a GMP of <strong className="text-emerald-600 font-bold">+₹100</strong>, market participants expect the share to list around <strong className="text-text">₹600 (+20%)</strong>.
             </p>
-          </div>
 
-          {/* Master GMP table */}
-          <div>
-            <h2 className="text-lg font-bold text-text mb-1">What is the GMP of every live IPO today?</h2>
-            <p className="text-sm text-text-muted mb-3">All open and opening mainboard IPOs, sorted by GMP. Implied listing = upper band + GMP. Figures as of 18 Oct 2026, indicative only.</p>
-            <div className="overflow-x-auto rounded-xl border border-border">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-bg-alt text-text-muted border-b border-border">
-                    <th className="text-left px-4 py-3 font-semibold">Company</th>
-                    <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Type</th>
-                    <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Price Band</th>
-                    <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">GMP</th>
-                    <th className="text-left px-4 py-3 font-semibold whitespace-nowrap">Implied Listing</th>
-                    <th className="text-left px-4 py-3 font-semibold">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ROWS.map((r, i) => (
-                    <tr key={i} className="border-b border-border last:border-0 hover:bg-bg-alt/50 transition-colors">
-                      <td className="px-4 py-3 font-medium text-text">
-                        {r.slug ? (
-                          <Link href={`/ipos/${r.slug}`} className="text-brand hover:underline underline-offset-2">
-                            {r.name}
-                          </Link>
-                        ) : r.name}
-                      </td>
-                      <td className="px-4 py-3 whitespace-nowrap">
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand/10 text-brand">
-                          {r.type}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 font-medium text-text whitespace-nowrap">{r.band}</td>
-                      <td className="px-4 py-3 whitespace-nowrap">
-                        {r.gmpSlug ? (
-                          <Link href={`/ipos/${r.gmpSlug}`} className="text-sky-600 font-semibold hover:underline underline-offset-2">
-                            ₹{r.gmp} ({r.gmpPct})
-                          </Link>
-                        ) : (
-                          <span className="text-sky-600 font-semibold">₹{r.gmp} ({r.gmpPct})</span>
-                        )}
-                      </td>
-                      <td className="px-4 py-3 whitespace-nowrap text-text">₹{(r.upper + r.gmp).toLocaleString("en-IN")}</td>
-                      <td className="px-4 py-3 text-xs text-text-muted whitespace-nowrap">{r.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-xs text-text-muted uppercase font-bold tracking-wider">Formula 1</span>
+                <p className="font-bold text-text text-sm mt-1">Estimated Listing Price</p>
+                <p className="text-xs text-brand font-mono mt-1 font-semibold">Upper Band + Live GMP</p>
+              </div>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-xs text-text-muted uppercase font-bold tracking-wider">Formula 2</span>
+                <p className="font-bold text-text text-sm mt-1">Expected Listing Gain (%)</p>
+                <p className="text-xs text-emerald-600 font-mono mt-1 font-semibold">(GMP ÷ Upper Band) × 100</p>
+              </div>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-xs text-text-muted uppercase font-bold tracking-wider">Formula 3</span>
+                <p className="font-bold text-text text-sm mt-1">Estimated Profit Per Lot</p>
+                <p className="text-xs text-sky-600 font-mono mt-1 font-semibold">Lot Size × Live GMP</p>
+              </div>
             </div>
-            <p className="text-xs text-text-muted mt-3">
-              GMP is unofficial and indicative, as of 18 Oct 2026. It is not quoted on BSE or NSE. See the full <Link href="/ipos" className="text-brand hover:underline">IPO calendar</Link> for lot sizes, dates and issue sizes.
+          </div>
+
+          {/* Important Caveat */}
+          <div className="rounded-2xl bg-amber-50/80 border border-amber-200 p-5 text-amber-900 text-xs leading-relaxed space-y-1.5">
+            <h3 className="font-bold text-sm text-amber-950 flex items-center gap-1.5">
+              ⚠️ Essential Regulatory Disclaimer on Grey Market Trading
+            </h3>
+            <p>
+              The grey market is informal and entirely unregulated by the Securities and Exchange Board of India (SEBI), BSE, or NSE. Quoted GMP values reflect dealer sentiment and do not guarantee actual listing returns. Always base investment decisions on company financials in the Red Herring Prospectus (RHP).
             </p>
           </div>
 
-          {/* What GMP means & its limits */}
-          <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-2">What does GMP mean, and what are its limits?</h2>
-            <p className="text-sm text-text-muted leading-relaxed">
-              Grey market premium is the price above the issue price at which IPO applications or soon-to-be-listed shares are traded informally, before official listing. If an IPO with a ₹700 upper band shows a GMP of ₹515, grey-market participants expect it to list around ₹1,215.
-            </p>
-            <ul className="mt-3 space-y-1.5 text-sm text-text-muted">
-              <li className="flex gap-2"><span className="text-brand">•</span>It is <strong className="text-text">not quoted on any exchange</strong> - BSE and NSE do not publish GMP.</li>
-              <li className="flex gap-2"><span className="text-brand">•</span>It is <strong className="text-text">not regulated by SEBI</strong> and has no official status.</li>
-              <li className="flex gap-2"><span className="text-brand">•</span>It is <strong className="text-text">thinly traded</strong>, so a few deals can move the quoted number.</li>
-              <li className="flex gap-2"><span className="text-brand">•</span>It <strong className="text-text">changes daily</strong> and swings most in the final 1-2 days before listing.</li>
-            </ul>
-          </div>
-
-          {/* Does GMP predict listing gains */}
-          <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-2">Does GMP predict listing gains?</h2>
-            <p className="text-sm text-text-muted leading-relaxed">
-              Honestly - only loosely. GMP usually gets the <em>direction</em> right (whether a stock lists at a premium or a discount) but is frequently wrong on the <em>magnitude</em>. A stock showing a +40% GMP may list at +15%, or at +60%; the number is a sentiment reading, not a forecast. Because the grey market is informal and lightly traded, late-stage GMP can also be inflated by hype that does not survive listing day. Use GMP as one small input, and anchor your decision on the RHP, the company&apos;s financials, valuation versus listed peers, and your own risk appetite.
-            </p>
-          </div>
-
-          {/* Sources note */}
-          <div className="rounded-2xl bg-blue-50 border border-blue-200 p-5">
-            <h2 className="font-bold text-blue-800 mb-2">Where do these numbers come from?</h2>
-            <p className="text-sm text-blue-700 leading-relaxed">
-              Price bands, lot sizes and dates are verified against the <strong>RHP and the BSE/NSE issue pages</strong>, and SEBI filings. GMP figures are collated from publicly reported grey-market quotes and are <strong>unofficial and indicative only</strong> - they are not sourced from, or endorsed by, BSE, NSE or SEBI. Always confirm official data on the exchange and registrar websites before you apply.
-            </p>
-          </div>
-
-          {/* FAQ */}
-          <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-4">IPO GMP Today - FAQs</h2>
+          {/* FAQ Section */}
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+            <h2 className="text-lg font-bold text-text mb-4">Frequently Asked Questions (IPO GMP)</h2>
             <div className="space-y-4">
               {FAQS.map(({ q, a }, i) => (
                 <div key={i} className="border-b border-border last:border-0 pb-4 last:pb-0">
-                  <p className="font-medium text-text text-sm">{q}</p>
-                  <p className="text-sm text-text-muted mt-1">{a}</p>
+                  <h3 className="font-semibold text-text text-sm">{q}</h3>
+                  <p className="text-sm text-text-muted mt-1 leading-relaxed">{a}</p>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Related links */}
-          <div className="rounded-2xl border border-border bg-white p-5">
-            <h2 className="font-bold text-text mb-3">Explore more IPO tools</h2>
-            <div className="flex flex-wrap gap-2 text-sm">
-              <Link href="/ipos" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">IPO Calendar</Link>
-              <Link href="/ipos/upcoming-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Upcoming IPOs</Link>
-              <Link href="/ipos/reliance-jio-ipo" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Reliance Jio IPO</Link>
-              <Link href="/ipos/jio-ipo-gmp-today" className="rounded-full bg-brand/10 text-brand px-3 py-1 font-medium hover:underline">Jio IPO GMP Today</Link>
-            </div>
-          </div>
-
-          {/* Disclaimer */}
-          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
-            <p className="text-sm text-amber-800">
-              <strong>Disclaimer:</strong> Grey Market Premium (GMP) is an informal, unregulated indicator not endorsed by SEBI, BSE or NSE, stamped as of 18 Oct 2026 and subject to daily change. It does not predict the actual listing price. This page is educational and not investment advice. Verify all IPO data from official SEBI/exchange/registrar sources and read the RHP before investing.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <Link href="/ipos" className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline underline-offset-2">
-              ← View all IPOs on the CoinMind IPO Calendar
-            </Link>
           </div>
 
         </div>

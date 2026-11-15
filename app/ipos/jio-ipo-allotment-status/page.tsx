@@ -4,9 +4,9 @@ import IpoDematCta from "@/components/IpoDematCta";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Jio IPO Allotment Status: Check on KFintech, BSE & NSE" },
+  title: { absolute: "Jio IPO Allotment Status Check Online: Direct Link, BSE & NSE (2026)" },
   description:
-    "Jio Platforms IPO allotment is finalised (26 Oct 2026). Check your status on KFin Technologies, BSE or NSE using your PAN or application number.",
+    "Check Reliance Jio IPO allotment status online. Step-by-step guide with direct links for KFintech, BSE India & NSE using your PAN or application number.",
   keywords: [
     "Jio IPO allotment status",
     "Jio IPO allotment date",

@@ -1195,9 +1195,9 @@ This article is for educational purposes and does not constitute career or finan
   {
     slug: "youtube-earnings-per-million-views-india",
     title:
-      "YouTube Earnings India 2026: How Much for 1 Million Views?",
+      "YouTube Earnings for 1 Million Views in India (2026 Reality & RPM Chart)",
     excerpt:
-      "Find out how much Indian YouTubers earn per 1 million views in 2026 -- CPM rates by niche, AdSense revenue breakdown, and alternative income streams beyond ads.",
+      "Find out how much money YouTube pays for 1 million views in India in 2026. Real RPM and CPM rates by niche (Finance, Tech, Vlogs), monthly income, and AdSense breakdown.",
     category: "Career",
     readMinutes: 11,
     date: "Sep 3, 2026",

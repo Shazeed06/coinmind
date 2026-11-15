@@ -174,7 +174,7 @@ export const trafficPosts10: Post[] = [
   {
     slug: "old-age-pension-scheme-state-wise-2026",
     title:
-      "Old Age Pension Scheme 2026: State-Wise Amount, Eligibility & Apply",
+      "Old Age Pension Scheme 2026: State-Wise Amount Chart & How to Apply",
     excerpt:
       "Complete state-wise guide to old age pension schemes in India 2026 - eligibility criteria, monthly pension amounts, application process and how to check payment status under IGNOAPS and state schemes.",
     category: "Government Schemes",
