@@ -25,6 +25,7 @@ const HUB_LINKS: Record<string, { label: string; href: string }> = {
   "step-up-sip": HUB_SIP,
   "goal-sip": HUB_SIP,
   "swp": HUB_SIP,
+  "crorepati-calculator": HUB_SIP,
 
   // Investing
   "lumpsum": HUB_INVESTING,
@@ -38,6 +39,7 @@ const HUB_LINKS: Record<string, { label: string; href: string }> = {
 
   // Income Tax
   "income-tax": HUB_INCOME_TAX,
+  "zero-tax-salary": HUB_INCOME_TAX,
   "tds": HUB_INCOME_TAX,
   "capital-gains": HUB_INCOME_TAX,
   "hra": HUB_INCOME_TAX,
@@ -47,6 +49,7 @@ const HUB_LINKS: Record<string, { label: string; href: string }> = {
   "sales-tax": HUB_INCOME_TAX,
   "hourly-to-salary": HUB_INCOME_TAX,
   "crypto-tax": HUB_INCOME_TAX,
+  "youtube-earnings": HUB_BUDGETING,
 
   // Loans
   "emi": HUB_LOANS,

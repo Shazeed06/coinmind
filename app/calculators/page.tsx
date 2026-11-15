@@ -9,6 +9,7 @@ import {
   Coins, Umbrella, Target, HandCoins, Landmark, BarChart3, LineChart,
   GraduationCap, Gift, Repeat, Flame, Car, Wallet, Banknote, Clock,
   Percent, Briefcase, Baby, CalendarDays, Scale, HeartPulse, Calculator,
+  Play, Video,
   type LucideIcon,
 } from "lucide-react";
 
@@ -34,6 +35,7 @@ const ICON: Record<string, LucideIcon> = {
   // Investing
   sip: LineChart, lumpsum: Coins, "mutual-fund-returns": BarChart3, "goal-sip": Target,
   "step-up-sip": TrendingUp, swp: HandCoins, cagr: TrendingUp, "what-if-simulator": Repeat,
+  "crorepati-calculator": Sparkles,
   goal: Target, "goal-child-education": GraduationCap, "goal-marriage": Gift,
   retirement: Umbrella, fire: Flame, nps: Landmark,
   // Loans
@@ -43,7 +45,7 @@ const ICON: Record<string, LucideIcon> = {
   // Tax
   "income-tax": Receipt, gst: Receipt, tds: Receipt, "sales-tax": Receipt, "tip-calculator": Receipt,
   "capital-gains": TrendingUp, hra: Home, "take-home-salary": Wallet, "8th-pay-commission": Banknote,
-  "hourly-to-salary": Clock, "crypto-tax": Coins,
+  "hourly-to-salary": Clock, "crypto-tax": Coins, "zero-tax-salary": ShieldCheck,
   // Savings
   fd: Landmark, rd: PiggyBank, ppf: PiggyBank, "sukanya-samriddhi": Baby, nsc: Landmark,
   scss: Umbrella, "post-office-mis": Landmark, "compound-interest": TrendingUp,
@@ -52,7 +54,7 @@ const ICON: Record<string, LucideIcon> = {
   // Utility
   "currency-converter": Repeat, "age-calculator": CalendarDays, "percentage-calculator": Percent,
   "date-difference-calculator": CalendarDays, discount: Percent, "net-worth": Scale,
-  "financial-health": HeartPulse,
+  "financial-health": HeartPulse, "youtube-earnings": Video,
 };
 const CAT_ICON: Record<string, LucideIcon> = {
   Investing: TrendingUp, Loans: Home, Tax: Receipt, Savings: PiggyBank, Utility: Calculator,

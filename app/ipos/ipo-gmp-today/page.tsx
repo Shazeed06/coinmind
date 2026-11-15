@@ -5,9 +5,9 @@ import IpoGmpTracker from "@/components/IpoGmpTracker";
 import IpoDematCta from "@/components/IpoDematCta";
 
 export const metadata: Metadata = {
-  title: { absolute: "IPO GMP Today: Live Grey Market Premium Tracker (Nov 2026) | CoinMind" },
+  title: { absolute: "IPO GMP Today: Grey Market Premium & Estimates (Nov 2026)" },
   description:
-    "Live IPO GMP today for all open and upcoming IPOs in India (November 2026). Track real-time grey market premium, expected listing price, and profit per lot.",
+    "Track IPO GMP today for open and upcoming Indian IPOs in Nov 2026. View estimated listing prices, profit per lot, and grey market trends.",
   keywords: [
     "IPO GMP today",
     "grey market premium today",
@@ -24,16 +24,16 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/ipos/ipo-gmp-today` },
   openGraph: {
     locale: "en_IN",
-    title: "IPO GMP Today: Live Grey Market Premium Tracker (Nov 2026)",
+    title: "IPO GMP Today: Grey Market Premium & Estimates (Nov 2026)",
     description:
-      "Live grey market premium today for every open and upcoming IPO in India: NTPC Green, Jio, Zepto, Swiggy, and more. Track estimated listing gains and profit per lot.",
+      "Track IPO GMP today for open and upcoming Indian IPOs in Nov 2026 with estimated listing gains and profit per lot.",
     url: `${site.url}/ipos/ipo-gmp-today`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IPO GMP Today: Live Grey Market Premium Tracker (Nov 2026)",
-    description: "Live grey market premium today for every open and upcoming IPO in India with implied listing price and profit per lot.",
+    title: "IPO GMP Today: Grey Market Premium & Estimates (Nov 2026)",
+    description: "Track IPO GMP today for open and upcoming Indian IPOs in Nov 2026 with estimated listing gains and profit per lot.",
     images: ["/opengraph-image"],
   },
 };
@@ -67,9 +67,9 @@ export default function IpoGmpTodayPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "IPO GMP Today - Live Grey Market Premium Tracker for India",
+    headline: "IPO GMP Today - Grey Market Premium & Estimates",
     description:
-      "Real-time grey market premium (GMP) today for all open and upcoming IPOs in India, with implied listing price, profit per lot, and allotment verification links.",
+      "Grey market premium (GMP) tracker for open and upcoming IPOs in India, with implied listing prices and allotment links.",
     url: `${site.url}/ipos/ipo-gmp-today`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },

@@ -351,12 +351,20 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-12">
+      <section className="mt-12 flex flex-wrap items-center gap-4">
         <Link
           href="/calculators/income-tax"
           className="inline-flex items-center gap-2 text-forest font-medium hover:underline"
         >
           Run your own numbers in the income tax calculator
+          <IconArrow className="h-4 w-4" />
+        </Link>
+        <span className="text-line-strong hidden sm:inline">•</span>
+        <Link
+          href="/calculators/zero-tax-salary"
+          className="inline-flex items-center gap-2 text-forest font-medium hover:underline"
+        >
+          Check how to pay ₹0 tax on ₹10L - ₹12L salary
           <IconArrow className="h-4 w-4" />
         </Link>
       </section>

@@ -46,7 +46,7 @@ export const LIVE_IPOS: IpoItem[] = [
     upperPrice: 1119,
     lotSize: 12,
     gmp: 245,
-    status: "Allotment Out",
+    status: "Listed",
     openDate: "21 Oct 2026",
     closeDate: "23 Oct 2026",
     listingDate: "28 Oct 2026",

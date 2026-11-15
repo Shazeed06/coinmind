@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+const LAST_UPDATED = "15 November 2026";
 
 type IPO = {
   name: string;
@@ -45,27 +45,28 @@ type IPO = {
   issueSize: string;
 };
 
-// Opening 21-23 Oct 2026 (allotment 26 Oct, listing 28 Oct)
+// Opening 19-22 Nov 2026 (allotment 25 Nov, listing 27 Nov)
 const OPENING: IPO[] = [
-  { name: "Reliance Jio Platforms", slug: "reliance-jio-ipo", band: "₹1,065-₹1,119", lot: "12 shares", gmp: "₹250", gmpPct: "+22%", issueSize: "₹30,213 cr (fresh)" },
-  { name: "Paras Healthcare", band: "₹660-₹693", lot: "21 shares", gmp: "₹92", gmpPct: "+13%", issueSize: "₹1,450 cr" },
+  { name: "NTPC Green Energy", band: "₹102-₹108", lot: "138 shares", gmp: "₹3", gmpPct: "+2.8%", issueSize: "₹10,000 cr (fresh)" },
 ];
 
-// Open now, close 19 Oct 2026 (listing ~23 Oct)
+// Recently Listed (Oct-Nov 2026)
 const OPEN_NOW: IPO[] = [
+  { name: "Reliance Jio Platforms", slug: "reliance-jio-ipo", band: "₹1,065-₹1,119", lot: "12 shares", gmp: "₹245", gmpPct: "+22%", issueSize: "₹30,213 cr" },
+  { name: "Paras Healthcare", band: "₹660-₹693", lot: "21 shares", gmp: "₹92", gmpPct: "+13%", issueSize: "₹1,450 cr" },
   { name: "Tonbo Imaging India", band: "₹665-₹700", lot: "21 shares", gmp: "₹515", gmpPct: "+74%", issueSize: "₹852 cr OFS" },
   { name: "Bonfiglioli Transmissions", band: "₹558-₹586", lot: "25 shares", gmp: "₹130", gmpPct: "+22%", issueSize: "₹2,534 cr" },
-  { name: "Sahajanand Medical Technologies", band: "₹327-₹344", lot: "43 shares", gmp: "₹29", gmpPct: "+8%", issueSize: "₹475 cr" },
-  { name: "Zetwerk Manufacturing", band: "₹143-₹151", lot: "99 shares", gmp: "₹6", gmpPct: "+4%", issueSize: "₹5,012 cr" },
+  { name: "EAAA India Alternatives", slug: "eaaa-india-alternatives-ipo", band: "₹1,585-₹1,665", lot: "9 shares", gmp: "₹45", gmpPct: "+2.7%", issueSize: "₹1,200 cr" },
+  { name: "SFC Environmental Technologies", slug: "sfc-environmental-technologies-ipo", band: "₹313-₹330", lot: "45 shares", gmp: "₹32", gmpPct: "+9.7%", issueSize: "₹667.5 cr" },
 ];
 
 const PIPELINE = [
-  { name: "Zepto", sector: "Quick Commerce", note: "U-DRHP filed; ~₹8,010 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "PhonePe", sector: "Fintech", note: "Confidential DRHP; est. ₹12,000-15,000 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "OYO (Oravel Stays)", sector: "Hospitality Tech", note: "SEBI observations in; ~₹6,650 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "Hero FinCorp", sector: "NBFC", note: "DRHP filed; ₹3,668 cr (fresh + OFS). Dates not announced; estimates, unconfirmed." },
+  { name: "Zepto", sector: "Quick Commerce", note: "U-DRHP filed; ~₹8,010 cr. Dates not announced; estimates, unconfirmed.", slug: "zepto-ipo" },
+  { name: "PhonePe", sector: "Fintech", note: "Confidential DRHP; est. ₹12,000-15,000 cr. Dates not announced; estimates, unconfirmed.", slug: "phonepe-ipo" },
+  { name: "OYO (Oravel Stays)", sector: "Hospitality Tech", note: "SEBI observations in; ~₹6,650 cr. Dates not announced; estimates, unconfirmed.", slug: "oyo-ipo" },
+  { name: "Hero FinCorp", sector: "NBFC", note: "DRHP filed; ₹3,668 cr (fresh + OFS). Dates not announced; estimates, unconfirmed.", slug: "hero-fincorp-ipo" },
   { name: "boAt (Imagine Marketing)", sector: "Consumer Electronics", note: "Updated DRHP; ~₹1,500 cr. Dates not announced; estimates, unconfirmed." },
-  { name: "Razorpay", sector: "Fintech / Payments", note: "Confidential filing; ~₹5,000 cr. Dates not announced; estimates, unconfirmed." },
+  { name: "Razorpay", sector: "Fintech / Payments", note: "Confidential filing; ~₹5,000 cr. Dates not announced; estimates, unconfirmed.", slug: "razorpay-ipo" },
   { name: "Veritas Finance", sector: "NBFC", note: "SEBI observations in; ~₹2,800 cr. Dates not announced; estimates, unconfirmed." },
   { name: "Flipkart", sector: "E-Commerce", note: "Listing deferred; no official filing yet. Dates not announced; estimates, unconfirmed." },
 ];
@@ -149,7 +150,7 @@ export default function UpcomingIpoPage() {
             Upcoming IPO 2026 (India)
           </h1>
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
-            A live list of upcoming IPOs in India - the big names opening this week led by the Reliance Jio Platforms IPO, the mainboard IPOs open for subscription right now, and the most-awaited pipeline whose dates are still to be announced.
+            Track upcoming IPOs in India: upcoming issue dates, price bands, GMP estimates, recent listings on BSE & NSE, and the most-awaited pipeline awaiting SEBI approval.
           </p>
           <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">GMP is unofficial and indicative, as of 18 Oct 2026.</span></p>
         </div>
@@ -161,14 +162,14 @@ export default function UpcomingIpoPage() {
           {/* Quick answer block (AEO target) */}
           <div className="rounded-2xl border border-border bg-white p-5">
             <p className="text-text font-bold leading-relaxed">
-              The next big IPO is Reliance Jio, opening 21 Oct 2026 at a price band of ₹1,065-₹1,119, alongside Paras Healthcare. Both close 23 Oct, with listing on 28 Oct. Four mainboard IPOs (Tonbo, Bonfiglioli, Sahajanand Medical, Zetwerk) are open now and close 19 Oct. Beyond these, PhonePe, Zepto, OYO, Razorpay and boAt are in the pipeline with dates not yet announced.
+              The next big IPO is NTPC Green Energy, opening 19 Nov 2026 at a price band of ₹102-₹108 (₹10,000 cr issue). Recent major listings including Reliance Jio Platforms, Paras Healthcare, Tonbo Imaging, and EAAA India are now trading. In the pipeline, PhonePe, Zepto, OYO, Razorpay, and Hero FinCorp are awaiting SEBI clearance and dates.
             </p>
           </div>
 
           {/* Opening this week */}
           <div>
-            <h2 className="text-lg font-bold text-text mb-1">Which IPOs open this week (21-23 Oct)?</h2>
-            <p className="text-sm text-text-muted mb-3">Big-ticket mainboard IPOs opening for subscription this week. Allotment ~26 Oct, listing ~28 Oct 2026.</p>
+            <h2 className="text-lg font-bold text-text mb-1">Which IPOs open this week (19-22 Nov)?</h2>
+            <p className="text-sm text-text-muted mb-3">Big-ticket mainboard IPOs opening for subscription this week. Allotment ~25 Nov, listing ~27 Nov 2026.</p>
             <div className="overflow-x-auto rounded-xl border border-border">
               <table className="w-full text-sm">
                 <thead>
@@ -201,8 +202,8 @@ export default function UpcomingIpoPage() {
 
           {/* Open now */}
           <div>
-            <h2 className="text-lg font-bold text-text mb-1">Which IPOs are open right now (close 19 Oct)?</h2>
-            <p className="text-sm text-text-muted mb-3">Apply now via your broker (Zerodha, Groww, Angel One, Upstox, etc.). These list around 23 Oct 2026.</p>
+            <h2 className="text-lg font-bold text-text mb-1">Which major IPOs recently listed (Oct-Nov 2026)?</h2>
+            <p className="text-sm text-text-muted mb-3">Recent mainboard issues now trading on BSE and NSE. Track listing prices, allotment history, and final issue metrics.</p>
             <div className="overflow-x-auto rounded-xl border border-border">
               <table className="w-full text-sm">
                 <thead>
@@ -237,9 +238,22 @@ export default function UpcomingIpoPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {PIPELINE.map((co) => (
                 <div key={co.name} className="rounded-2xl border border-border bg-white p-5">
-                  <p className="font-semibold text-text">{co.name}</p>
-                  <p className="text-xs text-brand mt-1">{co.sector}</p>
-                  <p className="text-xs text-text-muted mt-2">{co.note}</p>
+                  {co.slug ? (
+                    <Link href={`/ipos/${co.slug}`} className="block group">
+                      <p className="font-semibold text-text group-hover:text-brand transition-colors flex items-center justify-between">
+                        {co.name}
+                        <span className="text-xs text-brand">Review →</span>
+                      </p>
+                      <p className="text-xs text-brand mt-1">{co.sector}</p>
+                      <p className="text-xs text-text-muted mt-2">{co.note}</p>
+                    </Link>
+                  ) : (
+                    <div>
+                      <p className="font-semibold text-text">{co.name}</p>
+                      <p className="text-xs text-brand mt-1">{co.sector}</p>
+                      <p className="text-xs text-text-muted mt-2">{co.note}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
