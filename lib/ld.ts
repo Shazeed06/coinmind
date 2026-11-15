@@ -15,21 +15,24 @@ export function org(): Thing {
     address: {
       "@type": "PostalAddress",
       addressCountry: "IN",
-      addressLocality: "India",
+      addressLocality: "New Delhi",
+      addressRegion: "Delhi",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
       url: `${site.url}/contact`,
       email: site.email,
-      availableLanguage: ["en"],
+      availableLanguage: ["en", "hi"],
     },
     foundingDate: "2026",
     areaServed: ["IN", "US", "GB", "Worldwide"],
     publishingPrinciples: `${site.url}/editorial-standards`,
-    knowsAbout: ["Personal finance", "Income tax", "Mutual funds and SIP", "Fixed deposits", "PPF, EPF and NPS", "AI tools"],
-    // No social profiles yet - omit sameAs rather than claim accounts that
-    // don't exist. Add the real profile URLs here if/when they're created.
+    sameAs: [
+      "https://github.com/Shazeed06/coinmind",
+      "https://x.com/coinmind_in",
+      "https://www.linkedin.com/company/coinmind-in",
+    ],
   };
 }
 
@@ -122,6 +125,8 @@ export function webApp(
     operatingSystem: "All",
     browserRequirements: "Requires JavaScript",
     isAccessibleForFree: true,
+    datePublished: "2026-07-15",
+    dateModified: "2026-11-15",
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
     publisher: { "@id": `${site.url}/#organization` },
   };

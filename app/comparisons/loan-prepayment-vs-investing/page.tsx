@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Loan Prepayment vs Investing - Which is Better?",
   description: "Should you prepay your home loan or invest the extra money? Data-driven comparison with break-even analysis, tax impact and verdict for Indian borrowers.",
   alternates: { canonical: `${site.url}/comparisons/loan-prepayment-vs-investing` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Loan Prepayment vs Investing - Which is Better?",
+    description: "Should you prepay your home loan or invest the extra money? Data-driven comparison with break-even analysis, tax impact and verdict for Indian borrowers.",
+    url: `${site.url}/comparisons/loan-prepayment-vs-investing`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Loan Prepayment vs Investing - Which is Better?",
+    description: "Should you prepay your home loan or invest the extra money? Data-driven comparison with break-even analysis, tax impact and verdict for Indian borrowers.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function LoanPrepaymentVsInvestingPage() {

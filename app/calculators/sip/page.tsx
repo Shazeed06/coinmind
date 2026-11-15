@@ -158,11 +158,25 @@ export default function Page() {
       <section className="section-pad pb-0 bg-white">
         <div className="container-main">
           <Breadcrumb items={[{ label: "Calculators", href: "/calculators" }, { label: "SIP Calculator" }]} />
-          <Pill>SIP Calculator</Pill>
+          <div className="flex flex-wrap items-center gap-2">
+            <Pill>SIP Calculator</Pill>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-text-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Verified FY 2026–27
+            </span>
+          </div>
           <h1 className="h1-article text-text mt-3">SIP Calculator India - Monthly Returns, Maturity & Tax Impact</h1>
           <p className="body text-text-muted mt-3 max-w-[640px]">
             Calculate SIP returns with step-up, LTCG tax, and inflation-adjusted real value. Free, instant and private.
           </p>
+          <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-text max-w-2xl">
+            <p className="font-semibold text-text mb-1">⚡ Quick Answer (How SIP Works & Real Example):</p>
+            <p className="text-text-muted leading-relaxed">
+              A Systematic Investment Plan (SIP) invests a fixed sum every month in mutual funds to harness compound growth. For example, investing <strong>₹10,000/month at a 12% expected return for 15 years</strong> results in a total investment of ₹18 Lakh yielding a maturity corpus of <strong>₹50.46 Lakh</strong> (wealth gain: ₹32.46 Lakh).
+            </p>
+            <p className="mt-2 text-xs text-text-muted font-mono">
+              Formula: FV = P × [((1 + i)^n - 1) / i] × (1 + i) | LTCG over ₹1.25L taxed at 12.5%
+            </p>
+          </div>
           <div className="mt-4">
             <CalcActions title="SIP Calculator" url={`${site.url}/calculators/sip`} />
           </div>

@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Rotate & Flip Image - Free Online Image Rotator" },
   description:
     "Free tool to rotate an image 90° left or right and flip it horizontally or vertically, with a live preview. Download as JPG, PNG or WebP.",

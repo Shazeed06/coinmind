@@ -218,19 +218,24 @@ export default function CalcPage({
       />
 
       {/* Breadcrumb */}
-      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2 flex-wrap">
-        <Link href="/" className="hover:text-forest">Home</Link>
+      <nav className="pt-8 text-sm text-ink-faint flex items-center gap-2 flex-wrap" aria-label="Breadcrumb">
+        <Link href="/" className="py-2 inline-flex items-center hover:text-forest">Home</Link>
         <span>/</span>
-        <Link href="/calculators" className="hover:text-forest">Calculators</Link>
+        <Link href="/calculators" className="py-2 inline-flex items-center hover:text-forest">Calculators</Link>
         <span>/</span>
-        <span className="text-ink">{title}</span>
+        <span className="py-2 inline-flex items-center text-ink">{title}</span>
       </nav>
 
       {/* Header */}
       <header className="mt-6 max-w-3xl">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          <IconCalculator className="h-3.5 w-3.5" /> Free calculator
-        </span>
+        <div className="flex flex-wrap items-center gap-2.5">
+          <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
+            <IconCalculator className="h-3.5 w-3.5" /> Free calculator
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-ink-soft">
+            <span className="h-1.5 w-1.5 rounded-full bg-forest" /> Verified FY 2026–27
+          </span>
+        </div>
         <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl text-ink leading-[1.08]">
           {title}
         </h1>

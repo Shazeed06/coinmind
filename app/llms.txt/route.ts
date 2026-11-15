@@ -8,6 +8,8 @@ import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 import { PAIR_SLUGS } from "@/lib/pseo-currency";
 import { FD_SLUGS } from "@/lib/pseo-fd";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   const base = site.url;
 

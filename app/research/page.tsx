@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "Historical Finance Data India | CoinMind Research",
     description: "India's historical tax slabs, PPF rate history, RBI repo rates, inflation data - all free, sourced from official government records.",
     url: `${site.url}/research`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
 };
 

@@ -1,107 +1,131 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { calculators, posts, NOINDEX_POST_SLUGS } from "@/lib/data";
-import { aiToolDetails } from "@/lib/aiToolDetails";
-import { FINANCE_PROMPTS } from "@/lib/financePrompts";
 import { newsArticles } from "@/lib/newsArticles";
-import { TAX_SLUGS } from "@/lib/pseo-tax";
-import { PAIR_SLUGS } from "@/lib/pseo-currency";
-import { INHAND_SLUGS } from "@/lib/pseo-inhand";
-import { FD_SLUGS } from "@/lib/pseo-fd";
+import { INHAND_SLUGS, parseLpaSlug } from "@/lib/pseo-inhand";
 import { GOLD_CITY_SLUGS } from "@/lib/gold-data";
 import { FUEL_CITY_SLUGS } from "@/lib/fuel-data";
 import { GLOSSARY } from "@/lib/glossary";
 
-// Noindex by design: programmatic pages (AdSense Phase 3), thin utility tools.
-// "/sip/" covers both slug shapes now served by app/sip/[slug]: the amount
-// pages and the amount×duration pages that used to live at /sip-returns/*.
-// The /sip hub itself is unaffected: "/sip" does not start with "/sip/".
+// Noindex sections: programmatic and auxiliary directories excluded from sitemap submission.
 const NOINDEX_SECTIONS = [
   "/sip/",
-  // Templated programmatic clusters: each page is one calculator template with
-  // a single swapped parameter (amount / salary / pair). Kept crawlable and
-  // user-linked, but excluded from the sitemap and noindexed at the page level
-  // (robots.index=false in each [slug] generateMetadata) so a large near-
-  // duplicate footprint is not submitted for indexing. Same treatment as /sip/.
-  // NOTE: /in-hand-salary/ is intentionally indexed (high search volume in India).
   "/currency/",
   "/income-tax/",
   "/calculators/fd/",
+  "/diesel-price/",
+  "/finance-prompts/",
+  "/ai-tools/",
 ];
-const NOINDEX_TOOLS = new Set([
-  "color-picker", "base64", "url-encode-decode", "json-formatter",
-  "case-converter", "character-counter", "word-counter", "text-compare",
-  "remove-duplicate-lines", "image-to-base64", "stopwatch-timer",
-  "countdown-to-date", "favicon-generator", "number-to-words",
-]);
-const NOINDEX_CALCS = new Set(["bmi", "ideal-weight", "calorie", "pregnancy-due-date"]);
 
-// Deleted/redirected tools (AdSense Phase 2.1)
-const DELETED_TOOLS = new Set([
-  "coin-flip", "random-number-generator", "random-wheel", "meme-generator", "lorem-ipsum-generator",
+const FINANCE_TOOLS = new Set([
+  "invoice-generator",
+  "budget-planner",
+  "are-you-rich",
+  "scientific-calculator",
 ]);
+
+const TOP_INHAND_LPA = new Set([3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 50]);
 
 function shouldIndex(path: string): boolean {
   if (NOINDEX_SECTIONS.some((s) => path.startsWith(s))) return false;
   const toolMatch = path.match(/^\/tools\/(.+)/);
-  if (toolMatch && (NOINDEX_TOOLS.has(toolMatch[1]) || DELETED_TOOLS.has(toolMatch[1]))) return false;
-  const calcMatch = path.match(/^\/calculators\/(.+)$/);
-  if (calcMatch && NOINDEX_CALCS.has(calcMatch[1])) return false;
+  if (toolMatch && !FINANCE_TOOLS.has(toolMatch[1])) return false;
   return true;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: { path: string; lastmod?: string }[] = [];
 
-  // Static pages
+  // Core static & hub pages (focus on Indian personal finance authority)
   const staticPaths = [
-    "", "/calculators", "/tools", "/glossary", "/resume-builder", "/ai-assistant",
-    "/ai-tools", "/ai-tools/claude-for-finance", "/ai-tools/what-is-mcp", "/ai-tools/mcp-use-cases",
-    "/finance-prompts",
-    "/news", "/blog", "/sip", "/income-tax", "/investing",
-    "/loans", "/savings", "/retirement", "/budgeting", "/credit-score", "/gold",
-    "/gold-rate", "/petrol-price", "/diesel-price",
-    "/about", "/widgets", "/tax-regime-break-even", "/editorial-standards",
-    "/affiliate-disclosure", "/contact", "/privacy", "/disclaimer", "/terms",
-    "/methodology", "/corrections", "/authors/sahil",
-    // Finance Today & hubs
-    "/finance-today", "/research", "/comparisons",
+    "",
+    "/calculators",
+    "/tools",
+    "/glossary",
+    "/news",
+    "/blog",
+    "/sip",
+    "/income-tax",
+    "/investing",
+    "/loans",
+    "/savings",
+    "/retirement",
+    "/budgeting",
+    "/credit-score",
+    "/gold",
+    "/gold-rate",
+    "/petrol-price",
+    "/about",
+    "/widgets",
+    "/tax-regime-break-even",
+    "/editorial-standards",
+    "/affiliate-disclosure",
+    "/contact",
+    "/privacy",
+    "/disclaimer",
+    "/terms",
+    "/methodology",
+    "/corrections",
+    "/authors/sahil",
+    // Hubs
+    "/finance-today",
+    "/research",
+    "/comparisons",
     // IPO tracker
-    "/ipos", "/ipos/nse-ipo",
-    "/ipos/reliance-jio-ipo", "/ipos/jio-ipo-gmp-today",
-    "/ipos/jio-ipo-allotment-status", "/ipos/zepto-ipo", "/ipos/ss-retail-ipo",
-    "/ipos/oyo-ipo", "/ipos/hero-fincorp-ipo", "/ipos/phonepe-ipo",
-    "/ipos/eaaa-india-alternatives-ipo", "/ipos/sfc-environmental-technologies-ipo",
+    "/ipos",
+    "/ipos/nse-ipo",
+    "/ipos/reliance-jio-ipo",
+    "/ipos/jio-ipo-gmp-today",
+    "/ipos/jio-ipo-allotment-status",
+    "/ipos/zepto-ipo",
+    "/ipos/ss-retail-ipo",
+    "/ipos/oyo-ipo",
+    "/ipos/hero-fincorp-ipo",
+    "/ipos/phonepe-ipo",
+    "/ipos/eaaa-india-alternatives-ipo",
+    "/ipos/sfc-environmental-technologies-ipo",
     "/ipos/razorpay-ipo",
-    // IPO hub pages (evergreen)
-    "/ipos/ipo-gmp-today", "/ipos/upcoming-ipo", "/ipos/best-upcoming-ipos-2026",
-    "/ipos/sme-ipo", "/ipos/mainboard-vs-sme-ipo", "/ipos/ipo-allotment-status",
-    // Trust & Transparency pages ( /about/author 301s to /authors/sahil, so it
-    // is intentionally not listed here )
-    "/editorial-policy", "/financial-review-process", "/sources",
+    // Evergreen IPO hubs
+    "/ipos/ipo-gmp-today",
+    "/ipos/upcoming-ipo",
+    "/ipos/best-upcoming-ipos-2026",
+    "/ipos/sme-ipo",
+    "/ipos/mainboard-vs-sme-ipo",
+    "/ipos/ipo-allotment-status",
+    // Trust & Transparency
+    "/editorial-policy",
+    "/financial-review-process",
+    "/sources",
     // Research data pages
-    "/research/ppf-rate-history", "/research/epf-rate-history",
-    "/research/income-tax-slabs-history", "/research/rbi-repo-rate-history",
-    // Comparison pages (existing)
-    "/comparisons/sip-vs-fd", "/comparisons/sip-vs-lumpsum",
-    "/comparisons/ppf-vs-fd", "/comparisons/ppf-vs-nps",
-    "/comparisons/old-vs-new-tax-regime", "/comparisons/nps-vs-epf",
-    // Comparison pages (new)
-    "/comparisons/mutual-fund-vs-stocks", "/comparisons/elss-vs-ppf",
-    "/comparisons/nps-tier-1-vs-tier-2", "/comparisons/loan-prepayment-vs-investing",
-    "/comparisons/fd-vs-debt-mutual-fund", "/comparisons/term-vs-ulip-vs-endowment",
+    "/research/ppf-rate-history",
+    "/research/epf-rate-history",
+    "/research/income-tax-slabs-history",
+    "/research/rbi-repo-rate-history",
+    // Comparisons
+    "/comparisons/sip-vs-fd",
+    "/comparisons/sip-vs-lumpsum",
+    "/comparisons/ppf-vs-fd",
+    "/comparisons/ppf-vs-nps",
+    "/comparisons/old-vs-new-tax-regime",
+    "/comparisons/nps-vs-epf",
+    "/comparisons/mutual-fund-vs-stocks",
+    "/comparisons/elss-vs-ppf",
+    "/comparisons/nps-tier-1-vs-tier-2",
+    "/comparisons/loan-prepayment-vs-investing",
+    "/comparisons/fd-vs-debt-mutual-fund",
+    "/comparisons/term-vs-ulip-vs-endowment",
     "/comparisons/floater-vs-individual-health-insurance",
   ];
-  // NOTE: /search is deliberately absent because app/search/page.tsx sets
-  // robots.index=false, and listing a noindex URL in the sitemap is a
-  // contradictory signal that shows up in GSC as "Submitted URL marked
-  // noindex". It stays crawlable and linkable, just not submitted.
+
   entries.push(...staticPaths.map((p) => ({ path: p })));
 
-  // Live calculators (Health ones excluded by live:false)
-  calculators.filter((c) => c.live).forEach((c) => entries.push({ path: `/calculators/${c.slug}` }));
+  // Live financial calculators
+  calculators
+    .filter((c) => c.live)
+    .forEach((c) => entries.push({ path: `/calculators/${c.slug}` }));
 
-  // Blog posts
+  // Editorial blog posts
   posts
     .filter((p) => !NOINDEX_POST_SLUGS.has(p.slug))
     .forEach((p) => entries.push({ path: `/blog/${p.slug}`, lastmod: p.date }));
@@ -109,41 +133,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // News explainers
   newsArticles.forEach((a) => entries.push({ path: `/news/${a.slug}`, lastmod: a.date }));
 
-  // AI tool details
-  aiToolDetails.forEach((d) => entries.push({ path: `/ai-tools/${d.slug}` }));
-  FINANCE_PROMPTS.forEach((p) => entries.push({ path: `/finance-prompts/${p.slug}` }));
+  // Finance-relevant browser tools
+  FINANCE_TOOLS.forEach((t) => entries.push({ path: `/tools/${t}` }));
 
-  // Keeper tool pages (excluding deleted + noindex)
-  const keeperTools = [
-    "compress-image", "image-converter", "image-to-pdf", "merge-pdf",
-    "split-pdf", "rotate-pdf", "organize-pdf", "resize-image",
-    "crop-image", "rotate-image",
-    "ai-summarizer", "ai-paraphraser", "ai-grammar-checker",
-    "ai-email-writer", "ai-business-name-generator", "ai-caption-generator",
-    "password-generator", "qr-code-generator", "unit-converter",
-    "invoice-generator", "budget-planner", "are-you-rich",
-    "scientific-calculator", "gpa-calculator",
-  ];
-  keeperTools.forEach((s) => entries.push({ path: `/tools/${s}` }));
+  // Top searched in-hand salary bands (top 15 LPA only)
+  INHAND_SLUGS.filter((s) => {
+    const lpa = parseLpaSlug(s);
+    return lpa !== null && TOP_INHAND_LPA.has(lpa);
+  }).forEach((s) => entries.push({ path: `/in-hand-salary/${s}` }));
 
-  // PSEO routes. The /sip/* programmatic pages are excluded by
-  // NOINDEX_SECTIONS above, so they are not listed here.
-  TAX_SLUGS.forEach((s) => entries.push({ path: `/income-tax/${s}` }));
-  PAIR_SLUGS.forEach((s) => entries.push({ path: `/currency/${s}` }));
-  INHAND_SLUGS.forEach((s) => entries.push({ path: `/in-hand-salary/${s}` }));
-  FD_SLUGS.forEach((s) => entries.push({ path: `/calculators/fd/${s}` }));
+  // Gold & petrol rates by city
   GOLD_CITY_SLUGS.forEach((s) => entries.push({ path: `/gold-rate/${s}` }));
   FUEL_CITY_SLUGS.forEach((s) => entries.push({ path: `/petrol-price/${s}` }));
-  FUEL_CITY_SLUGS.forEach((s) => entries.push({ path: `/diesel-price/${s}` }));
-  GLOSSARY.forEach((g) => entries.push({ path: `/glossary/${g.slug}` }));
 
-  // Filter: only include indexable URLs
+  // Personal finance glossary terms (Crypto terms excluded from sitemap to prevent dilution)
+  GLOSSARY.filter((g) => g.category !== "Crypto").forEach((g) =>
+    entries.push({ path: `/glossary/${g.slug}` })
+  );
+
+  // Filter out any paths matching noindex criteria
   const filtered = entries.filter((e) => shouldIndex(e.path));
 
   const STATIC_PAGES = new Set([
-    "/about", "/privacy", "/disclaimer", "/terms", "/methodology",
-    "/corrections", "/editorial-standards", "/affiliate-disclosure",
-    "/contact", "/authors/sahil",
+    "/about",
+    "/privacy",
+    "/disclaimer",
+    "/terms",
+    "/methodology",
+    "/corrections",
+    "/editorial-standards",
+    "/affiliate-disclosure",
+    "/contact",
+    "/authors/sahil",
   ]);
 
   return filtered.map((entry) => {
@@ -153,36 +174,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const isCalc = p.startsWith("/calculators");
     const isBlog = p.startsWith("/blog");
     const isGlossary = p.startsWith("/glossary");
-    const isAiTool = p.startsWith("/ai-tools");
     const isNews = p.startsWith("/news");
 
     const changeFrequency: "daily" | "weekly" | "monthly" | "yearly" =
-      isHome ? "daily" :
-      isBlog || isNews ? "monthly" :
-      isCalc || isGlossary || isAiTool ? "weekly" :
-      isStatic ? "yearly" :
-      "weekly";
+      isHome
+        ? "daily"
+        : isBlog || isNews
+        ? "monthly"
+        : isCalc || isGlossary
+        ? "weekly"
+        : isStatic
+        ? "yearly"
+        : "weekly";
 
     const priority =
-      isHome ? 1.0 :
-      isCalc || isBlog ? 0.9 :
-      isGlossary || isAiTool || isNews ? 0.8 :
-      isStatic ? 0.3 :
-      0.7;
+      isHome
+        ? 1.0
+        : isCalc || isBlog
+        ? 0.9
+        : isGlossary || isNews
+        ? 0.8
+        : isStatic
+        ? 0.3
+        : 0.7;
 
-    // Honest lastmod: use the real content date when we have one (blog/news),
-    // a current date for the home page and the actively-maintained IPO tracker,
-    // and OMIT lastmod entirely for pages whose true edit date we do not track.
-    // A single hardcoded date stamped across hundreds of URLs is a weak/suspect
-    // freshness signal, so no lastmod is better than a fake uniform one.
+    // Real ISO lastmod timestamp for all sitemap entries
     const lastModified = entry.lastmod
       ? new Date(entry.lastmod)
-      : p === "" || p.startsWith("/ipos")
-        ? new Date("2026-10-25")
-        : undefined;
+      : new Date("2026-11-15");
+
     return {
       url: `${site.url}${p}`,
-      ...(lastModified ? { lastModified } : {}),
+      lastModified,
       changeFrequency,
       priority,
     };

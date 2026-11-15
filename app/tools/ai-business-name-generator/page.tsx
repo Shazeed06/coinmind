@@ -4,6 +4,7 @@ import AiBusinessNameGenerator from "@/components/tools/AiBusinessNameGenerator"
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "AI Business Name Generator - Startup Name Ideas" },
   description:
     "Free AI business name generator. Describe your idea, pick a style, and get 15 creative, brandable startup name ideas in seconds. No sign-up.",

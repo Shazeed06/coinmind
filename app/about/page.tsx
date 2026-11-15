@@ -85,16 +85,68 @@ export default function Page() {
               </Link>
             </div>
 
+            {/* The Origin Story */}
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm space-y-3">
+              <h2 className="text-lg font-bold text-text">Why We Built CoinMind: The Problem with Indian Finance Portals</h2>
+              <p className="text-text-muted leading-relaxed">
+                Personal finance in India has historically been surrounded by two extremes: aggressive sales pitches disguised as educational articles, and dense statutory jargon that leaves everyday taxpayers confused. Most commercial portals require phone numbers, email addresses, and OTPs before revealing an EMI projection or tax breakdown, subsequently passing user leads to loan distributors or insurance brokers.
+              </p>
+              <p className="text-text-muted leading-relaxed">
+                CoinMind was built to provide a clean, unbiased alternative. We believe every salaried individual, small business owner, and investor in India deserves access to accurate, transparent financial mathematics without paying with their privacy or dealing with sales spam.
+              </p>
+            </div>
+
+            {/* Privacy by Design */}
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm space-y-3">
+              <h2 className="text-lg font-bold text-text">Privacy by Design: Zero Gated Tools & Client-Side Execution</h2>
+              <p className="text-text-muted leading-relaxed">
+                Our calculators—including our SIP, EMI, Income Tax, HRA, and PPF calculators—run directly inside your web browser using modern client-side JavaScript. When you enter your salary, rent, loan balance, or monthly SIP amount, that information stays strictly inside your browser. We do not store, log, or transmit your confidential financial inputs to any remote server or marketing database.
+              </p>
+              <p className="text-text-muted leading-relaxed">
+                There are no mandatory accounts, no credit card requirements, no paywalls, and no locked PDF downloads on CoinMind. Every feature is accessible to all visitors free of charge.
+              </p>
+            </div>
+
+            {/* How we test calculators */}
+            <div className="rounded-2xl border border-border bg-white p-6 shadow-sm space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="h-9 w-9 rounded-xl bg-brand/10 flex items-center justify-center">
+                  <Calculator className="h-5 w-5 text-brand" />
+                </div>
+                <h2 className="text-lg font-bold text-text">How Our Calculators Are Built and Verified</h2>
+              </div>
+              <p className="text-text-muted leading-relaxed">
+                Accuracy in financial computation is non-negotiable. An incorrect tax slab or an improperly compounded annuity formula can lead to real-world planning mistakes. To guarantee absolute precision, our engineering and editorial team follows a rigorous 3-step validation framework:
+              </p>
+              <div className="grid gap-4 sm:grid-cols-3 text-sm text-text-muted">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h3 className="font-semibold text-text mb-1">1. Statutory Sourcing</h3>
+                  <p>Formulas are taken directly from legislative acts (Income Tax Act 1961, RBI Master Directions, AMFI Guidelines, and Central Board of Direct Taxes notifications).</p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h3 className="font-semibold text-text mb-1">2. Dual Implementation</h3>
+                  <p>Calculations are independently verified using automated unit test suites in TypeScript and cross-checked against official government calculators.</p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h3 className="font-semibold text-text mb-1">3. Annual Budget Audits</h3>
+                  <p>Following every Union Budget and RBI Monetary Policy announcement, our team reviews tax slabs, surcharge rates, standard deduction caps, and repo rate linkages.</p>
+                </div>
+              </div>
+            </div>
+
             {/* How we make money */}
             <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-9 w-9 rounded-xl bg-accent/10 flex items-center justify-center">
                   <Shield className="h-5 w-5 text-accent" />
                 </div>
-                <h2 className="text-lg font-bold text-text">How we make money</h2>
+                <h2 className="text-lg font-bold text-text">How We Fund CoinMind</h2>
               </div>
               <p className="text-text-muted leading-relaxed">
-                {site.name} is free to use and will always remain free. We fund the site through Google AdSense and occasional affiliate links. If you click an affiliate link and make a purchase, we may earn a small commission at no extra cost to you. This never influences what we recommend or how we rate tools.
+                {site.name} is free to use and will always remain free. We fund server hosting, continuous development, and research through Google AdSense and occasional affiliate links. If you click an affiliate link and make a purchase, we may earn a small referral commission at no additional cost to you.
+              </p>
+              <p className="text-text-muted leading-relaxed mt-3">
+                Crucially, commercial relationships never influence our editorial stance, calculator outcomes, or ratings. We do not accept sponsored reviews, pay-to-play rankings, or promotional articles from financial institutions.
               </p>
               <Link href="/affiliate-disclosure" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline underline-offset-2">
                 Full affiliate disclosure <ExternalLink className="h-3.5 w-3.5" />
@@ -107,10 +159,10 @@ export default function Page() {
                 <div className="h-9 w-9 rounded-xl bg-brand/10 flex items-center justify-center">
                   <BookOpen className="h-5 w-5 text-brand" />
                 </div>
-                <h2 className="text-lg font-bold text-text">How we ensure accuracy</h2>
+                <h2 className="text-lg font-bold text-text">Open Transparency & Corrections</h2>
               </div>
               <p className="text-text-muted leading-relaxed">
-                Every calculator uses published, standard formulas verified against official sources: RBI, SEBI, the Income Tax Department, AMFI, EPFO and the National Savings Institute. When we find an error, we log it publicly on our corrections page.
+                We believe in full transparency. When statutory regulations change or if a minor calculation bug is identified, we document the update openly on our public corrections log.
               </p>
               <div className="mt-4 grid sm:grid-cols-3 gap-3">
                 {[

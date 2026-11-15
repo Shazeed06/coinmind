@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "EPF Interest Rate History 2000-2026 - All EPFO Declared Rates",
   description: "Complete EPF interest rate history from 2000 to 2026. All EPFO-declared Employee Provident Fund rates, year by year, with official sources.",
   alternates: { canonical: `${site.url}/research/epf-rate-history` },
+  openGraph: {
+    locale: "en_IN",
+    title: "EPF Interest Rate History 2000-2026 - All EPFO Declared Rates",
+    description: "Complete EPF interest rate history from 2000 to 2026. All EPFO-declared Employee Provident Fund rates, year by year, with official sources.",
+    url: `${site.url}/research/epf-rate-history`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EPF Interest Rate History 2000-2026 - All EPFO Declared Rates",
+    description: "Complete EPF interest rate history from 2000 to 2026. All EPFO-declared Employee Provident Fund rates, year by year, with official sources.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const EPF_RATES = [

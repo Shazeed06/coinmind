@@ -24,12 +24,13 @@ export const metadata: Metadata = {
     description:
       "Day-wise Jio Platforms IPO grey market premium and how it compared with the actual ₹1,358 listing on 28 Oct 2026.",
     url: `${site.url}/ipos/jio-ipo-gmp-today`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Jio IPO GMP vs Listing: indicated ~22%, listed at +21.4%",
-    description:
-      "Day-wise Jio Platforms IPO grey market premium and how it compared with the actual ₹1,358 listing on 28 Oct 2026.",
+    description: "Day-wise Jio Platforms IPO grey market premium and how it compared with the actual ₹1,358 listing on 28 Oct 2026.",
+    images: ["/opengraph-image"],
   },
 };
 

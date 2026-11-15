@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "RBI Repo Rate History 2010-2026 - All MPC Decisions",
   description: "Complete RBI repo rate history from 2010 to 2026. All Monetary Policy Committee (MPC) rate decisions, dates and reasons. Official data from RBI.",
   alternates: { canonical: `${site.url}/research/rbi-repo-rate-history` },
+  openGraph: {
+    locale: "en_IN",
+    title: "RBI Repo Rate History 2010-2026 - All MPC Decisions",
+    description: "Complete RBI repo rate history from 2010 to 2026. All Monetary Policy Committee (MPC) rate decisions, dates and reasons. Official data from RBI.",
+    url: `${site.url}/research/rbi-repo-rate-history`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RBI Repo Rate History 2010-2026 - All MPC Decisions",
+    description: "Complete RBI repo rate history from 2010 to 2026. All Monetary Policy Committee (MPC) rate decisions, dates and reasons. Official data from RBI.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const REPO_RATES = [

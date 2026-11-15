@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Split PDF - Extract Pages from a PDF Free" },
   description:
     "Free split PDF tool. Extract a page range into a new PDF or split every page into separate files - in your browser. No upload, no sign-up, fully private.",

@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: { absolute: `Official Sources · ${site.name}` },
   description: `The authoritative government and regulatory sources ${site.name} uses to verify all financial calculators, tax rules, interest rates and guides for India.`,
   alternates: { canonical: `${site.url}/sources` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Official Sources",
+    description: "The authoritative government and regulatory sources ${site.name} uses to verify all financial calculators, tax rules, interest rates and guides for India.",
+    url: `${site.url}/sources`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Official Sources",
+    description: "The authoritative government and regulatory sources ${site.name} uses to verify all financial calculators, tax rules, interest rates and guides for India.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const SOURCES = [

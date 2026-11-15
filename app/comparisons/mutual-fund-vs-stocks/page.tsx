@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Mutual Fund vs Stocks - Which is Better for You?",
   description: "Mutual fund vs direct stocks: detailed comparison of returns, risk, time needed, tax and who should choose what. Verdict for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/mutual-fund-vs-stocks` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Mutual Fund vs Stocks - Which is Better for You?",
+    description: "Mutual fund vs direct stocks: detailed comparison of returns, risk, time needed, tax and who should choose what. Verdict for Indian investors in 2026.",
+    url: `${site.url}/comparisons/mutual-fund-vs-stocks`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mutual Fund vs Stocks - Which is Better for You?",
+    description: "Mutual fund vs direct stocks: detailed comparison of returns, risk, time needed, tax and who should choose what. Verdict for Indian investors in 2026.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

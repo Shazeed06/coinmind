@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "PPF vs NPS - Which is Better for Retirement in 2026?",
   description: "PPF vs NPS comparison for retirement: returns, tax treatment, lock-in, flexibility and verdict for Indian investors in 2026.",
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-nps` },
+  openGraph: {
+    locale: "en_IN",
+    title: "PPF vs NPS - Which is Better for Retirement in 2026?",
+    description: "PPF vs NPS comparison for retirement: returns, tax treatment, lock-in, flexibility and verdict for Indian investors in 2026.",
+    url: `${site.url}/comparisons/ppf-vs-nps`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PPF vs NPS - Which is Better for Retirement in 2026?",
+    description: "PPF vs NPS comparison for retirement: returns, tax treatment, lock-in, flexibility and verdict for Indian investors in 2026.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

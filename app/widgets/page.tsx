@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: "Free Financial Calculator Widgets | CoinMind",
     description: "Embed India's best free financial calculators on your website. No login, no API key, just paste the code.",
     url: `${site.url}/widgets`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
 };
 

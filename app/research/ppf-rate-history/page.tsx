@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "PPF Interest Rate History 2000-2026 - All Rates Since Launch",
   description: "Complete PPF interest rate history from 2000 to 2026. All government-declared Public Provident Fund rates, year by year, sourced from official notifications.",
   alternates: { canonical: `${site.url}/research/ppf-rate-history` },
+  openGraph: {
+    locale: "en_IN",
+    title: "PPF Interest Rate History 2000-2026 - All Rates Since Launch",
+    description: "Complete PPF interest rate history from 2000 to 2026. All government-declared Public Provident Fund rates, year by year, sourced from official notifications.",
+    url: `${site.url}/research/ppf-rate-history`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PPF Interest Rate History 2000-2026 - All Rates Since Launch",
+    description: "Complete PPF interest rate history from 2000 to 2026. All government-declared Public Provident Fund rates, year by year, sourced from official notifications.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const PPF_RATES = [

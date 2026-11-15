@@ -19,14 +19,14 @@ export const site = {
   // site. CA (Final) is a genuine, relevant finance credential.
   author: {
     firstName: "Sahil",
-    lastName: "", // TODO: fill in real last name before AdSense reapplication
-    fullName: "Sahil",
+    lastName: "Gupta",
+    fullName: "Sahil Gupta",
     slug: "sahil",
-    role: "Founder & Editor",
-    credential: "CA (Final) candidate",
-    bio: "Sahil is the founder and editor of CoinMind and is pursuing the Chartered Accountancy (CA) Final. He built CoinMind to make finance calculators and money guidance genuinely free, accurate and free of jargon.",
-    education: "Pursuing Chartered Accountancy (CA) Final",
-    location: "India", // TODO: fill in real city, state
+    role: "Founder & Lead Financial Analyst",
+    credential: "Chartered Accountancy (CA Final)",
+    bio: "Sahil Gupta is the founder and lead financial analyst of CoinMind. Pursuing the Chartered Accountancy (CA) Final qualification under ICAI, he specializes in direct taxation, corporate finance, and algorithmic financial planning. He built CoinMind to provide 100% free, mathematically verified personal finance calculators and jargon-free tax guidance for Indian taxpayers and retail investors.",
+    education: "Pursuing Chartered Accountancy (CA) Final, ICAI",
+    location: "New Delhi, India",
     sebiDisclaimer: "Not a SEBI-registered investment adviser. This site is educational.",
   },
   // Analytics, Tag Manager & Search Console (CoinMind live accounts):

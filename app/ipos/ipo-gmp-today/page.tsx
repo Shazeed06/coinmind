@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     description:
       "Grey market premium today for every open and upcoming IPO - Tonbo, Jio, Bonfiglioli, Paras and more. Implied listing price and honest caveats.",
     url: `${site.url}/ipos/ipo-gmp-today`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "IPO GMP Today: Live Grey Market Premium List (18 Oct 2026)",
-    description:
-      "Grey market premium today for every open and upcoming IPO - Tonbo, Jio, Bonfiglioli, Paras and more. Implied listing price and honest caveats.",
+    description: "Grey market premium today for every open and upcoming IPO - Tonbo, Jio, Bonfiglioli, Paras and more. Implied listing price and honest caveats.",
+    images: ["/opengraph-image"],
   },
 };
 

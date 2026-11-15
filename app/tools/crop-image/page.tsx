@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Crop Image - Free Online Photo Cropper Tool" },
   description:
     "Free image cropper: drag the crop box or type X, Y, width and height, use 1:1, 4:3 or 16:9 presets, then download as JPG, PNG or WebP. All in your browser.",

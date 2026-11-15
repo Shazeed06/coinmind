@@ -18,6 +18,34 @@ import { getKeyTakeaways } from "@/lib/takeaways";
 
 export const dynamicParams = false;
 
+function cleanTitle(t: string, maxLen = 60): string {
+  if (!t || t.length <= maxLen) return t;
+  const parts = t.split(/ [:|–—-] /);
+  if (parts[0] && parts[0].length >= 30 && parts[0].length <= maxLen) {
+    return parts[0].trim();
+  }
+  const sub = t.slice(0, maxLen - 1);
+  const lastSpace = sub.lastIndexOf(" ");
+  return (lastSpace > 30 ? sub.slice(0, lastSpace) : sub).trim() + "…";
+}
+
+function cleanDesc(d: string, maxLen = 155): string {
+  if (!d || d.length <= maxLen) return d;
+  const sentences = d.split(/(?<=[.?!])\s+/);
+  let acc = "";
+  for (const s of sentences) {
+    if ((acc + (acc ? " " : "") + s).length <= maxLen) {
+      acc += (acc ? " " : "") + s;
+    } else {
+      break;
+    }
+  }
+  if (acc.length >= 70) return acc;
+  const sub = d.slice(0, maxLen - 1);
+  const lastSpace = sub.lastIndexOf(" ");
+  return (lastSpace > 50 ? sub.slice(0, lastSpace) : sub).trim() + "…";
+}
+
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
@@ -30,10 +58,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
-  const metaTitle = post.metaTitle ?? post.title;
+  const metaTitle = cleanTitle(post.metaTitle ?? post.title);
+  const metaDesc = cleanDesc(post.excerpt);
   return {
     title: { absolute: metaTitle },
-    description: post.excerpt,
+    description: metaDesc,
     keywords: post.keywords,
     robots: NOINDEX_POST_SLUGS.has(post.slug) ? { index: false, follow: true } : undefined,
     alternates: { canonical: `/blog/${post.slug}` },
@@ -43,7 +72,7 @@ export async function generateMetadata({
       siteName: site.name,
       locale: "en_IN",
       title: metaTitle,
-      description: post.excerpt,
+      description: metaDesc,
       images: [
         { url: "/opengraph-image", width: 1200, height: 630, alt: post.title },
       ],
@@ -51,7 +80,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: metaTitle,
-      description: post.excerpt,
+      description: metaDesc,
       images: ["/opengraph-image"],
     },
   };

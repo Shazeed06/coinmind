@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Merge PDF - Combine PDF Files Online Free" },
   description:
     "Free merge PDF tool. Combine multiple PDF files into one, reorder and remove pages, entirely in your browser - no upload, no sign-up, fully private.",

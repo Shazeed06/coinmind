@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     description:
       "A ranked, editorial shortlist of the most notable upcoming IPOs in India for 2026 - what each company does, issue size, why it is notable and the key risk.",
     url: `${site.url}/ipos/best-upcoming-ipos-2026`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Best Upcoming IPOs 2026: Our Ranked Shortlist (India)",
-    description:
-      "A ranked, editorial shortlist of the most notable upcoming IPOs in India for 2026 - what each company does, issue size, why it is notable and the key risk.",
+    description: "A ranked, editorial shortlist of the most notable upcoming IPOs in India for 2026 - what each company does, issue size, why it is notable and the key risk.",
+    images: ["/opengraph-image"],
   },
 };
 

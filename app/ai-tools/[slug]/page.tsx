@@ -20,25 +20,30 @@ export async function generateMetadata({
   const detail = detailBySlug(slug);
   const tool = detail && aiTools.find((t) => t.name === detail.name);
   if (!detail || !tool) return {};
+  const rawTitle = `${tool.name} Review: Pricing & Features`;
+  const title = rawTitle.length > 60 ? `${tool.name} Review` : rawTitle;
+  const rawDesc = `Our ${tool.name} review for Indian users: pricing in rupees, features, pros and cons, alternatives, and FAQs.`;
+  const description = rawDesc.length > 155 ? rawDesc.slice(0, 152) + "…" : rawDesc;
   return {
-    title: { absolute: `${tool.name} Review - Pricing, Features & Hacks` },
-    description: `Our ${tool.name} review for Indian users: pricing in rupees, features, pros and cons, alternatives, FAQs and pro tips. ${tool.tagline}`,
+    title: { absolute: title },
+    description,
+    robots: { index: false, follow: true },
     alternates: { canonical: `/ai-tools/${slug}` },
     openGraph: {
       type: "article",
       url: `${site.url}/ai-tools/${slug}`,
       siteName: site.name,
       locale: "en_IN",
-      title: `${tool.name} - Review, Pricing & Hacks`,
-      description: tool.tagline,
+      title: `${tool.name} Review: Pricing & Features`,
+      description,
       images: [
         { url: "/opengraph-image", width: 1200, height: 630, alt: `${tool.name} review` },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${tool.name} Review - Pricing, Features & Hacks`,
-      description: tool.tagline,
+      title,
+      description,
       images: ["/opengraph-image"],
     },
   };

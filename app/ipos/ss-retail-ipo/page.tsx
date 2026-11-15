@@ -25,12 +25,13 @@ export const metadata: Metadata = {
     description:
       "SS Retail IPO listed 23 Sep 2026 at a strong premium over the ₹424 issue price after ~103-108x subscription. Full review and result.",
     url: `${site.url}/ipos/ss-retail-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SS Retail IPO: Listed ~50% Up vs ₹424 Issue Price",
-    description:
-      "SS Retail IPO listed 23 Sep 2026 at a strong premium over the ₹424 issue price after ~103-108x subscription. Full review and result.",
+    description: "SS Retail IPO listed 23 Sep 2026 at a strong premium over the ₹424 issue price after ~103-108x subscription. Full review and result.",
+    images: ["/opengraph-image"],
   },
 };
 

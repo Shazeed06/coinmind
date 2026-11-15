@@ -14,15 +14,15 @@ export function Breadcrumb({ items }: { items: Crumb[] }) {
           the current page label. */}
       <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-text-muted">
         <li>
-          <Link href="/" className="rounded-input hover:text-brand hover:underline underline-offset-2 transition-colors">Home</Link>
+          <Link href="/" className="rounded-input py-1.5 inline-block hover:text-brand hover:underline underline-offset-2 transition-colors">Home</Link>
         </li>
         {items.map((item, i) => (
           <li key={i} className="flex items-center gap-1.5">
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-ink-faint" aria-hidden="true" />
             {item.href ? (
-              <Link href={item.href} className="rounded-input hover:text-brand hover:underline underline-offset-2 transition-colors">{item.label}</Link>
+              <Link href={item.href} className="rounded-input py-1.5 inline-block hover:text-brand hover:underline underline-offset-2 transition-colors">{item.label}</Link>
             ) : (
-              <span aria-current="page" className="font-medium text-text truncate max-w-[200px]">{item.label}</span>
+              <span aria-current="page" className="py-1.5 inline-block font-medium text-text truncate max-w-[200px]">{item.label}</span>
             )}
           </li>
         ))}

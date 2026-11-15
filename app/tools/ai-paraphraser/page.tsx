@@ -4,6 +4,7 @@ import AiParaphraser from "@/components/tools/AiParaphraser";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "AI Paraphrasing Tool - Free Rewriter" },
   description:
     "Free AI paraphrasing tool. Instantly rewrite and rephrase any text in seven styles - fluent, formal, casual, simple, shorten or expand. No sign-up.",

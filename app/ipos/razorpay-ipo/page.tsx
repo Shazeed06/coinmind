@@ -33,12 +33,13 @@ export const metadata: Metadata = {
     description:
       "Confidential DRHP filed June 2026, reported ~$600M issue at a $5-6B valuation. No price band or dates yet. Full review of India's biggest fintech listing in the pipeline.",
     url: `${site.url}/ipos/razorpay-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Razorpay IPO: What's Actually Confirmed (and What Isn't)",
-    description:
-      "Confidential DRHP filed June 2026, reported ~$600M issue at a $5-6B valuation. No price band or dates yet.",
+    description: "Confidential DRHP filed June 2026, reported ~$600M issue at a $5-6B valuation. No price band or dates yet.",
+    images: ["/opengraph-image"],
   },
 };
 

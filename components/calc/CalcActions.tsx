@@ -73,15 +73,15 @@ export default function CalcActions({ title, url }: { title: string; url: string
   };
 
   const btn =
-    "inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-xs font-medium text-ink-soft hover:border-forest hover:text-forest transition-colors";
+    "inline-flex items-center gap-1.5 rounded-full border border-line px-3.5 py-2 text-xs sm:text-sm font-medium text-ink-soft hover:border-forest hover:text-forest transition-colors min-h-[40px]";
 
   return (
     <div className="print:hidden">
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2.5">
         <button
           type="button"
           onClick={handleWhatsApp}
-          className="inline-flex items-center gap-1.5 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-3 py-1.5 text-xs font-medium text-[#128C7E] hover:border-[#25D366] hover:bg-[#25D366]/15 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-3.5 py-2 text-xs sm:text-sm font-medium text-[#128C7E] hover:border-[#25D366] hover:bg-[#25D366]/15 transition-colors min-h-[40px]"
           aria-label="Share this calculator on WhatsApp"
         >
           <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

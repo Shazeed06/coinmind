@@ -26,12 +26,13 @@ export const metadata: Metadata = {
     description:
       "Allotment finalised 26 Oct 2026; Jio Platforms listed on 28 Oct. Check your allotment on KFin Technologies, BSE or NSE with your PAN.",
     url: `${site.url}/ipos/jio-ipo-allotment-status`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Jio IPO Allotment Status - Check on KFintech, BSE or NSE",
-    description:
-      "Allotment finalised 26 Oct 2026; Jio Platforms listed on 28 Oct. Check your allotment on KFin Technologies, BSE or NSE with your PAN.",
+    description: "Allotment finalised 26 Oct 2026; Jio Platforms listed on 28 Oct. Check your allotment on KFin Technologies, BSE or NSE with your PAN.",
+    images: ["/opengraph-image"],
   },
 };
 

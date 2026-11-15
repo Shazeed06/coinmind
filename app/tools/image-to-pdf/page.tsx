@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Image to PDF - Convert JPG & PNG to PDF Free" },
   description:
     "Free image to PDF converter. Combine JPG and PNG images into one PDF right in your browser - no upload, no sign-up, your files stay private.",

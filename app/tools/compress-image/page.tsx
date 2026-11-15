@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 import { TOOL_COMPRESS } from "@/lib/seo";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
-export const metadata: Metadata = TOOL_COMPRESS;
+export const metadata: Metadata = { ...TOOL_COMPRESS, robots: { index: false, follow: true } };
 
 const howToUse = [
   {

@@ -27,12 +27,13 @@ export const metadata: Metadata = {
     description:
       "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
     url: `${site.url}/ipos/phonepe-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "PhonePe IPO 2026: Status, Expected Price, GMP & Full Review",
-    description:
-      "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
+    description: "PhonePe IPO postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest update on expected dates.",
+    images: ["/opengraph-image"],
   },
 };
 

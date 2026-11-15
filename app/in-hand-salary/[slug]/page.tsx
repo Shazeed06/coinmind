@@ -23,6 +23,8 @@ export function generateStaticParams() {
   return INHAND_SLUGS.map((slug) => ({ slug }));
 }
 
+const TOP_INHAND_LPA = new Set([3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 50]);
+
 export async function generateMetadata({
   params,
 }: {
@@ -42,7 +44,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
-    robots: { index: true, follow: true },
+    robots: { index: TOP_INHAND_LPA.has(lpa), follow: true },
     alternates: { canonical: `/in-hand-salary/${slug}` },
     openGraph: {
       type: "article",

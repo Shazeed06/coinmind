@@ -4,6 +4,7 @@ import AiCaptionGenerator from "@/components/tools/AiCaptionGenerator";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Instagram Caption Generator - AI Captions & Hashtags" },
   description:
     "Free AI caption and hashtag generator. Describe your post, pick a platform and tone, and get 5 ready-to-use captions plus 10-15 matching hashtags in seconds.",

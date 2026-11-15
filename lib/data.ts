@@ -2176,6 +2176,14 @@ export const REMOVED_POST_SLUGS: ReadonlySet<string> = new Set([
   "digital-marketing-course-free-certificate",
   "best-online-courses-free-india",
   "government-job-prep-ssc-upsc-2026",
+  "ai-for-social-media-marketing",
+  "ai-resume-builder-free-2026",
+  "ai-tools-students-india-2026",
+  "best-ai-apps-android-india",
+  "digital-marketing-career-india",
+  "midjourney-vs-dall-e-vs-stable-diffusion",
+  "perplexity-vs-google-vs-chatgpt",
+  "ration-card-apply-online-2026",
 ]);
 
 export const posts: Post[] = ALL_POSTS.filter((p) => !REMOVED_POST_SLUGS.has(p.slug));

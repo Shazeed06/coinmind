@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "NPS vs EPF - Which is Better for Salaried Indians?",
   description: "NPS vs EPF comparison for salaried Indians: returns, contributions, tax treatment and withdrawal rules for FY 2026-27.",
   alternates: { canonical: `${site.url}/comparisons/nps-vs-epf` },
+  openGraph: {
+    locale: "en_IN",
+    title: "NPS vs EPF - Which is Better for Salaried Indians?",
+    description: "NPS vs EPF comparison for salaried Indians: returns, contributions, tax treatment and withdrawal rules for FY 2026-27.",
+    url: `${site.url}/comparisons/nps-vs-epf`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NPS vs EPF - Which is Better for Salaried Indians?",
+    description: "NPS vs EPF comparison for salaried Indians: returns, contributions, tax treatment and withdrawal rules for FY 2026-27.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

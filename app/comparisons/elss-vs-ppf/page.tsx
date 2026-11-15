@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "ELSS vs PPF - Which is Better for 80C Tax Saving?",
   description: "ELSS vs PPF: returns, lock-in, tax treatment and who should choose what for Section 80C tax saving in India. Data-backed comparison for 2026.",
   alternates: { canonical: `${site.url}/comparisons/elss-vs-ppf` },
+  openGraph: {
+    locale: "en_IN",
+    title: "ELSS vs PPF - Which is Better for 80C Tax Saving?",
+    description: "ELSS vs PPF: returns, lock-in, tax treatment and who should choose what for Section 80C tax saving in India. Data-backed comparison for 2026.",
+    url: `${site.url}/comparisons/elss-vs-ppf`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ELSS vs PPF - Which is Better for 80C Tax Saving?",
+    description: "ELSS vs PPF: returns, lock-in, tax treatment and who should choose what for Section 80C tax saving in India. Data-backed comparison for 2026.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

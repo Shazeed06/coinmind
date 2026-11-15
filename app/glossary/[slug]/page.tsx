@@ -29,12 +29,23 @@ export async function generateMetadata({
   if (!term) return {};
 
   const fullForm = FULL_FORMS[slug];
-  const title = fullForm
-    ? `${term.term} Full Form & Meaning: ${fullForm}`
+  let title = fullForm
+    ? `${term.term} Full Form: ${fullForm}`
     : `What Is ${term.term}? Meaning & Definition`;
+  if (title.length > 60) {
+    title = fullForm
+      ? `${term.term} Full Form & Meaning`
+      : `${term.term} Meaning & Definition`;
+  }
+  const description =
+    term.short.length > 155 ? term.short.slice(0, 152) + "…" : term.short;
+
+  const isCrypto = term.category === "Crypto";
+
   return {
     title: { absolute: title },
-    description: term.short,
+    description,
+    robots: isCrypto ? { index: false, follow: true } : undefined,
     alternates: { canonical: `/glossary/${slug}` },
     openGraph: {
       type: "article",
@@ -42,7 +53,7 @@ export async function generateMetadata({
       siteName: site.name,
       locale: "en_IN",
       title,
-      description: term.short,
+      description,
       images: [
         {
           url: "/opengraph-image",
@@ -55,7 +66,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title,
-      description: term.short,
+      description,
       images: ["/opengraph-image"],
     },
   };

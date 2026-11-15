@@ -27,12 +27,13 @@ export const metadata: Metadata = {
     description:
       "OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55-58.",
     url: `${site.url}/ipos/oyo-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "OYO IPO 2026: Price Band, GMP, Date & Full Review",
-    description:
-      "OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55-58.",
+    description: "OYO (PRISM Hospitality) IPO - ₹6,650 crore fresh issue, SEBI observation June 2026. Full review, expected price ₹55-58.",
+    images: ["/opengraph-image"],
   },
 };
 

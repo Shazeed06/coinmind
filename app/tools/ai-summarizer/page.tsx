@@ -4,6 +4,7 @@ import AiSummarizer from "@/components/tools/AiSummarizer";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "AI Text Summarizer - Free Summary Generator" },
   description:
     "Free AI text summarizer. Paste any article, essay or report and get a clear short, medium or detailed summary in seconds - as text or bullet points.",

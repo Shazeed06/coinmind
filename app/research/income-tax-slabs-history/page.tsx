@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Income Tax Slab History India - New & Old Regime Since 2014",
   description: "Complete income tax slab history for India: new regime slabs for every year since FY 2020-21, and old regime history since FY 2014-15. Official data.",
   alternates: { canonical: `${site.url}/research/income-tax-slabs-history` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Income Tax Slab History India - New & Old Regime Since 2014",
+    description: "Complete income tax slab history for India: new regime slabs for every year since FY 2020-21, and old regime history since FY 2014-15. Official data.",
+    url: `${site.url}/research/income-tax-slabs-history`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Income Tax Slab History India - New & Old Regime Since 2014",
+    description: "Complete income tax slab history for India: new regime slabs for every year since FY 2020-21, and old regime history since FY 2014-15. Official data.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function IncomeTaxSlabsHistoryPage() {

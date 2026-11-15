@@ -5,6 +5,19 @@ export const metadata: Metadata = {
   title: { absolute: `Methodology - How Our Calculators Work · ${site.name}` },
   description: "Which formulas CoinMind calculators use, the official sources they reference, what is excluded, and when each was last verified.",
   alternates: { canonical: "/methodology" },
+  openGraph: {
+    locale: "en_IN",
+    title: "Methodology - How Our Calculators Work",
+    description: "Which formulas CoinMind calculators use, the official sources they reference, what is excluded, and when each was last verified.",
+    url: `${site.url}/methodology`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Methodology - How Our Calculators Work",
+    description: "Which formulas CoinMind calculators use, the official sources they reference, what is excluded, and when each was last verified.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const METHODS = [

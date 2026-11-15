@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     description:
       "A clear, side-by-side comparison of mainboard and SME IPOs in India: platform, minimum investment, lot size, compliance, liquidity, risk and who should invest.",
     url: `${site.url}/ipos/mainboard-vs-sme-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mainboard vs SME IPO: Key Differences Explained",
-    description:
-      "A clear, side-by-side comparison of mainboard and SME IPOs in India: platform, minimum investment, lot size, compliance, liquidity, risk and who should invest.",
+    description: "A clear, side-by-side comparison of mainboard and SME IPOs in India: platform, minimum investment, lot size, compliance, liquidity, risk and who should invest.",
+    images: ["/opengraph-image"],
   },
 };
 

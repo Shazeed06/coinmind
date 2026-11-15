@@ -4,6 +4,7 @@ import AiGrammarChecker from "@/components/tools/AiGrammarChecker";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "AI Grammar Checker - Fix Grammar Free" },
   description:
     "Free AI grammar checker. Fix grammar, spelling and punctuation instantly and keep your original meaning and tone. A fast, free Grammarly alternative.",

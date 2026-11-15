@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "GPA & CGPA Calculator - Free Online" },
   description:
     "Free GPA and CGPA calculator. Add courses, credits and grades for a live weighted GPA (4.0) or CGPA (10-point), plus CGPA to percentage. 100% private.",

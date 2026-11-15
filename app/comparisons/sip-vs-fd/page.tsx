@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "SIP vs FD: Which is Better? (2026) | CoinMind",
     description: "SIP vs FD: real return comparison, post-tax analysis, liquidity and risk - everything an Indian investor needs to decide.",
     url: `${site.url}/comparisons/sip-vs-fd`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
 };
 

@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Rotate PDF - Turn PDF Pages 90°, 180° Free" },
   description:
     "Free rotate PDF tool. Turn every page or a single page 90, 180 or 270 degrees, entirely in your browser. No upload, no sign-up, fully private.",

@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Password Generator - Strong Random Passwords" },
   description:
     "Free password generator. Create strong, random passwords in your browser - choose length, symbols, numbers and case. Nothing is ever uploaded or stored.",

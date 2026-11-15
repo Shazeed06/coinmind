@@ -28,12 +28,13 @@ export const metadata: Metadata = {
     description:
       "Live tracker for open and upcoming IPOs in India - Jio, Tonbo, Paras Healthcare and more. Price band, GMP, lot size, allotment and listing dates.",
     url: `${site.url}/ipos`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "IPO 2026 India: Open & Upcoming IPOs with GMP Today",
-    description:
-      "Live tracker for open and upcoming IPOs in India - Jio, Tonbo, Paras Healthcare and more. Price band, GMP, lot size, allotment and listing dates.",
+    description: "Live tracker for open and upcoming IPOs in India - Jio, Tonbo, Paras Healthcare and more. Price band, GMP, lot size, allotment and listing dates.",
+    images: ["/opengraph-image"],
   },
 };
 

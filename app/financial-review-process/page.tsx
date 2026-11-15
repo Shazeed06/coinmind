@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: { absolute: `Financial Review Process · ${site.name}` },
   description: `How ${site.name} verifies financial data, formulas and sources for every calculator and guide. Our step-by-step financial accuracy process.`,
   alternates: { canonical: `${site.url}/financial-review-process` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Financial Review Process",
+    description: "How ${site.name} verifies financial data, formulas and sources for every calculator and guide. Our step-by-step financial accuracy process.",
+    url: `${site.url}/financial-review-process`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Financial Review Process",
+    description: "How ${site.name} verifies financial data, formulas and sources for every calculator and guide. Our step-by-step financial accuracy process.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const STEPS = [

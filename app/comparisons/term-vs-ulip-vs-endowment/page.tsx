@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Term vs ULIP vs Endowment - Which Life Insurance Is Best?",
   description: "Term plan vs ULIP vs endowment: a clear comparison of returns, costs, cover and who should choose what. Why most financial planners recommend term-only.",
   alternates: { canonical: `${site.url}/comparisons/term-vs-ulip-vs-endowment` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Term vs ULIP vs Endowment - Which Life Insurance Is Best?",
+    description: "Term plan vs ULIP vs endowment: a clear comparison of returns, costs, cover and who should choose what. Why most financial planners recommend term-only.",
+    url: `${site.url}/comparisons/term-vs-ulip-vs-endowment`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Term vs ULIP vs Endowment - Which Life Insurance Is Best?",
+    description: "Term plan vs ULIP vs endowment: a clear comparison of returns, costs, cover and who should choose what. Why most financial planners recommend term-only.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

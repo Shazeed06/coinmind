@@ -4,6 +4,7 @@ import AiEmailWriter from "@/components/tools/AiEmailWriter";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "AI Email & Cover Letter Writer - Free" },
   description:
     "Free AI email and cover letter writer. Enter a few key points, pick a tone, and get a complete, ready-to-send email or cover letter in seconds.",

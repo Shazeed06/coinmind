@@ -29,15 +29,15 @@ export async function generateMetadata({
   const { name, state } = cityData;
   const today = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
   return {
-    title: { absolute: `Gold Rate Today in ${name} (${today}) - 22K & 24K Price` },
-    description: `Gold rate in ${name} today: 22 carat and 24 carat gold price per gram, 5g, 8g, 10g, and 100g with and without 3% GST. Updated 6-hourly from live market data.`,
+    title: { absolute: `Gold Rate Today in ${name}: 22K & 24K Price` },
+    description: `Today's 22K and 24K gold rates in ${name} per gram and 10g, with and without 3% GST. Live price trends, silver rates and buying guide.`,
     alternates: { canonical: `/gold-rate/${city}` },
     openGraph: {
       type: "article",
       url: `${site.url}/gold-rate/${city}`,
       siteName: site.name,
       locale: "en_IN",
-      title: `Gold Rate Today in ${name} (${today})`,
+      title: `Gold Rate Today in ${name}: 22K & 24K Price`,
       description: `Today's 22K and 24K gold price in ${name}, ${state}. Prices per gram and per 10 grams with and without GST.`,
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `Gold rate ${name}` }],
     },

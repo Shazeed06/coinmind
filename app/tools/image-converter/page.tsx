@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Image Converter - JPG, PNG & WebP Online Free" },
   description:
     "Free online image converter. Convert between JPG, PNG and WebP instantly. 100% private - images are converted in your browser, never uploaded.",

@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "NPS Tier 1 vs Tier 2 - Difference, Tax & Which to Use",
   description: "NPS Tier 1 vs Tier 2: key differences in lock-in, tax benefits, withdrawal rules and when to use each account. Complete guide for Indian investors.",
   alternates: { canonical: `${site.url}/comparisons/nps-tier-1-vs-tier-2` },
+  openGraph: {
+    locale: "en_IN",
+    title: "NPS Tier 1 vs Tier 2 - Difference, Tax & Which to Use",
+    description: "NPS Tier 1 vs Tier 2: key differences in lock-in, tax benefits, withdrawal rules and when to use each account. Complete guide for Indian investors.",
+    url: `${site.url}/comparisons/nps-tier-1-vs-tier-2`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NPS Tier 1 vs Tier 2 - Difference, Tax & Which to Use",
+    description: "NPS Tier 1 vs Tier 2: key differences in lock-in, tax benefits, withdrawal rules and when to use each account. Complete guide for Indian investors.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

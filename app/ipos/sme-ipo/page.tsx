@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     description:
       "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
     url: `${site.url}/ipos/sme-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SME IPO Explained: Meaning, Risks & How to Apply (India)",
-    description:
-      "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
+    description: "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
+    images: ["/opengraph-image"],
   },
 };
 

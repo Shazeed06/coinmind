@@ -22,15 +22,16 @@ export async function generateMetadata({
   const { name, state } = cityData;
   const today = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
   return {
-    title: { absolute: `Diesel Price Today in ${name} (${today}) - ₹/litre` },
-    description: `Diesel price today in ${name}, ${state}: ₹${cityData.diesel}/litre. Latest diesel rates updated ${cityData.lastUpdated}. Compare with petrol, cost table, and price breakdown.`,
+    title: { absolute: `Diesel Price Today in ${name}: Rate Per Litre` },
+    description: `Diesel rate in ${name}, ${state} today: ₹${cityData.diesel}/litre. Daily fuel prices, state tax breakdown, price trends and comparison with petrol.`,
+    robots: { index: false, follow: true },
     alternates: { canonical: `/diesel-price/${city}` },
     openGraph: {
       type: "article",
       url: `${site.url}/diesel-price/${city}`,
       siteName: site.name,
       locale: "en_IN",
-      title: `Diesel Price in ${name} Today`,
+      title: `Diesel Price in ${name} Today: Rate Per Litre`,
       description: `Diesel rate in ${name} today: ₹${cityData.diesel} per litre.`,
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `Diesel price ${name}` }],
     },

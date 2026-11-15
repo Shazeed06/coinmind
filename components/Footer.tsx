@@ -101,10 +101,10 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="lg:col-span-2">
             <p className="text-lg font-700 text-white">Quick Links</p>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-1">
               {QUICK_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/85 transition-colors hover:text-white">
+                  <Link href={l.href} className="inline-block py-1.5 text-sm text-white/85 transition-colors hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -115,10 +115,10 @@ export default function Footer() {
           {/* Company */}
           <div className="lg:col-span-2">
             <p className="text-lg font-700 text-white">Company</p>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-1">
               {COMPANY_LINKS.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-white/85 transition-colors hover:text-white">
+                  <Link href={l.href} className="inline-block py-1.5 text-sm text-white/85 transition-colors hover:text-white">
                     {l.label}
                   </Link>
                 </li>
@@ -169,9 +169,9 @@ export default function Footer() {
 
         {/* Legal strip */}
         <div className="mt-14 border-t border-white/20 pt-7">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
             {LEGAL_LINKS.map((l) => (
-              <Link key={l.href} href={l.href} className="text-sm text-white/85 transition-colors hover:text-white">
+              <Link key={l.href} href={l.href} className="inline-block py-1.5 text-sm text-white/85 transition-colors hover:text-white">
                 {l.label}
               </Link>
             ))}

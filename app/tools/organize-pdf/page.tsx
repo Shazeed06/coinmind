@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Organize PDF - Reorder & Delete PDF Pages Free" },
   description:
     "Free organize PDF tool. Reorder pages, remove the ones you don't need and rebuild a clean PDF, in your browser. No upload, no sign-up, private.",

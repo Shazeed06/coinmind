@@ -26,12 +26,13 @@ export const metadata: Metadata = {
     description:
       "Edelweiss Alternatives' asset-management arm. EAAA India Alternatives IPO opens 26-28 Oct 2026 at ₹1,585-₹1,665. Latest GMP, allotment & listing dates, review.",
     url: `${site.url}/ipos/eaaa-india-alternatives-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "EAAA India Alternatives IPO 2026: GMP, Price Band & Date",
-    description:
-      "EAAA India Alternatives (Edelweiss) IPO opens 26-28 Oct 2026 at ₹1,585-₹1,665. GMP, allotment, listing dates & review.",
+    description: "EAAA India Alternatives (Edelweiss) IPO opens 26-28 Oct 2026 at ₹1,585-₹1,665. GMP, allotment, listing dates & review.",
+    images: ["/opengraph-image"],
   },
 };
 

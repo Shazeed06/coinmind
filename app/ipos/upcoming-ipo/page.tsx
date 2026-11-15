@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     description:
       "Every upcoming IPO in India for 2026 - Reliance Jio and Paras opening this week, plus the awaited Zepto, PhonePe, OYO, boAt and Razorpay pipeline.",
     url: `${site.url}/ipos/upcoming-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Upcoming IPO 2026 India: Full List, Dates & Pipeline",
-    description:
-      "Every upcoming IPO in India for 2026 - Reliance Jio and Paras opening this week, plus the awaited Zepto, PhonePe, OYO, boAt and Razorpay pipeline.",
+    description: "Every upcoming IPO in India for 2026 - Reliance Jio and Paras opening this week, plus the awaited Zepto, PhonePe, OYO, boAt and Razorpay pipeline.",
+    images: ["/opengraph-image"],
   },
 };
 

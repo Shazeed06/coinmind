@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "QR Code Generator - Free Custom QR Codes" },
   description:
     "Free QR code generator. Create custom QR codes for any URL or text - pick colours, size and error correction, then download as PNG or SVG in your browser.",

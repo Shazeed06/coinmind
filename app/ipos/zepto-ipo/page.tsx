@@ -28,12 +28,13 @@ export const metadata: Metadata = {
     description:
       "Zepto quick-commerce IPO - ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300-350, valuation $5.6B. Full review.",
     url: `${site.url}/ipos/zepto-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Zepto IPO 2026: Price Band, GMP, Date & Full Review",
-    description:
-      "Zepto quick-commerce IPO - ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300-350, valuation $5.6B. Full review.",
+    description: "Zepto quick-commerce IPO - ₹8,010 crore fresh issue + OFS, SEBI approved. Expected price ₹300-350, valuation $5.6B. Full review.",
+    images: ["/opengraph-image"],
   },
 };
 

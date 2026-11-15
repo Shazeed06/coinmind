@@ -119,11 +119,14 @@ export const TOOLS = mk("/tools", {
 
 // "free cv maker no sign up" is a top query here, so the no-sign-up promise
 // moves into the title rather than sitting only in the description.
-export const RESUME = mk("/resume-builder", {
-  title: "Free Resume Builder - ATS CV Maker, No Sign-Up",
-  desc: "Build an ATS-friendly resume in minutes, free. Live A4 preview, one-click PDF download, no sign-up and no watermark. Works entirely in your browser.",
-  keywords: ["free resume builder", "free CV maker no sign up", "CV maker", "resume template", "ATS resume", "biodata maker", "resume PDF", "online resume creator"],
-});
+export const RESUME: Metadata = {
+  ...mk("/resume-builder", {
+    title: "Free Resume Builder - ATS CV Maker, No Sign-Up",
+    desc: "Build an ATS-friendly resume in minutes, free. Live A4 preview, one-click PDF download, no sign-up and no watermark. Works entirely in your browser.",
+    keywords: ["free resume builder", "free CV maker no sign up", "CV maker", "resume template", "ATS resume", "biodata maker", "resume PDF", "online resume creator"],
+  }),
+  robots: { index: false, follow: true },
+};
 
 export const NOT_FOUND: Metadata = {
   title: { absolute: "404 - Page Not Found · CoinMind" },

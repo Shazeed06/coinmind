@@ -28,12 +28,13 @@ export const metadata: Metadata = {
     description:
       "National Stock Exchange of India IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue. Subscribed 5.71x, ₹22,561 cr OFS. Latest price & full review.",
     url: `${site.url}/ipos/nse-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "NSE IPO 2026: Listed at ₹1,800, Review & Share Price",
-    description:
-      "NSE IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue price. Subscribed 5.71x, ₹22,561 cr OFS. Latest share price and full review.",
+    description: "NSE IPO listed 24 Sep 2026 at ₹1,800 (+0.84%) vs ₹1,785 issue price. Subscribed 5.71x, ₹22,561 cr OFS. Latest share price and full review.",
+    images: ["/opengraph-image"],
   },
 };
 

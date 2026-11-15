@@ -26,12 +26,13 @@ export const metadata: Metadata = {
     description:
       "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
     url: `${site.url}/ipos/hero-fincorp-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hero FinCorp IPO 2026: Price, GMP, Date & Full Review",
-    description:
-      "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
+    description: "Hero FinCorp IPO - ₹3,358 crore issue, NBFC arm of Hero Group. Expected price ~₹428, lot 34 shares. Latest review.",
+    images: ["/opengraph-image"],
   },
 };
 

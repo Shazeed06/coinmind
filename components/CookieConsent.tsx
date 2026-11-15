@@ -33,35 +33,28 @@ export default function CookieConsent() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[60] p-3 sm:p-4">
-      {/* Was rounded-2xl with a one-off blue-tinted shadow written inline, so
-          the only floating surface on the site cast a different colour of
-          shadow to everything else. It now uses .panel plus the shared
-          --shadow-overlay step, and both buttons use .btn, which previously
-          differed from each other by 4px of horizontal padding for no reason.
-          The buttons also stay side by side on a narrow phone rather than
-          being allowed to wrap under each other. */}
-      <div className="panel mx-auto max-w-3xl p-4 shadow-overlay sm:p-5">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <p className="flex-1 text-sm leading-relaxed text-ink-soft">
-            We use cookies to run the site, measure traffic and show ads. See our{" "}
-            <Link href="/privacy" className="font-semibold text-forest underline underline-offset-2 decoration-forest/40 transition-colors hover:decoration-forest">
+    <div className="fixed inset-x-0 bottom-0 z-[60] p-2 sm:p-4 print:hidden">
+      <div className="panel mx-auto max-w-2xl px-3 py-2 sm:px-4 sm:py-2.5 shadow-overlay border border-border/80 bg-white/95 backdrop-blur-md">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+          <p className="text-xs text-ink-soft text-center sm:text-left leading-tight sm:leading-normal">
+            We use cookies to analyze traffic and support free calculators. See our{" "}
+            <Link href="/privacy" className="font-semibold text-forest underline underline-offset-2 decoration-forest/40 hover:decoration-forest">
               Privacy Policy
             </Link>
             .
           </p>
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1.5 w-full sm:w-auto justify-center sm:justify-end">
             <button
               type="button"
               onClick={() => choose("rejected")}
-              className="btn btn-outline flex-1 sm:flex-none"
+              className="btn btn-outline py-1 px-3 text-xs min-h-[32px] sm:min-h-[34px] flex-1 sm:flex-none"
             >
               Reject
             </button>
             <button
               type="button"
               onClick={() => choose("accepted")}
-              className="btn btn-accent flex-1 sm:flex-none"
+              className="btn btn-accent py-1 px-3 text-xs min-h-[32px] sm:min-h-[34px] flex-1 sm:flex-none"
             >
               Accept
             </button>

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "Finance Today - Current India Finance Rates 2026 | CoinMind",
     description: "All current Indian finance rates in one place: RBI repo, PPF, EPF, FD, income tax slabs - updated from official sources.",
     url: `${site.url}/finance-today`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
 };
 

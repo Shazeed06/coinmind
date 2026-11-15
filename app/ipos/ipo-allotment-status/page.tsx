@@ -23,12 +23,13 @@ export const metadata: Metadata = {
     description:
       "Step-by-step guide to check IPO allotment status via BSE, the registrars (MUFG Intime, KFintech) and your broker app, plus the T+ timeline and ASBA unblock process.",
     url: `${site.url}/ipos/ipo-allotment-status`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "IPO Allotment Status: How to Check Online in India",
-    description:
-      "Step-by-step guide to check IPO allotment status via BSE, the registrars (MUFG Intime, KFintech) and your broker app, plus the T+ timeline and ASBA unblock process.",
+    description: "Step-by-step guide to check IPO allotment status via BSE, the registrars (MUFG Intime, KFintech) and your broker app, plus the T+ timeline and ASBA unblock process.",
+    images: ["/opengraph-image"],
   },
 };
 

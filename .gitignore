@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+# local connectors & credentials
+mcp-google-connector/
+service-account.json
 /.pnp
 .pnp.*
 .yarn/*
@@ -23,6 +26,9 @@
 # misc
 .DS_Store
 *.pem
+*service-account*.json
+service_account.json
+credentials.json
 
 # debug
 npm-debug.log*

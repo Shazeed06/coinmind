@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { ToolPageLayout } from "@/components/ToolPageLayout";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Resize Image - Free Online Image Resizer (JPG/PNG)" },
   description:
     "Free image resizer: set new width and height in pixels or by percent, lock the aspect ratio, and download as JPG, PNG or WebP. 100% in your browser.",

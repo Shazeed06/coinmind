@@ -22,16 +22,16 @@ export async function generateMetadata({
   const { name, state } = cityData;
   const today = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
   return {
-    title: { absolute: `Petrol Price Today in ${name} (${today}) - ₹/litre` },
-    description: `Petrol price today in ${name}, ${state}: ₹${cityData.petrol}/litre. Latest fuel rates updated ${cityData.lastUpdated}. Check daily petrol price, how it is calculated, and tips to save fuel.`,
+    title: { absolute: `Petrol Price Today in ${name}: Rate Per Litre` },
+    description: `Petrol rate in ${name}, ${state} today: ₹${cityData.petrol}/litre. Daily fuel prices, state tax breakdown, price trends and mileage tips.`,
     alternates: { canonical: `/petrol-price/${city}` },
     openGraph: {
       type: "article",
       url: `${site.url}/petrol-price/${city}`,
       siteName: site.name,
       locale: "en_IN",
-      title: `Petrol Price in ${name} Today`,
-      description: `Petrol rate in ${name} today: ₹${cityData.petrol} per litre as of ${today}.`,
+      title: `Petrol Price in ${name} Today: Rate Per Litre`,
+      description: `Petrol rate in ${name} today: ₹${cityData.petrol} per litre.`,
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `Petrol price ${name}` }],
     },
   };

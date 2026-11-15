@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "Financial Comparisons India | CoinMind",
     description: "Make smarter money decisions with data-driven comparisons of India's most important financial choices.",
     url: `${site.url}/comparisons`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
 };
 

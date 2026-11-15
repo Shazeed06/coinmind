@@ -17,11 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = promptBySlug(slug);
   if (!p) return {};
-  const title = `${p.title} — Finance Prompt for Claude, ChatGPT & Gemini`;
-  const description = `${p.description} Copy-paste prompt, how to use it, and tips. Free.`;
+  const rawTitle = `${p.title} | AI Finance Prompt`;
+  const title = rawTitle.length > 60 ? p.title.slice(0, 56) + "…" : rawTitle;
+  const rawDesc = `${p.description} Copy-paste prompt, how to use it, and tips. Free.`;
+  const description = rawDesc.length > 155 ? rawDesc.slice(0, 152) + "…" : rawDesc;
   return {
     title: { absolute: title },
     description,
+    robots: { index: false, follow: true },
     keywords: p.keywords,
     alternates: { canonical: `/finance-prompts/${slug}` },
     openGraph: {

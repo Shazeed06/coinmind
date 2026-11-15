@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Family Floater vs Individual Health Insurance - Which is Better?",
   description: "Family floater vs individual health insurance: premium comparison, coverage gaps and which to buy for yourself, parents and kids in India.",
   alternates: { canonical: `${site.url}/comparisons/floater-vs-individual-health-insurance` },
+  openGraph: {
+    locale: "en_IN",
+    title: "Family Floater vs Individual Health Insurance - Which is Better?",
+    description: "Family floater vs individual health insurance: premium comparison, coverage gaps and which to buy for yourself, parents and kids in India.",
+    url: `${site.url}/comparisons/floater-vs-individual-health-insurance`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Family Floater vs Individual Health Insurance - Which is Better?",
+    description: "Family floater vs individual health insurance: premium comparison, coverage gaps and which to buy for yourself, parents and kids in India.",
+    images: ["/opengraph-image"],
+  },
 };
 
 const TABLE = [

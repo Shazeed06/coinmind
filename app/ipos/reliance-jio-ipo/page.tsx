@@ -29,12 +29,13 @@ export const metadata: Metadata = {
     description:
       "India's biggest-ever IPO. Jio Platforms listed 28 Oct 2026 at ₹1,358 (+21.4%) and closed day one at ₹1,417.50. Subscription, allotment and review.",
     url: `${site.url}/ipos/reliance-jio-ipo`,
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Jio IPO: Listed at ₹1,358 (+21.4%) - Allotment & Full Review",
-    description:
-      "India's biggest-ever IPO. Jio Platforms listed 28 Oct 2026 at ₹1,358 (+21.4%) and closed day one at ₹1,417.50. Subscription, allotment and review.",
+    description: "India's biggest-ever IPO. Jio Platforms listed 28 Oct 2026 at ₹1,358 (+21.4%) and closed day one at ₹1,417.50. Subscription, allotment and review.",
+    images: ["/opengraph-image"],
   },
 };
 

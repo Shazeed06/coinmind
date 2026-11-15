@@ -4,6 +4,7 @@ import { ToolPageLayout } from "@/components/ToolPageLayout";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Unit Converter - Length, Weight, Temperature" },
   description:
     "Free online unit converter for length, weight, temperature, area, volume, speed, time and digital storage. Instant, accurate and 100% private in your browser.",
