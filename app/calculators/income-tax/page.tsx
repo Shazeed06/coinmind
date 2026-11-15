@@ -14,6 +14,11 @@ export default function Page() {
       slug="income-tax"
       title="Income Tax Calculator"
       subtitle="Estimate your income tax under India's new and old regimes for FY 2026-27 and see which saves you more."
+      quickAnswer={{
+        title: "Quick Answer (Income Tax FY 2026–27 Rules):",
+        text: "Under the default New Tax Regime, taxable income up to ₹7,75,000 is effectively tax-free for salaried individuals (after ₹75,000 standard deduction and Section 87A rebate). For income above ₹15 Lakh, tax is ₹1,40,000 plus 30% of income exceeding ₹15 Lakh, plus 4% cess.",
+        formula: "Tax = Slab Tax − Section 87A Rebate + Surcharge + 4% Health & Education Cess",
+      }}
       calculator={<IncomeTaxCalculator />}
       sources={[
         { label: "Income Tax Department, Government of India", href: "https://www.incometaxindia.gov.in" },

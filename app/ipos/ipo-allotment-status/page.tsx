@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "IPO Allotment Status: How to Check Online | CoinMind" },
   description:
-    "How to check IPO allotment status online in India - step-by-step via BSE, the registrars (MUFG Intime/Link Intime, KFintech) and your broker app. Check by PAN, and when ASBA money is unblocked.",
+    "How to check IPO allotment status online in India: step-by-step verification on BSE, NSE, Link Intime and KFintech using PAN, application number or DP ID.",
   keywords: [
     "IPO allotment status",
     "how to check IPO allotment status",

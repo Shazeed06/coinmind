@@ -146,6 +146,7 @@ const nextConfig: NextConfig = {
       // for the same queries and neither ranked. Removed from the post data and
       // 301'd into the stronger, more complete guide.
       { source: "/blog/how-to-check-improve-cibil-score", destination: "/blog/cibil-score-check-improve-guide", permanent: true },
+      { source: "/blog/sukanya-samriddhi-yojana-2026", destination: "/blog/sukanya-samriddhi-yojana-guide", permanent: true },
       // Off-topic posts removed to tighten the site's finance focus. Generic
       // AI-tool listicles point to the AI tools hub; everything else (consumer
       // electronics, off-topic career/education) points to the blog index.

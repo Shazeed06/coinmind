@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Mainboard vs SME IPO: Key Differences | CoinMind" },
   description:
-    "Mainboard vs SME IPO explained: listing platform (NSE/BSE vs NSE Emerge/BSE SME), minimum investment (~₹15k vs ~₹1-1.5 lakh), lot size, risk, liquidity and who each type suits.",
+    "Mainboard vs SME IPO: understand key differences in listing platforms, minimum investment lots (₹15,000 vs ₹1 Lakh+), underwriting, and risk profiles.",
   keywords: [
     "mainboard vs SME IPO",
     "difference between mainboard and SME IPO",

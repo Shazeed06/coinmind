@@ -7,7 +7,7 @@ const OG_DESC =
   "How CoinMind researches, writes, reviews and updates its finance calculators and guides: the official sources we use and our corrections policy.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Editorial Standards & How We Ensure Accuracy · CoinMind" },
+  title: "Editorial Standards & Accuracy",
   description: OG_DESC,
   alternates: { canonical: "/editorial-standards" },
   // openGraph is REPLACED, not merged, so a partial object here would delete the

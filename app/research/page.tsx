@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Historical Finance Data India - Tax Slabs, Interest Rate History | CoinMind Research",
+  title: { absolute: "Historical Financial Data India: Tax Slabs & Rates" },
   description: "Free access to India's historical finance data: income tax slab history, PPF/EPF/NPS rate history, RBI repo rate timeline, inflation series, and more.",
   alternates: { canonical: `${site.url}/research` },
   openGraph: {

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `/ai-tools/${slug}` },
   openGraph: {
     type: "article", url: `${site.url}/ai-tools/${slug}`, siteName: site.name, locale: "en_IN",
-    title: "How to Use Claude for Personal Finance — 5 Ways + Prompts", description,
+    title: { absolute: "How to Use Claude for Personal Finance: 5 Workflows & Prompts" }, description,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: title }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },

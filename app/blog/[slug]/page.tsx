@@ -19,19 +19,29 @@ import { getKeyTakeaways } from "@/lib/takeaways";
 export const dynamicParams = false;
 
 function cleanTitle(t: string, maxLen = 60): string {
-  if (!t || t.length <= maxLen) return t;
-  const parts = t.split(/ [:|–—-] /);
-  if (parts[0] && parts[0].length >= 30 && parts[0].length <= maxLen) {
+  if (!t) return "";
+  const cleaned = t.trim();
+  if (cleaned.length <= maxLen) return cleaned;
+  const parts = cleaned.split(/\s*[:|–—-]\s*/);
+  for (const part of parts) {
+    const trimmed = part.trim();
+    if (trimmed.length >= 25 && trimmed.length <= maxLen) {
+      return trimmed;
+    }
+  }
+  if (parts[0] && parts[0].trim().length <= maxLen && parts[0].trim().length >= 20) {
     return parts[0].trim();
   }
-  const sub = t.slice(0, maxLen - 1);
+  const sub = cleaned.slice(0, maxLen);
   const lastSpace = sub.lastIndexOf(" ");
-  return (lastSpace > 30 ? sub.slice(0, lastSpace) : sub).trim() + "…";
+  return (lastSpace > 25 ? sub.slice(0, lastSpace) : sub).trim();
 }
 
 function cleanDesc(d: string, maxLen = 155): string {
-  if (!d || d.length <= maxLen) return d;
-  const sentences = d.split(/(?<=[.?!])\s+/);
+  if (!d) return "";
+  const cleaned = d.trim();
+  if (cleaned.length <= maxLen) return cleaned;
+  const sentences = cleaned.split(/(?<=[.?!])\s+/);
   let acc = "";
   for (const s of sentences) {
     if ((acc + (acc ? " " : "") + s).length <= maxLen) {
@@ -40,10 +50,10 @@ function cleanDesc(d: string, maxLen = 155): string {
       break;
     }
   }
-  if (acc.length >= 70) return acc;
-  const sub = d.slice(0, maxLen - 1);
+  if (acc.length >= 60) return acc;
+  const sub = cleaned.slice(0, maxLen);
   const lastSpace = sub.lastIndexOf(" ");
-  return (lastSpace > 50 ? sub.slice(0, lastSpace) : sub).trim() + "…";
+  return (lastSpace > 40 ? sub.slice(0, lastSpace) : sub).trim() + ".";
 }
 
 export function generateStaticParams() {

@@ -57,9 +57,9 @@ export default function Page() {
           <div className="p-6 rounded-2xl bg-white border border-border shadow-sm">
             <h3 className="text-base font-bold text-text mb-2">Location & Editorial Base</h3>
             <p className="text-sm text-text-muted leading-relaxed">
-              CoinMind is headquartered and operated from New Delhi, India. Our editorial operations adhere to Indian Standard Time (IST, UTC+5:30) for research and correspondence.
+              CoinMind is operated from India. Our editorial operations adhere to Indian Standard Time (IST, UTC+5:30) for research and correspondence.
             </p>
-            <p className="mt-3 text-xs font-medium text-text">New Delhi, Delhi NCR, India · 110001</p>
+            <p className="mt-3 text-xs font-medium text-text">India</p>
           </div>
         </div>
 

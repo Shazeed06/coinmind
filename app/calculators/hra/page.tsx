@@ -24,6 +24,11 @@ export default function Page() {
       slug="hra"
       title="HRA Calculator"
       subtitle="Calculate your House Rent Allowance tax exemption under Section 10(13A), see your taxable HRA, and estimate your tax savings under the Old Regime for FY 2026-27."
+      quickAnswer={{
+        title: "Quick Answer (HRA Exemption Formula & Conditions):",
+        text: "HRA exemption is granted under Section 10(13A) of the Income Tax Act (Old Regime only). Exemption is the minimum of: (1) Actual HRA received, (2) Rent paid minus 10% of basic salary, or (3) 50% of basic salary for Delhi/Mumbai/Kolkata/Chennai (40% for other cities).",
+        formula: "Exemption = Min(Actual HRA, Rent Paid − 10% Salary, 50% or 40% Salary) | Old Tax Regime",
+      }}
       calculator={<HraCalculator />}
       intro="House Rent Allowance (HRA) is one of the most valuable salary components for salaried taxpayers in India who live in rented accommodation. Governed by Section 10(13A) and Rule 2A of the Income Tax Act, HRA is not automatically 100% tax-free. Your exemption is calculated as the lowest of three specific statutory limits. This calculator applies all three rules instantly, identifies the capping rule, and computes your net tax-free allowance, taxable HRA, and actual tax savings."
       how={{

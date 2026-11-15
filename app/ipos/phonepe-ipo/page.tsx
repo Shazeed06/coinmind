@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "PhonePe IPO 2026: Postponed, Expected Date, Price & Review",
+  title: { absolute: "PhonePe IPO: Expected Date, Valuation, GMP & Review (2026)" },
   description:
     "PhonePe IPO 2026 guide: UDRHP filed Jan 2026, postponed Mar 2026. 100% OFS ~₹12,000 Cr, valuation $12-15B. Latest updates, expected date & should you wait?",
   keywords: [

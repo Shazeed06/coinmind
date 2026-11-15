@@ -12,6 +12,11 @@ export default function Page() {
       slug="emi"
       title="EMI Calculator"
       subtitle="Work out your monthly loan payment and see exactly how much interest you'll pay."
+      quickAnswer={{
+        title: "Quick Answer (How Loan EMI Works & Real Example):",
+        text: "Equated Monthly Instalment (EMI) is the fixed monthly payment towards your loan principal and interest. For example, borrowing ₹30 Lakh at 8.5% interest for 20 years results in an EMI of ₹26,035/month (total interest repaid: ₹32.48 Lakh; total repayment: ₹62.48 Lakh).",
+        formula: "Formula: EMI = [P × r × (1 + r)ⁿ] / [(1 + r)ⁿ − 1] | Reducing balance method",
+      }}
       calculator={<EmiCalculator />}
       intro="An Equated Monthly Instalment (EMI) is the fixed amount you repay to a lender each month until your loan is cleared. It covers both the interest for that month and a portion of the principal, with the interest share largest at the start and shrinking as the balance falls. Knowing your EMI before you borrow helps you check affordability, compare loan offers from different banks and see how much the borrowing actually costs on top of the amount you receive. This EMI calculator works for home loans, car loans, personal loans, education loans and any other reducing-balance loan, and shows your monthly instalment, the total interest and the total amount repaid."
       how={{

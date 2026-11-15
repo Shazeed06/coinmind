@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "IPO GMP Today: Live Grey Market Premium List | CoinMind" },
   description:
-    "IPO GMP today for all open and upcoming IPOs in India (18 Oct 2026). Tonbo +74%, Jio +22%, Bonfiglioli +22% - grey market premium list, implied listing price and what GMP really means.",
+    "Latest IPO GMP today for all open and upcoming IPOs in India. Track grey market premiums, expected listing gains, and Kostak rates daily.",
   keywords: [
     "IPO GMP today",
     "grey market premium today",

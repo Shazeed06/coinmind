@@ -6,7 +6,7 @@ import IpoDematCta from "@/components/IpoDematCta";
 export const metadata: Metadata = {
   title: { absolute: "Jio IPO: Listing Price, Allotment & Full Review | CoinMind" },
   description:
-    "Jio Platforms listed on 28 Oct 2026 at ₹1,358, a 21.4% premium over the ₹1,119 issue price, and closed day one at ₹1,417.50. Full review, subscription and allotment details.",
+    "Reliance Jio IPO analysis: issue size, telecom subscriber metrics, digital ecosystem valuation, GMP trend, listing gains and long-term investment outlook.",
   keywords: [
     "Reliance Jio IPO",
     "Jio IPO 2026",

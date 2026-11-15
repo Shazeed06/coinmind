@@ -23,22 +23,22 @@ const salaryLinks = TAX_SALARIES.map((s) => {
 });
 
 export const metadata: Metadata = {
-  title: { absolute: "Income Tax India Guide - New vs Old Regime, Deductions & Filing" },
-  description: "Complete income tax guide for India: compare new and old tax regimes, calculate your tax, claim deductions under 80C to 80U, and file your ITR. Updated for FY 2026-27.",
+  title: { absolute: "Income Tax Guide India (FY 2026-27): Old vs New Regime" },
+  description: "Income tax guide for India: compare new and old tax regimes, calculate liability, explore Section 80C deductions, and plan your FY 2026-27 return.",
   alternates: { canonical: `${site.url}/income-tax` },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: `${site.url}/income-tax`,
     siteName: "CoinMind",
-    title: "Income Tax India Guide - New vs Old Regime, Deductions & Filing",
-    description: "Complete income tax guide for India: compare new and old tax regimes, calculate your tax, claim deductions under 80C to 80U, and file your ITR. Updated for FY 2026-27.",
+    title: "Income Tax Guide India (FY 2026-27): Old vs New Regime",
+    description: "Income tax guide for India: compare new and old tax regimes, calculate liability, explore Section 80C deductions, and plan your FY 2026-27 return.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Income Tax India Guide - New vs Old Regime, Deductions & Filing",
-    description: "Complete income tax guide for India: compare new and old tax regimes, calculate your tax, claim deductions under 80C to 80U, and file your ITR. Updated for FY 2026-27.",
+    title: "Income Tax Guide India (FY 2026-27): Old vs New Regime",
+    description: "Income tax guide for India: compare new and old tax regimes, calculate liability, explore Section 80C deductions, and plan your FY 2026-27 return.",
     images: ["/opengraph-image"],
   },
 };

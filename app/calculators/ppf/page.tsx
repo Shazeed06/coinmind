@@ -10,6 +10,11 @@ export default function Page() {
       slug="ppf"
       title="PPF Maturity Calculator"
       subtitle="Estimate the tax-free corpus you'll build with a Public Provident Fund."
+      quickAnswer={{
+        title: "Quick Answer (PPF Rules & Worked Example):",
+        text: "Public Provident Fund (PPF) earns 7.1% p.a. guaranteed by the Government of India, completely tax-free under EEE status. Depositing the maximum ₹1.5 Lakh/year (₹12,500/month) for the mandatory 15-year tenure yields a tax-free maturity corpus of ₹40.68 Lakh on total deposits of ₹22.5 Lakh.",
+        formula: "Compounding: Annual | Max: ₹1.5L/year | Lock-in: 15 Years | Tax Status: EEE",
+      }}
       calculator={<PpfCalculator />}
       sources={[
         { label: "National Savings Institute / India Post", href: "https://www.nsiindia.gov.in" },

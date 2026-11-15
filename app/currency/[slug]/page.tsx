@@ -175,7 +175,7 @@ export async function generateMetadata({
   // every slug-specific value (both names, both codes) is still in it. It no
   // longer promises "today's live rate", because generateMetadata does not know
   // whether the feed was reachable when the page was built.
-  const description = `Convert ${fromName} (${from}) to ${toName} (${to}) at the mid-market rate from ${SOURCE_NAME}. Free converter, a ${from} to ${to} table and what banks add.`;
+  const description = `Convert ${from} to ${to} at mid-market rates from ${SOURCE_NAME}. Free ${fromName} to ${toName} calculator, conversion table and fee breakdown.`;
   const canonical = `/currency/${pairSlug(pair)}`;
 
   return {
@@ -376,7 +376,7 @@ export default async function Page({
           },
         }
       : {
-          description: `Live ${from}/${to} data from ${SOURCE_NAME} is unavailable, so this page shows an approximate reference rate captured on ${capturedDay}. No current rate is published here.`,
+          description: `Live data is unavailable; showing reference rate from ${capturedDay}. No live rate published.`,
         }),
   };
 

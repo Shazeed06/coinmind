@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Razorpay IPO: Date, Valuation, DRHP Status & Review",
   description:
-    "Razorpay filed a confidential DRHP with SEBI in June 2026 for a reported ~$600 million IPO at a $5-6 billion valuation. Dates and price band are not announced yet - here's what is actually known.",
+    "Razorpay IPO details: confidential DRHP filing with SEBI, projected $600M issue size, revenue growth, key risks, valuation and expected listing timeline.",
   keywords: [
     "Razorpay IPO",
     "Razorpay IPO date",

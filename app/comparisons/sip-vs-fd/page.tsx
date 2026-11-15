@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "SIP vs FD - Which is Better in 2026? Returns, Tax & Risk Compared",
+  title: { absolute: "SIP vs FD: Which Is Better in 2026? Returns & Tax Compared" },
   description: "SIP vs Fixed Deposit: detailed comparison of returns, tax treatment, liquidity and risk for Indian investors in 2026. With real numbers and a verdict.",
   alternates: { canonical: `${site.url}/comparisons/sip-vs-fd` },
   openGraph: {

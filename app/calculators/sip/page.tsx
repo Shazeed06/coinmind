@@ -160,8 +160,8 @@ export default function Page() {
           <Breadcrumb items={[{ label: "Calculators", href: "/calculators" }, { label: "SIP Calculator" }]} />
           <div className="flex flex-wrap items-center gap-2">
             <Pill>SIP Calculator</Pill>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-text-muted">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Verified FY 2026–27
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 px-3 py-1 text-xs font-semibold text-emerald-800 shadow-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> Verified FY 2026–27
             </span>
           </div>
           <h1 className="h1-article text-text mt-3">SIP Calculator India - Monthly Returns, Maturity & Tax Impact</h1>

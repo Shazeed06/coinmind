@@ -8,7 +8,7 @@ export const revalidate = 21600;
 
 export const metadata: Metadata = {
   title: { absolute: "Gold Rate Today in India - 22K & 24K Price by City (2026)" },
-  description: "Gold rate today in all major Indian cities. Live 22 carat and 24 carat gold prices per gram and per 10g for Mumbai, Delhi, Chennai, Kolkata, Bangalore and 20+ more cities.",
+  description: "Live 22K and 24K gold rates today across major Indian cities: Mumbai, Delhi, Chennai, Bengaluru. Price per gram and 10g, trends, and buying guide.",
   alternates: { canonical: `${site.url}/gold-rate` },
   openGraph: {
     type: "website",

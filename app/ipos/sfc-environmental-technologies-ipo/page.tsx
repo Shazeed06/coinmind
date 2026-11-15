@@ -4,9 +4,9 @@ import { site } from "@/lib/site";
 import IpoDematCta from "@/components/IpoDematCta";
 
 export const metadata: Metadata = {
-  title: { absolute: "SFC Environmental Technologies IPO 2026: GMP, Price Band & Date | CoinMind" },
+  title: { absolute: "SFC Environmental Technologies IPO: GMP, Dates & Price" },
   description:
-    "SFC Environmental Technologies IPO opens 27-29 Oct 2026. Price band ₹313-₹330, lot 45 shares (₹14,850), ₹667.53 cr issue. Latest GMP, allotment (30 Oct), listing (3 Nov) & should you apply.",
+    "SFC Environmental Technologies IPO opens Oct 2026 at ₹313-330 per share. Check GMP trend, lot size, financial health and review.",
   keywords: [
     "SFC Environmental Technologies IPO",
     "SFC Environmental IPO GMP",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/ipos/sfc-environmental-technologies-ipo` },
   openGraph: {
     locale: "en_IN",
-    title: "SFC Environmental Technologies IPO 2026: GMP, Price Band ₹313-330, Date & Review",
+    title: "SFC Environmental Technologies IPO: GMP, Dates & Price",
     description:
       "Water & wastewater-treatment specialist. SFC Environmental Technologies IPO opens 27-29 Oct 2026 at ₹313-₹330. Latest GMP, allotment & listing dates, review.",
     url: `${site.url}/ipos/sfc-environmental-technologies-ipo`,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SFC Environmental Technologies IPO 2026: GMP, Price Band & Date",
+    title: "SFC Environmental Technologies IPO: GMP, Dates & Price",
     description: "SFC Environmental Technologies IPO opens 27-29 Oct 2026 at ₹313-₹330. GMP, allotment, listing dates & review.",
     images: ["/opengraph-image"],
   },

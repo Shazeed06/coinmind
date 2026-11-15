@@ -12,12 +12,6 @@ export function org(): Thing {
     logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
     description: site.description,
     email: site.email,
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "IN",
-      addressLocality: "New Delhi",
-      addressRegion: "Delhi",
-    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
@@ -28,11 +22,6 @@ export function org(): Thing {
     foundingDate: "2026",
     areaServed: ["IN", "US", "GB", "Worldwide"],
     publishingPrinciples: `${site.url}/editorial-standards`,
-    sameAs: [
-      "https://github.com/Shazeed06/coinmind",
-      "https://x.com/coinmind_in",
-      "https://www.linkedin.com/company/coinmind-in",
-    ],
   };
 }
 
@@ -64,10 +53,6 @@ export function person(): Thing {
     jobTitle: site.author.role,
     description: site.author.bio,
     qualifications: site.author.credential,
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Institute of Chartered Accountants of India (ICAI)",
-    },
     knowsAbout: ["Personal finance", "Indian income tax", "Mutual funds", "Financial planning"],
   };
 }
@@ -125,8 +110,6 @@ export function webApp(
     operatingSystem: "All",
     browserRequirements: "Requires JavaScript",
     isAccessibleForFree: true,
-    datePublished: "2026-07-15",
-    dateModified: "2026-11-15",
     offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
     publisher: { "@id": `${site.url}/#organization` },
   };

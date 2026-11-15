@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Best Upcoming IPOs 2026: Ranked Shortlist | CoinMind" },
   description:
-    "Our editorial ranking of the best upcoming IPOs in India for 2026 - Jio, PhonePe, Razorpay, Zepto, OYO, Hero FinCorp and boAt - with issue size, why each matters, GMP where it trades and the key risk.",
+    "Editorial shortlist of the top upcoming IPOs in India for 2026: Jio, PhonePe, Razorpay, Zepto, OYO. Issue sizes, key risks, and investment analysis.",
   keywords: [
     "best upcoming IPO 2026",
     "best IPO to apply",

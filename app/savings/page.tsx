@@ -18,7 +18,7 @@ const FD_AMOUNT_LINKS = FD_FEATURED.map((amount) => ({
 }));
 
 export const metadata: Metadata = {
-  title: { absolute: "Savings Guide India - FD, PPF, NPS, NSC, SSY & Post Office Schemes" },
+  title: { absolute: "Savings Guide India: Best Fixed Deposit & Post Office Schemes" },
   description: "Compare India's best savings schemes: FD, PPF, NPS, NSC, Sukanya Samriddhi, SCSS, and Post Office MIS. Calculate returns, compare tax benefits, and find the right savings plan.",
   alternates: { canonical: `${site.url}/savings` },
   openGraph: {
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: `${site.url}/savings`,
     siteName: "CoinMind",
-    title: "Savings Guide India - FD, PPF, NPS, NSC, SSY & Post Office Schemes",
+    title: { absolute: "Savings Guide India: Best Fixed Deposit & Post Office Schemes" },
     description: "Compare India's best savings schemes: FD, PPF, NPS, NSC, Sukanya Samriddhi, SCSS, and Post Office MIS. Calculate returns, compare tax benefits, and find the right savings plan.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Savings Guide India - FD, PPF, NPS, NSC, SSY & Post Office Schemes",
+    title: "Savings Guide India: Best Fixed Deposit & Post Office Schemes",
     description: "Compare India's best savings schemes: FD, PPF, NPS, NSC, Sukanya Samriddhi, SCSS, and Post Office MIS. Calculate returns, compare tax benefits, and find the right savings plan.",
     images: ["/opengraph-image"],
   },

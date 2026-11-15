@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "IPO 2026 India: Open & Upcoming IPOs + GMP | CoinMind" },
   description:
-    "Live IPO calendar for India, October-November 2026. Track open IPOs (EAAA India Alternatives, SFC Environmental), the Jio IPO listing on 28 Oct, GMP today, price band, lot size, allotment & listing dates - all in one place.",
+    "IPO Calendar India 2026: track open, upcoming, and recently listed mainboard and SME IPOs. Review price bands, issue dates, GMP trends, and allotment links.",
   keywords: [
     "upcoming IPO 2026 India",
     "IPO open today India",

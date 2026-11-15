@@ -2204,7 +2204,6 @@ const INDEXED_TRAFFIC_SLUGS: ReadonlySet<string> = new Set([
   "best-mutual-funds-2026-india",
   "loan-against-property-guide",
   "atal-pension-yojana-guide",
-  "sukanya-samriddhi-yojana-2026",
   "home-loan-emi-calculator-guide-2026",
   "best-health-insurance-family-2026",
   "nri-investment-options-india",
@@ -2225,15 +2224,44 @@ const INDEXED_TRAFFIC_SLUGS: ReadonlySet<string> = new Set([
   "cibil-score-check-improve-guide",
 ]);
 
-export const NOINDEX_POST_SLUGS: ReadonlySet<string> = new Set(
-  [
+const PURE_AI_POST_SLUGS = [
+  "chatgpt-vs-deepseek-india",
+  "ai-prompt-engineering-guide",
+  "best-ai-for-students-india",
+  "ai-video-generators-2026",
+  "ai-for-small-business-india",
+  "what-is-generative-ai",
+  "ai-hallucinations-explained",
+  "best-ai-for-excel-spreadsheets",
+  "ai-for-job-search-resume-interview",
+  "open-source-vs-closed-ai-models",
+  "ai-agents-explained",
+  "ai-vs-human-jobs-2026",
+  "work-faster-with-ai",
+  "chatgpt-vs-claude-vs-gemini",
+  "best-free-ai-tools",
+  "best-ai-tools-for-students",
+  "best-ai-tools-for-business",
+  "best-ai-for-writing",
+  "best-ai-for-coding",
+  "best-ai-for-resume",
+  "best-ai-for-excel",
+  "chatgpt-vs-gemini",
+  "claude-vs-chatgpt",
+  "chatgpt-alternatives",
+  "midjourney-alternatives",
+];
+
+export const NOINDEX_POST_SLUGS: ReadonlySet<string> = new Set([
+  ...[
     ...trafficPosts1, ...trafficPosts2, ...trafficPosts3, ...trafficPosts4,
     ...trafficPosts5, ...trafficPosts6, ...trafficPosts7, ...trafficPosts8,
     ...trafficPosts9, ...trafficPosts10, ...trafficPosts11,
   ]
     .map((p) => p.slug)
     .filter((s) => !INDEXED_TRAFFIC_SLUGS.has(s)),
-);
+  ...PURE_AI_POST_SLUGS,
+]);
 
 // Posts safe to surface in crawlable listings — the /blog grid and archive,
 // related-post rails, the SIP page's reading list and author pages. It drops

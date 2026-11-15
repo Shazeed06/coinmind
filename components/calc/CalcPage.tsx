@@ -156,6 +156,7 @@ export default function CalcPage({
   faqs,
   extra,
   sources,
+  quickAnswer,
 }: {
   slug: string;
   title: string;
@@ -166,6 +167,7 @@ export default function CalcPage({
   faqs: Faq[];
   extra?: ReactNode;
   sources?: Source[];
+  quickAnswer?: { title: string; text: string; formula?: string };
 }) {
   const category = calculators.find((c) => c.slug === slug)?.category;
 
@@ -232,8 +234,8 @@ export default function CalcPage({
           <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
             <IconCalculator className="h-3.5 w-3.5" /> Free calculator
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-ink-soft">
-            <span className="h-1.5 w-1.5 rounded-full bg-forest" /> Verified FY 2026–27
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 px-3 py-1 text-xs font-semibold text-emerald-800 shadow-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> Verified FY 2026–27
           </span>
         </div>
         <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl text-ink leading-[1.08]">
@@ -242,6 +244,15 @@ export default function CalcPage({
         {/* 16px, not 12px: the h1 runs up to 48px here, and a subtitle sitting
             12px under it read as a stray line rather than part of the title. */}
         <p className="mt-4 text-base sm:text-lg text-ink-soft">{subtitle}</p>
+        {quickAnswer && (
+          <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 text-sm text-text max-w-2xl">
+            <p className="font-semibold text-text mb-1">⚡ {quickAnswer.title}</p>
+            <p className="text-text-muted leading-relaxed">{quickAnswer.text}</p>
+            {quickAnswer.formula && (
+              <p className="mt-2 text-xs text-text-muted font-mono">{quickAnswer.formula}</p>
+            )}
+          </div>
+        )}
         <div className="mt-4">
           <CalcActions title={title} url={`${site.url}/calculators/${slug}`} />
         </div>

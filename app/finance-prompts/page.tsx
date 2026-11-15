@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/finance-prompts" },
   openGraph: {
     type: "website", url: `${site.url}/finance-prompts`, siteName: site.name, locale: "en_IN",
-    title: "20 Premium Finance Prompts for Claude, ChatGPT & Gemini", description,
+    title: { absolute: "AI Finance Prompts for Claude, ChatGPT & Gemini" }, description,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: title }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },

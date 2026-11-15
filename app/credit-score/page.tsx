@@ -3,22 +3,22 @@ import HubPage from "@/components/HubPage";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health" },
-  description: "Learn how credit scores work in India. Check your CIBIL score, understand what affects it, and improve your credit health for better loan approvals and lower interest rates.",
+  title: { absolute: "CIBIL & Credit Score Guide India: Improve Your Score (2026)" },
+  description: "How credit scores work in India: check your CIBIL score, understand credit score ranges, and learn proven steps to rebuild a 750+ score.",
   alternates: { canonical: `${site.url}/credit-score` },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: `${site.url}/credit-score`,
     siteName: "CoinMind",
-    title: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health",
-    description: "Learn how credit scores work in India. Check your CIBIL score, understand what affects it, and improve your credit health for better loan approvals and lower interest rates.",
+    title: { absolute: "CIBIL & Credit Score Guide India: Improve Your Score (2026)" },
+    description: "How credit scores work in India: check your CIBIL score, understand credit score ranges, and learn proven steps to rebuild a 750+ score.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CoinMind" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CIBIL Score & Credit Score Guide India - Improve Your Credit Health",
-    description: "Learn how credit scores work in India. Check your CIBIL score, understand what affects it, and improve your credit health for better loan approvals and lower interest rates.",
+    title: "CIBIL & Credit Score Guide India: Improve Your Score (2026)",
+    description: "How credit scores work in India: check your CIBIL score, understand credit score ranges, and learn proven steps to rebuild a 750+ score.",
     images: ["/opengraph-image"],
   },
 };

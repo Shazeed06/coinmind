@@ -151,8 +151,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/glossary/${g.slug}` })
   );
 
-  // Filter out any paths matching noindex criteria
+  // Filter out any paths matching noindex criteria and deduplicate
   const filtered = entries.filter((e) => shouldIndex(e.path));
+  const seen = new Set<string>();
+  const uniqueFiltered: typeof filtered = [];
+  for (const item of filtered) {
+    if (!seen.has(item.path)) {
+      seen.add(item.path);
+      uniqueFiltered.push(item);
+    }
+  }
 
   const STATIC_PAGES = new Set([
     "/about",
@@ -167,7 +175,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/authors/sahil",
   ]);
 
-  return filtered.map((entry) => {
+  return uniqueFiltered.map((entry) => {
     const p = entry.path;
     const isStatic = STATIC_PAGES.has(p);
     const isHome = p === "";
@@ -198,14 +206,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 0.3
         : 0.7;
 
-    // Real ISO lastmod timestamp for all sitemap entries
+    // Honest lastmod: use the real content date when we have one (blog/news),
+    // a current date for the home page and the actively-maintained IPO tracker,
+    // and OMIT lastmod entirely for pages whose true edit date we do not track.
+    // A single hardcoded date stamped across hundreds of URLs is a weak/suspect
+    // freshness signal, so no lastmod is better than a fake uniform one.
     const lastModified = entry.lastmod
       ? new Date(entry.lastmod)
-      : new Date("2026-11-15");
+      : p === "" || p.startsWith("/ipos")
+        ? new Date("2026-10-25")
+        : undefined;
 
     return {
       url: `${site.url}${p}`,
-      lastModified,
+      ...(lastModified ? { lastModified } : {}),
       changeFrequency,
       priority,
     };

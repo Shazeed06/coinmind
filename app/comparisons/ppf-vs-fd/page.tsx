@@ -3,19 +3,19 @@ import { site } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "PPF vs FD - Which is Better in 2026? Returns, Tax & Lock-in Compared",
+  title: { absolute: "PPF vs FD: Which Is Better in 2026? Returns & Tax Compared" },
   description: "PPF vs Fixed Deposit for Indian investors: current rates, post-tax returns, lock-in and flexibility compared. With a clear verdict for 2026.",
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-fd` },
   openGraph: {
     locale: "en_IN",
-    title: "PPF vs FD - Which is Better in 2026? Returns, Tax & Lock-in Compared",
+    title: "PPF vs FD: Returns, Tax & Lock-in Compared (2026)",
     description: "PPF vs Fixed Deposit for Indian investors: current rates, post-tax returns, lock-in and flexibility compared. With a clear verdict for 2026.",
     url: `${site.url}/comparisons/ppf-vs-fd`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PPF vs FD - Which is Better in 2026? Returns, Tax & Lock-in Compared",
+    title: "PPF vs FD: Returns, Tax & Lock-in Compared (2026)",
     description: "PPF vs Fixed Deposit for Indian investors: current rates, post-tax returns, lock-in and flexibility compared. With a clear verdict for 2026.",
     images: ["/opengraph-image"],
   },

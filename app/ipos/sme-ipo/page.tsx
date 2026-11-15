@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "SME IPO: Meaning, Risks & How to Apply | CoinMind" },
   description:
-    "What an SME IPO is, where it lists (NSE Emerge / BSE SME), how it differs from a mainboard IPO, the minimum ₹1 lakh+ lot, the key risks and how to apply step by step - a plain-English guide for Indian investors.",
+    "SME IPO guide for Indian retail investors: how NSE Emerge and BSE SME work, minimum lot sizes, risk factors, liquidity, and post-listing performance.",
   keywords: [
     "SME IPO",
     "SME IPO this week",
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     title: "SME IPO Explained: Meaning, Risks & How to Apply (India)",
     description:
-      "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
+      "Guide to SME IPOs in India: NSE Emerge & BSE SME platforms, ₹1 lakh+ lot sizes, key risks, liquidity factors and how retail investors can apply.",
     url: `${site.url}/ipos/sme-ipo`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SME IPO Explained: Meaning, Risks & How to Apply (India)",
-    description: "A plain-English guide to SME IPOs in India - NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the ₹1 lakh+ lot, risks and the application process.",
+    description: "Guide to SME IPOs in India: NSE Emerge & BSE SME platforms, ₹1 lakh+ lot sizes, key risks, liquidity factors and how retail investors can apply.",
     images: ["/opengraph-image"],
   },
 };
@@ -110,7 +110,7 @@ export default function SmeIpoPage() {
     "@type": "Article",
     headline: "SME IPO Explained - Meaning, Risks & How to Apply in India",
     description:
-      "A plain-English guide to SME IPOs in India: what they are, NSE Emerge and BSE SME listing, how they differ from mainboard IPOs, the minimum lot, risks and how to apply.",
+      "Guide to SME IPOs in India: NSE Emerge & BSE SME platforms, ₹1 lakh+ lot sizes, key risks, liquidity factors and how retail investors can apply.",
     url: `${site.url}/ipos/sme-ipo`,
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },

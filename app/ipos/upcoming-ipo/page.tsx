@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Upcoming IPO 2026 India: Full List & Dates | CoinMind" },
   description:
-    "Upcoming IPO 2026 list for India. Reliance Jio opens 21 Oct, Paras Healthcare too; Tonbo, Bonfiglioli, Zetwerk open now. Plus the most-awaited pipeline - Zepto, PhonePe, OYO, boAt, Razorpay.",
+    "Upcoming IPOs in India for 2026: track dates, price bands, issue sizes, and SEBI filing status for Reliance Jio, OYO, Zepto, Hero FinCorp, and PhonePe.",
   keywords: [
     "upcoming IPO",
     "upcoming IPO 2026",

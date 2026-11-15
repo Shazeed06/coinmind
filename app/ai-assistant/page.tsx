@@ -6,12 +6,12 @@ import { site } from "@/lib/site";
 
 const OG_TITLE = "Free AI Money Assistant - Ask Any Finance Question";
 const OG_DESC =
-  "Ask CoinMind's free AI assistant about investing, taxes, budgeting, SIPs, mutual funds and AI tools. Instant answers, no sign-up. Educational information, not financial advice.";
+  "Ask CoinMind's free AI assistant about investing, taxes, budgeting, SIPs and loans. Instant answers, no sign-up. Free and educational.";
 
 export const metadata: Metadata = {
   title: { absolute: "Free AI Money Assistant - Ask Anything" },
   description:
-    "A free AI assistant for money and AI questions: investing, taxes, budgeting, saving and choosing AI tools. Instant answers, no sign-up.",
+    "Free AI assistant answering questions about personal finance in India: SIP, EMI, income tax, FD, PPF. Educational, private, and instant with no sign-up.",
   alternates: { canonical: "/ai-assistant" },
   openGraph: {
     title: OG_TITLE,
@@ -91,7 +91,7 @@ export default function Page() {
         name: "CoinMind AI Money Assistant",
         url: `${site.url}/ai-assistant`,
         description:
-          "A free AI assistant that answers general questions about personal finance, investing, taxes, budgeting and AI tools in plain English. Educational information only, not financial advice.",
+          "A free AI assistant answering questions about personal finance, taxes, budgeting and SIPs in plain English. Educational only.",
         applicationCategory: "FinanceApplication",
         operatingSystem: "All",
         browserRequirements: "Requires JavaScript",
