@@ -235,21 +235,21 @@ export default function SfcEnvironmentalIpoPage() {
         <section>
           <h2 className="text-xl font-bold text-text mb-4">Pros &amp; Cons - Should You Apply?</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-sky-200 bg-sky-50 dark:bg-sky-900/10 dark:border-sky-800 p-4">
-              <h3 className="text-sm font-bold text-sky-700 dark:text-sky-400 mb-3">✓ Strengths</h3>
+            <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-5">
+              <h3 className="text-sm font-bold text-[#147da8] mb-3">✓ Strengths</h3>
               <ul className="space-y-2">
                 {PROS.map((p, i) => (
-                  <li key={i} className="text-sm text-sky-800 dark:text-sky-300 flex gap-2">
+                  <li key={i} className="text-sm text-[#334155] flex gap-2 leading-relaxed">
                     <span className="shrink-0 mt-0.5">•</span>{p}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-900/10 dark:border-red-800 p-4">
-              <h3 className="text-sm font-bold text-red-700 dark:text-red-400 mb-3">✗ Risks</h3>
+            <div className="rounded-2xl border border-rose-200 bg-rose-50/60 p-5">
+              <h3 className="text-sm font-bold text-rose-700 mb-3">✗ Risks</h3>
               <ul className="space-y-2">
                 {CONS.map((c, i) => (
-                  <li key={i} className="text-sm text-red-800 dark:text-red-300 flex gap-2">
+                  <li key={i} className="text-sm text-[#334155] flex gap-2 leading-relaxed">
                     <span className="shrink-0 mt-0.5">•</span>{c}
                   </li>
                 ))}

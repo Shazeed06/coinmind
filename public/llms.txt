@@ -1,0 +1,25 @@
+# CoinMind
+
+> Free, accurate, and private personal finance calculators and guides designed for India. All tools run client-side in the browser with no sign-up required.
+
+CoinMind provides personal finance tools, Indian tax planning calculators, investment estimators, and comprehensive guides verified against RBI, SEBI, and Income Tax Department rules.
+
+## Core Calculators
+
+- [SIP Calculator](https://coinmind.in/calculators/sip): Project mutual fund SIP returns with annual step-up and inflation adjustments.
+- [Crorepati SIP Calculator](https://coinmind.in/calculators/crorepati-calculator): Calculate required monthly SIP amount and duration to build a ₹1 Crore corpus.
+- [Zero Tax Salary Calculator](https://coinmind.in/calculators/zero-tax-salary): Optimize deductions under old vs new tax regime to minimize tax liability on salaries up to ₹10L - ₹12L.
+- [Income Tax Calculator](https://coinmind.in/calculators/income-tax): Compare income tax liability between New and Old Tax Regimes for FY 2024-25 and FY 2025-26 / FY 2026-27.
+- [Home Loan EMI Calculator](https://coinmind.in/calculators/emi): Calculate monthly EMI, total interest, and amortization schedule for home, car, and personal loans.
+- [FD Calculator](https://coinmind.in/calculators/fd): Fixed deposit maturity amount and interest payout calculator with quarterly compounding.
+- [PPF Calculator](https://coinmind.in/calculators/ppf): Public Provident Fund maturity calculation with annual compounding and tax exemptions under 80C.
+- [SWP Calculator](https://coinmind.in/calculators/swp): Systematic Withdrawal Plan projections for regular monthly income from mutual funds.
+- [NPS Calculator](https://coinmind.in/calculators/nps): National Pension Scheme retirement corpus, lump-sum payout, and monthly pension estimator.
+- [Retirement Calculator](https://coinmind.in/calculators/retirement-calculator): Plan retirement savings based on current expenses, inflation, and life expectancy.
+- [YouTube Earnings Calculator](https://coinmind.in/calculators/youtube-earnings): Estimate YouTube earnings in INR based on views, niche RPM, and geography.
+
+## Market & Investment Tools
+
+- [IPO GMP Today](https://coinmind.in/ipos/ipo-gmp-today): Live grey market premium (GMP), expected listing price, and subscription status for upcoming Indian IPOs.
+- [All Calculators Directory](https://coinmind.in/calculators): Complete directory of 57+ personal finance calculators.
+- [Financial Guides](https://coinmind.in/blog): In-depth guides on tax saving, mutual funds, loans, and wealth building in India.

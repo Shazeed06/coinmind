@@ -21,14 +21,14 @@ const ICONS: Record<string, LucideIcon> = {
   image: ImageIcon, budget: Wallet, star: Star, bot: Bot, sparkles: Sparkles,
 };
 const COLORS: Record<string, string> = {
-  invest: "#2aa7de", loan: "#2aa7de", tax: "#2aa7de", savings: "#2aa7de",
-  ppf: "#2aa7de", retire: "#2aa7de", book: "#2aa7de", credit: "#2aa7de",
-  live: "#2aa7de", flame: "#2aa7de", rocket: "#2aa7de", chart: "#2aa7de",
-  target: "#2aa7de", compare: "#2aa7de", resume: "#2aa7de", fileText: "#2aa7de",
-  image: "#2aa7de", budget: "#2aa7de", star: "#2aa7de", bot: "#2aa7de", sparkles: "#2aa7de",
+  invest: "#147da8", loan: "#147da8", tax: "#147da8", savings: "#147da8",
+  ppf: "#147da8", retire: "#147da8", book: "#147da8", credit: "#147da8",
+  live: "#147da8", flame: "#147da8", rocket: "#147da8", chart: "#147da8",
+  target: "#147da8", compare: "#147da8", resume: "#147da8", fileText: "#147da8",
+  image: "#147da8", budget: "#147da8", star: "#147da8", bot: "#147da8", sparkles: "#147da8",
 };
 function iconMeta(key?: string): { Icon: LucideIcon; color: string } {
-  if (key && ICONS[key]) return { Icon: ICONS[key], color: COLORS[key] ?? "#2aa7de" };
+  if (key && ICONS[key]) return { Icon: ICONS[key], color: COLORS[key] ?? "#147da8" };
   return { Icon: BarChart3, color: "#64748b" };
 }
 
@@ -95,8 +95,8 @@ export default function Header() {
             <span className="inline-flex items-center gap-2.5">
               <LogoMark className="h-8 w-8 shrink-0" />
               <span className="text-[1.3rem] font-extrabold lowercase leading-none tracking-tight">
-                <span className="text-[#2aa7de]">coin</span>
-                <span className="text-[#2aa7de]">mind</span>{/* blue + rust wordmark */}
+                <span className="text-[#147da8]">coin</span>
+                <span className="text-[#147da8]">mind</span>{/* blue + rust wordmark */}
               </span>
             </span>
           </Link>
@@ -115,7 +115,7 @@ export default function Header() {
                     onFocus={() => openNow(m.label)}
                     data-nav-trigger={m.label}
                     className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors ${
-                      active || open ? "bg-[#eef6f9] text-[#2aa7de]" : "text-[#475569] hover:bg-[#f4f7fb] hover:text-[#2aa7de]"
+                      active || open ? "bg-[#eef6f9] text-[#147da8]" : "text-[#475569] hover:bg-[#f4f7fb] hover:text-[#147da8]"
                     }`}
                   >
                     {m.label}
@@ -132,7 +132,7 @@ export default function Header() {
             <button
               onClick={() => setSearchOpen(true)}
               className="inline-flex items-center gap-2 rounded-lg border border-[#e6eaf2] bg-[#f7f9fc] px-3 py-[7px] text-sm text-[#64748b] transition-colors hover:border-[#cbd5e1] hover:text-[#334155]"
-              aria-label="Open search"
+              aria-label="Search calculators, guides, tools…"
             >
               <Search className="h-3.5 w-3.5" />
               <span className="hidden lg:inline">Search calculators, guides, tools…</span>
@@ -149,7 +149,7 @@ export default function Header() {
 
           {/* Mobile right */}
           <div className="ml-auto flex items-center gap-1 md:hidden">
-            <button type="button" onClick={() => setSearchOpen(true)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#475569] hover:bg-[#f4f7fb] hover:text-[#2aa7de]" aria-label="Open search">
+            <button type="button" onClick={() => setSearchOpen(true)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#475569] hover:bg-[#f4f7fb] hover:text-[#147da8]" aria-label="Open search">
               <Search className="h-5 w-5" />
             </button>
             <button type="button" onClick={() => setMenuOpen((v) => !v)} className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#334155] hover:bg-[#f4f7fb]" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen}>
@@ -316,7 +316,7 @@ function ShortcutHint() {
   }, []);
   if (isMac === null) return null;
   return (
-    <span className="hidden rounded border border-[#e6eaf2] bg-white px-1.5 py-0.5 font-mono text-[11px] text-[#94a3b8] lg:inline">
+    <span className="hidden rounded border border-[#e6eaf2] bg-white px-1.5 py-0.5 font-mono text-[11px] text-[#64748b] lg:inline">
       {isMac ? "⌘K" : "Ctrl K"}
     </span>
   );

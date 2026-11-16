@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Ensure dark: variant only applies when .dark class is explicitly present,
+   preventing system OS dark-mode from breaking light-themed pages. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ---------------------------------------------------------------------------
    Colour tokens.
 
@@ -34,8 +38,8 @@
   --color-text: #333333;
   --color-text-muted: #5a5f66;
   --color-border: #e6e6e6;
-  --color-brand: #2aa7de;
-  --color-accent: #2aa7de;
+  --color-brand: #147da8;
+  --color-accent: #147da8;
 
   /* Aliases of the five above. Same values, second naming system. */
   --color-ink: #333333;          /* = --color-text */
@@ -46,21 +50,21 @@
   --color-line-strong: #cfd4d9;
   --color-card: #ffffff;         /* = --color-bg */
   --color-paper-2: #f4f7f9;      /* = --color-bg-alt */
-  --color-forest: #2aa7de;       /* = --color-accent (rust) */
+  --color-forest: #147da8;       /* = --color-accent (rust) */
   --color-forest-soft: #eef6f9;  /* pale rust badge fill */
-  --color-forest-deep: #1f87b5;  /* darker rust for button hover */
-  --color-brass: #2aa7de;
+  --color-forest-deep: #0f668a;  /* darker rust for button hover */
+  --color-brass: #147da8;
   --color-brass-soft: #eef6f9;
-  --color-blue: #2aa7de;         /* = --color-brand */
+  --color-blue: #147da8;         /* = --color-brand */
   --color-blue-soft: #eef6f9;
-  --color-amber: #2aa7de;
+  --color-amber: #147da8;
   --color-amber-soft: #eef6f9;
-  --color-purple: #2aa7de;       /* mapped to the blue (no 3rd hue) */
+  --color-purple: #147da8;       /* mapped to the blue (no 3rd hue) */
   --color-purple-soft: #eef6f9;
-  --color-sky: #2aa7de;          /* = --color-brand */
+  --color-sky: #147da8;          /* = --color-brand */
   --color-sky-soft: #eef6f9;
   --color-paper: #ffffff;        /* = --color-bg */
-  --color-berry: #2aa7de;        /* rust for alerts/highlights */
+  --color-berry: #147da8;        /* rust for alerts/highlights */
   --color-berry-soft: #eef6f9;
 
   --font-weight-600: 600;
@@ -268,7 +272,7 @@ h4 {
 .underline-stroke { position: relative; display: inline-block; }
 .underline-stroke::after {
   content: ""; position: absolute; bottom: -4px; left: 0; width: 100%; height: 10px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%232AA7DE' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9C40 3 120 3 198 8' stroke='%23147DA8' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
   background-size: 100% 100%;
 }
 
