@@ -25,7 +25,10 @@ const FINANCE_TOOLS = new Set([
   "scientific-calculator",
 ]);
 
-const TOP_INHAND_LPA = new Set([3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 50]);
+const TOP_INHAND_LPA = new Set([
+  3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10, 10.5, 11.5, 12, 14.5, 15, 15.5, 17.5, 18,
+  18.5, 20, 25, 30, 34, 36, 38, 42, 50, 55, 65,
+]);
 
 function shouldIndex(path: string): boolean {
   if (NOINDEX_SECTIONS.some((s) => path.startsWith(s))) return false;

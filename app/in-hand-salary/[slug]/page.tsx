@@ -23,7 +23,10 @@ export function generateStaticParams() {
   return INHAND_SLUGS.map((slug) => ({ slug }));
 }
 
-const TOP_INHAND_LPA = new Set([3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 50]);
+const TOP_INHAND_LPA = new Set([
+  3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10, 10.5, 11.5, 12, 14.5, 15, 15.5, 17.5, 18,
+  18.5, 20, 25, 30, 34, 36, 38, 42, 50, 55, 65,
+]);
 
 export async function generateMetadata({
   params,
@@ -38,8 +41,8 @@ export async function generateMetadata({
   const { monthly, netAnnual } = computeInHand(lpa);
   const monthlyStr = formatCurrency(monthly);
 
-  const title = `₹${label} In-Hand Salary Per Month (2026)`;
-  const description = `₹${label} in hand salary is about ${monthlyStr} per month (${formatCurrency(netAnnual)} a year). Full monthly take-home breakdown for 2026, every assumption shown.`;
+  const title = `${label} In-Hand Salary: ${monthlyStr}/Month (FY 2026-27) + Tax Breakdown`;
+  const description = `${label} in-hand salary in India is ${monthlyStr}/month (${formatCurrency(netAnnual)}/year) under the FY 2026-27 New Tax Regime. Compare PF, gratuity, Old vs New tax & live take-home calculator.`;
 
   return {
     title: { absolute: title },

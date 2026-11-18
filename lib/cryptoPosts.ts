@@ -427,12 +427,12 @@ This article is for educational purposes and does not constitute financial or in
   {
     slug: "cryptocurrency-vs-gold-investment-india",
     title:
-      "Cryptocurrency vs Gold Investment in India: Detailed Comparison",
+      "Crypto vs Gold Investment in India (2026): 30% Tax, Returns & Which Wins?",
     excerpt:
-      "A thorough comparison of cryptocurrency (Bitcoin) and gold as investment options for Indian investors - covering returns, volatility, tax treatment, regulation, cultural significance, and how each fits into a diversified portfolio.",
+      "Bitcoin vs Gold in India (Nov 2026): Compare 5-year INR returns, 30% VDA crypto tax vs 12.5% gold LTCG, volatility & the exact portfolio split for Indian investors.",
     category: "Investing",
     readMinutes: 11,
-    date: "Sep 4, 2026",
+    date: "Nov 18, 2026",
     keywords: [
       "crypto vs gold",
       "bitcoin vs gold india",

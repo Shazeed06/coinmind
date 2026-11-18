@@ -321,12 +321,12 @@ export const trafficPosts5: Post[] = [
   },
   {
     slug: "sbi-vs-hdfc-vs-icici-comparison",
-    title: "SBI vs HDFC vs ICICI Bank 2026: FD Rates, Savings, Loans & Services Compared",
+    title: "SBI vs HDFC vs ICICI (Nov 2026): Best FD Rates, Zero-Balance & Lowest Home Loan",
     excerpt:
-      "A head-to-head comparison of India's three largest banks -- SBI, HDFC Bank, and ICICI Bank -- across FD rates, savings accounts, loan products, digital banking, and customer service.",
+      "Head-to-head Nov 2026 comparison of SBI, HDFC Bank & ICICI Bank: FD rates up to 7.10%, home loans from 8.25%, min balance penalties, credit cards & which bank wins.",
     category: "Personal Finance",
     readMinutes: 11,
-    date: "Aug 22, 2026",
+    date: "Nov 18, 2026",
     keywords: [
       "sbi vs hdfc bank",
       "hdfc vs icici bank",

@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export const metadata = calcMeta(
   "youtube-earnings",
-  "YouTube Earnings Calculator India (2026): Views to Rupees & RPM",
-  "Calculate how much YouTube pays per 1,000, 100,000, and 1 Million views in India. Accurate 2026 AdSense RPM and sponsorship rates by niche.",
+  "YouTube Money Calculator India (2026): 1M Views = ₹40K–₹2.8L | Live RPM",
+  "How much does YouTube pay for 1,000, 1 Lakh, 1 Million & 2 Million views in India? Instant 2026 AdSense RPM, Shorts & sponsorship calculator by Indian niche.",
   "Utility"
 );
 

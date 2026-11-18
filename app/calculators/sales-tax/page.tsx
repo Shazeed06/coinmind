@@ -4,7 +4,11 @@ import SalesTaxCalculator from "@/components/calc/SalesTaxCalculator";
 import CalcPage from "@/components/calc/CalcPage";
 
 const CALC = calculators.find((c) => c.slug === "sales-tax")!;
-export const metadata = calcMeta("sales-tax", CALC.title + " - Add or Remove Tax", CALC.blurb);
+export const metadata = calcMeta(
+  "sales-tax",
+  "Sales Tax Calculator (5%, 6%, 7%, 8%): Instant Add or Remove Tax & VAT",
+  "Calculate 5%, 6%, 7%, 8% or custom US sales tax & VAT on any price in 1 click. Instant add-tax and reverse remove-tax tool with quick reference table."
+);
 
 export default function Page() {
   return (
@@ -34,6 +38,66 @@ export default function Page() {
               by 1.20, not simply take 20% off. This is the correct way to
               extract VAT from a receipt.
             </p>
+            <h3 className="text-lg font-bold text-ink mt-6 mb-2">
+              Quick Sales Tax Chart (5%, 6%, 7% &amp; 8% Common Totals)
+            </h3>
+            <div className="overflow-x-auto my-4">
+              <table className="w-full text-left text-xs border border-line rounded-xl overflow-hidden">
+                <thead className="bg-paper-2 text-ink uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th className="p-3">Price</th>
+                    <th className="p-3">+ 5% Tax (Total)</th>
+                    <th className="p-3">+ 6% Tax (Total)</th>
+                    <th className="p-3">+ 7% Tax (Total)</th>
+                    <th className="p-3">+ 8% Tax (Total)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-line text-ink-soft">
+                  <tr>
+                    <td className="p-3 font-semibold text-ink">$19.99</td>
+                    <td className="p-3">$1.00 ($20.99)</td>
+                    <td className="p-3">$1.20 ($21.19)</td>
+                    <td className="p-3">$1.40 ($21.39)</td>
+                    <td className="p-3">$1.60 ($21.59)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-ink">$29.99</td>
+                    <td className="p-3">$1.50 ($31.49)</td>
+                    <td className="p-3">$1.80 ($31.79)</td>
+                    <td className="p-3">$2.10 ($32.09)</td>
+                    <td className="p-3">$2.40 ($32.39)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-ink">$100.00</td>
+                    <td className="p-3">$5.00 ($105.00)</td>
+                    <td className="p-3">$6.00 ($106.00)</td>
+                    <td className="p-3">$7.00 ($107.00)</td>
+                    <td className="p-3">$8.00 ($108.00)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-ink">$500.00</td>
+                    <td className="p-3">$25.00 ($525.00)</td>
+                    <td className="p-3">$30.00 ($530.00)</td>
+                    <td className="p-3">$35.00 ($535.00)</td>
+                    <td className="p-3">$40.00 ($540.00)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-ink">$800.00</td>
+                    <td className="p-3">$40.00 ($840.00)</td>
+                    <td className="p-3">$48.00 ($848.00)</td>
+                    <td className="p-3">$56.00 ($856.00)</td>
+                    <td className="p-3">$64.00 ($864.00)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold text-ink">$1,000.00</td>
+                    <td className="p-3">$50.00 ($1,050.00)</td>
+                    <td className="p-3">$60.00 ($1,060.00)</td>
+                    <td className="p-3">$70.00 ($1,070.00)</td>
+                    <td className="p-3">$80.00 ($1,080.00)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </>
         ),
       }}
