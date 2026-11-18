@@ -94,8 +94,8 @@ export default function WidgetsPage() {
         </ul>
         <p className="mt-3">
           For custom widgets or white-label licensing, contact us at{" "}
-          <a href="mailto:coinmindofficial@gmail.com" className="underline">
-            coinmindofficial@gmail.com
+          <a href="mailto:contact@coinmind.in" className="underline">
+            contact@coinmind.in
           </a>
           .
         </p>
