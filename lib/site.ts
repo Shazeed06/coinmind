@@ -8,9 +8,8 @@ export const site = {
   // is the canonical so sitemap, canonicals and OG stay consistent with what
   // actually serves.
   url: "https://coinmind.in",
-  // ⚠️ Set up this mailbox (e.g. free email forwarding from your domain provider,
-  // or Zoho Mail) so the address actually receives mail before applying to AdSense.
-  email: "coinmindofficial@gmail.com",
+  // Official domain mailbox powered by Cloudflare Email Routing (forwards to Gmail).
+  email: "contact@coinmind.in",
   description:
     "Free personal finance calculators for India: SIP, EMI, income tax, FD, PPF and more. Educational guides, explained clearly. No sign-up.",
   locale: "en",
