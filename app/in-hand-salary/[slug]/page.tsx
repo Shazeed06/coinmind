@@ -277,9 +277,9 @@ export default async function Page({
         </p>
       </section>
 
-      {/* The headline number */}
-      <section className="mt-10">
-        <div className="rounded-2xl border border-line bg-card p-6 sm:p-7">
+      {/* The headline number + India Income Percentile & Crorepati Fast-Track */}
+      <section className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-12">
+        <div className="rounded-2xl border border-line bg-card p-6 sm:p-7 md:col-span-7">
           <p className="text-xs font-semibold uppercase tracking-wider text-brass">
             Monthly in-hand
           </p>
@@ -290,7 +290,79 @@ export default async function Page({
             {formatCurrency(r.netAnnual)} per year ·{" "}
             {r.takeHomePct.toFixed(1)}% of CTC
           </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link
+              href="/calculators/zero-tax-salary"
+              className="inline-flex items-center gap-1.5 rounded-full bg-forest/10 px-3.5 py-1.5 text-xs font-semibold text-forest hover:bg-forest hover:text-white transition-colors"
+            >
+              Can you cut tax further? Zero-Tax Planner <IconArrow className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href="/calculators/crorepati-calculator"
+              className="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper-2 px-3.5 py-1.5 text-xs font-semibold text-ink hover:border-forest hover:text-forest transition-colors"
+            >
+              ₹1 Cr SIP Goal <IconArrow className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
+
+        {(() => {
+          // India income percentile benchmark (based on ITR & PLFS distribution)
+          const topPct =
+            lpa >= 50
+              ? "Top 0.2%"
+              : lpa >= 30
+                ? "Top 0.5%"
+                : lpa >= 20
+                  ? "Top 1%"
+                  : lpa >= 15
+                    ? "Top 1.8%"
+                    : lpa >= 10
+                      ? "Top 4%"
+                      : lpa >= 6
+                        ? "Top 8%"
+                        : lpa >= 4
+                          ? "Top 15%"
+                          : "Top 25%";
+          const sipMonthly = Math.max(2000, Math.round((r.monthly * 0.25) / 500) * 500);
+          // Years to ₹1 Crore at 12% CAGR monthly compounding
+          const rateM = 0.12 / 12;
+          const monthsTo1Cr = Math.log(1 + (10_000_000 * rateM) / (sipMonthly * (1 + rateM))) / Math.log(1 + rateM);
+          const yearsTo1Cr = Math.max(1, Math.round(monthsTo1Cr / 12));
+
+          return (
+            <div className="rounded-2xl border border-forest/25 bg-gradient-to-br from-[#eef6fb] to-white p-6 md:col-span-5 flex flex-col justify-between">
+              <div>
+                <span className="inline-block rounded-full bg-forest px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">
+                  India Salary Rank: {topPct}
+                </span>
+                <h2 className="mt-3 font-display text-lg font-600 text-ink">
+                  ₹{label} puts you in India&rsquo;s {topPct} of earners
+                </h2>
+                <p className="mt-2 text-xs leading-relaxed text-ink-soft">
+                  If you invest 25% of your monthly take-home (
+                  <strong className="text-ink">{formatCurrency(sipMonthly)}/month</strong>) in a
+                  12% equity SIP, you reach{" "}
+                  <strong className="text-forest">₹1 Crore in ~{yearsTo1Cr} years</strong>.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-line flex items-center justify-between text-xs">
+                <Link
+                  href="/tools/are-you-rich"
+                  className="font-semibold text-forest hover:underline"
+                >
+                  Check full India percentile →
+                </Link>
+                <Link
+                  href="/calculators/crorepati-calculator"
+                  className="font-semibold text-ink hover:text-forest"
+                >
+                  Simulate SIP →
+                </Link>
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* Full breakdown */}

@@ -11,6 +11,7 @@ import AuthorReviewBox from "@/components/AuthorReviewBox";
 import KeyTakeaways from "@/components/KeyTakeaways";
 import ArticleShareBar from "@/components/ArticleShareBar";
 import ArticleCalcWidget, { type CalcWidgetType } from "@/components/ArticleCalcWidget";
+import CreditScoreSimulator from "@/components/CreditScoreSimulator";
 import RelatedArticles from "@/components/RelatedArticles";
 import NewsletterCard from "@/components/NewsletterCard";
 import { Prose } from "@/components/ui";
@@ -172,33 +173,173 @@ const bodies: Record<string, ReactNode> = {
   "how-to-improve-credit-score": (
     <>
       <p>
-        Your credit score decides whether you get a loan, at what rate, and
-        sometimes whether you get an apartment. The good news: it&apos;s more
-        fixable than most people think. Here are the steps that actually move
-        it, in order of impact.
-      </p>
-      <h2>1. Pay on time, every time</h2>
-      <p>
-        Payment history is the single biggest factor. One missed payment can
-        cost dozens of points. Automate at least the minimum payment on every
-        card and loan so a busy month never costs you.
-      </p>
-      <h2>2. Lower your utilisation</h2>
-      <p>
-        Using a high share of your available credit hurts your score even if you
-        pay in full. Aim to keep balances below 30% of your limit, and under
-        10% if you want the best scores. Paying before the statement date, not
-        just the due date, helps here.
-      </p>
-      <h2>3. Don&apos;t close old cards</h2>
-      <p>
-        Length of credit history matters. An old card you rarely use is still
-        quietly helping your score by raising your total available credit and
-        your average account age.
+        Your credit score (CIBIL in India, FICO globally) decides whether a bank approves your
+        home loan, personal loan, or premium credit card — and more importantly, the exact
+        interest rate you pay. On a ₹50 lakh home loan over 20 years, moving from a{" "}
+        <strong>680 score to 760+</strong> can save you <strong>₹3.5 lakh to ₹6 lakh</strong> in
+        interest alone.
       </p>
       <p>
-        These changes take one to three billing cycles to show up. There is no
-        legitimate overnight fix. Anyone promising one is selling something.
+        <strong>Can you improve your credit score in 3 months?</strong> Yes. Most people can
+        realistically add <strong>+40 to +90 points within 60 to 90 days</strong> by targeting the
+        two fastest-moving levers: credit card utilisation and billing-cycle payment timing. Use the
+        interactive simulator below to estimate your 90-day boost before reading the step-by-step plan.
+      </p>
+
+      <CreditScoreSimulator />
+
+      <h2>How your CIBIL / credit score is actually calculated</h2>
+      <p>
+        Before trying random credit score tips, look at the exact weights bureaus (TransUnion CIBIL,
+        Experian, Equifax, CRIF High Mark) assign to each behaviour. Focus 80% of your effort on
+        the top two rows:
+      </p>
+      <div className="overflow-x-auto my-5">
+        <table className="w-full text-left text-sm border border-line rounded-xl overflow-hidden">
+          <thead className="bg-paper-2 text-ink font-semibold">
+            <tr>
+              <th className="p-3">Factor</th>
+              <th className="p-3">Weight</th>
+              <th className="p-3">How fast it moves your score</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-line text-ink-soft">
+            <tr>
+              <td className="p-3 font-semibold text-ink">Payment history (EMIs &amp; cards)</td>
+              <td className="p-3 font-semibold text-forest">35%</td>
+              <td className="p-3">30–90 days of clean on-time payments rebuild momentum</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-semibold text-ink">Credit utilisation ratio</td>
+              <td className="p-3 font-semibold text-forest">30%</td>
+              <td className="p-3"><strong>Fastest lever (30–45 days)</strong> — resets every statement cycle</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-semibold text-ink">Credit history length (age)</td>
+              <td className="p-3">15%</td>
+              <td className="p-3">Gradual — protect it by keeping your oldest card open</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-semibold text-ink">Credit mix (secured + unsecured)</td>
+              <td className="p-3">10%</td>
+              <td className="p-3">Medium term — home/gold/auto loan + card beats only cards</td>
+            </tr>
+            <tr>
+              <td className="p-3 font-semibold text-ink">New credit / hard inquiries</td>
+              <td className="p-3">10%</td>
+              <td className="p-3">3–6 months — avoid multiple loan applications together</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>7 proven steps to boost your credit score in 90 days</h2>
+
+      <h3>1. Drop credit card utilisation below 30% (ideally under 10%)</h3>
+      <p>
+        This is the single fastest credit score improvement trick. Even if you pay your full bill
+        every month, banks report your <strong>statement closing balance</strong> to bureaus. If
+        your limit is ₹1,00,000 and your statement generates at ₹70,000, your utilisation is 70% —
+        which drags your score down by 30–50 points. Pay down 70–80% of your balance{" "}
+        <strong>2 days before the statement generation date</strong> so the reported balance stays
+        under 10–20%.
+      </p>
+
+      <h3>2. Automate 100% of EMIs and card minimums (never miss a single day)</h3>
+      <p>
+        A single payment that is 30+ days past due can slash 60 to 100 points and stay on your
+        report for 3 years. Turn on Auto-Debit (eNACH / standing instruction) for at least the
+        minimum amount due on every card and full EMI on every loan so a busy travel week never
+        triggers a late mark.
+      </p>
+
+      <h3>3. Pull your free report and dispute errors immediately</h3>
+      <p>
+        Under RBI rules, you are entitled to one free full credit report every calendar year from
+        each bureau (CIBIL, Experian, Equifax, CRIF). Check for three common errors: a closed loan
+        still marked &ldquo;Active&rdquo;, a duplicate account, or an incorrect &ldquo;Settled&rdquo;
+        status. Raising an online dispute takes 5 minutes and bureaus must resolve it within{" "}
+        <strong>30 days</strong> — removing one wrong late payment can jump your score by 40+
+        points overnight.
+      </p>
+
+      <h3>4. Ask for a credit limit increase (without spending more)</h3>
+      <p>
+        If your card bank offers a pre-approved limit increase (no hard inquiry), accept it.
+        Moving your limit from ₹1,00,000 to ₹2,00,000 while keeping monthly spending at ₹30,000
+        instantly cuts your utilisation ratio in half — from 30% down to 15%.
+      </p>
+
+      <h3>5. Never close your oldest credit card</h3>
+      <p>
+        Closing an old lifetime-free card hurts you twice: it shrinks your total available credit
+        limit (pushing utilisation up) and reduces your average credit age. Keep your oldest
+        no-fee card alive with one tiny recurring bill (like a ₹199 mobile recharge) on autopay.
+      </p>
+
+      <h3>6. Stop applying for multiple loans or cards (hard inquiry freeze)</h3>
+      <p>
+        Every time you apply for a credit card or personal loan, the lender triggers a{" "}
+        <strong>hard inquiry</strong>, knocking 5–10 points off your score. Applying to 4 banks in
+        one month signals &ldquo;credit hunger&rdquo; and causes automatic rejections. Space new
+        applications at least 90–180 days apart.
+      </p>
+
+      <h3>7. Starting from zero or below 620? Use an FD-backed secured credit card</h3>
+      <p>
+        If you have no credit history (&ldquo;NH&rdquo; / -1) or a damaged score below 620, regular
+        cards will reject you. Open a small Fixed Deposit (₹10,000–₹25,000) with a bank offering a
+        secured card, spend under 15% of the limit each month, and pay in full. Within 3–6 billing
+        cycles, your score reliably climbs past 720–750.
+      </p>
+
+      <h2>Realistic 30 / 60 / 90-day credit improvement timeline</h2>
+      <ul>
+        <li>
+          <strong>Day 1 – 30:</strong> Pay balances before statement date, freeze new loan
+          applications, and file bureau disputes for any reporting mistakes.
+        </li>
+        <li>
+          <strong>Day 31 – 60:</strong> First lower-utilisation statement hits CIBIL/Experian. Most
+          users see their first <strong>+20 to +45 point jump</strong> here.
+        </li>
+        <li>
+          <strong>Day 61 – 90:</strong> Three consecutive clean payment cycles + resolved disputes
+          compound. Many borrowers cross the <strong>750+ prime threshold</strong> needed for the
+          lowest{" "}
+          <Link href="/calculators/home-loan-eligibility" className="link-editorial text-forest">
+            home loan eligibility
+          </Link>{" "}
+          and{" "}
+          <Link href="/calculators/emi" className="link-editorial text-forest">
+            lowest monthly EMI rates
+          </Link>
+          .
+        </li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I improve my credit score from 650 to 750 in 3 months?</h3>
+      <p>
+        If your score is 650 primarily because of high credit card balances (60%+ utilisation) or a
+        reporting error, yes — dropping utilisation under 15% and fixing errors can lift you close
+        to 740–750 within 90 days. If the drop was caused by recent loan defaults or settlements,
+        expect 6 to 12 months of spotless payments to rebuild past 750.
+      </p>
+      <h3>Does checking my own CIBIL score reduce it?</h3>
+      <p>
+        No. Checking your own score is a <strong>soft inquiry</strong> and has zero impact on your
+        credit score. Only lender applications trigger hard inquiries.
+      </p>
+      <h3>Should I settle a bad loan or close it in full?</h3>
+      <p>
+        Always pay in full (&ldquo;Closed&rdquo;) if possible. A &ldquo;Settled&rdquo; status tells
+        future lenders you paid less than owed and severely damages your approval odds for up to 7
+        years. Explore our full{" "}
+        <Link href="/credit-score" className="link-editorial text-forest">
+          India Credit Score Hub
+        </Link>{" "}
+        for bureau dispute links and card rules.
       </p>
     </>
   ),
