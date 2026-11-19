@@ -13,7 +13,7 @@ import { graph, breadcrumb, faqPage } from "@/lib/ld";
 import GoldBillCalculator from "@/components/GoldBillCalculator";
 
 export const dynamicParams = false;
-export const revalidate = 21600; // revalidate every 6 hours
+export const revalidate = 3600; // 1 hour background revalidation
 
 export function generateStaticParams() {
   return GOLD_CITY_SLUGS.map((city) => ({ city }));

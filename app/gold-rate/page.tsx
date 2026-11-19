@@ -5,7 +5,7 @@ import { GOLD_CITIES, fetchGoldRate, computeCityRates } from "@/lib/gold-data";
 import { graph, breadcrumb, collectionPage } from "@/lib/ld";
 import GoldBillCalculator from "@/components/GoldBillCalculator";
 
-export const revalidate = 21600;
+export const revalidate = 3600; // 1 hour background revalidation
 
 export const metadata: Metadata = {
   title: { absolute: "Gold Rate Today in India - 22K & 24K Price by City (2026)" },
