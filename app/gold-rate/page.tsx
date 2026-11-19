@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { GOLD_CITIES, fetchGoldRate, computeCityRates } from "@/lib/gold-data";
 import { graph, breadcrumb, collectionPage } from "@/lib/ld";
+import GoldBillCalculator from "@/components/GoldBillCalculator";
 
 export const revalidate = 21600;
 
@@ -64,7 +65,25 @@ export default async function Page() {
         <p className="mt-3 text-lg text-ink-soft leading-relaxed">
           Live 22 carat and 24 carat gold price today in Mumbai, Delhi, Chennai, Bangalore and 20+ major Indian cities. Updated every 6 hours from international market data.
         </p>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Link
+            href="/silver-rate"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-800 text-xs font-semibold hover:bg-slate-100 transition-colors"
+          >
+            Looking for Silver? Check Live Silver Rate (Chandi Ka Bhav) →
+          </Link>
+        </div>
       </header>
+
+      {/* Interactive Jewellery Bill & Making Charges Calculator */}
+      <section className="mt-8">
+        <GoldBillCalculator
+          initialGoldRate24K={rateResult.price24K_10g}
+          initialSilverRateKg={rateResult.silverPerKg}
+          cityName="India"
+        />
+      </section>
 
       {/* City grid */}
       <section className="mt-10">

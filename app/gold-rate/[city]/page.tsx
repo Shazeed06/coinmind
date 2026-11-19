@@ -10,6 +10,7 @@ import {
   computeCityRates,
 } from "@/lib/gold-data";
 import { graph, breadcrumb, faqPage } from "@/lib/ld";
+import GoldBillCalculator from "@/components/GoldBillCalculator";
 
 export const dynamicParams = false;
 export const revalidate = 21600; // revalidate every 6 hours
@@ -165,6 +166,15 @@ export default async function Page({
           </div>
         ))}
       </div>
+
+      {/* Interactive Jewellery Bill & Making Charges Calculator */}
+      <section className="mt-10">
+        <GoldBillCalculator
+          initialGoldRate24K={rates["24K"]["10g"].base}
+          initialSilverRateKg={rateResult.silverPerKg}
+          cityName={name}
+        />
+      </section>
 
       {/* Rate tables */}
       {KARATS.map((karat) => (

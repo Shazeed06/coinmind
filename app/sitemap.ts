@@ -58,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/credit-score",
     "/gold",
     "/gold-rate",
+    "/silver-rate",
     "/petrol-price",
     "/about",
     "/widgets",
