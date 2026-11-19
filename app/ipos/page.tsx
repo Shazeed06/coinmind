@@ -39,6 +39,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 3600; // 1 hour background revalidation
+
 type IPO = {
   name: string;
   slug?: string;

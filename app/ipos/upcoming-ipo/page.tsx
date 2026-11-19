@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "15 November 2026";
+export const revalidate = 3600; // 1 hour background revalidation
+
 
 type IPO = {
   name: string;
@@ -95,6 +96,13 @@ const FAQS = [
 ];
 
 export default function UpcomingIpoPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const todayIso = new Date().toISOString().split("T")[0];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -105,7 +113,7 @@ export default function UpcomingIpoPage() {
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: "2026-10-18",
-    dateModified: "2026-10-18",
+    dateModified: todayIso,
     mainEntityOfPage: `${site.url}/ipos/upcoming-ipo`,
   };
 
@@ -152,7 +160,7 @@ export default function UpcomingIpoPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             Track upcoming IPOs in India: upcoming issue dates, price bands, GMP estimates, recent listings on BSE & NSE, and the most-awaited pipeline awaiting SEBI approval.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">GMP is unofficial and indicative, as of 18 Oct 2026.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {todayFormatted} · <span className="text-amber-600">GMP is unofficial and indicative.</span></p>
         </div>
       </section>
 

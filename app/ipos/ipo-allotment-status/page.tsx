@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "29 October 2026";
+export const revalidate = 3600; // 1 hour background revalidation
 
 const BSE_STEPS = [
   "Go to the BSE allotment page: bseindia.com → Investors → Status of Issue Application (or search \"BSE IPO allotment\").",
@@ -94,6 +94,13 @@ const FAQS = [
 ];
 
 export default function IpoAllotmentStatusPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const todayIso = new Date().toISOString().split("T")[0];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -104,7 +111,7 @@ export default function IpoAllotmentStatusPage() {
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: "2026-10-18",
-    dateModified: "2026-10-18",
+    dateModified: todayIso,
     mainEntityOfPage: `${site.url}/ipos/ipo-allotment-status`,
   };
 
@@ -163,7 +170,7 @@ export default function IpoAllotmentStatusPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             After you apply for any IPO in India, you can check whether shares were allotted to you online - for free - on the <strong className="text-text">BSE website</strong>, the IPO&apos;s <strong className="text-text">registrar</strong>, or your <strong className="text-text">broker app</strong>. This is the generic, step-by-step guide that works for every IPO.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED}</p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {todayFormatted}</p>
         </div>
       </section>
 

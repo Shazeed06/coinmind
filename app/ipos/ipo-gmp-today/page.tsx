@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "15 November 2026";
+export const revalidate = 3600; // 1 hour background revalidation
 
 const FAQS = [
   {
@@ -64,6 +64,13 @@ const FAQS = [
 ];
 
 export default function IpoGmpTodayPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const todayIso = new Date().toISOString().split("T")[0];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -74,7 +81,7 @@ export default function IpoGmpTodayPage() {
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: "2026-10-18",
-    dateModified: "2026-11-15",
+    dateModified: todayIso,
     mainEntityOfPage: `${site.url}/ipos/ipo-gmp-today`,
   };
 
@@ -117,7 +124,7 @@ export default function IpoGmpTodayPage() {
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-4">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-            Live Market Quotes · {LAST_UPDATED}
+            Live Market Quotes · Updated {todayFormatted}
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold text-text tracking-tight leading-tight">

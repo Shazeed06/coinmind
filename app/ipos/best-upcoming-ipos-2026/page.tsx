@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+export const revalidate = 3600; // 1 hour background revalidation
 
 type ShortlistItem = {
   rank: number;
@@ -161,6 +161,13 @@ const FAQS = [
 ];
 
 export default function BestUpcomingIposPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const todayIso = new Date().toISOString().split("T")[0];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -171,7 +178,7 @@ export default function BestUpcomingIposPage() {
     author: { "@type": "Person", name: site.author.fullName },
     publisher: { "@type": "Organization", name: site.name, url: site.url },
     datePublished: "2026-10-18",
-    dateModified: "2026-10-18",
+    dateModified: todayIso,
     mainEntityOfPage: `${site.url}/ipos/best-upcoming-ipos-2026`,
   };
 
@@ -218,7 +225,7 @@ export default function BestUpcomingIposPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             A ranked editorial shortlist of the most notable upcoming IPOs in India for 2026 - what each company does, how big the issue is, why it stands out and the key risk to weigh. This is our analysis, not a recommendation to buy.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">Ranking is editorial opinion; GMP is unofficial and indicative only.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {todayFormatted} · <span className="text-amber-600">Ranking is editorial opinion; GMP is unofficial and indicative only.</span></p>
         </div>
       </section>
 

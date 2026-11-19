@@ -37,7 +37,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "19 November 2026";
+export const revalidate = 3600; // 1 hour background revalidation
+
 
 const IPO_DETAILS = [
   { label: "Price Band", value: "₹102 - ₹108 per share" },
@@ -66,6 +67,11 @@ const GMP_TREND = [
 ];
 
 export default function NtpcGreenEnergyIpoPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -104,7 +110,7 @@ export default function NtpcGreenEnergyIpoPage() {
             <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700 border border-sky-200">
               Mainboard PSU
             </span>
-            <span className="text-xs text-text-muted">Updated: {LAST_UPDATED}</span>
+            <span className="text-xs text-text-muted">Updated: {todayFormatted}</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text">

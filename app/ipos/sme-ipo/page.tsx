@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+export const revalidate = 3600; // 1 hour background revalidation
+
 
 const DIFFERENCES = [
   { feature: "Listing platform", sme: "NSE Emerge or BSE SME", main: "NSE and BSE main board" },
@@ -105,6 +106,8 @@ const FAQS = [
 ];
 
 export default function SmeIpoPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+  const todayIso = new Date().toISOString().split("T")[0];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -162,7 +165,7 @@ export default function SmeIpoPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             A plain-English guide to SME IPOs in India - what they are, where they list, how they differ from mainboard IPOs, the ₹1 lakh+ minimum lot, the risks to weigh and the step-by-step application process.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED} · <span className="text-amber-600">Educational guide, not investment advice.</span></p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {todayFormatted} · <span className="text-amber-600">Educational guide, not investment advice.</span></p>
         </div>
       </section>
 

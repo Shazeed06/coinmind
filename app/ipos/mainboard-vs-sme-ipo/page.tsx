@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   },
 };
 
-const LAST_UPDATED = "18 October 2026";
+export const revalidate = 3600; // 1 hour background revalidation
+
 
 type Row = { feature: string; mainboard: string; sme: string };
 
@@ -113,6 +114,8 @@ const FAQS = [
 ];
 
 export default function MainboardVsSmeIpoPage() {
+  const todayFormatted = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+  const todayIso = new Date().toISOString().split("T")[0];
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -170,7 +173,7 @@ export default function MainboardVsSmeIpoPage() {
           <p className="mt-3 text-text-muted max-w-[680px] leading-relaxed">
             India has two very different kinds of IPO. A <strong className="text-text">mainboard IPO</strong> lists big, established companies on the NSE/BSE main board; an <strong className="text-text">SME IPO</strong> lists smaller firms on a separate platform with a far larger minimum ticket. Here is how they differ and which suits you.
           </p>
-          <p className="mt-2 text-xs text-text-muted">Last updated: {LAST_UPDATED}</p>
+          <p className="mt-2 text-xs text-text-muted">Last updated: {todayFormatted}</p>
         </div>
       </section>
 
