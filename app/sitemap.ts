@@ -6,6 +6,7 @@ import { INHAND_SLUGS, parseLpaSlug } from "@/lib/pseo-inhand";
 import { GOLD_CITY_SLUGS } from "@/lib/gold-data";
 import { FUEL_CITY_SLUGS } from "@/lib/fuel-data";
 import { GLOSSARY } from "@/lib/glossary";
+import { aiToolDetails } from "@/lib/aiToolDetails";
 
 // Noindex sections: programmatic and auxiliary directories excluded from sitemap submission.
 const NOINDEX_SECTIONS = [
@@ -15,7 +16,6 @@ const NOINDEX_SECTIONS = [
   "/calculators/fd/",
   "/diesel-price/",
   "/finance-prompts/",
-  "/ai-tools/",
 ];
 
 const FINANCE_TOOLS = new Set([
@@ -154,6 +154,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({ path: `/glossary/${g.slug}` })
   );
 
+  // AI tool reviews & directories (high-intent Indian AI queries)
+  aiToolDetails.forEach((t) => entries.push({ path: `/ai-tools/${t.slug}` }));
+
   // Filter out any paths matching noindex criteria and deduplicate
   const filtered = entries.filter((e) => shouldIndex(e.path));
   const seen = new Set<string>();
@@ -186,13 +189,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const isBlog = p.startsWith("/blog");
     const isGlossary = p.startsWith("/glossary");
     const isNews = p.startsWith("/news");
+    const isAi = p.startsWith("/ai-tools");
 
     const changeFrequency: "daily" | "weekly" | "monthly" | "yearly" =
       isHome
         ? "daily"
         : isBlog || isNews
         ? "monthly"
-        : isCalc || isGlossary
+        : isCalc || isGlossary || isAi
         ? "weekly"
         : isStatic
         ? "yearly"
@@ -203,7 +207,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1.0
         : isCalc || isBlog
         ? 0.9
-        : isGlossary || isNews
+        : isGlossary || isNews || isAi
         ? 0.8
         : isStatic
         ? 0.3

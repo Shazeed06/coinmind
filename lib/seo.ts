@@ -50,9 +50,21 @@ function mk(path: string, d: SeoDef): Metadata {
 // kept: two competing title sets for the same URL is how titles drift.
 
 export const HOME = mk("/", {
-  title: "CoinMind - Free Personal Finance Calculators for India",
-  desc: "Free personal finance calculators for India: SIP, EMI, income tax, FD, PPF, crypto tax and more. Compare tax regimes, plan investments, no sign-up.",
-  keywords: ["SIP calculator", "EMI calculator", "income tax calculator", "FD calculator", "PPF calculator", "personal finance India", "free financial calculators", "finance guides"],
+  title: "CoinMind: Financial Calculators India | SIP, In-Hand Salary & Tax (2026)",
+  desc: "Calculate SIP returns, take-home salary after tax (FY 2026-27), loan EMI, and live gold rate. 100% free, instant personal finance tools for India with zero sign-up.",
+  keywords: [
+    "SIP calculator India",
+    "in hand salary calculator",
+    "income tax calculator FY 2026-27",
+    "EMI calculator India",
+    "gold rate today",
+    "IPO GMP today",
+    "crorepati calculator",
+    "FD calculator",
+    "PPF calculator",
+    "personal finance India",
+    "CoinMind",
+  ],
 });
 
 export function calcMeta(slug: string, title: string, desc: string, category?: string): Metadata {

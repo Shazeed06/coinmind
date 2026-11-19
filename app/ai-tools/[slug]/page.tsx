@@ -27,7 +27,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
     alternates: { canonical: `/ai-tools/${slug}` },
     openGraph: {
       type: "article",

@@ -8,15 +8,15 @@ const GUIDE_COUNT = posts.length;
 // A handful of the highest-intent calculators, surfaced as quick jumps right
 // under the search box so the hero works as a launcher, not just a banner.
 const QUICK = [
-  { label: "SIP", href: "/calculators/sip" },
-  { label: "₹1 Cr SIP", href: "/calculators/crorepati-calculator" },
-  { label: "Zero Tax Salary", href: "/calculators/zero-tax-salary" },
-  { label: "IPO GMP Today", href: "/ipos/ipo-gmp-today" },
-  { label: "Income Tax", href: "/calculators/income-tax" },
+  { label: "SIP Calculator", href: "/calculators/sip" },
+  { label: "In-Hand Salary (FY 2026-27)", href: "/calculators/take-home-salary" },
+  { label: "₹1 Cr SIP Goal", href: "/calculators/crorepati-calculator" },
+  { label: "IPO GMP & Allotment", href: "/ipos" },
+  { label: "Gold Rate Live", href: "/gold-rate" },
+  { label: "Income Tax FY 26-27", href: "/calculators/income-tax" },
   { label: "YouTube Earnings", href: "/calculators/youtube-earnings" },
-  { label: "EMI", href: "/calculators/emi" },
-  { label: "FD", href: "/calculators/fd" },
-  { label: "PPF", href: "/calculators/ppf" },
+  { label: "EMI Calculator", href: "/calculators/emi" },
+  { label: "Zero Tax Salary", href: "/calculators/zero-tax-salary" },
 ];
 
 const STATS = [
@@ -42,13 +42,13 @@ export default function HeroSection() {
           100% Free · No sign-up · Made for India
         </span>
 
-        <h1 className="mt-7 max-w-[840px] text-[2.5rem] font-extrabold leading-[1.04] tracking-tight text-text sm:text-[3.5rem] lg:text-[4rem]">
-          Free Personal Finance{" "}
-          <span className="text-brand">Calculators</span> for India
+        <h1 className="mt-7 max-w-[860px] text-[2.5rem] font-extrabold leading-[1.04] tracking-tight text-text sm:text-[3.5rem] lg:text-[4rem]">
+          India’s Smartest Personal Finance{" "}
+          <span className="text-brand">Calculators & Tools</span>
         </h1>
 
-        <p className="mt-6 max-w-[560px] text-base leading-relaxed text-text-muted sm:text-lg">
-          Plan your SIP, income tax, EMI, FD and retirement in seconds — accurate, private and instant. Every tool runs in your browser, with no sign-up.
+        <p className="mt-6 max-w-[620px] text-base leading-relaxed text-text-muted sm:text-lg">
+          Calculate SIP returns, take-home salary after tax (FY 2026-27), loan EMI, live gold rates, and IPO GMP in seconds. Accurate, private, and 100% free with no sign-up.
         </p>
 
         {/* Search is the hero's focal point. A plain GET form, so it needs no
