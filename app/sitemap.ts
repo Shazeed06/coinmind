@@ -77,6 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/comparisons",
     // IPO tracker
     "/ipos",
+    "/ipos/ntpc-green-energy-ipo",
     "/ipos/nse-ipo",
     "/ipos/reliance-jio-ipo",
     "/ipos/jio-ipo-gmp-today",

@@ -1,0 +1,177 @@
+export type IpoItem = {
+  name: string;
+  slug: string;
+  gmpSlug?: string;
+  type: "Mainboard" | "SME";
+  priceBand: string;
+  upperPrice: number;
+  lotSize: number;
+  gmp: number;
+  status: "Open" | "Upcoming" | "Closed" | "Allotment Out" | "Listed";
+  openDate: string;
+  closeDate: string;
+  listingDate?: string;
+  issueSize?: string;
+  registrar: "KFintech" | "Link Intime" | "Bigshare" | "Cameo" | "Other";
+  registrarUrl: string;
+  description?: string;
+};
+
+export const OFFICIAL_REGISTRARS = [
+  {
+    name: "KFintech IPO Status",
+    url: "https://ris.kfintech.com/ipostatus/",
+    description: "Official registrar portal for NTPC Green Energy, Reliance Jio, Hero Fincorp & more.",
+  },
+  {
+    name: "Link Intime IPO Status",
+    url: "https://linkintime.co.in/initial_offer/public-issues.html",
+    description: "Official registrar for Swiggy, Waaree Energies, Zepto, Oyo Rooms & major Mainboard IPOs.",
+  },
+  {
+    name: "Bigshare Services",
+    url: "https://ipo.bigshareonline.com/ipo_status.html",
+    description: "Primary registrar for top NSE SME and BSE SME issue allotments.",
+  },
+  {
+    name: "BSE India Application Status",
+    url: "https://www.bseindia.com/investors/appli_check.aspx",
+    description: "Direct exchange portal to verify allotment status using PAN and Application Number.",
+  },
+];
+
+export const ALL_IPOS: IpoItem[] = [
+  {
+    name: "NTPC Green Energy",
+    slug: "ntpc-green-energy-ipo",
+    gmpSlug: "ipo-gmp-today",
+    type: "Mainboard",
+    priceBand: "₹102 - ₹108",
+    upperPrice: 108,
+    lotSize: 138,
+    gmp: 3,
+    status: "Open",
+    openDate: "19 Nov 2026",
+    closeDate: "22 Nov 2026",
+    listingDate: "27 Nov 2026",
+    issueSize: "₹10,000 Cr (100% Fresh Issue)",
+    registrar: "KFintech",
+    registrarUrl: "https://ris.kfintech.com/ipostatus/",
+    description: "India's largest renewable energy PSU IPO. Funds will be used for debt repayment of NTPC Renewable Energy Ltd and green hydrogen expansion.",
+  },
+  {
+    name: "Swiggy Limited",
+    slug: "swiggy-ipo",
+    type: "Mainboard",
+    priceBand: "₹371 - ₹390",
+    upperPrice: 390,
+    lotSize: 38,
+    gmp: 18,
+    status: "Listed",
+    openDate: "6 Nov 2026",
+    closeDate: "8 Nov 2026",
+    listingDate: "13 Nov 2026",
+    issueSize: "₹11,327 Cr",
+    registrar: "Link Intime",
+    registrarUrl: "https://linkintime.co.in/initial_offer/public-issues.html",
+    description: "Food delivery & quick commerce giant listed on NSE/BSE with robust institutional backing.",
+  },
+  {
+    name: "Waaree Energies",
+    slug: "waaree-energies-ipo",
+    type: "Mainboard",
+    priceBand: "₹1,427 - ₹1,503",
+    upperPrice: 1503,
+    lotSize: 9,
+    gmp: 990,
+    status: "Listed",
+    openDate: "21 Oct 2026",
+    closeDate: "23 Oct 2026",
+    listingDate: "28 Oct 2026",
+    issueSize: "₹4,321 Cr",
+    registrar: "Link Intime",
+    registrarUrl: "https://linkintime.co.in/initial_offer/public-issues.html",
+    description: "India's solar PV module manufacturing leader delivered +66% blockbuster listing day returns.",
+  },
+  {
+    name: "Zepto (KiranaKart Technologies)",
+    slug: "zepto-ipo",
+    type: "Mainboard",
+    priceBand: "₹420 - ₹450 (Expected)",
+    upperPrice: 450,
+    lotSize: 33,
+    gmp: 125,
+    status: "Upcoming",
+    openDate: "Dec 2026",
+    closeDate: "Dec 2026",
+    issueSize: "₹3,500 Cr (Estimated)",
+    registrar: "Link Intime",
+    registrarUrl: "https://linkintime.co.in/initial_offer/public-issues.html",
+    description: "10-minute quick commerce unicorn preparing for mega domestic listing following redomicile to India.",
+  },
+  {
+    name: "Reliance Jio Platforms",
+    slug: "reliance-jio-ipo",
+    gmpSlug: "jio-ipo-gmp-today",
+    type: "Mainboard",
+    priceBand: "₹1,065 - ₹1,119 (Expected)",
+    upperPrice: 1119,
+    lotSize: 12,
+    gmp: 245,
+    status: "Upcoming",
+    openDate: "Early 2027",
+    closeDate: "Early 2027",
+    issueSize: "₹35,000 Cr+ (India's Largest Telecom Issue)",
+    registrar: "KFintech",
+    registrarUrl: "https://ris.kfintech.com/ipostatus/",
+    description: "Reliance Industries digital and telecom arm holding 480M+ 5G subscribers and enterprise cloud infrastructure.",
+  },
+  {
+    name: "Hero Fincorp",
+    slug: "hero-fincorp-ipo",
+    type: "Mainboard",
+    priceBand: "₹850 - ₹900",
+    upperPrice: 900,
+    lotSize: 16,
+    gmp: 115,
+    status: "Upcoming",
+    openDate: "Nov / Dec 2026",
+    closeDate: "Nov / Dec 2026",
+    issueSize: "₹3,668 Cr",
+    registrar: "KFintech",
+    registrarUrl: "https://ris.kfintech.com/ipostatus/",
+    description: "NBFC arm of Hero MotoCorp providing retail two-wheeler financing, SME loans, and personal credit.",
+  },
+  {
+    name: "Oyo Rooms (Oravel Stays)",
+    slug: "oyo-ipo",
+    type: "Mainboard",
+    priceBand: "₹120 - ₹135",
+    upperPrice: 135,
+    lotSize: 110,
+    gmp: 22,
+    status: "Upcoming",
+    openDate: "Q4 2026",
+    closeDate: "Q4 2026",
+    issueSize: "₹4,000 Cr",
+    registrar: "Link Intime",
+    registrarUrl: "https://linkintime.co.in/initial_offer/public-issues.html",
+    description: "Global hospitality and budget hotel aggregator reporting turnaround net profitability.",
+  },
+  {
+    name: "PhonePe Limited",
+    slug: "phonepe-ipo",
+    type: "Mainboard",
+    priceBand: "₹720 - ₹760",
+    upperPrice: 760,
+    lotSize: 19,
+    gmp: 95,
+    status: "Upcoming",
+    openDate: "Early 2027",
+    closeDate: "Early 2027",
+    issueSize: "₹8,000 Cr",
+    registrar: "KFintech",
+    registrarUrl: "https://ris.kfintech.com/ipostatus/",
+    description: "Walmart-backed market leader with ~49% UPI volume share in India.",
+  },
+];

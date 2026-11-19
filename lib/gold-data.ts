@@ -46,43 +46,65 @@ export function getGoldCity(slug: string): GoldCity | undefined {
 export type GoldRateResult = {
   price24K_10g: number;  // INR per 10g, base before city adj
   usdInr: number;
+  silverPerKg?: number;  // INR per 1000g silver
+  silver10g?: number;    // INR per 10g silver
   fetchedAt: string;     // ISO string
   source: "live" | "fallback";
 };
 
-// Fallback values when the API is unavailable (approximate Nov 2026 rates).
-// 24K gold approx ₹8,000–9,000 per gram → ₹80,000–90,000 per 10g.
-const FALLBACK_PRICE_24K_10G = 85000;
-const FALLBACK_USD_INR = 84.5;
+// Fallback values when API is temporarily unavailable
+const FALLBACK_PRICE_24K_10G = 88500;
+const FALLBACK_SILVER_KG = 98000;
+const FALLBACK_USD_INR = 84.8;
 
 export async function fetchGoldRate(): Promise<GoldRateResult> {
   try {
-    const [metalsRes, fxRes] = await Promise.all([
-      fetch("https://api.metals.live/v1/spot", { next: { revalidate: 21600 } }),
-      fetch("https://open.er-api.com/v6/latest/USD", { next: { revalidate: 21600 } }),
+    // Free Yahoo Finance public real-time market data
+    const [goldRes, silverRes, fxRes] = await Promise.all([
+      fetch("https://query1.finance.yahoo.com/v8/finance/chart/GC=F?interval=1d&range=1d", {
+        headers: { "User-Agent": "Mozilla/5.0" },
+        next: { revalidate: 3600 },
+      }),
+      fetch("https://query1.finance.yahoo.com/v8/finance/chart/SI=F?interval=1d&range=1d", {
+        headers: { "User-Agent": "Mozilla/5.0" },
+        next: { revalidate: 3600 },
+      }),
+      fetch("https://query1.finance.yahoo.com/v8/finance/chart/INR=X?interval=1d&range=1d", {
+        headers: { "User-Agent": "Mozilla/5.0" },
+        next: { revalidate: 3600 },
+      }),
     ]);
 
-    if (!metalsRes.ok || !fxRes.ok) throw new Error("API error");
+    if (!goldRes.ok || !fxRes.ok) throw new Error("API error");
 
-    const metalsData = await metalsRes.json();
+    const goldData = await goldRes.json();
     const fxData = await fxRes.json();
 
-    // metals.live returns [{ gold: 2654.44, silver: 31.41, ... }]
-    const goldUsdOz: number = Array.isArray(metalsData)
-      ? metalsData[0]?.gold
-      : metalsData?.gold;
+    const goldUsdOz: number = goldData?.chart?.result?.[0]?.meta?.regularMarketPrice;
+    const usdInr: number = fxData?.chart?.result?.[0]?.meta?.regularMarketPrice || FALLBACK_USD_INR;
 
-    const usdInr: number = fxData?.rates?.INR;
+    let silverUsdOz: number | undefined;
+    if (silverRes.ok) {
+      const silverData = await silverRes.json();
+      silverUsdOz = silverData?.chart?.result?.[0]?.meta?.regularMarketPrice;
+    }
 
     if (!goldUsdOz || !usdInr) throw new Error("Missing fields");
 
-    // 1 troy oz = 31.1035 grams
-    const pricePerGram = goldUsdOz / 31.1035;
-    const price24K_10g = Math.round(pricePerGram * 10 * usdInr);
+    // 1 troy oz = 31.1035 grams. 6% import duty applied to match domestic India bullion landing cost.
+    const pricePerGram = (goldUsdOz / 31.1035) * usdInr * 1.06;
+    const price24K_10g = Math.round(pricePerGram * 10);
+
+    const silverPerKg = silverUsdOz
+      ? Math.round((silverUsdOz / 31.1035) * 1000 * usdInr * 1.06)
+      : FALLBACK_SILVER_KG;
+    const silver10g = Math.round(silverPerKg / 100);
 
     return {
       price24K_10g,
-      usdInr,
+      usdInr: Math.round(usdInr * 100) / 100,
+      silverPerKg,
+      silver10g,
       fetchedAt: new Date().toISOString(),
       source: "live",
     };
@@ -90,6 +112,8 @@ export async function fetchGoldRate(): Promise<GoldRateResult> {
     return {
       price24K_10g: FALLBACK_PRICE_24K_10G,
       usdInr: FALLBACK_USD_INR,
+      silverPerKg: FALLBACK_SILVER_KG,
+      silver10g: Math.round(FALLBACK_SILVER_KG / 100),
       fetchedAt: new Date().toISOString(),
       source: "fallback",
     };
@@ -129,5 +153,20 @@ export function computeCityRates(base24K_10g: number, adj24K: number) {
       "10g":  { base: p18K_10g,           gst: withGst(p18K_10g)           },
       "100g": { base: for100g(p18K_10g),  gst: withGst(for100g(p18K_10g)) },
     },
+  };
+}
+
+export function computeSilverRates(baseSilverPerKg: number) {
+  const per1000g = baseSilverPerKg;
+  const per100g = Math.round(per1000g / 10);
+  const per10g = Math.round(per1000g / 100);
+  const per1g = Math.round(per1000g / 1000);
+  const withGst = (p: number) => Math.round(p * 1.03);
+
+  return {
+    "1g": { base: per1g, gst: withGst(per1g) },
+    "10g": { base: per10g, gst: withGst(per10g) },
+    "100g": { base: per100g, gst: withGst(per100g) },
+    "1kg": { base: per1000g, gst: withGst(per1000g) },
   };
 }

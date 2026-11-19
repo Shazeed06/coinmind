@@ -55,75 +55,47 @@ type IPO = {
   result?: string;
 };
 
-// Currently open for subscription (as of 25 Oct 2026)
+// Currently open for subscription (November 2026)
 const OPEN: IPO[] = [
   {
-    name: "EAAA India Alternatives",
-    slug: "eaaa-india-alternatives-ipo",
+    name: "NTPC Green Energy",
+    slug: "ntpc-green-energy-ipo",
     type: "Mainboard",
-    open: "26 Oct 2026",
-    close: "28 Oct 2026",
-    priceBand: "₹1,585-₹1,665",
-    lotSize: "9 shares",
-    gmp: "₹42",
-    gmpPct: "+2.5%",
+    open: "19 Nov 2026",
+    close: "22 Nov 2026",
+    priceBand: "₹102 - ₹108",
+    lotSize: "138 shares",
+    gmp: "₹3",
+    gmpPct: "+2.8%",
     status: "Open",
-    listingDate: "2 Nov 2026",
-    issueSize: "₹1,200 cr OFS",
-  },
-  {
-    name: "SFC Environmental Technologies",
-    slug: "sfc-environmental-technologies-ipo",
-    type: "Mainboard",
-    open: "27 Oct 2026",
-    close: "29 Oct 2026",
-    priceBand: "₹313-₹330",
-    lotSize: "45 shares",
-    gmp: "₹32",
-    gmpPct: "+9.7%",
-    status: "Open",
-    listingDate: "3 Nov 2026",
-    issueSize: "₹667.53 cr",
+    listingDate: "27 Nov 2026",
+    issueSize: "₹10,000 cr (Fresh Issue)",
   },
 ];
 
 // Subscription closed, heading to allotment & listing
 const CLOSED: IPO[] = [
   {
-    name: "Reliance Jio Platforms",
-    slug: "reliance-jio-ipo",
+    name: "Zinka Logistics (BlackBuck)",
     type: "Mainboard",
-    open: "21 Oct 2026",
-    close: "23 Oct 2026",
-    priceBand: "₹1,065-₹1,119",
-    lotSize: "12 shares",
-    gmp: "₹248",
-    gmpPct: "+22%",
-    status: "Listing Soon",
-    listingDate: "28 Oct 2026",
-    issueSize: "₹30,213 cr · subscribed ~21.4x",
-  },
-  {
-    name: "Paras Healthcare",
-    type: "Mainboard",
-    open: "21 Oct 2026",
-    close: "23 Oct 2026",
-    priceBand: "₹660-₹693",
-    lotSize: "21 shares",
-    gmp: "₹92",
-    gmpPct: "+13%",
-    status: "Listing Soon",
-    listingDate: "28 Oct 2026",
-    issueSize: "₹1,450 cr",
+    open: "13 Nov 2026",
+    close: "18 Nov 2026",
+    priceBand: "₹259 - ₹273",
+    lotSize: "54 shares",
+    gmp: "₹24",
+    gmpPct: "+8.8%",
+    status: "Allotment",
+    listingDate: "21 Nov 2026",
+    issueSize: "₹1,114.72 cr",
   },
 ];
 
 // Recently listed
 const LISTED: IPO[] = [
-  { name: "Tonbo Imaging India", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹665-₹700", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹852 cr" },
-  { name: "Bonfiglioli Transmissions", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹558-₹586", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹2,534 cr" },
-  { name: "Sahajanand Medical Technologies", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹327-₹344", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹475 cr" },
-  { name: "Zetwerk Manufacturing", type: "Mainboard", open: "15 Oct 2026", close: "19 Oct 2026", priceBand: "₹143-₹151", status: "Listed", listingDate: "23 Oct 2026", issueSize: "₹5,012 cr" },
+  { name: "Swiggy Limited", type: "Mainboard", open: "6 Nov 2026", close: "8 Nov 2026", priceBand: "₹371 - ₹390", status: "Listed", listingDate: "13 Nov 2026", issueSize: "₹11,327 cr" },
+  { name: "Waaree Energies", type: "Mainboard", open: "21 Oct 2026", close: "23 Oct 2026", priceBand: "₹1,427 - ₹1,503", status: "Listed", listingDate: "28 Oct 2026", issueSize: "₹4,321 cr (Listed +66%)" },
+  { name: "EAAA India Alternatives", slug: "eaaa-india-alternatives-ipo", type: "Mainboard", open: "26 Oct 2026", close: "28 Oct 2026", priceBand: "₹1,585 - ₹1,665", status: "Listed", listingDate: "2 Nov 2026", issueSize: "₹1,200 cr" },
+  { name: "SFC Environmental Technologies", slug: "sfc-environmental-technologies-ipo", type: "Mainboard", open: "27 Oct 2026", close: "29 Oct 2026", priceBand: "₹313 - ₹330", status: "Listed", listingDate: "3 Nov 2026", issueSize: "₹667.53 cr" },
   {
     name: "National Stock Exchange (NSE)",
     slug: "nse-ipo",
