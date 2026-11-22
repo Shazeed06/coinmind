@@ -20,10 +20,8 @@ export async function generateMetadata({
   const detail = detailBySlug(slug);
   const tool = detail && aiTools.find((t) => t.name === detail.name);
   if (!detail || !tool) return {};
-  const rawTitle = `${tool.name} Review: Pricing & Features`;
-  const title = rawTitle.length > 60 ? `${tool.name} Review` : rawTitle;
-  const rawDesc = `Our ${tool.name} review for Indian users: pricing in rupees, features, pros and cons, alternatives, and FAQs.`;
-  const description = rawDesc.length > 155 ? rawDesc.slice(0, 152) + "…" : rawDesc;
+  const title = `${tool.name} AI Review (2026): Free Access, Pricing & Features`;
+  const description = `Complete ${tool.name} AI review (2026): free access guide, features, Indian pricing in INR, benchmarks, pros & cons, and best alternatives.`;
   return {
     title: { absolute: title },
     description,

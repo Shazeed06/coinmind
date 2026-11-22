@@ -47,7 +47,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
-    robots: { index: TOP_INHAND_LPA.has(lpa), follow: true },
+    robots: { index: true, follow: true },
     alternates: { canonical: `/in-hand-salary/${slug}` },
     openGraph: {
       type: "article",

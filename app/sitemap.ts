@@ -141,11 +141,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Finance-relevant browser tools
   FINANCE_TOOLS.forEach((t) => entries.push({ path: `/tools/${t}` }));
 
-  // Top searched in-hand salary bands (top 15 LPA only)
-  INHAND_SLUGS.filter((s) => {
-    const lpa = parseLpaSlug(s);
-    return lpa !== null && TOP_INHAND_LPA.has(lpa);
-  }).forEach((s) => entries.push({ path: `/in-hand-salary/${s}` }));
+  // In-hand salary calculation pages (all salary bands)
+  INHAND_SLUGS.forEach((s) => entries.push({ path: `/in-hand-salary/${s}` }));
 
   // Gold & petrol rates by city
   GOLD_CITY_SLUGS.forEach((s) => entries.push({ path: `/gold-rate/${s}` }));
