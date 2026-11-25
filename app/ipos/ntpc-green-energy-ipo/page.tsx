@@ -105,7 +105,7 @@ export default function NtpcGreenEnergyIpoPage() {
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 border border-emerald-200">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Open Now (19 - 22 Nov 2026)
+              Allotment Status Out (25 Nov 2026) · Check Online
             </span>
             <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2.5 py-1 text-xs font-medium text-sky-700 border border-sky-200">
               Mainboard PSU
