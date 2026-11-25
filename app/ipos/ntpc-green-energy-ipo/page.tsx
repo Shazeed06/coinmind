@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import IpoDematCta from "@/components/IpoDematCta";
 import { ExternalLink, CheckCircle2, AlertCircle, TrendingUp, ShieldCheck } from "lucide-react";
 
@@ -66,22 +67,44 @@ const GMP_TREND = [
   { date: "15 Nov 2026", gmp: "₹1.50", upperPrice: "₹108", expListing: "₹109.50", gain: "+1.4%" },
 ];
 
+const NTPC_FAQS = [
+  {
+    q: "How to check NTPC Green Energy IPO allotment status online?",
+    a: "Visit KFintech's official IPO status portal (ris.kfintech.com/ipostatus/), choose NTPC Green Energy Limited, enter your PAN or Application Number, and click Submit. Allotment is finalised on 25 November 2026.",
+  },
+  {
+    q: "What is the NTPC Green Energy IPO price band and lot size?",
+    a: "The price band is ₹102 to ₹108 per share with a minimum retail lot size of 138 shares (₹14,904 investment at the upper price band of ₹108). Employees received a ₹5/share discount.",
+  },
+  {
+    q: "When is the NTPC Green Energy IPO listing date?",
+    a: "Shares of NTPC Green Energy Ltd are scheduled to list on both BSE and NSE on 27 November 2026 at 10:00 AM IST, following Demat share credit on 26 November 2026.",
+  },
+  {
+    q: "What is the NTPC Green Energy IPO GMP today?",
+    a: "Indicative unofficial GMP is around +₹3 per share (+2.8% over the ₹108 upper price band), suggesting an estimated listing price near ₹111. Remember that GMP is unregulated sentiment, not a guarantee.",
+  },
+];
+
 export default function NtpcGreenEnergyIpoPage() {
   const todayFormatted = new Date().toLocaleDateString("en-IN", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "NTPC Green Energy IPO: Price Band ₹102-108, Live GMP & Allotment Review",
-    datePublished: "2026-11-19T09:00:00+05:30",
-    dateModified: "2026-11-19T18:00:00+05:30",
-    author: { "@type": "Person", name: "Sahil", jobTitle: "Lead Financial Analyst" },
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
-    description: "Detailed analysis of NTPC Green Energy IPO with issue structure, live GMP, valuation, and KFintech allotment link.",
-  };
+  const schema = graph([
+    article(
+      "NTPC Green Energy IPO: Price Band ₹102-108, Live GMP & Allotment Review",
+      "Detailed analysis of NTPC Green Energy IPO with issue structure, live GMP, valuation, and KFintech allotment link.",
+      new Date().toISOString().split("T")[0]
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "IPO Tracker", path: "/ipos" },
+      { name: "NTPC Green Energy IPO", path: "/ipos/ntpc-green-energy-ipo" },
+    ]),
+    faqPage(NTPC_FAQS),
+  ]);
 
   return (
     <>
@@ -268,6 +291,19 @@ export default function NtpcGreenEnergyIpoPage() {
             <li>Enter your PAN number and the Captcha code shown on the screen.</li>
             <li>Click <strong>Submit</strong> to view your allotment details and allotted share quantity.</li>
           </ol>
+        </section>
+
+        {/* FAQs */}
+        <section className="space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-text">NTPC Green Energy IPO FAQs</h2>
+          <div className="space-y-3">
+            {NTPC_FAQS.map((f) => (
+              <div key={f.q} className="rounded-xl border border-border bg-white p-4 shadow-sm">
+                <h3 className="text-sm font-bold text-text">{f.q}</h3>
+                <p className="mt-1 text-sm text-text-muted leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Demat CTA */}

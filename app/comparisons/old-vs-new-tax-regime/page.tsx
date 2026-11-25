@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "Old vs New Tax Regime FY 2026-27: Which Is Better for You?" },
+  title: { absolute: "Old vs New Tax Regime FY 2026-27: Which Saves More Tax?" },
   description: "Old vs new income tax regime comparison for FY 2026-27. Breakeven deductions, slab rates, who should switch - with real examples for ₹8L to ₹50L income.",
+  keywords: ["old vs new tax regime fy 2026-27", "which tax regime is better", "new tax regime 12 lakh limit", "tax regime breakeven"],
   alternates: { canonical: `${site.url}/comparisons/old-vs-new-tax-regime` },
   openGraph: {
     locale: "en_IN",
@@ -46,9 +48,39 @@ const EXAMPLES = [
   { income: "₹30 lakh", newTax: "₹4,60,000", oldTax: "₹4,60,000 (with ~₹8L deductions)", winner: "Tie", note: "Very high deductions needed to match new regime" },
 ];
 
+const TAX_COMP_FAQS = [
+  {
+    q: "Which tax regime is better for ₹12 lakh to ₹15 lakh salary in FY 2026-27?",
+    a: "Under FY 2026-27 rules, taxable income up to ₹12 lakh pays ₹0 tax in the New Tax Regime via Section 87A rebate. At ₹15 lakh, the New Regime generally wins unless your Old Regime deductions exceed ~₹4.25 lakh.",
+  },
+  {
+    q: "Can salaried employees switch between Old and New Tax Regime every year?",
+    a: "Yes. Salaried individuals with no business income can switch regimes every financial year while filing their ITR, regardless of what they declared to their employer for TDS.",
+  },
+  {
+    q: "What deductions are allowed in the New Tax Regime?",
+    a: "Salaried employees get the ₹75,000 standard deduction and employer NPS contribution under Section 80CCD(2) (up to 14% of basic salary). Sections 80C, 80D, and HRA are not available.",
+  },
+];
+
 export default function OldVsNewTaxRegimePage() {
+  const schema = graph([
+    article(
+      "Old vs New Tax Regime FY 2026-27: Which Saves More Tax?",
+      "Slab-by-slab comparison of Old vs New income tax regime for FY 2026-27 with breakeven examples.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "Old vs New Tax Regime", path: "/comparisons/old-vs-new-tax-regime" },
+    ]),
+    faqPage(TAX_COMP_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← All comparisons</Link>
       </div>
@@ -181,6 +213,16 @@ export default function OldVsNewTaxRegimePage() {
         <Link href="/calculators/income-tax" className="mt-4 inline-block rounded-xl bg-forest px-5 py-2.5 text-sm font-semibold text-white hover:bg-forest/90 transition-colors">
           Open Income Tax Calculator →
         </Link>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">Old vs New Tax Regime FAQs</h2>
+        {TAX_COMP_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line">

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "PPF vs FD: Which Is Better in 2026? Returns & Tax Compared" },
-  description: "PPF vs Fixed Deposit for Indian investors: current rates, post-tax returns, lock-in and flexibility compared. With a clear verdict for 2026.",
+  title: { absolute: "PPF vs FD (2026): 7.1% Tax-Free vs Fixed Deposit Post-Tax Return" },
+  description: "PPF vs Fixed Deposit for Indian investors: current rates (7.1% PPF vs 6.5-7.5% FD), post-tax returns, lock-in and flexibility compared.",
+  keywords: ["ppf vs fd", "ppf vs fixed deposit 2026", "ppf vs fd post tax return", "which is better ppf or fd"],
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-fd` },
   openGraph: {
     locale: "en_IN",
@@ -34,9 +36,35 @@ const TABLE = [
   { param: "Senior citizen benefit", ppf: "No extra rate for seniors", fd: "+0.25-0.5% extra for senior citizens" },
 ];
 
+const PPF_FD_FAQS = [
+  {
+    q: "Which gives higher post-tax returns in 2026: PPF or FD?",
+    a: "For anyone in the 20% or 30% income tax slab, PPF (7.1% completely tax-free) beats bank FDs (which drop to ~4.5–5.3% post-tax in the 30% bracket). You would need a ~10.1% pre-tax FD to match 7.1% PPF.",
+  },
+  {
+    q: "When is Fixed Deposit better than PPF?",
+    a: "FD is better for goals under 5 years, emergency funds, monthly interest payouts, or senior citizens earning +0.50% extra who fall in a low or nil tax bracket.",
+  },
+];
+
 export default function PpfVsFdPage() {
+  const schema = graph([
+    article(
+      "PPF vs FD (2026): Tax-Free Return vs Fixed Deposit Compared",
+      "Comparison of Public Provident Fund (PPF) and Bank Fixed Deposits in India for 2026.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "PPF vs FD", path: "/comparisons/ppf-vs-fd" },
+    ]),
+    faqPage(PPF_FD_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← All comparisons</Link>
       </div>
@@ -101,6 +129,16 @@ export default function PpfVsFdPage() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">PPF vs FD FAQs</h2>
+        {PPF_FD_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line">

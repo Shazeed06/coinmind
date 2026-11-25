@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "NPS Tier 1 vs Tier 2 - Difference, Tax & Which to Use",
-  description: "NPS Tier 1 vs Tier 2: key differences in lock-in, tax benefits, withdrawal rules and when to use each account. Complete guide for Indian investors.",
+  title: { absolute: "NPS Tier 1 vs Tier 2 (2026): Tax Benefits, Lock-In & Rules" },
+  description: "NPS Tier 1 vs Tier 2: key differences in lock-in, tax benefits (80CCD(1B) & 80CCD(2)), withdrawal rules and when to use each account.",
+  keywords: ["nps tier 1 vs tier 2", "nps tier 2 tax benefits", "nps withdrawal rules", "nps 80ccd 1b"],
   alternates: { canonical: `${site.url}/comparisons/nps-tier-1-vs-tier-2` },
   openGraph: {
     locale: "en_IN",
@@ -36,9 +38,39 @@ const TABLE = [
   { param: "Pension / annuity", t1: "40% must go to annuity at 60 (monthly pension)", t2: "No annuity requirement" },
 ];
 
+const NPS_FAQS = [
+  {
+    q: "Can I open an NPS Tier 2 account without NPS Tier 1?",
+    a: "No. An active NPS Tier 1 account is mandatory before you can open an NPS Tier 2 account.",
+  },
+  {
+    q: "Are there any tax benefits on NPS Tier 2 for private employees?",
+    a: "No. Private sector and self-employed subscribers receive no Section 80C or 80CCD tax deduction on Tier 2 contributions, and gains are taxed at slab rates. Only Central Government employees get Section 80C benefit on Tier 2 with a 3-year lock-in.",
+  },
+  {
+    q: "What is the total tax deduction available in NPS Tier 1?",
+    a: "Tier 1 allows ₹1.5L under 80CCD(1) within 80C, an extra ₹50,000 under 80CCD(1B), and employer contribution under 80CCD(2) (eligible even in the New Tax Regime).",
+  },
+];
+
 export default function NpsTier1VsTier2Page() {
+  const schema = graph([
+    article(
+      "NPS Tier 1 vs Tier 2 (2026): Tax Benefits, Lock-In & Rules",
+      "Comparison of NPS Tier 1 and Tier 2 accounts in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "NPS Tier 1 vs Tier 2", path: "/comparisons/nps-tier-1-vs-tier-2" },
+    ]),
+    faqPage(NPS_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -98,6 +130,16 @@ export default function NpsTier1VsTier2Page() {
       <section className="mt-8 rounded-xl bg-paper-2 border border-line p-5">
         <p className="font-semibold text-ink mb-2">When to use Tier 2</p>
         <p className="text-sm text-ink-soft">Tier 2 is useful for government employees (Central Government employees get Tier 2 as a tax-saving option under Section 80C with a 3-year lock-in). For private sector employees, Tier 2 is mostly a curiosity - a liquid investment with NPS fund management, but no tax edge over a regular mutual fund.</p>
+      </section>
+
+      <section className="mt-8 space-y-3">
+        <h2 className="font-display text-xl text-ink">NPS Tier 1 vs Tier 2 FAQs</h2>
+        {NPS_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

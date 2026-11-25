@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "EPF Interest Rate History (2000-2026): All EPFO Rates" },
-  description: "Complete EPF interest rate history from 2000 to 2026. All EPFO-declared Employee Provident Fund rates, year by year, with official sources.",
+  title: { absolute: "EPF Interest Rate Today (2026): 8.25% + History (2000–2026)" },
+  description: "Current EPFO Provident Fund interest rate is 8.25% p.a. View complete EPF interest rate history from 1999-2000 to 2026, tax rules above ₹2.5L & EPF calculator.",
+  keywords: ["epf interest rate 2026", "epfo interest rate history", "pf interest rate today", "current epf rate 8.25"],
   alternates: { canonical: `${site.url}/research/epf-rate-history` },
   openGraph: {
     locale: "en_IN",
@@ -50,9 +52,39 @@ const EPF_RATES = [
   { year: "1999-2000", rate: "12.00%", notes: "Historical high in modern era" },
 ];
 
+const EPF_FAQS = [
+  {
+    q: "What is the current EPF interest rate declared by EPFO?",
+    a: "The latest EPFO-declared Employee Provident Fund (EPF) interest rate is 8.25% per annum (for FY 2024-25, declared in March 2025). Interest is calculated on monthly running balances and credited annually.",
+  },
+  {
+    q: "Is EPF interest taxable in India?",
+    a: "EPF interest is completely tax-free up to ₹2.5 lakh of employee contribution per financial year (₹5 lakh if there is no employer contribution). Interest earned on employee contributions above ₹2.5 lakh/year is taxable at your slab rate.",
+  },
+  {
+    q: "Which is better for salaried retirement savings: EPF (8.25%) or PPF (7.10%)?",
+    a: "EPF offers a higher interest rate (8.25% vs 7.10%) plus mandatory employer matching contribution, making it stronger for salaried employees. PPF is useful for self-employed individuals or extra tax-free savings beyond EPF.",
+  },
+];
+
 export default function EpfRateHistoryPage() {
+  const schema = graph([
+    article(
+      "EPF Interest Rate Today (2026): 8.25% + History (2000–2026)",
+      "Year-by-year EPF interest rates declared by EPFO from official notifications.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Research Hub", path: "/research" },
+      { name: "EPF Rate History", path: "/research/epf-rate-history" },
+    ]),
+    faqPage(EPF_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
@@ -113,6 +145,16 @@ export default function EpfRateHistoryPage() {
         <p className="mt-2 text-sm text-ink-soft">
           Note: Contributions made after March 2021 above ₹2.5 lakh/year (employee contribution) attract tax on the interest earned - this changed with Finance Act 2021.
         </p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">EPF Interest Rate FAQs</h2>
+        {EPF_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "RBI Repo Rate History 2010-2026 - All MPC Decisions",
-  description: "Complete RBI repo rate history from 2010 to 2026. All Monetary Policy Committee (MPC) rate decisions, dates and reasons. Official data from RBI.",
+  title: { absolute: "RBI Repo Rate Today (2026): 5.75% + History (2010–2026)" },
+  description: "Current RBI repo rate is 5.75%. Check complete RBI Monetary Policy Committee (MPC) repo rate history from 2010 to 2026 & home loan EMI / FD impact.",
+  keywords: ["rbi repo rate today", "current rbi repo rate 2026", "rbi repo rate history", "rbi mpc decisions"],
   alternates: { canonical: `${site.url}/research/rbi-repo-rate-history` },
   openGraph: {
     locale: "en_IN",
@@ -58,9 +60,39 @@ const REPO_RATES = [
   { date: "Mar 2012 - Sep 2013", rate: "7.25-8.00%", change: "Various", action: "Various" },
 ];
 
+const REPO_FAQS = [
+  {
+    q: "What is the current RBI repo rate in November 2026?",
+    a: "The RBI repo rate stands at 5.75%, following three consecutive 0.25% rate cuts in February, April, and June 2025 from the 2023–25 peak of 6.50%.",
+  },
+  {
+    q: "How does an RBI repo rate cut affect my home loan EMI and FD rates?",
+    a: "Floating-rate home loans linked to external benchmarks (RLLR/EBLR) pass repo cuts on to borrowers, reducing monthly EMIs or loan tenure. Conversely, banks tend to lower fixed deposit (FD) interest rates after repo cuts.",
+  },
+  {
+    q: "What was the lowest and highest RBI repo rate between 2012 and 2026?",
+    a: "During this period, the repo rate peaked at 8.00% (2012–2014) and hit a pandemic-era low of 4.00% between May 2020 and April 2022.",
+  },
+];
+
 export default function RbiRepoRateHistoryPage() {
+  const schema = graph([
+    article(
+      "RBI Repo Rate Today (2026): 5.75% + Full History (2010–2026)",
+      "Complete RBI Monetary Policy Committee (MPC) repo rate history from 2010 to 2026.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Research Hub", path: "/research" },
+      { name: "RBI Repo Rate History", path: "/research/rbi-repo-rate-history" },
+    ]),
+    faqPage(REPO_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
@@ -129,6 +161,16 @@ export default function RbiRepoRateHistoryPage() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">RBI Repo Rate FAQs</h2>
+        {REPO_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

@@ -1,10 +1,12 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "SIP vs FD: Which Is Better in 2026? Returns & Tax Compared" },
-  description: "SIP vs Fixed Deposit: detailed comparison of returns, tax treatment, liquidity and risk for Indian investors in 2026. With real numbers and a verdict.",
+  title: { absolute: "SIP vs FD (2026): Returns, Tax & 10-Year Wealth Compared" },
+  description: "SIP vs Fixed Deposit: detailed comparison of returns (10-12% vs 6.5-7.5%), LTCG tax vs slab rate, liquidity and risk for Indian investors in 2026.",
+  keywords: ["sip vs fd", "mutual fund sip vs fixed deposit", "sip vs fd 2026", "which is better sip or fd"],
   alternates: { canonical: `${site.url}/comparisons/sip-vs-fd` },
   openGraph: {
     locale: "en_IN",
@@ -28,9 +30,35 @@ const COMPARISON_TABLE = [
   { param: "80C benefit", sip: "ELSS only (3-yr lock-in)", fd: "5-year tax-saving FD (5-yr lock-in)" },
 ];
 
+const SIP_FD_FAQS = [
+  {
+    q: "How much more does ₹10,000/month in SIP earn than an FD over 10 years?",
+    a: "On ₹12 lakh total invested over 10 years, an equity SIP at 11% CAGR grows to ~₹21.87 lakh (₹9.87L gain), compared to ~₹17.31 lakh (₹5.31L gain) in a 7% FD — plus SIPs benefit from lower LTCG tax (12.5% above ₹1.25L/yr).",
+  },
+  {
+    q: "When should I choose a Fixed Deposit instead of an equity SIP?",
+    a: "Choose an FD when your goal is within 1–3 years (such as an emergency fund or house down payment) or when guaranteed principal safety matters more than inflation-beating returns.",
+  },
+];
+
 export default function SipVsFdPage() {
+  const schema = graph([
+    article(
+      "SIP vs FD (2026): Returns, Tax & 10-Year Wealth Compared",
+      "Comparison of equity mutual fund SIP and Fixed Deposits in India for 2026.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "SIP vs FD", path: "/comparisons/sip-vs-fd" },
+    ]),
+    faqPage(SIP_FD_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← All comparisons</Link>
       </div>
@@ -147,6 +175,17 @@ export default function SipVsFdPage() {
             </ul>
           </div>
         </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">SIP vs FD FAQs</h2>
+        {SIP_FD_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       {/* Related */}

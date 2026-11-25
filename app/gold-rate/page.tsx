@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { GOLD_CITIES, fetchGoldRate, computeCityRates } from "@/lib/gold-data";
-import { graph, breadcrumb, collectionPage } from "@/lib/ld";
+import { graph, breadcrumb, collectionPage, faqPage } from "@/lib/ld";
 import GoldBillCalculator from "@/components/GoldBillCalculator";
 
 export const revalidate = 3600; // 1 hour background revalidation
@@ -28,6 +28,26 @@ export default async function Page() {
   const todayShort = new Date().toLocaleDateString("en-IN", {
     day: "numeric", month: "long", year: "numeric",
   });
+  const indiaRates = computeCityRates(rateResult.price24K_10g, 0);
+
+  const faqs = [
+    {
+      q: "What is the gold rate today in India for 22K and 24K?",
+      a: `Today's indicative base gold rate in India is ₹${indiaRates["24K"]["10g"].base.toLocaleString("en-IN")} per 10g for 24K (99.9% pure) gold and ₹${indiaRates["22K"]["10g"].base.toLocaleString("en-IN")} per 10g for 22K (91.6% hallmark) gold before 3% GST and making charges.`,
+    },
+    {
+      q: "How much GST and making charges apply on gold jewellery in India?",
+      a: "A mandatory 3% GST applies on the raw gold metal value, plus 5% GST on jeweller making charges. Jewellery making charges typically range from 8% to 25% (or ₹400–₹1,200 per gram) depending on design complexity.",
+    },
+    {
+      q: "Why do gold prices vary between Delhi, Mumbai, Pune and Chennai?",
+      a: "Gold rates differ slightly by ₹50–₹500 per 10g across Indian cities due to bullion transport insurance, local jewellers association benchmarks, and state-level supply-demand premiums.",
+    },
+    {
+      q: "How can I verify if 22K gold jewellery is genuine in India?",
+      a: "Always check for the BIS Hallmark carrying three symbols: the triangular BIS logo, purity grade (e.g. 22K916), and a unique 6-digit alphanumeric HUID code that you can verify instantaneously on the official BIS Care mobile app.",
+    },
+  ];
 
   const jsonLd = graph([
     breadcrumb([
@@ -39,6 +59,7 @@ export default async function Page() {
       "Live gold rate today in all major Indian cities — 22K and 24K prices.",
       GOLD_CITIES.map((c) => ({ name: `Gold Rate in ${c.name}`, url: `/gold-rate/${c.slug}` }))
     ),
+    faqPage(faqs),
   ]);
 
   return (
@@ -148,6 +169,19 @@ export default async function Page() {
         >
           Diesel price today →
         </Link>
+      </section>
+
+      {/* FAQs */}
+      <section className="mt-12 space-y-4">
+        <h2 className="font-display text-xl text-ink">Gold Rate &amp; Purity FAQs</h2>
+        <div className="space-y-3">
+          {faqs.map((f) => (
+            <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+              <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+              <p className="mt-1 text-sm text-ink-soft leading-relaxed">{f.a}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <p className="mt-8 text-xs text-ink-faint">

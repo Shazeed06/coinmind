@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { fetchGoldRate, computeSilverRates, GOLD_CITIES } from "@/lib/gold-data";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import GoldBillCalculator from "@/components/GoldBillCalculator";
 import { Sparkles, TrendingUp, ShieldCheck, HelpCircle, ArrowRight } from "lucide-react";
 
@@ -73,15 +74,19 @@ export default async function SilverRatePage() {
     },
   ];
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Silver Rate Today in India: 1 Kg, 100g & 10g Chandi Price",
-    datePublished: "2026-11-19T09:00:00+05:30",
-    dateModified: new Date().toISOString(),
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
-    description: "Live silver rate in India with 1kg, 100g, 10g and 1g price breakdown, GST rates, and interactive jewellery invoice calculator.",
-  };
+  const schema = graph([
+    article(
+      "Silver Rate Today in India: 1 Kg, 100g & 10g Chandi Price",
+      "Live silver rate in India with 1kg, 100g, 10g and 1g price breakdown, GST rates, and interactive jewellery invoice calculator.",
+      new Date().toISOString().split("T")[0]
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Gold Rate", path: "/gold-rate" },
+      { name: "Silver Rate Today", path: "/silver-rate" },
+    ]),
+    faqPage(faqs),
+  ]);
 
   return (
     <>

@@ -43,7 +43,7 @@ export default function StructuredData() {
       description: site.description,
       url: site.url,
       datePublished: "2026-01-01",
-      dateModified: "2026-09-04",
+      dateModified: "2026-11-25",
       mainEntity: { "@type": "ItemList", itemListElement: liveCalcs.slice(0, 20).map((c, i) => ({ "@type": "ListItem", position: i + 1, url: `${site.url}/calculators/${c.slug}` })) },
     },
     {

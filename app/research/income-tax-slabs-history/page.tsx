@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: { absolute: "Income Tax Slab History India (2014-2026): Old vs New" },
-  description: "Complete income tax slab history for India: new regime slabs for every year since FY 2020-21, and old regime history since FY 2014-15. Official data.",
+  title: { absolute: "Income Tax Slabs FY 2026-27 & History (2014–2026): Old vs New" },
+  description: "Current FY 2026-27 New Tax Regime slabs (₹0 tax up to ₹12 lakh) plus complete Indian income tax slab history since FY 2014-15.",
+  keywords: ["income tax slabs fy 2026-27", "new tax regime slabs 2026", "income tax slab history india", "old vs new tax slabs"],
   alternates: { canonical: `${site.url}/research/income-tax-slabs-history` },
   openGraph: {
     locale: "en_IN",
@@ -21,9 +23,35 @@ export const metadata: Metadata = {
   },
 };
 
+const TAX_HISTORY_FAQS = [
+  {
+    q: "What are the current New Tax Regime slabs for FY 2026-27?",
+    a: "For FY 2026-27: Up to ₹4L is Nil, ₹4–8L is 5%, ₹8–12L is 10%, ₹12–16L is 15%, ₹16–20L is 20%, ₹20–24L is 25%, and above ₹24L is 30%. With Section 87A rebate (up to ₹60,000) and ₹75,000 standard deduction, salaried income up to ₹12.75 lakh pays zero tax.",
+  },
+  {
+    q: "Did Old Tax Regime slabs change in FY 2026-27?",
+    a: "No. Old Tax Regime slabs (Nil up to ₹2.5L, 5% for ₹2.5–5L, 20% for ₹5–10L, 30% above ₹10L) have remained unchanged since FY 2014-15.",
+  },
+];
+
 export default function IncomeTaxSlabsHistoryPage() {
+  const schema = graph([
+    article(
+      "Income Tax Slabs FY 2026-27 & History (2014–2026)",
+      "New and old tax regime slabs in India from FY 2014-15 through FY 2026-27.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Research Hub", path: "/research" },
+      { name: "Income Tax Slabs History", path: "/research/income-tax-slabs-history" },
+    ]),
+    faqPage(TAX_HISTORY_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/research" className="text-xs text-ink-faint hover:text-forest">← Research Hub</Link>
       </div>
@@ -147,6 +175,16 @@ export default function IncomeTaxSlabsHistoryPage() {
           </table>
         </div>
         <p className="mt-2 text-xs text-ink-faint">Standard deduction: ₹50,000 (from FY 2018-19). 87A rebate: up to ₹12,500 (zero tax up to ₹5 lakh). Plus 4% health and education cess on all tax.</p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">Income Tax Slab FAQs</h2>
+        {TAX_HISTORY_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

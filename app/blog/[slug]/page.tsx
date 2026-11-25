@@ -775,9 +775,15 @@ function getRelatedResources(category: string, slug: string) {
       hub: { label: "SIP Hub", href: "/sip" },
     };
   }
+  if (s.includes("silver")) {
+    return {
+      calc: { label: "Live Silver Rate & Bill Calculator", href: "/silver-rate", desc: "Check 999 & 925 silver rate + 3% GST bill" },
+      hub: { label: "Live Gold Rate Hub", href: "/gold-rate" },
+    };
+  }
   if (s.includes("gold") || s.includes("sgb")) {
     return {
-      calc: { label: "Compound Interest Calculator", href: "/calculators/compound-interest", desc: "Calculate compounding growth" },
+      calc: { label: "Live Gold Rate & Bill Calculator", href: "/gold-rate", desc: "Today's 22K/24K rate + making charges + GST" },
       hub: { label: "Gold Guide Hub", href: "/gold" },
     };
   }
