@@ -73,11 +73,76 @@ export default function Page() {
                     <td className="p-3">₹1,500 – ₹3,500</td>
                   </tr>
                   <tr className="hover:bg-paper-2">
+                    <td className="p-3 font-semibold text-ink">2 Million Views (20 Lakh)</td>
+                    <td className="p-3">₹80,000 – ₹1,40,000</td>
+                    <td className="p-3">₹3,00,000 – ₹5,00,000</td>
+                    <td className="p-3">₹5,00,000 – ₹9,00,000</td>
+                    <td className="p-3">₹3,000 – ₹7,000</td>
+                  </tr>
+                  <tr className="hover:bg-paper-2">
                     <td className="p-3 font-semibold text-ink">5 Million Views</td>
                     <td className="p-3">₹2,00,000 – ₹3,50,000</td>
                     <td className="p-3">₹7,50,000 – ₹12,50,000</td>
                     <td className="p-3">₹12,50,000 – ₹22,50,000</td>
                     <td className="p-3">₹7,500 – ₹17,500</td>
+                  </tr>
+                  <tr className="hover:bg-paper-2">
+                    <td className="p-3 font-semibold text-ink">10 Million Views (1 Cr)</td>
+                    <td className="p-3">₹4,00,000 – ₹7,00,000</td>
+                    <td className="p-3">₹15,00,000 – ₹25,00,000</td>
+                    <td className="p-3">₹25,00,000 – ₹45,00,000</td>
+                    <td className="p-3">₹15,000 – ₹35,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="text-lg font-bold text-ink mt-6 mb-2">
+              YouTube Monthly Salary by Subscriber Count in India (2026)
+            </h3>
+            <p>
+              While YouTube pays per view rather than per subscriber, active channels in India show predictable monthly income ranges based on subscriber tier (AdSense + average brand sponsorships):
+            </p>
+            <div className="overflow-x-auto my-4">
+              <table className="w-full text-left text-xs border border-line rounded-xl overflow-hidden">
+                <thead className="bg-paper-2 text-ink uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th className="p-3">Subscriber Tier</th>
+                    <th className="p-3">Typical Monthly Views</th>
+                    <th className="p-3">Est. AdSense / Month</th>
+                    <th className="p-3">Total With Sponsorships</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-line text-ink-soft">
+                  <tr className="hover:bg-paper-2">
+                    <td className="p-3 font-semibold text-ink">100K Subscribers (Silver Play)</td>
+                    <td className="p-3">1 Lakh – 3 Lakh</td>
+                    <td className="p-3">₹8,000 – ₹45,000</td>
+                    <td className="p-3 font-medium text-ink">₹25,000 – ₹1,20,000</td>
+                  </tr>
+                  <tr className="hover:bg-paper-2">
+                    <td className="p-3 font-semibold text-ink">500K Subscribers</td>
+                    <td className="p-3">5 Lakh – 15 Lakh</td>
+                    <td className="p-3">₹35,000 – ₹2,00,000</td>
+                    <td className="p-3 font-medium text-ink">₹1,20,000 – ₹5,00,000</td>
+                  </tr>
+                  <tr className="hover:bg-paper-2 bg-forest/5">
+                    <td className="p-3 font-bold text-forest">1 Million Subscribers (Gold Play)</td>
+                    <td className="p-3">10 Lakh – 30 Lakh</td>
+                    <td className="p-3">₹75,000 – ₹4,50,000</td>
+                    <td className="p-3 font-bold text-forest">₹3,00,000 – ₹12,00,000</td>
+                  </tr>
+                  <tr className="hover:bg-paper-2">
+                    <td className="p-3 font-semibold text-ink">2 Million Subscribers</td>
+                    <td className="p-3">20 Lakh – 60 Lakh</td>
+                    <td className="p-3">₹1,50,000 – ₹9,00,000</td>
+                    <td className="p-3 font-medium text-ink">₹6,00,000 – ₹25,00,000</td>
+                  </tr>
+                  <tr className="hover:bg-paper-2">
+                    <td className="p-3 font-semibold text-ink">5 Million Subscribers</td>
+                    <td className="p-3">50 Lakh – 1.5 Crore</td>
+                    <td className="p-3">₹3,50,000 – ₹20,00,000+</td>
+                    <td className="p-3 font-medium text-ink">₹15,00,000 – ₹50,00,000+</td>
                   </tr>
                 </tbody>
               </table>
@@ -127,6 +192,14 @@ export default function Page() {
         {
           q: "How much does YouTube pay for 1 million views in India?",
           a: "In India, YouTube AdSense pays between ₹40,000 and ₹70,000 for 1 million views on entertainment, vlogs, and comedy channels (RPM of ₹40 to ₹70). On tech and tutorial channels, 1 million views generate ₹1,50,000 to ₹2,50,000. In high-paying niches like stock market, investing, and crypto, 1 million views can earn ₹2,50,000 to ₹4,50,000. For YouTube Shorts, 1 million views pay only ₹1,500 to ₹3,500.",
+        },
+        {
+          q: "How much does a YouTuber with 500K, 1M, or 2M subscribers earn per month in India?",
+          a: "YouTube pays per view rather than per subscriber, but a typical active Indian channel with 500K subscribers earns ₹35,000 to ₹2,00,000 per month from AdSense alone (and ₹1.2L to ₹5L with brand sponsorships). A 1 Million subscriber channel earns ₹75,000 to ₹4.5L in AdSense (₹3L to ₹12L total), while 2 Million subscribers typically generate ₹6L to ₹25L per month combined.",
+        },
+        {
+          q: "How much money does YouTube pay for 2 million or 10 million views in India?",
+          a: "For 2 million long-form views in India, AdSense pays ₹80,000 to ₹1,40,000 in entertainment/vlogs and ₹3,00,000 to ₹9,00,000 in tech or finance. For 10 million views (1 crore), creators earn ₹4,00,000 to ₹7,00,000 in entertainment, ₹15L to ₹25L in tech, and up to ₹45L in finance. For 10 million Shorts views, payout is ₹15,000 to ₹35,000.",
         },
         {
           q: "What is the difference between CPM and RPM?",

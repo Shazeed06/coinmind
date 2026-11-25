@@ -41,8 +41,8 @@ export async function generateMetadata({
   const { monthly, netAnnual } = computeInHand(lpa);
   const monthlyStr = formatCurrency(monthly);
 
-  const title = `${label} In-Hand Salary: ${monthlyStr}/Month (FY 2026-27) + Tax Breakdown`;
-  const description = `${label} in-hand salary in India is ${monthlyStr}/month (${formatCurrency(netAnnual)}/year) under the FY 2026-27 New Tax Regime. Compare PF, gratuity, Old vs New tax & live take-home calculator.`;
+  const title = `${label} In-Hand Salary: ${monthlyStr}/Month (2026-27)`;
+  const description = `${label} (${formatCurrency(lpa * 100000)}/yr) in-hand salary in India is ${monthlyStr}/month (${formatCurrency(netAnnual)}/yr) under FY 2026-27 New Tax Regime. Full PF, gratuity & tax breakdown.`;
 
   return {
     title: { absolute: title },
@@ -252,33 +252,36 @@ export default async function Page({
         <span className="text-ink">{label}</span>
       </nav>
 
-      <header className="mt-6">
-        <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
-          <IconCalculator className="h-3.5 w-3.5" /> India · New regime · FY
-          2026-27
-        </span>
-        <h1 className="mt-4 text-4xl sm:text-5xl text-ink leading-[1.05]">
-          ₹{label} In-Hand Salary Per Month
+      <header className="mt-4 sm:mt-6">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full bg-forest-soft px-3 py-1.5 text-xs font-semibold text-forest">
+            <IconCalculator className="h-3.5 w-3.5" /> India · New regime · FY
+            2026-27
+          </span>
+          <span className="inline-flex items-center rounded-full border border-line bg-paper-2 px-3 py-1.5 text-xs font-medium text-ink-soft">
+            {label} in numbers = {formatCurrency(r.ctc)}/yr
+          </span>
+        </div>
+        <h1 className="mt-3 sm:mt-4 text-3xl sm:text-5xl text-ink leading-[1.08]">
+          ₹{label} In-Hand Salary Per Month ({monthlyStr})
         </h1>
-        <p className="mt-3 text-lg text-ink-soft leading-relaxed">
-          A ₹{label} CTC is roughly {monthlyStr} a month in hand &mdash; your
-          real monthly salary. Here is exactly what that CTC pays into your bank
-          account each month, with every deduction and every assumption shown.
+        <p className="mt-2.5 text-base sm:text-lg text-ink-soft leading-relaxed">
+          A ₹{label} ({formatCurrency(r.ctc)}) CTC pays roughly <strong className="text-ink">{monthlyStr} per month</strong> in hand under FY 2026-27 tax slabs. Full PF, gratuity, and tax breakdown below.
         </p>
       </header>
 
       {/* Quick answer: for featured snippets and AI overviews */}
-      <section className="mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-6">
+      <section className="mt-5 sm:mt-8 rounded-2xl border border-forest/30 bg-forest-soft p-4 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-forest">
           Quick answer
         </p>
-        <p className="mt-2 text-forest-deep leading-relaxed text-[1.05rem]">
+        <p className="mt-1.5 text-forest-deep leading-relaxed text-sm sm:text-[1.05rem]">
           {quickAnswer}
         </p>
       </section>
 
       {/* The headline number + India Income Percentile & Crorepati Fast-Track */}
-      <section className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-12">
+      <section className="mt-6 sm:mt-10 grid grid-cols-1 gap-5 md:grid-cols-12">
         <div className="rounded-2xl border border-line bg-card p-6 sm:p-7 md:col-span-7">
           <p className="text-xs font-semibold uppercase tracking-wider text-brass">
             Monthly in-hand

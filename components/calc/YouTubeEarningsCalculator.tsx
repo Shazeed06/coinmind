@@ -80,11 +80,20 @@ const GEO_MULTIPLIERS = {
 
 const VIEW_PRESETS = [
   { label: "10K", views: 10000 },
-  { label: "50K", views: 50000 },
   { label: "100K", views: 100000 },
   { label: "500K", views: 500000 },
-  { label: "1 Million", views: 1000000 },
-  { label: "5 Million", views: 5000000 },
+  { label: "1M", views: 1000000 },
+  { label: "2M", views: 2000000 },
+  { label: "5M", views: 5000000 },
+  { label: "10M", views: 10000000 },
+];
+
+const SUBSCRIBER_PRESETS = [
+  { label: "100K Subs", views: 150000 },
+  { label: "500K Subs", views: 600000 },
+  { label: "1M Subs", views: 1500000 },
+  { label: "2M Subs", views: 3000000 },
+  { label: "5M Subs", views: 7000000 },
 ];
 
 export default function YouTubeEarningsCalculator() {
@@ -236,8 +245,25 @@ Calculate your earnings at https://coinmind.in/calculators/youtube-earnings`;
             hint="Total views across all public uploads in 30 days."
           />
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="text-xs text-ink-faint mr-1">Quick:</span>
+            <span className="text-xs text-ink-faint mr-1">Views:</span>
             {VIEW_PRESETS.map((p) => (
+              <button
+                key={p.label}
+                type="button"
+                onClick={() => setMonthlyViews(p.views)}
+                className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-colors ${
+                  monthlyViews === p.views
+                    ? "bg-forest text-white"
+                    : "bg-paper-2 text-ink-soft hover:bg-paper-3 hover:text-ink"
+                }`}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span className="text-xs text-ink-faint mr-1">By Subs:</span>
+            {SUBSCRIBER_PRESETS.map((p) => (
               <button
                 key={p.label}
                 type="button"

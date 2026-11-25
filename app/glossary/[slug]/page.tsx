@@ -19,6 +19,41 @@ export function generateStaticParams() {
   return GLOSSARY_SLUGS.map((slug) => ({ slug }));
 }
 
+const GLOSSARY_TITLE_OVERRIDES: Record<string, { title: string; desc?: string }> = {
+  "new-tax-regime": {
+    title: "New Tax Regime Slabs (FY 2026-27): ₹12L Zero-Tax & Rules",
+    desc: "FY 2026-27 New Tax Regime slabs: ₹0 tax up to ₹12 lakh (₹12.75L salaried with ₹75K standard deduction). Compare vs Old Regime & check exemptions.",
+  },
+  hallmark: {
+    title: "Gold Hallmark & 6-Digit HUID: Verify Gold Purity (2026)",
+    desc: "What is BIS Gold Hallmark & 6-digit HUID code? How to verify 22K/24K gold purity on BIS Care app + today's live gold rate & making charges guide.",
+  },
+  ulip: {
+    title: "ULIP Full Form & Meaning: Returns vs Mutual Funds (2026)",
+    desc: "ULIP (Unit Linked Insurance Plan) full form, 5-year lock-in, charges, Section 10(10D) tax rules & why term plan + SIP often beats ULIPs.",
+  },
+  "sip-full-form": {
+    title: "SIP Full Form: Systematic Investment Plan & Calculator (2026)",
+    desc: "SIP stands for Systematic Investment Plan. Learn how monthly mutual fund SIPs work in India, compounding power & calculate 15-year returns.",
+  },
+  "fixed-deposit": {
+    title: "Fixed Deposit (FD) Meaning, 2026 Bank Rates & TDS Rules",
+    desc: "What is a Fixed Deposit (FD)? Check SBI/HDFC 2026 FD interest rates, senior citizen extra rates, ₹40K–₹50K TDS limit & maturity calculator.",
+  },
+  "demat-account": {
+    title: "Demat Account Meaning, AMC Charges & How to Open (2026)",
+    desc: "What is a Demat account? Learn NSDL/CDSL storage, zero-brokerage apps, AMC charges & step-by-step online opening in 15 minutes.",
+  },
+  "recurring-deposit": {
+    title: "Recurring Deposit (RD) Meaning, 2026 Interest Rates & Tax",
+    desc: "What is a Recurring Deposit (RD)? Monthly savings rates (6.5%–7.5%), premature withdrawal rules, TDS & instant RD maturity calculation.",
+  },
+  "credit-score": {
+    title: "Credit Score (CIBIL) Meaning: Good Range & Boost 750+ (2026)",
+    desc: "What is a good CIBIL credit score in India? Learn the 300–900 scale, 5 ranking factors & proven steps to push your score above 750.",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -28,17 +63,21 @@ export async function generateMetadata({
   const term = getGlossaryTerm(slug);
   if (!term) return {};
 
+  const override = GLOSSARY_TITLE_OVERRIDES[slug];
   const fullForm = FULL_FORMS[slug];
-  let title = fullForm
-    ? `${term.term} Full Form: ${fullForm}`
-    : `What Is ${term.term}? Meaning & Definition`;
-  if (title.length > 60) {
+  let title =
+    override?.title ??
+    (fullForm
+      ? `${term.term} Full Form: ${fullForm}`
+      : `What Is ${term.term}? Meaning & Definition`);
+  if (!override && title.length > 60) {
     title = fullForm
       ? `${term.term} Full Form & Meaning`
       : `${term.term} Meaning & Definition`;
   }
+  const rawDesc = override?.desc ?? term.short;
   const description =
-    term.short.length > 155 ? term.short.slice(0, 152) + "…" : term.short;
+    rawDesc.length > 155 ? rawDesc.slice(0, 152) + "…" : rawDesc;
 
   const isCrypto = term.category === "Crypto";
 

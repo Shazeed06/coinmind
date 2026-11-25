@@ -3,6 +3,7 @@ import { calculators, posts, NOINDEX_POST_SLUGS } from "@/lib/data";
 import { aiToolDetails } from "@/lib/aiToolDetails";
 import { FINANCE_PROMPTS } from "@/lib/financePrompts";
 import { GLOSSARY } from "@/lib/glossary";
+import { INHAND_SLUGS } from "@/lib/pseo-inhand";
 
 // GET /api/indexnow: submits every public URL to IndexNow (Bing, Yandex, Naver,
 // Seznam). Bing's index feeds ChatGPT Search, so this gets pages discovered in
@@ -66,9 +67,15 @@ function allUrls(): string[] {
     ...aiToolDetails.map((d) => `/ai-tools/${d.slug}`),
     "/finance-prompts",
     ...FINANCE_PROMPTS.map((p) => `/finance-prompts/${p.slug}`),
-    // income-tax, currency and in-hand-salary [slug] clusters are noindexed
-    // (templated programmatic pages), so they are intentionally not submitted.
-    ...GLOSSARY.map((g) => `/glossary/${g.slug}`),
+    ...INHAND_SLUGS.map((s) => `/in-hand-salary/${s}`),
+    "/research",
+    "/research/ppf-rate-history",
+    "/research/epf-rate-history",
+    "/research/rbi-repo-rate-history",
+    "/research/income-tax-slabs-history",
+    "/credit-score",
+    "/finance-today",
+    ...GLOSSARY.filter((g) => g.category !== "Crypto").map((g) => `/glossary/${g.slug}`),
     "/ipos",
     "/ipos/nse-ipo",
     "/ipos/reliance-jio-ipo",

@@ -1194,19 +1194,19 @@ This article is for educational purposes and does not constitute career or finan
   },
   {
     slug: "youtube-earnings-per-million-views-india",
-    title:
-      "YouTube Earnings for 1 Million Views in India (2026 Reality & RPM Chart)",
+    title: "YouTube Earnings in India (2026): 1M Views & Subscriber Salary",
     excerpt:
-      "Find out how much money YouTube pays for 1 million views in India in 2026. Real RPM and CPM rates by niche (Finance, Tech, Vlogs), monthly income, and AdSense breakdown.",
+      "How much does YouTube pay for 1M, 2M & 10M views in India? Plus realistic monthly salary by subscriber count (100K, 500K, 1M, 2M, 5M subs) with 2026 RPM & tax guide.",
     category: "Career",
     readMinutes: 11,
-    date: "Sep 3, 2026",
+    date: "Nov 25, 2026",
     keywords: [
       "youtube earnings india",
+      "1 million views on youtube money in india",
+      "500k subscribers youtube salary per month in india",
+      "2m subscribers on youtube salary in india",
       "youtube income per million views india",
       "youtube cpm india 2026",
-      "how much youtube pays india",
-      "youtube monetisation india",
     ],
     art: { variant: "graph-up", palette: "brass" },
     bodyMarkdown: `YouTube is the most popular platform for content creators in India, with over 500 million monthly active users. For aspiring creators, the burning question is always: how much money can I actually make? The answer depends heavily on your niche, audience geography, content type, and monetisation strategy.
@@ -1284,17 +1284,35 @@ Advertisers pay based on the purchasing power of the audience. Indian viewers ha
 
 **Important caveat**: These are AdSense-only estimates. Most successful creators earn significantly more from non-AdSense sources (discussed below).
 
-### Real-World Examples (Estimated)
+### YouTube Monthly Salary by Subscriber Count (India 2026)
 
-These are approximate figures based on publicly available data and industry norms:
+How much does a channel with 500K, 1M, or 2M subscribers actually earn in India? While AdSense depends on views rather than subscribers, active Indian channels typically earn:
+
+| Subscriber Tier | Typical Monthly Views | AdSense Only / Month | Total Income (With Sponsorships) |
+|---|---|---|---|
+| **100K Subscribers** | 1 – 3 Lakh | ₹8,000 – ₹45,000 | ₹25,000 – ₹1,20,000/month |
+| **500K Subscribers** | 5 – 15 Lakh | ₹35,000 – ₹2,00,000 | ₹1,20,000 – ₹5,00,000/month |
+| **1 Million Subscribers** | 10 – 30 Lakh | ₹75,000 – ₹4,50,000 | ₹3,00,000 – ₹12,00,000/month |
+| **2 Million Subscribers** | 20 – 60 Lakh | ₹1,50,000 – ₹9,00,000 | ₹6,00,000 – ₹25,00,000/month |
+| **5 Million Subscribers** | 50 Lakh – 1.5 Cr | ₹3,50,000 – ₹20,00,000+ | ₹15,00,000 – ₹50,00,000+/month |
+
+### Payouts for 1 Million, 2 Million & 10 Million Views
+
+| View Count | Entertainment / Vlogs | Tech & Education | Finance & Stocks | YouTube Shorts |
+|---|---|---|---|---|
+| **1 Million Views** | ₹40,000 – ₹70,000 | ₹1,20,000 – ₹2,50,000 | ₹2,50,000 – ₹4,50,000 | ₹1,500 – ₹3,500 |
+| **2 Million Views** | ₹80,000 – ₹1,40,000 | ₹2,40,000 – ₹5,00,000 | ₹5,00,000 – ₹9,00,000 | ₹3,000 – ₹7,000 |
+| **10 Million Views** | ₹4,00,000 – ₹7,00,000 | ₹12,00,000 – ₹25,00,000 | ₹25,00,000 – ₹45,00,000 | ₹15,000 – ₹35,000 |
+
+### Real-World Examples by Niche
 
 | Creator Niche | Subscriber Range | Estimated Monthly Income (All Sources) |
 |---|---|---|
-| Tech reviewer | 1M--5M subs | Rs 5--15 lakh/month |
-| Finance educator | 500K--2M subs | Rs 8--25 lakh/month |
-| Gaming streamer | 2M--10M subs | Rs 3--12 lakh/month |
-| Comedy creator | 5M--20M subs | Rs 10--40 lakh/month |
-| Educational channel | 1M--5M subs | Rs 5--20 lakh/month |
+| Tech reviewer | 1M – 5M subs | ₹5 – 15 lakh/month |
+| Finance educator | 500K – 2M subs | ₹8 – 25 lakh/month |
+| Gaming streamer | 2M – 10M subs | ₹3 – 12 lakh/month |
+| Comedy creator | 5M – 20M subs | ₹10 – 40 lakh/month |
+| Educational channel | 1M – 5M subs | ₹5 – 20 lakh/month |
 
 ## Income Sources Beyond AdSense
 
@@ -1363,18 +1381,19 @@ T-shirts, mugs, phone cases, and other branded merchandise. Platforms like Bonfi
 
 ## Tax on YouTube Income in India
 
-YouTube income is taxable in India. Use our [income tax calculator](/calculators/income-tax) to estimate your liability. Here is how it works:
+YouTube income is taxable in India as business/professional income (creators can opt for **Section 44ADA** presumptive tax and pay tax on only **50% of gross receipts** up to ₹75 lakh). Use our [income tax calculator](/calculators/income-tax) to estimate your liability. Here are the FY 2026-27 New Tax Regime slabs:
 
-| Income Slab | Tax Rate |
+| Taxable Income Slab | Tax Rate (FY 2026-27) |
 |---|---|
-| Up to Rs 3,00,000 | Nil |
-| Rs 3,00,001--7,00,000 | 5% |
-| Rs 7,00,001--10,00,000 | 10% |
-| Rs 10,00,001--12,00,000 | 15% |
-| Rs 12,00,001--15,00,000 | 20% |
-| Above Rs 15,00,000 | 30% |
+| Up to ₹4,00,000 | Nil |
+| ₹4,00,001 – ₹8,00,000 | 5% |
+| ₹8,00,001 – ₹12,00,000 | 10% (Zero tax under Section 87A rebate!) |
+| ₹12,00,001 – ₹16,00,000 | 15% |
+| ₹16,00,001 – ₹20,00,000 | 20% |
+| ₹20,00,001 – ₹24,00,000 | 25% |
+| Above ₹24,00,000 | 30% |
 
-*Rates under the [new tax regime](/blog/new-tax-regime-fy-2026-27) for FY 2026--27.*
+*Rates under the [new tax regime](/glossary/new-tax-regime) for FY 2026–27. Under Section 44ADA + 87A rebate, an Indian YouTuber earning up to ₹24 lakh/year can legally reduce taxable income to ₹12 lakh and pay ₹0 income tax!*
 
 **Important**: Google (YouTube's parent) deducts TDS at source. Since Google pays from the USA, and India has a DTAA with the US, ensure your AdSense tax information is correctly filled to avoid double taxation. Additionally, if your YouTube income exceeds Rs 20 lakh per year, you may need to register for GST. Read our guide on [how to save income tax](/blog/how-to-save-income-tax) to minimise your tax burden legally.
 

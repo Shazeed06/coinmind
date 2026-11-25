@@ -7755,78 +7755,75 @@ Compare growth projections with our [FD calculator](/calculators/fd) and [PPF ca
     term: "New Tax Regime",
     category: "Tax",
     short:
-      "India's new tax regime offers lower income tax slab rates but removes most deductions and exemptions, and is the default regime from FY 2023-24 onwards.",
-    bodyMarkdown: `The new tax regime is an alternative income tax structure introduced in Budget 2020 and made the **default** regime from FY 2023-24. It offers lower slab rates than the old regime but removes most deductions and exemptions, including [Section 80C](/glossary/section-80c), [Section 80D](/glossary/section-80d), [HRA](/glossary/hra), LTA, home loan interest and many others.
+      "India's default income tax system for FY 2026-27 offers ₹0 tax up to ₹12 lakh taxable income (₹12.75 lakh for salaried with ₹75,000 standard deduction) and lower slab rates.",
+    bodyMarkdown: `The new tax regime is India's **default** income tax structure (updated for FY 2025-26 and FY 2026-27). It provides significantly lower tax slabs and a massive **₹12 lakh tax-free limit** under Section 87A, while removing most deductions like [Section 80C](/glossary/section-80c), [Section 80D](/glossary/section-80d), [HRA](/glossary/hra), and home loan interest on self-occupied property.
 
-## Slab rates (FY 2024-25)
+## New Tax Regime Slab Rates (FY 2026-27)
 
 | Taxable income | Tax rate |
 | --- | --- |
-| Up to Rs 3,00,000 | Nil |
-| Rs 3,00,001 to Rs 7,00,000 | 5% |
-| Rs 7,00,001 to Rs 10,00,000 | 10% |
-| Rs 10,00,001 to Rs 12,00,000 | 15% |
-| Rs 12,00,001 to Rs 15,00,000 | 20% |
-| Above Rs 15,00,000 | 30% |
+| Up to ₹4,00,000 | Nil |
+| ₹4,00,001 to ₹8,00,000 | 5% |
+| ₹8,00,001 to ₹12,00,000 | 10% |
+| ₹12,00,001 to ₹16,00,000 | 15% |
+| ₹16,00,001 to ₹20,00,000 | 20% |
+| ₹20,00,001 to ₹24,00,000 | 25% |
+| Above ₹24,00,000 | 30% |
 
-A rebate under Section 87A makes income up to Rs 7,00,000 effectively tax-free under the new regime.
+A full tax rebate under **Section 87A** makes taxable income up to **₹12,00,000 completely tax-free** under the new regime. For salaried employees, adding the **₹75,000 standard deduction** means gross salary up to **₹12,75,000 per year attracts ₹0 income tax**! Plus, marginal relief applies just above ₹12 lakh.
 
 ## What you keep in the new regime
 
-- [Standard deduction](/glossary/standard-deduction) of Rs 75,000 (raised from Rs 50,000 in Budget 2024).
-- Employer's contribution to [NPS](/glossary/nps) under Section 80CCD(2).
-- Deduction for family pension up to Rs 15,000.
+- [Standard deduction](/glossary/standard-deduction) of ₹75,000 for salaried employees and pensioners.
+- Employer's contribution to [NPS](/glossary/nps) under Section 80CCD(2) (up to 14% of Basic + DA).
+- Employer's contribution to EPF up to statutory limits.
+- Family pension deduction up to ₹25,000.
 - Interest on home loan for a let-out property (not self-occupied).
-- Exemption for voluntary retirement under Section 10(10C).
-- Leave encashment on retirement under Section 10(10AA).
+- Exemption for voluntary retirement under Section 10(10C) and leave encashment under Section 10(10AA).
 
 ## What you lose
 
-The entire ecosystem of deductions that many taxpayers depend on:
+The deductions removed compared to the old regime:
 - [Section 80C](/glossary/section-80c): [PPF](/glossary/ppf), [ELSS](/glossary/elss), [EPF](/glossary/epf), [NSC](/glossary/nsc), life insurance, tuition fees.
 - [Section 80D](/glossary/section-80d): health insurance premiums.
-- [HRA](/glossary/hra) exemption.
-- LTA exemption.
+- [HRA](/glossary/hra) exemption and LTA exemption.
 - Home loan interest on self-occupied property (Section 24).
-- Professional tax deduction.
 - Deductions under 80E (education loan interest), 80G (donations), 80TTA (savings interest).
 
 ## When the new regime wins
 
-If your total deductions under the old regime are modest, the new regime's lower slabs produce a lower tax. A rough rule of thumb: if your old-regime deductions are below Rs 3-4 lakh at a salary of Rs 15 lakh, the new regime is usually cheaper. As deductions climb above that, the old regime catches up or overtakes.
+Under FY 2026-27 slabs, the new regime beats the old regime for **over 90% of Indian taxpayers**. Anyone earning up to ₹12.75 lakh pays zero tax without locking money in 80C tax-saving funds. At higher incomes (₹18–24 lakh+), the old regime only wins if your verified deductions (HRA + 80C + 80D + Section 24) exceed **₹7–8 lakh**.
 
-Run both scenarios in our [Income Tax calculator](/calculators/income-tax) to see which gives you a lower liability for your specific numbers.
+Run both scenarios in our [Income Tax calculator](/calculators/income-tax) or [Zero-Tax Salary Planner](/calculators/zero-tax-salary) to check your exact liability.
 
 ## How to choose
 
 - **Salaried employees** must declare their choice to the employer at the start of the financial year for TDS purposes. You can switch between regimes each year.
 - **Business/professional income** taxpayers who opt for the new regime can switch back to the old regime only once in a lifetime.
 
-The new regime favours those who rent instead of own, do not have large 80C investments, and do not pay significant health insurance premiums. The old regime favours those with a combination of [HRA](/glossary/hra), [80C](/glossary/section-80c), [80D](/glossary/section-80d), home loan interest and other deductions that together outweigh the slab difference.
-
 ## Important: the new regime is the default
 
-From FY 2023-24, if you do not explicitly opt for the old regime, you are automatically placed under the new regime. This is a reversal from earlier years when the old regime was the default. If you prefer the old regime, you must actively select it when filing your [ITR](/glossary/itr) or inform your employer.`,
+If you do not explicitly opt for the old regime when filing your [ITR](/glossary/itr), you are automatically placed under the new regime. If you prefer the old regime, you must actively choose it when filing your return or inform your employer.`,
     faq: [
       {
         q: "Is the new tax regime compulsory in India?",
-        a: "No, but it is the default from FY 2023-24. If you do not actively choose the old regime, the new regime applies automatically. Salaried employees can inform their employer of their preference for TDS computation, and the final choice is confirmed when filing the ITR.",
+        a: "No, but it is the default regime. If you do not actively choose the old regime, the new regime applies automatically. Salaried employees can switch regimes every year while filing their ITR.",
       },
       {
         q: "Can I switch between old and new tax regime every year?",
-        a: "Salaried employees with no business income can switch between regimes each financial year. Those with business or professional income who choose the new regime can switch back to the old regime only once in their lifetime. Check your situation before switching.",
+        a: "Salaried employees with no business income can switch between regimes each financial year. Those with business or professional income who choose the new regime can switch back to the old regime only once in their lifetime.",
       },
       {
         q: "Is Section 80C available under the new tax regime?",
-        a: "No. Section 80C deductions for PPF, ELSS, EPF, NSC, life insurance and others are not available under the new tax regime. The new regime compensates with lower slab rates instead. If your 80C investments are substantial, the old regime may still produce a lower tax liability.",
+        a: "No. Section 80C deductions for PPF, ELSS, EPF, NSC, and life insurance are not available under the new tax regime. However, employer NPS under Section 80CCD(2) and the ₹75,000 standard deduction are allowed.",
       },
       {
-        q: "What is the tax rebate under the new regime?",
-        a: "Under Section 87A, individuals with taxable income up to Rs 7,00,000 under the new regime pay zero tax. The rebate effectively neutralises the tax computed on income within this limit. Income above Rs 7,00,000 is taxed at the applicable slab rates without any rebate.",
+        q: "What is the tax-free income limit under the new regime in FY 2026-27?",
+        a: "Under Section 87A, individuals with taxable income up to ₹12,00,000 under the new regime pay zero income tax. For salaried taxpayers who also get the ₹75,000 standard deduction, annual salary up to ₹12,75,000 is completely tax-free.",
       },
       {
-        q: "Which regime is better for someone earning Rs 15 lakh?",
-        a: "It depends on your deductions. If your total old-regime deductions like 80C, 80D, HRA and home loan interest exceed roughly Rs 3.75 to 4 lakh, the old regime is often cheaper. If they are lower, the new regime wins. Use an income tax calculator to compare both for your exact profile.",
+        q: "Which regime is better for someone earning ₹15 lakh?",
+        a: "For a ₹15 lakh salary, the new regime is usually much cheaper. Under FY 2026-27 slabs, tax under the new regime (after ₹75,000 standard deduction) is roughly ₹97,500 + cess, which would require over ₹6 lakh in verified old-regime deductions to beat.",
       },
     ],
     related: ["section-80c", "section-80d", "standard-deduction", "hra", "itr", "form-16"],
