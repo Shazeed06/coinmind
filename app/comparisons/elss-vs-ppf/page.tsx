@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "ELSS vs PPF - Which is Better for 80C Tax Saving?",
   description: "ELSS vs PPF: returns, lock-in, tax treatment and who should choose what for Section 80C tax saving in India. Data-backed comparison for 2026.",
+  keywords: ["elss vs ppf", "elss vs ppf for 80c", "ppf vs elss returns 2026", "which is better elss or ppf"],
   alternates: { canonical: `${site.url}/comparisons/elss-vs-ppf` },
   openGraph: {
     locale: "en_IN",
@@ -36,9 +38,39 @@ const TABLE = [
   { param: "Applicable regime", elss: "80C deduction - only old tax regime", ppf: "80C deduction - only old tax regime" },
 ];
 
+const ELSS_PPF_FAQS = [
+  {
+    q: "Which gives a larger 15-year corpus on ₹1.5L/year: ELSS or PPF?",
+    a: "Over 15 years at ₹1.5 lakh/year, PPF at 7.1% builds ~₹41.0L tax-free (EEE), whereas ELSS at 12% CAGR reaches ~₹74.9L pre-tax (~₹70–72L after 12.5% LTCG above ₹1.25L/year), subject to market risk.",
+  },
+  {
+    q: "Do ELSS and PPF save tax under the New Tax Regime?",
+    a: "No. Both ELSS and PPF offer Section 80C deductions only under the Old Tax Regime. However, PPF maturity interest stays tax-free under either regime.",
+  },
+  {
+    q: "What is the lock-in difference between ELSS and PPF?",
+    a: "ELSS has a 3-year lock-in per instalment — the shortest among Section 80C options — while PPF has a 15-year lock-in with partial withdrawals allowed from year 7.",
+  },
+];
+
 export default function ElssVsPpfPage() {
+  const schema = graph([
+    article(
+      "ELSS vs PPF - Which is Better for 80C Tax Saving?",
+      "Comparison of ELSS mutual funds and Public Provident Fund (PPF) for Section 80C tax saving in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "ELSS vs PPF", path: "/comparisons/elss-vs-ppf" },
+    ]),
+    faqPage(ELSS_PPF_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -129,6 +161,16 @@ export default function ElssVsPpfPage() {
       <section className="mt-8 rounded-xl bg-paper-2 border border-line p-5">
         <p className="font-semibold text-ink mb-2">The smart approach: both</p>
         <p className="text-sm text-ink-soft">Many investors split ₹1.5 lakh between ELSS (₹1 lakh) and PPF (₹50,000). This captures ELSS's equity upside while maintaining a guaranteed, tax-free PPF debt component for stability.</p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">ELSS vs PPF FAQs</h2>
+        {ELSS_PPF_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

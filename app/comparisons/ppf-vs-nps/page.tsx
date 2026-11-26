@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "PPF vs NPS - Which is Better for Retirement in 2026?",
   description: "PPF vs NPS comparison for retirement: returns, tax treatment, lock-in, flexibility and verdict for Indian investors in 2026.",
+  keywords: ["ppf vs nps", "ppf vs nps retirement 2026", "nps annuity rule vs ppf", "which is better ppf or nps"],
   alternates: { canonical: `${site.url}/comparisons/ppf-vs-nps` },
   openGraph: {
     locale: "en_IN",
@@ -35,9 +37,39 @@ const TABLE = [
   { param: "Annuity requirement", ppf: "None - full amount available at maturity", nps: "40% must purchase annuity at 60 (annuity income is taxable)" },
 ];
 
+const PPF_NPS_FAQS = [
+  {
+    q: "How much corpus can ₹1.5L/year build in 25 years in PPF vs NPS?",
+    a: "Investing ₹1.5 lakh/year for 25 years from age 35 grows to ~₹1.02 crore tax-free in PPF at 7.1%, versus ~₹2.38 crore in NPS at 12% assumed return (with 60% or ₹1.43Cr tax-free and 40% into annuity).",
+  },
+  {
+    q: "What is the biggest catch with NPS compared to PPF?",
+    a: "At age 60, NPS requires investing 40% of your corpus into an annuity plan (typically yielding 5.5–6.5% p.a. taxable income), whereas PPF releases 100% of your maturity amount tax-free with zero annuity lock-in.",
+  },
+  {
+    q: "Who should choose PPF over NPS?",
+    a: "Self-employed savers without employer 80CCD(2), investors in low/nil tax brackets, or anyone prioritizing guaranteed EEE tax-free returns and full withdrawal control at maturity should prefer PPF.",
+  },
+];
+
 export default function PpfVsNpsPage() {
+  const schema = graph([
+    article(
+      "PPF vs NPS - Which is Better for Retirement in 2026?",
+      "Comparison of Public Provident Fund (PPF) and National Pension System (NPS) for retirement planning in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "PPF vs NPS", path: "/comparisons/ppf-vs-nps" },
+    ]),
+    faqPage(PPF_NPS_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← All comparisons</Link>
       </div>
@@ -136,6 +168,16 @@ export default function PpfVsNpsPage() {
             </ul>
           </div>
         </div>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">PPF vs NPS FAQs</h2>
+        {PPF_NPS_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line">

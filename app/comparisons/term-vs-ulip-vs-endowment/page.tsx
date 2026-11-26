@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: { absolute: "Term vs ULIP vs Endowment: Which Life Insurance Is Best?" },
   description: "Term plan vs ULIP vs endowment: a clear comparison of returns, costs, cover and who should choose what. Why most financial planners recommend term-only.",
+  keywords: ["term vs ulip vs endowment", "term insurance vs ulip india", "why avoid endowment policy", "term plan vs sip"],
   alternates: { canonical: `${site.url}/comparisons/term-vs-ulip-vs-endowment` },
   openGraph: {
     locale: "en_IN",
@@ -34,9 +36,39 @@ const TABLE = [
   { param: "Recommended by?", term: "Virtually all financial planners, SEBI registered advisors", ulip: "Primarily insurance agents (high commission)", endo: "LIC agents / traditional bank advisors (high commission)" },
 ];
 
+const TERM_ULIP_FAQS = [
+  {
+    q: "Why do financial planners recommend Term Insurance + SIP over a ULIP?",
+    a: "On a ₹10,000/month budget over 30 years, a ₹1Cr term plan costs ~₹900/month while investing the remaining ₹9,100 in equity SIP at 12% CAGR builds ~₹1.5–2Cr — far ahead of a ULIP's ~₹40–80L or an endowment's 4–5% IRR.",
+  },
+  {
+    q: "How much does ₹1 crore term insurance cost compared to endowment plans?",
+    a: "For a 35-year-old male, a ₹1 crore pure term cover costs roughly ₹900/month (₹3.24L over 30 years), whereas an endowment policy with just ₹50L cover can cost ~₹8,000/month.",
+  },
+  {
+    q: "Is there any situation where a ULIP makes sense?",
+    a: "Only rarely — if you have already exhausted all tax-saving avenues and want an extra Section 80C bucket, and even then only after scrutinizing allocation, mortality, and fund management charges.",
+  },
+];
+
 export default function TermVsUlipVsEndowmentPage() {
+  const schema = graph([
+    article(
+      "Term vs ULIP vs Endowment: Which Life Insurance Is Best?",
+      "Cost, cover, and return comparison between pure term plans, ULIPs, and endowment policies in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "Term vs ULIP vs Endowment", path: "/comparisons/term-vs-ulip-vs-endowment" },
+    ]),
+    faqPage(TERM_ULIP_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -105,6 +137,16 @@ export default function TermVsUlipVsEndowmentPage() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">Term vs ULIP vs Endowment FAQs</h2>
+        {TERM_ULIP_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

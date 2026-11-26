@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: { absolute: "Family Floater vs Individual Health Insurance: Which Is Better?" },
   description: "Family floater vs individual health insurance: premium comparison, coverage gaps and which to buy for yourself, parents and kids in India.",
+  keywords: ["family floater vs individual health insurance", "health insurance for parents separate policy", "super top up health insurance india"],
   alternates: { canonical: `${site.url}/comparisons/floater-vs-individual-health-insurance` },
   openGraph: {
     locale: "en_IN",
@@ -33,9 +35,39 @@ const TABLE = [
   { param: "Best for", floater: "Young family, healthy members, budget-conscious", individual: "High-risk individuals, senior parents, top-up planning" },
 ];
 
+const HEALTH_INSURANCE_FAQS = [
+  {
+    q: "Should I include my parents in my family floater health insurance policy?",
+    a: "No. Adding a 55+ parent spikes a ₹10L family floater premium to ~₹35,000–55,000/year. Keeping a ₹10L floater for your young family (~₹14,000–18,000) and buying a separate senior policy for parents (~₹18,000–30,000) protects your cover and No Claim Bonus.",
+  },
+  {
+    q: "How can I increase health cover beyond ₹10 lakh affordably?",
+    a: "Pair your core ₹10–15L family floater with a super top-up policy (for example ₹45L cover above a ₹5L deductible), which typically adds only ~₹5,000–7,000/year.",
+  },
+  {
+    q: "When is an individual health plan better than a family floater?",
+    a: "Choose individual plans when any family member is 50+, has chronic conditions like diabetes or hypertension, or when you want separate sum insured and independent no-claim bonuses per person.",
+  },
+];
+
 export default function FloaterVsIndividualHealthPage() {
+  const schema = graph([
+    article(
+      "Family Floater vs Individual Health Insurance: Which Is Better?",
+      "Premium and coverage comparison between family floater, individual health plans, and super top-ups in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "Floater vs Individual Health Insurance", path: "/comparisons/floater-vs-individual-health-insurance" },
+    ]),
+    faqPage(HEALTH_INSURANCE_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -124,6 +156,16 @@ export default function FloaterVsIndividualHealthPage() {
         <p className="text-sm text-ink-soft">
           <strong>Core:</strong> Family floater (₹10-15L) for self + spouse + children. <strong>Add:</strong> Super top-up (₹45-50L over ₹5L deductible) at very low premium. <strong>Separately:</strong> Individual senior citizen policies for parents - never include them in a family floater.
         </p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">Health Insurance Structure FAQs</h2>
+        {HEALTH_INSURANCE_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

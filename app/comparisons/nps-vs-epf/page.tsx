@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "NPS vs EPF - Which is Better for Salaried Indians?",
   description: "NPS vs EPF comparison for salaried Indians: returns, contributions, tax treatment and withdrawal rules for FY 2026-27.",
+  keywords: ["nps vs epf", "nps vs epf 2026", "80ccd 2 new tax regime", "epf vs nps for salaried"],
   alternates: { canonical: `${site.url}/comparisons/nps-vs-epf` },
   openGraph: {
     locale: "en_IN",
@@ -35,9 +37,39 @@ const TABLE = [
   { param: "Portability", nps: "PRAN number - fully portable, job change no issue", epf: "UAN - portable, but transfer required on job change" },
 ];
 
+const NPS_EPF_FAQS = [
+  {
+    q: "Can salaried employees claim NPS tax deduction under the New Tax Regime?",
+    a: "Yes. Under Section 80CCD(2), your employer's NPS contribution (10–14% of basic salary) is deductible even under the New Tax Regime, unlike voluntary 80CCD(1B).",
+  },
+  {
+    q: "How do EPF and NPS differ on maturity withdrawal rules?",
+    a: "EPF allows full withdrawal (tax-free subject to 5 years of service), whereas NPS at retirement requires using 40% of the corpus to purchase an annuity while the remaining 60% is tax-free.",
+  },
+  {
+    q: "Should I pick NPS or EPF first as a salaried employee?",
+    a: "Maximise mandatory EPF first for sovereign safety and full tax-free exit, then add NPS (especially employer 80CCD(2) and extra ₹50,000 under 80CCD(1B) in the old regime) for higher equity-linked growth.",
+  },
+];
+
 export default function NpsVsEpfPage() {
+  const schema = graph([
+    article(
+      "NPS vs EPF - Which is Better for Salaried Indians?",
+      "Comparison of National Pension System (NPS) and Employees Provident Fund (EPF) for FY 2026-27.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "NPS vs EPF", path: "/comparisons/nps-vs-epf" },
+    ]),
+    faqPage(NPS_EPF_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← All comparisons</Link>
       </div>
@@ -85,6 +117,16 @@ export default function NpsVsEpfPage() {
         <div className="mt-3 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 p-4 text-sm text-amber-900 dark:text-amber-200">
           <strong>Example:</strong> Basic salary ₹60,000/month. Employer NPS contribution at 10% = ₹6,000/month = ₹72,000/year. At 30% tax bracket, this saves ₹22,464/year - purely from the employer contributing to NPS. Ask your HR if your employer offers this.
         </div>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">NPS vs EPF FAQs</h2>
+        {NPS_EPF_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

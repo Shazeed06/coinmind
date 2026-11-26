@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "SIP vs Lumpsum Investment - Which Strategy is Better?",
   description: "SIP vs lumpsum investment comparison: which strategy gives better returns, lower risk and suits your situation. With real number examples for Indian investors.",
+  keywords: ["sip vs lumpsum", "sip vs lumpsum investment", "which is better sip or lumpsum", "rupee cost averaging sip"],
   alternates: { canonical: `${site.url}/comparisons/sip-vs-lumpsum` },
   openGraph: {
     locale: "en_IN",
@@ -21,9 +23,39 @@ export const metadata: Metadata = {
   },
 };
 
+const SIP_LUMPSUM_FAQS = [
+  {
+    q: "When is SIP better than a lumpsum investment?",
+    a: "SIP is better when you earn regular monthly income, want to invest from ₹100/month automatically, and want rupee cost averaging to accumulate more units during flat or falling markets.",
+  },
+  {
+    q: "When does lumpsum outperform SIP?",
+    a: "Lumpsum outperforms in steadily rising bull markets or after a sharp market correction because the entire capital starts compounding from day 1 instead of averaging upward.",
+  },
+  {
+    q: "Can I combine SIP and lumpsum in the same mutual fund?",
+    a: "Yes. Financial planners commonly recommend running a monthly salary SIP as your core habit while deploying windfalls like annual bonuses or matured FDs as lumpsum top-ups on market dips.",
+  },
+];
+
 export default function SipVsLumpsumPage() {
+  const schema = graph([
+    article(
+      "SIP vs Lumpsum Investment - Which Strategy is Better?",
+      "Comparison of monthly SIP and one-time lumpsum investing in Indian mutual funds.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "SIP vs Lumpsum", path: "/comparisons/sip-vs-lumpsum" },
+    ]),
+    faqPage(SIP_LUMPSUM_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← All comparisons</Link>
       </div>
@@ -107,6 +139,16 @@ export default function SipVsLumpsumPage() {
         <p className="mt-2 text-ink-soft text-sm">
           Most financial planners recommend a <strong>combination</strong>: a regular SIP from your monthly salary, plus deploying any windfall (annual bonus, matured FD, inheritance) as a lumpsum after market corrections. This gives you both the discipline of SIP and the return advantage of lumpsum during dips.
         </p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">SIP vs Lumpsum FAQs</h2>
+        {SIP_LUMPSUM_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

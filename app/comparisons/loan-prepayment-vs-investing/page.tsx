@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Loan Prepayment vs Investing - Which is Better?",
   description: "Should you prepay your home loan or invest the extra money? Data-driven comparison with break-even analysis, tax impact and verdict for Indian borrowers.",
+  keywords: ["home loan prepayment vs investing", "prepay home loan or invest in sip", "loan prepayment vs mutual fund india"],
   alternates: { canonical: `${site.url}/comparisons/loan-prepayment-vs-investing` },
   openGraph: {
     locale: "en_IN",
@@ -21,9 +23,39 @@ export const metadata: Metadata = {
   },
 };
 
+const LOAN_PREPAY_FAQS = [
+  {
+    q: "Should I prepay an 8.5% home loan or invest ₹5L in Nifty 50?",
+    a: "Over 5 years, prepaying an 8.5% home loan saves a guaranteed ₹7.52L equivalent, whereas a Nifty 50 index fund at 12% CAGR grows to ~₹8.58L post-LTCG tax — beating prepayment slightly if equity delivers 12%, while beating an FD (₹6.41L at 30% slab) outright.",
+  },
+  {
+    q: "How does the New vs Old Tax Regime affect home loan prepayment?",
+    a: "Under the Old Regime, Section 24(b) up to ₹2 lakh interest deduction cuts an 8.5% loan's effective cost to ~7.2% in the 30% slab. Under the New Regime there is no 24(b) deduction, keeping the effective cost at 8.5% and strengthening the case for prepayment.",
+  },
+  {
+    q: "When should you always prepay a loan before investing?",
+    a: "Always prioritize prepayment after building a 6-month emergency fund if your loan rate exceeds 9% (such as personal or car loans) or if carrying debt affects your peace of mind.",
+  },
+];
+
 export default function LoanPrepaymentVsInvestingPage() {
+  const schema = graph([
+    article(
+      "Loan Prepayment vs Investing - Which is Better?",
+      "Break-even comparison between prepaying an Indian home loan and investing surplus in equity mutual funds or FDs.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "Loan Prepayment vs Investing", path: "/comparisons/loan-prepayment-vs-investing" },
+    ]),
+    faqPage(LOAN_PREPAY_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -104,6 +136,16 @@ export default function LoanPrepaymentVsInvestingPage() {
       <section className="mt-6 rounded-xl border border-line bg-card p-5">
         <p className="font-semibold text-ink mb-2">The practical answer for most Indians</p>
         <p className="text-sm text-ink-soft">First ensure 6 months emergency fund. Then: if loan rate &gt; 9% → prepay aggressively. If loan rate &lt; 8.5% and you claim 24b → invest in equity via SIP. If unsure: split 50/50. The guaranteed peace of mind from being debt-free has real value that math doesn't capture.</p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">Loan Prepayment vs Investing FAQs</h2>
+        {LOAN_PREPAY_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Mutual Fund vs Stocks - Which is Better for You?",
   description: "Mutual fund vs direct stocks: detailed comparison of returns, risk, time needed, tax and who should choose what. Verdict for Indian investors in 2026.",
+  keywords: ["mutual fund vs stocks", "direct stocks vs mutual fund india", "index fund vs direct equity", "should beginners buy stocks or mutual funds"],
   alternates: { canonical: `${site.url}/comparisons/mutual-fund-vs-stocks` },
   openGraph: {
     locale: "en_IN",
@@ -36,9 +38,39 @@ const TABLE = [
   { param: "Demat account needed", mf: "Not needed for direct/regular plans", stocks: "Yes" },
 ];
 
+const MF_STOCKS_FAQS = [
+  {
+    q: "How much wealth can ₹10,000/month build in 20 years: Mutual Funds vs Direct Stocks?",
+    a: "At ₹10,000/month over 20 years, a Nifty 50 index fund at ~12% CAGR builds ~₹99.9L, whereas an average retail stock picker at ~9% drops to ~₹67.5L — unless skilled research sustains ~15% CAGR (₹1.34Cr).",
+  },
+  {
+    q: "Which is better if I have less than 2 hours per week to track markets?",
+    a: "Mutual funds are far better when time is limited: you get instant diversification and automated monthly SIP compounding without needing 5–10 hours/week to study annual reports.",
+  },
+  {
+    q: "Can I invest in both mutual funds and direct stocks together?",
+    a: "Yes. Many investors keep 80–90% in low-cost index funds or diversified mutual fund SIPs as their core portfolio and allocate 10–20% to direct stocks.",
+  },
+];
+
 export default function MutualFundVsStocksPage() {
+  const schema = graph([
+    article(
+      "Mutual Fund vs Stocks - Which is Better for You?",
+      "Comparison of returns, research time, diversification, and risks between Mutual Funds and Direct Stocks in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "Mutual Fund vs Stocks", path: "/comparisons/mutual-fund-vs-stocks" },
+    ]),
+    faqPage(MF_STOCKS_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -124,6 +156,16 @@ export default function MutualFundVsStocksPage() {
       <section className="mt-8 rounded-xl bg-paper-2 border border-line p-5">
         <p className="font-semibold text-ink mb-2">The smart middle path</p>
         <p className="text-sm text-ink-soft">Most wealth builders use both. Index funds or SIPs form the core (80-90% of portfolio) for disciplined compounding, while a small direct stock allocation (10-20%) satisfies the urge to pick stocks without risking the full corpus.</p>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">Mutual Fund vs Stocks FAQs</h2>
+        {MF_STOCKS_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">

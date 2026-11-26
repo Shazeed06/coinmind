@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { graph, article, breadcrumb, faqPage } from "@/lib/ld";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "FD vs Debt Mutual Fund - Which is Better After Tax?",
   description: "FD vs debt mutual fund: returns, tax treatment, liquidity and who should choose what. Post-tax comparison for Indian investors in 2026.",
+  keywords: ["fd vs debt mutual fund", "debt mutual fund taxation after 2023", "fd vs liquid fund", "post tax return fd vs debt fund"],
   alternates: { canonical: `${site.url}/comparisons/fd-vs-debt-mutual-fund` },
   openGraph: {
     locale: "en_IN",
@@ -34,9 +36,39 @@ const TABLE = [
   { param: "Nomination / joint", fd: "Easy - standard banking process", dmf: "Possible but slightly more paperwork" },
 ];
 
+const FD_DMF_FAQS = [
+  {
+    q: "Do debt mutual funds still have an indexation tax advantage over FDs?",
+    a: "No. Since April 2023, all debt mutual fund gains are taxed at your income tax slab rate, making post-tax returns on ₹5L at 7.5% (~₹86,800 net after 30% tax over 3 years) identical to FDs.",
+  },
+  {
+    q: "What is the main advantage of debt mutual funds over FDs in 2026?",
+    a: "Tax deferral and liquidity: FDs face annual 10% TDS and early-withdrawal penalties, whereas debt/liquid funds are taxed only upon redemption and offer instant liquidity without premature penalties.",
+  },
+  {
+    q: "When is a bank FD better than a debt mutual fund?",
+    a: "Choose bank FDs if you want DICGC safety up to ₹5 lakh per bank, monthly interest payouts, fixed predictable returns, or the extra +0.5% senior citizen interest rate.",
+  },
+];
+
 export default function FdVsDebtMutualFundPage() {
+  const schema = graph([
+    article(
+      "FD vs Debt Mutual Fund - Which is Better After Tax?",
+      "Post-April 2023 tax, liquidity, and safety comparison between Fixed Deposits and Debt Mutual Funds in India.",
+      "2026-11-25"
+    ),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: "Comparisons", path: "/comparisons" },
+      { name: "FD vs Debt Mutual Fund", path: "/comparisons/fd-vs-debt-mutual-fund" },
+    ]),
+    faqPage(FD_DMF_FAQS),
+  ]);
+
   return (
     <main className="container-main py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="mb-2">
         <Link href="/comparisons" className="text-xs text-ink-faint hover:text-forest">← Comparison Engine</Link>
       </div>
@@ -125,6 +157,16 @@ export default function FdVsDebtMutualFundPage() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section className="mt-10 space-y-3">
+        <h2 className="font-display text-xl text-ink">FD vs Debt Mutual Fund FAQs</h2>
+        {FD_DMF_FAQS.map((f) => (
+          <div key={f.q} className="rounded-xl border border-line bg-card p-4">
+            <h3 className="text-sm font-semibold text-ink">{f.q}</h3>
+            <p className="mt-1 text-sm text-ink-soft">{f.a}</p>
+          </div>
+        ))}
       </section>
 
       <div className="mt-8 pt-6 border-t border-line flex flex-wrap gap-2">
