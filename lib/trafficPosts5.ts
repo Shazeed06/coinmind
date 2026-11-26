@@ -57,6 +57,7 @@ export const trafficPosts5: Post[] = [
   {
     slug: "education-loan-india-guide",
     title: "Education Loan in India 2026: Interest Rates, Eligibility, Top Banks & Tax Benefit",
+    metaTitle: "Education Loan India 2026: Bank Rates, 80E Tax & Rules",
     excerpt:
       "Everything you need to know about education loans in India -- interest rates, eligibility criteria, top banks, application process, repayment options, and Section 80E tax benefit.",
     category: "Personal Finance",
@@ -164,6 +165,7 @@ export const trafficPosts5: Post[] = [
   {
     slug: "loan-against-property-guide",
     title: "Loan Against Property (LAP) in India 2026: Interest Rates, Eligibility & Documents",
+    metaTitle: "Loan Against Property (LAP) India 2026: Rates & LTV",
     excerpt:
       "A complete guide to Loan Against Property in India -- interest rates, eligibility criteria, LTV ratios, documentation, and how LAP compares to personal loans and home loans.",
     category: "Personal Finance",
@@ -270,6 +272,7 @@ export const trafficPosts5: Post[] = [
   {
     slug: "best-savings-account-india-2026",
     title: "Best Savings Accounts in India 2026: Interest Rates, Zero-Balance & Digital Banks",
+    metaTitle: "Best Savings Account India 2026: Highest Rates Compared",
     excerpt:
       "A comprehensive comparison of the best savings accounts in India -- interest rates, zero-balance options, digital banks, features, and which account suits your needs.",
     category: "Saving",
@@ -323,6 +326,7 @@ export const trafficPosts5: Post[] = [
   {
     slug: "sbi-vs-hdfc-vs-icici-comparison",
     title: "SBI vs HDFC vs ICICI (2026): Best FD, Home Loan & Zero-Balance",
+    metaTitle: "SBI vs HDFC vs ICICI (2026): FD, Home Loan & Charges",
     excerpt:
       "Head-to-head Nov 2026 comparison of SBI, HDFC Bank & ICICI Bank: FD rates up to 7.10%, home loans from 8.25%, min balance penalties, credit cards & which bank wins.",
     category: "Personal Finance",
@@ -376,6 +380,7 @@ export const trafficPosts5: Post[] = [
   {
     slug: "gratuity-rules-india-2026",
     title: "Gratuity Rules in India 2026: Eligibility, Calculation, Tax & New Changes",
+    metaTitle: "Gratuity Rules India 2026: Formula, Eligibility & Tax",
     excerpt:
       "Everything about gratuity in India -- eligibility criteria, calculation formula, tax exemption limits, and recent changes under the new labour codes.",
     category: "Personal Finance",

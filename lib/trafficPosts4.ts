@@ -57,6 +57,7 @@ export const trafficPosts4: Post[] = [
   {
     slug: "best-investment-apps-india-2026",
     title: "Best Investment Apps in India 2026: Groww, Zerodha, Angel One & More Compared",
+    metaTitle: "Best Investment Apps India 2026: Groww, Zerodha & Fees",
     excerpt:
       "A detailed comparison of India's top investment and trading apps -- features, fees, ease of use, and which platform suits beginners, active traders, and mutual fund investors.",
     category: "Investing",
@@ -373,6 +374,7 @@ export const trafficPosts4: Post[] = [
   {
     slug: "atal-pension-yojana-guide",
     title: "Atal Pension Yojana (APY) 2026: Eligibility, Benefits, Chart & How to Apply Online",
+    metaTitle: "Atal Pension Yojana (APY) 2026: Chart, Rules & Apply",
     excerpt:
       "Everything about the Atal Pension Yojana -- eligibility criteria, pension amounts, contribution chart by age, tax benefits, and a step-by-step guide to apply online or through your bank.",
     category: "Personal Finance",

@@ -1550,6 +1550,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "chatgpt-vs-deepseek-india",
     title: "ChatGPT vs DeepSeek: Which AI is Better for Indian Users in 2026?",
+    metaTitle: "ChatGPT vs DeepSeek (2026): Which AI Is Best in India?",
     excerpt:
       "OpenAI's ChatGPT and China's DeepSeek are the two most talked-about AI assistants. We compare them on Hindi support, Indian context awareness, pricing, coding, and everyday usefulness - with real test results.",
     category: "AI Tools",
@@ -1562,6 +1563,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "ai-prompt-engineering-guide",
     title: "AI Prompt Engineering Guide 2026: 50 Prompts That Save Hours Every Week",
+    metaTitle: "AI Prompt Engineering Guide 2026: 50 Copy-Paste Prompts",
     excerpt:
       "The difference between getting useless AI output and getting exactly what you need is the prompt. Here are 50 copy-paste prompts for writing, coding, research, finance, job search and more - tested on ChatGPT, Claude and DeepSeek.",
     category: "AI Tools",
@@ -1574,6 +1576,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "best-ai-for-students-india",
     title: "Best AI Tools for Students in India 2026: Free Tools for Study, Exams & Research",
+    metaTitle: "Best Free AI Tools for Students in India (2026 Guide)",
     excerpt:
       "From ChatGPT to NotebookLM, here are the 10 best free AI tools that actually help Indian students - for exam prep, note-taking, research, coding, and language learning. No paid tools, no fluff.",
     category: "AI Tools",
@@ -1694,6 +1697,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "epf-withdrawal-online-2026",
     title: "EPF Withdrawal Online 2026: Full Process, Forms, Tax Rules & When You Should Not Withdraw",
+    metaTitle: "EPF Withdrawal Online 2026: Process, Forms & Tax Rules",
     excerpt:
       "How to withdraw your EPF online through the UAN portal - partial withdrawal, full settlement, Form 31, Form 19, Form 10C, tax on early withdrawal, and the real cost of cashing out early.",
     category: "Investing",
@@ -1754,6 +1758,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "fd-vs-rd-vs-ppf",
     title: "FD vs RD vs PPF: Where to Invest for 5 Years - Returns, Tax & Safety Compared",
+    metaTitle: "FD vs RD vs PPF (2026): 5-Year Returns & Tax Compared",
     excerpt:
       "Fixed Deposit, Recurring Deposit or Public Provident Fund - which is best for a 5-year goal? Real numbers, post-tax returns, and the clear winner for each type of investor.",
     category: "Savings",
@@ -1766,6 +1771,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "capital-gains-tax-mutual-funds-shares",
     title: "Capital Gains Tax on Shares & Mutual Funds 2026: LTCG, STCG & How to Save Tax Legally",
+    metaTitle: "Capital Gains Tax on Shares & Mutual Funds (2026 Rules)",
     excerpt:
       "LTCG at 12.5%, STCG at 20%, the Rs 1.25 lakh exemption, FIFO calculation for SIPs, tax-loss harvesting, and how the grandfathering rule protects your older gains. Every rule, with examples.",
     category: "Tax",
@@ -1778,6 +1784,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "how-to-read-mutual-fund-factsheet",
     title: "How to Read a Mutual Fund Factsheet in 5 Minutes: The 7 Numbers That Actually Matter",
+    metaTitle: "How to Read a Mutual Fund Factsheet: 7 Key Numbers",
     excerpt:
       "Ignore the marketing copy. A mutual fund factsheet has exactly 7 numbers you need to check - AUM, expense ratio, R-squared, beta, turnover, portfolio concentration and rolling returns. Here is what each one means.",
     category: "Investing",
@@ -1790,6 +1797,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "itr-processing-time-status-2026",
     title: "ITR Processing Time & Refund Status (Nov 2026): Why Stuck & Exact CPC Timeline",
+    metaTitle: "ITR Processing Time & Refund Status (Nov 2026): Timeline",
     excerpt:
       "ITR still showing 'Under Processing' in Nov 2026? See exact CPC processing timelines, every e-filing status meaning, refund credit dates, and when to raise a grievance for AY 2026-27.",
     category: "Tax",
@@ -1826,6 +1834,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "income-tax-refund-status",
     title: "Income Tax Refund Status: How to Check It and What Each Status Actually Means",
+    metaTitle: "Income Tax Refund Status 2026: How to Check & Fix Delays",
     excerpt:
       "Refund not credited? Status saying 'refund failed' or stuck at 'processed'? Here is what every refund status message means, why refunds fail, and exactly what to do.",
     category: "Tax",
@@ -1838,6 +1847,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "hra-exemption-calculation",
     title: "HRA Exemption: How It's Calculated, With Worked Examples for Metro and Non-Metro",
+    metaTitle: "HRA Exemption Calculation (2026): Metro & Non-Metro Rules",
     excerpt:
       "The three-part least-of rule for HRA exemption, fully worked examples for Delhi and Jaipur, the landlord PAN threshold, and whether you can claim HRA with a home loan.",
     category: "Tax",
@@ -1886,6 +1896,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "itr-filing-last-date-2026",
     title: "ITR Filing Last Date for AY 2026-27: Deadline, Extension Status & What Happens If You Miss It",
+    metaTitle: "ITR Filing Last Date AY 2026-27: Deadlines & Late Fees",
     excerpt:
       "The ITR due date, extension status, and exactly what happens at 00:01 on 1 August - the late fee, interest, what you lose, and your real options if you cannot finish tonight.",
     category: "Tax",
@@ -1933,6 +1944,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "ai-vs-human-jobs-2026",
     title: "AI vs Human: 10 Jobs AI Can Already Do Better in 2026 (and 5 It Still Can't)",
+    metaTitle: "AI vs Human Jobs (2026): 10 Tasks AI Beats Us At",
     excerpt: "A clear-eyed, evidence-based look at which tasks AI genuinely outperforms humans on today - and which ones still need a person. No hype, no fear-mongering.",
     category: "AI Tools",
     readMinutes: 10,
@@ -2005,6 +2017,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "how-to-improve-credit-score",
     title: "How to Improve Credit Score in 3 Months (2026): 7 Proven Steps to Boost CIBIL 750+",
+    metaTitle: "Improve Credit Score in 3 Months (2026): 7 CIBIL Steps",
     excerpt:
       "Real, step-by-step CIBIL & credit score improvement tips for 2026: cut credit utilization below 30%, dispute errors, and boost your credit score by 50–100 points in 90 days.",
     category: "Credit",
@@ -2157,6 +2170,7 @@ If you own gold and need funds quickly and at a lower rate, a gold loan is usual
   {
     slug: "mutual-funds-beginners-india",
     title: "Mutual Funds for Beginners in India: Types, SIP, and How to Start",
+    metaTitle: "Mutual Funds for Beginners India (2026): Types & SIP",
     excerpt: "Everything a beginner in India needs to know about mutual funds: types (large cap, mid cap, small cap), how SIP works, expense ratios, and step-by-step how to start investing.",
     category: "Investing",
     readMinutes: 9,
@@ -2274,19 +2288,12 @@ const INDEXED_TRAFFIC_SLUGS: ReadonlySet<string> = new Set([
   "how-to-earn-money-online-india-2026",
   "best-freelancing-platforms-india",
   "best-savings-account-india-2026",
-  "best-online-courses-free-india",
-  // High-Impression & Page 1 AI & Lifestyle Guides (Un-noindexed Nov 2026 for Search Impressions)
+  // Active AI & Personal Finance Guides
   "best-ai-for-students-india",
-  "ai-video-editor-reels-maker-free",
-  "best-laptops-under-50000-india",
-  "best-ai-photo-editors-free-2026",
   "ai-prompt-engineering-guide",
   "best-ai-tools-2026-complete-list",
-  "ai-tools-students-india-2026",
   "best-ai-for-resume",
   "chatgpt-vs-deepseek-india",
-  "best-smartwatch-under-5000-india-2026",
-  "ai-for-social-media-marketing",
   "startup-ideas-tier-2-cities-india-2026",
   "best-ai-for-coding",
   "chatgpt-alternatives-free-2026",
@@ -2294,19 +2301,13 @@ const INDEXED_TRAFFIC_SLUGS: ReadonlySet<string> = new Set([
   "best-ai-website-builders-free-2026",
   "best-ai-for-excel-spreadsheets",
   "best-ai-for-excel",
-  "best-ai-image-generators-2026",
   "ai-for-small-business-india",
   "ai-video-generators-2026",
   "best-ai-music-generators-free-2026",
-  "digital-marketing-career-india",
   "chatgpt-alternatives",
-  "best-electric-scooter-under-1-lakh-2026",
-  "ration-card-apply-online-2026",
   "best-ai-voice-generators-free-2026",
   "best-ai-for-writing",
-  "sukanya-samriddhi-yojana-2026",
   "ai-jobs-india-2026-salary-skills",
-  "ayurveda-wellness-trends-india-2026",
   "ai-small-business-india-2026",
   "best-ai-logo-makers-free-2026",
   "ayushman-bharat-card-apply-2026",
@@ -2316,7 +2317,6 @@ const INDEXED_TRAFFIC_SLUGS: ReadonlySet<string> = new Set([
   "best-ai-chatbots-compared-2026",
   "best-ai-tools-for-teachers-india-2026",
   "best-ai-video-makers-free-2026",
-  "ai-content-detector-tools-free-2026",
   "ai-agents-explained",
 ]);
 

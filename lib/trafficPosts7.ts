@@ -460,6 +460,7 @@ The government reports that over 60 percent of beneficiaries have reported an in
     slug: "pm-internship-scheme-2026",
     title:
       "PM Internship Scheme 2026: ₹5,000 Stipend, Top 500 Companies & How to Apply Online",
+    metaTitle: "PM Internship Scheme 2026: ₹5,000 Stipend & Apply",
     excerpt:
       "Everything about the PM Internship Scheme 2026 - monthly stipend of Rs 5,000, eligible companies, age and education criteria, application process and selection timeline.",
     category: "Government Schemes",
@@ -1338,6 +1339,7 @@ This means if you are paying a high premium for a low sum assured (common in end
     slug: "gold-rate-digital-vs-physical-2026",
     title:
       "Gold Rate Today India 2026: Digital Gold vs Physical Gold Guide",
+    metaTitle: "Gold Rate India 2026: Digital Gold vs Physical vs ETF",
     excerpt:
       "A comprehensive guide to gold investment in India in 2026 - current gold rates, digital gold vs physical gold comparison, Sovereign Gold Bonds, Gold ETFs and which option suits your portfolio.",
     category: "Investing",

@@ -371,6 +371,49 @@ export default function Page() {
               </div>
             </section>
 
+            <section id="comparison" style={{ scrollMarginTop: "6rem" }}>
+              <h2>SIP Comparison Matrix: Monthly Amount &amp; Strategy</h2>
+              <p>
+                Compare how different monthly SIP commitments grow at 12% p.a. over 10, 15, and 20 years (computed with monthly compounding):
+              </p>
+              <DataTable>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Monthly SIP</th>
+                      <th>10 Years</th>
+                      <th>15 Years</th>
+                      <th>20 Years</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[5000, 10000, 15000, 25000, 50000].map((amt) => (
+                      <tr key={amt}>
+                        <td className="font-semibold text-text">₹{amt.toLocaleString("en-IN")}/mo</td>
+                        <td>{corpusLabel(sipFutureValue(amt, 12, 10))}</td>
+                        <td>{corpusLabel(sipFutureValue(amt, 12, 15))}</td>
+                        <td className="font-semibold text-accent">{corpusLabel(sipFutureValue(amt, 12, 20))}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </DataTable>
+              <div className="not-prose flex flex-wrap gap-2 mt-4">
+                <Link href="/comparisons/sip-vs-lumpsum" className="text-xs font-medium rounded-full border border-border px-3 py-1.5 text-text hover:border-brand hover:text-brand transition-colors">
+                  SIP vs Lumpsum →
+                </Link>
+                <Link href="/comparisons/sip-vs-fd" className="text-xs font-medium rounded-full border border-border px-3 py-1.5 text-text hover:border-brand hover:text-brand transition-colors">
+                  SIP vs FD →
+                </Link>
+                <Link href="/blog/sip-to-become-crorepati" className="text-xs font-medium rounded-full border border-border px-3 py-1.5 text-text hover:border-brand hover:text-brand transition-colors">
+                  How Much SIP for ₹1 Crore? →
+                </Link>
+                <Link href="/calculators/step-up-sip" className="text-xs font-medium rounded-full border border-border px-3 py-1.5 text-text hover:border-brand hover:text-brand transition-colors">
+                  Step-Up SIP Calculator →
+                </Link>
+              </div>
+            </section>
+
             <section id="faq" style={{ scrollMarginTop: "6rem" }}>
               <h2>Frequently Asked Questions</h2>
               {FAQS.slice(0, 5).map((faq, i) => (

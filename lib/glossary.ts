@@ -1346,7 +1346,7 @@ Read the red herring prospectus rather than the coverage. It is long, but the se
 
 Compare the asking valuation to already-listed peers you can actually check. A company priced at a large premium to established competitors needs a specific reason for that premium, and if you cannot articulate the reason, that is your answer.
 
-Finally, size the position as though it might halve, because sometimes it does. If you want equity exposure without judging individual listings, a [mutual fund](/glossary/mutual-fund) or [index fund](/glossary/index-fund) gets you there without needing to be right about any single company. When you do sell, remember the profit is taxable. See [capital gains](/glossary/capital-gains).`,
+Finally, size the position as though it might halve, because sometimes it does. If you want equity exposure without judging individual listings, a [mutual fund](/glossary/mutual-fund) or [index fund](/glossary/index-fund) gets you there without needing to be right about any single company. When you do sell, remember the profit is taxable. See [capital gains](/glossary/capital-gains), check [live IPO GMP today](/ipos/ipo-gmp-today), browse [upcoming IPOs 2026](/ipos/upcoming-ipo), or view [NTPC Green Energy IPO status](/ipos/ntpc-green-energy-ipo).`,
     faq: [
       {
         q: "How do I apply for an IPO in India?",
@@ -1374,6 +1374,8 @@ Finally, size the position as though it might halve, because sometimes it does. 
       },
     ],
     related: ["dividend", "capital-gains", "mutual-fund", "diversification", "demat-account"],
+    relatedHref: "/ipos/ipo-gmp-today",
+    relatedLabel: "Live IPO GMP Tracker",
   },
   {
     slug: "dividend",
@@ -2576,7 +2578,7 @@ Within that constraint, these are the levers, ordered by how quickly they show u
 
 **Keep old, well-handled accounts open.** Their age is working for you.
 
-If you have no history at all, a secured card against a [fixed deposit](/glossary/fixed-deposit) is the standard way to start one. Our guide on [how to improve your credit score](/blog/how-to-improve-credit-score) sets out the full sequence.
+If you have no history at all, a secured card against a [fixed deposit](/glossary/fixed-deposit) is the standard way to start one. Try our interactive [Credit Score Simulator](/credit-score) and read our guide on [how to improve your credit score](/blog/how-to-improve-credit-score) for the full 90-day sequence.
 
 ## Common misconceptions
 
@@ -2792,7 +2794,7 @@ Break a 5-year FD after 18 months and you earn the 18-month rate minus the penal
 
 An FD is the right home for money you cannot afford to see fall: an emergency fund, a house deposit you need next year, cash you will spend within a defined period. It is a poor vehicle for long-horizon wealth building, because the post-tax return often barely clears [inflation](/glossary/inflation).
 
-For goals a decade away, a [SIP](/glossary/sip) into equity has historically done far better while being far more volatile along the way. The comparison in our [PPF vs FD vs NPS guide](/blog/ppf-vs-fd-vs-nps) sets out where each one belongs. See also [recurring deposit](/glossary/recurring-deposit) if you want FD-like safety but are saving monthly rather than investing a lump sum.`,
+For goals a decade away, a [SIP](/glossary/sip) into equity has historically done far better while being far more volatile along the way. Compare post-tax returns in our [PPF vs FD comparison](/comparisons/ppf-vs-fd), track [RBI Repo Rate History](/research/rbi-repo-rate-history), or estimate maturity in the [FD Calculator](/calculators/fd). See also [recurring deposit](/glossary/recurring-deposit) if you want FD-like safety but are saving monthly rather than investing a lump sum.`,
     faq: [
       {
         q: "Is FD interest taxable in India?",
@@ -5165,7 +5167,7 @@ Ask to see the HUID and verify it in the BIS Care app before paying, not after. 
 
 Keep the invoice. It is what establishes your purchase cost when you eventually sell, which matters for [capital gains](/glossary/capital-gains), and it is what a jeweller will ask for during a buyback or exchange.
 
-Complaints about a piece that does not match its hallmark can be raised with BIS through the BIS Care app, which is a genuine and usable route rather than a theoretical one. For the wider question of how much gold to hold and in what form, see the [gold hub](/gold).`,
+Complaints about a piece that does not match its hallmark can be raised with BIS through the BIS Care app, which is a genuine and usable route rather than a theoretical one. For the wider question of how much gold to hold and in what form, check today's [live 22K & 24K gold rate in India](/gold-rate) or visit the [gold hub](/gold).`,
     faq: [
       {
         q: "What is HUID in gold hallmarking?",
@@ -8408,7 +8410,7 @@ SEBI has revised these thresholds more than once, so confirm the current value b
 
 Yes. You can hold accounts with several DPs and there is no limit, though all of them are linked to your PAN. People separate long-term holdings from active trading this way. The costs are an AMC on each account, no BSDA on any of them, and more statements to reconcile at tax time.
 
-Once your account is active you can start a [SIP](/calculators/sip), buy ETFs, or apply for an IPO. See the [Investing Hub](/investing) to decide what to buy first.`,
+Follow our step-by-step guide on [how to open a demat account online](/blog/how-to-open-demat-account), then start a [SIP](/calculators/sip), buy ETFs, or check [IPO GMP today](/ipos/ipo-gmp-today). See the [Investing Hub](/investing) to decide what to buy first.`,
     faq: [
       {
         q: "What is the full form of demat?",

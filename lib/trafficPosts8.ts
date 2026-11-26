@@ -190,6 +190,7 @@ This article is for educational purposes and does not constitute financial advic
   {
     slug: "best-credit-card-amazon-flipkart-2026",
     title: "Best Credit Card for Amazon & Flipkart (2026): 5% Unlimited Cashback Compared",
+    metaTitle: "Best Credit Card for Amazon & Flipkart (2026): 5% Back",
     excerpt:
       "Amazon Pay ICICI vs Flipkart Axis vs SBI Cashback Card (Nov 2026): Compare 5% unlimited cashback, lifetime-free fees & festive sale discounts side by side.",
     category: "Finance",

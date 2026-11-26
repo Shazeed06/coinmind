@@ -59,6 +59,7 @@ export const trafficPosts3: Post[] = [
     slug: "best-freelancing-platforms-india",
     title:
       "Best Freelancing Platforms in India 2026: Upwork, Fiverr, Toptal & Indian Alternatives",
+    metaTitle: "Best Freelancing Platforms India 2026: Fees & Payouts",
     excerpt:
       "Compare the best freelancing platforms available in India in 2026 including Upwork, Fiverr, Toptal, and homegrown Indian alternatives with fees, payment methods, and earning potential.",
     category: "Productivity",
@@ -221,6 +222,7 @@ export const trafficPosts3: Post[] = [
     slug: "side-hustles-india-2026",
     title:
       "20 Best Side Hustles in India 2026: Earn Extra Income After Your 9-to-5",
+    metaTitle: "20 Best Side Hustles in India 2026: High-Income Ideas",
     excerpt:
       "Discover 20 proven side hustles for Indians in 2026, from freelancing and content creation to investing and selling online, with realistic income expectations and how to start each one.",
     category: "Personal Finance",
@@ -437,6 +439,7 @@ export const trafficPosts3: Post[] = [
     slug: "youtube-channel-earn-money-india",
     title:
       "How to Start a YouTube Channel and Earn Money in India 2026: Step-by-Step",
+    metaTitle: "YouTube Channel Earnings India 2026: Start & Monetise",
     excerpt:
       "A complete guide to starting a YouTube channel in India in 2026, covering niche selection, equipment, content strategy, monetisation requirements, and realistic earnings at every subscriber milestone.",
     category: "Productivity",

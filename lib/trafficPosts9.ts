@@ -1195,6 +1195,7 @@ This article is for educational purposes and does not constitute career or finan
   {
     slug: "youtube-earnings-per-million-views-india",
     title: "YouTube Earnings in India (2026): 1M Views & Subscriber Salary",
+    metaTitle: "YouTube Earnings India (2026): 1M Views & Sub Salary",
     excerpt:
       "How much does YouTube pay for 1M, 2M & 10M views in India? Plus realistic monthly salary by subscriber count (100K, 500K, 1M, 2M, 5M subs) with 2026 RPM & tax guide.",
     category: "Career",

@@ -107,6 +107,7 @@ export const trafficPosts1: Post[] = [
   {
     slug: "how-to-open-demat-account",
     title: "How to Open Demat Account Online (2026): ₹0 AMC & 15-Min Guide",
+    metaTitle: "How to Open Demat Account Online (2026): ₹0 AMC Guide",
     excerpt:
       "Step-by-step guide to open a Demat account online in 15 minutes (2026): compare Zerodha, Groww, Dhan & Angel One AMC charges, documents needed & IPO application tips.",
     category: "Investing",
@@ -213,6 +214,7 @@ export const trafficPosts1: Post[] = [
   {
     slug: "best-credit-cards-india-2026",
     title: "Best Credit Cards in India 2026: Cashback, Travel, Fuel & Rewards Compared",
+    metaTitle: "Best Credit Cards in India 2026: Cashback & Travel",
     excerpt:
       "A comprehensive comparison of the best credit cards in India for 2026 across cashback, travel, fuel and rewards categories, with annual fees, earning rates and who each card suits best.",
     category: "Credit",
